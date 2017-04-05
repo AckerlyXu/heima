@@ -83,7 +83,7 @@ Gateway IP addressing configuration = gwipconfig
 2. Export your Azure network configuration file by running the following command. You can change the location of the file to export to a different location if necessary. You will edit the file and then import it to Azure.
 
         Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-3. Open the .xml file that you downloaded to edit it. For an example of the network configuration file, see the [Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/jj157100.aspx).
+3. Open the .xml file that you downloaded to edit it. For an example of the network configuration file, see the [Network Configuration Schema](https://msdn.microsoft.com/library/jj157100.aspx).
 
 ### Part 2 -Verify the gateway subnet
 In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one has not already been created. When working with the network configuration file, the gateway subnet MUST be named "GatewaySubnet" or Azure cannot recognize and use it as a gateway subnet.

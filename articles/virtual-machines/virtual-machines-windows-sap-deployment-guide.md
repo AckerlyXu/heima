@@ -173,7 +173,7 @@ ms.custom: H1Hack27Feb2017
 [Logo_Linux]:./media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:./media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/zh-cn/library/azure/mt670598.aspx
+[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
 [planning-guide]:virtual-machines-windows-sap-planning-guide.md (Azure Virtual Machines planning and implementation for SAP on Windows)
 [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
@@ -493,7 +493,7 @@ You use different steps to create a private image for Linux than to create one f
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> To prepare a Windows image that you can use to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](https://msdn.microsoft.com/zh-cn/library/hh825084.aspx) to do this.
+> To prepare a Windows image that you can use to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) to do this.
 >
 > ![Linux][Logo_Linux] Linux
 >

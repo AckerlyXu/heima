@@ -93,7 +93,7 @@ You can check on how well the custom script runs by looking at the log file on t
 After you run the CustomScript Extension, you can browse to the PHP page you created for information. The PHP page for the example in this article is *http://lamp-vm.chinacloudapp.cn/phpinfo.php*.
 
 ## Additional resources
-You can use the same basic steps to deploy more complex apps. In this example the install script was saved as a public blob in Azure Storage. A more secure option would be to store the install script as a secure blob with a [Secure Access Signature](https://msdn.microsoft.com/zh-cn/library/azure/ee395415.aspx) (SAS).
+You can use the same basic steps to deploy more complex apps. In this example the install script was saved as a public blob in Azure Storage. A more secure option would be to store the install script as a secure blob with a [Secure Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS).
 
 Additional resources for Azure CLI, Linux and the CustomScript Extension are listed next.
 

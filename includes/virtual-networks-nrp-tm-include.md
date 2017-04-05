@@ -77,4 +77,4 @@ Sample of Traffic Manager in Json format:
         }
 
 ## Additional resources
-Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/zh-cn/library/azure/mt163664.aspx) for more information.
+Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.

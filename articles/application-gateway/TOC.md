@@ -51,7 +51,7 @@
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (Classic)](https://msdn.microsoft.com/zh-cn/library/azure/mt299393)
+## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
 # Related
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtual network](/azure/virtual-network/)

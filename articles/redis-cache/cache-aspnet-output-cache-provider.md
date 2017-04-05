@@ -88,7 +88,7 @@ Add an OutputCache directive to each page for which you wish to cache the output
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-In the previous example, the cached page data remains in the cache for 60 seconds, and a different version of the page is cached for each parameter combination. For more information about the OutputCache directive, see [@OutputCache](https://msdn.microsoft.com/zh-cn/library/hdxfb6cy(v=vs.100).aspx).
+In the previous example, the cached page data remains in the cache for 60 seconds, and a different version of the page is cached for each parameter combination. For more information about the OutputCache directive, see [@OutputCache](https://msdn.microsoft.com/library/hdxfb6cy(v=vs.100).aspx).
 
 Once these steps are performed, your application is configured to use the Redis Output Cache Provider.
 

@@ -55,7 +55,7 @@ First, verify that the VM Agent is already installed. Fill in the cloud service 
 
 If you don't know the cloud service and virtual machine name, run **Get-AzureVM** to display that information for all the virtual machines in your current subscription.
 
-If the **write-host** command returns **True**, the VM Agent is installed. If it returns **False**, see the instructions and a link to the download in the Azure blog post [VM Agent and Extensions - Part 2](https://azure.microsoft.com/zh-cn/blog/vm-agent-and-extensions-part-2/).
+If the **write-host** command returns **True**, the VM Agent is installed. If it returns **False**, see the instructions and a link to the download in the Azure blog post [VM Agent and Extensions - Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
 
 If the VM Agent is installed, run these commands.
 

@@ -30,7 +30,7 @@ For more information about command-line deployment using MSBuild, see the follow
 * [Inside the Microsoft Build Engine: Using MSBuild and Team Foundation Build](http://msbuildbook.com/). Hard-copy book that includes chapters on how to use MSBuild for deployment.
 
 ## <a name="powershell"></a>Automate deployment with Windows PowerShell
-You can perform MSBuild or FTP deployment functions from [Windows PowerShell](http://msdn.microsoft.com/zh-cn/library/dd835506.aspx). If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.
+You can perform MSBuild or FTP deployment functions from [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.
 
 For more information, see the following resources:
 
@@ -62,6 +62,6 @@ Another deployment option to command-line automation is to use a cloud-based ser
 For more information on command-line tools, see the following resource:
 
 * [Simple Web Apps: Deployment](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.
-* [Web Deployment Tool](http://technet.microsoft.com/zh-cn/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
+* [Web Deployment Tool](http://technet.microsoft.com/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
 * [Using Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Official documentation on the Microsoft IIS.NET site. Also dated but a good place to start.
 * [ASP.NET Web Deployment using Visual Studio: Command Line Deployment](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild is the build engine used by Visual Studio, and it can also be used from the command line to deploy web applications to Web Apps. This tutorial is part of a series that is mainly about Visual Studio deployment.

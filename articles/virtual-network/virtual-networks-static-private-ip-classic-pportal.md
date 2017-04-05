@@ -78,4 +78,4 @@ To add a static private IP address to the VM created using the steps above, foll
 ## Next steps
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
 * Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
-* Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn722420.aspx).
+* Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).

@@ -29,11 +29,11 @@ This article covers the classic deployment model.
 The network configuration file may contain the following elements. The title of each element is linked to a page that provides additional information about the element value settings.
 
 > [!IMPORTANT]
-> For information about how to configure the network configuration file, see [Configure a Virtual Network Using a Network Configuration File](virtual-networks-using-network-configuration-file.md). For information about each element contained in the network configuration file, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100.aspx).
+> For information about how to configure the network configuration file, see [Configure a Virtual Network Using a Network Configuration File](virtual-networks-using-network-configuration-file.md). For information about each element contained in the network configuration file, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 > 
 > 
 
-[Dns Element](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
+[Dns Element](https://msdn.microsoft.com/library/azure/jj157100)
 
     <Dns>
       <DnsServers>
@@ -48,7 +48,7 @@ The network configuration file may contain the following elements. The title of 
 > 
 > 
 
-[Virtual Network Sites Element](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
+[Virtual Network Sites Element](https://msdn.microsoft.com/library/azure/jj157100)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -62,6 +62,6 @@ The network configuration file may contain the following elements. The title of 
 > 
 
 ## Next steps
-* Understand the [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100).
-* Understand the [Azure Service Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/ee758710).
+* Understand the [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100).
+* Understand the [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710).
 * [Configure a virtual network using Network configuration files](virtual-networks-using-network-configuration-file.md).

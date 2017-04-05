@@ -49,10 +49,10 @@
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Reference
-## [PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510(v=azure.300))
-## [PowerShell (classic)](https://msdn.microsoft.com/zh-cn/library/mt270335(v=azure.300))
-## [REST](https://msdn.microsoft.com/zh-cn/library/mt163859)
-## [REST (classic)](https://msdn.microsoft.com/zh-cn/library/jj154113)
+## [PowerShell](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell (classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 
 # Related
 ## [Virtual Network](/azure/virtual-network/)

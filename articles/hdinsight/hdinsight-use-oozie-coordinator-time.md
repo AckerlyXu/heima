@@ -750,10 +750,10 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: /downloads/
-[powershell-about-profiles]: https://technet.microsoft.com/zh-cn/library/hh847857.aspx
+[powershell-about-profiles]: https://technet.microsoft.com/library/hh847857.aspx
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/zh-cn/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/zh-cn/library/dn425048.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-script]: https://technet.microsoft.com/library/dn425048.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

@@ -20,7 +20,7 @@ ms.author: jdial
 ---
 # Specifying DNS Settings in a Service Configuration File
 ## DNS elements
-A service configuration file may contain a DnsServers element with a list of IPv4 addresses for the Domain Name System (DNS) servers that the service will use. Settings in the service configuration file take precedence over settings in the network configuration file. For more information, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx).
+A service configuration file may contain a DnsServers element with a list of IPv4 addresses for the Domain Name System (DNS) servers that the service will use. Settings in the service configuration file take precedence over settings in the network configuration file. For more information, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
 **NetworkConfiguration element**
 
@@ -36,8 +36,8 @@ A service configuration file may contain a DnsServers element with a list of IPv
 > 
 
 ## See Also
-[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710)
+[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/azure/ee758710)
 
-[Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
+[Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
 
 [Configure a Virtual Network Using Network Configuration Files](/azure/virtual-network/virtual-networks-create-vnet-classic-portal/)

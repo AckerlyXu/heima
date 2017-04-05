@@ -33,10 +33,10 @@ This article assumes you have:
 * **A .VHD file** - supported Windows operating system stored in a .vhd file and attached to a virtual machine. Check to see if the server roles running on the VHD are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
     > [!IMPORTANT]
-    > The VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/zh-cn/library/hh848454.aspx). For details, see this [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+    > The VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For details, see this [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
 ## Step 1: Prep the VHD
-Before you upload the VHD to Azure, it needs to be generalized by using the Sysprep tool. This prepares the VHD to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/zh-cn/library/bb457073.aspx). Back up the VM before running Sysprep.
+Before you upload the VHD to Azure, it needs to be generalized by using the Sysprep tool. This prepares the VHD to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx). Back up the VM before running Sysprep.
 
 From the virtual machine that the operating system was installed to, complete the following procedure:
 
@@ -85,7 +85,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
     ```
 
 ## Step 3: Upload the .vhd file
-Use the [Add-AzureVhd](http://msdn.microsoft.com/zh-cn/library/dn495173.aspx) to upload the VHD.
+Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) to upload the VHD.
 
 From the Azure PowerShell window you used in the previous step, type the following command and replace the variables in &lsaquo; brackets &rsaquo; with your own information.
 
@@ -94,7 +94,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.chinacloudapi.
 ```
 
 ## Step 4: Add the image to your list of custom images
-Use the [Add-AzureVMImage](https://msdn.microsoft.com/zh-cn/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
+Use the [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.chinacloudapi.cn/<ContainerName>/<vhdName>.vhd" -OS "Windows"

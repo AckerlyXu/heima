@@ -93,7 +93,7 @@ If you are using Tez with Hive, see the following documents for debugging inform
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
@@ -116,6 +116,6 @@ If you are using Tez with Hive, see the following documents for debugging inform
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx
+[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

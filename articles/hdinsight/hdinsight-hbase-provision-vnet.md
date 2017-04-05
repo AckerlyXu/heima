@@ -253,8 +253,8 @@ In this tutorial you learned how to create an HBase cluster. To learn more, see:
 * [Virtual Network Overview][vnet-overview]
 
 [1]: https://www.azure.cn/home/features/networking/
-[2]: http://technet.microsoft.com/zh-cn/library/ee176961.aspx
-[3]: http://technet.microsoft.com/zh-cn/library/hh847889.aspx
+[2]: http://technet.microsoft.com/library/ee176961.aspx
+[3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
@@ -269,7 +269,7 @@ In this tutorial you learned how to create an HBase cluster. To learn more, see:
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/zh-cn/library/dn858087.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

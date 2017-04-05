@@ -25,7 +25,7 @@ The document also contain the release notes for the Azure SDK for .NET 2.7.1 rel
 
 Azure SDK 2.7 is only supported in Visual Studio 2015 and Visual Studio 2013. [Azure SDK 2.6](/downloads/) is the last supported SDK for Visual Studio 2012.
 
-For detailed information about this release, see [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) and [Azure SDK 2.7.1 announcement post](https://azure.microsoft.com/zh-cn/blog/announcing-the-azure-sdk-2-7-1-for-net/).
+For detailed information about this release, see [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) and [Azure SDK 2.7.1 announcement post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-7-1-for-net/).
 
 ## Azure SDK for .NET 2.7
 ### Sign in improvements for Visual Studio 2015
@@ -88,7 +88,7 @@ If you're using an Azure Resource Group project from a previous version of the S
 The following section contains updates that were introduced with the Azure SDK for .NET 2.7.1 release.
 
 ### HDInsight Tools
-For more detailed explanation about HDInsight tools updates, see [this blog](https://azure.microsoft.com/zh-cn/blog/announcing-the-azure-sdk-2-7-1-for-net/).
+For more detailed explanation about HDInsight tools updates, see [this blog](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-7-1-for-net/).
 
 * Hive Job Operator View (a new feature)
 
@@ -106,7 +106,7 @@ For more detailed explanation about HDInsight tools updates, see [this blog](htt
 
     We have improved the IntelliSense by adding more user friendly suggestions. For example, table alias can now also be suggested in IntelliSense so you can write your query more easily. Also, we have improved the Hive metadata loading so it will just take several seconds to list all the databases, tables and columns of your Hive metastore.
 
-For more detailed explanation about HDInsight tools updates, see [this blog](https://azure.microsoft.com/zh-cn/blog/announcing-the-azure-sdk-2-7-1-for-net/).
+For more detailed explanation about HDInsight tools updates, see [this blog](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-7-1-for-net/).
 
 ### Improvements in Visual Studio 2013
 * Azure SDK 2.7.1 enables Visual Studio 2013 to access Azure accounts and subscriptions via Role Based Access Control, Cloud Solution Providers, and Dreamspark.
@@ -118,8 +118,8 @@ Installing the Azure SDK 2.6 or 2.7.1 for Visual Studio Community 2013 on a non-
 LightSwitch projects are not compatibile with this release. This issue will be resolved with the next SDK release.
 
 ## Also see
-[Azure SDK 2.7.1 announcement post](https://azure.microsoft.com/zh-cn/blog/announcing-the-azure-sdk-2-7-1-for-net/)
+[Azure SDK 2.7.1 announcement post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-7-1-for-net/)
 
 [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
-[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn479282.aspx/)
+[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)

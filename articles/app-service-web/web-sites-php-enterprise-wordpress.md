@@ -206,9 +206,9 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
 [rediscache]: /azure/redis-cache/
-[managedcache]: http://msdn.microsoft.com/zh-cn/library/azure/dn386122.aspx
+[managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
-[managedcachescale]: http://msdn.microsoft.com/zh-cn/library/azure/dn386113.aspx
+[managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
 [staging]: web-sites-staged-publishing.md
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md

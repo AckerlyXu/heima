@@ -95,7 +95,7 @@ To learn more about tagging through PowerShell, check out the [Azure Resource Cm
 * To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill][Understanding your Azure Bill].
 
 [PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/zh-cn/library/azure/dn757692.aspx
+[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../billing-understand-your-bill.md

@@ -137,11 +137,11 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Reference
 [Azure CLI commands in Service Management mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
-[Service Management REST API](https://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx)
+[Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-[Service Management .NET API](https://msdn.microsoft.com/zh-cn/library/azure/mt420161.aspx)
+[Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
-[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/dn708504.aspx)
+[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
 ## Troubleshooting
 [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

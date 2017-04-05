@@ -85,7 +85,7 @@ In the label beneath the input box, you can see the attributes that have been se
 
 #### Start a published runbook by using PowerShell cmdlets and assign parameters
 
-* **Azure Service Management cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/zh-cn/library/dn690259.aspx).
+* **Azure Service Management cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
 
     **Example:**
 
@@ -165,7 +165,7 @@ If you want to start the **Get-AzureVMTextual** runbook that was created earlier
  }
 ```
 
-A HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/zh-cn/library/azure/mt163849.aspx)
+A HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### Test a runbook and assign parameters
 When you [test the draft version of your runbook](automation-testing-runbook.md) by using the test option, the **Test** blade opens and you can configure values for the parameters that you just created.

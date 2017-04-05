@@ -62,7 +62,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 5. Click the check button.  Code to get or set the asset will be inserted into the runbook.
 
 ## To edit an Azure Automation runbook using Windows PowerShell
-To edit a runbook with Windows PowerShell, you use the editor of your choice and save it to a .ps1 file. You can use the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/zh-cn/library/dn690269.aspx) cmdlet to retrieve the contents of the runbook and then [Set-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/zh-cn/library/dn690267.aspx) cmdlet to replace the existing draft runbook with the modified one.
+To edit a runbook with Windows PowerShell, you use the editor of your choice and save it to a .ps1 file. You can use the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet to retrieve the contents of the runbook and then [Set-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690267.aspx) cmdlet to replace the existing draft runbook with the modified one.
 
 ### To Retrieve the Contents of a Runbook Using Windows PowerShell
 The following sample commands show how to retrieve the script for a runbook and save it to a script file. In this example, the Draft version is retrieved. It is also possible to retrieve the Published version of the runbook although this version cannot be changed.

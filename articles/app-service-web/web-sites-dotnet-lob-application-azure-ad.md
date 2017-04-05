@@ -37,7 +37,7 @@ You will build a simple line-of-business Create-Read-Update-Delete (CRUD) applic
 work items with the following features:
 
 * Authenticates users against Azure Active Directory
-* Queries directory users and groups using [Azure Active Directory Graph API](http://msdn.microsoft.com/zh-cn/library/azure/hh974476.aspx)
+* Queries directory users and groups using [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
 * Use the ASP.NET MVC *No Authentication* template
 
 If you need role-based access control (RBAC) for your line-of-business app in Azure, see [Next Step](#next).
@@ -398,7 +398,7 @@ Now, you create a simple CRUD work items tracker.
 19. Click **Create** to save the changes. Then, click **Edit** on the created work item to observe the same behavior.
 
 Congrats, you are now running a line-of-business app in Azure with directory access! There's a lot more you can do with the Graph API. See 
-[Azure AD Graph API reference](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/api-catalog).
+[Azure AD Graph API reference](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog).
 
 ## <a name="next"></a> Next Step
 If you need role-based access control (RBAC) for your line-of-business app in azure, see 

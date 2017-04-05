@@ -95,7 +95,7 @@ We support installing customer certificates directly into Windows certificate st
 
 In the context of scale sets...
 
-https://msdn.microsoft.com/zh-cn/library/mt589035.aspx
+https://msdn.microsoft.com/library/mt589035.aspx
 
 ```json
         "secrets": [ {
@@ -158,7 +158,7 @@ Add this property to the "virtualMachineProfile" as part of the scale set Resour
 
 The REST API for the osProfile looks similar to the ordinary VM case:
 
-https://msdn.microsoft.com/zh-cn/library/azure/mt589035.aspx#linuxconfiguration
+https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration
 
 Include an `osProfile` in your template like the following example:
 
@@ -228,7 +228,7 @@ This behavior can happen if you're trying to add the same vault twice instead of
 If you want to add more secrets from the same key vault, you should update the list $vmss.properties.osProfile.secrets[0].vaultCertificates
 
 You can see the expected input structure here:
-https://msdn.microsoft.com/zh-cn/library/azure/mt589035.aspx
+https://msdn.microsoft.com/library/azure/mt589035.aspx
 
 You need to find the secret in the scale set object that has the same containing key vault. Then you must add your certificate reference (the URL along with the secret store name) into the list associated with the vault.
 
@@ -299,7 +299,7 @@ If you create a VM then update your secret in the key vault, that new certificat
 
 ### My team works with several certificates that are distributed to us as .cer public keys. What is the recommended approach is for deployment of these certs to a scale set?
 
-You can generate a pfx file that only contains .cer files, with X509ContentType = Pfx. For example, load the .cer file as an x509Certificate2 object in C# or PowerShell and calling this method: https://msdn.microsoft.com/zh-cn/library/24ww6yzk(v=vs.110).aspx
+You can generate a pfx file that only contains .cer files, with X509ContentType = Pfx. For example, load the .cer file as an x509Certificate2 object in C# or PowerShell and calling this method: https://msdn.microsoft.com/library/24ww6yzk(v=vs.110).aspx
 
 ### I do not see an option for users to pass in certificates as base64 strings that most other resource providers provide.
 

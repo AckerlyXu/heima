@@ -195,7 +195,7 @@ Yes. You can download it [here](http://download.microsoft.com/download/4/3/9/439
 
 ## APIs, Schemas, and Tools
 ### Can I manage VNets from code?
-Yes. You can use REST APIs to manage VNets and cross-premises connectivity. More information can be found [here](https://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx).
+Yes. You can use REST APIs to manage VNets and cross-premises connectivity. More information can be found [here](https://msdn.microsoft.com/library/azure/ee460799.aspx).
 
 ### Is there tooling support for VNets?
-Yes. You can use PowerShell and command line tools for a variety of platforms. More information can be found [here](https://msdn.microsoft.com/zh-cn/library/azure/jj152841.aspx).
+Yes. You can use PowerShell and command line tools for a variety of platforms. More information can be found [here](https://msdn.microsoft.com/library/azure/jj152841.aspx).

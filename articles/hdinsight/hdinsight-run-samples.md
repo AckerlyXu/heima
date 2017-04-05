@@ -962,7 +962,7 @@ public class TeraSort extends Configured implements Tool {
 
 [hdinsight-errors]: hdinsight-debug-jobs.md
 
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/zh-cn/library/azure/dn479185.aspx
+[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md
@@ -980,6 +980,6 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[streamreader]: http://msdn.microsoft.com/zh-cn/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/zh-cn/library/system.console.writeline
-[stdin-stdout-stderr]: https://msdn.microsoft.com/zh-cn/library/3x292kth.aspx
+[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx

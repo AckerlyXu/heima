@@ -20,7 +20,7 @@ The following extensions support different kinds of deployment and configuration
 | **Visual Studio Release Manager** (DSC Extension-based) |Supports continuous deployment with Visual Studio. |[Automate deployments with Release Management](https://msdn.microsoft.com/Library/vs/alm/Release/overview) |
 | **DSC** |PowerShell DSC (Desired State Configuration) Extension. |[Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx) |
 | **CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux) |Invokes custom scripts on the VM at any time: startup or during lifetime. |[Custom Script Extension](../articles/virtual-machines/virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
-| **AzureCATExtensionHandler** |Consumes the diagnostic data collected by **IaaSDiagnostics** and few other data sources such as [Azure Storage Analytics Metrics](https://msdn.microsoft.com/zh-cn/library/azure/hh343270.aspx) and transforms it into an aggregated data set appropriate for SAP Host control process to consume |[Azure Enhanced Monitoring for SAP](https://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/) |
+| **AzureCATExtensionHandler** |Consumes the diagnostic data collected by **IaaSDiagnostics** and few other data sources such as [Azure Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343270.aspx) and transforms it into an aggregated data set appropriate for SAP Host control process to consume |[Azure Enhanced Monitoring for SAP](https://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/) |
 
 ## Security and Protection
 The extensions in this section provide critical security features for your Azure VMs.
@@ -45,7 +45,7 @@ These VM Extensions are listed here for completeness, as they provide support fo
 
 | VM Extension Name | Feature Description | More Information |
 | --- | --- | --- |
-| **VS14CTPDebugger** |Supports remote debugging from VS using the Azure SDK 2.4 |[Remote Debugging in Visual Studio](https://msdn.microsoft.com/zh-cn/library/y7f5zaaa.aspx) |
+| **VS14CTPDebugger** |Supports remote debugging from VS using the Azure SDK 2.4 |[Remote Debugging in Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx) |
 | **VS2013Debugger** |Supports remote debugging from VS using the Azure SDK 2.4 | |
 | **VS2012Debugger** |Supports remote debugging from VS using the Azure SDK 2.4 | |
 | **WebDeployForVSDevTest** |Installs and configures IIS and Web Deploy on Windows Server. Removing or disabling it is not supported. | |
@@ -55,4 +55,4 @@ These extensions provide support for other VM features that might be useful.
 
 | VM Extension Name | Feature Description | More Information |
 | --- | --- | --- |
-| **BGInfo** |Presents a consolidated picture of useful server information on the desktop when using RDP. |[BGInfo Extension](https://msdn.microsoft.com/zh-cn/library/mt589195.aspx) |
+| **BGInfo** |Presents a consolidated picture of useful server information on the desktop when using RDP. |[BGInfo Extension](https://msdn.microsoft.com/library/mt589195.aspx) |

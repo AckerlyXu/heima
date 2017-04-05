@@ -131,8 +131,8 @@ For additional technical resources and specific syntax requirements when using R
 
 | **Classic** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://msdn.microsoft.com/zh-cn/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510.aspx) |
-| [REST API](https://msdn.microsoft.com/zh-cn/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/zh-cn/library/mt163859.aspx) |
+| [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
+| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## Next steps
 See [About VPN Gateway](vpn-gateway-about-vpngateways.md) for more information about available connection configurations.

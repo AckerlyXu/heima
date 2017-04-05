@@ -184,4 +184,4 @@ Example of load balancer template in Json format:
     }
 
 ### Additional resources
-Read [load balancer REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt163651.aspx) for more information.
+Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.

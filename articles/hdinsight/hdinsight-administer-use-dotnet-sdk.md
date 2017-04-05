@@ -24,7 +24,7 @@ ms.author: jgao
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx).
+Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
 
 **Prerequisites**
 
@@ -252,7 +252,7 @@ See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-
 See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
-* [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx)
+* [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Administer HDInsight by using the Azure portal preview][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]

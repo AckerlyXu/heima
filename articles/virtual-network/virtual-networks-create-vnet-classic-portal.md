@@ -32,7 +32,7 @@ This article explains how to create a virtual network with a netcfg file through
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 ## How to create a VNet with a network config file in the Azure Classic Management Portal
-Azure uses an xml file to define all VNets available to a subscription. You can download this file and edit it to create VNets through the classic deployment model or to modify or delete existing VNets. This article explains how to download this file, referred to as a network configuration (or netcfg) file, add a VNet to it, and upload the file to create the VNet. To learn more about the network configuration file, review the [Azure virtual network configuration schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100.aspx).
+Azure uses an xml file to define all VNets available to a subscription. You can download this file and edit it to create VNets through the classic deployment model or to modify or delete existing VNets. This article explains how to download this file, referred to as a network configuration (or netcfg) file, add a VNet to it, and upload the file to create the VNet. To learn more about the network configuration file, review the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 To create a VNet using a netcfg file through the Azure Classic Management Portal, complete the following steps:
 

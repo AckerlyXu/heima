@@ -302,4 +302,4 @@ In the event that an execution failure occurs, the output describing it will als
 [powershell-install-configure]: ../powershell-install-configure.md
 
 <!--Reference links in article-->
-[1]: https://msdn.microsoft.com/zh-cn/library/96xafkes(v=vs.110).aspx
+[1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx

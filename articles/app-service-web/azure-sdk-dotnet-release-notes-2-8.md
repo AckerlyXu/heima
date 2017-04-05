@@ -83,4 +83,4 @@ For other updates, see [Azure SDK 2.8 announcement post](https://azure.microsoft
 ## Also see
 [Azure SDK 2.8 announcement post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
-[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn479282.aspx)
+[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx)

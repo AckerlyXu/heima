@@ -120,7 +120,7 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt163667.aspx">REST API Reference</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163667.aspx">REST API Reference</a></p>
                     </div>
                 </div>
             </div>

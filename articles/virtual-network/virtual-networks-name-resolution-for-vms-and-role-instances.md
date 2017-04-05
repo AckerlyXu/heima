@@ -43,7 +43,7 @@ The type of name resolution you use depends on how your VMs and role instances n
 Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network or cloud service.  VMs/instances in a cloud service share the same DNS suffix (so the hostname alone is sufficient) but in classic virtual networks different cloud services have different DNS suffixes so the FQDN is needed to resolve names between different cloud services.  In virtual networks in the Resource Manager deployment model, the DNS suffix is consistent across the virtual network (so the FQDN is not needed) and DNS names can be assigned to both NICs and VMs. Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the table above.
 
 > [!NOTE]
-> In the case of web and worker roles, you can also access the internal IP addresses of role instances based on the role name and instance number using the Azure Service Management REST API. For more information, see [Service Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx).
+> In the case of web and worker roles, you can also access the internal IP addresses of role instances based on the role name and instance number using the Azure Service Management REST API. For more information, see [Service Management REST API Reference](https://msdn.microsoft.com/library/azure/ee460799.aspx).
 > 
 > 
 
@@ -131,8 +131,8 @@ When using Azure-provided name resolution, an Internal DNS suffix (*.internal.ch
 
 If needed, the Internal DNS suffix can be determined using PowerShell or the API:
 
-* For virtual networks in Resource Manager deployment models, the suffix is available via the [network interface card](https://msdn.microsoft.com/zh-cn/library/azure/mt163668.aspx) resource or via the [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/zh-cn/library/mt619434.aspx) cmdlet.    
-* In classic deployment models, the suffix is available via the [Get Deployment API](https://msdn.microsoft.com/zh-cn/library/azure/ee460804.aspx) call or via the [Get-AzureVM -Debug](https://msdn.microsoft.com/zh-cn/library/azure/dn495236.aspx) cmdlet.
+* For virtual networks in Resource Manager deployment models, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource or via the [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet.    
+* In classic deployment models, the suffix is available via the [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) call or via the [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx) cmdlet.
 
 If forwarding queries to Azure doesn't suit your needs, you will need to provide your own DNS solution.  Your DNS solution will need to:
 
@@ -154,9 +154,9 @@ When using your own DNS servers, Azure provides the ability to specify multiple 
 > 
 > 
 
-When using the Resource Manager deployment model, DNS servers can be specified in the Portal, API/Templates ([vnet](https://msdn.microsoft.com/zh-cn/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/zh-cn/library/azure/mt163668.aspx)) or PowerShell ([vnet](https://msdn.microsoft.com/zh-cn/library/mt603657.aspx), [nic](https://msdn.microsoft.com/zh-cn/library/mt619370.aspx)).
+When using the Resource Manager deployment model, DNS servers can be specified in the Portal, API/Templates ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) or PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
 
-When using the classic deployment model, DNS servers for the virtual network can be specified in the Portal or [the *Network Configuration* file](https://msdn.microsoft.com/zh-cn/library/azure/jj157100).  For cloud services, the DNS servers are specified via [the *Service Configuration* file](https://msdn.microsoft.com/zh-cn/library/azure/ee758710) or in PowerShell ([New-AzureVM](https://msdn.microsoft.com/zh-cn/library/azure/dn495254.aspx)).
+When using the classic deployment model, DNS servers for the virtual network can be specified in the Portal or [the *Network Configuration* file](https://msdn.microsoft.com/library/azure/jj157100).  For cloud services, the DNS servers are specified via [the *Service Configuration* file](https://msdn.microsoft.com/library/azure/ee758710) or in PowerShell ([New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)).
 
 > [!NOTE]
 > If you change the DNS settings for a virtual network/virtual machine that is already deployed, you need to restart each affected VM for the changes to take effect.
@@ -166,13 +166,13 @@ When using the classic deployment model, DNS servers for the virtual network can
 ## Next steps
 Resource Manager deployment model:
 
-* [Create or update a virtual network](https://msdn.microsoft.com/zh-cn/library/azure/mt163661.aspx)
-* [Create or update a network interface card](https://msdn.microsoft.com/zh-cn/library/azure/mt163668.aspx)
-* [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/zh-cn/library/mt603657.aspx)
-* [New-AzureRmNetworkInterface](https://msdn.microsoft.com/zh-cn/library/mt619370.aspx)
+* [Create or update a virtual network](https://msdn.microsoft.com/library/azure/mt163661.aspx)
+* [Create or update a network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx)
+* [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
+* [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
 
 Classic deployment model:
 
-* [Azure Service Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/ee758710)
-* [Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
+* [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
+* [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
 * [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md)

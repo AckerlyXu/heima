@@ -160,7 +160,7 @@ In this section, you deploy the web project to the web app resource you created 
 
     ![Click Next on Connection tab of Publish Web wizard](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-    Next is the **Settings** tab. Here you can change the build configuration to deploy a debug build for [remote debugging](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several [File Publish Options](https://msdn.microsoft.com/zh-cn/library/dd465337.aspx#Anchor_2).
+    Next is the **Settings** tab. Here you can change the build configuration to deploy a debug build for [remote debugging](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several [File Publish Options](https://msdn.microsoft.com/library/dd465337.aspx#Anchor_2).
 3. On the **Settings** tab, click **Next**.
 
     ![Settings tab of Publish Web wizard](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)

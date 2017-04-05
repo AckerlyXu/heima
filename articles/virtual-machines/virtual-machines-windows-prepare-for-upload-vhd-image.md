@@ -37,7 +37,7 @@ After you convert the disk, create a VM that uses the converted disk. Start and 
 7. Click **Finish** to close.
 
 ### Convert disk using PowerShell
-You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/zh-cn/library/hh848454.aspx) cmdlet in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
+You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
 The following example shows you how to convert from a VHDX to VHD, and from a dynamically expanding disk to fixed size:
 
 ```powershell
@@ -51,7 +51,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 ## Set Windows configurations for Azure
 
-On the virtual machine you plan to upload to Azure, run all the following commands from the command prompt window with [administrative privileges](https://technet.microsoft.com/zh-cn/library/cc947813.aspx).
+On the virtual machine you plan to upload to Azure, run all the following commands from the command prompt window with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
 
@@ -62,7 +62,7 @@ On the virtual machine you plan to upload to Azure, run all the following comman
     ```CMD
     netsh winhttp reset proxy
     ```
-3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/zh-cn/library/gg252636.aspx). 
+3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
 
     ```CMD
     diskpart 
@@ -135,7 +135,7 @@ sc config RemoteRegistry start= auto
     ```
 
     For more information about configuring certificates for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
-2. Configure the [KeepAlive](https://technet.microsoft.com/zh-cn/library/cc957549.aspx) values for RDP service:
+2. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values for RDP service:
 
     ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f

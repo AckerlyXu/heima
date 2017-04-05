@@ -264,7 +264,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
     * Precompile during publishing
     * Exclude files from the App_Data folder
 
-    For this tutorial you don't need any of these. For detailed explanations of what they do, see [How to: Deploy a Web Project Using One-Click Publish in Visual Studio](https://msdn.microsoft.com/zh-cn/library/dd465337.aspx).
+    For this tutorial you don't need any of these. For detailed explanations of what they do, see [How to: Deploy a Web Project Using One-Click Publish in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 14. Click **Next**.
 
     ![Click Next in Settings tab of Publish Web](./media/app-service-api-dotnet-get-started/settingsnext.png)

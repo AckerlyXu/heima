@@ -111,7 +111,7 @@ If you run into problems while following the tutorial directions, see the [Troub
     ![Authentication/Authorization blade in Azure portal preview](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 6. In the **Azure Active Directory Settings** blade, click **Express**.
 
-    With the **Express** option Azure can automatically create an AAD application in your Azure AD [tenant](https://msdn.microsoft.com/zh-cn/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
+    With the **Express** option Azure can automatically create an AAD application in your Azure AD [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
 
     You don't have to create a tenant, because every Azure account automatically has one.
 7. Under **Management mode**, click **Create New AD App** if it isn't already selected.

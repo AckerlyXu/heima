@@ -1,6 +1,6 @@
 Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, and additional cluster nodes. Alternatively, the script can use pre-existing Azure infrastructure and create only the HPC cluster nodes.
 
-For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/zh-cn/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/zh-cn/library/jj899590.aspx) content in the HPC Pack 2012 R2 TechNet Library.
+For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) content in the HPC Pack 2012 R2 TechNet Library.
 
 ## Prerequisites
 * **Azure subscription**: You can use a subscription in either the Azure Global or Azure China service. Your subscription limits affect the number and type of cluster nodes you can deploy. For information, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).

@@ -22,7 +22,7 @@ ms.author: danlep
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/zh-cn/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. In this way, several cluster users can submit jobs to a cloud-based HPC Pack cluster, but without connecting directly to the head node VM or accessing an Azure subscription.
+Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. In this way, several cluster users can submit jobs to a cloud-based HPC Pack cluster, but without connecting directly to the head node VM or accessing an Azure subscription.
 
 ![Submit a job to a cluster in Azure][jobsubmit]
 
@@ -32,7 +32,7 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
   to deploy the head node and cluster. You need the DNS
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
-* **Client computer** - You need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/zh-cn/library/dn535781.aspx)). If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
+* **Client computer** - You need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/library/dn535781.aspx)). If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
 * **HPC Pack installation media** - To install the HPC Pack client utilities, the free installation package for the
   latest version of HPC Pack (HPC Pack 2012 R2) is available from the
   [Microsoft Download
@@ -49,7 +49,7 @@ configure the components by running the HPC PowerShell script
 **Set-HPCWebComponents.ps1**.
 
 For detailed procedures, see [Install the Microsoft HPC Pack Web
-Components](http://technet.microsoft.com/zh-cn/library/hh314627.aspx).
+Components](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
@@ -103,7 +103,7 @@ To use the HPC Pack client tools to submit jobs to the head node VM, you also ne
 
 **To export the certificate from the head node**
 
-1. On the head node, add the Certificates snap-in to a Microsoft Management Console for the Local Computer account. For steps to add the snap-in, see [Add the Certificates Snap-in to an MMC](https://technet.microsoft.com/zh-cn/library/cc754431.aspx).
+1. On the head node, add the Certificates snap-in to a Microsoft Management Console for the Local Computer account. For steps to add the snap-in, see [Add the Certificates Snap-in to an MMC](https://technet.microsoft.com/library/cc754431.aspx).
 2. In the console tree, expand **Certificates - Local Computer** > **Personal**, and then click **Certificates**.
 3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1:-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.chinacloudapp.cn).
 4. Right-click the certificate, and click **All Tasks** > **Export**.
@@ -176,7 +176,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
     ```
     https://<HeadNodeDnsName>.<region>.chinacloudapp.cn/HpcPortal
     ```
-2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. See [Managing Cluster Users](https://technet.microsoft.com/zh-cn/library/ff919335.aspx).)
+2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. See [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx).)
 
     The web portal opens to the job list view.
 3. To submit a sample job that returns the string "Hello World" from the cluster, click **New job** in the left-hand navigation.

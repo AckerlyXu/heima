@@ -147,8 +147,8 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt163658.aspx">REST (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/jj157182.aspx">REST (Classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (Classic)</a></p>
                     </div>
                 </div>
             </div>

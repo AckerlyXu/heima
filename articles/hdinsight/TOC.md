@@ -138,7 +138,7 @@
 ### Build HDInsight applications
 #### [Install HDInsight apps](hdinsight-apps-install-applications.md)
 #### [Install custom apps](hdinsight-apps-install-custom-applications.md)
-#### [Use REST to install apps](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx)
+#### [Use REST to install apps](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Publish HDInsight apps to Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Secure
 ### [Use SSH tunneling](hdinsight-linux-ambari-ssh-tunnel.md)
@@ -186,7 +186,7 @@
 
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
-## [.NET (Hadoop)](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
 ## [REST](https://docs.microsoft.com/rest/api/hdinsight/)

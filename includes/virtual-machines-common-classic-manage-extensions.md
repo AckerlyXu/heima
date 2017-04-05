@@ -25,9 +25,9 @@ Some extensions have PowerShell cmdlets that are specific to them, which may mak
 
 You can use the following cmdlets to obtain information about available extensions:
 
-* For instances of web roles or worker roles, you can use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/zh-cn/library/azure/dn722498.aspx)
+* For instances of web roles or worker roles, you can use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx)
     cmdlet.
-* For instances of Virtual Machines, you can use the [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/zh-cn/library/azure/dn722480.aspx) cmdlet.
+* For instances of Virtual Machines, you can use the [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet.
 
     For example, the following code example shows how to list the
     information for the **IaaSDiagnostics** extension using PowerShell.
@@ -76,8 +76,8 @@ For example, the following code example shows how to list the information for th
 ### Service Management REST APIs
 You can use the following REST APIs to obtain information about available extensions:
 
-* For instances of web roles or worker roles, you can use the [List Available Extensions](https://msdn.microsoft.com/zh-cn/library/dn169559.aspx) operation. To list the versions of available extensions, you can use [List Extension Versions](https://msdn.microsoft.com/zh-cn/library/dn495437.aspx).
-* For instances of Virtual Machines, you can use the [List Resource Extensions](https://msdn.microsoft.com/zh-cn/library/dn495441.aspx) operation. To list the versions of available extensions, you can use [List Resource Extension Versions](https://msdn.microsoft.com/zh-cn/library/dn495440.aspx).
+* For instances of web roles or worker roles, you can use the [List Available Extensions](https://msdn.microsoft.com/library/dn169559.aspx) operation. To list the versions of available extensions, you can use [List Extension Versions](https://msdn.microsoft.com/library/dn495437.aspx).
+* For instances of Virtual Machines, you can use the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation. To list the versions of available extensions, you can use [List Resource Extension Versions](https://msdn.microsoft.com/library/dn495440.aspx).
 
 ## Add, Update, or Disable Extensions
 Extensions can be added when an instance is created or they can be added to a running instance. Extensions can be updated, disabled, or removed. You can perform these actions by using Azure PowerShell cmdlets or by using the Service Management REST API operations. Parameters are required to install and set up some extensions. Public and private parameters are supported for extensions.
@@ -96,8 +96,8 @@ APIs, you receive information about how the extension is to be configured. The i
 
 You can use the following REST APIs to know whether an extension requires a configuration of public and private parameters:
 
-* For instances of web roles or worker roles, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Available Extensions](https://msdn.microsoft.com/zh-cn/library/dn169559.aspx) operation.
-* For instances of Virtual Machines, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Resource Extensions](https://msdn.microsoft.com/zh-cn/library/dn495441.aspx) operation.
+* For instances of web roles or worker roles, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Available Extensions](https://msdn.microsoft.com/library/dn169559.aspx) operation.
+* For instances of Virtual Machines, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation.
 
 > [!NOTE]
 > Extensions can also use configurations that are defined with JSON. When these types of extensions are used, only the **SampleConfig** element is used.

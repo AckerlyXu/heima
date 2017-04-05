@@ -33,7 +33,7 @@ You can only work with PowerShell Workflow runbooks in the Azure Classic Managem
 4. Your new runbook will appear on the **Runbooks** tab.
 
 ### To create a new Azure Automation runbook with Windows PowerShell
-You can use the [New-AzureAutomationRunbook](https://msdn.microsoft.com/zh-cn/library/dn690272.aspx) cmdlet to create an empty PowerShell Workflow runbook. You can either specify the **Name** parameter to create an empty runbook that you can later edit, or you can specify the **Path** parameter to import a script file. 
+You can use the [New-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690272.aspx) cmdlet to create an empty PowerShell Workflow runbook. You can either specify the **Name** parameter to create an empty runbook that you can later edit, or you can specify the **Path** parameter to import a script file. 
 
 The following sample commands show how to create a new empty runbook.
 
@@ -57,7 +57,7 @@ You can use the following procedure to import a script file into Azure Automatio
 6. You must [publish the runbook](#publishing-a-runbook) before you can run it.
 
 ### <a name="ImportRunbookScriptPS"></a> To import a runbook from a script file with Windows PowerShell
-You can use the [Set-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/zh-cn/library/dn690267.aspx) cmdlet to import a script file into the Draft version of an existing runbook. The script file must contain a single Windows PowerShell Workflow. If the runbook already has a Draft version, then the import will fail unless you use the Overwrite parameter. After the runbook has been imported, you can publish it with [Publish-AzureAutomationRunbook](https://msdn.microsoft.com/zh-cn/library/dn690266.aspx).
+You can use the [Set-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690267.aspx) cmdlet to import a script file into the Draft version of an existing runbook. The script file must contain a single Windows PowerShell Workflow. If the runbook already has a Draft version, then the import will fail unless you use the Overwrite parameter. After the runbook has been imported, you can publish it with [Publish-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690266.aspx).
 
 The following sample commands show how to import a script file into a runbook.
 
@@ -77,7 +77,7 @@ When you create or import a new runbook, you must publish it before you can run 
 3. At the bottom of the screen, click **Publish** and then **Yes** to the verification message.
 
 ## To publish a runbook using Windows PowerShell
-You can use the [Publish-AzureAutomationRunbook](https://msdn.microsoft.com/zh-cn/library/dn690266.aspx) cmdlet to publish a runbook with Windows PowerShell. The following sample commands show how to publish a sample runbook.
+You can use the [Publish-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690266.aspx) cmdlet to publish a runbook with Windows PowerShell. The following sample commands show how to publish a sample runbook.
 
     $automationAccountName = "AutomationAccount"
     $runbookName = "Sample_TestRunbook"

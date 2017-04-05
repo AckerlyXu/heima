@@ -179,7 +179,7 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 * [Use Pig with HDInsight][hdinsight-use-pig]
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
@@ -190,9 +190,9 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: /azure/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/zh-cn/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/zh-cn/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/zh-cn/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -206,6 +206,6 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx
+[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

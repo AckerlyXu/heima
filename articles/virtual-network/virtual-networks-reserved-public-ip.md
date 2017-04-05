@@ -49,7 +49,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 3. Is there a charge for reserved IPs?
     * See [Reserved IP Address Pricing Details](https://www.azure.cn/pricing/details/reserved-ip-addresses/) for pricing information.
 4. How do I reserve an IP address?
-    * You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn722420.aspx), or the [Azure portal preview](https://portal.azure.cn) to reserve an IP address in a particular region. This reserved IP address is associated to your subscription.
+    * You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal preview](https://portal.azure.cn) to reserve an IP address in a particular region. This reserved IP address is associated to your subscription.
 5. Can I use this with affinity group based VNets?
     * Reserved IPs are only supported in regional VNets. It is not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or an affinity group, see [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md).
 

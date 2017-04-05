@@ -104,4 +104,4 @@ To add a static internal IP to the VM created using the script above, runt he fo
 
 [Instance-Level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
-[Reserved IP REST APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn722420.aspx)
+[Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)

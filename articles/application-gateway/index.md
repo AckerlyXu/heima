@@ -150,8 +150,8 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt684941">REST API Reference</a></p>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/azure/mt299393">Classic REST API Reference</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API Reference</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Classic REST API Reference</a></p>
                     </div>
                 </div>
             </div>

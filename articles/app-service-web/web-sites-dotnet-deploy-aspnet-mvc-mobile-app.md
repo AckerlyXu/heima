@@ -723,7 +723,7 @@ mobile-friendly Web applications. These include:
 [Visual Studio 2015]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
-[EmulatorIE11]: http://msdn.microsoft.com/zh-cn/library/ie/dn255001.aspx
+[EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx
 [EmulatorOpera]: http://www.opera.com/developer/tools/mobile/
 [StarterProject]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409

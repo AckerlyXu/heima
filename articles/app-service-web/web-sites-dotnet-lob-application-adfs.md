@@ -24,7 +24,7 @@ ms.author: cephalin
 
 This article shows you how to create an ASP.NET MVC line-of-business application in 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md) using an on-premises 
-[Active Directory Federation Services](http://technet.microsoft.com/zh-cn/library/hh831502.aspx) 
+[Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) 
 as the identity provider. This scenario can work when you want to create line-of-business applications in Azure 
 App Service but your organization requires directory data to be stored on-site.
 
@@ -55,7 +55,7 @@ You need the following to complete this tutorial:
 ## <a name="bkmk_sample"></a> Use sample application for line-of-business template
 The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), is created by the Azure Active Directory team. Since AD FS supports WS-Federation, you can use it as a template to create line-of-business applications with ease. It has the following features:
 
-* Uses [WS-Federation](http://msdn.microsoft.com/zh-cn/library/bb498017.aspx) to authenticate with an on-premises AD FS deployment
+* Uses [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) to authenticate with an on-premises AD FS deployment
 * Sign-in and sign-out functionality
 * Uses [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (instead of Windows Identity Foundation), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF
 
@@ -345,5 +345,5 @@ Azure App Service Web Apps supports accessing on-premise databases with only one
 * [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md)
 * [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 * [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
-* [Active Directory Federation Services Overview](http://technet.microsoft.com/zh-cn/library/hh831502.aspx)
+* [Active Directory Federation Services Overview](http://technet.microsoft.com/library/hh831502.aspx)
 * [WS-Federation 1.1 specification](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)

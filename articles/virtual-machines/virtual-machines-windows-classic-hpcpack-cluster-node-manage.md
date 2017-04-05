@@ -94,7 +94,7 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### Parameters
 * **Name**: Names of cluster nodes to be removed. Wildcards are supported. The parameter set name is Name. You can't specify both the **Name** and **Node** parameters.
-* **Node**: The HpcNode object for the nodes to be removed, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/zh-cn/library/dn887927.aspx). The parameter set name is Node. You can't specify both the **Name** and **Node** parameters.
+* **Node**: The HpcNode object for the nodes to be removed, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You can't specify both the **Name** and **Node** parameters.
 * **DeleteVHD** (optional): Setting to delete the associated disks for the VMs that are removed.
 * **Force** (optional): Setting to force HPC nodes offline before removing them.
 * **Confirm** (optional): Prompt for confirmation before executing the command.
@@ -119,7 +119,7 @@ Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
 ### Parameters
 * **Name**: Names of the cluster nodes to be started. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
-* **Node**- The HpcNode object for the nodes to be started, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/zh-cn/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
+* **Node**- The HpcNode object for the nodes to be started, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
 
 ### Example
 The following example starts nodes with names beginning *HPCNode-CN-*.
@@ -140,7 +140,7 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 
 ### Parameters
 * **Name**- Names of the cluster nodes to be stopped. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
-* **Node**: The HpcNode object for the nodes to be stopped, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/zh-cn/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
+* **Node**: The HpcNode object for the nodes to be stopped, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
 * **Force** (optional): Setting to force HPC nodes offline before stopping them.
 
 ### Example

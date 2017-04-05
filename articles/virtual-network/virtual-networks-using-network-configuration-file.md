@@ -27,7 +27,7 @@ The easiest way to author a network configuration file is to export the network 
 
 To edit the network configuration file, you can simply open the file, make the appropriate changes, then save the file. You can use any *xml* editor to make changes to the network configuration file. 
 
-You should closely follow the guidance for [network configuration file schema settings](https://msdn.microsoft.com/zh-cn/library/azure/jj157100.aspx). 
+You should closely follow the guidance for [network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 Azure considers a subnet that has something deployed to it as **in use**. When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](virtual-networks-move-vm-role-to-subnet.md).
 

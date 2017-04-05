@@ -106,7 +106,7 @@ to generate it:
         [EnhancedKeyUsageExtension]
         OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
-    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/zh-cn/library/dn296456.aspx).
+    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/library/dn296456.aspx).
 2. In a command prompt, `CD` into your working directory and run the following command to create the CSR:
 
         certreq -new myrequest.txt myrequest.csr
@@ -365,7 +365,7 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
         OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
     The important parameter is `RequestType = Cert`, which specifies a self-signed certificate. 
-    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/zh-cn/library/dn296456.aspx).
+    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/library/dn296456.aspx).
 2. In the command prompt, `CD` to your working directory and run the following command:
 
         certreq -new mycert.txt mycert.crt
@@ -520,7 +520,7 @@ regardless of the language framework of your app.
 
 > [!NOTE]
 > There is language-specific redirection of requests. ASP.NET MVC can use the 
-> [RequireHttps](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see 
+> [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see 
 > [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 > 
 > 
@@ -580,10 +580,10 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 * [Azure Management Portal](https://manage.windowsazure.cn)
 
 [customdomain]: web-sites-custom-domain-name.md
-[iiscsr]: http://technet.microsoft.com/zh-cn/library/cc732906(WS.10).aspx
+[iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://social.technet.microsoft.com/wiki/contents/articles/31634.microsoft-trusted-root-certificate-program-participants-v-2016-april.aspx
-[installcertiis]: http://technet.microsoft.com/zh-cn/library/cc771816(WS.10).aspx
-[exportcertiis]: http://technet.microsoft.com/zh-cn/library/cc731386(WS.10).aspx
+[installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
+[exportcertiis]: http://technet.microsoft.com/library/cc731386(WS.10).aspx
 [openssl]: http://www.openssl.org/
 [portal]: https://manage.windowsazure.cn/
 [tls]: http://zh.wikipedia.org/wiki/Transport_Layer_Security

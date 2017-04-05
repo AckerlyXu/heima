@@ -519,7 +519,7 @@ This procedure creates an App Service web app. You will be billed for the resour
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Azure Toolkit for Eclipse]: /azure/azure-toolkit-for-eclipse-installation/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn
-[What is an Azure AD directory]: http://technet.microsoft.com/zh-cn/library/jj573650.aspx
+[What is an Azure AD directory]: http://technet.microsoft.com/library/jj573650.aspx
 [Create and Upload a Management Certificate for Azure]: ../cloud-services/cloud-services-certs-create.md
 [Key and Certificate Management Tool (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
 [WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html

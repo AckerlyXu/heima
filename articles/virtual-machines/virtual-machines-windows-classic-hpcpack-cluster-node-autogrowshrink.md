@@ -40,7 +40,7 @@ This article shows you two ways that HPC Pack provides to autoscale compute reso
 
     Alternatively, enable the **AutoGrowShrink** cluster property after you deploy the cluster by using HPC PowerShell commands described in the following section. To prepare for this, first complete the following steps:
 
-    1. Configure an Azure management certificate on the head node and in the Azure subscription. For a test deployment, you can use the Default Microsoft HPC Azure self-signed certificate that HPC Pack installs on the head node, and then upload that certificate to your Azure subscription. For options and steps, see the [TechNet Library guidance](https://technet.microsoft.com/zh-cn/library/gg481759.aspx).
+    1. Configure an Azure management certificate on the head node and in the Azure subscription. For a test deployment, you can use the Default Microsoft HPC Azure self-signed certificate that HPC Pack installs on the head node, and then upload that certificate to your Azure subscription. For options and steps, see the [TechNet Library guidance](https://technet.microsoft.com/library/gg481759.aspx).
 
     2. Run **regedit** on the head node, go to HKLM\SOFTWARE\Micorsoft\HPC\IaasInfo, and add a string value. Set the Value name to "ThumbPrint", and Value data to the thumbprint of the certificate in Step 1.
 

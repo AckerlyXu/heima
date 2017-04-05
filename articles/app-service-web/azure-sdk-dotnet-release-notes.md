@@ -36,24 +36,24 @@ This topic contains links to Azure SDK for .NET Release Notes.
 [Azure SDK for .NET 2.5.1 Release Notes](../app-service/app-service-release-notes.md)
 
 ## Azure SDK for .NET 2.5 Release Notes
-[Azure SDK for .NET 2.5 Release Notes](https://msdn.microsoft.com/zh-cn/library/azure/dn873976.aspx)
+[Azure SDK for .NET 2.5 Release Notes](https://msdn.microsoft.com/library/azure/dn873976.aspx)
 
 ## Azure SDK for .NET 2.4 Release Notes
-[Azure SDK for .NET 2.4 Release Notes](https://msdn.microsoft.com/zh-cn/library/azure/dn794167.aspx)
+[Azure SDK for .NET 2.4 Release Notes](https://msdn.microsoft.com/library/azure/dn794167.aspx)
 
 ## Azure SDK for .NET 2.3 Release Notes
-[Azure SDK for .NET 2.3 Release Notes](https://msdn.microsoft.com/zh-cn/library/azure/dn655054.aspx)
+[Azure SDK for .NET 2.3 Release Notes](https://msdn.microsoft.com/library/azure/dn655054.aspx)
 
 ## Azure SDK for .NET 2.2 Release Notes
-[Azure SDK for .NET 2.2 Release Notes](https://msdn.microsoft.com/zh-cn/library/azure/dn459835.aspx)
+[Azure SDK for .NET 2.2 Release Notes](https://msdn.microsoft.com/library/azure/dn459835.aspx)
 
 ## Azure SDK for .NET 2.1 Release Notes
-[Azure SDK for .NET 2.1 Release Notes](https://msdn.microsoft.com/zh-cn/library/azure/dn407359.aspx)
+[Azure SDK for .NET 2.1 Release Notes](https://msdn.microsoft.com/library/azure/dn407359.aspx)
 
 ## Azure SDK for .NET 2.0 Release Notes
-[Azure SDK for .NET 2.0 Release Notes](https://msdn.microsoft.com/zh-cn/library/azure/dn169556.aspx)
+[Azure SDK for .NET 2.0 Release Notes](https://msdn.microsoft.com/library/azure/dn169556.aspx)
 
 ## Related topics
 [Azure SDK for .NET](/downloads/)
 
-[Azure SDK Release Notes on MSDN](https://msdn.microsoft.com/zh-cn/library/azure/dn627519.aspx)
+[Azure SDK Release Notes on MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)

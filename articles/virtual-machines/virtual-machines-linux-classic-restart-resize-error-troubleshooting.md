@@ -66,7 +66,7 @@ The request to resize the VM has to be attempted at the original cluster that ho
 ### Resolution
 Reduce the requested VM size, and retry the resize request.
 
-* Click **Browse all** > **Virtual machines (classic)** > *your virtual machine* > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/zh-cn/library/dn168976.aspx).
+* Click **Browse all** > **Virtual machines (classic)** > *your virtual machine* > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
 If it is not possible to reduce the VM size, follow these steps:
 

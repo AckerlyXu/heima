@@ -106,7 +106,7 @@ If you run into problems while following the tutorial directions, see the [Troub
 
     ![Azure portal preview Authentication/Authorization Express option](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-    With the **Express** option, App Service can automatically create an Azure AD application in your Azure AD [tenant](https://msdn.microsoft.com/zh-cn/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
+    With the **Express** option, App Service can automatically create an Azure AD application in your Azure AD [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
 
     You don't have to create a tenant, because every Azure account automatically has one.
 6. Under **Management mode**, click **Create New AD App** if it isn't already selected, and notice the value that is in the **Create App** text box; you'll look up this AAD application in the Azure Classic Management Portal later.

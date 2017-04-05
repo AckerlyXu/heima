@@ -337,7 +337,7 @@ The SOA client application requires no changes except altering the head name to 
 
 ## Next steps
 * See [these resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) for more information about running Excel workloads with HPC Pack.
-* See [Managing SOA Services in Microsoft HPC Pack](https://technet.microsoft.com/zh-cn/library/ff919412.aspx) for more about deploying and managing SOA services with HPC Pack.
+* See [Managing SOA Services in Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) for more about deploying and managing SOA services with HPC Pack.
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-windows-excel-cluster-hpcpack/scenario.png

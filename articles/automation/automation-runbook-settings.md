@@ -42,7 +42,7 @@ You can change settings for a runbook in the Azure Classic Management Portal fro
 1. Select the **Configure** tab.
 
 ### Changing runbook settings with Windows PowerShell
-You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/zh-cn/library/dn690275.aspx) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureAutomationRunbook](https://msdn.microsoft.com/zh-cn/library/dn690278.aspx).
+You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
 
 The following sample commands show how to set the properties for a runbook. This sample adds three tags to the existing tags and specifies that verbose records should be logged.
 

@@ -207,7 +207,7 @@ Yes. See the [Azure Network Security Overview](../security/security-network-over
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
-Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msdn.microsoft.com/zh-cn/library/mt163658.aspx) and [classic (Service Management)](https://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx)) deployment models.
+Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) and [classic (Service Management)](https://msdn.microsoft.com/library/azure/ee460799.aspx)) deployment models.
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:

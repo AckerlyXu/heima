@@ -216,4 +216,4 @@ Example of an application gateway Json template:
     }
 
 ### Additional resources
-Read [ application gateway REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt299388.aspx) for more information.
+Read [ application gateway REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx) for more information.

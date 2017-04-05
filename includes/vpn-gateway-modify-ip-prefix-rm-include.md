@@ -31,7 +31,7 @@ If you have created your gateway connection and want to add or remove the IP add
 
         Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
         -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-3. Create the connection. In this example, we are configuring an IPsec connection type. When you recreate your connection, use the connection type that is specified for your configuration. For additional connection types, see the [PowerShell cmdlet](https://msdn.microsoft.com/zh-cn/library/mt603611.aspx) page.
+3. Create the connection. In this example, we are configuring an IPsec connection type. When you recreate your connection, use the connection type that is specified for your configuration. For additional connection types, see the [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) page.
 
      Set the variable for the VirtualNetworkGateway.
 

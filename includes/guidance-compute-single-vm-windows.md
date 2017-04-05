@@ -169,7 +169,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
-[group-policy]: https://technet.microsoft.com/zh-cn/library/dn595129.aspx
+[group-policy]: https://technet.microsoft.com/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
@@ -182,7 +182,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
-[Resize-VHD]: https://technet.microsoft.com/zh-cn/library/hh848535.aspx
+[Resize-VHD]: https://technet.microsoft.com/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md

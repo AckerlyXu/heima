@@ -49,7 +49,7 @@ There are four major phases to setting up this hybrid cloud test environment:
 > 
 
 ## Phase 1: Configure the TestLab virtual network
-Use the instructions in the [Base Configuration test environment](https://technet.microsoft.com/zh-cn/library/mt771177.aspx) topic to configure the DC1, APP1, and CLIENT1 computers in the Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration test environment](https://technet.microsoft.com/library/mt771177.aspx) topic to configure the DC1, APP1, and CLIENT1 computers in the Azure virtual network named TestLab. 
 
 Next, start an Azure PowerShell prompt.
 

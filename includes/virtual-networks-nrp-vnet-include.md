@@ -74,5 +74,5 @@ Sample VNet in JSON format:
 
 ### Additional resources
 * Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt163650.aspx) for VNets.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt163618.aspx) for Subnets.
+* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets.
+* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) for Subnets.

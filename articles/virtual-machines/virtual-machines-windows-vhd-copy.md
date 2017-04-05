@@ -28,7 +28,7 @@ This article shows you how to use the AZCopy tool to create a copy of the VHD fr
 ## Before you begin
 Make sure that you:
 
-* Have information about the **source and destination storage accounts**. For the source VM, you need to storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/zh-cn/library/mt607148.aspx) cmdlet. 
+* Have information about the **source and destination storage accounts**. For the source VM, you need to storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet. 
 * Have Azure [PowerShell 1.0](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) (or later) installed.
 * Have downloaded and installed the [AzCopy tool](../storage/storage-use-azcopy.md). 
 

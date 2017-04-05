@@ -159,7 +159,7 @@ A *model* is an object that represents the data in your application. For the app
 * category (string)
 * completed (Boolean)
 
-**PartitionKey** and **RowKey** are used by the Table Service as table keys. For more information, see [Understanding the Table Service data model](https://msdn.microsoft.com/zh-cn/library/azure/dd179338.aspx).
+**PartitionKey** and **RowKey** are used by the Table Service as table keys. For more information, see [Understanding the Table Service data model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 1. In the **tasklist** directory, create a new directory named **models**.
 2. In the **models** directory, create a new file named **task.js**. This file will contain the model for the tasks created by your application.

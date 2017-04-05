@@ -64,7 +64,7 @@ For more information and examples of ScaleR compute contexts, see the inline hel
 
     > ?rxSetComputeContext
 
-You can also refer to the "[ScaleR Distributed Computing Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)" that's available from the [R Server MSDN](https://msdn.microsoft.com/zh-cn/library/mt674634.aspx "R Server on MSDN") library.
+You can also refer to the "[ScaleR Distributed Computing Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)" that's available from the [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server on MSDN") library.
 
 ## Next steps
 In this article, you learned how to create a new HDInsight cluster that includes R Server. You also learned the basics of using the R console from an SSH session. Now you can read the following articles to discover other ways of working with R Server on HDInsight:

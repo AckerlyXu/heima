@@ -25,7 +25,7 @@
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
-## [REST](https://msdn.microsoft.com/zh-cn/library/mt163667.aspx)
+## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Related
 ## [Application Gateway](/azure/application-gateway/)

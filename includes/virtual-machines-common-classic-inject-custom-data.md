@@ -44,6 +44,6 @@ However, on the Ubuntu Cloud Images, you must use cloud-init to configure the re
 For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
-[Add Role Service Management REST API Reference](http://msdn.microsoft.com/zh-cn/library/azure/jj157186.aspx)
+[Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)

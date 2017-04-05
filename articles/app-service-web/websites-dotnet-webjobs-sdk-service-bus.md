@@ -76,7 +76,7 @@ The following code sample reads a queue message that contains a string and write
             logger.WriteLine(message);
         }
 
-**Note:** If you are creating the queue messages in an application that doesn't use the WebJobs SDK, make sure to set [BrokeredMessage.ContentType](http://msdn.microsoft.com/zh-cn/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) to "text/plain".
+**Note:** If you are creating the queue messages in an application that doesn't use the WebJobs SDK, make sure to set [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) to "text/plain".
 
 ### POCO queue message
 The SDK will automatically deserialize a queue message that contains JSON for a POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) type. The following code sample reads a queue message that contains a `BlobInformation` object which has a `BlobName` property:

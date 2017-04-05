@@ -25,7 +25,7 @@
 
     ![Rule Name](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/zh-cn/library/cc646023.aspx).
+Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a> Configure SQL Server to listen on the TCP protocol
 1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
@@ -40,7 +40,7 @@ Open additional ports for other components as needed. For more information, see 
     ![Restart Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. Close SQL Server Configuration Manager.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/zh-cn/library/ms191294.aspx).
+For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
 
 ### <a name="configure-sql-server-for-mixed-mode-authentication"></a> Configure SQL Server for mixed mode authentication
 The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
@@ -92,4 +92,4 @@ To connect to the Database Engine from another computer, you must create at leas
     ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 9. Click OK.
 
-For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/zh-cn/library/aa337562.aspx).
+For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).

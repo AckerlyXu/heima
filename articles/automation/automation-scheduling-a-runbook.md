@@ -39,7 +39,7 @@ You can create a new schedule for runbooks in the Classic Management Portal, or 
 6. Specify a **Start Time** and other options depending on the type of schedule that you selected.
 
 ### To create a new schedule with Windows PowerShell
-You can use the [New-AzureAutomationSchedule](http://msdn.microsoft.com/zh-cn/library/azure/dn690271.aspx) cmdlet to create a new schedule in Azure Automation for classic runbooks. You must specify the start time for the schedule and the frequency it should run.
+You can use the [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) cmdlet to create a new schedule in Azure Automation for classic runbooks. You must specify the start time for the schedule and the frequency it should run.
 
 The following sample commands show how to create a new schedule that runs each day at 3:30 PM starting on January 20, 2015 with an Azure Service Management cmdlet.
 
@@ -60,7 +60,7 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 6. If the runbook has parameters, you will be prompted for their values.  
 
 ### To link a schedule to a runbook with Windows PowerShell
-You can use the [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/zh-cn/library/azure/dn690265.aspx) to link a schedule to a runbook.  You can specify values for the runbook's parameters with the Parameters parameter. See [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) for more information on specifying parameter values.
+You can use the [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) to link a schedule to a runbook.  You can specify values for the runbook's parameters with the Parameters parameter. See [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) for more information on specifying parameter values.
 
 The following sample commands show how to link a schedule using an Azure Service Management cmdlet with parameters.
 
@@ -83,7 +83,7 @@ You can disable a schedule in the Azure Classic Management Portal from the Sched
 4. Change **Enabled** to **No**.
 
 ### To disable a schedule with Windows PowerShell
-You can use the [Set-AzureAutomationSchedule](http://msdn.microsoft.com/zh-cn/library/azure/dn690270.aspx) cmdlet to change the properties of an existing schedule for a runbook. To disable the schedule, specify **false** for the **IsEnabled** parameter.
+You can use the [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) cmdlet to change the properties of an existing schedule for a runbook. To disable the schedule, specify **false** for the **IsEnabled** parameter.
 
 The following sample commands show how to disable a schedule using the Azure Service Management cmdlet.
 

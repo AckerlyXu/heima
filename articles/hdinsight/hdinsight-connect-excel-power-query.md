@@ -80,4 +80,4 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 [image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
 
-[powerquery-download]: https://www.microsoft.com/zh-cn/download/details.aspx?id=39379
+[powerquery-download]: https://www.microsoft.com/download/details.aspx?id=39379

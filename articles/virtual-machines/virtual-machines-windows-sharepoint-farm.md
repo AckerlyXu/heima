@@ -66,19 +66,19 @@ To create the high-availability (nine-server) SharePoint farm:
 The Azure portal preview creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
 
 > [!NOTE]
-> When you create the basic or high-availability SharePoint farms using the Azure portal preview, you cannot specify an existing resource group. To work around this limitation, create these farms with Azure PowerShell. For more information, see [Create SharePoint 2013 dev/test farms with Azure PowerShell](https://technet.microsoft.com/zh-cn/library/mt743093.aspx#powershell).
+> When you create the basic or high-availability SharePoint farms using the Azure portal preview, you cannot specify an existing resource group. To work around this limitation, create these farms with Azure PowerShell. For more information, see [Create SharePoint 2013 dev/test farms with Azure PowerShell](https://technet.microsoft.com/library/mt743093.aspx#powershell).
 >
 >
 
 ## SharePoint 2016 farms
-See [this article](https://technet.microsoft.com/zh-cn/library/mt723354.aspx) for the instructions to build the following single-server SharePoint Server 2016 farm.
+See [this article](https://technet.microsoft.com/library/mt723354.aspx) for the instructions to build the following single-server SharePoint Server 2016 farm.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## Managing the SharePoint farms
 You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
-From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint](http://technet.microsoft.com/zh-cn/library/ee836142.aspx).
+From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 
 ## Next steps
-* Discover additional [SharePoint configurations](https://technet.microsoft.com/zh-cn/library/dn635309.aspx) in Azure infrastructure services.
+* Discover additional [SharePoint configurations](https://technet.microsoft.com/library/dn635309.aspx) in Azure infrastructure services.

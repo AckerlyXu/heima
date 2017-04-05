@@ -153,6 +153,6 @@
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
 ## [Pricing](https://www.azure.cn/pricing/details/app-service/)  
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=windowsazurewebsitespreview)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)  
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Service updates](https://azure.microsoft.com/updates/?product=app-service)

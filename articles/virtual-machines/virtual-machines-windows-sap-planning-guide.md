@@ -174,7 +174,7 @@ ms.custom: H1Hack27Feb2017
 [Logo_Linux]:./media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:./media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/zh-cn/library/azure/mt670598.aspx
+[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
 [planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver on Azure Virtual Machines (VMs) - Planning and Implementation Guide)
 [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
@@ -589,7 +589,7 @@ More information in regards to Azure Storage can be found here:
 
 * <https://www.azure.cn/documentation/services/storage/>
 * <https://azure.microsoft.com/services/site-recovery>
-* <https://msdn.microsoft.com/zh-cn/library/azure/ee691964.aspx>
+* <https://msdn.microsoft.com/library/azure/ee691964.aspx>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
 #### Azure Standard Storage
@@ -803,7 +803,7 @@ Deployment of the Azure Monitoring Extension for SAP (see chapter [Azure Monitor
 
 As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month </downloads/> for a new version of the cmdlets. The new version will just be installed on top of the older version.
 
-For a general list of Azure related PowerShell commands check here: <https://msdn.microsoft.com/zh-cn/library/azure/dn708514.aspx>.
+For a general list of Azure related PowerShell commands check here: <https://msdn.microsoft.com/library/azure/dn708514.aspx>.
 
 ### Management via Azure CLI commands
 For customers who use Linux and want to manage Azure resources Powershell might not be an option. Microsoft offers Azure CLI as an alternative.
@@ -931,7 +931,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 ### Transferring VMs and VHDs between on-premises to Azure
 Since uploading VM images and disks to Azure is not possible via the Azure Portal Preview, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
-A third alternative would be to use various third party GUI oriented tools. However, please make sure that these tools are supporting Azure Page Blobs. For our purposes we need to use Azure Page Blob store (the differences are described here: <https://msdn.microsoft.com/zh-cn/library/azure/ee691964.aspx>). Also the tools provided by Azure are very efficient in compressing the VMs and VHDs which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S. based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
+A third alternative would be to use various third party GUI oriented tools. However, please make sure that these tools are supporting Azure Page Blobs. For our purposes we need to use Azure Page Blob store (the differences are described here: <https://msdn.microsoft.com/library/azure/ee691964.aspx>). Also the tools provided by Azure are very efficient in compressing the VMs and VHDs which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S. based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
 
 #### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Uploading a VHD from on-premises to Azure
 To upload an existing VM or VHD from the on-premises network such a VM or VHD needs to meet the requirements as listed in chapter [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document.
@@ -944,11 +944,11 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 **Powershell**
 
 * Login to your subscription with *Login-AzureRmAccount -EnvironmentName AzureChinaCloud*
-* Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://msdn.microsoft.com/zh-cn/library/mt619263.aspx>
-* Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://msdn.microsoft.com/zh-cn/library/mt603554.aspx>
-* Set the OS disk of a new VM config to the VHD with *Set-AzureRmVMOSDisk* - see <https://msdn.microsoft.com/zh-cn/library/mt603746.aspx>
-* Create a new VM from the VM config with *New-AzureRmVM* - see <https://msdn.microsoft.com/zh-cn/library/mt603754.aspx>
-* Add a data disk to a new VM with *Add-AzureRmVMDataDisk* - see <https://msdn.microsoft.com/zh-cn/library/mt603673.aspx>
+* Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://msdn.microsoft.com/library/mt619263.aspx>
+* Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://msdn.microsoft.com/library/mt603554.aspx>
+* Set the OS disk of a new VM config to the VHD with *Set-AzureRmVMOSDisk* - see <https://msdn.microsoft.com/library/mt603746.aspx>
+* Create a new VM from the VM config with *New-AzureRmVM* - see <https://msdn.microsoft.com/library/mt603754.aspx>
+* Add a data disk to a new VM with *Add-AzureRmVMDataDisk* - see <https://msdn.microsoft.com/library/mt603673.aspx>
 
 **Azure CLI**
 
@@ -969,10 +969,10 @@ To upload an existing VM or VHD from the on-premises network in order to use it 
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] or [How to capture a Linux virtual machine to use as a Resource Manager template][virtual-machines-linux-capture-image-capture]
 * Login to your subscription with *Login-AzureRmAccount -EnvironmentName AzureChinaCloud*
-* Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://msdn.microsoft.com/zh-cn/library/mt619263.aspx>
-* Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://msdn.microsoft.com/zh-cn/library/mt603554.aspx>
-* Set the OS disk of a new VM config to the VHD with *Set-AzureRmVMOSDisk -SourceImageUri -CreateOption fromImage* - see <https://msdn.microsoft.com/zh-cn/library/mt603746.aspx>
-* Create a new VM from the VM config with *New-AzureRmVM* - see <https://msdn.microsoft.com/zh-cn/library/mt603754.aspx>
+* Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://msdn.microsoft.com/library/mt619263.aspx>
+* Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://msdn.microsoft.com/library/mt603554.aspx>
+* Set the OS disk of a new VM config to the VHD with *Set-AzureRmVMOSDisk -SourceImageUri -CreateOption fromImage* - see <https://msdn.microsoft.com/library/mt603746.aspx>
+* Create a new VM from the VM config with *New-AzureRmVM* - see <https://msdn.microsoft.com/library/mt603754.aspx>
 
 **Azure CLI**
 
@@ -1003,7 +1003,7 @@ Then you can leverage the command by simply defining the parameter SourceUri as 
 Save-AzureRmVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.chinacloudapi.cn/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
 ```
 
-For more details of the Save-AzureRmVhd cmdlet, please check here <https://msdn.microsoft.com/zh-cn/library/mt622705.aspx>.
+For more details of the Save-AzureRmVhd cmdlet, please check here <https://msdn.microsoft.com/library/mt622705.aspx>.
 
 #### CLI
 Once the SAP system is stopped and the VM is shutdown, you can use the Azure CLI command azure storage blob download on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD which you can find in the 'Storage Section' of the Azure Portal Preview (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
@@ -1072,8 +1072,8 @@ Copying VHDs between subscriptions is also possible. For more information read [
 
 The basic flow of the PS cmdlet logic looks like this:
 
-* Create a storage account context for the source storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/zh-cn/library/dn806380.aspx>
-* Create a storage account context for the target storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/zh-cn/library/dn806380.aspx>
+* Create a storage account context for the source storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
+* Create a storage account context for the target storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
 * Start the copy with
 
 ```powershell
@@ -1216,8 +1216,8 @@ Azure Geo-replication works locally on each VHD in a VM and does not replicate t
 >
 > In order to set the automount, please check the documentation of the command line executable diskpart.exe here:
 >
-> * [DiskPart Command-Line Options](https://technet.microsoft.com/zh-cn/library/cc766465.aspx)
-> * [Automount](http://technet.microsoft.com/zh-cn/library/cc753703.aspx)
+> * [DiskPart Command-Line Options](https://technet.microsoft.com/library/cc766465.aspx)
+> * [Automount](http://technet.microsoft.com/library/cc753703.aspx)
 >
 > The Windows command line window should be opened as administrator.
 >
@@ -1591,7 +1591,7 @@ In Azure the ability of the Remote Desktop Services to provide users the access 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> More details on printing with Windows can be found here: <http://technet.microsoft.com/zh-cn/library/jj590748.aspx>.
+> More details on printing with Windows can be found here: <http://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
@@ -1899,7 +1899,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > ![Windows][Logo_Windows] Windows
 >
 > Theoretically VMs that run databases can be backed up in a consistent manner as well if the DBMS systems supports the Windows VSS
-> (Volume Shadow Copy Service <https://msdn.microsoft.com/zh-cn/library/windows/desktop/bb968832(v=vs.85).aspx> ) as e.g. SQL Server does.
+> (Volume Shadow Copy Service <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx> ) as e.g. SQL Server does.
 > However, be aware that based on Azure VM backups point-in-time restores of databases are not possible. Therefore, the
 > recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup
 >

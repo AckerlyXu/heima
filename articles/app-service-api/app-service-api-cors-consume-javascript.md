@@ -236,7 +236,7 @@ The following steps summarize the process for enabling Web API CORS support. For
 ## Using Azure API Management with API Apps
 If you use Azure API Management with an API app, configure CORS in API Management instead of in the API app. For more information, see the following resources:
 
-* [API Management cross domain policies](https://msdn.microsoft.com/zh-cn/library/azure/dn894084.aspx#CORS)
+* [API Management cross domain policies](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
 
 ## Troubleshooting
 In case you run into a problem while going through this tutorial, here are some troubleshooting ideas.

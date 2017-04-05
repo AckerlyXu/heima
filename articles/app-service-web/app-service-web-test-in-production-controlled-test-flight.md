@@ -60,7 +60,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 * Basic understanding of the following:
     * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
     * [Git](http://git-scm.com/documentation)
-    * [PowerShell](https://technet.microsoft.com/zh-cn/library/bb978526.aspx)
+    * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:

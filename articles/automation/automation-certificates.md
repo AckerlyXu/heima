@@ -32,11 +32,11 @@ The cmdlets in the following table are used to create and manage automation cert
 
 |Cmdlets|Description|
 |:---|:---|
-|[Get-AzureAutomationCertificate](https://msdn.microsoft.com/zh-cn/library/dn913765.aspx)|Retrieves information about a certificate. You can only retrieve the certificate itself from Get-AzureAutomationCertificate activity.|
-|[New-AzureAutomationCertificate](https://msdn.microsoft.com/zh-cn/library/dn913764.aspx)|Creates a new certificate into Azure Automation.|
-[Remove-AzureAutomationCertificate](https://msdn.microsoft.com/zh-cn/library/dn913773.aspx)|Removes a certificate from Azure Automation.|
-|[Set-AzureAutomationCertificate](https://msdn.microsoft.com/zh-cn/library/dn913763.aspx)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
-|[Add-AzureCertificate](https://msdn.microsoft.com/zh-cn/library/azure/dn495214.aspx)|Uploads a service certificate for the specified cloud service.|
+|[Get-AzureAutomationCertificate](https://msdn.microsoft.com/library/dn913765.aspx)|Retrieves information about a certificate. You can only retrieve the certificate itself from Get-AzureAutomationCertificate activity.|
+|[New-AzureAutomationCertificate](https://msdn.microsoft.com/library/dn913764.aspx)|Creates a new certificate into Azure Automation.|
+[Remove-AzureAutomationCertificate](https://msdn.microsoft.com/library/dn913773.aspx)|Removes a certificate from Azure Automation.|
+|[Set-AzureAutomationCertificate](https://msdn.microsoft.com/library/dn913763.aspx)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Uploads a service certificate for the specified cloud service.|
 
 ## Creating a new certificate
 
@@ -64,7 +64,7 @@ The following example demonstrates how to create a new Automation certificate an
 
 ## Using a certificate
 
-You must use the **Get-AutomationCertificate** activity to use a certificate. You cannot use the [Get-AzureAutomationCertificate](https://msdn.microsoft.com/zh-cn/library/dn913765.aspx) cmdlet since it returns information about the certificate asset but not the certificate itself.
+You must use the **Get-AutomationCertificate** activity to use a certificate. You cannot use the [Get-AzureAutomationCertificate](https://msdn.microsoft.com/library/dn913765.aspx) cmdlet since it returns information about the certificate asset but not the certificate itself.
 
 ### Textual runbook sample
 

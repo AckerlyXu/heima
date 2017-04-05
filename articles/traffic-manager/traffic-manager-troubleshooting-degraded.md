@@ -87,8 +87,8 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Azure Web Apps](/azure/app-service-web/)
 
-[Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)
+[Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/library/hh758255.aspx)
 
 [Azure Traffic Manager Cmdlets][1]
 
-[1]: https://msdn.microsoft.com/zh-cn/library/mt125941(v=azure.200).aspx
+[1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx

@@ -23,7 +23,7 @@ ms.author: kumud
 The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
 
 > [!NOTE]
-> You cannot add external locations or Traffic Manager profiles as endpoints using the Azure Classic Management Portal. You must use the REST API [Create Definition](https://msdn.microsoft.com/zh-cn/library/azure/hh758257.aspx) or Windows PowerShell [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/zh-cn/library/dn690257.aspx).
+> You cannot add external locations or Traffic Manager profiles as endpoints using the Azure Classic Management Portal. You must use the REST API [Create Definition](https://msdn.microsoft.com/library/azure/hh758257.aspx) or Windows PowerShell [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690257.aspx).
 
 You can also disable individual endpoints that are part of a Traffic Manager profile. Endpoints include both cloud services and websites. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled.
 
@@ -65,7 +65,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 4. At the bottom of the page, click **Delete**.
 
 > [!NOTE]
-> You cannot delete external locations or Traffic Manager profiles as endpoints using the Azure Classic Management Portal. You must use Windows PowerShell. For more information, see [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/zh-cn/library/dn690251.aspx).
+> You cannot delete external locations or Traffic Manager profiles as endpoints using the Azure Classic Management Portal. You must use Windows PowerShell. For more information, see [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
 ## Next steps
 
@@ -73,4 +73,4 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 * [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
 * [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
 * [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
-* [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)
+* [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/library/hh758255.aspx)

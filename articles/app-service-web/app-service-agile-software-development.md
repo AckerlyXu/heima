@@ -66,7 +66,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 * Basic understanding of the following:
     * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) template deployment (also see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
     * [Git](http://git-scm.com/documentation)
-    * [PowerShell](https://technet.microsoft.com/zh-cn/library/bb978526.aspx)
+    * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:

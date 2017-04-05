@@ -30,10 +30,10 @@ This article assumes that you have the following items:
 
 * **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. see [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
 * **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](/downloads/). A tutorial that describes how install and configure the module is available here. Use the [Azure Downloads](/downloads/) cmdlet to upload the VHD.
-* **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/zh-cn/library/hh846766.aspx).
+* **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
-> The newer VHDX format is not supported in Azure. You can convert the disk to VHD format by using Hyper-V Manager or the cmdlet [convert-vhd](https://technet.microsoft.com/zh-cn/library/hh848454.aspx). In addition, there is a [tutorial on MSDN about how to use FreeBSD with Hyper-V](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
+> The newer VHDX format is not supported in Azure. You can convert the disk to VHD format by using Hyper-V Manager or the cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx). In addition, there is a [tutorial on MSDN about how to use FreeBSD with Hyper-V](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
 >
 >
 
@@ -175,7 +175,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
     `Import-AzurePublishSettingsFile <PathToFile>`, where
    `<PathToFile>` is the full path to the .publishsettings file.
 
-    For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/zh-cn/library/azure/jj554332.aspx).
+    For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/azure/jj554332.aspx).
 
     For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
 

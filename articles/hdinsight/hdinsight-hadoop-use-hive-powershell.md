@@ -155,7 +155,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     > <p>  
     > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
     > <p>  
-    > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/zh-cn/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+    > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ## <a id="troubleshooting"></a> Troubleshooting
 

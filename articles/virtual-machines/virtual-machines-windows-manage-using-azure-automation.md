@@ -29,7 +29,7 @@ Azure Automation provides a highly reliable and highly available workflow execut
 You can lower operational overhead and free up IT and DevOps staff to focus on work that adds business value by running your cloud management tasks automatically with Azure Automation.
 
 ## How can Azure Automation help manage Azure virtual machines?
-Virtual machines can be managed in Azure Automation by using [Azure PowerShell](https://msdn.microsoft.com/zh-cn/library/azure/jj156055.aspx). Azure Automation includes the Azure PowerShell cmdlets, so you can perform all of your virtual machine management tasks within the service. You can also pair the cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and third-party systems.
+Virtual machines can be managed in Azure Automation by using [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation includes the Azure PowerShell cmdlets, so you can perform all of your virtual machine management tasks within the service. You can also pair the cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and third-party systems.
 
 ## Next steps
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure virtual machines, learn more:

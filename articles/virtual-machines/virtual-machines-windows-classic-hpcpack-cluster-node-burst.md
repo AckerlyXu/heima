@@ -20,7 +20,7 @@ ms.author: danlep
 
 ---
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure
-If you set up a [Microsoft HPC Pack](https://technet.microsoft.com/zh-cn/library/cc514029) cluster in Azure, you might want a way to quickly scale the cluster capacity up or down, without maintaining a set of preconfigured compute node VMs. This article shows you how to add on-demand "burst" nodes (worker role instances
+If you set up a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, you might want a way to quickly scale the cluster capacity up or down, without maintaining a set of preconfigured compute node VMs. This article shows you how to add on-demand "burst" nodes (worker role instances
 running in a cloud service) as compute resources to a
  head node in Azure. 
 
@@ -34,7 +34,7 @@ cloud-based HPC Pack head node VM for a test or proof-of-concept deployment. The
 on-premises HPC Pack cluster. For a tutorial, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). For
 detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC
-Pack](https://technet.microsoft.com/zh-cn/library/gg481749.aspx).
+Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - You can use a stand-alone head node VM or one that is part of a larger cluster. To create a stand-alone head node, see [Deploy an HPC
@@ -82,13 +82,13 @@ subscription. To upload the certificate in the [Azure Classic Management Portal]
 
 For additional options to configure the management certificate, see
 [Scenarios to Configure the Azure Management Certificate for Azure Burst
-Deployments](http://technet.microsoft.com/zh-cn/library/gg481759.aspx).
+Deployments](http://technet.microsoft.com/library/gg481759.aspx).
 
 ## Step 3: Deploy Azure nodes to the cluster
 The steps to add and start
 Azure nodes in this scenario are generally the same as the steps with
 an on-premises head node. For more information, see the following
-sections in [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/zh-cn/library/gg481758.aspx):
+sections in [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
 
 * Create an Azure node template
 * Add Azure nodes to the Windows HPC cluster
@@ -98,7 +98,7 @@ After you add and start the nodes, they are ready for you to use to run cluster 
 
 If you encounter problems when deploying Azure nodes, see [Troubleshoot
 Deployments of Azure Nodes with Microsoft HPC
-Pack](http://technet.microsoft.com/zh-cn/library/jj159097.aspx).
+Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
 * If you want to

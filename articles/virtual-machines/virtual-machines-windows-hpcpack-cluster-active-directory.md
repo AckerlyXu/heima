@@ -18,7 +18,7 @@ ms.author: danlep
 
 ---
 # Manage an HPC Pack cluster in Azure using Azure Active Directory
-[Microsoft HPC Pack 2016](https://technet.microsoft.com/zh-cn/library/cc514029) supports integration with [Azure Active Directory](../active-directory/index.md) (Azure AD) for administrators who deploy an HPC Pack cluster in Azure.
+[Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) supports integration with [Azure Active Directory](../active-directory/index.md) (Azure AD) for administrators who deploy an HPC Pack cluster in Azure.
 
 Follow the steps in this article for the following high level tasks: 
 * Manually integrate your HPC Pack cluster with your Azure AD tenant
@@ -94,7 +94,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
     ],
     ```
 7. Save the file. Then in the portal, click **Manage Manifest** > **Upload Manifest**. You can then upload the edited manifest.
-8. Click **Users**, select a user, and then click **Assign**. Assign one of the available roles (HpcUsers or HpcAdminMirror) to the user. Repeat this step with additional users in the directory. For background information about cluster users, see [Managing Cluster Users](https://technet.microsoft.com/zh-cn/library/ff919335(v=ws.11).aspx).
+8. Click **Users**, select a user, and then click **Assign**. Assign one of the available roles (HpcUsers or HpcAdminMirror) to the user. Repeat this step with additional users in the directory. For background information about cluster users, see [Managing Cluster Users](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
 ## Step 2: Register the HPC cluster client with your Azure AD tenant
 

@@ -85,7 +85,7 @@ This [schema file](https://github.com/Azure/iisnode/blob/master/src/config/iisno
     Default value is false. If enabled, your node application can connect to a named pipe (environment variable IISNODE\_CONTROL\_PIPE) and send a "recycle" message. This will cause the w3wp to recycle gracefully.
 * idlePageOutTimePeriod
 
-    Default value is 0 which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every 'idlePageOutTimePeriod' milliseconds. To understand what page out means, please refer to this [documentation](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ms682606.aspx). This setting will be useful for applications that consume a lot of memory and want to pageout memory to disk occasionally to free up some RAM.
+    Default value is 0 which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every 'idlePageOutTimePeriod' milliseconds. To understand what page out means, please refer to this [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx). This setting will be useful for applications that consume a lot of memory and want to pageout memory to disk occasionally to free up some RAM.
 
 > [!WARNING]
 > Use caution when enabling the following configuration settings on production applications. Recommendation is to not enable them on live production applications.

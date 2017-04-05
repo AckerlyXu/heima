@@ -7,7 +7,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 * Adding the VM to an availability set
 
 > [!IMPORTANT]
-> If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](https://msdn.microsoft.com/zh-cn/library/azure/jj156007.aspx).
+> If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx).
 > 
 > 
 
@@ -17,7 +17,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 4. Choose the image you want to use, and then click the arrow to continue.
 5. If multiple versions of the image are available, in **Version Release Date**, pick the version you want to use.
 6. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
-7. Use **Tier** and **Size** to select the appropriate size for the virtual machine. The size you select affects the maximum configuration of the virtual machine, as well as the pricing. For configuration details, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/zh-cn/library/azure/dn197896.aspx).
+7. Use **Tier** and **Size** to select the appropriate size for the virtual machine. The size you select affects the maximum configuration of the virtual machine, as well as the pricing. For configuration details, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 8. In **New User Name**, type a name for the administrative account that you want to use to manage the server.
 9. In **New Password**, type a strong password for the administrative account. In **Confirm Password**, retype the same password.
 10. Click the arrow to continue.
@@ -36,7 +36,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 
     **Note**: Virtual machines in an availability set are deployed to different fault domains. Placing multiple virtual machines in an availability set helps ensure that your application is available during network failures, local disk hardware failures, and any planned downtime.
 15. Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-16. Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Manage Extensions](https://msdn.microsoft.com/zh-cn/library/dn606311.aspx).
+16. Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Manage Extensions](https://msdn.microsoft.com/library/dn606311.aspx).
 17. Click the arrow to create the virtual machine.
 
     ![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)

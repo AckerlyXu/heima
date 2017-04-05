@@ -139,8 +139,8 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt163510(v=azure.300)">PowerShell (resource manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt270335(v=azure.300)">PowerShell (classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (resource manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (classic)</a></p>
                     </div>
                 </div>
             </div>
@@ -152,8 +152,8 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt163859">REST (resource manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/jj154113">REST (classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (resource manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (classic)</a></p>
                     </div>
                 </div>
             </div>

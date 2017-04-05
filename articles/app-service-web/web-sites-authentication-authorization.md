@@ -32,7 +32,7 @@ approach has the following advantages:
 
 * Does not require any authentication code in your app. Let App Service do the authentication for you and spend
   your time on providing functionality in your app.
-* [Azure AD Graph API](http://msdn.microsoft.com/zh-cn/library/azure/hh974476.aspx) enables access to directory data 
+* [Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx) enables access to directory data 
   from your Azure app.
 * Provides SSO to [all applications supported by Azure Active Directory](https://www.azure.cn/home/features/identity/), 
   including Office 365, Dynamics CRM Online, Microsoft Intune, and thousands of non-Microsoft cloud applications. 
@@ -49,9 +49,9 @@ from being stored in Azure. However, note the following:
 
 * STS topology must be deployed on-premises, with cost and management overhead.
 * Only AD FS administrators can configure 
-  [relying party trusts and claim rules](http://technet.microsoft.com/zh-cn/library/dd807108.aspx), which may limit
+  [relying party trusts and claim rules](http://technet.microsoft.com/library/dd807108.aspx), which may limit
   the developer's options. On the other hand, it is possible to manage and customize
-  [claims](http://technet.microsoft.com/zh-cn/library/ee913571.aspx) on a per-application basis.
+  [claims](http://technet.microsoft.com/library/ee913571.aspx) on a per-application basis.
 * Access to on-premises AD data requires a separate solution through the corporate firewall.
 
 To see how to write a line-of-business Azure app that authenticates with an on-premises STS, see 
