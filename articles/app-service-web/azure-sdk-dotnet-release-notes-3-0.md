@@ -21,7 +21,7 @@ ms.author: juliako;mikhegn
 
 This topic includes release notes for version 3.0 of the Azure SDK for .NET.
 
-##Azure SDK for .NET 3.0 release summary
+## Azure SDK for .NET 3.0 release summary
 
 Release date: 03/07/2017
 

@@ -135,35 +135,6 @@ Traffic manager cannot provide any certificate validation, including:
 
 Traffic Manager uses host headers in HTTP and HTTPS health checks. The host header used by Traffic Manager is the name of the endpoint target configured in the profile. The value used in the host header cannot be specified separately from the target property.
 
-### What are the IP addresses from which the health checks originate?
-
-The following list contains the IP addresses from which Traffic Manager health checks can originate. You may use this list to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
-
 ## Traffic Manager nested profiles
 
 ### How do I configure nested profiles?

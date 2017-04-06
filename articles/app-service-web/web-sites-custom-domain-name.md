@@ -79,7 +79,7 @@ instead, skip this step and move onto the next section.
     ![Map custom domain name with A record: Get IP address for your Azure App Service app](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 5. Keep this portal blade open. You will come back to it once you create the DNS records.
 
-## <a name="createdns"></a> Step 2. Create the DNS record(s)
+## <a name="createdns" id="step-2-create-the-dns-records"></a> Step 2. Create the DNS record(s)
 Log in to your domain registrar and use their tool to add an A record or CNAME record. Every registrar's UI is slightly 
 different, so you should consult your provider's documentation. However, here are some general guidelines.
 

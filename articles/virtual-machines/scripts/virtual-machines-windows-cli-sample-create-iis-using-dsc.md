@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```powershell
+```azurecli
 #!/bin/bash
 
 # Update for your admin password
