@@ -26,6 +26,8 @@ Creating a Linux virtual machine (VM) is easy to do from the command line or fro
 ## Prerequisites
 This topic assumes you already have a working Azure subscription ([trial signup](https://www.azure.cn/pricing/1rmb-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to your Azure subscription with [az login](https://docs.microsoft.com/cli/azure/#login) before you [create a VM](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## Azure OS Disk
 Once you create a Linux VM in Azure, it has two disks associated with it. **/dev/sda** is your OS disk, **/dev/sdb** is your temporary disk.  Do not use the main OS disk (**/dev/sda**) for anything except the operating system as it is optimized for fast VM boot time and does not provide good performance for your workloads. You want to attach one or more disks to your VM to get persistent and optimized storage for your data. 
 

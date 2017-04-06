@@ -24,6 +24,8 @@ The default virtual hard disk size for the operating system (OS) is typically 30
 ## Expand managed disk
 Make sure that you have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 In the following samples, replace example parameter names with your own values. Example parameter names include `myResourceGroup` and `myVM`.
 
 1. Operations on virtual hard disks cannot be performed with the VM running. Deallocate your VM with [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:

@@ -28,6 +28,8 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 - You have access to your domain registrar's DNS configuration page.
 - You have a valid .PFX file and its password for the SSL certificate you want to upload and bind.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## Sample script
 
 ```powershell

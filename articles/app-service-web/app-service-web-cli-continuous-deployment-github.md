@@ -31,6 +31,8 @@ This sample script does the following using Azure CLI 2.0:
 * Run `az login` to log in to Azure.
 * Put your web app code in a GitHub repository you own.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 > [!NOTE]
 > To setup continuous deployment, see [Continuous Deployment to Azure App Service](app-service-continuous-deployment.md). In Azure China, you need to set this with KUDU.
 >

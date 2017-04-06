@@ -44,6 +44,8 @@ The sample Azure CLI 2.0 commands following expect a simple environment already 
 
 To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow the steps following.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login). 
 
 2. Create an NSG using the [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) command. 

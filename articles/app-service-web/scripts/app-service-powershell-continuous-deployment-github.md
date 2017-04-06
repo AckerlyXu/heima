@@ -28,6 +28,8 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 - The application code is in a public or private GitHub repository that you own.
 - You have [created an access token in your GitHub account](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## Sample script
 
 ```powershell

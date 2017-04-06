@@ -42,6 +42,8 @@ You can complete the task using one of the following CLI versions:
 ## Prerequisite
 If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login). 
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## View existing NSGs
 To view the list of NSGs in a specific resource group, run the [az network nsg list](https://docs.microsoft.com/cli/azure/network/nsg#list) command with a `-o table` output format:
 

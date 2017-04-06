@@ -32,6 +32,8 @@ Log in to Azure by running `az login` and following the on-screen directions.
 az login
 ```
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## Create a resource group   
 Create a [resource group](../azure-resource-manager/resource-group-overview.md). This is where you put all the Azure resources that you want to manage together, such as 
 the web app and its SQL Database back end.

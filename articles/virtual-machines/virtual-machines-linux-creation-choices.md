@@ -24,6 +24,8 @@ You have the flexibility in Azure to create a Linux virtual machine (VM) using t
 
 The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is available across platforms via an npm package, distro-provided packages, or Docker container. Install the most appropriate build for your environment and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login)
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 The following examples use the Azure CLI 2.0. Read each article for more details on the commands shown. You can also find examples on Linux creation choices using the [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md).
 
 * [Create a Linux VM using the Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

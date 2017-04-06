@@ -46,6 +46,8 @@ This article covers the Resource Manager deployment model. You can also [manage 
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login). 
 
 2. Create a public IP for the VM with the [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) command. The list shown after the output explains the parameters used.

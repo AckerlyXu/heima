@@ -31,6 +31,8 @@ The requirements are:
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 Pre-Requirements: Resource Group, virtual network and subnet, Network Security Group with SSH inbound.
 
 ### Create a virtual network interface card with a static internal DNS name

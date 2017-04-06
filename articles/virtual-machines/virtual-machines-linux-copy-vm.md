@@ -36,6 +36,8 @@ You can also [upload and create a VM from a VHD](virtual-machines-linux-upload-v
 
 -   Have an Azure VM to use as the source for your copy.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## Step 1: Stop the source VM
 
 Deallocate the source VM by using [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate).

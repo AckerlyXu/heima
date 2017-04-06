@@ -29,6 +29,8 @@ Before you start, make sure that the Azure CLI has been installed. For more info
 
 Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az login
 ```

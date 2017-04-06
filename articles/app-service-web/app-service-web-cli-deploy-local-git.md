@@ -31,6 +31,8 @@ This sample script does the following using Azure CLI 2.0:
 * Run `az login` to log in to Azure.
 * Commit your web app code into a local Git repository.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## Create VM sample
 
 ```

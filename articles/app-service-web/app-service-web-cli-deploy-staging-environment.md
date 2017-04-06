@@ -34,6 +34,8 @@ This sample script does the following using Azure CLI 2.0:
 * Run `az login` to log in to Azure.
 * Put your web app code in a GitHub repository you own.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 > [!NOTE]
 > If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
 > cannot set up the SSH key and webhooks necessary for continuous deployment.
