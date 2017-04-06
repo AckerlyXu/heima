@@ -133,7 +133,7 @@ For information on other ways you can work with Hadoop on HDInsight:
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
+[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: /azure/hdinsight-connect-excel-power-query/
 

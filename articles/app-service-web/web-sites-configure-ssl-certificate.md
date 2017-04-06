@@ -50,7 +50,7 @@ a custom certificate, you need to do the following:
 * **Scale up to Basic tier or higher** App Service plans in lower pricing tiers don't support custom SSL 
   certificates. For instructions, see [Scale up an app in Azure](web-sites-scale.md). 
 * **Get an SSL certificate** - If you do not already have one, you need to get one from a trusted 
-  [certificate authority](http://zh.wikipedia.org/wiki/证书颁发机构) (CA). The certificate must meet all the
+  [certificate authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). The certificate must meet all the
   following requirements:
 
     * It is signed by a trusted CA (no private CA servers).
@@ -470,7 +470,7 @@ Before you move on, review the [What you need](#bkmk_domainname) section and ver
     > [!NOTE] 
     > **IP based SSL** associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional method of associating SSL certificates with a web server.  
     ><p>
-    > **SNI based SSL** is an extension to SSL and **[Transport Layer Security](http://zh.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern  browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+    > **SNI based SSL** is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern  browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
     > 
 
 9. Click **Add Binding** to save the changes and enable SSL.
@@ -586,7 +586,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 [exportcertiis]: http://technet.microsoft.com/library/cc731386(WS.10).aspx
 [openssl]: http://www.openssl.org/
 [portal]: https://manage.windowsazure.cn/
-[tls]: http://zh.wikipedia.org/wiki/Transport_Layer_Security
+[tls]: http://en.wikipedia.org/wiki/Transport_Layer_Security
 [staticip]: ./media/web-sites-configure-ssl-certificate/staticip.png
 [website]: ./media/web-sites-configure-ssl-certificate/sslwebsite.png
 [scale]: ./media/web-sites-configure-ssl-certificate/sslscale.png

@@ -33,7 +33,7 @@ This article focuses on how to lock down the login security of your Linux VM.  A
 * Test the new SSHD configuration
 
 ## Introduction
-[SSH defined](https://zh.wikipedia.org/wiki/Secure_Shell)
+[SSH defined](https://en.wikipedia.org/wiki/Secure_Shell)
 
 SSHD is the SSH Server that runs on the Linux VM.  SSH is a client that runs from a shell on your MacBook or Linux workstation.  SSH is also the protocol used to secure and encrypt the communication between your workstation and the Linux VM.
 
