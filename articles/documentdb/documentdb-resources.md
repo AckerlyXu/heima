@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Azure DocumentDB resource model and concepts | Azure"
-    description="Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more."
-    keywords="Hierarchical model, documentdb, azure, Azure"
-    services="documentdb"
-    documentationcenter=""
-    author="AndrewHoh"
-    manager="jhubbard"
-    editor="monicar" />
-<tags
-    ms.assetid="ef9d5c0c-0867-4317-bb1b-98e219799fd5"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/14/2017"
-    wacn.date=""
-    ms.author="anhoh"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure DocumentDB resource model and concepts | Azure
+description: Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more.
+keywords: Hierarchical model, documentdb, azure, Azure
+services: documentdb
+documentationcenter: ''
+author: AndrewHoh
+manager: jhubbard
+editor: monicar
+
+ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/14/2017
+wacn.date: ''
+ms.author: anhoh
+ms.custom: H1Hack27Feb2017
+---
 
 # DocumentDB hierarchical resource model and core concepts
 The database entities that DocumentDB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers and status codes. 
@@ -33,7 +34,7 @@ By reading this article, you'll be able to answer the following questions:
 ## Hierarchical resource model
 As the following diagram illustrates, the DocumentDB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > DocumentDB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [.NET client SDK](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx).
 > 
 > 
@@ -41,15 +42,15 @@ As the following diagram illustrates, the DocumentDB hierarchical **resource mod
 ![DocumentDB hierarchical resource model][1]  
 **Hierarchical resource model**   
 
-To start working with resources, you must [create a database account](/documentation/articles/documentdb-create-account/) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
+To start working with resources, you must [create a database account](./documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
 | Resource | Description |
 | --- | --- |
-| Database account |A database account is associated with a set of databases and a fixed amount of blob storage for attachments. You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](/pricing/details/documentdb/). |
+| Database account |A database account is associated with a set of databases and a fixed amount of blob storage for attachments. You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](https://www.azure.cn/pricing/details/documentdb/). |
 | Database |A database is a logical container of document storage partitioned across collections. It is also a users container. |
 | User |The logical namespace for scoping permissions. |
 | Permission |An authorization token associated with a user for access to a specific resource. |
-| Collection |A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](/documentation/articles/documentdb-performance-levels/) is determined by the performance level associated with the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput. |
+| Collection |A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](./documentdb-performance-levels.md) is determined by the performance level associated with the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput. |
 | Stored Procedure |Application logic written in JavaScript which is registered with a collection and transactionally executed within the database engine. |
 | Trigger |Application logic written in JavaScript executed before or after either an insert, replace or delete operation. |
 | UDF |Application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB query language. |
@@ -59,7 +60,7 @@ To start working with resources, you must [create a database account](/documenta
 ## System vs. user defined resources
 Resources such as database accounts, databases, collections, users, permissions, stored procedures, triggers, and UDFs - all have a fixed schema and are called system resources. In contrast, resources such as documents and attachments have no restrictions on the schema and are examples of user defined resources. In DocumentDB, both system and user defined resources are represented and managed as standard-compliant JSON. All resources, system or user defined, have the following common properties.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Note that all system generated properties in a resource are prefixed with an underscore (_) in their JSON representation.
 > 
 > 
@@ -127,7 +128,7 @@ The DocumentDB REST APIs support addressing of resources and routing of requests
 ## Database accounts
 You can provision one or more DocumentDB database accounts using your Azure subscription.
 
-You can [create and manage DocumentDB database accounts](/documentation/articles/documentdb-create-account/) via the Azure Portal at [http://portal.azure.cn/](https://portal.azure.cn/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
+You can [create and manage DocumentDB database accounts](./documentdb-create-account.md) via the Azure Portal at [https://portal.azure.cn/](https://portal.azure.cn/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
 
 ### Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  
@@ -197,7 +198,7 @@ The documents within a collection can have arbitrary schemas and you can query d
 
 The DocumentDB query model attempts to strike a balance between functionality, efficiency and simplicity. The DocumentDB database engine natively compiles and executes the SQL query statements. You can query a collection using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx). The .NET SDK comes with a LINQ provider.
 
-> [AZURE.TIP]
+> [!TIP]
 > You can try out DocumentDB and run SQL queries against our dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 > 
 > 
@@ -219,52 +220,55 @@ The ability to execute JavaScript directly within the database engine in the sam
 
 After creating a collection, you can register stored procedures, triggers and UDFs with a collection using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx). After registration, you can reference and execute them. Consider the following stored procedure written entirely in JavaScript, the code below takes two arguments (book name and author name) and creates a new document, queries for a document and then updates it - all within an implicit ACID transaction. At any point during the execution, if a JavaScript exception is thrown, the entire transaction aborts.
 
-    function businessLogic(name, author) {
-        var context = getContext();
-        var collectionManager = context.getCollection();        
-        var collectionLink = collectionManager.getSelfLink()
+```
+function businessLogic(name, author) {
+    var context = getContext();
+    var collectionManager = context.getCollection();        
+    var collectionLink = collectionManager.getSelfLink()
 
-        // create a new document.
-        collectionManager.createDocument(collectionLink,
-            {id: name, author: author},
-            function(err, documentCreated) {
-                if(err) throw new Error(err.message);
+    // create a new document.
+    collectionManager.createDocument(collectionLink,
+        {id: name, author: author},
+        function(err, documentCreated) {
+            if(err) throw new Error(err.message);
 
-                // filter documents by author
-                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
-                collectionManager.queryDocuments(collectionLink,
-                    filterQuery,
-                    function(err, matchingDocuments) {
-                        if(err) throw new Error(err.message);
+            // filter documents by author
+            var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
+            collectionManager.queryDocuments(collectionLink,
+                filterQuery,
+                function(err, matchingDocuments) {
+                    if(err) throw new Error(err.message);
 
-                        context.getResponse().setBody(matchingDocuments.length);
+                    context.getResponse().setBody(matchingDocuments.length);
 
-                        // Replace the author name for all documents that satisfied the query.
-                        for (var i = 0; i < matchingDocuments.length; i++) {
-                            matchingDocuments[i].author = "George R. R. Martin";
-                            // we don’t need to execute a callback because they are in parallel
-                            collectionManager.replaceDocument(matchingDocuments[i]._self,
-                                matchingDocuments[i]);   
-                        }
-                    })
-            })
-    };
+                    // Replace the author name for all documents that satisfied the query.
+                    for (var i = 0; i < matchingDocuments.length; i++) {
+                        matchingDocuments[i].author = "George R. R. Martin";
+                        // we don’t need to execute a callback because they are in parallel
+                        collectionManager.replaceDocument(matchingDocuments[i]._self,
+                            matchingDocuments[i]);   
+                    }
+                })
+        })
+};
+```
 
 The client can “ship” the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with DocumentDB resources](https://msdn.microsoft.com/zh-cn/library/azure/mt622086.aspx). 
 
-    client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
-       .then(function(createdStoredProcedure) {
-            return client.executeStoredProcedureAsync(createdStoredProcedure.resource._self,
-                "NoSQL Distilled",
-                "Martin Fowler");
-        })
-        .then(function(result) {
-            console.log(result);
-        },
-        function(error) {
-            console.log(error);
-        });
-
+```
+client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
+   .then(function(createdStoredProcedure) {
+        return client.executeStoredProcedureAsync(createdStoredProcedure.resource._self,
+            "NoSQL Distilled",
+            "Martin Fowler");
+    })
+    .then(function(result) {
+        console.log(result);
+    },
+    function(error) {
+        console.log(error);
+    });
+```
 
 Notice that because the database natively understands JSON and JavaScript, there is no type system mismatch, no “OR mapping” or code generation magic required.   
 
@@ -278,128 +282,145 @@ As described in the previous section, you can write application logic to run dir
 ### Registering a stored procedure
 Registration of a stored procedure creates a new stored procedure resource on a collection via HTTP POST.  
 
-    var storedProc = {
-        id: "validateAndCreate",
-        body: function (documentToCreate) {
-            documentToCreate.id = documentToCreate.id.toUpperCase();
+```
+var storedProc = {
+    id: "validateAndCreate",
+    body: function (documentToCreate) {
+        documentToCreate.id = documentToCreate.id.toUpperCase();
 
-            var collectionManager = getContext().getCollection();
-            collectionManager.createDocument(collectionManager.getSelfLink(),
-                documentToCreate,
-                function(err, documentCreated) {
-                    if(err) throw new Error('Error while creating document: ' + err.message;
-                    getContext().getResponse().setBody('success - created ' + 
-                            documentCreated.name);
-                });
-        }
-    };
+        var collectionManager = getContext().getCollection();
+        collectionManager.createDocument(collectionManager.getSelfLink(),
+            documentToCreate,
+            function(err, documentCreated) {
+                if(err) throw new Error('Error while creating document: ' + err.message;
+                getContext().getResponse().setBody('success - created ' + 
+                        documentCreated.name);
+            });
+    }
+};
 
-    client.createStoredProcedureAsync(collection._self, storedProc)
-        .then(function (createdStoredProcedure) {
-            console.log("Successfully created stored procedure");
-        }, function(error) {
-            console.log("Error");
-        });
+client.createStoredProcedureAsync(collection._self, storedProc)
+    .then(function (createdStoredProcedure) {
+        console.log("Successfully created stored procedure");
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Executing a stored procedure
 Execution of a stored procedure is done by issuing an HTTP POST against an existing stored procedure resource by passing parameters to the procedure in the request body.
 
-    var inputDocument = {id : "document1", author: "G. G. Marquez"};
-    client.executeStoredProcedureAsync(createdStoredProcedure.resource._self, inputDocument)
-        .then(function(executionResult) {
-            assert.equal(executionResult, "success - created DOCUMENT1");
-        }, function(error) {
-            console.log("Error");
-        });
+```
+var inputDocument = {id : "document1", author: "G. G. Marquez"};
+client.executeStoredProcedureAsync(createdStoredProcedure.resource._self, inputDocument)
+    .then(function(executionResult) {
+        assert.equal(executionResult, "success - created DOCUMENT1");
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Unregistering a stored procedure
 Unregistering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
 
-    client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
-        .then(function (response) {
-            return;
-        }, function(error) {
-            console.log("Error");
-        });
-
+```
+client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
+    .then(function (response) {
+        return;
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Registering a pre-trigger
 Registration of a trigger is done by creating a new trigger resource on a collection via HTTP POST. You can specify if the trigger is a pre or a post trigger and the type of operation it can be associated with (e.g. Create, Replace, Delete, or All).   
 
-    var preTrigger = {
-        id: "upperCaseId",
-        body: function() {
-                var item = getContext().getRequest().getBody();
-                item.id = item.id.toUpperCase();
-                getContext().getRequest().setBody(item);
-        },
-        triggerType: TriggerType.Pre,
-        triggerOperation: TriggerOperation.All
-    }
+```
+var preTrigger = {
+    id: "upperCaseId",
+    body: function() {
+            var item = getContext().getRequest().getBody();
+            item.id = item.id.toUpperCase();
+            getContext().getRequest().setBody(item);
+    },
+    triggerType: TriggerType.Pre,
+    triggerOperation: TriggerOperation.All
+}
 
-    client.createTriggerAsync(collection._self, preTrigger)
-        .then(function (createdPreTrigger) {
-            console.log("Successfully created trigger");
-        }, function(error) {
-            console.log("Error");
-        });
+client.createTriggerAsync(collection._self, preTrigger)
+    .then(function (createdPreTrigger) {
+        console.log("Successfully created trigger");
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Executing a pre-trigger
 Execution of a trigger is done by specifying the name of an existing trigger at the time of issuing the POST/PUT/DELETE request of a document resource via the request header.  
 
-    client.createDocumentAsync(collection._self, { id: "doc1", key: "Love in the Time of Cholera" }, { preTriggerInclude: "upperCaseId" })
-        .then(function(createdDocument) {
-            assert.equal(createdDocument.resource.id, "DOC1");
-        }, function(error) {
-            console.log("Error");
-        });
+```
+client.createDocumentAsync(collection._self, { id: "doc1", key: "Love in the Time of Cholera" }, { preTriggerInclude: "upperCaseId" })
+    .then(function(createdDocument) {
+        assert.equal(createdDocument.resource.id, "DOC1");
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Unregistering a pre-trigger
 Unregistering a trigger is simply done via issuing an HTTP DELETE against an existing trigger resource.  
 
-    client.deleteTriggerAsync(createdPreTrigger._self);
-        .then(function(response) {
-            return;
-        }, function(error) {
-            console.log("Error");
-        });
+```
+client.deleteTriggerAsync(createdPreTrigger._self);
+    .then(function(response) {
+        return;
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Registering a UDF
 Registration of a UDF is done by creating a new UDF resource on a collection via HTTP POST.  
 
-    var udf = { 
-        id: "mathSqrt",
-        body: function(number) {
-                return Math.sqrt(number);
-        },
-    };
-    client.createUserDefinedFunctionAsync(collection._self, udf)
-        .then(function (createdUdf) {
-            console.log("Successfully created stored procedure");
-        }, function(error) {
-            console.log("Error");
-        });
+```
+var udf = { 
+    id: "mathSqrt",
+    body: function(number) {
+            return Math.sqrt(number);
+    },
+};
+client.createUserDefinedFunctionAsync(collection._self, udf)
+    .then(function (createdUdf) {
+        console.log("Successfully created stored procedure");
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Executing a UDF as part of the query
 A UDF can be specified as part of the SQL query and is used as a way to extend the core [SQL query language of DocumentDB](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx).
 
-    var filterQuery = "SELECT udf.mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
-    client.queryDocuments(collection._self, filterQuery).toArrayAsync();
-        .then(function(queryResponse) {
-            var queryResponseDocuments = queryResponse.feed;
-        }, function(error) {
-            console.log("Error");
-        });
+```
+var filterQuery = "SELECT udf.mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
+client.queryDocuments(collection._self, filterQuery).toArrayAsync();
+    .then(function(queryResponse) {
+        var queryResponseDocuments = queryResponse.feed;
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 ### Unregistering a UDF
 Unregistering a UDF is simply done by issuing an HTTP DELETE against an existing UDF resource.  
 
-    client.deleteUserDefinedFunctionAsync(createdUdf._self)
-        .then(function(response) {
-            return;
-        }, function(error) {
-            console.log("Error");
-        });
+```
+client.deleteUserDefinedFunctionAsync(createdUdf._self)
+    .then(function(response) {
+        return;
+    }, function(error) {
+        console.log("Error");
+    });
+```
 
 Although the snippets above showed the registration (POST), unregistration (PUT), read/list (GET) and execution (POST) via the [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js), you can also use the [REST APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) or other [client SDKs](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx). 
 
@@ -458,4 +479,3 @@ Learn more about working with resources by using HTTP commands in [RESTful inter
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-

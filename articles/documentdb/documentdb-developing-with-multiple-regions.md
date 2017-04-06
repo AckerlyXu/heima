@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Developing with multiple regions in DocumentDB | Azure"
-    description="Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service."
-    services="documentdb"
-    documentationcenter=""
-    author="mimig1"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="d4579378-0b3a-44a5-9f5b-630f1fa4c66d"
-    ms.service="documentdb"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/09/2017"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: Developing with multiple regions in DocumentDB | Azure
+description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
+services: documentdb
+documentationcenter: ''
+author: mimig1
+manager: jhubbard
+editor: ''
+
+ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
+ms.service: documentdb
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/09/2017
+wacn.date: ''
+ms.author: mimig
+---
 
 # Developing with multi-region DocumentDB accounts
 
 ## Introduction
 
-In order to take advantage of [global distribution](/documentation/articles/documentdb-distribute-data-globally/), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations.
+In order to take advantage of [global distribution](./documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations.
 
 This preference list is specified when initializing a connection using the DocumentDB client SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
 
@@ -42,31 +43,32 @@ In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the
 
 The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
 >
 >
 
-    // Getting endpoints from application settings or other configuration location
-    Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
-    string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
-    
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+```
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
 
-    //Setting read region selection preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
-    // initialize connection
-    DocumentClient docClient = new DocumentClient(
-        accountEndPoint,
-        accountKey,
-        connectionPolicy);
+//Setting read region selection preference
+connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
+connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
+connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
 
-    // connect to DocDB
-    await docClient.OpenAsync().ConfigureAwait(false);
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
 
+// connect to DocDB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
 
 ## NodeJS, JavaScript, and Python SDKs
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region.
@@ -75,66 +77,69 @@ In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the Doc
 
 The current write and read endpoints are available in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK will handle this change automatically.
 >
 >
 
 Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
 
-	// Creating a ConnectionPolicy object
-	var connectionPolicy = new DocumentBase.ConnectionPolicy();
+```
+// Creating a ConnectionPolicy object
+var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
-	// Setting read region selection preference, in the following order -
-	// 1 - West US
-	// 2 - East US
-	// 3 - North Europe
-	connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
+// Setting read region selection preference, in the following order -
+// 1 - West US
+// 2 - East US
+// 3 - North Europe
+connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 
-	// initialize the connection
-	var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
-
-
+// initialize the connection
+var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+```
 
 ## REST
 Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
 
-    https://{databaseaccount}.documents.azure.com/
+```
+https://{databaseaccount}.documents.azure.com/
+```
 
 The service will return a list of regions and their corresponding DocumentDB endpoint URIs for the replicas. The current write region will be indicated in the response. The client can then select the appropriate endpoint for all further REST API requests as follows.
 
 Example response
 
-    {
-        "_dbs": "//dbs/",
-        "media": "//media/",
-        "writableLocations": [
-            {
-                "Name": "West US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
-            }
-        ],
-        "readableLocations": [
-            {
-                "Name": "East US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
-            }
-        ],
-        "MaxMediaStorageUsageInMB": 2048,
-        "MediaStorageUsageInMB": 0,
-        "ConsistencyPolicy": {
-            "defaultConsistencyLevel": "Session",
-            "maxStalenessPrefix": 100,
-            "maxIntervalInSeconds": 5
-        },
-        "addresses": "//addresses/",
-        "id": "globaldbexample",
-        "_rid": "globaldbexample.documents.azure.com",
-        "_self": "",
-        "_ts": 0,
-        "_etag": null
-    }
-
+```
+{
+    "_dbs": "//dbs/",
+    "media": "//media/",
+    "writableLocations": [
+        {
+            "Name": "West US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
+        }
+    ],
+    "readableLocations": [
+        {
+            "Name": "East US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
+        }
+    ],
+    "MaxMediaStorageUsageInMB": 2048,
+    "MediaStorageUsageInMB": 0,
+    "ConsistencyPolicy": {
+        "defaultConsistencyLevel": "Session",
+        "maxStalenessPrefix": 100,
+        "maxIntervalInSeconds": 5
+    },
+    "addresses": "//addresses/",
+    "id": "globaldbexample",
+    "_rid": "globaldbexample.documents.azure.com",
+    "_self": "",
+    "_ts": 0,
+    "_etag": null
+}
+```
 
 - All PUT, POST and DELETE requests must go to the indicated write URI
 - All GETs and other read-only requests (for example queries) may go to any endpoint of the client’s choice
@@ -146,8 +151,8 @@ If the write region changes after the client’s initial discovery phase, subseq
 ## Next steps
 Learn more about the distributing data globally with DocumentDB in the following articles:
 
-- [Distribute data globally with DocumentDB](/documentation/articles/documentdb-distribute-data-globally/)
-- [Consistency levels](/documentation/articles/documentdb-consistency-levels/)
-- [Add regions using the Azure portal](/documentation/articles/documentdb-portal-global-replication/)
+- [Distribute data globally with DocumentDB](./documentdb-distribute-data-globally.md)
+- [Consistency levels](./documentdb-consistency-levels.md)
+- [Add regions using the Azure portal](./documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/

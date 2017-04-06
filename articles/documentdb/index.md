@@ -1,21 +1,20 @@
-<properties
-    pageTitle="Azure DocumentDB Documentation - Tutorials, API Reference | Azure"
-    description="Learn how to use DocumentDB, a schema-free NoSQL document database. Tutorials show how to integrate with apps and use SQL queries on JSON documents."
-    services="documentdb"
-    author="carolz"
-    manager="carolz"
-    layout="LandingPage" />
-    
-<tags    
-    ms.assetid=""
-    ms.service="documentdb"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="landing-page"
-    ms.date="01/23/2017"
-    ms.author="carolz" 
-    wacn.date="" />
-    
+---
+title: Azure DocumentDB Documentation - Tutorials, API Reference | Azure
+description: Learn how to use DocumentDB, a schema-free NoSQL document database. Tutorials show how to integrate with apps and use SQL queries on JSON documents.
+services: documentdb
+author: carolz
+manager: carolz
+layout: LandingPage
+
+ms.assetid: ''
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+wacn.date: ''
+---
 
 #DocumentDB Documentation
 
@@ -41,132 +40,134 @@ Learn how to use DocumentDB in high-performance applications for web, mobile, ga
         </a>
     </li>
 
-    <li>
-        <a href="/azure/documentdb/documentdb-resources">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
+```
+<li>
+    <a href="/azure/documentdb/documentdb-resources">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="media/index/get-started.svg" alt="" />
                     </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure DocumentDB</h3>
-                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Get started with Azure DocumentDB</h3>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/documentdb/documentdb-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
+    </div>
+    </a>
+</li>
+<li>
+    <a href="/azure/documentdb/documentdb-get-started">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="media/index/get-started.svg" alt="" />
                     </div>
-                    <div class="cardText">
-                        <h3>Get started with DocumentDB using .NET</h3>
-                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Get started with DocumentDB using .NET</h3>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/documentdb/documentdb-dotnet-application">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
+    </div>
+    </a>
+</li>
+ <li>
+    <a href="/azure/documentdb/documentdb-dotnet-application">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="media/index/get-started.svg" alt="" />
                     </div>
-                    <div class="cardText">
-                        <h3>Get started with DocumentDB using ASP.NET MVC</h3>
-                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Get started with DocumentDB using ASP.NET MVC</h3>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/documentdb/documentdb-nodejs-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
+    </div>
+    </a>
+</li>
+<li>
+    <a href="/azure/documentdb/documentdb-nodejs-get-started">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="media/index/get-started.svg" alt="" />
                     </div>
-                    <div class="cardText">
-                        <h3>Get started with DocumentDB using Node.js</h3>
-                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Get started with DocumentDB using Node.js</h3>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/documentdb/documentdb-nodejs-application">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
+    </div>
+    </a>
+</li>
+<li>
+    <a href="/azure/documentdb/documentdb-nodejs-application">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="media/index/get-started.svg" alt="" />
                     </div>
-                    <div class="cardText">
-                        <h3>Get started with DocumentDB using Node.js Express</h3>
-                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Get started with DocumentDB using Node.js Express</h3>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/documentdb/documentdb-java-application">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
+    </div>
+    </a>
+</li>
+<li>
+    <a href="/azure/documentdb/documentdb-java-application">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="media/index/get-started.svg" alt="" />
                     </div>
-                    <div class="cardText">
-                        <h3>Get started with DocumentDB using a Java JSP app</h3>
-                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Get started with DocumentDB using a Java JSP app</h3>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/documentdb/documentdb-python-application">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
+    </div>
+    </a>
+</li>
+<li>
+    <a href="/azure/documentdb/documentdb-python-application">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="media/index/get-started.svg" alt="" />
                     </div>
-                    <div class="cardText">
-                        <h3>Get started with DocumentDB using a Python Flask Web app</h3>
-                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Get started with DocumentDB using a Python Flask Web app</h3>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
+    </div>
+    </a>
+</li>
+```
 </ul>
 
 ---
@@ -203,5 +204,3 @@ Learn how to use DocumentDB in high-performance applications for web, mobile, ga
         </div>
     </li>
 </ul>
-
-

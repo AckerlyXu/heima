@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Azure DocumentDB Node.js API, SDK & Resources | Azure"
-    description="Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK."
-    services="documentdb"
-    documentationcenter="nodejs"
-    author="rnagpal"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="9d5621fa-0e11-4619-a28b-a19d872bcf37"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.date="03/16/2017"
-    wacn.date=""
-    ms.author="rnagpal"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure DocumentDB Node.js API, SDK & Resources | Azure
+description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
+services: documentdb
+documentationcenter: nodejs
+author: rnagpal
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
+ms.topic: article
+ms.date: 03/16/2017
+wacn.date: ''
+ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
+---
 
 # DocumentDB Node.js SDK: Release notes and resources
-> [AZURE.SELECTOR]
-- [.NET](/documentation/articles/documentdb-sdk-dotnet/)
-- [.NET Core](/documentation/articles/documentdb-sdk-dotnet-core/)
-- [Node.js](/documentation/articles/documentdb-sdk-node/)
-- [Java](/documentation/articles/documentdb-sdk-java/)
-- [Python](/documentation/articles/documentdb-sdk-python/)
-- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
-- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> [!div class="op_single_selector"]
+>- [.NET](./documentdb-sdk-dotnet.md)
+>- [.NET Core](./documentdb-sdk-dotnet-core.md)
+>- [Node.js](./documentdb-sdk-node.md)
+>- [Java](./documentdb-sdk-java.md)
+>- [Python](./documentdb-sdk-python.md)
+>- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+>- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+>- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
 
 <table>
 
@@ -39,11 +40,11 @@
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
-<tr><td>**Samples**</td><td>[Node.js code samples](/documentation/articles/documentdb-nodejs-samples/)</td></tr>
+<tr><td>**Samples**</td><td>[Node.js code samples](./documentdb-nodejs-samples.md)</td></tr>
 
-<tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](/documentation/articles/documentdb-nodejs-get-started/)</td></tr>
+<tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](./documentdb-nodejs-get-started.md)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using DocumentDB](/documentation/articles/documentdb-nodejs-application/)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using DocumentDB](./documentdb-nodejs-application.md)</td></tr>
 
 <tr><td>**Current supported platform**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
@@ -82,7 +83,7 @@
 - Added the support for Time To Live(TTL) feature for documents.
 
 ### <a name="1.6.0"/>1.6.0</a>
-- Implemented [partitioned collections](/documentation/articles/documentdb-partition-data/) and [user-defined performance levels](/documentation/articles/documentdb-performance-levels/).
+- Implemented [partitioned collections](./documentdb-partition-data.md) and [user-defined performance levels](./documentdb-performance-levels.md).
 
 ### <a name="1.5.6"/>1.5.6</a>
 - Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
@@ -179,8 +180,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.0.0](#1.0.0) |April 08, 2015 |--- |
 
 ## FAQ
-[AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
+[!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See also
-To learn more about DocumentDB, see [Azure DocumentDB](/home/features/documentdb/) service page.
-
+To learn more about DocumentDB, see [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) service page.

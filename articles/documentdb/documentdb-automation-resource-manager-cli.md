@@ -1,31 +1,32 @@
-<properties
-    pageTitle="DocumentDB Automation - Azure CLI 2.0 | Azure"
-    description="Use Azure CLI 2.0 to manage DocumentDB database accounts. DocumentDB is a cloud-based NoSQL database for JSON data."
-    services="documentdb"
-    author="dmakwana"
-    manager="jhubbard"
-    editor=""
-    tags="azure-resource-manager"
-    documentationcenter="" />
-<tags
-    ms.assetid="6158c27f-6b9a-404e-a234-b5d48c4a5b29"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/17/2017"
-    wacn.date=""
-    ms.author="dimakwan" />
+---
+title: DocumentDB Automation - Azure CLI 2.0 | Azure
+description: Use Azure CLI 2.0 to manage DocumentDB database accounts. DocumentDB is a cloud-based NoSQL database for JSON data.
+services: documentdb
+author: dmakwana
+manager: jhubbard
+editor: ''
+tags: azure-resource-manager
+documentationcenter: ''
+
+ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/17/2017
+wacn.date: ''
+ms.author: dimakwan
+---
 
 # Automate Azure DocumentDB account management using Azure CLI 2.0
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/documentdb-create-account/)
-- [Azure CLI 1.0](/documentation/articles/documentdb-automation-resource-manager-cli-nodejs/)
-- [Azure CLI 2.0](/documentation/articles/documentdb-automation-resource-manager-cli/)
-- [Azure Powershell](/documentation/articles/documentdb-manage-account-with-powershell/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./documentdb-create-account.md)
+>- [Azure CLI 1.0](./documentdb-automation-resource-manager-cli-nodejs.md)
+>- [Azure CLI 2.0](./documentdb-automation-resource-manager-cli.md)
+>- [Azure Powershell](./documentdb-manage-account-with-powershell.md)
 
-The following guide describes commands to automate management of your DocumentDB database accounts using the DocumentDB preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure Powershell](/documentation/articles/documentdb-manage-account-with-powershell/), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](/documentation/articles/documentdb-create-account/).
+The following guide describes commands to automate management of your DocumentDB database accounts using the DocumentDB preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure Powershell](./documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](./documentdb-create-account.md).
 
 ## Getting started
 
@@ -33,12 +34,16 @@ Follow the instructions in [How to install and configure Azure CLI 2.0][install-
 
 Log in to your Azure account by executing the following command and following the on-screen steps.
 
-    az login -e AzureChinaCloud
+```
+az login -e AzureChinaCloud
+```
 
-If you do not already have an existing [resource group](/documentation/articles/resource-group-overview/#resource-groups/), create one:
+If you do not already have an existing [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), create one:
 
-    az group create --name <resourcegroupname> --location <resourcegrouplocation>
-    az group list
+```
+az group create --name <resourcegroupname> --location <resourcegrouplocation>
+az group list
+```
 
 The `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
@@ -49,40 +54,44 @@ The `<resourcegrouplocation>` must be one of the regions in which DocumentDB is 
 
 ## <a id="create-documentdb-account-cli"></a> Create a DocumentDB database account
 
-This command enables you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](/documentation/articles/documentdb-consistency-levels/). 
+This command enables you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](./documentdb-consistency-levels.md). 
 
-	Arguments
-	    --name -n           [Required]: Name of the DocumentDB database account.
-	    --resource-group -g [Required]: Name of the resource group.
-	    --default-consistency-level   : Default consistency level of the DocumentDB database account.
-	                                    Allowed values: BoundedStaleness, Eventual, Session, Strong.
-	    --ip-range-filter             : Firewall support. Specifies the set of IP addresses or IP
-	                                    address ranges in CIDR form to be included as the allowed list
-	                                    of client IPs for a given database account. IP addresses/ranges
-	                                    must be comma separated and must not contain any spaces.
-	    --kind                        : The type of DocumentDB database account to create.  Allowed
-	                                    values: GlobalDocumentDB, MongoDB, Parse.  Default:
-	                                    GlobalDocumentDB.
-	    --locations                   : Space separated locations in 'regionName=failoverPriority'
-	                                    format. E.g "East US"=0 "West US"=1. Failover priority values
-	                                    are 0 for write regions and greater than 0 for read regions. A
-	                                    failover priority value must be unique and less than the total
-	                                    number of regions. Default: single region account in the
-	                                    location of the specified resource group.
-	    --max-interval                : When used with Bounded Staleness consistency, this value
-	                                    represents the time amount of staleness (in seconds) tolerated.
-	                                    Accepted range for this value is 1 - 100.  Default: 5.
-	    --max-staleness-prefix        : When used with Bounded Staleness consistency, this value
-	                                    represents the number of stale requests tolerated. Accepted
-	                                    range for this value is 1 - 2,147,483,647.  Default: 100.
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+    --default-consistency-level   : Default consistency level of the DocumentDB database account.
+                                    Allowed values: BoundedStaleness, Eventual, Session, Strong.
+    --ip-range-filter             : Firewall support. Specifies the set of IP addresses or IP
+                                    address ranges in CIDR form to be included as the allowed list
+                                    of client IPs for a given database account. IP addresses/ranges
+                                    must be comma separated and must not contain any spaces.
+    --kind                        : The type of DocumentDB database account to create.  Allowed
+                                    values: GlobalDocumentDB, MongoDB, Parse.  Default:
+                                    GlobalDocumentDB.
+    --locations                   : Space separated locations in 'regionName=failoverPriority'
+                                    format. E.g "East US"=0 "West US"=1. Failover priority values
+                                    are 0 for write regions and greater than 0 for read regions. A
+                                    failover priority value must be unique and less than the total
+                                    number of regions. Default: single region account in the
+                                    location of the specified resource group.
+    --max-interval                : When used with Bounded Staleness consistency, this value
+                                    represents the time amount of staleness (in seconds) tolerated.
+                                    Accepted range for this value is 1 - 100.  Default: 5.
+    --max-staleness-prefix        : When used with Bounded Staleness consistency, this value
+                                    represents the number of stale requests tolerated. Accepted
+                                    range for this value is 1 - 2,147,483,647.  Default: 100.
+```
 
 Examples: 
-	
-	az documentdb create -g rg-test -n docdb-test
-	az documentdb create -g rg-test -n docdb-test --kind MongoDB
-	az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
-	az documentdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
-	az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
+
+```
+az documentdb create -g rg-test -n docdb-test
+az documentdb create -g rg-test -n docdb-test --kind MongoDB
+az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
+az documentdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
+az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
+```
 
 ### Notes
 - The locations must be regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
@@ -91,34 +100,38 @@ Examples:
 
 This command enables you to update your DocumentDB database account properties. This includes the consistency policy and the locations which the database account exists in.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This command enables you to add and remove regions but does not allow you to modify failover priorities. To modify failover priorities, see [below](#modify-failover-priority-powershell).
 
-	Arguments
-	    --name -n           [Required]: Name of the DocumentDB database account.
-	    --resource-group -g [Required]: Name of the resource group.
-	    --default-consistency-level   : Default consistency level of the DocumentDB database account.
-	                                    Allowed values: BoundedStaleness, Eventual, Session, Strong.
-	    --ip-range-filter             : Firewall support. Specifies the set of IP addresses or IP address
-	                                    ranges in CIDR form to be included as the allowed list of client
-	                                    IPs for a given database account. IP addresses/ranges must be comma
-	                                    separated and must not contain any spaces.
-	    --locations                   : Space separated locations in 'regionName=failoverPriority' format.
-	                                    E.g "East US"=0. Failover priority values are 0 for write regions
-	                                    and greater than 0 for read regions. A failover priority value must
-	                                    be unique and less than the total number of regions.
-	    --max-interval                : When used with Bounded Staleness consistency, this value represents
-	                                    the time amount of staleness (in seconds) tolerated. Accepted range
-	                                    for this value is 1 - 100.
-	    --max-staleness-prefix        : When used with Bounded Staleness consistency, this value represents
-	                                    the number of stale requests tolerated. Accepted range for this
-	                                    value is 1 - 2,147,483,647.
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+    --default-consistency-level   : Default consistency level of the DocumentDB database account.
+                                    Allowed values: BoundedStaleness, Eventual, Session, Strong.
+    --ip-range-filter             : Firewall support. Specifies the set of IP addresses or IP address
+                                    ranges in CIDR form to be included as the allowed list of client
+                                    IPs for a given database account. IP addresses/ranges must be comma
+                                    separated and must not contain any spaces.
+    --locations                   : Space separated locations in 'regionName=failoverPriority' format.
+                                    E.g "East US"=0. Failover priority values are 0 for write regions
+                                    and greater than 0 for read regions. A failover priority value must
+                                    be unique and less than the total number of regions.
+    --max-interval                : When used with Bounded Staleness consistency, this value represents
+                                    the time amount of staleness (in seconds) tolerated. Accepted range
+                                    for this value is 1 - 100.
+    --max-staleness-prefix        : When used with Bounded Staleness consistency, this value represents
+                                    the number of stale requests tolerated. Accepted range for this
+                                    value is 1 - 2,147,483,647.
+```
 
 Examples: 
 
-	az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
-	az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
-	az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
+```
+az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
+az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
+az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
+```
 
 ## <a id="add-remove-region-documentdb-account-cli"></a> Add/remove region from a DocumentDB database account
 
@@ -126,9 +139,10 @@ To add or remove region(s) from your existing DocumentDB database account, use t
 
 Example:
 
-	az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1
-	az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
-
+```
+az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1
+az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
+```
 
 ## <a id="delete-documentdb-account-cli"></a> Delete a DocumentDB database account
 
@@ -142,7 +156,9 @@ Arguments
 
 Example:
 
-    az documentdb delete -g rg-test -n docdb-test
+```
+az documentdb delete -g rg-test -n docdb-test
+```
 
 ## <a id="get-documentdb-properties-cli"></a> Get properties of a DocumentDB database account
 
@@ -156,7 +172,9 @@ Arguments
 
 Example:
 
-    az documentdb show -g rg-test -n docdb-test
+```
+az documentdb show -g rg-test -n docdb-test
+```
 
 ## <a id="list-account-keys-cli"></a> List account keys
 
@@ -170,7 +188,9 @@ Arguments
 
 Example:
 
-    az documentdb list-keys -g rg-test -n docdb-test
+```
+az documentdb list-keys -g rg-test -n docdb-test
+```
 
 ## <a id="regenerate-account-key-cli"></a> Regenerate account key
 
@@ -186,42 +206,45 @@ Arguments
 
 Example:
 
-    az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
+```
+az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
+```
 
 ## <a id="modify-failover-priority-cli"></a> Modify failover priority of a DocumentDB database account
 
 For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB][distribute-data-globally].
 
-	Arguments
-	    --name -n           [Required]: Name of the DocumentDB database account.
-	    --resource-group -g [Required]: Name of the resource group.
-	    --failover-policies [Required]: Space separated failover policies in 'regionName=failoverPriority' format.
-	                                    E.g "East US"=0 "West US"=1.
-
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+    --failover-policies [Required]: Space separated failover policies in 'regionName=failoverPriority' format.
+                                    E.g "East US"=0 "West US"=1.
+```
 
 Example:
 
-	az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US"=2
+```
+az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US"=2
+```
 
 ## Next steps
 Now that you have a DocumentDB account, the next step is to create a DocumentDB database. You can create a database by using one of the following:
 
-- The Azure portal, as described in [Create a DocumentDB collection and database using the Azure portal](/documentation/articles/documentdb-create-collection/).
+- The Azure portal, as described in [Create a DocumentDB collection and database using the Azure portal](./documentdb-create-collection.md).
 - The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
-- The [DocumentDB SDKs](/documentation/articles/documentdb-sdk-dotnet/). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.
+- The [DocumentDB SDKs](./documentdb-sdk-dotnet.md). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.
 
-After creating your database, you need to [add one or more collections](/documentation/articles/documentdb-create-collection/) to the database, then [add documents](/documentation/articles/documentdb-view-json-document-explorer/) to the collections.
+After creating your database, you need to [add one or more collections](./documentdb-create-collection.md) to the database, then [add documents](./documentdb-view-json-document-explorer.md) to the collections.
 
-
-After you have documents in a collection, you can use [DocumentDB SQL](/documentation/articles/documentdb-sql-query/) to [execute queries](/documentation/articles/documentdb-sql-query/#ExecutingSqlQueries/) against your documents by using the [Query Explorer](/documentation/articles/documentdb-query-collections-query-explorer/) in the portal, the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx).
+After you have documents in a collection, you can use [DocumentDB SQL](./documentdb-sql-query.md) to [execute queries](./documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](./documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx).
 
 To learn more about DocumentDB, explore these resources:
 
-- [DocumentDB resource model and concepts](/documentation/articles/documentdb-resources/)
-
+- [DocumentDB resource model and concepts](./documentdb-resources.md)
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[scaling-globally]:/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
 [install-az-cli2]: https://docs.microsoft.com/en-us/cli/azure/install-az-cli2
 [az-documentdb-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb
 [az-documentdb-create-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb#create

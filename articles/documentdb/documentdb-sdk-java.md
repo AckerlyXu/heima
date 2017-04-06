@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Azure DocumentDB Java API, SDK & Resources | Azure"
-    description="Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK."
-    services="documentdb"
-    documentationcenter="java"
-    author="rnagpal"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="7861cadf-2a05-471a-9925-0fec0599351b"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="02/22/2017"
-    wacn.date=""
-    ms.author="khdang"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure DocumentDB Java API, SDK & Resources | Azure
+description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
+services: documentdb
+documentationcenter: java
+author: rnagpal
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: java
+ms.topic: article
+ms.date: 02/22/2017
+wacn.date: ''
+ms.author: khdang
+ms.custom: H1Hack27Feb2017
+---
 
 # DocumentDB Java SDK: Release notes and resources
-> [AZURE.SELECTOR]
-- [.NET](/documentation/articles/documentdb-sdk-dotnet/)
-- [.NET Core](/documentation/articles/documentdb-sdk-dotnet-core/)
-- [Node.js](/documentation/articles/documentdb-sdk-node/)
-- [Java](/documentation/articles/documentdb-sdk-java/)
-- [Python](/documentation/articles/documentdb-sdk-python/)
-- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
-- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> [!div class="op_single_selector"]
+>- [.NET](./documentdb-sdk-dotnet.md)
+>- [.NET Core](./documentdb-sdk-dotnet-core.md)
+>- [Node.js](./documentdb-sdk-node.md)
+>- [Java](./documentdb-sdk-java.md)
+>- [Python](./documentdb-sdk-python.md)
+>- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+>- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+>- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
 
 <table>
 
@@ -37,9 +38,9 @@
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](/documentation/articles/documentdb-java-get-started/)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Java SDK](./documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](/documentation/articles/documentdb-java-application/)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](./documentdb-java-application.md)</td></tr>
 
 <tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
@@ -50,7 +51,7 @@
 - Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
-- Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](/documentation/articles/documentdb-sql-query/#Aggregates/).
+- Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](./documentdb-sql-query.md#Aggregates).
 - Added support for change feed.
 - Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 - Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
@@ -108,7 +109,7 @@
 - Added time to live (TTL) support for documents.
 
 ### <a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
-- Implemented [partitioned collections](/documentation/articles/documentdb-partition-data/) and [user-defined performance levels](/documentation/articles/documentdb-performance-levels/).
+- Implemented [partitioned collections](./documentdb-partition-data.md) and [user-defined performance levels](./documentdb-performance-levels.md).
 
 ### <a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
@@ -141,7 +142,7 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
-> [AZURE.WARNING]
+> [!WARNING]
 > All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** will be retired on **February 29, 2016**.
 > 
 > 
@@ -178,8 +179,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | 0.9.0-prelease |December 10, 2014 |February 29, 2016 |
 
 ## FAQ
-[AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
+[!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See Also
-To learn more about DocumentDB, see [Azure DocumentDB](/home/features/documentdb/) service page.
-
+To learn more about DocumentDB, see [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) service page.

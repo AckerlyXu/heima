@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Learn how to secure access to data in DocumentDB | Azure"
-    description="Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions."
-    services="documentdb"
-    author="mimig1"
-    manager="jhubbard"
-    editor="monicar"
-    documentationcenter="" />
-<tags
-    ms.assetid="8641225d-e839-4ba6-a6fd-d6314ae3a51c"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/08/2017"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: Learn how to secure access to data in DocumentDB | Azure
+description: Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions.
+services: documentdb
+author: mimig1
+manager: jhubbard
+editor: monicar
+documentationcenter: ''
+
+ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/08/2017
+wacn.date: ''
+ms.author: mimig
+---
 
 # Securing access to DocumentDB data
-This article provides an overview of securing access to data stored in [Azure DocumentDB](/home/features/documentdb/).
+This article provides an overview of securing access to data stored in [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/).
 
 DocumentDB uses two types of keys to authenticate users and provide access to its data and resources. 
 
@@ -26,8 +27,6 @@ DocumentDB uses two types of keys to authenticate users and provide access to it
 |---|---|
 |[Master keys](#master-keys) |Used for administrative resources: database accounts, databases, users, and permissions|
 |[Resource tokens](#resource-tokens)|Used for application resources: collections, documents, attachments, stored procedures, triggers, and UDFs|
-
-
 
 ## Master keys  <a id="master-keys"></a>
 
@@ -41,7 +40,7 @@ Each account consists of two Master keys: a primary key and secondary key. The p
 
 In addition to the two master keys for the DocumentDB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
 
-Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](/documentation/articles/documentdb-manage-account/#a-idkeysaview-copy-and-regenerate-access-keys/).
+Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](./documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 
 ![Access control (IAM) in the Azure portal - demonstrating NoSQL database security](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -55,24 +54,23 @@ The following code sample illustrates how to use a DocumentDB account endpoint a
 
 csharp
 
-	//Read the DocumentDB endpointUrl and authorization keys from config.
-	//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
-	//NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
+```csharp
+//Read the DocumentDB endpointUrl and authorization keys from config.
+//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
+//NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
-	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-	private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
 
-	client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
+client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 
-	// Create Database
-	Database database = await client.CreateDatabaseAsync(
-	    new Database
-	    {
-	        Id = databaseName
-	    });
-
-
-
+// Create Database
+Database database = await client.CreateDatabaseAsync(
+    new Database
+    {
+        Id = databaseName
+    });
+```
 
 ## Resource tokens <a id="resource-tokens"></a>
 
@@ -103,25 +101,25 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
     ![DocumentDB resource tokens workflow](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
  Resource token generation and management is handled by the native DocumentDB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) or the [source code for our SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
- 
+
  For an example of a middle tier service used to generate or broker resource tokens, see the [ResourceTokenBroker app](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
-
-
 
 ## Users <a id="users"></a>
 DocumentDB users are associated with a DocumentDB database.  Each database can contain zero or more DocumentDB users.  The following code sample shows how to create a DocumentDB user resource.
 
 csharp
 
-    //Create a user.
-    User docUser = new User
-    {
-        Id = "mobileuser"
-    };
+```csharp
+//Create a user.
+User docUser = new User
+{
+    Id = "mobileuser"
+};
 
-    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Each DocumentDB user has a PermissionsLink property that can be used to retrieve the list of [permissions](#permissions) associated with the user.
 > 
 > 
@@ -133,7 +131,7 @@ There are two available access levels that may be provided by a permission resou
 - All: The user has full permission on the resource.
 - Read: The user can only read the contents of the resource but cannot perform write, update, or delete operations on the resource.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In order to run DocumentDB stored procedures the user must have the All permission on the collection in which the stored procedure will be run.
 > 
 > 
@@ -144,16 +142,18 @@ The following code sample shows how to create a permission resource, read the re
 
 csharp
 
-    // Create a permission.
-    Permission docPermission = new Permission
-    {
-        PermissionMode = PermissionMode.Read,
-        ResourceLink = documentCollection.SelfLink,
-        Id = "readperm"
-    };
-    
-    docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
-    Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+```csharp
+// Create a permission.
+Permission docPermission = new Permission
+{
+    PermissionMode = PermissionMode.Read,
+    ResourceLink = documentCollection.SelfLink,
+    Id = "readperm"
+};
+
+docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
+Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+```
 
 If you have specified a partition key for your collection, then the permission for collection, document, and attachment resources must also include the ResourcePartitionKey in addition to the ResourceLink.
 
@@ -163,23 +163,25 @@ To easily obtain all permission resources associated with a particular user, Doc
 
 csharp
 
-    //Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
-      UriFactory.CreateUserUri("db", "myUser"));
+```csharp
+//Read a permission feed.
+FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+  UriFactory.CreateUserUri("db", "myUser"));
 
-    List<Permission> permList = new List<Permission>();
+List<Permission> permList = new List<Permission>();
 
-    foreach (Permission perm in permFeed)
-    {
-        permList.Add(perm);
-    }
+foreach (Permission perm in permFeed)
+{
+    permList.Add(perm);
+}
 
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+```
 
-> [AZURE.TIP] Resource tokens have a default valid timespan of 1 hour.  Token lifetime, however, may be explicitly specified, up to a maximum of 5 hours.
+> [!TIP]
+> Resource tokens have a default valid timespan of 1 hour.  Token lifetime, however, may be explicitly specified, up to a maximum of 5 hours.
 
 ## Next steps
-- To learn more about DocumentDB database security, see [DocumentDB: NoSQL database security](/documentation/articles/documentdb-nosql-database-security/).
-- To learn about managing master and read-only keys, see [How to manage a DocumentDB account](/documentation/articles/documentdb-manage-account/#a-idkeysaview-copy-and-regenerate-access-keys/).
+- To learn more about DocumentDB database security, see [DocumentDB: NoSQL database security](./documentdb-nosql-database-security.md).
+- To learn about managing master and read-only keys, see [How to manage a DocumentDB account](./documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 - To learn how to construct DocumentDB authorization tokens, see [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources).
-

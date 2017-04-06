@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure DocumentDB community, news, & events | Azure"
-    description="Join the Azure DocumentDB community to build relationships, showcase your work, and sharpen your skills."
-    services="documentdb"
-    documentationcenter=""
-    author="aliuy"
-    manager="jhubbard"
-    editor="mimig" />
-<tags
-    ms.assetid="cfdf15da-3ddc-43a1-af64-789eea5f6ddd"
-    ms.service="documentdb"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="03/07/2017"
-    wacn.date=""
-    ms.author="andrl" />
+---
+title: Azure DocumentDB community, news, & events | Azure
+description: Join the Azure DocumentDB community to build relationships, showcase your work, and sharpen your skills.
+services: documentdb
+documentationcenter: ''
+author: aliuy
+manager: jhubbard
+editor: mimig
+
+ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
+ms.service: documentdb
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/07/2017
+wacn.date: ''
+ms.author: andrl
+---
 
 # Community portal
 ## Community spotlight
@@ -67,7 +68,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 - [**Azure DocumentDB protocol support for MongoDB in Preview, my test with Sitecore**](https://alwaysupalwayson.blogspot.ca/2016/05/azure-documentdb-protocol-support-for.html) - *by Mathieu Benoit* 
 - [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matías Quaranta*
 - [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *by Eric Langland*
-- [**Notifications for new or changed DocumentDB resources using Logic Apps**](/documentation/articles/documentdb-change-notification/) - *by Howard Edidin*
+- [**Notifications for new or changed DocumentDB resources using Logic Apps**](./documentdb-change-notification.md) - *by Howard Edidin*
 - [**Collecting logs in to Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
 - [**DocumentDB revisited Part 1/2 - The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *by Peter Mannerhult*
 - [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *by George Saadeh*
@@ -202,7 +203,7 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 ### Other projects
 | Name | Github | Website |
 | --- | --- | --- |
-| Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](/documentation/services/documentdb/) |
+| Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](./index.md) |
 | Hadoop Connector |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
 
@@ -210,4 +211,3 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 DocumentDB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the DocumentDB team.
 
 Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
-

@@ -61,13 +61,13 @@ The steps are as follows:
 
 3. You POST the value to an API App, which does a DocumentDB query. The value is used in a query.
 
-	   ```SQL
-	
-	    SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
-	   ```	
+       ```SQL
 
-	> [!NOTE]
-	> The _ts represents the TimeStamp metadata for all DocumentDB resources.
+        SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
+       ```	
+
+    > [!NOTE]
+    > The _ts represents the TimeStamp metadata for all DocumentDB resources.
 
 4. If there are documents found, the response body is sent to your Azure Blob Storage.
 
@@ -249,8 +249,6 @@ If you are not familiar with what the different sections in the code represents,
 
 For this workflow you are using an [HTTP Webhook Trigger](https://sendgrid.com/blog/whats-webhook/). If you look at the code above, you will see parameters like the following example.
 
-
-
 ```C#
 =@{triggerBody()['Subject']}
 ```
@@ -262,8 +260,6 @@ The `triggerBody()` represents the parameters that are included in the body of a
 
 As mentioned previously, you can use the designer to assign parameters or do it in code view.
 If you do it in code view, then you define which properties require a value as shown in the following code sample. 
-
-
 
 ```JSON
 "triggers": {
@@ -301,8 +297,6 @@ Let's see what each action in our Logic App does.
 
 **Code View**
 
-
-
 ```JSON
 "GetUtcDate": {
         "conditions": [],
@@ -328,8 +322,6 @@ This action calls your API App to return the UTC Date string value.
 
 **Request**
 
-
-
 ```JSON
 {
     "uri": "https://docdbnotificationapi-debug.chinacloudsites.cn/api/Authorization",
@@ -341,8 +333,6 @@ This action calls your API App to return the UTC Date string value.
 ```
 
 **Response**
-
-
 
 ```JSON
 {
@@ -368,8 +358,6 @@ The next step is to convert the UTC DateTime value to the Unix TimeStamp, which 
 ![Conversion](./media/documentdb-change-notification/conversion.png)
 
 ##### Code View
-
-
 
 ```JSON
 "Conversion": {
@@ -400,8 +388,6 @@ This action calls your API App to handle the conversion.
 
 ##### Request
 
-
-
 ```JSON
 {
     "uri": "https://docdbnotificationapi-debug.chinacloudsites.cn/api/Conversion",
@@ -413,8 +399,6 @@ This action calls your API App to handle the conversion.
 ```
 
 ##### Response
-
-
 
 ```JSON
 {
@@ -441,8 +425,6 @@ In the next action, you will do a POST operation to our API App.
 
 ##### Code View
 
-
-
 ```JSON
 "GetDocuments": {
     "conditions": [
@@ -466,8 +448,6 @@ In the next action, you will do a POST operation to our API App.
 
 For the GetDocuments action you are going to pass in the response body from the Conversion action. This is a parameter in the Uri:
 
-
-
 ```C#
 unixTimeStamp=@{body('Conversion')}
 ```
@@ -480,8 +460,6 @@ The method called is **QueryForNewPatientDocuments**.
 
 ##### Request
 
-
-
 ```JSON
 {
     "uri": "https://docdbnotificationapi-debug.chinacloudsites.cn/api/Patient",
@@ -493,8 +471,6 @@ The method called is **QueryForNewPatientDocuments**.
 ```
 
 ##### Response
-
-
 
 ```JSON
 {
@@ -567,8 +543,6 @@ The next action is to save the documents to [Azure Blog storage](https://www.azu
 
 ##### Code View
 
-
-
 ```JSON
 {
 "host": {
@@ -638,8 +612,6 @@ The code is generated from action in the designer. You don't have to modify the 
 
 ##### Request
 
-
-
 ```JSON
 "host": {
     "api": {
@@ -704,8 +676,6 @@ The code is generated from action in the designer. You don't have to modify the 
 
 ##### Response
 
-
-
 ```JSON
 {
     "statusCode": 200,
@@ -744,8 +714,6 @@ Your last step is to send an email notification
 
 ##### Code View
 
-
-
 ```JSON
 "sendMail": {
     "conditions": [
@@ -772,8 +740,6 @@ The code for this was generated using a template for Logic App and SendGrid that
 The HTTP operation is a POST. 
 
 The authorization parameters are in the trigger properties
-
-
 
 ```JSON
 },
@@ -808,7 +774,6 @@ This action depends on the **GetDocuments** action.
 
 ##### Request
 
-
 ```JSON
 {
     "uri": "https://api.sendgrid.com/api/mail.send.json",
@@ -821,8 +786,6 @@ This action depends on the **GetDocuments** action.
 ```
 
 ##### Response
-
-
 
 ```JSON
 {
@@ -841,8 +804,6 @@ This action depends on the **GetDocuments** action.
 ```
 
 Lastly you want to be able to see the results from your Logic App on the Azure Portal. To do that, you add a parameter to the outputs section.
-
-
 
 ```JSON
 "outputs": {
@@ -868,8 +829,6 @@ This Logic App is the trigger that starts the workflow on your main Logic App.
 The following figure shows the Designer View.
 
 ![](./media/documentdb-change-notification/trigger-recurrence.png)
-
-
 
 ```JSON
 {
@@ -919,8 +878,6 @@ The body contains the parameters that are specified in the JSON Schema.
 
 ##### Request
 
-
-
 ```JSON
 {
     "uri": "https://prod-01.ChinaNorth.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
@@ -936,8 +893,6 @@ The body contains the parameters that are specified in the JSON Schema.
 ```
 
 ##### Response
-
-
 
 ```JSON
 {
@@ -987,8 +942,6 @@ Let's take a look at the code behind this operation.
 
 #### GetUtcDate
 
-
-
 ```C#
 /// <summary>
 /// Gets the current UTC Date value
@@ -1010,8 +963,6 @@ public string GetUtcDate(
 This operation simply returns the returns the current UTC DateTime minus the HoursBack value.
 
 #### ConvertToTimeStamp
-
-
 
  ```C#
     /// <summary>
@@ -1052,8 +1003,6 @@ This operation simply returns the returns the current UTC DateTime minus the Hou
 This operation converts the response from the GetUtcDate operation to a double value.
 
 #### QueryForNewPatientDocuments
-
-
 
 ```C#
     /// <summary>
@@ -1110,15 +1059,11 @@ The Call ARM Api operation is the one that will generate your CallBackURL.
 
 In PowerShell, you call it as follows:	
 
-
-
 ```powershell
 ArmClient.exe post https://management.azure.com/subscriptions/[YOUR SUBSCRIPTION ID/resourcegroups/[YOUR RESOURCE GROUP]/providers/Microsoft.Logic/workflows/[YOUR LOGIC APP NAME/triggers/manual/listcallbackurl?api-version=2015-08-01-preview
 ```
 
 Your result should look like this:
-
-
 
 ```powershell
 https://prod-02.ChinaNorth.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-prevaiew&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XXXXXXXXXXXXXXXXXXX

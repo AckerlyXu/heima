@@ -1,29 +1,30 @@
-<properties
-    pageTitle=".NET NoSQL example for DocumentDB | Azure"
-    description="Find C# .NET NoSQL examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases."
-    keywords="NoSQL example"
-    services="documentdb"
-    author="rnagpal"
-    manager="jhubbard"
-    editor="monicar"
-    documentationcenter=".net" />
-<tags
-    ms.assetid="d824d517-903e-4d82-ab0a-09fc3b984c84"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/22/2017"
-    wacn.date=""
-    ms.author="rnagpal" />
+---
+title: .NET NoSQL example for DocumentDB | Azure
+description: Find C# .NET NoSQL examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases.
+keywords: NoSQL example
+services: documentdb
+author: rnagpal
+manager: jhubbard
+editor: monicar
+documentationcenter: .net
+
+ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/22/2017
+wacn.date: ''
+ms.author: rnagpal
+---
 
 # DocumentDB .NET examples
-> [AZURE.SELECTOR]
-- [.NET Examples](/documentation/articles/documentdb-dotnet-samples/)
-- [Node.js Examples](/documentation/articles/documentdb-nodejs-samples/)
-- [Python Examples](/documentation/articles/documentdb-python-samples/)
-- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
+> [!div class="op_single_selector"]
+>- [.NET Examples](./documentdb-dotnet-samples.md)
+>- [Node.js Examples](./documentdb-nodejs-samples.md)
+>- [Python Examples](./documentdb-python-samples.md)
+>- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Latest sample solutions that perform CRUD operations and other common operations on Azure DocumentDB resources are included in the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub repository. This article provides:
 
@@ -33,11 +34,11 @@ Latest sample solutions that perform CRUD operations and other common operations
 **Prerequisites**
 
 1. You need an Azure account to use these NoSQL examples:
-   - You can [open an Azure trial account](/pricing/1rmb-trial/).
+   - You can [open an Azure trial account](https://www.azure.cn/pricing/1rmb-trial/).
 
 2. You also need the [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to CreateDocumentCollectionAsync(). Each time this is done your subscription is billed for 1 hour of usage per the performance tier of the collection being created. 
 > 
 > 
@@ -94,7 +95,7 @@ The [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977
 | [Use range indexes on strings](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.rangeindex.aspx) |
 | [Perform an index transform](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx) |
 
-For more information about indexing, see [DocumentDB indexing policies](/documentation/articles/documentdb-indexing-policies/).
+For more information about indexing, see [DocumentDB indexing policies](./documentdb-indexing-policies.md).
 
 ## Geospatial examples
 The geospatial sample file, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), shows how to do the following tasks.  
@@ -103,12 +104,12 @@ The geospatial sample file, [azure-documentdb-dotnet/samples/code-samples/Geospa
 | --- | --- |
 | [Enable geospatial indexing on a new collection](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L45-L63) |[IndexingPolicy](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.indexingpolicy.aspx)<br>[IndexKind.Spatial](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.indexkind.aspx)<br>[DataType.Point](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.datatype.aspx) |
 | [Insert documents with GeoJSON points](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L116-L126) |[DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)<br>[DataType.Point](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.datatype.aspx) |
-| [Find points within a specified distance](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L152-L194) |[ST_DISTANCE](/documentation/articles/documentdb-sql-query/#BuiltinFunctions/)<br>[GeometryOperationExtensions.Distance](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.distance.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Distance(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) |
-| [Find points within a polygon](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST_WITHIN](/documentation/articles/documentdb-sql-query/#BuiltinFunctions/)<br>[GeometryOperationExtensions.Within](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.within.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Within(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) and<br>[Polygon](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.polygon.aspx) |
+| [Find points within a specified distance](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L152-L194) |[ST_DISTANCE](./documentdb-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.Distance](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.distance.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Distance(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) |
+| [Find points within a polygon](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST_WITHIN](./documentdb-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.Within](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.within.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Within(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) and<br>[Polygon](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.polygon.aspx) |
 | [Enable geospatial indexing on an existing collection](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L312-L336) |[DocumentClient.ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx)<br>[DocumentCollection.IndexingPolicy](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.documentcollection.indexingpolicy.aspx#P:Microsoft.Azure.Documents.DocumentCollection.IndexingPolicy) |
-| [Validate point and polygon data](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST_ISVALID](/documentation/articles/documentdb-sql-query/#BuiltinFunctions/)<br>[ST_ISVALIDDETAILED](/documentation/articles/documentdb-sql-query/#BuiltinFunctions/)<br>[GeometryOperationExtensions.IsValid](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid.aspx)<br>[GeometryOperationExtensions.IsValidDetailed](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed.aspx) |
+| [Validate point and polygon data](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST_ISVALID](./documentdb-sql-query.md#BuiltinFunctions)<br>[ST_ISVALIDDETAILED](./documentdb-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.IsValid](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid.aspx)<br>[GeometryOperationExtensions.IsValidDetailed](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed.aspx) |
 
-For more information about working with Geospatial data, see [Working with Geospatial data in Azure DocumentDB](/documentation/articles/documentdb-geospatial/).  
+For more information about working with Geospatial data, see [Working with Geospatial data in Azure DocumentDB](./documentdb-geospatial.md).  
 
 ## Query examples
 The query document file, [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), shows how to do each of the following tasks using the SQL query grammar, the LINQ provider with query, and with Lambda.
@@ -130,7 +131,7 @@ The query document file, [azure-documentdb-dotnet/samples/code-samples/Queries/P
 | [Query partitioned collections in parallel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Query with Order by for partitioned collections](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 
-For more information about writing queries, see [SQL query within DocumentDB](/documentation/articles/documentdb-sql-query/).
+For more information about writing queries, see [SQL query within DocumentDB](./documentdb-sql-query.md).
 
 ## Server-side programming examples
 The server-side programming file, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), shows how to do the following tasks.
@@ -145,7 +146,7 @@ The server-side programming file, [azure-documentdb-dotnet/samples/code-samples/
 | [Create a post-trigger](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Create a User Defined Function (UDF)](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-For more information about server-side programming, see [DocumentDB server-side programming: Stored procedures, database triggers, and UDFs](/documentation/articles/documentdb-programming/).
+For more information about server-side programming, see [DocumentDB server-side programming: Stored procedures, database triggers, and UDFs](./documentdb-programming.md).
 
 ## User management examples
 The user management file, [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), shows how to do the following tasks.
@@ -155,4 +156,3 @@ The user management file, [azure-documentdb-dotnet/samples/code-samples/UserMana
 | [Create a user](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L81) |[DocumentClient.CreateUserAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createuserasync.aspx) |
 | [Set permissions on a collection or document](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) |[DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx) |
 | [Get a list of a user's permissions](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) |[DocumentClient.ReadUserAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx) |
-

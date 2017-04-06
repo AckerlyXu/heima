@@ -1,22 +1,23 @@
-<properties
-    pageTitle="DocumentDB design pattern: Social media apps | Azure"
-    description="Learn about a design pattern for Social Networks by leveraging the storage flexibility of DocumentDB and other Azure services."
-    keywords="social media apps"
-    services="documentdb"
-    author="ealsur"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="2dbf83a7-512a-4993-bf1b-ea7d72e095d9"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: DocumentDB design pattern: Social media apps | Azure
+description: Learn about a design pattern for Social Networks by leveraging the storage flexibility of DocumentDB and other Azure services.
+keywords: social media apps
+services: documentdb
+author: ealsur
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: mimig
+---
 
 # Going social with DocumentDB
 Living in a massively-interconnected society means that, at some point in life, you become part of a **social network**. We use social networks to keep in touch with friends, colleagues, family, or sometimes to share our passion with people with common interests.
@@ -40,95 +41,107 @@ Why isn't SQL the best choice in this scenario? Let’s look at the structure of
 We could, of course, use a humongous SQL instance with enough power to solve thousands of queries with these many joins to serve our content, but truly, why would we when a simpler solution exists?
 
 ## The NoSQL road
-There are special graph databases that can [run on Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) but they are not inexpensive and require IaaS services (Infrastructure-as-a-Service, Virtual Machines mainly) and maintenance. I’m going to aim this article at a lower cost solution that will work for most scenarios, running on Azure’s NoSQL database [DocumentDB](/home/features/documentdb/). Using a [NoSQL](https://zh.wikipedia.org/wiki/NoSQL) approach, storing data in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), our previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
+There are special graph databases that can [run on Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) but they are not inexpensive and require IaaS services (Infrastructure-as-a-Service, Virtual Machines mainly) and maintenance. I’m going to aim this article at a lower cost solution that will work for most scenarios, running on Azure’s NoSQL database [DocumentDB](https://www.azure.cn/home/features/documentdb/). Using a [NoSQL](https://zh.wikipedia.org/wiki/NoSQL) approach, storing data in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), our previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
-    {
-        "id":"ew12-res2-234e-544f",
-        "title":"post title",
-        "date":"2016-01-01",
-        "body":"this is an awesome post stored on NoSQL",
-        "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
-        "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
-        ],
-        "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
-        ]
-    }
+```
+{
+    "id":"ew12-res2-234e-544f",
+    "title":"post title",
+    "date":"2016-01-01",
+    "body":"this is an awesome post stored on NoSQL",
+    "createdBy":User,
+    "images":["http://myfirstimage.png","http://mysecondimage.png"],
+    "videos":[
+        {"url":"http://myfirstvideo.mp4", "title":"The first video"},
+        {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+    ],
+    "audios":[
+        {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
+        {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+    ]
+}
+```
 
 And it can be obtained with a single query, and with no joins. This is much more simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
 
-Azure DocumentDB makes sure that all the properties are indexed with its automatic indexing, which can even be [customized](/documentation/articles/documentdb-indexing-policies/). The schema-free approach lets us store Documents with different and dynamic structures, maybe tomorrow we want posts to have a list of categories or hashtags associated with them, DocumentDB will handle the new Documents with the added attributes with no extra work required by us.
+Azure DocumentDB makes sure that all the properties are indexed with its automatic indexing, which can even be [customized](./documentdb-indexing-policies.md). The schema-free approach lets us store Documents with different and dynamic structures, maybe tomorrow we want posts to have a list of categories or hashtags associated with them, DocumentDB will handle the new Documents with the added attributes with no extra work required by us.
 
 Comments on a post can be treated as just other posts with a parent property (this simplifies our object mapping). 
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":User2,
-        "parent":"ew12-res2-234e-544f"
-    }
+```
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":User2,
+    "parent":"ew12-res2-234e-544f"
+}
 
-    {
-        "id":"asd2-fee4-23gc-jh67",
-        "title":"Ditto!",
-        "date":"2016-01-03",
-        "createdBy":User3,
-        "parent":"ew12-res2-234e-544f"
-    }
+{
+    "id":"asd2-fee4-23gc-jh67",
+    "title":"Ditto!",
+    "date":"2016-01-03",
+    "createdBy":User3,
+    "parent":"ew12-res2-234e-544f"
+}
+```
 
 And all social interactions can be stored on a separate object as counters:
 
-    {
-        "id":"dfe3-thf5-232s-dse4",
-        "post":"ew12-res2-234e-544f",
-        "comments":2,
-        "likes":10,
-        "points":200
-    }
+```
+{
+    "id":"dfe3-thf5-232s-dse4",
+    "post":"ew12-res2-234e-544f",
+    "comments":2,
+    "likes":10,
+    "points":200
+}
+```
 
 Creating feeds is just a matter of creating documents that can hold a list of post ids with a given relevance order:
 
-    [
-        {"relevance":9, "post":"ew12-res2-234e-544f"},
-        {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
-        {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
-    ]
+```
+[
+    {"relevance":9, "post":"ew12-res2-234e-544f"},
+    {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
+    {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
+]
+```
 
-We could have a “latest” stream with posts ordered by creation date, a “hottest” stream with those posts with more likes in the last 24 hours, we could even implement a custom stream for each user based on logic like followers and interests, and it would still be a list of posts. It’s a matter of how to build these lists, but the reading performance remains unhindered. Once we acquire one of these lists, we issue a single query to DocumentDB using the [IN operator](/documentation/articles/documentdb-sql-query/#WhereClause/) to obtain pages of posts at a time.
+We could have a “latest” stream with posts ordered by creation date, a “hottest” stream with those posts with more likes in the last 24 hours, we could even implement a custom stream for each user based on logic like followers and interests, and it would still be a list of posts. It’s a matter of how to build these lists, but the reading performance remains unhindered. Once we acquire one of these lists, we issue a single query to DocumentDB using the [IN operator](./documentdb-sql-query.md#WhereClause) to obtain pages of posts at a time.
 
-The feed streams could be built using [Azure App Services’](/home/features/app-service/) background processes: [Webjobs](/documentation/articles/web-sites-create-web-jobs/). Once a post is created, background processing can be triggered by using [Azure Storage](/home/features/storage/) [Queues](/documentation/articles/storage-dotnet-how-to-use-queues/) and Webjobs triggered using the [Azure Webjobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk/), implementing the post propagation inside streams based on our own custom logic. 
+The feed streams could be built using [Azure App Services’](https://www.azure.cn/home/features/app-service/) background processes: [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Once a post is created, background processing can be triggered by using [Azure Storage](https://www.azure.cn/home/features/storage/) [Queues](../storage/storage-dotnet-how-to-use-queues.md) and Webjobs triggered using the [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), implementing the post propagation inside streams based on our own custom logic. 
 
 Points and likes over a post can be processed in a deferred manner using this same technique to create an eventually consistent environment.
 
 Followers are trickier. DocumentDB has a maximum document size limit, and reading/writing large documents can impact the scalability of your application. So you may think about storing followers as a document with this structure:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "followersOf": "dse4-qwe2-ert4-aad2",
-        "followers":[
-            "ewr5-232d-tyrg-iuo2",
-            "qejh-2345-sdf1-ytg5",
-            //...
-            "uie0-4tyg-3456-rwjh"
-        ]
-    }
+```
+{
+    "id":"234d-sd23-rrf2-552d",
+    "followersOf": "dse4-qwe2-ert4-aad2",
+    "followers":[
+        "ewr5-232d-tyrg-iuo2",
+        "qejh-2345-sdf1-ytg5",
+        //...
+        "uie0-4tyg-3456-rwjh"
+    ]
+}
+```
 
 This might work for a user with a few thousands followers, but if some celebrity joins our ranks, this approach will lead to a large document size, and might eventually hit the document size cap.
 
 To solve this, we can use a mixed approach. As part of the User Statistics document we can store the number of followers:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "user": "dse4-qwe2-ert4-aad2",
-        "followers":55230,
-        "totalPosts":452,
-        "totalPoints":11342
-    }
+```
+{
+    "id":"234d-sd23-rrf2-552d",
+    "user": "dse4-qwe2-ert4-aad2",
+    "followers":55230,
+    "totalPosts":452,
+    "totalPoints":11342
+}
+```
 
 And the actual graph of followers can be stored on Azure Storage Tables using an [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) that allows for simple "A-follows-B" storage and retrieval. This way we can delegate the retrieval process of the exact followers list (when we need it) to Azure Storage Tables but for a quick numbers lookup, we keep using DocumentDB.
 
@@ -141,19 +154,21 @@ Graph databases solve it in their own way, we are going to solve it by identifyi
 
 Let’s take user information as an example:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "address":"742 Evergreen Terrace",
-        "birthday":"1983-05-07",
-        "email":"john@doe.com",
-        "twitterHandle":"@john",
-        "username":"johndoe",
-        "password":"some_encrypted_phrase",
-        "totalPoints":100,
-        "totalPosts":24
-    }
+```
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "address":"742 Evergreen Terrace",
+    "birthday":"1983-05-07",
+    "email":"john@doe.com",
+    "twitterHandle":"@john",
+    "username":"johndoe",
+    "password":"some_encrypted_phrase",
+    "totalPoints":100,
+    "totalPosts":24
+}
+```
 
 By looking at this information, we can quickly detect which is critical information and which isn’t, thus creating a “Ladder”:
 
@@ -167,26 +182,30 @@ The largest is the Extended User. It includes all the critical user information 
 
 Why would we split the user and even store this information in different places? Because storage space in DocumentDB is not infinite and from a performance point of view, the bigger the documents, the costlier the queries. Keep documents slim, with the right information to do all your performance-dependent queries for your social network, and store the other extra information for eventual scenarios like, full profile edits, logins, even data mining for usage analytics and Big Data initiatives. We really don’t care if the data gathering for data mining is slower because it’s running on Azure SQL Database, we do have concern though that our users have a fast and slim experience. A user, stored on DocumentDB, would look like this:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "username":"johndoe"
-        "email":"john@doe.com",
-        "twitterHandle":"@john"
-    }
+```
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "username":"johndoe"
+    "email":"john@doe.com",
+    "twitterHandle":"@john"
+}
+```
 
 And a Post would look like:
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":{
-            "id":"dse4-qwe2-ert4-aad2",
-            "username":"johndoe"
-        }
+```
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":{
+        "id":"dse4-qwe2-ert4-aad2",
+        "username":"johndoe"
     }
+}
+```
 
 And when an edit arises where one of the attributes of the chunk is affected, it’s easy to find the affected documents by using queries that point to the indexed attributes (SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”) and then updating the chunks.
 
@@ -215,11 +234,11 @@ Another available option is to use [Microsoft Cognitive Services](https://www.mi
 ## A planet-scale social experience
 There is a last, but not least, important topic I must address: **scalability**. When designing an architecture it's crucial that each component can scale on its own, either because we need to process more data or because we want to have a bigger geographical coverage (or both!). Thankfully, achieving such a complex task is a **turnkey experience** with DocumentDB.
 
-DocumentDB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box by automatically creating partitions based on a given **partition key** (defined as one of the attributes in your documents). Defining the correct partition key must be done at design time and keeping in mind the [best practices](/documentation/articles/documentdb-partition-data/#designing-for-partitioning/) available; in the case of a social experience, your partitioning strategy must be aligned with the way you query (reads within the same partition are desirable) and write (avoid "hot spots" by spreading writes on multiple partitions). Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, by user; it all really depends on how you will query the data and show it in your social experience. 
+DocumentDB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box by automatically creating partitions based on a given **partition key** (defined as one of the attributes in your documents). Defining the correct partition key must be done at design time and keeping in mind the [best practices](./documentdb-partition-data.md#designing-for-partitioning) available; in the case of a social experience, your partitioning strategy must be aligned with the way you query (reads within the same partition are desirable) and write (avoid "hot spots" by spreading writes on multiple partitions). Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, by user; it all really depends on how you will query the data and show it in your social experience. 
 
 One interesting point worth mentioning is that DocumentDB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, you don't need to add any logic as your data grows.
 
-With time, you will eventually grow in traffic and your resource consumption (measured in [RUs](/documentation/articles/documentdb-request-units/), or Request Units) will increase. You will read and write more frequently as your userbase grows and they will start creating and reading more content; the ability of **scaling your throughput** is vital. Increasing our RUs is very easy, we can do it with a few clicks on the Azure Portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+With time, you will eventually grow in traffic and your resource consumption (measured in [RUs](./documentdb-request-units.md), or Request Units) will increase. You will read and write more frequently as your userbase grows and they will start creating and reading more content; the ability of **scaling your throughput** is vital. Increasing our RUs is very easy, we can do it with a few clicks on the Azure Portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
 
 ![Scaling up and defining a partition key](./media/documentdb-social-media-apps/social-media-apps-scaling.png)
 
@@ -227,9 +246,9 @@ What happens if things keep getting better and users from another region, countr
 
 But wait... you soon realize their experience with your platform is not optimal; they are so far away from your operational region that the latency is terrible, and you obviously don't want them to quit. If only there was an easy way of **extending your global reach**... but there is!
 
-DocumentDB lets you [replicate your data globally](/documentation/articles/documentdb-portal-global-replication/) and transparently with a couple of clicks and automatically select among the available regions from your [client code](/documentation/articles/documentdb-developing-with-multiple-regions/). This also means that you can have [multiple failover regions](/documentation/articles/documentdb-regional-failovers/). 
+DocumentDB lets you [replicate your data globally](./documentdb-portal-global-replication.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](./documentdb-developing-with-multiple-regions.md). This also means that you can have [multiple failover regions](./documentdb-regional-failovers.md). 
 
-When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](/home/features/traffic-manager/) and clone your Azure App Service on all the desired regions, using a [Performance configuration](/documentation/articles/web-sites-traffic-manager/) to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local DocumentDB replica.
+When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) and clone your Azure App Service on all the desired regions, using a [Performance configuration](../app-service-web/web-sites-traffic-manager.md) to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local DocumentDB replica.
 
 ![Adding global coverage to your social platform](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
 
@@ -241,5 +260,4 @@ This article tries to shed some light into the alternatives of creating social n
 The truth is that there is no silver bullet for this kind of scenarios, it’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure DocumentDB to provide a great social application, the intelligence behind a first-class search solution like Azure Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to our processes and help us deliver the right content to the right users.
 
 ## Next steps
-Learn more about data modeling by reading the [Modeling data in DocumentDB](/documentation/articles/documentdb-modeling-data/) article. If you're interested in other use cases for DocumentDB, see [Common DocumentDB use cases](/documentation/articles/documentdb-use-cases/).
-
+Learn more about data modeling by reading the [Modeling data in DocumentDB](./documentdb-modeling-data.md) article. If you're interested in other use cases for DocumentDB, see [Common DocumentDB use cases](./documentdb-use-cases.md).

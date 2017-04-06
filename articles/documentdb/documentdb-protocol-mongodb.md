@@ -1,22 +1,23 @@
-<properties
-    pageTitle="What is DocumentDB: API for MongoDB? | Azure"
-    description="Learn about DocumentDB: API for MongoDB and how you can easily run existing MongoDB applications in the Azure cloud"
-    keywords="what is MongoDB"
-    services="documentdb"
-    author="AndrewHoh"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="4afaf40d-c560-42e0-83b4-a64d94671f0a"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/14/2017"
-    wacn.date=""
-    ms.author="anhoh" />
+---
+title: What is DocumentDB: API for MongoDB? | Azure
+description: Learn about DocumentDB: API for MongoDB and how you can easily run existing MongoDB applications in the Azure cloud
+keywords: what is MongoDB
+services: documentdb
+author: AndrewHoh
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/14/2017
+wacn.date: ''
+ms.author: anhoh
+---
 
 # What is DocumentDB: API for MongoDB?
 
@@ -36,17 +37,16 @@ Create a DocumentDB: API for MongoDB account in the [Azure Portal](https://porta
 
 *And, that's it!*
 
-For more detailed instructions, follow [create account](/documentation/articles/documentdb-create-mongodb-account/) and [connect to your account](/documentation/articles/documentdb-connect-mongodb-account/).
+For more detailed instructions, follow [create account](./documentdb-create-mongodb-account.md) and [connect to your account](./documentdb-connect-mongodb-account.md).
 
 ## Next steps
 
 Information about DocumentDB: API for MongoDB is integrated into the overall DocumentDB documentation, but here are a few pointers to get you started:
-- Follow the [Connect to a MongoDB account](/documentation/articles/documentdb-connect-mongodb-account/) tutorial to learn how to get your account connection string information.
-- Follow the [Use MongoChef with DocumentDB](/documentation/articles/documentdb-mongodb-mongochef/) tutorial to learn how to create a connection between your DocumentDB database and MongoDB app in MongoChef.
-- Follow the [Migrate data to DocumentDB with protocol support for MongoDB](/documentation/articles/documentdb-mongodb-migrate/) tutorial to import your data to an API for MongoDB database.
-- Build your first API for MongoDB app using [Node.js](/documentation/articles/documentdb-mongodb-samples/).
-- Build your first API for MongoDB web app using .[NET](/documentation/articles/documentdb-mongodb-application/).
-- Connect to an API for MongoDB account using [Robomongo](/documentation/articles/documentdb-mongodb-robomongo/).
-- Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](/documentation/articles/documentdb-request-units/#GetLastRequestStatistics/).
-- Learn how to [configure read preferences for globally distributed apps](/documentation/articles/documentdb-distribute-data-globally/#ReadPreferencesAPIforMongoDB/).
-
+- Follow the [Connect to a MongoDB account](./documentdb-connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
+- Follow the [Use MongoChef with DocumentDB](./documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your DocumentDB database and MongoDB app in MongoChef.
+- Follow the [Migrate data to DocumentDB with protocol support for MongoDB](./documentdb-mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
+- Build your first API for MongoDB app using [Node.js](./documentdb-mongodb-samples.md).
+- Build your first API for MongoDB web app using .[NET](./documentdb-mongodb-application.md).
+- Connect to an API for MongoDB account using [Robomongo](./documentdb-mongodb-robomongo.md).
+- Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](./documentdb-request-units.md#GetLastRequestStatistics).
+- Learn how to [configure read preferences for globally distributed apps](./documentdb-distribute-data-globally.md#ReadPreferencesAPIforMongoDB).

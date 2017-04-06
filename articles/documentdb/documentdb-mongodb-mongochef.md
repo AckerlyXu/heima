@@ -1,34 +1,35 @@
-<properties
-    pageTitle="Use MongoChef for MongoDB with Azure DocumentDB | Azure"
-    description="Learn how to use MongoChef with a DocumentDB: API for MongoDB account"
-    keywords="mongochef"
-    services="documentdb"
-    author="AndrewHoh"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="352c5fb9-8772-4c5f-87ac-74885e63ecac"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/06/2017"
-    wacn.date=""
-    ms.author="anhoh" />
+---
+title: Use MongoChef for MongoDB with Azure DocumentDB | Azure
+description: Learn how to use MongoChef with a DocumentDB: API for MongoDB account
+keywords: mongochef
+services: documentdb
+author: AndrewHoh
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/06/2017
+wacn.date: ''
+ms.author: anhoh
+---
 
 # Use MongoChef with a DocumentDB: API for MongoDB account
 
 To connect to an Azure DocumentDB: API for MongoDB account, you must:
 
 - Download and install [MongoChef](http://3t.io/mongochef)
-- Have your DocumentDB: API for MongoDB account [connection string](/documentation/articles/documentdb-connect-mongodb-account/) information
+- Have your DocumentDB: API for MongoDB account [connection string](./documentdb-connect-mongodb-account.md) information
 
 ## Create the connection in MongoChef
 To add your DocumentDB: API for MongoDB account to the MongoChef connection manager, perform the following steps.
 
-1. Retrieve your DocumentDB: API for MongoDB connection information using the instructions [here](/documentation/articles/documentdb-connect-mongodb-account/).
+1. Retrieve your DocumentDB: API for MongoDB connection information using the instructions [here](./documentdb-connect-mongodb-account.md).
 
     ![Screen shot of the connection string blade](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
@@ -64,52 +65,56 @@ To create a database, collection, and documents using MongoChef, perform the fol
     ![Screen shot of the MongoChef Add Document menu item](./media/documentdb-mongodb-mongochef/AddDocument1.png)
 5. In the Add Document dialog, paste the following and then click **Add Document**.
 
-        {
-        "_id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-               { "firstName": "Thomas" },
-               { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "isRegistered": true
-        }
+    ```
+    {
+    "_id": "AndersenFamily",
+    "lastName": "Andersen",
+    "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+    ],
+    "children": [
+       {
+           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+           "pets": [{ "givenName": "Fluffy" }]
+       }
+    ],
+    "address": { "state": "WA", "county": "King", "city": "seattle" },
+    "isRegistered": true
+    }
+    ```
 6. Add another document, this time with the following content.
 
+    ```
+    {
+    "_id": "WakefieldFamily",
+    "parents": [
+        { "familyName": "Wakefield", "givenName": "Robin" },
+        { "familyName": "Miller", "givenName": "Ben" }
+    ],
+    "children": [
         {
-        "_id": "WakefieldFamily",
-        "parents": [
-            { "familyName": "Wakefield", "givenName": "Robin" },
-            { "familyName": "Miller", "givenName": "Ben" }
-        ],
-        "children": [
-            {
-                "familyName": "Merriam",
-                 "givenName": "Jesse",
-                "gender": "female", "grade": 1,
-                "pets": [
-                    { "givenName": "Goofy" },
-                    { "givenName": "Shadow" }
-                ]
-            },
-            {
-                "familyName": "Miller",
-                 "givenName": "Lisa",
-                 "gender": "female",
-                 "grade": 8 }
-        ],
-        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-        "isRegistered": false
-        }
+            "familyName": "Merriam",
+             "givenName": "Jesse",
+            "gender": "female", "grade": 1,
+            "pets": [
+                { "givenName": "Goofy" },
+                { "givenName": "Shadow" }
+            ]
+        },
+        {
+            "familyName": "Miller",
+             "givenName": "Lisa",
+             "gender": "female",
+             "grade": 8 }
+    ],
+    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+    "isRegistered": false
+    }
+    ```
 7. Execute a sample query. For example, search for families with the last name 'Andersen' and return the parents and state fields.
 
     ![Screen shot of Mongo Chef query results](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## Next steps
-- Explore DocumentDB: API for MongoDB [samples](/documentation/articles/documentdb-mongodb-samples/).
+- Explore DocumentDB: API for MongoDB [samples](./documentdb-mongodb-samples.md).

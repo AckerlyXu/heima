@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Creating an Azure project with Visual Studio | Azure"
-    description="Creating an Azure project with Visual Studio"
-    services="visual-studio-online"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="ec580df7-3dcc-45a9-a1d9-8c110678dfb5"
-    ms.service="multiple"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/19/2017"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Creating an Azure project with Visual Studio | Azure
+description: Creating an Azure project with Visual Studio
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/19/2017
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Creating an Azure project with Visual Studio
 The Azure Tools for Visual Studio provides a project template that lets you create an Azure Cloud Service. Once the project has been created, Visual Studio enables you to configure, debug, and deploy the cloud service to Azure.
@@ -50,7 +51,7 @@ The Visual Studio Azure project has associations to the role projects in the sol
 - **Service definition file** - Defines the runtime settings for your application, including what roles are required, endpoints, and virtual machine size. 
 - **Service configuration file** - Configures how many instances of a role are run and the values of the settings defined for a role. 
 
-For more information about these files, see [Configure the Roles for an Azure Cloud Service with Visual Studio](/documentation/articles/vs-azure-tools-configure-roles-for-cloud-service/).
+For more information about these files, see [Configure the Roles for an Azure Cloud Service with Visual Studio](./vs-azure-tools-configure-roles-for-cloud-service.md).
 
 ## Next steps
-- [Managing roles in Azure Cloud Service projects with Visual Studio](/documentation/articles/vs-azure-tools-cloud-service-project-managing-roles/)
+- [Managing roles in Azure Cloud Service projects with Visual Studio](./vs-azure-tools-cloud-service-project-managing-roles.md)

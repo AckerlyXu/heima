@@ -1,43 +1,44 @@
-<properties
-    pageTitle="Azure subscription limits and quotas | Azure"
-    description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
-    services=""
-    documentationcenter=""
-    author="rothja"
-    manager="jeffreyg"
-    editor=""
-    tags="billing" />
-<tags
-    ms.assetid="60d848f9-ff26-496e-a5ec-ccf92ad7d125"
-    ms.service="billing"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/07/2017"
-    wacn.date=""
-    ms.author="byvinyal" />
+---
+title: Azure subscription limits and quotas | Azure
+description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values.
+services: ''
+documentationcenter: ''
+author: rothja
+manager: jeffreyg
+editor: ''
+tags: billing
+
+ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
+ms.service: billing
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/07/2017
+wacn.date: ''
+ms.author: byvinyal
+---
 
 # Azure subscription and service limits, quotas, and constraints
 This document lists some of the most common Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more of the platform.
 
-Please visit [Azure Pricing Overview](/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](/pricing/details/virtual-machines/#Windows/)).
+Please visit [Azure Pricing Overview](https://www.azure.cn/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://www.azure.cn/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://www.azure.cn/pricing/details/virtual-machines/#Windows/)).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. 
 > 
 > 1rmb-trial subscriptions are not eligible for limit or quota increases. If you have a 1rmb-trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. 
 > 
 
 ## Limits and the Azure Resource Manager
-It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/).
+It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](./azure-resource-manager/resource-group-overview.md).
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are. Let's use core quotas as an example. If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want. 
 > <!-- -->
-> As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](/documentation/articles/resource-manager-common-deployment-errors/) for more help discovering your current quotas for specific regions.
+> As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./azure-resource-manager/resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 > 
 > 
 
@@ -84,155 +85,153 @@ In the limits below, a new table has been added to reflect any differences in li
 
 ### Subscription limits
 #### Subscription limits
-[AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
+[!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### Subscription limits - Azure Resource Manager
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
-For information about handling limits on Resource Manager requests, see [Throttling Resource Manager requests](/documentation/articles/resource-manager-request-limits/).
+For information about handling limits on Resource Manager requests, see [Throttling Resource Manager requests](./azure-resource-manager/resource-manager-request-limits.md).
 
-[AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Resource Group limits
-[AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
+[!INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 ### Virtual Machines limits
 #### Virtual Machine limits
-[AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
+[!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### Virtual Machines limits - Azure Resource Manager
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
-[AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
 ### Virtual Machine Scale Sets limits
-[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
+[!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Networking limits
-[AZURE.INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### Networking limits
-[AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+[!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### Application Gateway limits
-[AZURE.INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+[!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Traffic Manager limits
-[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+[!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
 #### DNS limits
-[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
+[!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Storage limits
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](/documentation/articles/storage-scalability-targets/).
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](./storage/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### Storage Service limits
-[AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### Virtual machine disk limits 
-[AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
+[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-See [Virtual machine sizes](/documentation/articles/virtual-machines-linux-sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) for additional details.
+See [Virtual machine sizes](./virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) for additional details.
 
 #### Managed virtual machine disks
 
-[AZURE.INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
 
 #### Unmanaged virtual machine disks
 
-[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
-[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
 #### Storage Resource Provider limits
-[AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### Cloud Services limits
-[AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### App Service limits
 The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.
 
-[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+[!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
 ### Scheduler limits
-[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
+[!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
 ### Batch limits
-[AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+[!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ### DocumentDB limits
 DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale DocumentDB provides, please send email to askdocdb@microsoft.com.
 
 ### Mobile Engagement limits
-[AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
-
+[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### Media Services limits
-[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
 ### CDN limits
-[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
+[!INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
 ### Mobile Services limits
-[AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
+[!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
 ### Monitoring limits
-[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### Notification Hub Service limits
-[AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
+[!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 ### Event Hubs limits
-[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
+[!INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Service Bus limits
-[AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+[!INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
 ### IoT Hub limits
-[AZURE.INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
+[!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
 ### Stream Analytics limits
-[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
+[!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ### Active Directory limits
-[AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
+[!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 ### Azure RemoteApp limits
-[AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
+[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
 ### Backup limits
-[AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+[!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
 ### Site Recovery limits
-[AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+[!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
 ### Application Insights limits
-[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
+[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### API Management limits
-[AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
+[!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
 ### Azure Redis Cache limits
-[AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
+[!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### Key Vault limits
-[AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
 ### Multi-Factor Authentication
-[AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+[!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### Automation limits
-[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+[!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
 ### SQL Database limits
-For SQL Database limits, see [SQL Database Resource Limits](/documentation/articles/sql-database-resource-limits/).
+For SQL Database limits, see [SQL Database Resource Limits](./sql-database/sql-database-resource-limits.md).
 
 ## See also
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Virtual Machine and Cloud Service Sizes for Azure](/documentation/articles/virtual-machines-linux-sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
+[Virtual Machine and Cloud Service Sizes for Azure](./virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
 
-[Sizes for Cloud Services](/documentation/articles/cloud-services-sizes-specs/)
-
+[Sizes for Cloud Services](./cloud-services/cloud-services-sizes-specs.md)
