@@ -1,25 +1,24 @@
----
-title: Distribute data globally with DocumentDB | Azure
-description: Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure DocumentDB, a fully managed NoSQL database service.
-services: documentdb
-documentationcenter: ''
-author: arramac
-manager: jhubbard
-editor: ''
-
-ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
-ms.service: documentdb
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2017
-wacn.date: ''
-ms.author: arramac
----
+<properties
+    pageTitle="Distribute data globally with DocumentDB | Azure"
+    description="Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure DocumentDB, a fully managed NoSQL database service."
+    services="documentdb"
+    documentationcenter=""
+    author="arramac"
+    manager="jhubbard"
+    editor="" />
+<tags
+    ms.assetid="ba5ad0cc-aa1f-4f40-aee9-3364af070725"
+    ms.service="documentdb"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/14/2017"
+    wacn.date=""
+    ms.author="arramac" />
 
 # DocumentDB - a globally distributed database service on Azure
-Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. DocumentDB is Microsoft's multi-tenant, globally distributed database system designed to enable developers to build planet scale applications. DocumentDB allows you to elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at P99, 99.99% high availability, predictable throughput, and [multiple well-defined consistency models](./documentdb-consistency-levels.md) - all backed by comprehensive SLAs. By virtue of its [schema-agnostic and write optimized database engine](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), by default DocumentDB is capable of automatically indexing all the data it ingests and serve [SQL](./documentdb-sql-query.md), [MongoDB](./documentdb-protocol-mongodb.md), and [JavaScript language-integrated queries](./documentdb-programming.md#javascript-language-integrated-query-api) in a scale-independent manner. As a cloud service, DocumentDB is carefully engineered with multi-tenancy and global distribution from the ground up.
+Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. DocumentDB is Microsoft's multi-tenant, globally distributed database system designed to enable developers to build planet scale applications. DocumentDB allows you to elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at P99, 99.99% high availability, predictable throughput, and [multiple well-defined consistency models](/documentation/articles/documentdb-consistency-levels/) - all backed by comprehensive SLAs. By virtue of its [schema-agnostic and write optimized database engine](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), by default DocumentDB is capable of automatically indexing all the data it ingests and serve [SQL](/documentation/articles/documentdb-sql-query/), [MongoDB](/documentation/articles/documentdb-protocol-mongodb/), and [JavaScript language-integrated queries](/documentation/articles/documentdb-programming/#javascript-language-integrated-query-api/) in a scale-independent manner. As a cloud service, DocumentDB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
 **A single DocumentDB collection partitioned and distributed across three Azure regions**
 
@@ -65,7 +64,7 @@ To control exact sequence of regional failovers when there is a multi-regional o
 DocumentDB enables you to take your database account offline in a specific region and bring it back online later. Regions marked offline do not actively participate in replication and are not part of the failover sequence. This enables you to freeze the last known good database image in one of the read regions before rolling out potentially risky upgrades to your application.
 
 ### <a id="ConsistencyLevels"></a>Multiple, well-defined consistency models for globally replicated databases
-DocumentDB exposes [multiple well-defined consistency levels](./documentdb-consistency-levels.md) backed by SLAs. You can choose a specific consistency model (from the available list of options) depending on the workload/scenarios. 
+DocumentDB exposes [multiple well-defined consistency levels](/documentation/articles/documentdb-consistency-levels/) backed by SLAs. You can choose a specific consistency model (from the available list of options) depending on the workload/scenarios. 
 
 ### <a id="TunableConsistency"></a>Tunable consistency for globally replicated databases
 DocumentDB allows you to programmatically override and relax the default consistency choice on a per request basis, at runtime. 
@@ -88,8 +87,31 @@ DocumentDB supports automatic failover in case of one or more regional outages. 
 ### <a id="GranularFailover"></a>Designed for different failover granularities
 Currently the automatic and manual failover capabilities are exposed at the granularity of the database account. Note, internally DocumentDB is designed to offer *automatic* failover at finer granularity of a database, collection, or even a partition (of a collection owning a range of keys). 
 
-### <a id="MultiHomingAPIs"></a>Multi-homing APIs
+### <a id="MultiHomingAPIs"></a>Multi-homing APIs in DocumentDB
 DocumentDB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
+
+### <a id="ReadPreferencesAPIforMongoDB"></a> Configurable read preferences in API for MongoDB
+API for MongoDB enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
+```
+
+For applications with a primary read/write region and a secondary region for disaster recovery (DR) scenarios, we recommend setting your collection's read preference to *secondary preferred*. A read preference of *secondary preferred* is configured to read from the secondary region when the primary region is unavailable.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
+```
+
+Lastly, if you would like to manually specify your read regions. You can set the region Tag within your read preference.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+var tag = new Tag("region", "Southeast Asia");
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
+```
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 DocumentDB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. DocumentDB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
@@ -101,7 +123,7 @@ As a globally distributed database service, DocumentDB offers well-defined SLA f
 The key benefit of a globally distributed database service like DocumentDB is to offer low latency access to your data anywhere in the world. DocumentDB offers guaranteed low latency at P99 for various database operations. The replication protocol that DocumentDB employs ensures that the database operations (ideally, both reads and writes) are always performed in the region local to that of the client. The latency SLA of DocumentDB includes P99 for both reads, (synchronously) indexed writes and queries for various request and response sizes. The latency guarantees for writes include durable majority quorum commits within the local datacenter.
 
 ### <a id="LatencyAndConsistency"></a>Latency's relationship with consistency 
-For a globally distributed service to offer strong consistency in a globally distributed setup, it needs to synchronously replicate the writes or synchronous perform cross-region reads - the speed of light and the wide area network reliability dictate that strong consistency results in high latencies and low availability of database operations. Hence, in order to offer guaranteed low latencies at P99 and 99.99 availability, the service must employ asynchronous replication. This in-turn requires that the service must also offer [well-defined, relaxed consistency choice(s)](./documentdb-consistency-levels.md) - weaker than strong (to offer low latency and availability guarantees) and ideally stronger than "eventual" consistency (to offer an intuitive programming model).
+For a globally distributed service to offer strong consistency in a globally distributed setup, it needs to synchronously replicate the writes or synchronous perform cross-region reads - the speed of light and the wide area network reliability dictate that strong consistency results in high latencies and low availability of database operations. Hence, in order to offer guaranteed low latencies at P99 and 99.99 availability, the service must employ asynchronous replication. This in-turn requires that the service must also offer [well-defined, relaxed consistency choice(s)](/documentation/articles/documentdb-consistency-levels/) - weaker than strong (to offer low latency and availability guarantees) and ideally stronger than "eventual" consistency (to offer an intuitive programming model).
 
 DocumentDB ensures that a read operation is not required to contact replicas across multiple regions to deliver the specific consistency level guarantee. Likewise, it ensures that a write operation does not get blocked while the data is being replicated across all the regions (i.e. writes are asynchronously replicated across regions). For multi-region database accounts multiple relaxed consistency levels are available. 
 
@@ -123,58 +145,58 @@ DocumentDB's consistency SLA guarantees that 100% of read requests will meet the
 **Consistency guarantees associated with a given consistency level in DocumentDB**
 
 <table>
-    <tr>
-        <td><strong>Consistency Level</strong></td>
-        <td><strong>Consistency Characteristics</strong></td>
-        <td><strong>SLA</strong></td>
-    </tr>
-    <tr>
-        <td rowspan="3">Session</td>
-        <td>Read your own write</td>
-        <td>100%</td>
-    </tr>
-    <tr>
-        <td>Monotonic read</td>
-        <td>100%</td>
-    </tr>
-    <tr>
-        <td>Consistent prefix</td>
-        <td>100%</td>
-    </tr>
-    <tr>
-        <td rowspan="3">Bounded staleness</td>
-        <td>Monotonic read (within a region)</td>
-        <td>100%</td>
-    </tr>
-    <tr>
-        <td>Consistent prefix</td>
-        <td>100%</td>
-    </tr>
-    <tr>
-        <td>Staleness bound &lt; K,T</td>
-        <td>100%</td>
-    </tr>
-    <tr>
-        <td>Eventual</td>
-        <td>Consistent prefix</td>
-        <td>100%</td>
-    </tr>
-    <tr>
-        <td>Strong</td>
-        <td>Linearizable</td>
-        <td>100%</td>
-    </tr>
+	<tr>
+		<td><strong>Consistency Level</strong></td>
+		<td><strong>Consistency Characteristics</strong></td>
+		<td><strong>SLA</strong></td>
+	</tr>
+	<tr>
+		<td rowspan="3">Session</td>
+		<td>Read your own write</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Monotonic read</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Consistent prefix</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td rowspan="3">Bounded staleness</td>
+		<td>Monotonic read (within a region)</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Consistent prefix</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Staleness bound &lt; K,T</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Eventual</td>
+		<td>Consistent prefix</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Strong</td>
+		<td>Linearizable</td>
+		<td>100%</td>
+	</tr>
 </table>
 
 ### <a id="ConsistencyAndAvailability"></a>Consistency's relationship with availability
-The [impossibility result](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) of the [CAP theorem](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) proves that it is indeed impossible for the system to remain available and offer linearizable consistency in the face of failures. The database service must choose to be either CP or AP - CP systems forgo availability in favor of linearizable consistency while the AP systems forgo [linearizable consistency](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) in favor of availability. DocumentDB never violates the requested consistency level, which formally makes it a CP system. However, in practice consistency is not an all or nothing proposition - there are multiple well-defined consistency models along the consistency spectrum between linearizable and eventual consistency. In DocumentDB, we have tried to identify several of the relaxed consistency models with real world applicability and an intuitive programming model. DocumentDB navigates the consistency-availability tradeoffs by offering 99.99 availability SLA along with [multiple relaxed yet well-defined consistency levels](./documentdb-consistency-levels.md). 
+The [impossibility result](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) of the [CAP theorem](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) proves that it is indeed impossible for the system to remain available and offer linearizable consistency in the face of failures. The database service must choose to be either CP or AP - CP systems forgo availability in favor of linearizable consistency while the AP systems forgo [linearizable consistency](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) in favor of availability. DocumentDB never violates the requested consistency level, which formally makes it a CP system. However, in practice consistency is not an all or nothing proposition - there are multiple well-defined consistency models along the consistency spectrum between linearizable and eventual consistency. In DocumentDB, we have tried to identify several of the relaxed consistency models with real world applicability and an intuitive programming model. DocumentDB navigates the consistency-availability tradeoffs by offering 99.99 availability SLA along with [multiple relaxed yet well-defined consistency levels](/documentation/articles/documentdb-consistency-levels/). 
 
 ### <a id="ConsistencyAndAvailability"></a>Consistency's relationship with latency
 A more comprehensive variation of CAP was proposed by Prof. Daniel Abadi and it is called [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), which also accounts for latency and consistency tradeoffs in steady state. It states that in steady state, the database system must choose between consistency and latency. With multiple relaxed consistency models (backed by asynchronous replication and local read, write quorums), DocumentDB ensures that all reads and writes are local to the read and write regions respectively.  This allows DocumentDB to offer low latency guarantees within the region for the consistency levels.  
 
 ### <a id="ConsistencyAndThroughput"></a>Consistency's relationship with throughput
 Since the implementation of a specific consistency model depends on the choice of a [quorum type](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), the throughput also varies based on the choice of consistency. For instance, in DocumentDB, the throughput with strongly consistent reads is roughly half to that of eventually consistent reads. 
-
+ 
 **Relationship of read capacity for a specific consistency level in DocumentDB**
 
 ![Relationship between consistency and throughput](./media/documentdb-distribute-data-globally/consistency-and-throughput.png)
@@ -192,7 +214,7 @@ A DocumentDB collection gets distributed using two dimensions - within a region 
 - Each of the resource partitions is then distributed across multiple regions. Resource partitions owning the same set of keys across various regions form partition set (see [preceding figure](#ThroughputGuarantees)).  Resource partitions within a partition set are coordinated using state machine replication across the multiple regions. Depending on the consistency level configured, the resource partitions within a partition set are configured dynamically using different topologies (for example, star, daisy-chain, tree etc.). 
 
 By virtue of a highly responsive partition management, load balancing and strict resource governance, DocumentDB allows you to elastically scale throughput across multiple Azure regions on a DocumentDB collection. Changing throughput on a collection is a runtime operation in DocumentDB - like with other database operations DocumentDB guarantees the absolute upper bound on latency for your request to change the throughput. As an example, the following figure shows a customer's collection with elastically provisioned throughput (ranging from 1M-10M requests/sec across two regions) based on the demand.
-
+ 
 **A customer's collection with elastically provisioned throughput (1M-10M requests/sec)**
 
 ![Azure DocumentDB elastically provisioned throughput](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
@@ -210,19 +232,19 @@ DocumentDB offers a 99.99% uptime availability SLA for each of the data and cont
 Availability’s relationship with consistency, latency, and throughput is described in  [Consistency's relationship with availability](#ConsistencyAndAvailability), [Latency's relationship with availability](#LatencyAndAvailability) and [Throughput's relationship with availability](#ThroughputAndAvailability). 
 
 ## <a id="GuaranteesAgainstDataLoss"></a>Guarantees and system behavior for "data loss"
-In DocumentDB, each partition (of a collection) is made highly available by a number of replicas, which are spread across at least 10-20 fault domains. All writes are synchronously and durably committed by a majority quorum of replicas before they are acknowledged to the client. Asynchronous replication is applied with coordination across partitions spread across multiple regions. DocumentDB guarantees that there is no data loss for a tenant-initiated manual failover. During automatic failover, DocumentDB guarantees an upper bound of 5 seconds on the data loss window as part of its SLA.
+In DocumentDB, each partition (of a collection) is made highly available by a number of replicas, which are spread across at least 10-20 fault domains. All writes are synchronously and durably committed by a majority quorum of replicas before they are acknowledged to the client. Asynchronous replication is applied with coordination across partitions spread across multiple regions. DocumentDB guarantees that there is no data loss for a tenant-initiated manual failover. During automatic failover, DocumentDB guarantees an upper bound of the configured bounded staleness interval on the data loss window as part of its SLA.
 
 ## <a id="CustomerFacingSLAMetrics"></a>Customer facing SLA Metrics
 DocumentDB transparently exposes the throughput, latency, consistency and availability metrics. These metrics are accessible programmatically and via the Azure portal (see following figure). You can also set up alerts on various thresholds using Azure Application Insights.
-
+ 
 **Consistency, Latency, Throughput, and Availability metrics are transparently available to each tenant**
 
 ![Azure DocumentDB customer-visible SLA metrics](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>Next Steps
-- To implement global replication on your DocumentDB account using the Azure portal, see [How to perform DocumentDB global database replication using the Azure portal](./documentdb-portal-global-replication.md).
-- To learn about how to implement multi-master architectures with DocumentDB, see [Multi-master database architectures with Azure DocumentDB](./documentdb-multi-region-writers.md).
-- To learn more about how automatic and manual failovers work in DocumentDB, see [Regional Failovers in Azure DocumentDB](./documentdb-regional-failovers.md).
+- To implement global replication on your DocumentDB account using the Azure portal, see [How to perform DocumentDB global database replication using the Azure portal](/documentation/articles/documentdb-portal-global-replication/).
+- To learn about how to implement multi-master architectures with DocumentDB, see [Multi-master database architectures with Azure DocumentDB](/documentation/articles/documentdb-multi-region-writers/).
+- To learn more about how automatic and manual failovers work in DocumentDB, see [Regional Failovers in Azure DocumentDB](/documentation/articles/documentdb-regional-failovers/).
 
 ## <a id="References"></a>References
 1. Eric Brewer. [Towards Robust Distributed Systems](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)

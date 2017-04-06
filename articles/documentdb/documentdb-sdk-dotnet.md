@@ -1,53 +1,63 @@
----
-title: .NET API & SDK Resources - Azure DocumentDB | Azure
-description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
-services: documentdb
-documentationcenter: .net
-author: rnagpal
-manager: jhubbard
-editor: cgronlun
+<properties
+    pageTitle="Azure DocumentDB .NET SDK & Resources | Azure"
+    description="Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK."
+    services="documentdb"
+    documentationcenter=".net"
+    author="rnagpal"
+    manager="jhubbard"
+    editor="cgronlun" />
+<tags
+    ms.assetid="8e239217-9085-49f5-b0a7-58d6e6b61949"
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="03/20/2017"
+    wacn.date=""
+    ms.author="rnagpal"
+    ms.custom="H1Hack27Feb2017" />
 
-ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 02/15/2017
-wacn.date: ''
-ms.author: rnagpal
----
+# DocumentDB .NET SDK: Download and release notes
+> [AZURE.SELECTOR]
+- [.NET](/documentation/articles/documentdb-sdk-dotnet/)
+- [.NET Core](/documentation/articles/documentdb-sdk-dotnet-core/)
+- [Node.js](/documentation/articles/documentdb-sdk-node/)
+- [Java](/documentation/articles/documentdb-sdk-java/)
+- [Python](/documentation/articles/documentdb-sdk-python/)
+- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
 
-# DocumentDB APIs and SDKs
-> [!div class="op_single_selector"]
->- [.NET](./documentdb-sdk-dotnet.md)
->- [.NET Core](./documentdb-sdk-dotnet-core.md)
->- [Node.js](./documentdb-sdk-node.md)
->- [Java](./documentdb-sdk-java.md)
->- [Python](./documentdb-sdk-python.md)
->- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
->- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
->- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
-
-## DocumentDB .NET API and SDK
 <table>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
 <tr><td>**API documentation**</td><td>[.NET API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx)</td></tr>
 
-<tr><td>**Samples**</td><td>[.NET code samples](./documentdb-dotnet-samples.md)</td></tr>
+<tr><td>**Samples**</td><td>[.NET code samples](/documentation/articles/documentdb-dotnet-samples/)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](./documentdb-get-started.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](/documentation/articles/documentdb-get-started/)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](./documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](/documentation/articles/documentdb-dotnet-application/)</td></tr>
 
 <tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/zh-cn/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## Release notes
 
+### <a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
+- Fix for an issue that occasionally causes a WebException: The remote name could not be resolved.
+- Added the support for directly reading a typed document by adding new overloads to ReadDocumentAsync API.
+
+### <a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
+- Added LINQ support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
+- Fix for a memory leak issue for the ConnectionPolicy object caused by the use of event handler.
+- Fix for an issue wherein UpsertAttachmentAsync was not working when ETag was used.
+- Fix for an issue wherein cross partition order-by query continuation was not working when sorting on string field.
+
 ### <a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+- Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](/documentation/articles/documentdb-sql-query/#Aggregates/).
 - Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
@@ -67,7 +77,7 @@ ms.author: rnagpal
 - Performance fix in the SDK for scenarios that involve high degree of concurrent requests.
 
 ### <a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
-- Support for new classes and methods to process the [change feed](./documentdb-change-feed.md) of documents within a collection.
+- Support for new classes and methods to process the [change feed](/documentation/articles/documentdb-change-feed/) of documents within a collection.
 - Support for cross-partition query continuation and some perf improvements for cross-partition queries.
 - Addition of CreateDatabaseIfNotExistsAsync and CreateDocumentCollectionIfNotExistsAsync methods.
 - LINQ support for system functions: IsDefined, IsNull and IsPrimitive.
@@ -122,7 +132,7 @@ ms.author: rnagpal
 - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of an Azure Cloud Service solution.
 
 ### <a name="1.6.2"/>[1.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
-- Implemented [partitioned collections](./documentdb-partition-data.md) and [user-defined performance levels](./documentdb-performance-levels.md). 
+- Implemented [partitioned collections](/documentation/articles/documentdb-partition-data/) and [user-defined performance levels](/documentation/articles/documentdb-performance-levels/). 
 
 ### <a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
 - **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
@@ -172,12 +182,12 @@ ms.author: rnagpal
 ### <a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 - Dependency on Newtonsoft.Json v5.0.7 
 - Changes to support Order By
-
+  
   - LINQ provider support for OrderBy() or OrderByDescending()
   - IndexingPolicy to support Order By 
-
+    
     **NB: Possible breaking change** 
-
+    
     If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
@@ -200,6 +210,8 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |March 20, 2017 |--- |
+| [1.12.1](#1.12.1) |March 14, 2017 |--- |
 | [1.12.0](#1.12.0) |February 15, 2017 |--- |
 | [1.11.4](#1.11.4) |February 06, 2017 |--- |
 | [1.11.3](#1.11.3) |January 26, 2017 |--- |
@@ -226,8 +238,10 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.1.0](#1.1.0) |April 30, 2015 |--- |
 | [1.0.0](#1.0.0) |April 08, 2015 |--- |
 
+
 ## FAQ
-[!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
+[AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See also
-To learn more about DocumentDB, see [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) service page.
+To learn more about DocumentDB, see [Azure DocumentDB](/home/features/documentdb/) service page. 
+
