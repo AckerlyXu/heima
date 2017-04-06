@@ -56,7 +56,7 @@ A variety of resources are available for you to learn more about Azure Automatio
 
 * **Azure Automation Library** is where you are right now. The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks. 
 * [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) provides information for automating Azure operations using Windows PowerShell. Runbooks use these cmdlets to work with Azure resources. 
-* [Automation Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureautomation) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community. 
+* [Automation Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community. 
 * [Azure Automation Cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) provides information for automating administration tasks. It contains cmdlets to manage Automation accounts, assets, runbooks.
 
 ## Can I provide feedback?

@@ -193,7 +193,7 @@ Congratulations! The WordPress app now has a centralized in-memory cache to aid 
 [7]: http://pecl.php.net/package/memcache
 [8]: http://blog.syntaxc4.net/post/2015/02/05/how-to-enable-a-site-extension-in-azure-websites.aspx
 [9]: http://redis.io/download#installation
-[10]: https://social.msdn.microsoft.com/Forums/home?forum=windowsazurewebsitespreview
+[10]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview
 [11]: http://azure.csdn.net/
 [12]: https://www.azure.cn/home/features/redis-cache/
 [13]: http://memcached.org

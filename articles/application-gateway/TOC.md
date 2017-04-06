@@ -61,7 +61,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/application-gateway/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://www.azure.cn/support/legal/sla/)

@@ -574,7 +574,7 @@ For more information about troubleshooting web apps in Azure App Service, see th
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
 * [The Azure forum on the ASP.NET site](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [The Azure forum on MSDN](https://social.msdn.microsoft.com/Forums/home?forum=windowsazurezhchs).
+* [The Azure forum on MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurezhchs).
 * [CSDN](http://azure.csdn.net/).
 
 ### Debugging in Visual Studio

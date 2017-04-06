@@ -73,7 +73,7 @@ Some things to consider include:
 
     If the data is not there, then it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://www.azure.cn/support/service-dashboard/).
 
-    Once you've been through these steps, if you are still having autoscale problems you could try the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [CSDN Azure](http://azure.csdn.net/), or log a support call. Be prepared to share the template and a view of the performance data.
+    Once you've been through these steps, if you are still having autoscale problems you could try the forums on [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [CSDN Azure](http://azure.csdn.net/), or log a support call. Be prepared to share the template and a view of the performance data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png

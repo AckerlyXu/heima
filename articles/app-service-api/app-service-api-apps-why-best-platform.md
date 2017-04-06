@@ -45,4 +45,4 @@ To get started with API Apps by deploying sample code to one, see the tutorial f
 * [Node.js](app-service-api-nodejs-api-app.md) 
 * [Java](app-service-api-java-api-app.md) 
 
-To ask questions about API apps, start a thread in the [API Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureAPIApps).
+To ask questions about API apps, start a thread in the [API Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps).

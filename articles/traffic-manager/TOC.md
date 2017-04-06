@@ -37,6 +37,6 @@
 ## [SLA](https://www.azure.cn/support/sla/traffic-manager/)
 ## [Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Service updates](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

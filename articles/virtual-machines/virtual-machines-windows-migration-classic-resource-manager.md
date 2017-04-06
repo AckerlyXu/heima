@@ -178,7 +178,7 @@ Abort is an optional step that you can use to revert your changes to the classic
 After you finish the validation, you can commit the migration. Resources do not appear anymore in classic and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
 
 > [!NOTE]
-> This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+> This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows).
 >
 >
 
@@ -205,7 +205,7 @@ You can abort your migration as long as the resources are in the prepared state.
 
 **Can I roll back my migration if the commit operation fails?**
 
-You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket or create a forum post with the ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket or create a forum post with the ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows).
 
 **Do I have to buy another express route circuit if I have to use IaaS under Resource Manager?**
 
@@ -229,7 +229,7 @@ We recommend that you abort your migration and then log a support request to inc
 
 **How do I report an issue?**
 
-Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 **What if I don't like the names of the resources that the platform chose during migration?**
 

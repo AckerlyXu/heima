@@ -25,7 +25,7 @@ Learn the answers to common questions, patterns, and best practices for Azure Re
 If your question isn't listed here, let us know and we'll help you find an answer.
 
 * You can post a question in the comments at the end of this FAQ and engage with the Azure Content team and other community members about this article.
-* To reach a wider audience, you can post a question on the [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) and engage with the Azure Cache team and other members of the community.
+* To reach a wider audience, you can post a question on the [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache) and engage with the Azure Cache team and other members of the community.
 
 ## Azure Redis Cache basics
 The FAQs in this section cover some of the basics of Azure Redis Cache.

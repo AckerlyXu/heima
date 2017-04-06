@@ -104,6 +104,6 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 ## <a name="gethelp"></a>Getting help with WebJobs
 * [StackOverflow for Azure Functions](http://stackoverflow.com/questions/tagged/azure-functions)
 * [Azure and ASP.NET forum](http://forums.asp.net/1247.aspx)
-* [Azure App Service Web Apps forum](http://social.msdn.microsoft.com/Forums/home?forum=windowsazurezhchs)
+* [Azure App Service Web Apps forum](http://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurezhchs)
 * [Azure Web Apps User Voice site](https://feedback.azure.com/forums/169385-websites/)
 * [Report a WebJobs bug or issue](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
