@@ -53,12 +53,6 @@ The following table lists the HDInsight cluster type and Premium support matrix.
 
 This table will be updated as more cluster types are included in HDInsight Premium.
 
-### Features not supported for HDInsight Premium
-
-The following features are currently not supported for HDInsight Premium clusters.
-
-* **No support for Azure Data Lake Store as primary storage**. You can still use Azure Data Lake Store as add-on storage with HDInsight Premium clusters.
-
 ### Pricing and SLA
 For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
