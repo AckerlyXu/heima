@@ -115,7 +115,7 @@ In addition to the Azure portal, firewall rules can be managed programmatically 
 Q. Should users of one database be fully isolated from another database?   
   If yes, grant access using database-level firewall rules. This avoids using server-level firewall rules, which permit access through the firewall to all databases, reducing the depth of your defenses.   
  
-Q. Do users at the IP address’s need access to all databases?   
+Q. Do users at the IP addressâ€™s need access to all databases?   
   Use server-level firewall rules to reduce the number of times you must configure firewall rules.   
 
 Q. Does the person or team configuring the firewall rules only have access through the Azure portal, PowerShell, or the REST API?   
