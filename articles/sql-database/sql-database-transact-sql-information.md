@@ -19,7 +19,7 @@ ms.date: 03/17/2017
 ms.author: rickbyh
 
 ---
-# Resolving Transact-SQL differences during migration to SQL Database   
+# Resolving Transact-SQL differences during migration to SQL DatabaseÂ Â Â 
 When [migrating your database](sql-database-cloud-migrate.md) from SQL Server to Azure SQL Server, you may discover that your database requires some re-engineering before the SQL Server can be migrated. This topic provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## Overview
@@ -29,7 +29,7 @@ In addition, there are some features and syntax that is not supported at all bec
 
 For example, high availability is built into Azure, so configuring Always On is not necessary (although you may want to configure Active Geo-Replication for faster recovery in the event of a disaster). So, T-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are also not supported.
 
-For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](sql-database-features.md). The list on this page supplements that guidelines and features topic, and focuses on Transact-SQL statements.
+For a list of the features that are supported and unsupported by SQL Database, seeÂ [Azure SQL Database feature comparison](sql-database-features.md). The list on this page supplements that guidelines and features topic, and focuses on Transact-SQL statements.
 
 ## Transact-SQL syntax statements with partial differences
 The core DDL (data definition language) statements are available, but some DDL statements have extensions related to disk placement and unsupported features. 
@@ -38,53 +38,53 @@ The core DDL (data definition language) statements are available, but some DDL s
 - The CREATE and ALTER TABLE statements have FileTable options that cannot be used on SQL Database because FILESTREAM is not supported.
 - CREATE and ALTER login statements are supported but SQL Database does not offer all the options. To make your database more portable, SQL Database encourages using contained database users instead of logins whenever possible. For more information, see [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) and [Controlling and granting database access](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
-## Transact-SQL syntax not supported in SQL Database   
-In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database feature comparison](sql-database-features.md), the following statements and groups of statements, are not supported. As such, if your database to be migrated is using any of the following features, re-engineer your T-SQL to eliminate these T-SQL features and statements.
+## Transact-SQL syntax not supported in SQL DatabaseÂ Â Â 
+In addition to Transact-SQL statements related to the unsupported features described inÂ [Azure SQL Database feature comparison](sql-database-features.md), the following statements and groups of statements, are not supported. As such, if your database to be migrated is using any of the following features, re-engineer your T-SQL to eliminate these T-SQL features and statements.
 
-- Collation of system objects
-- Connection related: Endpoint statements, `ORIGINAL_DB_NAME`. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
-- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
-- Cross database ownership chaining, `TRUSTWORTHY` setting
-- `DATABASEPROPERTY` Use `DATABASEPROPERTYEX` instead.
-- `EXECUTE AS LOGIN` Use 'EXECUTE AS USER' instead.
-- Encryption is supported except for extensible key management
-- Eventing: Events, event notifications, query notifications
-- File placement: Syntax related to database file placement, size, and database files that are automatically managed by Azure.
+-Â Collation of system objects
+-Â Connection related: Endpoint statements,Â `ORIGINAL_DB_NAME`. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, seeÂ [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
+-Â Cross database queries using three or four part names. (Read-only cross-database queries are supported by usingÂ [elastic database query](sql-database-elastic-query-overview.md).)
+-Â Cross database ownership chaining,Â `TRUSTWORTHY`Â setting
+-Â `DATABASEPROPERTY`Â UseÂ `DATABASEPROPERTYEX`Â instead.
+-Â `EXECUTE AS LOGIN`Â Use 'EXECUTE AS USER' instead.
+-Â Encryption is supported except for extensible key management
+-Â Eventing: Events, event notifications, query notifications
+-Â File placement: Syntax related to database file placement, size, and database files that are automatically managed by Azure.
 - High availability: Syntax related to high availability, which is managed through your Azure account. This includes syntax for backup, restore, Always On, database mirroring, log shipping, recovery modes.
-- Log reader: Syntax that relies upon the log reader, which is not available on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
-- Functions: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- Global temporary tables
-- Hardware: Syntax related to hardware-related server settings: such as memory, worker threads, CPU affinity, trace flags. Use service levels instead.
-- `HAS_DBACCESS`
-- `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, and four-part names
-- .NET Framework: CLR integration with SQL Server
-- Semantic search
-- Server credentials: Use [database scoped credentials](https://msdn.microsoft.com/library/mt270260.aspx) instead.
-- Server-level items: Server roles, `IS_SRVROLEMEMBER`, `sys.login_token`. `GRANT`, `REVOKE`, and `DENY` of server level permissions are not available though some are replaced by database-level permissions. Some useful server-level DMVs have equivalent database-level DMVs.
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- `sp_configure` options and `RECONFIGURE`. Some options are available using [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
+-Â Log reader: Syntax that relies upon the log reader, which is not available on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
+-Â Functions:Â `fn_get_sql`,Â `fn_virtualfilestats`,Â `fn_virtualservernodes`
+-Â Global temporary tables
+-Â Hardware: Syntax related to hardware-related server settings: such as memory, worker threads, CPU affinity, trace flags. Use service levels instead.
+-Â `HAS_DBACCESS`
+-Â `KILL STATS JOB`
+-Â `OPENQUERY`,Â `OPENROWSET`,Â `OPENDATASOURCE`, and four-part names
+-Â .NET Framework:Â CLR integration with SQL Server
+-Â Semantic search
+-Â Server credentials: Use [database scoped credentials](https://msdn.microsoft.com/library/mt270260.aspx) instead.
+-Â Server-level items: Server roles,Â `IS_SRVROLEMEMBER`,Â `sys.login_token`. `GRANT`, `REVOKE`, and `DENY` of server level permissions are not available though some are replaced by database-level permissions. Some useful server-level DMVs have equivalent database-level DMVs.
+-Â `SET REMOTE_PROC_TRANSACTIONS`
+-Â `SHUTDOWN`
+-Â `sp_addmessage`
+-Â `sp_configure`Â options andÂ `RECONFIGURE`. Some options are available usingÂ [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+-Â `sp_helpuser`
+-Â `sp_migrate_user_to_contained`
 - SQL Server Agent: Syntax that relies upon the SQL Server Agent or the MSDB database: alerts, operators, central management servers. Use scripting, such as Azure PowerShell instead.
-- SQL Server audit: Use SQL Database auditing instead.
-- SQL Server trace
-- Trace flags: Some trace flag items have been moved to compatibility modes.
-- Transact-SQL debugging
-- Triggers: Server-scoped or logon triggers
-- `USE` statement: To change the database context to a different database, you must make a new connection to the new database.
+-Â SQL Server audit: Use SQL Database auditing instead.
+-Â SQL Server trace
+-Â Trace flags: Some trace flag items have been moved to compatibility modes.
+-Â Transact-SQL debugging
+-Â Triggers: Server-scoped or logon triggers
+-Â `USE`Â statement: To change the database context to a different database, you must make a new connection to the new database.
 
 ## Full Transact-SQL reference
-For more information about Transact-SQL grammar, usage, and examples, see [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx) in SQL Server Books Online. 
+For more information about Transact-SQL grammar, usage, and examples, seeÂ [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx)Â in SQL Server Books Online.Â 
 
 ### About the "Applies to" tags
-The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012)**. The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
+The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. TheÂ [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)Â topic indicates that the statement applies toÂ **SQL Server (starting with 2012)**. The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
 
 In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate. In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate. For example the CREATE TRIGGER topic is available in SQL Database. But the **ALL SERVER** option for server-level triggers, indicates that server-level triggers cannot be used in SQL Database. Use database-level triggers instead.
 
 ## Next steps
 
-For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](sql-database-features.md). The list on this page supplements that guidelines and features topic, and focuses on Transact-SQL statements.
+For a list of the features that are supported and unsupported by SQL Database, seeÂ [Azure SQL Database feature comparison](sql-database-features.md). The list on this page supplements that guidelines and features topic, and focuses on Transact-SQL statements.
 
