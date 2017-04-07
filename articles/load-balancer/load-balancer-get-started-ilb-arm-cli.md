@@ -20,10 +20,10 @@ ms.author: kumud
 
 # Create an internal load balancer by using the Azure CLI
 > [!div class="op_single_selector"]
->- [Azure Portal Preview](./load-balancer-get-started-ilb-arm-portal.md)
->- [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
->- [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
->- [Template](./load-balancer-get-started-ilb-arm-template.md)
+> * [Azure Portal Preview](./load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
+> * [Template](./load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -56,10 +56,10 @@ For more information, see [Azure Resource Manager support for Load Balancer](./l
     ```
 
     Expected output:
-
-    ```
+	
+	```
     info:    New mode is arm
-    ```
+	```
 
 ## Create an internal load balancer step by step
 
