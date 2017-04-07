@@ -161,14 +161,16 @@ To get the current state of your resource group, export a template that shows a 
 
      Resource Manager did not retrieve the templates that you used during deployment. Instead, it generated a new template that's based on the current configuration of the resources. For example, the template sets the storage account location and replication value to:
 
-        "location": "northeurope",
+  ```json 
+        "location": "chinaeast",
         "tags": {},
         "properties": {
             "accountType": "Standard_RAGRS"
         },
+  ```
 3. You have a couple of options for continuing to work with this template. You can either download the template and work on it locally with a JSON editor. Or, you can save the template to your library and work on it through the portal.
 
-     If you are comfortable using a JSON editor like [VS Code](/documentation/articles/resource-manager-vs-code/) or [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal.
+     If you are comfortable using a JSON editor like [VS Code](./resource-manager-vs-code.md) or [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal.
 
      To work locally, select **Download**.
 
@@ -386,7 +388,7 @@ In the web site resource, add a definition for the code to install:
 ```
 
 ### Virtual machine extension
-For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
+For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Virtual network gateway
 Add a virtual network gateway resource type.

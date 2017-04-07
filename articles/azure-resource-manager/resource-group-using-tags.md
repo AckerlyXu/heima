@@ -50,11 +50,15 @@ Every time you apply tags to a resource or resource group, you overwrite the exi
 
 * resource group without existing tags.
 
-      az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
+  ```azurecli
+  az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
+  ```
 
 * resource without existing tags.
 
-      az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+  ```azurecli
+  az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+  ``` 
 
 To add tags to a resource that already has tags, first retrieve the existing tags: 
 
