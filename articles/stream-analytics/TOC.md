@@ -49,7 +49,6 @@
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
 
-
 # Resources
 ## [Release notes](stream-analytics-release-notes.md)
 ## [Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)

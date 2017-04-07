@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Deploy an Internet-facing load-balancer with IPv6 - Azure template | Azure"
-    description="How to deploy IPv6 support for Azure Load Balancer and load-balanced VMs."
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"
-    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot" />
-<tags
-    ms.assetid="2998e943-13fc-4ea9-a68c-875e53a08db3"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Deploy an Internet-facing load-balancer with IPv6 - Azure template | Azure
+description: How to deploy IPv6 support for Azure Load Balancer and load-balanced VMs.
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
+
+ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Deploy an Internet-facing load-balancer solution with IPv6 using a template
-> [AZURE.SELECTOR]
-- [PowerShell](/documentation/articles/load-balancer-ipv6-internet-ps/)
-- [Azure CLI](/documentation/articles/load-balancer-ipv6-internet-cli/)
-- [Template](/documentation/articles/load-balancer-ipv6-internet-template/)
+> [!div class="op_single_selector"]
+>- [PowerShell](/documentation/articles/load-balancer-ipv6-internet-ps/)
+>- [Azure CLI](./load-balancer-ipv6-internet-cli.md)
+>- [Template](./load-balancer-ipv6-internet-template.md)
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -60,7 +61,7 @@ This article references a template that is published in the [Azure Quickstart Te
 
 5. Click "Edit template." Delete the existing contents and copy/paste in the entire contents of the template file (to include the start and end { }), then click "Save."
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If you are using Microsoft Internet Explorer, when you paste you receive a dialog box asking you to allow access to the Windows clipboard. Click "Allow access."
 
     ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
@@ -79,7 +80,7 @@ This article references a template that is published in the [Azure Quickstart Te
 
     ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If you browse your Resource Groups immediately after completing step 6, "Last deployment" will display the status of "Deploying" while the resources are being deployed.
 
 9. Click "myIPv6PublicIP" in the list of resources. You see that it has an IPv6 address under IP address, and that its DNS name is the value you specified for the dnsNameforIPv6LbIP parameter in step 6. This resource is the public IPv6 address and host name that is accessible to Internet-clients.
@@ -95,7 +96,7 @@ When the template has deployed successfully, you can validate connectivity by co
 3. From an IPv4 Internet-connected client, initiate a connection to the public IPv4 address of the load balancer. To confirm that the load balancer is load balancing the two VMs, you could test using IIS, as detailed in Step 2.
 4. From each VM, initiate an outbound connection to an IPv6 or IPv4-connected Internet device. In both cases, the source IP seen by the destination device is the public IPv4 or IPv6 address of the load balancer.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > ICMP for both IPv4 and IPv6 is blocked in the Azure network. As a result, ICMP tools like ping always fail. To test connectivity, use a TCP alternative such as TCPing or the PowerShell Test-NetConnection cmdlet. Note that the IP addresses shown in the diagram are examples of values that you might see. Since the IPv6 addresses are assigned dynamically, the addresses you receive will differ and can vary by region. Also, it is common for the public IPv6 address on the load balancer to start with a different prefix than the private IPv6 addresses in the back-end pool.
 
 ## Template parameters and variables

@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Deploy resources to Azure | Azure"
-    description="Use Azure PowerShell or Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template."
-    services="azure-resource-manager"
-    documentationcenter="na"
-    author="tfitzmac"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid=""
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Deploy resources to Azure | Azure
+description: Use Azure PowerShell or Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
+
+ms.assetid: ''
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Deploy resources to Azure
 
 This topic shows how to deploy resources to your Azure subscription. You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template that defines the infrastructure for your solution.
 
-For an introduction to concepts of Resource Manager, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/).
+For an introduction to concepts of Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
 
 ## Steps for deployment
 
@@ -43,32 +44,42 @@ The following sections show how to perform those steps with [PowerShell](#powers
 
 2. To quickly get started with deployment, use the following cmdlets:
 
-	    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-        Set-AzureRmContext -SubscriptionID {subscription-id}
+    ```powershell
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Set-AzureRmContext -SubscriptionID {subscription-id}
 
-        New-AzureRmResourceGroup -Name ExampleGroup -Location "China North"
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json 
+    New-AzureRmResourceGroup -Name ExampleGroup -Location "China North"
+    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json 
+    ```
 
     The `Set-AzureRmContext` cmdlet is only needed if you want to use a subscription other than your default subscription. To see all your subscriptions and their IDs, use:
 
-        Get-AzureRmSubscription
+    ```powershell
+    Get-AzureRmSubscription
+    ```
 
 3. The deployment can take a few minutes to complete. When it finishes, you see a message similar to:
 
-        DeploymentName          : ExampleDeployment
-        CorrelationId           : 07b3b233-8367-4a0b-b9bc-7aa189065665
-        ResourceGroupName       : ExampleGroup
-        ProvisioningState       : Succeeded
-        ...
+    ```powershell
+    DeploymentName          : ExampleDeployment
+    CorrelationId           : 07b3b233-8367-4a0b-b9bc-7aa189065665
+    ResourceGroupName       : ExampleGroup
+    ProvisioningState       : Succeeded
+    ...
+    ```
 
 4. To see that your resource group and storage account were deployed to your subscription, use:
 
-        Get-AzureRmResourceGroup -Name ExampleGroup
-        Find-AzureRmResource -ResourceGroupNameEquals ExampleGroup
+    ```powershell
+    Get-AzureRmResourceGroup -Name ExampleGroup
+    Find-AzureRmResource -ResourceGroupNameEquals ExampleGroup
+    ```
 
 5. You can specify template parameters as PowerShell parameters when deploying a template. The earlier example did not include any template parameters, so the default values in the template were used. To deploy another storage account, and provide parameter values for the storage name prefix and the storage account SKU, use:
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment2 -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json -storageNamePrefix "contoso" -storageSKU "Standard_GRS"
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name ExampleDeployment2 -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json -storageNamePrefix "contoso" -storageSKU "Standard_GRS"
+    ```
 
     You now have two storage accounts in your resource group. 
 
@@ -78,28 +89,38 @@ The following sections show how to perform those steps with [PowerShell](#powers
 
 2. To quickly get started with deployment, use the following commands:
 
-      	az login
-      	az account set --subscription {subscription-id}
+    ```azurecli
+      az login
+      az account set --subscription {subscription-id}
 
-      	az group create --name ExampleGroup --location "China North"
-      	az group deployment create --name ExampleDeployment --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json
+      az group create --name ExampleGroup --location "China North"
+      az group deployment create --name ExampleDeployment --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json
+    ```
 
     The `az account set` command is only needed if you want to use a subscription other than your default subscription. To see all your subscriptions and their IDs, use:
 
-      	az account list
+    ```azurecli
+      az account list
+    ```
 
 3. The deployment can take a few minutes to complete. When it finishes, you see a message similar to:
 
-      	"provisioningState": "Succeeded",
+    ```azurecli
+      "provisioningState": "Succeeded",
+    ```
 
 4. To see that your resource group and storage account were deployed to your subscription, use:
 
-      	az group show --name ExampleGroup
-      	az resource list --resource-group ExampleGroup
+    ```azurecli
+      az group show --name ExampleGroup
+      az resource list --resource-group ExampleGroup
+    ```
 
 5. You can specify template parameters as PowerShell parameters when deploying a template. The earlier example did not include any template parameters, so the default values in the template were used. To deploy another storage account, and provide parameter values for the storage name prefix and the storage account SKU, use:
 
-      	az group deployment create --name ExampleDeployment2 --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    ```azurecli
+      az group deployment create --name ExampleDeployment2 --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    ```
 
     You now have two storage accounts in your resource group. 
 
@@ -107,53 +128,55 @@ The following sections show how to perform those steps with [PowerShell](#powers
 
 Use the following example template to deploy a storage account to your subscription:
 
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageNamePrefix": {
-          "type": "string",
-          "maxLength": 11,
-          "defaultValue": "storage",
-          "metadata": {
-            "description": "The value to use for starting the storage account name."
-          }
-        },
-        "storageSKU": {
-          "type": "string",
-          "allowedValues": [
-            "Standard_LRS",
-            "Standard_ZRS",
-            "Standard_GRS",
-            "Standard_RAGRS",
-            "Premium_LRS"
-          ],
-          "defaultValue": "Standard_LRS",
-          "metadata": {
-            "description": "The type of replication to use for the storage account."
-          }
-        }
-      },
-      "variables": {
-        "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-      },
-      "resources": [
-        {
-          "name": "[variables('storageName')]",
-          "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2016-05-01",
-          "sku": {
-            "name": "[parameters('storageSKU')]"
-          },
-          "kind": "Storage",
-          "location": "[resourceGroup().location]",
-          "tags": {},
-          "properties": {
-          }
-        }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name."
+      }
+    },
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
       ],
-      "outputs": {  }
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
     }
+  },
+  "variables": {
+    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-05-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+      }
+    }
+  ],
+  "outputs": {  }
+}
+```
 
 ## Next steps
 

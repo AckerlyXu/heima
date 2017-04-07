@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Event Hubs FAQ | Azure"
-    description="Azure Event Hubs frequently asked questions (FAQ)"
-    services="event-hubs"
-    documentationcenter="na"
-    author="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="bfa10984-eb22-4671-861a-f377a90d9372"
-    ms.service="event-hubs"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/13/2017"
-    wacn.date=""
-    ms.author="sethm;jotaub;shvija" />
+---
+title: Azure Event Hubs FAQ | Azure
+description: Azure Event Hubs frequently asked questions (FAQ)
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
+
+ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/13/2017
+wacn.date: ''
+ms.author: sethm;jotaub;shvija
+---
 
 # Event Hubs frequently asked questions
 
@@ -28,7 +29,7 @@ The Standard tier of Azure Event Hubs provides features beyond what is available
 * More than a single Consumer Group
 * [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
 
-For a more details regarding pricing tiers, including Dedicated Event Hubs, see the [Event Hubs pricing details](/pricing/details/event-hubs/).
+For a more details regarding pricing tiers, including Dedicated Event Hubs, see the [Event Hubs pricing details](https://www.azure.cn/pricing/details/event-hubs/).
 
 ### What are Event Hubs throughput units?
 You explicitly select Event Hubs throughput units, either through the Azure portal preview or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
@@ -63,11 +64,11 @@ Please keep in mind that the partition count on an Event Hub cannot be modified 
 
 Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you are looking to scale your event processing, you may want to consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 
-However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. For more information on this please see [availability and consistency](/documentation/articles/event-hubs-availability-and-consistency/).
+However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. For more information on this please see [availability and consistency](./event-hubs-availability-and-consistency.md).
 ## Pricing
 
 ### Where can I find more pricing information?
-For complete information about Event Hubs pricing, see the [Event Hubs pricing details](/pricing/details/event-hubs/).
+For complete information about Event Hubs pricing, see the [Event Hubs pricing details](https://www.azure.cn/pricing/details/event-hubs/).
 
 ### Is there a charge for retaining Event Hubs events for more than 24 hours?
 The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of 7 days. If the size of the total number of stored events exceeds the storage allowance for the number of selected throughput units (84 GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate. The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours (the default) even if the throughput unit is used up to the maximum ingress allowance.
@@ -81,11 +82,11 @@ Each event sent to an Event Hub counts as a billable message. An *ingress event*
 Events consumed from an Event Hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
 
 ### Do brokered connection charges apply to Event Hubs?
-Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Event Hubs pricing information](/pricing/details/event-hubs/) page for details regarding how many connections are included in each service tier.
+Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Event Hubs pricing information](https://www.azure.cn/pricing/details/event-hubs/) page for details regarding how many connections are included in each service tier.
 
 ### How is Event Hubs Archive billed?
 Archive is enabled when any Event Hub in the namespace has the Archive feature enabled. Archive is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Archive billing will reflect these changes in whole hour increments.
-please refer to the [Event Hubs pricing information](/pricing/details/event-hubs/) page for details regarding Event Hubs Archive billing.
+please refer to the [Event Hubs pricing information](https://www.azure.cn/pricing/details/event-hubs/) page for details regarding Event Hubs Archive billing.
 
 ### Will I be billed for the storage account I select for Event Hubs Archive?
 Archive uses a storage account you provide when enabled on an Event Hub. As this is your storage account, any changes for this will be billed to your Azure subscription.
@@ -93,23 +94,23 @@ Archive uses a storage account you provide when enabled on an Event Hub. As this
 ## Quotas
 
 ### Are there any quotas associated with Event Hubs?
-For a list of all Event Hubs quotas, see [quotas](/documentation/articles/event-hubs-quotas/).
+For a list of all Event Hubs quotas, see [quotas](./event-hubs-quotas.md).
 
 ## Troubleshooting
 
 ### What are some of the exceptions generated by Event Hubs and their suggested actions?
-For a list of possible Event Hubs exceptions, see [Exceptions overview](/documentation/articles/event-hubs-messaging-exceptions/).
+For a list of possible Event Hubs exceptions, see [Exceptions overview](./event-hubs-messaging-exceptions.md).
 
 ### Diagnostic logs
-Event Hubs supports two types of [diagnostics logs](/documentation/articles/event-hubs-diagnostic-logs/) - Archive error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal preview.
+Event Hubs supports two types of [diagnostics logs](./event-hubs-diagnostic-logs.md) - Archive error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal preview.
 
 ### Support and SLA
 Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home). Billing and subscription management support is provided at no cost.
 
-To learn more about our SLA, see the [Service Level Agreements](/support/legal/sla/) page.
+To learn more about our SLA, see the [Service Level Agreements](https://www.azure.cn/support/legal/sla/) page.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-* [Create an Event Hub](/documentation/articles/event-hubs-create/)
+* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](./event-hubs-create.md)

@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Load balancing on multiple IP configurations in Azure| Azure"
-    description="Load balancing across primary and secondary IP configurations."
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor="na" />
-<tags
-    ms.assetid="244907cd-b275-4494-aaf7-dcfc4d93edfe"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/22/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Load balancing on multiple IP configurations in Azure| Azure
+description: Load balancing across primary and secondary IP configurations.
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: na
+
+ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/22/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Load balancing on multiple IP configurations using the Azure portal
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/load-balancer-multiple-ip/)
-- [PowerShell](/documentation/articles/load-balancer-multiple-ip-powershell/)
-- [CLI](/documentation/articles/load-balancer-multiple-ip-cli/)
+> [!div class="op_single_selector"]
+>- [Portal](./load-balancer-multiple-ip.md)
+>- [PowerShell](./load-balancer-multiple-ip-powershell.md)
+>- [CLI](./load-balancer-multiple-ip-cli.md)
 
 This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). The support for multiple IP addresses on a NIC is a feature that is in Preview release, at this time. For more information, see the [Limitations](#limitations) section of this article. The following scenario illustrates how this feature works with Load Balancer.
 
@@ -33,31 +34,35 @@ For this scenario, we have two VMs running Windows, each with a primary and a se
 
 At this time, configuration of load balancing on secondary IP configurations is only possible using Azure PowerShell and Azure CLI. This limitation is temporary, and may change at any time. Revisit this page to check for updates.
 
-[AZURE.INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
 Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
 
->[AZURE.NOTE] 
+>[!NOTE] 
 >This may take a few minutes.
 
 ##Prerequisites
 This example assumes that you have a Resource Group named *contosofabrikam* with the following configuration:
  -  includes a virtual network named *myVNet*, two VMs called *VM1* and *VM2* respectively within the same availability set named *myAvailset*. 
  - each VM has a primary NIC and a secondary NIC. The primary NICs are named *VM1NIC1* and *VM2NIC1* and the secondary NICs are named *VM1NIC2* and *VM2NIC2*. 
-For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](/documentation/articles/virtual-network-deploy-multinic-arm-ps/).
+For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
 ## Steps to load balance on multiple IP configurations
 
@@ -107,10 +112,10 @@ Configure your frontend IP pool for each website (Contoso and Fabrikam) as follo
 7. Click **IP address** and on the **Choose Public IP address** blade, select the IP addresses for your frontend (*PublicIP1* or *PublicIP2*).
 8. Repeat steps 3 to 7 within this section to create the second frontend IP address.
 9. When the frontend IP pool configuration is complete, both frontend IP addresses are displayed in the **Frontend IP Pool** blade of your load balancer. 
-    
+
 ### STEP 4: Configure the backend pool   
 Configure the backend address pools on your load balancer for each website (Contoso and Fabrikam) as follows:
-        
+
 1. In the portal, click **More services** > type load balancer in the filter box, and then click **Load Balancer**.  
 2. Select the load balancer (*mylb*) that you want to add the backend pools to.
 3. Under **Settings**, select **Backend Pools**. Type a name for your backend pool (for example, *contosopool* or *fabrikampool*). Then click the **Add** button toward the top of the blade that shows up. 
@@ -120,7 +125,7 @@ Configure the backend address pools on your load balancer for each website (Cont
     1. For **Target Virtual machine**, select the VM that you want to add to the backend pool (for example, VM1 or VM2).
     2. For **Network IP configuration**, select the secondary NICs IP configuration for that VM (for example, VM1NIC2-ipconfig2 or VM2NIC2-ipconfig2).
     ![LB scenario image](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
-            
+
         **Figure 2**: Configuring the load balancer with backend pools  
 7. Click **OK**.
 8. When the backend pool configuration is complete, both backend address pools are displayed in the **Backend pool blade** of your load balancer.
@@ -134,7 +139,7 @@ Configure a health probe for your load balancer as follows:
 
 ### STEP 6: Configure load balancing rules
 Configure load balancing rules (*HTTPc* and *HTTPf*) for each website as follows:
-    
+
 1. Under **Settings**, select **Health probe**. Then click **Add** towards the top of the blade that shows up.
 2. For **Name**, type a name for the load balancing rule (for example, *HTTPc* for Contoso, or *HTTPf* for Fabrikam)
 3. For Frontend IP address, select the the frontend IP address (for example *Contosofe* or *Fabrikamfe*)
@@ -148,5 +153,5 @@ Configure load balancing rules (*HTTPc* and *HTTPf*) for each website as follows
 Finally, you must configure DNS resource records to point to the respective frontend IP address of the load balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](/documentation/articles/dns-for-azure-services/).
 
 ## Next steps
-- Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](/documentation/articles/traffic-manager-load-balancing-azure/).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](/documentation/articles/load-balancer-monitor-log/).
+- Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](./load-balancer-monitor-log.md).

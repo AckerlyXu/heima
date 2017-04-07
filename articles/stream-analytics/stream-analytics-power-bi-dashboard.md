@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Power BI dashboard on Azure Stream Analytics | Azure"
-    description="Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job."
-    keywords="analytics dashboard, real-time dashboard"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="fe8db732-4397-4e58-9313-fec9537aa2ad"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Power BI dashboard on Azure Stream Analytics | Azure
+description: Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job.
+keywords: analytics dashboard, real-time dashboard
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
 
@@ -31,7 +32,7 @@ In this article, you learn how create your own custom business intelligence tool
 ## Prerequisites
 * Azure Account.
 * Work or school account for Power BI.
-* Completion of the [Real-time fraud detection](/documentation/articles/stream-analytics-real-time-fraud-detection/) scenario. The article you're reading now builds on the workflow that's described in [Real-time fraud detection](/documentation/articles/stream-analytics-real-time-fraud-detection/) and adds a Power BI streaming dataset output.
+* Completion of the [Real-time fraud detection](./stream-analytics-real-time-fraud-detection.md) scenario. The article you're reading now builds on the workflow that's described in [Real-time fraud detection](./stream-analytics-real-time-fraud-detection.md) and adds a Power BI streaming dataset output.
 
 ## Add Power BI output
 Now that an input exists for the job, an output to Power BI can be defined.
@@ -60,7 +61,7 @@ Now that an input exists for the job, an output to Power BI can be defined.
 
 7. Select **Create**. Now your output configuration is complete.
 
-> [AZURE.WARNING]
+> [!WARNING]
 > If Power BI already has a dataset and table that has the same name as the one in this Stream Analytics job, the existing data is overwritten.
 > Also, we recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn't return any results, the dataset and table isn't created.
 >
@@ -77,23 +78,25 @@ For more information about Power BI datasets, see the [Power BI REST API](https:
 ## Write query
 Go to the **Query** tab of your job. Write your query, the output of which you want in Power BI. For example, it could be similar to the following SQL query to catch SIM fraud in the telecommunications industry:
 
-    /* Our criteria for fraud:
-    Calls made from the same caller to two phone switches in different locations (for example, China East and China North) within five seconds */
+```
+/* Our criteria for fraud:
+Calls made from the same caller to two phone switches in different locations (for example, China East and China North) within five seconds */
 
-    SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-    INTO "StreamAnalyticsRealTimeFraudPBI"
-    FROM "StreamAnalyticsRealTimeFraudInput" CS1 TIMESTAMP BY CallRecTime
-    JOIN "StreamAnalyticsRealTimeFraudInput" CS2 TIMESTAMP BY CallRecTime
-   
-    /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
-    ON CS1.CallingIMSI = CS2.CallingIMSI
+SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+INTO "StreamAnalyticsRealTimeFraudPBI"
+FROM "StreamAnalyticsRealTimeFraudInput" CS1 TIMESTAMP BY CallRecTime
+JOIN "StreamAnalyticsRealTimeFraudInput" CS2 TIMESTAMP BY CallRecTime
 
-    /* ...and date between CS1 and CS2 is between one and five seconds */
-    AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+/* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+ON CS1.CallingIMSI = CS2.CallingIMSI
 
-    /* Where the switch location is different */
-    WHERE CS1.SwitchNum != CS2.SwitchNum
-    GROUP BY TumblingWindow(Duration(second, 1))
+/* ...and date between CS1 and CS2 is between one and five seconds */
+AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+
+/* Where the switch location is different */
+WHERE CS1.SwitchNum != CS2.SwitchNum
+GROUP BY TumblingWindow(Duration(second, 1))
+```
 
 ## Create the dashboard in Power BI
 
@@ -125,7 +128,7 @@ This tutorial demonstrates how to create only one kind of chart for a dataset. P
 <!--youtu.be not supported on Azure.cn -->
 For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
-For more information about configuring a Power BI output and utilizing Power BI groups, review the [Power BI section](/documentation/articles/stream-analytics-define-outputs/#power-bi) of [Understanding Stream Analytics outputs](/documentation/articles/stream-analytics-define-outputs/ "Understanding Stream Analytics outputs"). [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/) is another helpful resource.
+For more information about configuring a Power BI output and utilizing Power BI groups, review the [Power BI section](./stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](./stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/) is another helpful resource.
 
 ## Learn about limitations and best practices
 
@@ -151,18 +154,20 @@ As a result, the equation becomes:
 
 This means we can change the original query to the following:
 
-    SELECT
-        MAX(hmdt) AS hmdt,
-        MAX(temp) AS temp,
-        System.TimeStamp AS time,
-        dspl
-    INTO
-        OutPBI
-    FROM
-        Input TIMESTAMP BY time
-    GROUP BY
-        TUMBLINGWINDOW(ss,4),
-        dspl
+```
+SELECT
+    MAX(hmdt) AS hmdt,
+    MAX(temp) AS temp,
+    System.TimeStamp AS time,
+    dspl
+INTO
+    OutPBI
+FROM
+    Input TIMESTAMP BY time
+GROUP BY
+    TUMBLINGWINDOW(ss,4),
+    dspl
+```
 
 ### <a id="renew-authorization"></a> Renew authorization
 
@@ -177,8 +182,8 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 ## Next steps
 
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics query language reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)

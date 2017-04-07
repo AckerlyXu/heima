@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Azure Event Hubs samples | Azure"
-    description="Event Hubs samples"
-    services="event-hubs"
-    documentationcenter="na"
-    author="jtaubensee"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="event-hubs"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/07/2017"
-    wacn.date=""
-    ms.author="jotaub;sethm" />
+---
+title: Azure Event Hubs samples | Azure
+description: Event Hubs samples
+services: event-hubs
+documentationcenter: na
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/07/2017
+wacn.date: ''
+ms.author: jotaub;sethm
+---
 
 # Event Hubs samples 
 
-The Event Hubs samples demonstrate key features in [Azure Event Hubs](/documentation/services/event-hubs/). This article categorizes and describes the samples available, with links to each.
+The Event Hubs samples demonstrate key features in [Azure Event Hubs](./index.md). This article categorizes and describes the samples available, with links to each.
 
 At the time of this writing, Event Hubs samples are located in several different places:
 
@@ -45,7 +46,7 @@ The [Get started receiving with the Event Processor Host](https://github.com/Azu
 ## .NET Framework	
 
 These samples demonstrate various other features of Azure Event Hubs, targeting the [.NET Framework library](https://msdn.microsoft.com/zh-cn/library/w0x726c2.aspx).
- 
+
 ### Notify users of events received
 
 The [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) sample notifies users of data received from sensors or other systems.
@@ -75,6 +76,6 @@ Learn more about .NET Framework versions by visiting the following links:
 
 You can learn more about Event Hubs in the following articles:
 
-- [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-- [Create an Event Hub](/documentation/articles/event-hubs-create/)
-- [Event Hubs FAQ](/documentation/articles/event-hubs-faq/)
+- [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+- [Create an Event Hub](./event-hubs-create.md)
+- [Event Hubs FAQ](./event-hubs-faq.md)

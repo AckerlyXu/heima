@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Avoid service interruptions with Azure Stream Analytics jobs | Azure"
-    description="Guidance on making your Stream Analytics jobs upgrade resilient."
-    services="stream-analytics"
-    documentationCenter=""
-    authors="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="03/06/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Avoid service interruptions with Azure Stream Analytics jobs | Azure
+description: Guidance on making your Stream Analytics jobs upgrade resilient.
+services: stream-analytics
+documentationCenter: ''
+authors: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/06/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Guarantee Stream Analytics job reliability during service updates
 
