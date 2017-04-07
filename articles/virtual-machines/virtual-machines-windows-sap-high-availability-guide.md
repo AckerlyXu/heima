@@ -802,9 +802,7 @@ To set up the ASCS/SCS multi-SID template, in the [ASCS/SCS multi-SID template][
 -  **New Or Existing Subnet**. Set whether a new virtual network and subnet should be created, or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select **existing**.
 -  **Subnet Id**. Set the ID of the subnet to which the virtual machines should be connected. Select the subnet of your virtual private network (VPN) or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
 
-    ```
     /subscriptions/<*subscription id*>/resourceGroups/<*resource group name*>/providers/Microsoft.Network/virtualNetworks/<*virtual network name*>/subnets/<*subnet name*>
-    ```
 
 The template deploys one Azure Load Balancer instance, which supports multiple SAP systems.
 
