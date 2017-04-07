@@ -1,32 +1,31 @@
----
-title: Create Azure Event Hubs namespace and consumer group using a template | Azure
-description: Create an Event Hubs namespace with Event Hub and consumer group using Azure Resource Manager templates
-services: event-hubs
-documentationcenter: .net
-author: sethmanheim
-manager: timlt
-editor: ''
-
-ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
-ms.service: event-hubs
-ms.devlang: tbd
-ms.topic: article
-ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/21/2016
-wacn.date: ''
-ms.author: sethm;shvija
----
+<properties
+    pageTitle="Create Azure Event Hubs namespace and consumer group using a template | Azure"
+    description="Create an Event Hubs namespace with Event Hub and consumer group using Azure Resource Manager templates"
+    services="event-hubs"
+    documentationcenter=".net"
+    author="sethmanheim"
+    manager="timlt"
+    editor="" />
+<tags
+    ms.assetid="28bb4591-1fd7-444f-a327-4e67e8878798"
+    ms.service="event-hubs"
+    ms.devlang="tbd"
+    ms.topic="article"
+    ms.tgt_pltfrm="dotnet"
+    ms.workload="na"
+    ms.date="03/07/2017"
+    wacn.date=""
+    ms.author="sethm;shvija" />
 
 # Create an Event Hubs namespace with Event Hub and consumer group using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace with an Event Hub and a consumer group. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a namespace of type Event Hubs, with one Event Hub and one consumer group. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
 For the complete template, see the [Event Hub and consumer group template][Event Hub and consumer group template] on GitHub.
 
-> [!NOTE]
+> [AZURE.NOTE]
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
 > 
 > 
@@ -35,7 +34,7 @@ For the complete template, see the [Event Hub and consumer group template][Event
 
 With this template, you will deploy an Event Hubs namespace with an Event Hub and a consumer group.
 
-[Event Hubs](./event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability.
+[Event Hubs](/documentation/articles/event-hubs-what-is-event-hubs/) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability.
 
 To run the deployment automatically, click the following button:
 
@@ -51,114 +50,100 @@ The template defines the following parameters.
 
 The name of the Event Hubs namespace to create.
 
-```json
-"eventHubNamespaceName": {
-"type": "string"
-}
-```
+    "eventHubNamespaceName": {
+    "type": "string"
+    }
 
 ### eventHubName
 
 The name of the Event Hub created in the Event Hubs namespace.
 
-```json
-"eventHubName": {
-"type": "string"
-}
-```
+    "eventHubName": {
+    "type": "string"
+    }
 
 ### eventHubConsumerGroupName
 
 The name of the consumer group created for the Event Hub.
 
-```json
-"eventHubConsumerGroupName": {
-"type": "string"
-}
-```
+    "eventHubConsumerGroupName": {
+    "type": "string"
+    }
 
 ### apiVersion
 
 The API version of the template.
 
-```json
-"apiVersion": {
-"type": "string"
-}
-```
+    "apiVersion": {
+    "type": "string"
+    }
 
 ## Resources to deploy
 
 Creates a namespace of type **EventHubs**, with an Event Hub and a consumer group.
 
-```json
-"resources":[  
-      {  
-         "apiVersion":"[variables('ehVersion')]",
-         "name":"[parameters('namespaceName')]",
-         "type":"Microsoft.EventHub/namespaces",
-         "location":"[variables('location')]",
-         "sku":{  
-            "name":"Standard",
-            "tier":"Standard"
-         },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]"
-               },
-               "resources":[  
-                  {  
-                     "apiVersion":"[variables('ehVersion')]",
-                     "name":"[parameters('consumerGroupName')]",
-                     "type":"ConsumerGroups",
-                     "dependsOn":[  
-                        "[parameters('eventHubName')]"
-                     ],
-                     "properties":{  
+    "resources":[  
+          {  
+             "apiVersion":"[variables('ehVersion')]",
+             "name":"[parameters('namespaceName')]",
+             "type":"Microsoft.EventHub/namespaces",
+             "location":"[variables('location')]",
+             "sku":{  
+                "name":"Standard",
+                "tier":"Standard"
+             },
+             "resources":[  
+                {  
+                   "apiVersion":"[variables('ehVersion')]",
+                   "name":"[parameters('eventHubName')]",
+                   "type":"EventHubs",
+                   "dependsOn":[  
+                      "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+                   ],
+                   "properties":{  
+                      "path":"[parameters('eventHubName')]"
+                   },
+                   "resources":[  
+                      {  
+                         "apiVersion":"[variables('ehVersion')]",
+                         "name":"[parameters('consumerGroupName')]",
+                         "type":"ConsumerGroups",
+                         "dependsOn":[  
+                            "[parameters('eventHubName')]"
+                         ],
+                         "properties":{  
 
-                 }
-              }
-           ]
-        }
-     ]
-  }
-],
-```
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+    ],
 
 ## Commands to run deployment
 
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
-```
+    New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 
 ## Azure CLI
 
-```cli
-azure config mode arm
+    azure config mode arm
 
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
-```
+    azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](./event-hubs-create.md)
-* [Event Hubs FAQ](./event-hubs-faq.md)
+* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
+* [Create an Event Hub](/documentation/articles/event-hubs-create/)
+* [Event Hubs FAQ](/documentation/articles/event-hubs-faq/)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: /documentation/articles/resource-group-authoring-templates/
 [Azure Quickstart Templates]:  https://github.com/Azure/azure-quickstart-templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: /documentation/articles/powershell-azure-resource-manager/
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: /documentation/articles/xplat-cli-azure-resource-manager/
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

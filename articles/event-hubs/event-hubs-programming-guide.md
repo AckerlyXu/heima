@@ -1,26 +1,25 @@
----
-title: Programming guide for Azure Event Hubs | Azure
-description: Describes programming with Azure Event Hubs using the Azure .NET SDK.
-services: event-hubs
-documentationcenter: na
-author: sethmanheim
-manager: timlt
-editor: ''
-
-ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
-ms.service: event-hubs
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 02/10/2017
-wacn.date: ''
-ms.author: sethm
----
+<properties 
+    pageTitle="Programming guide for Azure Event Hubs | Azure"
+    description="Describes programming with Azure Event Hubs using the Azure .NET SDK."
+    services="event-hubs"
+    documentationcenter="na"
+    author="sethmanheim"
+    manager="timlt"
+    editor="" />
+<tags
+    ms.assetid="64cbfd3d-4a0e-4455-a90a-7f3d4f080323"
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd"
+    ms.date="02/10/2017"
+    wacn.date=""
+    ms.author="sethm" />
 
 # Event Hubs programming guide
 
-This article discusses some common scenarios in writing code using Azure Event Hubs and the Azure .NET SDK. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](./event-hubs-what-is-event-hubs.md).
+This article discusses some common scenarios in writing code using Azure Event Hubs and the Azure .NET SDK. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/).
 
 ## Event publishers
 You send events to an Event Hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
@@ -30,23 +29,17 @@ You create and manage Event Hubs using the [NamespaceManager][] class. When usin
 ## Get started
 The .NET classes that support Event Hubs are provided in the Microsoft.ServiceBus.dll assembly. The easiest way to reference the Service Bus API and to configure your application with all of the Service Bus dependencies is to download the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Alternatively, you can use the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
 
-```
-Install-Package WindowsAzure.ServiceBus
-```
+    Install-Package WindowsAzure.ServiceBus
 
 ## Create an Event Hub
 You can use the [NamespaceManager][] class to create Event Hubs. For example:
 
-```csharp
-var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.chinacloudapi.cn");
-var description = manager.CreateEventHub("MyEventHub");
-```
+    var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.chinacloudapi.cn");
+    var description = manager.CreateEventHub("MyEventHub");
 
 In most cases, it is recommended that you use the [CreateEventHubIfNotExists][] methods to avoid generating exceptions if the service restarts. For example:
 
-```csharp
-var description = manager.CreateEventHubIfNotExists("MyEventHub");
-```
+    var description = manager.CreateEventHubIfNotExists("MyEventHub");
 
 All Event Hubs creation operations, including [CreateEventHubIfNotExists][], require **Manage** permissions on the namespace in question. If you want to limit the permissions of your publisher or consumer applications, you can avoid these create operation calls in production code when you use credentials with limited permissions.
 
@@ -54,32 +47,24 @@ The [EventHubDescription](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.
 
 ## Create an Event Hubs client
 
-The primary class for interacting with Event Hubs is [Microsoft.ServiceBus.Messaging.EventHubClient][]. This class provides both sender and receiver capabilities. You can instantiate this class using the [Create](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) method, as shown in the following example.
+The primary class for interacting with Event Hubs is [Microsoft.ServiceBus.Messaging.EventHubClient][]. This class provides both sender and receiver capabilities. You can instantiate this class using the [Create](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) method, as shown in the following example.
 
-```csharp
-var client = EventHubClient.Create(description.Path);
-```
+    var client = EventHubClient.Create(description.Path);
 
 This method uses the Service Bus connection information in the App.config file, in the `appSettings` section. For an example of the `appSettings` XML used to store the Service Bus connection information, see the documentation for the [Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) method.
 
 Another option is to create the client from a connection string. This option works well when using Azure worker roles, because you can store the string in the configuration properties for the worker. For example:
 
-```csharp
-EventHubClient.CreateFromConnectionString("your_connection_string");
-```
+    EventHubClient.CreateFromConnectionString("your_connection_string");
 
 The connection string will be in the same format as it appears in the App.config file for the previous methods:
 
-```
-Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
-```
+    Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 
 Finally, it is also possible to create an [EventHubClient][] object from a [MessagingFactory](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.messagingfactory) instance, as shown in the following example.
 
-```csharp
-var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
-var client = factory.CreateEventHubClient("MyEventHub");
-```
+    var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
+    var client = factory.CreateEventHubClient("MyEventHub");
 
 It is important to note that additional [EventHubClient][] objects created from a messaging factory instance will reuse the same underlying TCP connection. Therefore, these objects have a client-side limit on throughput. The [Create](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) method reuses a single messaging factory. If you need very high throughput from a single sender, then you can create multiple message factories and one [EventHubClient][] object from each messaging factory.
 
@@ -105,15 +90,13 @@ Given these availability considerations, in these scenarios you might choose one
 - Stop (stop reading from Event Hubs until things are fixed)
 - Drop (messages aren't important, drop them)
 - Retry (retry the messages as you see fit)
-- [Dead letter](../service-bus-messaging/service-bus-dead-letter-queues.md) (use a queue or another Event Hub to dead letter only the messages you couldn't process)
+- [Dead letter](/documentation/articles/service-bus-dead-letter-queues/) (use a queue or another Event Hub to dead letter only the messages you couldn't process)
 
 ## Batch event send operations
 
 Sending events in batches can dramatically increase throughput. The [SendBatch](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) method takes an **IEnumerable** parameter of type [EventData][] and sends the entire batch as an atomic operation to the Event Hub.
 
-```csharp
-public void SendBatch(IEnumerable<EventData> eventDataList);
-```
+    public void SendBatch(IEnumerable<EventData> eventDataList);
 
 Note that a single batch must not exceed the 256 KB limit of an event. Additionally, each message in the batch uses the same publisher identity. It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size. If it does, a client **Send** error is generated.
 
@@ -123,11 +106,9 @@ You can also send events to an Event Hub asynchronously. Sending asynchronously 
 
 ## Create a partition sender
 
-Although it is most common to send events to an Event Hub with a partition key, in some cases you might want to send events directly to a given partition. For example:
+Although it is most common to send events to an Event Hub without a partition key, in some cases you might want to send events directly to a given partition. For example:
 
-```csharp
-var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
-```
+    var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
 
 [CreatePartitionedSender](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) returns an [EventHubSender](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubsender) object that you can use to publish events to a specific Event Hub partition.
 
@@ -139,24 +120,20 @@ Event Hubs has two primary models for event consumption: direct receivers and hi
 
 The most direct way to read from a partition within a consumer group is to use the [EventHubReceiver](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver) class. To create an instance of this class, you must use an instance of the [EventHubConsumerGroup](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) class. In the following example, the partition ID must be specified when creating the receiver for the consumer group.
 
-```csharp
-EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
-var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
-```
+    EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
+    var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 
 The [CreateReceiver](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) method has several overloads that facilitate control over the reader being created. These methods include specifying an offset as either a string or timestamp, and the ability to specify whether to include this specified offset in the returned stream, or start after it. After you create the receiver, you can start receiving events on the returned object. The [Receive](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) method has four overloads that control the receive operation parameters, such as batch size and wait time. You can use the asynchronous versions of these methods to increase the throughput of a consumer. For example:
 
-```csharp
-bool receive = true;
-string myOffset;
-while(receive)
-{
-    var message = receiver.Receive();
-    myOffset = message.Offset;
-    string body = Encoding.UTF8.GetString(message.GetBytes());
-    Console.WriteLine(String.Format("Received message offset: {0} \nbody: {1}", myOffset, body));
-}
-```
+    bool receive = true;
+    string myOffset;
+    while(receive)
+    {
+        var message = receiver.Receive();
+        myOffset = message.Offset;
+        string body = Encoding.UTF8.GetString(message.GetBytes());
+        Console.WriteLine(String.Format("Received message offset: {0} \nbody: {1}", myOffset, body));
+    }
 
 With respect to a specific partition, the messages are received in the order in which they were sent to the Event Hub. The offset is a string token used to identify a message in a partition.
 
@@ -192,13 +169,13 @@ For more information about publisher revocation and how to send to Event Hubs as
 
 To learn more about Event Hubs scenarios, visit these links:
 
-* [Event Hubs API overview](./event-hubs-api-overview.md)
-* [What is Event Hubs](./event-hubs-what-is-event-hubs.md)
+* [Event Hubs API overview](/documentation/articles/event-hubs-api-overview/)
+* [What is Event Hubs](/documentation/articles/event-hubs-what-is-event-hubs/)
 * [Event processor host API reference](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.namespacemanager
 [EventHubClient]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient
 [EventData]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventdata
-[CreateEventHubIfNotExists]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateEventHubIfNotExists_System_String_
+[CreateEventHubIfNotExists]: https://docs.microsoft.com/zh-cn//dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
 [EventProcessorHost]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost

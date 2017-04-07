@@ -1,36 +1,35 @@
----
-title: Create an Internal load balancer - Azure CLI classic | Azure
-description: Learn how to create an internal load balancer using the Azure CLI in the classic deployment model
-services: load-balancer
-documentationcenter: na
-author: kumudd
-manager: timlt
-editor: ''
-tags: azure-service-management
-
-ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: kumud
----
+<properties
+    pageTitle="Create an Internal load balancer - Azure CLI classic | Azure"
+    description="Learn how to create an internal load balancer using the Azure CLI in the classic deployment model"
+    services="load-balancer"
+    documentationcenter="na"
+    author="kumudd"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management" />
+<tags
+    ms.assetid="becbbbde-a118-4269-9444-d3153f00bf34"
+    ms.service="load-balancer"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="01/23/2017"
+    wacn.date=""
+    ms.author="kumud" />
 
 # Get started creating an internal load balancer (classic) using the Azure CLI
-> [!div class="op_single_selector"]
->- [PowerShell](./load-balancer-get-started-ilb-classic-ps.md)
->- [Azure CLI](./load-balancer-get-started-ilb-classic-cli.md)
->- [Cloud services](./load-balancer-get-started-ilb-classic-cloud.md)
+> [AZURE.SELECTOR]
+- [PowerShell](/documentation/articles/load-balancer-get-started-ilb-classic-ps/)
+- [Azure CLI](/documentation/articles/load-balancer-get-started-ilb-classic-cli/)
+- [Cloud services](/documentation/articles/load-balancer-get-started-ilb-classic-cloud/)
 
-[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-> [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](./load-balancer-get-started-ilb-arm-cli.md).
+> [AZURE.IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](/documentation/articles/load-balancer-get-started-ilb-arm-cli/).
 
-[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## To create an internal load balancer set for virtual machines
 
@@ -44,18 +43,14 @@ To create an internal load balancer set and the servers that will send their tra
 
 This guide shows how to create an internal load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/documentation/articles/xplat-cli-install/) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
-    ```azurecli
-    azure config mode asm
-    ```
+        azure config mode asm
 
     Expected output:
 
-    ```
-    info:    New mode is asm
-    ```
+        info:    New mode is asm
 
 ## Create endpoint and load balancer set
 
@@ -69,9 +64,7 @@ This is a common scenario where you have SQL virtual machines on the back end us
 
 Create an internal load balancer set using `azure network service internal-load-balancer add`.
 
-```azurecli
-azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
-```
+    azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
 
 Check out `azure service internal-load-balancer --help` for more information.
 
@@ -79,90 +72,80 @@ You can check the internal load balancer properties using the command `azure ser
 
 Here follows an example of the output:
 
-```
-azure service internal-load-balancer list my-testcloud
-info:    Executing command service internal-load-balancer list
-+ Getting cloud service deployment
-data:    Name    Type     SubnetName  StaticVirtualNetworkIPAddress
-data:    ------  -------  ----------  -----------------------------
-data:    ilbset  Private  subnet-1    192.168.2.7
-info:    service internal-load-balancer list command OK
-```
+    azure service internal-load-balancer list my-testcloud
+    info:    Executing command service internal-load-balancer list
+    + Getting cloud service deployment
+    data:    Name    Type     SubnetName  StaticVirtualNetworkIPAddress
+    data:    ------  -------  ----------  -----------------------------
+    data:    ilbset  Private  subnet-1    192.168.2.7
+    info:    service internal-load-balancer list command OK
 
 ### Step 2
 
 You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
 
-```azurecli
-azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
-```
+    azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 
 ### Step 3
 
 Verify the load balancer configuration using `azure vm show` *virtual machine name*
 
-```azurecli
-azure vm show DB1
-```
+    azure vm show DB1
 
 The output will be:
 
-```
-azure vm show DB1
-info:    Executing command vm show
-+ Getting virtual machines
-data:    DNSName "mytestcloud.chinacloudapp.cn"
-data:    Location "China East"
-data:    VMName "DB1"
-data:    IPAddress "192.168.2.4"
-data:    InstanceStatus "ReadyRole"
-data:    InstanceSize "Standard_D1"
-data:    Image "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
-data:    OSDisk hostCaching "ReadWrite"
-data:    OSDisk name "db1-DB1-0-201511120457370846"
-data:    OSDisk mediaLink "https://XXXX.blob.core.chinacloudapi.cn/vhd"
-data:    OSDisk sourceImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
-data:    OSDisk operatingSystem "Windows"
-data:    OSDisk iOType "Standard"
-data:    ReservedIPName ""
-data:    VirtualIPAddresses 0 address "137.116.64.107"
-data:    VirtualIPAddresses 0 name "db1ContractContract"
-data:    VirtualIPAddresses 0 isDnsProgrammed true
-data:    VirtualIPAddresses 1 address "192.168.2.7"
-data:    VirtualIPAddresses 1 name "ilbset"
-data:    Network Endpoints 0 localPort 5986
-data:    Network Endpoints 0 name "PowerShell"
-data:    Network Endpoints 0 port 5986
-data:    Network Endpoints 0 protocol "tcp"
-data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
-data:    Network Endpoints 0 enableDirectServerReturn false
-data:    Network Endpoints 1 localPort 3389
-data:    Network Endpoints 1 name "Remote Desktop"
-data:    Network Endpoints 1 port 60173
-data:    Network Endpoints 1 protocol "tcp"
-data:    Network Endpoints 1 virtualIPAddress "137.116.64.107"
-data:    Network Endpoints 1 enableDirectServerReturn false
-data:    Network Endpoints 2 localPort 1433
-data:    Network Endpoints 2 name "tcp-1433-1433"
-data:    Network Endpoints 2 port 1433
-data:    Network Endpoints 2 loadBalancerProbe port 1433
-data:    Network Endpoints 2 loadBalancerProbe protocol "tcp"
-data:    Network Endpoints 2 loadBalancerProbe intervalInSeconds 300
-data:    Network Endpoints 2 loadBalancerProbe timeoutInSeconds 600
-data:    Network Endpoints 2 protocol "tcp"
-data:    Network Endpoints 2 virtualIPAddress "192.168.2.7"
-data:    Network Endpoints 2 enableDirectServerReturn false
-data:    Network Endpoints 2 loadBalancerName "ilbset"
-info:    vm show command OK
-```
+    azure vm show DB1
+    info:    Executing command vm show
+    + Getting virtual machines
+    data:    DNSName "mytestcloud.chinacloudapp.cn"
+    data:    Location "China East"
+    data:    VMName "DB1"
+    data:    IPAddress "192.168.2.4"
+    data:    InstanceStatus "ReadyRole"
+    data:    InstanceSize "Standard_D1"
+    data:    Image "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
+    data:    OSDisk hostCaching "ReadWrite"
+    data:    OSDisk name "db1-DB1-0-201511120457370846"
+    data:    OSDisk mediaLink "https://XXXX.blob.core.chinacloudapi.cn/vhd"
+    data:    OSDisk sourceImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
+    data:    OSDisk operatingSystem "Windows"
+    data:    OSDisk iOType "Standard"
+    data:    ReservedIPName ""
+    data:    VirtualIPAddresses 0 address "137.116.64.107"
+    data:    VirtualIPAddresses 0 name "db1ContractContract"
+    data:    VirtualIPAddresses 0 isDnsProgrammed true
+    data:    VirtualIPAddresses 1 address "192.168.2.7"
+    data:    VirtualIPAddresses 1 name "ilbset"
+    data:    Network Endpoints 0 localPort 5986
+    data:    Network Endpoints 0 name "PowerShell"
+    data:    Network Endpoints 0 port 5986
+    data:    Network Endpoints 0 protocol "tcp"
+    data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
+    data:    Network Endpoints 0 enableDirectServerReturn false
+    data:    Network Endpoints 1 localPort 3389
+    data:    Network Endpoints 1 name "Remote Desktop"
+    data:    Network Endpoints 1 port 60173
+    data:    Network Endpoints 1 protocol "tcp"
+    data:    Network Endpoints 1 virtualIPAddress "137.116.64.107"
+    data:    Network Endpoints 1 enableDirectServerReturn false
+    data:    Network Endpoints 2 localPort 1433
+    data:    Network Endpoints 2 name "tcp-1433-1433"
+    data:    Network Endpoints 2 port 1433
+    data:    Network Endpoints 2 loadBalancerProbe port 1433
+    data:    Network Endpoints 2 loadBalancerProbe protocol "tcp"
+    data:    Network Endpoints 2 loadBalancerProbe intervalInSeconds 300
+    data:    Network Endpoints 2 loadBalancerProbe timeoutInSeconds 600
+    data:    Network Endpoints 2 protocol "tcp"
+    data:    Network Endpoints 2 virtualIPAddress "192.168.2.7"
+    data:    Network Endpoints 2 enableDirectServerReturn false
+    data:    Network Endpoints 2 loadBalancerName "ilbset"
+    info:    vm show command OK
 
 ## Create a remote desktop endpoint for a virtual machine
 
 You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
 
-```azurecli
-azure vm endpoint create web1 54580 -k 3389
-```
+    azure vm endpoint create web1 54580 -k 3389
 
 ## Remove virtual machine from load balancer
 
@@ -170,14 +153,12 @@ You can remove a virtual machine from an internal load balancer set by deleting 
 
 Using the example above, you can remove the endpoint created for virtual machine "DB1" from internal load balancer "ilbset" by using the command `azure vm endpoint delete`.
 
-```azurecli
-azure vm endpoint delete DB1 tcp-1433-1433
-```
+    azure vm endpoint delete DB1 tcp-1433-1433
 
 Check out `azure vm endpoint --help` for more information.
 
 ## Next steps
 
-[Configure a load balancer distribution mode using source IP affinity](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode using source IP affinity](/documentation/articles/load-balancer-distribution-mode/)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](/documentation/articles/load-balancer-tcp-idle-timeout/)

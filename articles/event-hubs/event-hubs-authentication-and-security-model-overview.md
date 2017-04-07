@@ -1,32 +1,33 @@
----
-title: Overview of Azure Event Hubs authentication and security model | Microsoft Docs
-description: Event Hubs authentication and security model overview.
-services: event-hubs
-documentationcenter: na
-author: sethmanheim
-manager: timlt
-editor: ''
+<properties
+    pageTitle="Overview of Azure Event Hubs authentication and security model | Azure"
+    description="Event Hubs authentication and security model overview."
+    services="event-hubs"
+    documentationcenter="na"
+    author="sethmanheim"
+    manager="timlt"
+    editor="" />
+<tags
+    ms.assetid="93841e30-0c5c-4719-9dc1-57a4814342e7"
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/07/2017"
+    wacn.date=""
+    ms.author="sethm;clemensv" />
 
-ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
-ms.service: event-hubs
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/30/2016
-ms.author: sethm;clemensv
-
----
 # Event Hubs authentication and security model overview
+
 The Azure Event Hubs security model meets the following requirements:
 
-- Only devices that present valid credentials can send data to an Event Hub.
-- A device cannot impersonate another device.
-- A rogue device can be blocked from sending data to an Event Hub.
+* Only devices that present valid credentials can send data to an Event Hub.
+* A device cannot impersonate another device.
+* A rogue device can be blocked from sending data to an Event Hub.
 
 ## Device authentication
 
-The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) tokens and event publishers. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event Hub. It is not possible to receive messages from a publisher.
+The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](/documentation/articles/service-bus-sas/) tokens and *event publishers*. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event Hub. It is not possible to receive messages from a publisher.
 
 Typically, an Event Hub employs one publisher per device. All messages that are sent to any of the publishers of an Event Hub are enqueued within that Event Hub. Publishers enable fine-grained access control and throttling.
 
@@ -41,45 +42,37 @@ When creating an Azure Event Hubs namespace, the service generates a 256-bit SAS
 
 The following example creates a send-only key when creating the Event Hub:
 
-```csharp
-// Create namespace manager.
-string serviceNamespace = "YOUR_NAMESPACE";
-string namespaceManageKeyName = "RootManageSharedAccessKey";
-string namespaceManageKey = "YOUR_ROOT_MANAGE_SHARED_ACCESS_KEY";
-Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.Empty);
-TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
-NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
+    // Create namespace manager.
+    string serviceNamespace = "YOUR_NAMESPACE";
+    string namespaceManageKeyName = "RootManageSharedAccessKey";
+    string namespaceManageKey = "YOUR_ROOT_MANAGE_SHARED_ACCESS_KEY";
+    Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.Empty);
+    TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
+    NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event Hub with a SAS rule that enables sending to that Event Hub
-EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
-string eventHubSendKeyName = "EventHubSendKey";
-string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
-SharedAccessAuthorizationRule eventHubSendRule = new SharedAccessAuthorizationRule(eventHubSendKeyName, eventHubSendKey, new[] { AccessRights.Send });
-ed.Authorization.Add(eventHubSendRule); 
-nm.CreateEventHub(ed);
-```
+    // Create Event Hub with a SAS rule that enables sending to that Event Hub
+    EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
+    string eventHubSendKeyName = "EventHubSendKey";
+    string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
+    SharedAccessAuthorizationRule eventHubSendRule = new SharedAccessAuthorizationRule(eventHubSendKeyName, eventHubSendKey, new[] { AccessRights.Send });
+    ed.Authorization.Add(eventHubSendRule); 
+    nm.CreateEventHub(ed);
 
 ### Generate tokens
 
 You can generate tokens using the SAS key. You must produce only one token per device. Tokens can then be produced using the following method. All tokens are generated using the **EventHubSendKey** key. Each token is assigned a unique URI.
 
-```csharp
-public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
-```
+    public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 
-When calling this method, the URI should be specified as `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. For all tokens, the URI is identical, with the exception of `PUBLISHER_NAME`, which should be different for each token. Ideally, `PUBLISHER_NAME` represents the ID of the device that receives that token.
+When calling this method, the URI should be specified as `//<NAMESPACE>.servicebus.chinacloudapi.cn/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. For all tokens, the URI is identical, with the exception of `PUBLISHER_NAME`, which should be different for each token. Ideally, `PUBLISHER_NAME` represents the ID of the device that receives that token.
 
 This method generates a token with the following structure:
 
-```csharp
-SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
-```
+    SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 
 The token expiration time is specified in seconds from Jan 1, 1970. The following is an example of a token:
 
-```csharp
-SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
-```
+    SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 
 Typically, the tokens have a lifespan that resembles or exceeds the lifespan of the device. If the device has the capability to obtain a new token, tokens with a shorter lifespan can be used.
 
@@ -105,10 +98,10 @@ In the absence of SAS authentication for individual consumer groups, you can use
 
 To learn more about Event Hubs, visit the following topics:
 
-- [Event Hubs overview]
-- [SAS overview]
-- A complete [sample application that uses Event Hubs].
+* [Event Hubs overview]
+* [Overview of Shared Access Signatures]
+* [Sample applications that use Event Hubs]
 
-[Event Hubs overview]: ./event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[SAS overview]: ../service-bus-messaging/service-bus-sas-overview.md
+[Event Hubs overview]: /documentation/articles/event-hubs-what-is-event-hubs/
+[Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Overview of Shared Access Signatures]: /documentation/articles/service-bus-sas/
