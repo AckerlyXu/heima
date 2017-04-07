@@ -112,7 +112,7 @@ SubscriptionId | Subscription ID
 EventTimeString | Operation time
 EventProperties | Operation properties
 Status | Operation status
-Caller | Caller of operation (Azure portal preview or management client)
+Caller | Caller of operation (Azure portal or management client)
 category | OperationalLogs
 
 Here's an example of an operation log JSON string:
@@ -135,4 +135,4 @@ Example:
 ## Next steps
 * [Introduction to Event Hubs](./event-hubs-what-is-event-hubs.md)
 * [Event Hubs API overview](./event-hubs-api-overview.md)
-* [Get started with Event Hubs](/documentation/articles/event-hubs-csharp-ephcs-getstarted/)
+* [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)
