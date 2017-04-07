@@ -1,5 +1,5 @@
 ---
-title: Hadoop tutorial: Get started with Hadoop and Hive in HDInsight | Azure
+title: 'Hadoop tutorial: Get started with Hadoop and Hive in HDInsight | Azure'
 description: Follow this tutorial to get started using Hadoop in HDInsight. Learn how to create Linux clusters, and query data with Hive.
 services: hdinsight
 documentationcenter: ''

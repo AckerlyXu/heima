@@ -124,7 +124,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     VmName="WEB"
 
     # Replace the value for the following **VmSize** variable with a value from the
-    # https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. Not all VM sizes support
+    # https://www.azure.cn/documentation/articles/virtual-machines-linux-sizes/ article. Not all VM sizes support
     # more than one NIC, so be sure to select a VM size that supports the number of NICs you want to attach to the VM.
     # You must create the VM with at least two NICs if you want to add more after VM creation. If you create a VM with
     # only one NIC, you can't add additional NICs to the VM after VM creation, regardless of how many NICs the VM supports.

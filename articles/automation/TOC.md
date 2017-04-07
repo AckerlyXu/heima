@@ -75,7 +75,7 @@
 # Resources
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
 ## [Pricing](https://www.azure.cn/pricing/details/automation/)  
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureautomation)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=automation)
 ## [Service updates](https://azure.microsoft.com/updates/?product=automation)

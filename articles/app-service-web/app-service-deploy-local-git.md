@@ -146,7 +146,7 @@ The following are errors or problems commonly encountered when using Git to publ
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
 [Azure App Service]: /azure/app-service-changes-existing-services/
-[Azure Developer Center]: /develop/overview/
+[Azure Developer Center]: https://www.azure.cn/develop/overview/
 [Azure Portal Preview]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git

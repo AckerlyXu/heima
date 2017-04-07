@@ -237,7 +237,7 @@ Once you make these changes, restart your web app running Liferay, Then, open ht
 ## Next steps
 For more information about Liferay, see [http://www.liferay.com](http://www.liferay.com).
 
-For more information about Java, see the [Java Developer Center](/develop/java/).
+For more information about Java, see the [Java Developer Center](https://www.azure.cn/develop/java/).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

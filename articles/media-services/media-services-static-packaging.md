@@ -598,7 +598,7 @@ namespace PlayReadyStaticEncryptAndKeyDeliverySvc
             // Note that the configuration defined in MediaEncryptor_PlayReadyProtection.xml
             // is using keySeedValue. It is recommended that you do this only for testing 
             // and not in production. For more information, see 
-            // https://www.azure.cn/documentation/articles/media-services-static-packaging.
+            // https://www.azure.cn/documentation/articles/media-services-static-packaging/.
             //
             string configPlayReady = File.ReadAllText(Path.Combine(_configurationXMLFiles,
                                         @"MediaEncryptor_PlayReadyProtection.xml"));

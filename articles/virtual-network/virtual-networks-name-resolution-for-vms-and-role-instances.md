@@ -1,6 +1,6 @@
 ---
 title: Resolution for VMs and Role Instances
-description: Name Resolution scenarios for Azure IaaS , hybrid solutions, between different cloud services, Active Directory and using your own DNS server 
+description: 'Name Resolution scenarios for Azure IaaS , hybrid solutions, between different cloud services, Active Directory and using your own DNS server '
 services: virtual-network
 documentationcenter: na
 author: GarethBradshawMSFT
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/06/2016
 wacn.date: ''
 ms.author: telmos
----
 
+---
 # Name Resolution for VMs and Role Instances
 Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you may need to allow the VMs and role instances that you create to communicate with each other. Although this communication can be done by using IP addresses, it is much simpler to use names that can be easily remembered and do not change. 
 

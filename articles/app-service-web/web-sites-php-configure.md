@@ -180,7 +180,7 @@ processing during `git push` by enabling the Composer extension.
     ![Git deployment with Composer automation in Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
 ## Next steps
-For more information, see the [PHP Developer Center](/develop/php/).
+For more information, see the [PHP Developer Center](https://www.azure.cn/develop/php/).
 
 [trial]: https://www.azure.cn/pricing/1rmb-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php

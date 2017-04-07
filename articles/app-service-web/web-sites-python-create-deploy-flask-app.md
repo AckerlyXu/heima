@@ -341,7 +341,7 @@ For information on using Azure Table Storage and MongoDB:
 * [Flask and MongoDB on Azure with Python Tools for Visual Studio]
 * [Flask and Azure Table Storage on Azure with Python Tools for Visual Studio]
 
-For more information, see also the [Python Developer Center](/develop/python/).
+For more information, see also the [Python Developer Center](https://www.azure.cn/develop/python/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)

@@ -92,7 +92,7 @@ For more details about how to use ASP.NET session state, see [ASP.NET Session St
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
-[installed the latest]: /downloads/?sdk=net  
+[installed the latest]: https://www.azure.cn/downloads/?sdk=net  
 [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
 [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png

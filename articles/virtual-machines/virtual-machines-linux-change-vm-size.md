@@ -27,7 +27,7 @@ After you provision a virtual machine (VM), you can scale the VM up or down by c
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-machines-linux-change-vm-size-nodejs.md) - our CLI for the classic and resource management deployment models
+- [Azure CLI 1.0](virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our CLI for the classic and resource management deployment models
 - Azure CLI 2.0 - our next generation CLI for the resource management deployment model (this article)
 
 To resize a VM, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).

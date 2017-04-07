@@ -191,6 +191,6 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: https://technet.microsoft.com/library/dn425048.aspx
+[powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

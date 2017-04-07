@@ -111,7 +111,7 @@ For information in working with modules on Azure, see [Using Node.js Modules wit
 
 For information on specifying a Node.js version for your application, see [Specifying a Node.js version in an Azure application].
 
-For more information, see also the [Node.js Developer Center](/develop/nodejs/).
+For more information, see also the [Node.js Developer Center](https://www.azure.cn/develop/nodejs/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)

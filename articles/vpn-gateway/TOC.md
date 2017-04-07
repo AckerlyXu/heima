@@ -64,7 +64,7 @@
 
 # Resources
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://www.azure.cn/pricing/details/vpn-gateway/)
 ## [SLA](https://www.azure.cn/support/legal/sla)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

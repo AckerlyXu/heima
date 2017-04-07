@@ -50,7 +50,7 @@ You need the following to complete this tutorial:
 * An Azure Active Directory tenant with users in various groups
 * Permissions to create applications on the Azure Active Directory tenant
 * Visual Studio 2013 Update 4 or later
-* [Azure SDK 2.8.1 or later](/downloads/)
+* [Azure SDK 2.8.1 or later](https://www.azure.cn/downloads/)
 
 ## <a name="bkmk_deploy"></a> Create and deploy a web app to Azure
 1. From Visual Studio, click **File** > **New** > **Project**.

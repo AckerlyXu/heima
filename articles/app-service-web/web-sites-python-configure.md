@@ -342,7 +342,7 @@ Contents of `ptvs_virtualenv_proxy.py`:
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## Next steps
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](https://www.azure.cn/develop/python/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)

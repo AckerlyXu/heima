@@ -122,7 +122,7 @@ Azure Web Apps allow you to add an unlimited number of domains to a web app. To 
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
-[website-from-gallery]: /develop/php/tutorials/website-from-gallery/
+[website-from-gallery]: https://www.azure.cn/develop/php/tutorials/website-from-gallery/
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
 [website-w-mysql-and-ftp-ftp-setup]: /azure/app-service-web/web-sites-php-mysql-deploy-use-ftp/
 [website-w-mysql-and-git-git-setup]: /azure/app-service-web/web-sites-php-mysql-deploy-use-git/

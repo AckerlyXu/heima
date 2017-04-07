@@ -29,7 +29,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 This article assumes that you have the following items:
 
 * **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. see [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
-* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](/downloads/). A tutorial that describes how install and configure the module is available here. Use the [Azure Downloads](/downloads/) cmdlet to upload the VHD.
+* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://www.azure.cn/downloads/). A tutorial that describes how install and configure the module is available here. Use the [Azure Downloads](https://www.azure.cn/downloads/) cmdlet to upload the VHD.
 * **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]

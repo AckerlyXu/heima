@@ -138,11 +138,11 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 * [Django Documentation]
 * [MySQL]
 
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](https://www.azure.cn/develop/python/).
 
 <!--Link references-->
 
-[Python Developer Center]: /develop/python/
+[Python Developer Center]: https://www.azure.cn/develop/python/
 [Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->

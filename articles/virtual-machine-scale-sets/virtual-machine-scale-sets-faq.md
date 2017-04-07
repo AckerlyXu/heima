@@ -29,7 +29,7 @@ This article contains answers to frequently asked questions about scale sets.
 
 ### What are best practices for Azure autoscale?
 
-Yes. See https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices
+Yes. See https://www.azure.cn/documentation/articles/insights-autoscale-best-practices/
 
 ### Where do I find the metric names for autoscaling using host-based metrics?
 
@@ -63,7 +63,7 @@ Replace these sample values with the appropriate resource URIs.
 
 You can create an autoscale setting on a VM to use host-level metrics, or use guest-OS-based metrics.
 
-See this list of supported metrics: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. Here is a full sample for scale sets (in this case we used the host-level CPU metric and a message count metric):
+See this list of supported metrics: https://www.azure.cn/documentation/articles/insights-autoscale-common-metrics/. Here is a full sample for scale sets (in this case we used the host-level CPU metric and a message count metric):
 
 https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets
 
@@ -539,7 +539,7 @@ Then when a new VM is created the InstanceView of the VM shows the details for t
 
 ### How to I update my scale set to a new image and manage patching?
 
-See: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
+See: https://www.azure.cn/documentation/articles/virtual-machine-scale-sets-upgrade-scale-set/
 
 ### Can you use the reimage operation to reset a VM without changing the image? (that is, reset a VM to factory settings rather than to a new image)?
 

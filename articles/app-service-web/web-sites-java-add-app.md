@@ -36,6 +36,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: /develop/java/
+[Azure Java Developer Center]: https://www.azure.cn/develop/java/
 [Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
 [Deploy your app to Azure App Service]: ./web-sites-deploy.md

@@ -223,5 +223,5 @@
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
-## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
+## [Get help on the forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

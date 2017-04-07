@@ -86,7 +86,7 @@ For information on other ways to run MapReduce, Hive, and Pig interactively, see
 * New command (ARM) - `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## Migrating Azure PowerShell to Azure Resource Manager
-The general information about Azure PowerShell in the Azure Resource Manager (ARM) mode can be found at [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+The general information about Azure PowerShell in the Azure Resource Manager (ARM) mode can be found at [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 The Azure PowerShell ARM cmdlets can be installed side-by-side with the ASM cmdlets. The cmdlets from the two modes can be distinguished by their names.  The ARM mode has *AzureRmHDInsight* in the cmdlet names comparing to *AzureHDInsight* in the ASM mode.  For example, *New-AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parameters and switches may have news names, and there are many new parameters available when using ARM.  For example, several cmdlets require a new switch called *-ResourceGroupName*. 
 

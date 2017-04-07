@@ -265,7 +265,7 @@ string on the Laravel forums will show you that it is due to not setting the APP
 ## Next Steps
 check out more helpful links for PHP in Azure below:
 
-* [PHP Developer Center](/develop/php/)
+* [PHP Developer Center](https://www.azure.cn/develop/php/)
 * [Configure PHP in Azure App Service Web Apps](web-sites-php-configure.md)
 * [Convert WordPress to Multisite in Azure App Service](web-sites-php-convert-wordpress-multisite.md)
 * [Enterprise-class WordPress on Azure App Service](web-sites-php-enterprise-wordpress.md)

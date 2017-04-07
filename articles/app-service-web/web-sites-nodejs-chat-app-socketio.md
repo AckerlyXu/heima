@@ -282,7 +282,7 @@ For more information, see also the [Node.js Developer Center].
 [Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
 [Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Azure App Service and Its Impact on Existing Azure Services]: /azure/app-service-web/app-service-changes-existing-services/
-[Node.js Developer Center]: /develop/nodejs/
+[Node.js Developer Center]: https://www.azure.cn/develop/nodejs/
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 [Instance Affinity in Azure Web Sites]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Create a cache in Azure Redis Cache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md

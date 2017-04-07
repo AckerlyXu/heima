@@ -125,7 +125,7 @@ To use Azure services from your Ruby application, see:
 
 <!-- WA.com links -->
 [blobs]: ../../../storage/storage-ruby-how-to-use-blob-storage.md
-[cdn-howto]: /develop/ruby/app-services/
+[cdn-howto]: https://www.azure.cn/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.cn/
 [tables]: ../../../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: ../../virtual-machines-linux-classic-createportal.md

@@ -243,7 +243,7 @@ project. You can enable composer.json processing during `git push` by enabling t
     ![Composer Extension Success][composer-extension-success]
 
 ## Next steps
-For more information, see the [PHP Developer Center](/develop/php/).
+For more information, see the [PHP Developer Center](https://www.azure.cn/develop/php/).
 
 <!-- URL List -->
 
@@ -254,7 +254,7 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [management-portal]: https://portal.azure.cn
-[sql-database-editions]: http://msdn.microsoft.com/library/azure/ee621788.aspx
+[sql-database-editions]: /pricing/details/sql-database/
 
 <!-- IMG List -->
 

@@ -216,7 +216,7 @@ Azure Blob storage can also be accessed using an Azure SDK from the following pr
 * Python
 * Ruby
 
-For more information on installing the Azure SDKs, see [Azure downloads](/downloads/)
+For more information on installing the Azure SDKs, see [Azure downloads](https://www.azure.cn/downloads/)
 
 ## Troubleshooting
 ### <a id="storageexception"></a>Storage exception for write on blob

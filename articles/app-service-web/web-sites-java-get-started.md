@@ -95,7 +95,7 @@ For more information about developing Java applications in Azure, see the [Java 
 [sign up for a trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 [web app in Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
-[Java Developer Center]: /develop/java/
+[Java Developer Center]: https://www.azure.cn/develop/java/
 [Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Upload a custom Java web app to Azure]: ./web-sites-java-custom-upload.md
 

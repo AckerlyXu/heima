@@ -282,7 +282,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Git]: http://www.git-scm.com/
-[Azure Java Developer Center]: /develop/java/
+[Azure Java Developer Center]: https://www.azure.cn/develop/java/
 [Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/

@@ -105,7 +105,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     VmName="WEB1"
 
     # Replace the value for the VmSize variable with a value from the
-    # https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article.
+    # https://www.azure.cn/documentation/articles/virtual-machines-linux-sizes/ article.
     VmSize="Standard_DS1"
 
     # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the

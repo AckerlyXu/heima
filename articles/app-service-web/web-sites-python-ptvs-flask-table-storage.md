@@ -165,14 +165,14 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
 <!--Link references-->
-[Python Developer Center]: /develop/python/
+[Python Developer Center]: https://www.azure.cn/develop/python/
 [Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 [documentation]: ../storage/storage-python-how-to-use-table-storage.md
 [How to Use the Table Storage Service from Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Portal Preview]: https://portal.azure.cn
-[Azure SDK for .NET]: /downloads/
+[Azure SDK for .NET]: https://www.azure.cn/downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025

@@ -302,7 +302,7 @@ Make the following changes to the TodoListDataAPI project.
     In the following steps you configure the expected values.
 6. Using Azure AD PowerShell, get the value of the service principal for the Azure AD application that you created for the TodoListWebApp project.
 
-    a. For instructions on how to install Azure PowerShell and connect to your subscription, see [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+    a. For instructions on how to install Azure PowerShell and connect to your subscription, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
     b. To get a list of service principals, execute the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` command and then the `Get-AzureRmADServicePrincipal` command.
 

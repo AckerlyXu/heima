@@ -158,7 +158,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
 <!--Link references-->
-[Python Developer Center]: /develop/python/
+[Python Developer Center]: https://www.azure.cn/develop/python/
 [Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->

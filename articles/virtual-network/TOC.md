@@ -143,6 +143,6 @@
 
 # Resources
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
-## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Pricing](https://www.azure.cn/pricing/details/virtual-network/)
+## [Networking forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Pricing](https://www.azure.cn/pricing/details/networking/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

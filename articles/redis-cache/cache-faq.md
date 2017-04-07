@@ -160,7 +160,7 @@ Usually the default values of the client are sufficient. You can fine-tune the o
 * **Retries**
     * For ConnectRetry and ConnectTimeout, the general guidance is to fail fast and retry again. This guidance is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
     * Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
-    * Snowballing - sometimes you may run into an issue where you are retrying and the retries snowball and never recovers. If snowballing occurs, you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](https://github.com/mspnp/azure-guidance/blob/master/Retry-Policies.md) published by the Microsoft Patterns & Practices group.
+    * Snowballing - sometimes you may run into an issue where you are retrying and the retries snowball and never recovers.
 * **Timeout values**
     * Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
     * Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
