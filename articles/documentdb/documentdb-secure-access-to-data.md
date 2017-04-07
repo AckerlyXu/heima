@@ -52,8 +52,6 @@ The process of rotating your master key is simple. Navigate to the Azure portal 
 
 The following code sample illustrates how to use a DocumentDB account endpoint and master key to instantiate a DocumentClient and create a database. 
 
-csharp
-
 ```csharp
 //Read the DocumentDB endpointUrl and authorization keys from config.
 //These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
@@ -107,8 +105,6 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
 ## Users <a id="users"></a>
 DocumentDB users are associated with a DocumentDB database.  Each database can contain zero or more DocumentDB users.  The following code sample shows how to create a DocumentDB user resource.
 
-csharp
-
 ```csharp
 //Create a user.
 User docUser = new User
@@ -140,8 +136,6 @@ There are two available access levels that may be provided by a permission resou
 
 The following code sample shows how to create a permission resource, read the resource token of the permission resource, and associate the permissions with the [user](#users) created above.
 
-csharp
-
 ```csharp
 // Create a permission.
 Permission docPermission = new Permission
@@ -160,8 +154,6 @@ If you have specified a partition key for your collection, then the permission f
 ### Code sample to read permissions for user
 
 To easily obtain all permission resources associated with a particular user, DocumentDB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new DocumentClient on behalf of the user.
-
-csharp
 
 ```csharp
 //Read a permission feed.

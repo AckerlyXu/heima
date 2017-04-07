@@ -39,8 +39,6 @@ Here we have a simple JSON document for the Andersen family, the parents, childr
 
 **Document**  
 
-JSON
-
 ```JSON
 {
   "id": "AndersenFamily",
@@ -66,8 +64,6 @@ JSON
 Here's a second document with one subtle difference - `givenName` and `familyName` are used instead of `firstName` and `lastName`.
 
 **Document**  
-
-json
 
 ```json
 {

@@ -52,8 +52,6 @@ DocumentDB requires a partition key to be specified when a collection is provisi
 
 Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
 
-csharp
-
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
@@ -68,8 +66,6 @@ await client.CreateDocumentCollectionAsync(
 DocumentDB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through DocumentDB SDKs or using the [Azure Portal](https://portal.azure.cn).
 
 Each collection is mapped to an `Offer` resource in DocumentDB, which has metadata about the collection's provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a collection, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
-
-csharp
 
 ```csharp
 // Fetch the resource to be updated
@@ -247,8 +243,6 @@ The simplest way to get a good estimation of request unit charges for your API f
 
 ## A request unit estimation example
 Consider the following ~1KB document:
-
-json
 
 ```json
 {

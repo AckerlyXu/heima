@@ -48,8 +48,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
-    C#
-
     ```C#
     var serviceEndpoint = new Uri("https://contoso.documents.net");
     var authKey = new "your authKey from the Azure portal";
@@ -159,8 +157,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     DocumentDB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
 
-    C#
-
     ```C#
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -181,8 +177,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
     The complexity of a query impacts how many Request Units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 
     To measure the overhead of any operation (create, update, or delete), inspect the x-ms-request-charge header (or the equivalent RequestCharge property in ResourceResponse<T> or FeedResponse<T> in the .NET SDK) to measure the number of request units consumed by these operations.
-
-    C#
 
     ```C#
     // Measure the performance (request units) of writes

@@ -240,7 +240,6 @@ This section illustrates how to programmatically access local storage using C# b
 The following code shows an example of how to write a text file to local storage. Replace the &lt;LocalStorageName> placeholder with the appropriate value. 
 
 ```csharp
-```csharp
 // Retrieve an object that points to the local storage resource
 LocalResource localResource = RoleEnvironment.GetLocalResource("<LocalStorageName>");
 
@@ -254,7 +253,6 @@ using (FileStream writeStream = File.Create(filePath))
     writeStream.Write(textToWrite, 0, textToWrite.Length);
 }
 
-```
 ```
 
 ### Find a file written to local storage

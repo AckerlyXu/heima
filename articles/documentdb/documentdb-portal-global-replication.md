@@ -68,8 +68,6 @@ db.isMaster()
 
 Example results:
 
-JSON
-
 ```JSON
 {
     "_t": "IsMasterResponse",

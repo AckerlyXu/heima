@@ -39,8 +39,6 @@ To use this example, you must:
 
 1. Create a *app.js* file and copy & paste the code below.
 
-    nodejs
-
     ```nodejs
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
@@ -121,8 +119,6 @@ To use this example, you must:
     ```
 
 2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](./documentdb-connect-mongodb-account.md)):
-
-    nodejs
 
     ```nodejs
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';

@@ -85,8 +85,6 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 ## <a id="Connect"></a>Step 3: Connect to a DocumentDB account
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
-csharp
-
 ```csharp
 using System;
 
@@ -103,8 +101,6 @@ using Newtonsoft.Json;
 > In order to complete this NoSQL tutorial, make sure you add the dependencies above.
 
 Now, add these two constants and your *client* variable underneath your public class *Program*.
-
-csharp
 
 ```csharp
 class Program
@@ -127,8 +123,6 @@ We'll start the getting started application by creating a new instance of the **
 
 Below the **Main** method, add this new asynchronous task called **GetStartedDemo**, which will instantiate our new **DocumentClient**.
 
-csharp
-
 ```csharp
 static void Main(string[] args)
 {
@@ -142,8 +136,6 @@ private async Task GetStartedDemo()
 ```
 
 Add the following code to run your asynchronous task from your **Main** method. The **Main** method will catch exceptions and write them to the console.
-
-csharp
 
 ```csharp
 static void Main(string[] args)
@@ -180,8 +172,6 @@ Before you add the code for creating a database, add a helper method for writing
 
 Copy and paste the **WriteToConsoleAndPromptToContinue** method underneath the **GetStartedDemo** method.
 
-csharp
-
 ```csharp
 // ADD THIS PART TO YOUR CODE
 private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
@@ -195,8 +185,6 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 Your DocumentDB [database](./documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the client creation. This will create a database named *FamilyDB*.
-
-csharp
 
 ```csharp
 private async Task GetStartedDemo()
@@ -219,8 +207,6 @@ A [collection](./documentdb-resources.md#collections) can be created by using th
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the database creation. This will create a document collection named *FamilyCollection_oa*.
 
-csharp
-
 ```csharp
 this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
@@ -240,8 +226,6 @@ A [document](./documentdb-resources.md#documents) can be created by using the [C
 First, we need to create a **Family** class that will represent objects stored within DocumentDB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal sub-classes after the **GetStartedDemo** method.
 
 Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** classes underneath the **WriteToConsoleAndPromptToContinue** method.
-
-csharp
 
 ```csharp
 private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
@@ -297,8 +281,6 @@ public class Address
 
 Copy and paste the **CreateFamilyDocumentIfNotExists** method underneath your **CreateDocumentCollectionIfNotExists** method.
 
-csharp
-
 ```csharp
 // ADD THIS PART TO YOUR CODE
 private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -326,8 +308,6 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 And insert two documents, one each for the Andersen Family and the Wakefield Family.
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the document collection creation.
-
-csharp
 
 ```csharp
 await this.CreateDatabaseIfNotExists("FamilyDB_oa");
@@ -412,8 +392,6 @@ DocumentDB supports rich [queries](./documentdb-sql-query.md) against JSON docum
 
 Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyDocumentIfNotExists** method.
 
-csharp
-
 ```csharp
 // ADD THIS PART TO YOUR CODE
 private void ExecuteSimpleQuery(string databaseName, string collectionName)
@@ -452,8 +430,6 @@ private void ExecuteSimpleQuery(string databaseName, string collectionName)
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the second document creation.
 
-csharp
-
 ```csharp
 await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
@@ -476,8 +452,6 @@ DocumentDB supports replacing JSON documents.
 
 Copy and paste the **ReplaceFamilyDocument** method underneath your **ExecuteSimpleQuery** method.
 
-csharp
-
 ```csharp
 // ADD THIS PART TO YOUR CODE
 private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
@@ -495,8 +469,6 @@ private async Task ReplaceFamilyDocument(string databaseName, string collectionN
 ```
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the query execution. After replacing the document, this will run the same query again to view the changed document.
-
-csharp
 
 ```csharp
 await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
@@ -521,8 +493,6 @@ DocumentDB supports deleting JSON documents.
 
 Copy and paste the **DeleteFamilyDocument** method underneath your **ReplaceFamilyDocument** method.
 
-csharp
-
 ```csharp
 // ADD THIS PART TO YOUR CODE
 private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
@@ -541,9 +511,7 @@ private async Task DeleteFamilyDocument(string databaseName, string collectionNa
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the second query execution.
 
-cshrp
-
-```cshrp
+```csharp
 await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
 this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
@@ -560,8 +528,6 @@ Congratulations! You have successfully deleted a DocumentDB document.
 Deleting the created database will remove the database and all children resources (collections, documents, etc.).
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the document delete to delete the entire database and all children resources.
-
-csharp
 
 ```csharp
 this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");

@@ -110,8 +110,6 @@ The previous commands generate the log file *maeventtable.csv*, which you can op
 ## Diagnostics data Tables not found
 The tables in Azure storage holding Azure diagnostics data are named using the following code:
 
-csharp
-
 ```csharp
 if (String.IsNullOrEmpty(eventDestination)) {
     if (e == "DefaultEvents")
@@ -124,8 +122,6 @@ else
 ```
 
 Here is an example:
-
-XML
 
 ```XML
 <EtwEventSourceProviderConfiguration provider=”prov1”>

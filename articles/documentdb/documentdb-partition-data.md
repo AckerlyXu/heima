@@ -163,8 +163,6 @@ The following sample shows a .NET snippet to create a collection to store device
 
 For this sample, we picked `deviceId` since we know that (a) since there are a large number of devices, writes can be distributed across partitions evenly and allowing us to scale the database to ingest massive volumes of data and (b) many of the requests like fetching the latest reading for a device are scoped to a single deviceId and can be retrieved from a single partition.
 
-csharp
-
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -191,8 +189,6 @@ This method makes a REST API call to DocumentDB, and the service will provision 
 
 ### Reading and writing documents
 Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
-
-csharp
 
 ```csharp
 public class DeviceReading
@@ -233,8 +229,6 @@ await client.CreateDocumentAsync(
 
 Let's read the document by it's partition key and id, update it, and then as a final step, delete it by partition key and id. Note that the reads include a PartitionKey value (corresponding to the `x-ms-documentdb-partitionkey` request header in the REST API).
 
-csharp
-
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
 Document result = await client.ReadDocumentAsync(
@@ -260,8 +254,6 @@ await client.DeleteDocumentAsync(
 ### Querying partitioned collections
 When you query data in partitioned collections, DocumentDB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
-csharp
-
 ```csharp
 // Query using partition key
 IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
@@ -270,8 +262,6 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 ```
 
 The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. Note that you have to specify the EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` in the REST API) to have the SDK to execute a query across partitions.
-
-csharp
 
 ```csharp
 // Query across partition keys
@@ -285,8 +275,6 @@ DocumentDB supports [aggregate functions](./documentdb-sql-query.md#Aggregates) 
 
 ### Parallel query execution
 The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
-
-csharp
 
 ```csharp
 // Cross-partition Order By Queries
@@ -307,8 +295,6 @@ Given the same state of the collection, a parallel query will return results in 
 ### Executing stored procedures
 You can also execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single document. 
 
-csharp
-
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
     UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
@@ -328,8 +314,6 @@ db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
 ```
 
 Results:
-
-JSON
 
 ```JSON
 {

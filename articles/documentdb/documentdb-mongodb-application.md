@@ -38,8 +38,6 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 
 1. Follow the tutorial, with one modification.  Replace the Dal.cs code with this:
 
-    csharp
-
     ```csharp
     using System;
     using System.Collections.Generic;
@@ -174,8 +172,6 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
     ```
 
 2. Modify the following variables in the Dal.cs file per your account settings:
-
-    csharp
 
     ```csharp
     private string userName = "<your user name>";
