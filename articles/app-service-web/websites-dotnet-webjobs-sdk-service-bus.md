@@ -50,8 +50,8 @@ To work with Service Bus you have to install the [Microsoft.Azure.WebJobs.Servic
 You also have to set the AzureWebJobsServiceBus connection string in addition to the storage connection strings.  You can do this in the `connectionStrings` section of the App.config file, as shown in the following example:
 
         <connectionStrings>
-            <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
-            <add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
+            <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey];EndpointSuffix=core.chinacloudapi.cn"/>
+            <add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey];EndpointSuffix=core.chinacloudapi.cn"/>
             <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
         </connectionStrings>
 
