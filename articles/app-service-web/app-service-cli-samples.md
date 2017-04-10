@@ -27,10 +27,8 @@ The following table includes links to bash scripts built using the Azure CLI.
 |-|-|
 |**Create app**||
 | [Create a web app and deploy code from GitHub](./scripts/app-service-cli-deploy-github.md)| Creates an Azure web app and deploys code from a public GitHub repository. |
-| [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)| Creates an Azure web app with continuous publishing from a GitHub repository you own. |
 | [Create a web app and deploy code from a local Git repository](./scripts/app-service-cli-deploy-local-git.md) | Creates an Azure web app and configures code push from a local Git repository. |
 | [Create a web app and deploy code to a staging environment](./scripts/app-service-cli-deploy-staging-environment.md) | Creates an Azure web app with a deployment slot for staging code changes. |
-| [Create an ASP.NET Core web app in a Docker container](./scripts/app-service-cli-linux-docker-aspnetcore.md)| Creates an Azure web app on Linux and loads a Docker image from Docker Hub. |
 |**Configure app**||
 | [Map a custom domain to a web app](./scripts/app-service-cli-configure-custom-domain.md)| Creates an Azure web app and maps a custom domain name to it. |
 | [Bind a custom SSL certificate to a web app](./scripts/app-service-cli-configure-ssl-certificate.md)| Creates an Azure web app and binds the SSL certificate of a custom domain name to it. |

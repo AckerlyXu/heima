@@ -38,13 +38,13 @@ This sample script does the following using Azure CLI 2.0:
 
 > [!NOTE]
 > If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
-> cannot set up the SSH key and webhooks necessary for continuous deployment.
+> cannot set up the webhooks necessary for continuous deployment.
 >
 >
 
 ## Create VM sample
 
-```
+```azurecli
 #!/bin/bash
 
 gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
@@ -106,4 +106,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional CLI script samples for Azure App Service Web Apps can be found in the [Azure CLI samples]().
+Additional CLI script samples for Azure App Service Web Apps can be found in the [Azure CLI samples](https://github.com/Azure/azure-docs-cli-python-samples).
