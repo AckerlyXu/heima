@@ -73,15 +73,6 @@ The sample code below uses .NET SDK to upload a single file. The AccessPolicy an
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
 
-	        Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-	        var policy = _context.AccessPolicies.Create(
-	                                assetName,
-	                                TimeSpan.FromDays(30),
-	                                AccessPermissions.Write | AccessPermissions.List);
-
-	        var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
@@ -172,8 +163,7 @@ When uploading a large number of assets, consider the following.
 * Increase NumberOfConcurrentTransfers from the default value of 2 to a higher value like 5. Setting this property affects all instances of **CloudMediaContext**. 
 * Keep ParallelTransferThreadCount at the default value of 10.
 
-##<a id="ingest_in_bulk"></a>Ingesting Assets in Bulk using Media Services .NET SDK 
-
+## <a id="ingest_in_bulk"></a>Ingesting Assets in Bulk using Media Services .NET SDK
 Uploading large asset files can be a bottleneck during asset creation. Ingesting Assets in Bulk or “Bulk Ingesting”, involves decoupling asset creation from the upload process. To use a bulk ingesting approach, create a manifest (IngestManifest) that describes the asset and its associated files. Then use the upload method of your choice to upload the associated files to the manifest's blob container. Azure Media Services watches the blob container associated with the manifest. Once a file is uploaded to the blob container, Azure Media Services completes the asset creation based on the configuration of the asset in the manifest (IngestManifestAsset).
 
 To create a new IngestManifest call the Create method exposed by the IngestManifests collection on the CloudMediaContext. This method will create a new IngestManifest with the manifest name you provide.

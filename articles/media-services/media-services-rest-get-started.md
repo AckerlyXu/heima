@@ -1,5 +1,5 @@
 ---
-title: Get started with delivering content on demand using REST | Azure
+title: Get started with delivering content on demand using REST | Microsoft Docs
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API.
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
-wacn.date: ''
+ms.date: 03/01/2017
 ms.author: juliako
----
 
+---
 # Get started with delivering content on demand using REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -34,33 +33,37 @@ Click the image to view it full size.
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services with REST APIs.
 
-- An Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
-- A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-portal-create-account.md).
-- Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](./media-services-rest-how-to-use.md).
-- An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler). 
+* An Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-create-account.md).
+* Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](media-services-rest-how-to-use.md).
+* An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler).
 
 The following tasks are shown in this quickstart.
 
-1. Start streaming endpoint (using the Azure portal).
+1. Start streaming endpoint (using the Azure Classic Management portal).
 2. Connect to the Media Services account with REST API.
 3. Create a new asset and upload a video file with REST API.
 4. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
-5. Publish the asset and get streaming and progressive download URLs with REST API. 
-6. Play your content. 
+5. Publish the asset and get streaming and progressive download URLs with REST API.
+6. Play your content.
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 
 For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](./media-services-concepts.md).
 
-## Start streaming endpoints using the Azure portal
+## Start streaming endpoints using the Azure Classic Management portal
 
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 To start the streaming endpoint, do the following:
 
-1. Log in at the [Azure portal](https://portal.azure.cn/).
-2. In the Settings window, click Streaming endpoints. 
+1. Log in at the [Azure Classic Management portal](https://manage.windowsazure.cn/).
+2. Click Streaming endpoints. 
 3. Click the default streaming endpoint. 
 
     The DEFAULT STREAMING ENDPOINT DETAILS window appears.
@@ -73,20 +76,16 @@ Two things are required when accessing Azure Media Services: an access token pro
 
 The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:
 
-1. Getting an access token. 
+1. Getting an access token.
 2. Connecting to the Media Services URI.  
+	
+	>[!NOTE] 
+	>- Shanghai DC URL(China East): https://wamsshaclus001rest-hs.chinacloudapp.cn/API/
+	>- Beijing DC URL(China North): https://wamsbjbclus001rest-hs.chinacloudapp.cn/API/
 
-    Remember that after successfully connecting to https://media.chinacloudapi.cn, you receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
-3. Posting your subsequent API calls to the new URL. 
+3. Posting your API calls directly to the URL above where your Media Service is created. 
 
-    For example, if after trying to connect, you got the following:
 
-    ```
-    HTTP/1.1 301 Moved Permanently
-    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/
-    ```
-
-    You should post your subsequent API calls to https://wamsbayclus001rest-hs.chinacloudapp.cn/api/.
 
 ### Getting an access token
 To access Media Services directly through the REST API, retrieve an access token from ACS and use it during every HTTP request you make into the service. You do not need any other prerequisites before directly connecting to Media Services.
@@ -107,7 +106,7 @@ Accept: application/json
 
 **Body**:
 
-You need to provide the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account. 
+You need to provide the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account.
 
 The AccountKey for your Media Services account must be URL-encoded when using it as the client_secret value in your access token request.
 
@@ -143,18 +142,19 @@ Content-Length: 670
 }
 ```
 
->[!NOTE]
+> [!NOTE]
 > It is recommended to cache the "access_token " and "expires_in" (how long the access token is valid, in seconds) values to an external storage. The token data could later be retrieved from the storage and re-used in your Media Services REST API calls. This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.
+>
+>
 
 Make sure to monitor the "expires_in" value of the access token and update your REST API calls with new tokens as needed.
 
 ###Connecting to the Media Services URI
 
-The root URI for Media Services is https://media.chinacloudapi.cn/. You should initially connect to this URI, and if you get a 301 redirect back in response, you should make subsequent calls to the new URI. In addition, do not use any auto-redirect/follow logic in your requests. HTTP verbs and request bodies will not be forwarded to the new URI.
 
 The root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.chinacloudapi.cn/ where the storage account name is the same one you used during your Media Services account setup.
 
-The following example demonstrates HTTP request to the Media Services root URI (https://media.chinacloudapi.cn/). The request gets a 301 redirect back in response. The subsequent request is using the new URI (https://wamsbayclus001rest-hs.chinacloudapp.cn/api/).     
+The following example demonstrates HTTP request to the Media Services in China East region (https://wamsshaclus001rest-hs.chinacloudapp.cn/API/). 
 
 **HTTP Request**:
 
@@ -164,34 +164,6 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 x-ms-version: 2.11
 Accept: application/json
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
-
-**HTTP Response**:
-
-```
-HTTP/1.1 301 Moved Permanently
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/
-Server: Microsoft-IIS/8.5
-request-id: 987d7652-497a-44e5-b815-f492e02aef97
-x-ms-request-id: 987d7652-497a-44e5-b815-f492e02aef97
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Sat, 17 Jan 2015 07:44:53 GMT
-Content-Length: 164
-
-<html><head><title>Object moved</title></head><body>
-<h2>Object moved to <a href="https://wamsshaclus001rest-hs.chinacloudapp.cn/api/">here</a>.</h2>
-</body></html>
-```
-
-**HTTP Request** (using the new URI):
-
-```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ HTTP/1.1
-Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-x-ms-version: 2.11
-Accept: application/json
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
 **HTTP Response**:
@@ -213,23 +185,21 @@ Date: Sat, 17 Jan 2015 07:44:52 GMT
 {"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata","value":[{"name":"AccessPolicies","url":"AccessPolicies"},{"name":"Locators","url":"Locators"},{"name":"ContentKeys","url":"ContentKeys"},{"name":"ContentKeyAuthorizationPolicyOptions","url":"ContentKeyAuthorizationPolicyOptions"},{"name":"ContentKeyAuthorizationPolicies","url":"ContentKeyAuthorizationPolicies"},{"name":"Files","url":"Files"},{"name":"Assets","url":"Assets"},{"name":"AssetDeliveryPolicies","url":"AssetDeliveryPolicies"},{"name":"IngestManifestFiles","url":"IngestManifestFiles"},{"name":"IngestManifestAssets","url":"IngestManifestAssets"},{"name":"IngestManifests","url":"IngestManifests"},{"name":"StorageAccounts","url":"StorageAccounts"},{"name":"Tasks","url":"Tasks"},{"name":"NotificationEndPoints","url":"NotificationEndPoints"},{"name":"Jobs","url":"Jobs"},{"name":"TaskTemplates","url":"TaskTemplates"},{"name":"JobTemplates","url":"JobTemplates"},{"name":"MediaProcessors","url":"MediaProcessors"},{"name":"EncodingReservedUnitTypes","url":"EncodingReservedUnitTypes"},{"name":"Operations","url":"Operations"},{"name":"StreamingEndpoints","url":"StreamingEndpoints"},{"name":"Channels","url":"Channels"},{"name":"Programs","url":"Programs"}]}
 ```
 
->[!NOTE]
-> From now on the new URI is used in this tutorial.
+
 
 ## <a id="upload"></a>Create a new asset and upload a video file with REST API
 
-In Media Services, you upload your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
+In Media Services, you upload your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming.
 
 One of the values that you have to provide when creating an asset is asset creation options. The **Options** property is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values from this list:
 
-- **None** = **0** - No encryption is used. When using this option your content is not protected in transit or at rest in storage.
-    If you plan to deliver an MP4 using progressive download, use this option. 
-- **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
-- **CommonEncryptionProtected** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncryptionProtected** = **4** – Use this option if you are uploading HLS encrypted with AES. The files must have been encoded and encrypted by Transform Manager.
+* **None** = **0** - No encryption is used. When using this option your content is not protected in transit or at rest in storage.
+    If you plan to deliver an MP4 using progressive download, use this option.
+* **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
+* **CommonEncryptionProtected** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
+* **EnvelopeEncryptionProtected** = **4** – Use this option if you are uploading HLS encrypted with AES. The files must have been encoded and encrypted by Transform Manager.
 
 ### Create an asset
-
 An asset is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
 
 The following example shows how to create an asset.
@@ -374,9 +344,9 @@ Content-Length: 74
 
 **HTTP Response**
 
-```
-If successful, the following response is returned:
 
+If successful, the following response is returned:
+```
 HTTP/1.1 201 Created
 Cache-Control: no-cache
 Content-Length: 312
@@ -414,9 +384,9 @@ A SAS URL has the following format:
 
 Some considerations apply:
 
-- You cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Locator.
-- If you need to upload your files immediately, you should set your StartTime value to five minutes before the current time. This is because there may be clock skew between your client machine and Media Services. Also, your StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").	
-- There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both SAS URL and Origin Locators.
+* You cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Locator.
+* If you need to upload your files immediately, you should set your StartTime value to five minutes before the current time. This is because there may be clock skew between your client machine and Media Services. Also, your StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").    
+* There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both SAS URL and Origin Locators.
 
 For more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
@@ -512,10 +482,11 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 **HTTP Response**
 
 If successful, the following is returned:
+
     HTTP/1.1 204 No Content
+    ...
 
-## Delete the Locator and AccessPolicy 
-
+## Delete the Locator and AccessPolicy
 **HTTP Request**
 
 ```
@@ -618,10 +589,9 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ```
 
 ### Create a job
-
 Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing. However, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/zh-cn/library/mt269960) supported by the Media Encoder Standard processor.  
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
 
 **HTTP Request**
 
@@ -722,18 +692,20 @@ Date: Mon, 19 Jan 2015 08:04:35 GMT
 
 There are a few important things to note in any Job request:
 
-- TaskBody properties MUST use literal XML to define the number of input, or output assets that are used by the Task. The Task topic contains the XML Schema Definition for the XML.
-- In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
-- A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
-- You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
-- Tasks must not form a cycle.
-- The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an Asset. The actual Assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the Job entity definition. 
+* TaskBody properties MUST use literal XML to define the number of input, or output assets that are used by the Task. The Task topic contains the XML Schema Definition for the XML.
+* In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
+* A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
+* You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
+* Tasks must not form a cycle.
+* The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an Asset. The actual Assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the Job entity definition.
 
->[!NOTE]
-> Because Media Services is built on OData v3, the individual assets in InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair. 
+> [!NOTE]
+> Because Media Services is built on OData v3, the individual assets in InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair.
+>
+>
 
-- InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
-- OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob". 
+* InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
+* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
 
     The following example shows how to set the assetName attribute:
 
@@ -741,28 +713,27 @@ There are a few important things to note in any Job request:
     "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
     ```
 
-- To enable task chaining:
+* To enable task chaining:
 
-    - A job must have at least two tasks
-    - There must be at least one task whose input is output of another task in the job.
+  * A job must have at least two tasks
+  * There must be at least one task whose input is output of another task in the job.
 
-For more information see, [Creating an Encoding Job with the Media Services REST API](./media-services-rest-encode-asset.md).
+For more information see, [Creating an Encoding Job with the Media Services REST API](media-services-rest-encode-asset.md).
 
 ### Monitor Processing Progress
-
-You can retrieve the Job status by using the State property, as shown in the following example. 
+You can retrieve the Job status by using the State property, as shown in the following example.
 
 **HTTP Request**
 
 ```
-GET https://wamsbayclus001rest-hs.net/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/State HTTP/1.1
+GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/State HTTP/1.1
 Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 x-ms-version: 2.11
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-2233-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908022&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=RYXOraO6Z%2f7l9whWZQN%2bypeijgHwIk8XyikA01Kx1%2bk%3d
-Host: wamsbayclus001rest-hs.net
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 0
 ```
 
@@ -794,20 +765,22 @@ The following example shows how to call CancelJob.
 **HTTP Request**
 
 ```
-GET https://wamsbayclus001rest-hs.net/API/CancelJob?jobid='nb%3ajid%3aUUID%3a71d2dd33-efdf-ec43-8ea1-136a110bd42c' HTTP/1.1
+GET https://wamsshaclus001rest-hs.chinacloudapp.cn/API/CancelJob?jobid='nb%3ajid%3aUUID%3a71d2dd33-efdf-ec43-8ea1-136a110bd42c' HTTP/1.1
 Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 x-ms-version: 2.2
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908753&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=kolAgnFfbQIeRv4lWxKSFa4USyjWXRm15Kd%2bNd5g8eA%3d
-Host: wamsbayclus001rest-hs.net
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
 If successful, a 204 response code is returned with no message body.
 
->[!NOTE]
+> [!NOTE]
 > You must URL-encode the job id (normally nb:jid:UUID: somevalue) when passing it in as a parameter to CancelJob.
+>
+>
 
 ### Get the output asset
 The following code shows how to request the output asset Id.
@@ -867,7 +840,7 @@ To stream or download an asset, you first need to "publish" it by creating a loc
 Once you create the locators, you can build the URLs that are used to stream or download your files.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 A streaming URL for Smooth Streaming has the following format:
 
@@ -895,9 +868,9 @@ A SAS URL used to download files has the following format:
 
 This section shows how to perform the following tasks necessary to "publish" your assets.  
 
-- Creating the AccessPolicy with read permission 
-- Creating a SAS URL for downloading content 
-- Creating an origin URL for streaming content 
+* Creating the AccessPolicy with read permission
+* Creating a SAS URL for downloading content
+* Creating an origin URL for streaming content
 
 ### Creating the AccessPolicy with read permission
 Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
@@ -905,14 +878,14 @@ Before downloading or streaming any media content, first define an AccessPolicy 
 The following example shows how to specify the AccessPolicy for read permissions for a given Asset.
 
 ```
-POST https://wamsbayclus001rest-hs.net/API/AccessPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/AccessPolicies HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 x-ms-version: 2.11
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
-Host: wamsbayclus001rest-hs.net
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 74
 Expect: 100-continue
 
@@ -921,22 +894,23 @@ Expect: 100-continue
 
 If successful, a 201 success code is returned describing the AccessPolicy entity that you created. You then use the AccessPolicy Id along with the Asset Id of the asset that contains the file you want to deliver(such as an output asset) to create the Locator entity.
 
->[!NOTE]
-This basic workflow is the same as uploading a file when ingesting an Asset (as was discussed earlier in this topic). Also, like uploading files, if you (or your clients) need to access your files immediately, set your StartTime value to five minutes before the current time. This action is necessary because there may be clock skew between the client and Media Services. The StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").
+> [!NOTE]
+> This basic workflow is the same as uploading a file when ingesting an Asset (as was discussed earlier in this topic). Also, like uploading files, if you (or your clients) need to access your files immediately, set your StartTime value to five minutes before the current time. This action is necessary because there may be clock skew between the client and Media Services. The StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").
+>
+>
 
-###Creating a SAS URL for downloading content 
-
+### Creating a SAS URL for downloading content
 The following code shows how to get a URL that can be used to download a media file created and uploaded previously. The AccessPolicy has read permissions set and the Locator path refers to a SAS download URL.
 
 ```
-POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Locators HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 x-ms-version: 2.11
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-b1ae-2233-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
-Host: wamsbayclus001rest-hs.net
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 182
 Expect: 100-continue
 
@@ -950,7 +924,7 @@ HTTP/1.1 201 Created
 Cache-Control: no-cache
 Content-Length: 1150
 Content-Type: application/json;odata=verbose;charset=utf-8
-Location: https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')
+Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')
 Server: Microsoft-IIS/7.5
 x-ms-request-id: 8cfd8556-3064-416a-97f2-67d9e35f0911
 X-Content-Type-Options: nosniff
@@ -962,18 +936,18 @@ Date: Mon, 14 May 2012 21:41:32 GMT
 {  
    "d":{  
       "__metadata":{  
-         "id":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
-         "uri":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
+         "id":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
+         "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
          "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Locator"
       },
       "AccessPolicy":{  
          "__deferred":{  
-            "uri":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')/AccessPolicy"
+            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')/AccessPolicy"
          }
       },
       "Asset":{  
          "__deferred":{  
-            "uri":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/Asset"
+            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/Asset"
          }
       },
       "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
@@ -989,17 +963,18 @@ Date: Mon, 14 May 2012 21:41:32 GMT
 
 The returned **Path** property contains the SAS URL.
 
->[!NOTE]
-If you download storage encrypted content, you must manually decrypt it before rendering it, or use the Storage Decryption MediaProcessor in a processing task to output processed files in the clear to an OutputAsset and then download from that Asset. For more information on processing, see Creating an Encoding Job with the Media Services REST API. Also, SAS URL Locators cannot be updated after they have been created. For example, you cannot reuse the same Locator with an updated StartTime value. This is because of the way SAS URLs are created. If you want to access an asset for download after a Locator has expired, then you must create a new one with a new StartTime.
+> [!NOTE]
+> If you download storage encrypted content, you must manually decrypt it before rendering it, or use the Storage Decryption MediaProcessor in a processing task to output processed files in the clear to an OutputAsset and then download from that Asset. For more information on processing, see Creating an Encoding Job with the Media Services REST API. Also, SAS URL Locators cannot be updated after they have been created. For example, you cannot reuse the same Locator with an updated StartTime value. This is because of the way SAS URLs are created. If you want to access an asset for download after a Locator has expired, then you must create a new one with a new StartTime.
+>
+>
 
-###Download files
-
+### Download files
 Once you have the AccessPolicy and Locator set, you can download files using the Azure Storage REST APIs.  
 
 >[!NOTE]
 > You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/zh-cn/library/azure/dd135733.aspx).
+For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
 
 As a result of the encoding job that you performed earlier (encoding into Adaptive MP4 set), you have multiple MP4 files that you can progressively download. For example:    
 
@@ -1026,7 +1001,7 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 The following code shows how to create a streaming URL Locator:
 
 ```
-POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Locators HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 DataServiceVersion: 3.0
@@ -1047,7 +1022,7 @@ HTTP/1.1 201 Created
 Cache-Control: no-cache
 Content-Length: 981
 Content-Type: application/json;odata=verbose;charset=utf-8
-Location: https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')
+Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')
 Server: Microsoft-IIS/7.5
 x-ms-request-id: 2eac4158-fc78-4fa2-81ee-c9f582dc385f
 X-Content-Type-Options: nosniff
@@ -1059,24 +1034,24 @@ Date: Mon, 14 May 2012 21:41:39 GMT
 {  
    "d":{  
       "__metadata":{  
-         "id":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
-         "uri":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
+         "id":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
+         "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
          "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Locator"
       },
       "AccessPolicy":{  
          "__deferred":{  
-            "uri":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/AccessPolicy"
+            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/AccessPolicy"
          }
       },
       "Asset":{  
          "__deferred":{  
-            "uri":"https://wamsbayclus001rest-hs.net/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/Asset"
+            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/Asset"
          }
       },
       "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
       "ExpirationDateTime":"\/Date(1337049395000)\/",
       "Type":2,
-      "Path":"http://wamsbayclus001rest-hs.net/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
+      "Path":"http://wamsshaclus001rest-hs.chinacloudapp.cn/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
       "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
       "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
       "StartTime":"\/Date(1337031395000)\/"
@@ -1102,8 +1077,7 @@ To stream MPEG DASH, append (format=mpd-time-csf) after the "/manifest".
 http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 ```
 
-## <a id="play"></a>Play your content  
-
+## <a id="play"></a>Play your content
 To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).

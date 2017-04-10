@@ -74,9 +74,8 @@ Media Services supports two types of locators: OnDemandOrigin locators, used to 
 
 Note, that the list permission (AccessPermissions.List) should not be used when creating an OnDemandOrigin locator. 
 
-###Storage account
-
-All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](https://msdn.microsoft.com/zh-cn/library/azure/dn767951.aspx). 
+### Storage account
+All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## Jobs and tasks
 A [job](https://https://docs.microsoft.com/rest/api/media/operations/job) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
@@ -91,12 +90,11 @@ Codecs are the software that implements the compression/decompression algorithms
 
 Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) without you having to re-package into these streaming formats.
 
-To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files and have at least one standard or premium streaming endpoint in started state.
+To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files and have at least one standard streaming endpoint in started state.
 
 Media Services supports the following on demand encoders that are described in this article:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 For information about supported encoders, see [Encoders](media-services-encode-asset.md).
 
@@ -131,7 +129,7 @@ For more information, see:
 
 ## Protecting content
 ### Dynamic encryption
-Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients.
+Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients.
 
 Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt progressive downloads.
 
@@ -139,10 +137,10 @@ If you want for Media Services to encrypt an asset, you need to associate an enc
 
 If you want to stream a storage encrypted asset, you must configure the asset's delivery policy in order to specify how you want to deliver your asset.
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using an envelope encryption (with AES) or common encryption (with PlayReady  or Widevine). To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using an envelope encryption (with AES) or common encryption (with PlayReady). To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
 ### Token restriction
-The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
+The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
 
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
@@ -157,16 +155,16 @@ For more information, see the following articles:
 When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
 ### Streaming endpoint
-A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a streaming endpoint service can be a live stream, or a video on demand Asset in your Media Services account. Media Services customers choose either a **Standard** streaming endpoint or one or more **Premium** streaming endpoints, according to their needs. Standard streaming endpoint is suitable for most streaming workloads. 
+A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a streaming endpoint service can be a live stream, or a video on demand Asset in your Media Services account. Media Services customers choose a **Standard** streaming endpoint, according to their needs. Standard streaming endpoint is suitable for most streaming workloads. 
 
-Standard Streaming Endpoint is suitable for most streaming workloads. Standard Streaming Endpoints offer the flexibility to deliver your content to virtually every device through dynamic packaging into HLS, MPEG-DASH, and Smooth Streaming as well as dynamic encryption for Microsoft PlayReady, Google Widevine, Apple Fairplay, and AES128.  They also scale from very small to very large audiences with thousands of concurrent viewers through Azure CDN integration. If you have an advanced workload or your streaming capacity requirements don't fit to standard streaming endpoint throughput targets or you want to control the capacity of the StreamingEndpoint service to handle growing bandwidth needs,  it is recommended to allocate scale units(also known as premium streaming units).
+Standard Streaming Endpoint is suitable for most streaming workloads. Standard Streaming Endpoints offer the flexibility to deliver your content to virtually every device through dynamic packaging into HLS, MPEG-DASH, and Smooth Streaming as well as dynamic encryption for Microsoft PlayReady, Apple Fairplay, and AES128.  They also scale from very small to very large audiences with thousands of concurrent viewers through Azure CDN integration.
 
 It is recommended to use dynamic packaging and/or dynamic encryption.
 
 >[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-For more information, see [this](media-services-portal-manage-streaming-endpoints.md) topic.
+
 
 By default you can have up to 2 streaming endpoints in your Media Services account. To request a higher limit, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 
