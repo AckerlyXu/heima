@@ -33,16 +33,17 @@ Once you have [installed the Azure CLI 2.0](https://docs.microsoft.com/cli/azure
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-UbuntuServer   Canonical               14.04.3-LTS         Canonical:UbuntuServer:14.04.3-LTS:latest                       UbuntuLTS            latest
-CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
-openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
-RHEL           RedHat                  7.2                 RedHat:RHEL:7.2:latest                                          RHEL                 latest
-SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
-Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
+UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 ```
 
 ### Finding all current images
@@ -74,7 +75,7 @@ You can perform similar filters on the **--publisher** and **--sku** option. You
 If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from the preceding example you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **chinanorth**:
 
 ```azurecli
-az vm image show -l chinanorth -f debian -p credativ --skus 8 --version 8.0.201701180
+az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
 ```
 
 and the output is:
@@ -128,12 +129,13 @@ azure vm image list-publishers
 info:    Executing command vm image list-publishers
 Location: chinanorth
 + Getting virtual machine and/or extension image publishers (Location: "chinanorth")
-data:    Publisher                                       Location
-data:    ----------------------------------------------  --------
-data:    a10networks                                     chinanorth  
-data:    aiscaler-cache-control-ddos-and-url-rewriting-  chinanorth  
-data:    alertlogic                                      chinanorth  
-data:    AlertLogic.Extension                            chinanorth  
+data:    Publisher                                   Location
+data:    ------------------------------------------  ----------
+data:    AsiaInfo.DeepSecurity                       chinanorth
+data:    AzureChinaMarketplace                       chinanorth
+data:    Canonical                                   chinanorth
+data:    CoreOS                                      chinanorth
+data:    credativ                                    chinanorth
 ```
 
 These lists can be quite long, so the example list preceding is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the China North location. You can now find their offers by calling `azure vm image list-offers` and pass the location and the publisher at the prompts, like the following example:
@@ -144,14 +146,9 @@ info:    Executing command vm image list-offers
 Location: chinanorth
 Publisher: canonical
 + Getting virtual machine image offers (Publisher: "canonical" Location:"chinanorth")
-data:    Publisher  Offer                      Location
-data:    ---------  -------------------------  --------
-data:    canonical  Ubuntu15.04Snappy          chinanorth
-data:    canonical  Ubuntu15.04SnappyDocker    chinanorth
-data:    canonical  UbunturollingSnappy        chinanorth
-data:    canonical  UbuntuServer               chinanorth
-data:    canonical  Ubuntu_Snappy_Core         chinanorth
-data:    canonical  Ubuntu_Snappy_Core_Docker  chinanorth
+data:    Publisher  Offer         Location
+data:    ---------  ------------  ----------
+data:    canonical  UbuntuServer  chinanorth
 info:    vm image list-offers command OK
 ```
 

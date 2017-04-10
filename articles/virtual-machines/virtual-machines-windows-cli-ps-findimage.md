@@ -25,13 +25,13 @@ This topic describes how to find VM image publishers, offers, skus, and versions
 ## Table of commonly used Windows images
 | PublisherName | Offer | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-OLTP |
+| MicrosoftSQLServer |SQL2016-WS2012R2 |Enterprise |
+| MicrosoftSQLServer |SQL2016-WS2012R2 |Standard |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
+| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2-ENU |
 
 ## Find Azure images with PowerShell
 > [!NOTE]
@@ -84,15 +84,8 @@ PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
 PublisherName
 -------------
-a10networks
-aiscaler-cache-control-ddos-and-url-rewriting-
-alertlogic
-AlertLogic.Extension
-Barracuda.Azure.ConnectivityAgent
-barracudanetworks
-basho
-boxless
-bssw
+AsiaInfo.DeepSecurity
+AzureChinaMarketplace
 Canonical
 ...
 ```
@@ -117,10 +110,18 @@ PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $off
 Skus
 ----
 2008-R2-SP1
+2008-R2-SP1-zhcn
 2012-Datacenter
+2012-Datacenter-zhcn
 2012-R2-Datacenter
-2016-Nano-Server-Technical-Previe
-2016-Technical-Preview-with-Conta
+2012-R2-Datacenter-zhcn
+2016-Datacenter
+2016-Datacenter-Server-Core
+2016-Datacenter-with-Containers
+2016-Datacenter-zhcn
+2016-Nano-Server
+2016-Nano-Server-Technical-Preview
+2016-Technical-Preview-with-Containers
 Windows-Server-Technical-Preview
 ```
 
