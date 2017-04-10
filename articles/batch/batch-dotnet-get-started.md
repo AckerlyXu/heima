@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use the Azure Batch client library for .NET | Azure
-description: Learn the basic concepts of Azure Batch and how to develop for the Batch service with an example scenario.
+title: Tutorial - Use the Azure Batch client library for .NET | Microsoft Docs
+description: Learn the basic concepts of Azure Batch and build a simple solution using .NET.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -13,15 +13,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
-wacn.date: ''
+ms.date: 02/27/2017
 ms.author: tamram
----
+ms.custom: H1Hack27Feb2017
 
-# Get started with the Azure Batch library for .NET
+---
+# Get started building solutions with the Batch client library for .NET
+
 > [!div class="op_single_selector"]
->- [.NET](./batch-dotnet-get-started.md)
->- [Python](./batch-python-tutorial.md)
+> * [.NET](batch-dotnet-get-started.md)
+> * [Python](batch-python-tutorial.md)
+>
+>
 
 Learn the basics of [Azure Batch][azure_batch] and the [Batch .NET][net_api] library in this article as we discuss a C# sample application step by step. We look at how the sample application leverages the Batch service to process a parallel workload in the cloud, and how it interacts with [Azure Storage](../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
@@ -32,7 +35,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 
 ### Accounts
 - **Azure account**: If you don't already have an Azure subscription, [create a Azure account][azure_free_account].
-- **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](./batch-account-create-portal.md).
+- **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
 - **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 > [!IMPORTANT]
@@ -41,7 +44,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 >
 
 ### Visual Studio
-You must have **Visual Studio 2015** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio 2015 products][visual_studio].
+You must have **Visual Studio 2015 or newer** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio products][visual_studio].
 
 ### *DotNetTutorial* code sample
 The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking  **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, you can find the solution in the following folder:
@@ -52,7 +55,7 @@ The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code
 The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
 ## DotNetTutorial sample project overview
-The *DotNetTutorial* code sample is a Visual Studio 2015 solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
+The *DotNetTutorial* code sample is a Visual Studio solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
 
 - **DotNetTutorial** is the client application that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). DotNetTutorial runs on your local workstation.
 - **TaskApplication** is the program that runs on compute nodes in Azure to perform the actual work. In the sample, `TaskApplication.exe` parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, TaskApplication uploads the file to Azure Storage. This makes it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
@@ -147,7 +150,7 @@ CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
 We use the `blobClient` reference throughout the application and pass it as a parameter to several methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
 
-```
+```csharp
 // Use the blob client to create the containers in Azure Storage if they don't
 // yet exist
 const string appContainerName    = "application";
@@ -270,7 +273,7 @@ A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a fil
 - [JobPreparationTask][net_jobpreptask]
 - [JobReleaseTask][net_jobreltask]
 
-The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask task types, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](./batch-job-prep-release.md).
+The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask task types, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
 ### Shared access signature (SAS)
 Shared access signatures are strings which—when included as part of a URL—provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container shared access signature URLs, and demonstrates how to obtain these shared access signature strings from the Storage service.
@@ -355,7 +358,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-When you create a pool with [CreatePool][net_pool_create], you specify several parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images—see [Provision Linux compute nodes in Azure Batch pools](./batch-linux-nodes.md) for more information.
+When you create a pool with [CreatePool][net_pool_create], you specify several parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
 
 > [!IMPORTANT]
 > You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicated` to 1 before you run the sample.
@@ -367,14 +370,14 @@ Along with these physical node properties, you may also specify a [StartTask][ne
 In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access. Essentially, this copies `TaskApplication.exe` and its dependencies to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
 > [!TIP]
-> The **application packages** feature of Azure Batch provides another way to get your application onto the compute nodes in a pool. See [Application deployment with Azure Batch application packages](./batch-application-packages.md) for details.
+> The **application packages** feature of Azure Batch provides another way to get your application onto the compute nodes in a pool. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for details.
 >
 >
 
 Also notable in the code snippet above is the use of two environment variables in the *CommandLine* property of the StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` and `%AZ_BATCH_NODE_SHARED_DIR%`. Each compute node within a Batch pool is automatically configured with several environment variables that are specific to Batch. Any process that is executed by a task has access to these environment variables.
 
 > [!TIP]
-> To find out more about the environment variables that are available on compute nodes in a Batch pool, and information on task working directories, see the [Environment settings for tasks](./batch-api-basics.md#environment-settings-for-tasks) and [Files and directories](./batch-api-basics.md#files-and-directories) sections in the [Batch feature overview for developers](./batch-api-basics.md).
+> To find out more about the environment variables that are available on compute nodes in a Batch pool, and information on task working directories, see the [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) and [Files and directories](batch-api-basics.md#files-and-directories) sections in the [Batch feature overview for developers](batch-api-basics.md).
 >
 >
 
@@ -505,9 +508,9 @@ When tasks are added to a job, they are automatically queued and scheduled for e
 
 There are many approaches to monitoring task execution. DotNetTutorial shows a simple example that reports only on completion and task failure or success states. Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are three Batch .NET concepts that warrant discussion. They are listed below in their order of appearance:
 
-1. **ODATADetailLevel**: Specifying [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of a job's tasks) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](./batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of status monitoring within your Batch applications.
+1. **ODATADetailLevel**: Specifying [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of a job's tasks) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of status monitoring within your Batch applications.
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit. Then it terminates the job.
-3. **TerminateJobAsync**: Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) marks that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](./batch-job-prep-release.md).
+3. **TerminateJobAsync**: Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) marks that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release.md).
 
 The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
 
@@ -522,7 +525,7 @@ private static async Task<bool> MonitorTasks(
     const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
     // Obtain the collection of tasks currently managed by the job. Note that we use
-    // a detail level to specify that only the "id" property of each task should be
+    // a detail level to  specify that only the "id" property of each task should be
     // populated. Using a detail level for all list operations helps to lower
     // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
@@ -739,12 +742,12 @@ Feel free to make changes to *DotNetTutorial* and *TaskApplication* to experimen
 
 Now that you're familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
-- Review the [Overview of Azure Batch features](./batch-api-basics.md) article, which we recommend if you're new to the service.
+- Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
 - Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path].
 - Check out a different implementation of processing the "top N words" workload by using Batch in the [TopNWords][github_topnwords] sample.
 
-[azure_batch]: https://www.azure.cn/home/features/batch/
-[azure_free_account]: https://www.azure.cn/pricing/1rmb-trial/
+[azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: /pricing/1rmb-trial/
 [azure_portal]: https://portal.azure.cn
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -753,42 +756,42 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
-[net_api]: http://msdn.microsoft.com/zh-cn/library/azure/mt348682.aspx
-[net_api_storage]: https://msdn.microsoft.com/zh-cn/library/azure/mt347887.aspx
-[net_batchclient]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudblobclient]: https://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
-[net_cloudblobcontainer]: https://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_cloudserviceconfiguration]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudserviceconfiguration.aspx
-[net_container_delete]: https://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
-[net_job]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_job_poolinfo]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
-[net_joboperations]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.batchclient.joboperations
-[net_joboperations_terminatejob]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.joboperations.terminatejobasync.aspx
-[net_jobpreptask]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
-[net_jobreltask]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudjob.jobreleasetask.aspx
-[net_node]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.computenode.aspx
-[net_odatadetaillevel]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
-[net_pool]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudpool.aspx
-[net_pool_create]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
-[net_pool_starttask]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
-[net_pooloperations]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.batchclient.pooloperations
-[net_resourcefile]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.resourcefile.aspx
-[net_resourcefile_blobsource]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
-[net_sas_blob]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
-[net_sas_container]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
-[net_starttask]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.starttask.aspx
-[net_starttask_resourcefiles]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.starttask.resourcefiles.aspx
-[net_task]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_task_resourcefiles]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudtask.resourcefiles.aspx
-[net_taskstate]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.common.taskstate.aspx
-[net_taskstatemonitor]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
-[net_thread_sleep]: https://msdn.microsoft.com/zh-cn/library/274eh01d(v=vs.110).aspx
-[net_virtualmachineconfiguration]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
+[net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
+[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
+[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
+[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
+[net_cloudserviceconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudserviceconfiguration.aspx
+[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
+[net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
+[net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
+[net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
+[net_joboperations_terminatejob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.terminatejobasync.aspx
+[net_jobpreptask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
+[net_jobreltask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobreleasetask.aspx
+[net_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.aspx
+[net_odatadetaillevel]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
+[net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
+[net_pool_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
+[net_pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
+[net_pooloperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.pooloperations
+[net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
+[net_resourcefile_blobsource]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
+[net_sas_blob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
+[net_sas_container]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
+[net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
+[net_starttask_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.resourcefiles.aspx
+[net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
+[net_task_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.resourcefiles.aspx
+[net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
+[net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
+[net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
+[net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Create containers in Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Upload task application and input (data) files to containers"
@@ -801,3 +804,4 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Batch credentials in Portal"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Storage credentials in Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Batch solution workflow (minimal diagram)"
+

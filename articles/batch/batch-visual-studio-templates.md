@@ -1,6 +1,6 @@
 ---
-title: Use Visual Studio templates to jump-start your Batch project - Azure | Azure
-description: Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch
+title: Start building Batch solutions with Visual Studio project templates - Azure | Microsoft Docs
+description: Learn how Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch.
 services: batch
 documentationcenter: .net
 author: fayora
@@ -13,16 +13,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
-wacn.date: ''
+ms.date: 02/27/2017
 ms.author: tamram
----
+ms.custom: H1Hack27Feb2017
 
-# Visual Studio project templates for Azure Batch
+---
+# Use Visual Studio project templates to jump-start Batch solutions
+
 The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
 
 > [!IMPORTANT]
-> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](./batch-technical-overview.md), [Batch feature overview for developers](./batch-api-basics.md), and [Get started with the Azure Batch library for .NET](./batch-dotnet-get-started.md).
+> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md), [Batch feature overview for developers](batch-api-basics.md), and [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md).
 > 
 > 
 
@@ -50,20 +51,20 @@ As shown in the diagram below, a compute job that uses these templates will go t
 ## Prerequisites
 To use the Batch templates, you will need the following:
 
-- A computer with Visual Studio 2015, or newer, already installed on it.
+- A computer with Visual Studio 2015 or newer installed.
 - The Batch templates, which are available from the [Visual Studio Gallery][vs_gallery] as Visual Studio extensions. There are two ways to get the templates:
-
+  
   - Install the templates using the **Extensions and Updates** dialog box in Visual Studio (for more information, see [Finding and Using Visual Studio Extensions][vs_find_use_ext]). In the **Extensions and Updates** dialog box, search and download the following two extensions:
-
+    
     - Azure Batch Job Manager with Job Splitter
     - Azure Batch Task Processor
   - Download the templates from the online gallery for Visual Studio: [Azure Batch Project Templates][vs_gallery_templates]
-- If you plan to use the [Application Packages](./batch-application-packages.md) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
+- If you plan to use the [Application Packages](batch-application-packages.md) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
 
 ## Preparation
 We recommend creating a solution that can contain your job manager as well as your task processor, because this can make it easier to share code between your job manager and task processor programs. To create this solution, follow these steps:
 
-1. Open Visual Studio 2015 and select **File** > **New** > **Project**.
+1. Open Visual Studio and select **File** > **New** > **Project**.
 2. Under **Templates**, expand **Other Project Types**, click **Visual Studio Solutions**, and then select **Blank Solution**.
 3. Type a name that describes your application and the purpose of this solution (e.g., "LitwareBatchTaskPrograms").
 4. To create the new solution, click **OK**.
@@ -75,14 +76,14 @@ The Job Manager template helps you to implement a job manager task that can perf
 - Submit those tasks to run on Batch.
 
 > [!NOTE]
-> For more information about job manager tasks, see [Batch feature overview for developers](./batch-api-basics.md#job-manager-task).
+> For more information about job manager tasks, see [Batch feature overview for developers](batch-api-basics.md#job-manager-task).
 > 
 > 
 
 ### Create a Job Manager using the template
 To add a job manager to the solution that you created earlier, follow these steps:
 
-1. Open your existing solution in Visual Studio 2015.
+1. Open your existing solution in Visual Studio.
 2. In Solution Explorer, right-click the solution, click **Add** > **New Project**.
 3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Job Manager with Job Splitter**.
 4. Type a name that describes your application and identifies this project as the job manager (e.g. "LitwareJobManager").
@@ -194,7 +195,7 @@ A job manager task that is implemented with the Job Manager template can return 
 
 In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](./batch-api-basics.md#error-handling).
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-api-basics.md#error-handling).
 
 ### Client considerations
 This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.
@@ -209,7 +210,6 @@ job.JobManagerTask.EnvironmentSettings = new [] {
     new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
 };
 ```
-
 **Storage credentials**
 
 Typically, the client does not need to provide the linked storage account credentials to the job manager task because (a) most job managers do not need to explicitly access the linked storage account and (b) the linked storage account is often provided to all tasks as a common environment setting for the job. If you are not providing the linked storage account via the common environment settings, and the job manager requires access to linked storage, then you should supply the linked storage credentials as follows:
@@ -252,7 +252,7 @@ The actions performed by the task processor can be as simple or complex, and as 
 ### Create a Task Processor using the template
 To add a task processor to the solution that you created earlier, follow these steps:
 
-1. Open your existing solution in Visual Studio 2015.
+1. Open your existing solution in Visual Studio.
 2. In Solution Explorer, right-click the solution, click **Add**, and then click **New Project**.
 3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Task Processor**.
 4. Type a name that describes your application and identifies this project as the task processor (e.g. "LitwareTaskProcessor").
@@ -343,7 +343,6 @@ public async Task<int> Run()
     }
 }
 ```
-
 > [!NOTE]
 > The annotated section in the Run() method is the only section of the Task Processor template code that is intended for you to modify by adding the run logic for the tasks in your workload. If you want to modify a different section of the template, please first familiarize yourself with how Batch works by reviewing the Batch documentation and trying out a few of the Batch code samples.
 > 
@@ -434,20 +433,21 @@ parameters.json, and if found it loads it as the parameters dictionary. There ar
 
 ## Next steps
 ### Persist job and task output to Azure Storage
-Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](./batch-task-output.md) contains a full discussion of the library and its usage.
+Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](batch-task-output.md) contains a full discussion of the library and its usage.
 
 ### Batch Forum
 The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
-[net_jobmanagertask]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.jobmanagertask.aspx
+[net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
-[process_exitcode]: https://msdn.microsoft.com/zh-cn/library/system.diagnostics.process.exitcode.aspx
+[process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
 [vs_gallery_templates]: https://go.microsoft.com/fwlink/?linkid=820714
-[vs_find_use_ext]: https://msdn.microsoft.com/zh-cn/library/dd293638.aspx
+[vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
+

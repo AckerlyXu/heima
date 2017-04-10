@@ -1,5 +1,5 @@
 ---
-title: Provision Linux compute nodes in pools - Azure Batch | Azure
+title: Run Linux on virtual machine compute nodes - Azure Batch | Microsoft Docs
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 services: batch
 documentationcenter: python
@@ -13,16 +13,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 01/23/2017
-wacn.date: ''
+ms.date: 02/27/2017
 ms.author: tamram
----
+ms.custom: H1Hack27Feb2017
 
-# Provision Linux compute nodes in Azure Batch pools
+---
+# Provision Linux compute nodes in Batch pools
+
 You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
 > [!NOTE]
-> [Application packages](./batch-application-packages.md) are currently unsupported on Linux compute nodes.
+> [Application packages](batch-application-packages.md) are currently unsupported on Linux compute nodes.
 >
 >
 
@@ -311,7 +312,7 @@ Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technolo
 
 ## Next steps
 ### Batch Python tutorial
-For a more in-depth tutorial about how to work with Batch by using Python, check out [Get started with the Azure Batch Python client](./batch-python-tutorial.md). Its companion [code sample][github_samples_pyclient] includes a helper function, `get_vm_config_for_distro`, that shows another technique to obtain a virtual machine configuration.
+For a more in-depth tutorial about how to work with Batch by using Python, check out [Get started with the Azure Batch Python client](batch-python-tutorial.md). Its companion [code sample][github_samples_pyclient] includes a helper function, `get_vm_config_for_distro`, that shows another technique to obtain a virtual machine configuration.
 
 ### Batch Python code samples
 Check out the other [Python code samples][github_samples_py] in the [azure-batch-samples][github_samples] repository on GitHub for several scripts that show you how to perform common Batch operations such as pool, job, and task creation. The README that accompanies the Python samples has details about how to install the required packages.
@@ -319,23 +320,23 @@ Check out the other [Python code samples][github_samples_py] in the [azure-batch
 ### Batch forum
 The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Read helpful "stickied" posts, and post your questions as they arise while you build your Batch solutions.
 
-[api_net]: http://msdn.microsoft.com/zh-cn/library/azure/mt348682.aspx
-[api_net_mgmt]: https://msdn.microsoft.com/zh-cn/library/azure/mt463120.aspx
-[api_rest]: http://msdn.microsoft.com/zh-cn/library/azure/dn820158.aspx
-[cloud_services_pricing]: https://www.azure.cn/pricing/details/cloud-services/
+[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
+[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[cloud_services_pricing]: /pricing/details/cloud-services/
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.cn
-[net_cloudpool]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudpool.aspx
-[net_computenodeuser]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.computenodeuser.aspx
-[net_imagereference]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.imagereference.aspx
-[net_list_skus]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
-[net_pool_ops]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.pooloperations.aspx
-[net_ssh_key]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
+[net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
+[net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx
+[net_imagereference]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.imagereference.aspx
+[net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
+[net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
+[net_ssh_key]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
 [nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
-[rest_add_pool]: https://msdn.microsoft.com/zh-cn/library/azure/dn820174.aspx
+[rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
 [py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
@@ -344,4 +345,5 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-[vm_pricing]: https://www.azure.cn/pricing/details/virtual-machines/
+[vm_pricing]: /pricing/details/virtual-machines/
+

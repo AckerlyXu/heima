@@ -1,5 +1,5 @@
 ---
-title: Use multi-instance tasks to run MPI applications - Azure Batch | Azure
+title: Use multi-instance tasks to run MPI applications - Azure Batch | Microsoft Docs
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 services: batch
 documentationcenter: .net
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
-wacn.date: ''
+ms.date: 02/27/2017
 ms.author: tamram
----
+ms.custom: H1Hack27Feb2017
 
-# Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
+---
+# Use multi-instance tasks to run Message Passing Interface (MPI) applications in Batch
+
 Multi-instance tasks allow you to run an Azure Batch task on multiple compute nodes simultaneously. These tasks enable high performance computing scenarios like Message Passing Interface (MPI) applications in Batch. In this article, you learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
 
 > [!NOTE]
@@ -97,7 +98,7 @@ Look for the sizes specified as "RDMA capable" in the following articles:
   - [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) (Windows)
 
 > [!NOTE]
-> To take advantage of RDMA on [Linux compute nodes](./batch-linux-nodes.md), you must use **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the Pool section of the [Batch feature overview](./batch-api-basics.md).
+> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the Pool section of the [Batch feature overview](batch-api-basics.md).
 >
 >
 
@@ -261,7 +262,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 1. Follow the first two steps in [How to compile and run a simple MS-MPI program][msmpi_howto]. This satisfies the prerequesites for the following step.
 2. Build a *Release* version of the [MPIHelloWorld][helloworld_proj] sample MPI program. This is the program that will be run on compute nodes by the multi-instance task.
 3. Create a zip file containing `MPIHelloWorld.exe` (which you built step 2) and `MSMpiSetup.exe` (which you downloaded step 1). You'll upload this zip file as an application package in the next step.
-4. Use the [Azure portal][portal] to create a Batch [application](./batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](./batch-application-packages.md#upload-and-manage-applications) for more information.
+4. Use the [Azure portal][portal] to create a Batch [application](batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
 
 > [!TIP]
 > Build a *Release* version of `MPIHelloWorld.exe` so that you don't have to include any additional dependencies (for example, `msvcp140d.dll` or `vcruntime140d.dll`) in your application package.
@@ -270,7 +271,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 ### Execution
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
-2. Open the MultiInstanceTasks **solution** in Visual Studio 2015. The `MultiInstanceTasks.sln` solution file is located in:
+2. Open the MultiInstanceTasks **solution** in Visual Studio 2015 or newer. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.
@@ -319,48 +320,49 @@ Sample complete, hit ENTER to exit...
 
 ## Next steps
 - The Microsoft HPC & Azure Batch Team blog discusses [MPI support for Linux on Azure Batch][blog_mpi_linux], and includes information on using [OpenFOAM][openfoam] with Batch. You can find Python code samples for the [OpenFOAM example on GitHub][github_mpi].
-- Learn how to [create pools of Linux compute nodes](./batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
+- Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 
-[api_net]: http://msdn.microsoft.com/zh-cn/library/azure/mt348682.aspx
-[api_rest]: http://msdn.microsoft.com/zh-cn/library/azure/dn820158.aspx
+[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
-[cmd_start]: https://technet.microsoft.com/zh-cn/library/cc770297.aspx
+[cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
 [github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
-[msdn_env_var]: https://msdn.microsoft.com/zh-cn/library/azure/mt743623.aspx
-[msmpi_msdn]: https://msdn.microsoft.com/zh-cn/library/bb524831.aspx
+[msdn_env_var]: https://msdn.microsoft.com/library/azure/mt743623.aspx
+[msmpi_msdn]: https://msdn.microsoft.com/library/bb524831.aspx
 [msmpi_sdk]: http://go.microsoft.com/FWLink/p/?LinkID=389556
 [msmpi_howto]: http://blogs.technet.com/b/windowshpc/archive/2015/02/02/how-to-compile-and-run-a-simple-ms-mpi-program.aspx
 [openfoam]: http://www.openfoam.com/
 [visual_studio]: https://www.visualstudio.com/vs/community/
 
-[net_jobprep]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
-[net_multiinstance_class]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
-[net_multiinstance_prop]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudtask.multiinstancesettings.aspx
-[net_multiinsance_commonresfiles]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.multiinstancesettings.commonresourcefiles.aspx
-[net_multiinstance_coordcmdline]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.multiinstancesettings.coordinationcommandline.aspx
-[net_multiinstance_numinstances]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.multiinstancesettings.numberofinstances.aspx
-[net_pool]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudpool.aspx
-[net_pool_create]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
-[net_pool_starttask]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
-[net_resourcefile]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.resourcefile.aspx
-[net_starttask]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.starttask.aspx
-[net_starttask_cmdline]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.starttask.commandline.aspx
-[net_task]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_taskconstraints]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.taskconstraints.aspx
-[net_taskconstraint_maxretry]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.taskconstraints.maxtaskretrycount.aspx
-[net_taskconstraint_maxwallclock]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.taskconstraints.maxwallclocktime.aspx
-[net_taskconstraint_retention]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.taskconstraints.retentiontime.aspx
-[net_task_listsubtasks]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudtask.listsubtasks.aspx
-[net_task_listnodefiles]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
-[poolops_getnodefile]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.pooloperations.getnodefile.aspx
+[net_jobprep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
+[net_multiinstance_class]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
+[net_multiinstance_prop]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.multiinstancesettings.aspx
+[net_multiinsance_commonresfiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.commonresourcefiles.aspx
+[net_multiinstance_coordcmdline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.coordinationcommandline.aspx
+[net_multiinstance_numinstances]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.numberofinstances.aspx
+[net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
+[net_pool_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
+[net_pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
+[net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
+[net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
+[net_starttask_cmdline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.commandline.aspx
+[net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
+[net_taskconstraints]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.aspx
+[net_taskconstraint_maxretry]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.maxtaskretrycount.aspx
+[net_taskconstraint_maxwallclock]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.maxwallclocktime.aspx
+[net_taskconstraint_retention]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.retentiontime.aspx
+[net_task_listsubtasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listsubtasks.aspx
+[net_task_listnodefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
+[poolops_getnodefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getnodefile.aspx
 
 [portal]: https://portal.azure.cn
-[rest_multiinstance]: https://msdn.microsoft.com/zh-cn/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Multi-instance overview"
+
