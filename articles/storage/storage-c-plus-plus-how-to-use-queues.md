@@ -1,9 +1,9 @@
 ---
-title: How to use queue storage (C++) | Azure
+title: How to use queue storage (C++) | Microsoft Docs
 description: Learn how to use the queue storage service in Azure. Samples are written in C++.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,20 +13,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
----
+ms.date: 02/28/2017
+ms.author: seguler
 
+---
 # How to use Queue Storage from C++
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
 
->[!NOTE]
+> [!NOTE]
 > This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> 
+> 
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -42,34 +43,34 @@ To install the Azure Storage Client Library for C++, you can use the following m
 * **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
 * **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
 
-    ```
-    Install-Package wastorage
-    ```
+```  
+Install-Package wastorage
+```
 
 ## Configure your application to access Queue Storage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access queues:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/queue.h"
+#include <was/storage_account.h>
+#include <was/queue.h>
 ```
 
 ## Set up an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.cn) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](./storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure Portal preview](https://portal.azure.cn) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](./storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
-To test your application in your local Windows computer, you can use the Microsoft Azure [storage emulator](./storage-use-emulator.md)  that is installed with the [Azure SDK](/downloads/). The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
+To test your application in your local Windows computer, you can use the Azure [storage emulator](storage-use-emulator.md)  that is installed with the [Azure SDK](/downloads/). The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-To start the Azure storage emulator, select the **Start** button or press the **Windows** key. Begin typing **Azure Storage Emulator**, and select **Microsoft Azure Storage Emulator** from the list of applications.
+To start the Azure storage emulator, select the **Start** button or press the **Windows** key. Begin typing **Azure Storage Emulator**, and select **Azure Storage Emulator** from the list of applications.
 
 The following samples assume that you have used one of these two methods to get the storage connection string.
 

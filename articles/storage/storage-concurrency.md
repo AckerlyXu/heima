@@ -1,5 +1,5 @@
 ---
-title: Managing Concurrency in Microsoft Azure Storage
+title: Managing Concurrency in Azure Storage
 description: How to manage concurrency for the Blob, Queue, Table, and File services
 services: storage
 documentationcenter: ''
@@ -13,8 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/28/2017
 ms.author: jahogg
+
 ---
 
 # Managing Concurrency in Azure Storage
@@ -50,7 +51,7 @@ The following C# snippet (using the Client Storage Library 4.2.0) shows a simple
 
 ```csharp
 // Retrieve the ETag from the newly created blob
-// Etag is already populated as UploadText should cause a PUT Blob call 
+// Etag is already populated as UploadText should cause a PUT Blob call
 // to storage blob service which returns the etag in response.
 string orignalETag = blockBlob.Properties.ETag;
 
@@ -59,7 +60,7 @@ string helloText = "Blob updated by a third party.";
 
 // No etag, provided so orignal blob is overwritten (thus generating a new etag)
 blockBlob.UploadText(helloText);
-Console.WriteLine("Blob updated. Updated ETag = {0}", 
+Console.WriteLine("Blob updated. Updated ETag = {0}",
 blockBlob.Properties.ETag);
 
 // Now try to update the blob using the orignal ETag provided when the blob was created
@@ -81,49 +82,49 @@ catch (StorageException ex)
 }  
 ```
 
-The Storage Service also includes support for additional conditional headers such as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match** as well as combinations thereof. For more information see [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/zh-cn/library/dd179371.aspx) on MSDN.  
+The Storage Service also includes support for additional conditional headers such as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match** as well as combinations thereof. For more information see [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
 
 The following table summarizes the container operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.  
 
-| Operation                | Returns Container ETag value | Accepts conditional headers |
-|:-------------------------|:-----------------------------|:----------------------------|
-| Create Container         | Yes                          | No                          |
-| Get Container Properties | Yes                          | No                          |
-| Get Container Metadata   | Yes                          | No                          |
-| Set Container Metadata   | Yes                          | Yes                         |
-| Get Container ACL        | Yes                          | No                          |
-| Set Container ACL        | Yes                          | Yes (*)                     |
-| Delete Container         | No                           | Yes                         |
-| Lease Container          | Yes                          | Yes                         |
-| List Blobs               | No                           | No                          |
+| Operation | Returns Container ETag value | Accepts conditional headers |
+|:--- |:--- |:--- |
+| Create Container |Yes |No |
+| Get Container Properties |Yes |No |
+| Get Container Metadata |Yes |No |
+| Set Container Metadata |Yes |Yes |
+| Get Container ACL |Yes |No |
+| Set Container ACL |Yes |Yes (*) |
+| Delete Container |No |Yes |
+| Lease Container |Yes |Yes |
+| List Blobs |No |No |
 
 (*) The permissions defined by SetContainerACL are cached and updates to these permissions take 30 seconds to propagate during which period updates are not guaranteed to be consistent.  
 
 The following table summarizes the blob operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.
 
-| Operation           | Returns ETag value | Accepts conditional headers           |
-|:--------------------|:-------------------|:--------------------------------------|
-| Put Blob            | Yes                | Yes                                   |
-| Get Blob            | Yes                | Yes                                   |
-| Get Blob Properties | Yes                | Yes                                   |
-| Set Blob Properties | Yes                | Yes                                   |
-| Get Blob Metadata   | Yes                | Yes                                   |
-| Set Blob Metadata   | Yes                | Yes                                   |
-| Lease Blob (*)      | Yes                | Yes                                   |
-| Snapshot Blob       | Yes                | Yes                                   |
-| Copy Blob           | Yes                | Yes (for source and destination blob) |
-| Abort Copy Blob     | No                 | No                                    |
-| Delete Blob         | No                 | Yes                                   |
-| Put Block           | No                 | No                                    |
-| Put Block List      | Yes                | Yes                                   |
-| Get Block List      | Yes                | No                                    |
-| Put Page            | Yes                | Yes                                   |
-| Get Page Ranges     | Yes                | Yes                                   |
+| Operation | Returns ETag value | Accepts conditional headers |
+|:--- |:--- |:--- |
+| Put Blob |Yes |Yes |
+| Get Blob |Yes |Yes |
+| Get Blob Properties |Yes |Yes |
+| Set Blob Properties |Yes |Yes |
+| Get Blob Metadata |Yes |Yes |
+| Set Blob Metadata |Yes |Yes |
+| Lease Blob (*) |Yes |Yes |
+| Snapshot Blob |Yes |Yes |
+| Copy Blob |Yes |Yes (for source and destination blob) |
+| Abort Copy Blob |No |No |
+| Delete Blob |No |Yes |
+| Put Block |No |No |
+| Put Block List |Yes |Yes |
+| Get Block List |Yes |No |
+| Put Page |Yes |Yes |
+| Get Page Ranges |Yes |Yes |
 
 (*) Lease Blob does not change the ETag on a blob.  
 
 ### Pessimistic concurrency for blobs
-To lock a blob for exclusive use, you can acquire a [lease](http://msdn.microsoft.com/zh-cn/library/azure/ee691972.aspx) on it. When you acquire a lease, you specify for how long you need the lease: this can be for between 15 to 60 seconds or infinite which amounts to an exclusive lock. You can renew a finite lease to extend it, and you can release any lease when you are finished with it. The blob service automatically releases finite leases when they expire.  
+To lock a blob for exclusive use, you can acquire a [lease](http://msdn.microsoft.com/library/azure/ee691972.aspx) on it. When you acquire a lease, you specify for how long you need the lease: this can be for between 15 to 60 seconds or infinite which amounts to an exclusive lock. You can renew a finite lease to extend it, and you can release any lease when you are finished with it. The blob service automatically releases finite leases when they expire.  
 
 Leases enable different synchronization strategies to be supported, including exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read. Where a lease exists the storage service enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID. Read operations that do not include a lease ID result in shared reads.  
 
@@ -156,7 +157,7 @@ catch (StorageException ex)
 }  
 ```
 
-If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. Note that if the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease ids, see the [Lease Blob](http://msdn.microsoft.com/zh-cn/library/azure/ee691972.aspx) REST documentation.  
+If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. Note that if the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease ids, see the [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST documentation.  
 
 The following blob operations can use leases to manage pessimistic concurrency:  
 
@@ -192,9 +193,9 @@ The following container operations can use leases to manage pessimistic concurre
 
 For more information see:  
 
-- [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/zh-cn/library/azure/dd179371.aspx)
-- [Lease Container](http://msdn.microsoft.com/zh-cn/library/azure/jj159103.aspx)
-- [Lease Blob ](http://msdn.microsoft.com/zh-cn/library/azure/ee691972.aspx) 
+* [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
+* [Lease Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## Managing Concurrency in the Table Service
 The table service uses optimistic concurrency checks as the default behavior when you are working with entities, unlike the blob service where you must explicitly choose to perform optimistic concurrency checks. The other difference between the table and blob services is that you can only manage the concurrency behavior of entities whereas with the blob service you can manage the concurrency of both containers and blobs.  
@@ -224,7 +225,7 @@ catch (StorageException ex)
     if (ex.RequestInformation.HttpStatusCode == 412)
         Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
     else
-        throw; 
+        throw;
 }  
 ```
 
@@ -252,7 +253,7 @@ In general developers using tables should rely on optimistic concurrency when de
 
 For more information see:  
 
-- [Operations on Entities](http://msdn.microsoft.com/zh-cn/library/azure/dd179375.aspx)  
+* [Operations on Entities](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 ## Managing Concurrency in the Queue Service
 One scenario in which concurrency is a concern in the queueing service is where multiple clients are retrieving messages from a queue. When a message is retrieved from the queue, the response includes the message and a pop receipt value, which is required to delete the message. The message is not automatically deleted from the queue, but after it has been retrieved, it is not visible to other clients for the time interval specified by the visibilitytimeout parameter. The client that retrieves the message is expected to delete the message after it has been processed, and before the time specified by the TimeNextVisible element of the response, which is calculated based on the value of the visibilitytimeout parameter. The value of visibilitytimeout is added to the time at which the message is retrieved to determine the value of TimeNextVisible.  
@@ -261,8 +262,8 @@ The queue service does not have support for either optimistic or pessimistic con
 
 For more information see:  
 
-- [Queue Service REST API](http://msdn.microsoft.com/zh-cn/library/azure/dd179363.aspx)
-- [Get Messages](http://msdn.microsoft.com/zh-cn/library/azure/dd179474.aspx)  
+* [Queue Service REST API](http://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [Get Messages](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## Managing Concurrency in the File Service
 The file service can be accessed using two different protocol endpoints – SMB and REST. The REST service does not have support for either optimistic locking or pessimistic locking and all updates will follow a last writer wins strategy. SMB clients that mount file shares can leverage file system locking mechanisms to manage access to shared files – including the ability to perform pessimistic locking. When an SMB client opens a file, it specifies both the file access and share mode. Setting a File Access option of "Write" or "Read/Write" along with a File Share mode of "None" will result in the file being locked by an SMB client until the file is closed. If REST operation is attempted on a file where an SMB client has the file locked the REST service will return status code 409 (Conflict) with error code SharingViolation.  
@@ -271,18 +272,18 @@ When an SMB client opens a file for delete, it marks the file as pending delete 
 
 For more information see:  
 
-- [Managing File Locks](http://msdn.microsoft.com/zh-cn/library/azure/dn194265.aspx)  
+* [Managing File Locks](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## Summary and Next Steps
-The Microsoft Azure Storage service has been designed to meet the needs of the most complex online applications without forcing developers to compromise or rethink key design assumptions such as concurrency and data consistency that they have come to take for granted.  
+The Azure Storage service has been designed to meet the needs of the most complex online applications without forcing developers to compromise or rethink key design assumptions such as concurrency and data consistency that they have come to take for granted.  
 
 For the complete sample application referenced in this blog:  
 
-- [Managing Concurrency using Azure Storage - Sample Application](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [Managing Concurrency using Azure Storage - Sample Application](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 For more information on Azure Storage see:  
 
-- [Microsoft Azure Storage Home Page](https://www.azure.cn/home/features/storage/)
+- [Azure Storage Home Page](https://www.azure.cn/home/features/storage/)
 - [Introduction to Azure Storage](./storage-introduction.md)
 - Storage Getting Started for [Blob](./storage-dotnet-how-to-use-blobs.md), [Table](./storage-dotnet-how-to-use-tables.md),  [Queues](./storage-dotnet-how-to-use-queues.md), and [Files](./storage-dotnet-how-to-use-files.md)
 - Storage Architecture – [Azure Storage : A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

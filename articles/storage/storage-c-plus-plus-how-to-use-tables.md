@@ -1,9 +1,9 @@
 ---
-title: How to use Table storage (C++) | Azure
+title: How to use Table storage (C++) | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,20 +13,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
----
+ms.date: 02/28/2017
+ms.author: seguler
 
+---
 # How to use Table storage from C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview
 This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
 
->[!NOTE]
+> [!NOTE]
 > This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
+> 
+> 
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -46,12 +47,12 @@ To install the Azure Storage Client Library for C++, you can use the following m
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/table.h"
+#include <was/storage_account.h>
+#include <was/table.h>
 ```
 
-## Set up an Azure storage connection string  
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.cn) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](./storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
+## Set up an Azure storage connection string
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal preview](https://portal.azure.cn) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](./storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
 ```cpp
 // Define the connection string with your values.
@@ -65,7 +66,7 @@ To test your application in your local Windows-based computer, you can use the A
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-To start the Azure storage emulator, click the **Start** button or press the Windows key. Begin typing **Azure Storage Emulator**, and then select **Microsoft Azure Storage Emulator** from the list of applications.  
+To start the Azure storage emulator, click the **Start** button or press the Windows key. Begin typing **Azure Storage Emulator**, and then select **Azure Storage Emulator** from the list of applications.  
 
 The following samples assume that you have used one of these two methods to get the storage connection string.  
 
@@ -102,7 +103,7 @@ table.create_if_not_exists();
 ```
 
 ## Add an entity to a table
-To add an entity to a table, create a new **table_entity** object and pass it to **table_operation::insert_entity**. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than those with different partition keys, but using diverse partition keys allows for greater parallel operation scalability. For more information, see [Microsoft Azure Storage Performance and Scalability Checklist](./storage-performance-checklist.md). 
+To add an entity to a table, create a new **table_entity** object and pass it to **table_operation::insert_entity**. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than those with different partition keys, but using diverse partition keys allows for greater parallel operation scalability. For more information, see [Azure storage performance and scalability checklist](storage-performance-checklist.md).
 
 The following code creates a new instance of **table_entity** with some customer data to be stored. The code next calls **table_operation::insert_entity** to create a **table_operation** object to insert an entity into a table, and associates the new table entity with it. Finally, the code calls the execute method on the **cloud_table** object. And the new **table_operation** sends a request to the Table service to insert the new customer entity into the "people" table.  
 
@@ -351,7 +352,7 @@ azure::storage::table_operation insert_or_replace_operation = azure::storage::ta
 azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
 ```
 
-## Query a subset of entity properties  
+## Query a subset of entity properties
 A query to a table can retrieve just a few properties from an entity. The query in the following code uses the **table_query::set_select_columns** method to return only the email addresses of entities in the table.  
 
 ```cpp
@@ -390,8 +391,10 @@ for (; it != end_of_results; ++it)
 }
 ```
 
->[!NOTE]
+> [!NOTE]
 > Querying a few properties from an entity is a more efficient operation than retrieving all properties.
+> 
+> 
 
 ## Delete an entity
 You can easily delete an entity after you have retrieved it. Once the entity is retrieved, call **table_operation::delete_entity** with the entity to delete. Then call the **cloud_table.execute** method. The following code retrieves and deletes an entity with a partition key of "Smith" and a row key of "Jeff".  
@@ -444,8 +447,8 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ## Next steps
 Now that you've learned the basics of table storage, follow these links to learn more about Azure Storage:  
 
-- [How to use Blob Storage from C++](./storage-c-plus-plus-how-to-use-blobs.md)
-- [How to use Queue Storage from C++](./storage-c-plus-plus-how-to-use-queues.md)
-- [List Azure Storage Resources in C++](./storage-c-plus-plus-enumeration.md)
-- [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
-- [Azure Storage documentation](./index.md)
+* [How to use Blob storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
+* [How to use Queue storage from C++](storage-c-plus-plus-how-to-use-queues.md)
+* [List Azure Storage resources in C++](storage-c-plus-plus-enumeration.md)
+* [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
+* [Azure Storage documentation](./index.md)
