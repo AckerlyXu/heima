@@ -562,5 +562,3 @@ The following sample demonstrates functionality that was introduced in Azure Med
 ##See also
 
 [CENC with Multi-DRM and Access Control](./media-services-cenc-with-multidrm-access-control.md)
-
-[Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)

@@ -284,17 +284,6 @@ Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\/PlayReady\/"}]"}
 ```
 
-If you want to protect your content using Widevine DRM, update the AssetDeliveryConfiguration values to use WidevineLicenseAcquisitionUrl (which has the value of 7) and specify the URL of a license delivery service. You can use the following AMS partners to help you deliver Widevine licenses: [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
-
-For example: 
-
-```
-{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
-```
-
->[!NOTE]
->When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH (2) in the asset delivery protocol.
-
 ###Link asset with asset delivery policy
 
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
@@ -398,13 +387,7 @@ public enum ContentKeyDeliveryType
     /// Use MPEG Baseline HTTP key protocol.
     ///
     </summary>
-    BaselineHttp = 2,
-
-    /// <summary>
-    /// Use Widevine License acquistion protocol
-    ///
-    </summary>
-    Widevine = 3
+    BaselineHttp = 2
 
 }
 ```
@@ -451,11 +434,6 @@ public enum AssetDeliveryPolicyConfigurationKey
     /// <summary>
     /// The initialization vector to use for envelope encryption.
     /// </summary>
-    EnvelopeEncryptionIV,
-
-    /// <summary>
-    /// Widevine DRM acquisition url
-    /// </summary>
-    WidevineLicenseAcquisitionUrl
+    EnvelopeEncryptionIV
 }
 ```

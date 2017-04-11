@@ -24,9 +24,9 @@ ms.author: juliako;mingfeiy
 
 ##Overview
 
-Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and HTTP-Live-Streaming (HLS) streams protected with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS also enables you to deliver DASH streams encrypted with Widevine DRM. Both PlayReady and Widevine are encrypted per the Common Encryption (ISO/IEC 23001-7 CENC) specification. 
+Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and HTTP-Live-Streaming (HLS) streams protected with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). PlayReady is encrypted per the Common Encryption (ISO/IEC 23001-7 CENC) specification. 
 
-Media Services also provides a **Key/License Delivery Service** from which clients can obtain AES keys or PlayReady/Widevine licenses to play the encrypted content. 
+Media Services also provides a **Key/License Delivery Service** from which clients can obtain AES keys or PlayReady licenses to play the encrypted content. 
 
 If you want for Media Services to encrypt an asset, you need to associate an encryption key (**CommonEncryption** or **EnvelopeEncryption**) with the asset (as described [here](./media-services-dotnet-create-contentkey.md)) and also configure authorization policies for the key (as described in this article). 
 
@@ -246,7 +246,7 @@ Media Services enables you to configure the rights and restrictions that you wan
 
 When protecting your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](./media-services-playready-license-template-overview.md). In Media Services SDK for .NET, the **PlayReadyLicenseResponseTemplate** and **PlayReadyLicenseTemplate** classes will help you define the PlayReady License Template. 
 
-[This topic](./media-services-protect-with-drm.md) shows how to encrypt your content with **PlayReady** and **Widevine**.
+[This topic](./media-services-protect-with-drm.md) shows how to encrypt your content with **PlayReady**.
 
 ###Open Restriction
 
@@ -424,8 +424,7 @@ public enum ContentKeyDeliveryType
 {
   None = 0,
   PlayReadyLicense = 1,
-  BaselineHttp = 2,
-  Widevine = 3
+  BaselineHttp = 2
 }
 ```
 

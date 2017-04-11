@@ -112,7 +112,7 @@ static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 }
 ```
 
-Azure Media Services also enables you to add Widevine encryption. The following example demonstrates both PlayReady and Widevine being added to the asset delivery policy.
+The following example demonstrates PlayReady being added to the asset delivery policy.
 
 ```
 static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
@@ -120,23 +120,10 @@ static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     // Get the PlayReady license service URL.
     Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
-    // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
-    // For example: https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-    // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
-    // to append /? KID =< keyId > to the end of the url when creating the manifest.
-    // As a result Widevine license acquisition URL will have KID appended twice, 
-    // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
-
-    Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
-    UriBuilder uriBuilder = new UriBuilder(widevineUrl);
-    uriBuilder.Query = String.Empty;
-    widevineUrl = uriBuilder.Uri;
-
     Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
         new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
     {
-        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineUrl.ToString()}
+        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()}
 
     };
 
@@ -151,9 +138,6 @@ static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 
 }
 ```
-
->[!NOTE]
->When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH in the asset delivery protocol.
 
 ##DynamicEnvelopeEncryption asset delivery policy 
 
@@ -295,13 +279,7 @@ public enum ContentKeyDeliveryType
     /// <summary>
     /// Use MPEG Baseline HTTP key protocol.
     /// </summary>
-    BaselineHttp = 2,
-
-    /// <summary>
-    /// Use Widevine License acquistion protocol
-    ///
-    </summary>
-    Widevine = 3
+    BaselineHttp = 2
 
 }
 ```
@@ -347,11 +325,6 @@ public enum AssetDeliveryPolicyConfigurationKey
     /// <summary>
     /// The initialization vector to use for envelope encryption.
     /// </summary>
-    EnvelopeEncryptionIV,
-
-    /// <summary>
-    /// Widevine DRM acquisition url
-    /// </summary>
-    WidevineLicenseAcquisitionUrl
+    EnvelopeEncryptionIV
 }
 ```

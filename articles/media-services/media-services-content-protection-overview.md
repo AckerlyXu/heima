@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 # Protecting content overview
-Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or any of the major DRMs: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
+Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or any of the major DRMs: Microsoft PlayReady and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady and FairPlay) licenses to authorized clients. 
 
 The following image demonstrates the content protection workflows that AMS supports. 
 
@@ -31,7 +31,7 @@ This topic explains [concepts and terminology](media-services-content-protection
 
 ##Dynamic encryption
 
-Azure Media Services enables you to deliver your content encrypted  dynamically with AES clear key or DRM encryption: Microsoft PlayReady, Google Widevine, and Apple FairPlay.
+Azure Media Services enables you to deliver your content encrypted  dynamically with AES clear key or DRM encryption: Microsoft PlayReady and Apple FairPlay.
 
 Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt progressive downloads.
 
@@ -57,7 +57,7 @@ Cbcs-aapl is used when encrypting your content with FairPlay.
 Use this option if you want to protect your content with AES-128 clear key. If you want a more secure option, choose one of the DRMs listed in this topic. 
 
 ## Licenses and keys delivery service
-Media Services provides a service for delivering DRM (PlayReady, Widevine, FairPlay) licenses and AES clear keys to authorized clients. You can use [the Azure portal](media-services-portal-protect-content.md), REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
+Media Services provides a service for delivering DRM (PlayReady, FairPlay) licenses and AES clear keys to authorized clients. You can use [the Azure portal](media-services-portal-protect-content.md), REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
 
 ## Token restriction
 The content key authorization policy could have one or more authorization restrictions: open or token restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
@@ -73,7 +73,7 @@ The following considerations apply:
 * Encryption type doesn't have to be specified in the url if only one encryption was applied to the asset.
 * Encryption type is case insensitive.
 * The following encryption types can be specified:  
-  * **cenc**:  Common encryption (Playready or Widevine)
+  * **cenc**:  Common encryption (Playready)
   * **cbcs-aapl**: Fairplay
   * **cbc**: AES envelope encryption.
 
@@ -81,7 +81,7 @@ The following considerations apply:
 The following topics demonstrate how to protect content in storage, deliver dynamically encrypted streaming media, use AMS key/license delivery service
 
 * [Protect with AES](media-services-protect-with-aes128.md) 
-* [Protect with PlayReady and/or Widevine ](media-services-protect-with-drm.md)
+* [Protect with PlayReady](media-services-protect-with-drm.md)
 * [Stream your HLS content Protected with Apple FairPlay and/or PlayReady](media-services-protect-hls-with-fairplay.md)
 
 ### Additional scenarios

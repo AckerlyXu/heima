@@ -112,7 +112,7 @@ The following are general steps that you would need to perform when protecting y
     >[!NOTE]
     >If you want to deliver a stream that is encrypted with FairPlay + another DRM, you have to configure separate delivery policies 
     >
-    >- One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady + WideVine) and Smooth with PlayReady. 
+    >- One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady) and Smooth with PlayReady. 
     >- Another IAssetDeliveryPolicy  to configure FairPlay for HLS
 
 1. Create an OnDemand locator  to get a streaming URL.
@@ -138,7 +138,7 @@ The following considerations apply:
 - Encryption type doesn't have to be specified in the url if only one encryption was applied to the asset.
 - Encryption type is case insensitive.
 - The following encryption types can be specified:  
-    - **cenc**:  Common encryption (Playready or Widevine)
+    - **cenc**:  Common encryption (Playready)
     - **cbcs-aapl**: Fairplay
     - **cbc**: AES envelope encryption.
 

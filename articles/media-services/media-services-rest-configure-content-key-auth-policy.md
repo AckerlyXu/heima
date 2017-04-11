@@ -23,7 +23,7 @@ ms.author: juliako
 
 ##Overview
 
-Azure Media Services enables you to deliver your content encrypted (dynamically) with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady or Widevine DRM. Media Services also provides a service for delivering keys and PlayReady/Widevine licenses to authorized clients. 
+Azure Media Services enables you to deliver your content encrypted (dynamically) with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients. 
 
 If you want for Media Services to encrypt an asset, you need to associate an encryption key (**CommonEncryption** or **EnvelopeEncryption**) with the asset (as described [here](./media-services-rest-create-contentkey.md)) and also configure authorization policies for the key (as described in this article). 
 
@@ -492,8 +492,7 @@ public enum ContentKeyDeliveryType
 {
     None = 0,
     PlayReadyLicense = 1,
-    BaselineHttp = 2,
-    Widevine = 3
+    BaselineHttp = 2
 }
 ```
 
