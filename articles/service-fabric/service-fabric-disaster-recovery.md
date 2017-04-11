@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 03/01/2017
 ms.author: seanmck
 
 ---
@@ -28,12 +28,14 @@ When you create a Service Fabric cluster in Azure, you are required to choose a 
 ### Fault domains
 By default, the VMs in the cluster are evenly spread across logical groups known as fault domains (FDs), which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct FDs, you can be sure that they do not share the same power source or network switch. As a result, a local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine within the cluster.
 
-You can visualize the layout of your cluster across fault domains using the cluster map provided in [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md):
+You can visualize the layout of your cluster across fault domains using the cluster map provided in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
 ![Nodes spread across fault domains in Service Fabric Explorer][sfx-cluster-map]
 
->[!NOTE]
+> [!NOTE]
 > The other axis in the cluster map shows upgrade domains, which logically group nodes based on planned maintenance activities. Service Fabric clusters in Azure are always laid out across five upgrade domains.
+> 
+> 
 
 ### Geographic distribution
 
@@ -53,24 +55,24 @@ In general, as long as a majority of the nodes remain available, the cluster wil
 #### Quorum loss
 If a majority of the replicas for a stateful service's partition go down, that partition enters a state known as "quorum loss." At this point, Service Fabric stops allowing writes to that partition to ensure that its state remains consistent and reliable. In effect, we are choosing to accept a period of unavailability to ensure that clients are not told that their data was saved when in fact it was not. Note that if you have opted in to allowing reads from secondary replicas for that stateful service, you can continue to perform those read operations while in this state. A partition remains in quorum loss until a sufficient number of replicas come back or until the cluster administrator forces the system to move on using the [Repair-ServiceFabricPartition API][repair-partition-ps].
 
->[!WARNING]
+> [!WARNING]
 > Performing a repair action while the primary replica is down will result in data loss.
+> 
+> 
 
 System services can also suffer quorum loss, with the impact being specific to the service in question. For instance, quorum loss in the naming service will impact name resolution, whereas quorum loss in the failover manager service will block new service creation and failovers. Note that unlike for your own services, attempting to repair system services is *not* recommended. Instead, it is preferable to simply wait until the down replicas return.
 
 #### Minimizing the risk of quorum loss
-
 You can minimize your risk of quorum loss by increasing the target replica set size for your service. It is helpful to think of the number of replicas you need in terms of the number of unavailable nodes you can tolerate at once while remaining available for writes, keeping in mind that application or cluster upgrades can make nodes temporarily unavailable, in addition to hardware failures.
 
 Consider the following examples assuming that you've configured your services to have a MinReplicaSetSize of three, the smallest number recommended for production services. With a TargetReplicaSetSize of three (one primary and two secondaries), a hardware failure during an upgrade (two replicas down) will result in quorum loss and your service will become read-only. Alternatively, if you have five replicas, you would be able to withstand two failures during upgrade (three replicas down) as the remaining two replicas can still form a quorum within the minimum replica set.
 
 ### Data center outages or destruction
-
 In rare cases, physical data centers can become temporarily unavailable due to loss of power or network connectivity. In these cases, your Service Fabric clusters and applications will likewise be unavailable but your data will be preserved. For clusters running in Azure, you can view updates on outages on the [Azure status page][azure-status-dashboard].
 
 In the highly unlikely event that an entire physical data center is destroyed, any Service Fabric clusters hosted there will be lost, along with their state.
 
-To protect against this possibility, it is critically important to periodically [backup your state](./service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO). Even if you have not fully implemented backup and restore yet, you should implement a handler for the `OnDataLoss` event so that you can log when it occurs as follows:
+To protect against this possibility, it is critically important to periodically [backup your state](service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO). Even if you have not fully implemented backup and restore yet, you should implement a handler for the `OnDataLoss` event so that you can log when it occurs as follows:
 
 ```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
@@ -80,22 +82,25 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 }
 ```
 
+
 ### Software failures and other sources of data loss
 As a cause of data loss, code defects in services, human operational errors, and security breaches are more common than widespread data center failures. However, in all cases, the recovery strategy is the same: take regular backups of all stateful services and exercise your ability to restore that state.
 
 ## Next Steps
-- Learn how to simulate various failures using the [testability framework](./service-fabric-testability-overview.md)
-- Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
- - [Availability checklist](../best-practices-availability-checklist.md)
- - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
- - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
+* Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
+* Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
+  * [Availability checklist](../best-practices-availability-checklist.md)
+  * [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
+  * [Disaster recovery and high availability for Azure applications][dr-ha-guide]
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/zh-cn/library/mt163522.aspx
+[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
 [azure-status-dashboard]:https://www.azure.cn/support/service-dashboard/
 
-[dr-ha-guide]: https://msdn.microsoft.com/zh-cn/library/azure/dn251004.aspx
+[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+
 
 <!-- Images -->
 

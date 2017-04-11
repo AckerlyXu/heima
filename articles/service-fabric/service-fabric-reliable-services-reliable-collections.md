@@ -1,5 +1,5 @@
 ---
-title: Reliable Collections | Microsoft Docs
+title: Save application state in Azure microservices| Microsoft Docs
 description: Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 
 ---
@@ -22,17 +22,17 @@ Reliable Collections enable you to write highly available, scalable, and low-lat
 
 The key difference between Reliable Collections and other high-availability technologies (such as Redis, Azure Table service, and Azure Queue service) is that the state is kept locally in the service instance while also being made highly available. This means that:
 
-- All reads are local, which results in low latency and high-throughput reads.
-- All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
+* All reads are local, which results in low latency and high-throughput reads.
+* All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
 
 ![Image of evolution of collections.](./media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
 Reliable Collections can be thought of as the natural evolution of the **System.Collections** classes: a new set of collections that are designed for the cloud and multi-computer applications without increasing complexity for the developer. As such, Reliable Collections are:
 
-- Replicated: State changes are replicated for high availability.
-- Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
-- Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
-- Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
+* Replicated: State changes are replicated for high availability.
+* Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
+* Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
+* Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
 
 Reliable Collections provide strong consistency guarantees out of the box in order to make reasoning about application state easier.
 Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction
@@ -42,26 +42,26 @@ To achieve weaker consistency, applications can acknowledge back to the client/r
 The Reliable Collections APIs are an evolution of concurrent collections APIs
 (found in the **System.Collections.Concurrent** namespace):
 
-- Asynchronous: Returns a task since, unlike concurrent collections, the operations are replicated and persisted.
-- No out parameters: Uses `ConditionalValue<T>` to return a bool and a value instead of out parameters. `ConditionalValue<T>` is like `Nullable<T>` but does not require T to be a struct.
-- Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
+* Asynchronous: Returns a task since, unlike concurrent collections, the operations are replicated and persisted.
+* No out parameters: Uses `ConditionalValue<T>` to return a bool and a value instead of out parameters. `ConditionalValue<T>` is like `Nullable<T>` but does not require T to be a struct.
+* Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
 Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
 
-- [Reliable Dictionary](https://msdn.microsoft.com/zh-cn/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
-- [Reliable Queue](https://msdn.microsoft.com/zh-cn/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
+* [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
+* [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
 
 ## Isolation levels
 Isolation level defines the degree to which the transaction must be isolated from modifications made by other transactions.
 There are two isolation levels that are supported in Reliable Collections:
 
-- **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/zh-cn/library/ms173763.aspx](https://msdn.microsoft.com/zh-cn/library/ms173763.aspx).
-- **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction.
-The transaction can recognize only data modifications that were committed before the start of the transaction.
-Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
-The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
-Snapshots are consistent across Reliable Collections.
-For more details, see [https://msdn.microsoft.com/zh-cn/library/ms173763.aspx](https://msdn.microsoft.com/zh-cn/library/ms173763.aspx).
+* **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction.
+  The transaction can recognize only data modifications that were committed before the start of the transaction.
+  Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
+  The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
+  Snapshots are consistent across Reliable Collections.
+  For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica at the time of transaction's creation.
 Following is the table that depicts isolation level defaults for Reliable Dictionary and Queue operations.
@@ -71,8 +71,10 @@ Following is the table that depicts isolation level defaults for Reliable Dictio
 | Single Entity Read |Repeatable Read |Snapshot |
 | Enumeration \ Count |Snapshot |Snapshot |
 
->[!NOTE]
+> [!NOTE]
 > Common examples for Single Entity Operations are `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
+> 
+> 
 
 Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
 In other words, any write within a transaction will be visible to a following read
@@ -129,40 +131,42 @@ It is the Reliable Collections' responsibility to persist its state up to that p
 Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.
 This way, when the replica needs to be restarted, Reliable Collections will recover their checkpointed state, and the Reliable State Manager will recover and play back all the state changes that occurred since the checkpoint.
 
->[!NOTE]
+> [!NOTE]
 > Another value add of checkpointing is that it improves recovery performance in common cases.
-This is because checkpoints contain only the latest versions.
+> This is because checkpoints contain only the latest versions.
+> 
+> 
 
 ## Recommendations
-
-- Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
-- Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
-- Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
-- Do not use a transaction after it has been committed, aborted, or disposed.
-- Do not use an enumeration outside of the transaction scope it was created in.
-- Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
-- Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on this for merging checkpoints.
-- Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
-- Consider using backup and restore functionality to have disaster recovery.
-- Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
+* Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
+* Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
+* Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
+* Do not use a transaction after it has been committed, aborted, or disposed.
+* Do not use an enumeration outside of the transaction scope it was created in.
+* Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
+* Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on this for merging checkpoints.
+* Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
+* Consider using backup and restore functionality to have disaster recovery.
+* Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
+* Do handle InvalidOperationException. User transactions can be aborted by the system for variety of reasons. For example, when the Reliable State Manager is changing its role out of Primary or when a long-running transaction is blocking truncation of the transactional log. In such cases, user may receve InvalidOperationException indicating that their transaction has already been terminated. Assuming, the termination of the transaction was not requested by the user, best way to handle this exception is to dispose the transaction, check if the cancellation token has been signaled (or the role of the replica has been changed), and if not create a new transaction and retry.  
 
 Here are some things to keep in mind:
 
-- The default time-out is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
-- The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
-- The key type parameter (*TKey*) for a Reliable Dictionary must correctly implement `GetHashCode()` and `Equals()`. Keys must be immutable.
-- To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
-- Read operations on the secondary may read versions that are not quorum committed.
-This means that a version of data that is read from a single secondary might be false progressed.
-Of course, reads from Primary are always stable: can never be false progressed.
+* The default time-out is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
+* The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
+* The key type parameter (*TKey*) for a Reliable Dictionary must correctly implement `GetHashCode()` and `Equals()`. Keys must be immutable.
+* To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
+* Read operations on the secondary may read versions that are not quorum committed.
+  This means that a version of data that is read from a single secondary might be false progressed.
+  Of course, reads from Primary are always stable: can never be false progressed.
 
 ## Next steps
+* [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+* [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
+* [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
+* [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
+* [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
+* [Getting started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
+* [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
+* [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-- [Reliable Services quick start](./service-fabric-reliable-services-quick-start.md)
-- [Working with Reliable Collections](./service-fabric-work-with-reliable-collections.md)
-- [Reliable Services notifications](./service-fabric-reliable-services-notifications.md)
-- [Reliable Services backup and restore (disaster recovery)](./service-fabric-reliable-services-backup-restore.md)
-- [Reliable State Manager configuration](./service-fabric-reliable-services-configuration.md)
-- [Getting started with Service Fabric Web API services](./service-fabric-reliable-services-communication-webapi.md)
-- [Advanced usage of the Reliable Services programming model](./service-fabric-reliable-services-advanced-usage.md)
-- [Developer reference for Reliable Collections](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicefabric.data.collections.aspx)

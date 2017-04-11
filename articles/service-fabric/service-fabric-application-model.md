@@ -1,5 +1,5 @@
 ---
-title: Service Fabric application model | Azure
+title: Service Fabric application model | Microsoft Docs
 description: How to model and describe applications and services in Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -13,11 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/05/2017
-wacn.date: ''
+ms.date: 3/02/2017
 ms.author: ryanwi
----
 
+---
 # Model an application in Service Fabric
 This article provides an overview of the Azure Service Fabric application model. It also describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
 
@@ -36,14 +35,16 @@ The code for different application instances will run as separate processes even
 
 Two different manifest files are used to describe applications and services: the service manifest and application manifest. These are covered in detail in the ensuing sections.
 
-There can be one or more instances of a service type active in the cluster. For example, stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster. This replication essentially provides redundancy for the service to be available even if one node in a cluster fails. A [partitioned service](./service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster.
+There can be one or more instances of a service type active in the cluster. For example, stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster. This replication essentially provides redundancy for the service to be available even if one node in a cluster fails. A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster.
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
 
 ![Partitions and replicas within a service][cluster-application-instances]
 
->[!TIP]
-> You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
+> [!TIP]
+> You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> 
+> 
 
 ## Describe a service
 The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
@@ -88,9 +89,9 @@ The service manifest declaratively defines the service type and version. It spec
 
 **ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
 
-```
+```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-  <Section Name="MyConfigurationSecion">
+  <Section Name="MyConfigurationSection">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
@@ -99,6 +100,8 @@ The service manifest declaratively defines the service type and version. It spec
 
 > [!NOTE]
 > A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
+> 
+> 
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -143,12 +146,15 @@ Like service manifests, **Version** attributes are unstructured strings and are 
 **ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type. 
 Within the ServiceManifestImport you can override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. 
 
+
 **DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
 
 > [!NOTE]
 > An application manifest can contain multiple service manifest imports and default services. Each service manifest import can be versioned independently.
+> 
+> 
 
-To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](./service-fabric-manage-multiple-environment-app-configuration.md).
+To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
@@ -186,11 +192,10 @@ The folders are named to match the **Name** attributes of each corresponding ele
 ### Use SetupEntryPoint
 Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
-- Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
+* Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
+* Setting up access control by installing security certificates.
 
-- Setting up access control by installing security certificates.
-
-For more details on how to configure the **SetupEntryPoint** see [Configure the policy for a service setup entry point](./service-fabric-application-runas-security.md)  
+For more details on how to configure the **SetupEntryPoint** see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)  
 
 ### Configure 
 ### Build a package by using Visual Studio
@@ -261,6 +266,6 @@ Once the application is packaged correctly and passes verification, then it's re
 [vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: ./service-fabric-deploy-remove-applications.md
-[11]: ./service-fabric-manage-multiple-environment-app-configuration.md
-[12]: ./service-fabric-application-runas-security.md
+[10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-manage-multiple-environment-app-configuration.md
+[12]: service-fabric-application-runas-security.md

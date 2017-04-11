@@ -1,27 +1,28 @@
 ---
-title: Reliable Actors events | Azure
-description: Introduction to Events for Service Fabric Reliable Actors.
+title: Events in actor-based Azure microservices| Microsoft Docs
+description: Introduction to events for Service Fabric Reliable Actors.
 services: service-fabric
-documentationCenter: .net
-authors: vturecek
+documentationcenter: .net
+author: vturecek
 manager: timlt
 editor: ''
 
+ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2016
+ms.date: 03/02/2017
 ms.author: amanbha
----
 
+---
 # Actor events
 Actor events provide a way to send best-effort notifications from the actor to the clients. Actor events are designed for actor-to-client communication and should not be used for actor-to-actor communication.
 
 The following code snippets show how to use actor events in your application.
 
-Define an interface that describes the events published by the actor. This interface must be derived from the `IActorEvents` interface. The arguments of the methods must be [data contract serializable](./service-fabric-reliable-actors-notes-on-actor-type-serialization.md). The methods must return void as event notifications are one-way and best effort.
+Define an interface that describes the events published by the actor. This interface must be derived from the `IActorEvents` interface. The arguments of the methods must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). The methods must return void, as event notifications are one way and best effort.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -72,7 +73,7 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
 ## Next steps
- - [Actor reentrancy](./service-fabric-reliable-actors-reentrancy.md)
- - [Actor diagnostics and performance monitoring](./service-fabric-reliable-actors-diagnostics.md)
- - [Actor API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+* [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Sample code](https://github.com/Azure/servicefabric-samples)

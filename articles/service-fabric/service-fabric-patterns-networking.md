@@ -27,9 +27,9 @@ You can integrate your Azure Service Fabric cluster with other Azure networking 
 
 Service Fabric runs in a standard virtual machine scale set. Any functionality that you can use in a virtual machine scale set, you can use with a Service Fabric cluster. The networking sections of the Azure Resource Manager templates for virtual machine scale sets and Service Fabric are identical. After you deploy to an existing virtual network, it's easy to incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
 
-Service Fabric is unique from other networking features in one aspect. The [Azure portal](https://portal.azure.com) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal. 
+Service Fabric is unique from other networking features in one aspect. The [Azure portal preview](https://portal.azure.cn) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal preview. 
 
-If port 190980 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal does not display the status of your cluster.
+If port 190980 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal preview, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal preview does not display the status of your cluster.
 
 ## Templates
 
@@ -40,18 +40,18 @@ All Service Fabric templates are in [one download file](https://msdnshared.blob.
 
 ### Existing virtual network
 
-In the following example, we start with an existing virtual network named ExistingRG-vnet, in the **ExistingRG** resource group. The subnet is named default. These default resources are created when you use the Azure portal to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. If your Service Fabric cluster uses only an internal load balancer, without a public IP address, you can use the VM and its public IP as a secure *jump box*.
+In the following example, we start with an existing virtual network named ExistingRG-vnet, in the **ExistingRG** resource group. The subnet is named default. These default resources are created when you use the Azure portal preview to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. If your Service Fabric cluster uses only an internal load balancer, without a public IP address, you can use the VM and its public IP as a secure *jump box*.
 
 ### Static public IP address
 
-A static public IP address generally is a dedicated resource that's managed separately from the VM or VMs it's assigned to. It's provisioned in a dedicated networking resource group (as opposed to in the Service Fabric cluster resource group itself). Create a static public IP address named staticIP1 in the same ExistingRG resource group, either in the Azure portal or by using PowerShell:
+A static public IP address generally is a dedicated resource that's managed separately from the VM or VMs it's assigned to. It's provisioned in a dedicated networking resource group (as opposed to in the Service Fabric cluster resource group itself). Create a static public IP address named staticIP1 in the same ExistingRG resource group, either in the Azure portal preview or by using PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location "China East" -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
-Location                 : westus
+Location                 : China East
 Id                       : /subscriptions/1237f4d2-3dce-1236-ad95-123f764e7123/resourceGroups/ExistingRG/providers/Microsoft.Network/publicIPAddresses/staticIP1
 Etag                     : W/"fc8b0c77-1f84-455d-9930-0404ebba1b64"
 ResourceGuid             : 77c26c06-c0ae-496c-9231-b1a114e08824
@@ -64,13 +64,13 @@ IdleTimeoutInMinutes     : 4
 IpConfiguration          : null
 DnsSettings              : {
                              "DomainNameLabel": "sfnetworking",
-                             "Fqdn": "sfnetworking.westus.cloudapp.azure.com"
+                             "Fqdn": "sfnetworking.chinaeast.cloudapp.chinacloudapi.cn"
                            }
 ```
 
 ### Service Fabric template
 
-In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the templates in the [template gallery](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), like the [five-node Service Fabric cluster](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
+In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. 
 
 <a id="existingvnet"></a>
 ## Existing virtual network or subnet
@@ -157,7 +157,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 5. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location "China East"
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
@@ -267,7 +267,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 8. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location "China East"
 
     $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
@@ -281,7 +281,7 @@ After deployment, you can see that your load balancer is bound to the public sta
 <a id="internallb"></a>
 ## Internal-only load balancer
 
-This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal and for the Service Fabric resource provider, see the preceding section.
+This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal preview and for the Service Fabric resource provider, see the preceding section.
 
 1. Remove the `dnsName` parameter. (It's not needed.)
 
@@ -369,7 +369,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 7. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location "China East"
 
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
@@ -586,7 +586,7 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 7. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location "China East"
 
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```

@@ -1,5 +1,5 @@
 ---
-title: Common questions about Microsoft Azure Service Fabric | Azure
+title: Common questions about Azure Service Fabric | Microsoft Docs
 description: Frequently asked questions about Service Fabric and their answers
 services: service-fabric
 documentationcenter: .net
@@ -13,10 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
-wacn.date: ''
+ms.date: 03/08/2017
 ms.author: seanmck
 ---
+
 
 # Commonly asked Service Fabric questions
 
@@ -40,6 +40,16 @@ In the future, we will support an OS update policy that is fully automated and c
 
 In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) that a cluster administrator can use to manually kick off patching of each node in a safe manner.
 
+### Can I use Large Virtual Scale Sets in my SF cluster? 
+
+**Short answer** - No. 
+
+**Long Answer** - Although the Large Virtual Scale Sets (VMSS) allow you to scale a VMSS upto 1000 VM instances, it does so by the use of Placement Groups (PGs). Fault domains (FDs) and upgrade domains (UDs) are only consistent within a placement group Service fabric uses FDs and UDs to make placement decisions of your service replicas/Service instances. Since the FDs  and UDs are comparable only within a placement group SF cannot use it. For example, If VM1 in PG1 has a topology of FD=0 and VM9 in PG2 has a topology of FD=4 , it does not mean that VM1 and VM2 are on two different Hardware Racks, hence SF cannot use the FD values in this case to make placement decisions.
+
+There are other issues with Large VMSS currently, like the lack of level-4 Load balancing support.
+
+
+
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 
 The minimum supported size for a Service Fabric cluster running production workloads is five nodes. For dev/test scenarios, we support three node clusters.
@@ -60,17 +70,18 @@ The three node cluster configuration is supported for dev/test because you can s
 
 In general, no. Service Fabric stores state on local, ephemeral disks, meaning that if the virtual machine is moved to a different host, the data does not move with it. In normal operation, that is not a problem as the new node is brought up to date by other nodes. However, if you stop all nodes and restart them later, there is a significant possibility that most of the nodes start on new hosts and make the system unable to recover.
 
-If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](./service-fabric-set-up-continuous-integration.md).
+If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](service-fabric-set-up-continuous-integration.md).
 
 ## Application Design
 
 ### What's the best way to query data across partitions of a Reliable Collection?
 
-Reliable collections are typically [partitioned](./service-fabric-concepts-partitioning.md) to enable scale out for greater performance and throughput. That means that the state for a given service may be spread across 10s or 100s of machines. To perform operations over that full data set, you have a few options:
+Reliable collections are typically [partitioned](service-fabric-concepts-partitioning.md) to enable scale out for greater performance and throughput. That means that the state for a given service may be spread across 10s or 100s of machines. To perform operations over that full data set, you have a few options:
 
 - Create a service that queries all partitions of another service to pull in the required data.
 - Create a service that can receive data from all partitions of another service.
 - Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic.
+
 
 ### What's the best way to query data across my actors?
 
@@ -103,7 +114,7 @@ As with reliable services, the amount of data that you can store in an actor ser
 
 ### How does Service Fabric relate to containers?
 
-Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including [services that have been packaged in a container](./service-fabric-containers-overview.md).
+Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including [services that have been packaged in a container](service-fabric-containers-overview.md).
 
 ### Are you planning to open source Service Fabric?
 
