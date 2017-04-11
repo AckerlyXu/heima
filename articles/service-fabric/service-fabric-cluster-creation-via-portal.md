@@ -261,7 +261,7 @@ Name  : SourceVault
 Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
 
 Name  : CertificateURL
-Value : https://myvault.vault.chinacloudapi.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 ```
 
 * Check the **Configure advanced settings** box to enter client certificates for **admin client** and **read-only client**. In these fields, enter the thumbprint of your admin client certificate and the thumbprint of your read-only user client certificate, if applicable. When administrators attempt to connect to the cluster, they are granted access only if they have a certificate with a thumbprint that matches the thumbprint values entered here.  

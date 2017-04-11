@@ -150,7 +150,7 @@ Add the following code to encrypt a blob and upload it to your Azure storage acc
 // Retrieve the key that you created previously.
 // The IKey that is returned here is an RsaKey.
 // Remember that we used the names contosokeyvault and testrsakey1.
-var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.chinacloudapi.cn/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
+var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.cn/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
 // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
@@ -218,7 +218,7 @@ In your console application, you can use the same call as before to retrieve thi
 
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-    "https://contosokeyvault.vault.chinacloudapi.cn/secrets/TestSecret2/", 
+    "https://contosokeyvault.vault.azure.cn/secrets/TestSecret2/", 
     CancellationToken.None).GetAwaiter().GetResult();
 ```
 
