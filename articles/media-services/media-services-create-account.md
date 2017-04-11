@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Create a Media Services account | Azure"
-	description="Describes how to create a new Azure Media Services account in Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+---
+title: Create a Media Services account | Azure
+description: Describes how to create a new Azure Media Services account in Azure.
+services: media-services
+documentationCenter: ''
+authors: Juliako
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="media-services"
-	ms.date="06/22/2016"
-	wacn.date=""/>
-
+ms.service: media-services
+ms.date: 06/22/2016
+wacn.date: ''
+---
 
 # Create an Azure Media Services account
 
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/media-services-create-account/)
-- [PowerShell](/documentation/articles/media-services-manage-with-powershell/)
-- [REST](http://msdn.microsoft.com/zh-cn/library/azure/dn194267.aspx)
+> [!div class="op_single_selector"]
+>- [Portal](./media-services-create-account.md)
+>- [PowerShell](./media-services-manage-with-powershell.md)
+>- [REST](http://msdn.microsoft.com/zh-cn/library/azure/dn194267.aspx)
 
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. For details, see [1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [1rmb Trial](/pricing/1rmb-trial/?WT.mc_id=A261C142F).
- 
-The Azure Management Portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
+The Azure Classic Management Portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
 
 This article explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account.
 
@@ -34,16 +33,14 @@ Accessing Media Services requires two associated accounts:
 
 -   **A Media Services account**. Your account gives you access to a set of cloud-based Media Services that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account.
 
-	Available Media Services (AMS) regions include the following: China North, China East. Media Services does not use affinity groups.
-	
-
+    Available Media Services (AMS) regions include the following: China North, China East. Media Services does not use affinity groups.
 
 -   **An associated storage account**. Your storage account is an Azure storage account that is associated with your Media Services account. The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
 
 <a id="quick"></a>
 ## Create a Media Services account using Quick Create
 
-1. In the [Azure Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
+1. In the [Azure Classic Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
 
 ![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
@@ -69,14 +66,11 @@ When you double-click the account name, the **Quick Start** page is displayed by
 
 In addition, you can view code that uses the Azure Media Services SDK to accomplish the following tasks: upload, encode, and publish videos. You can click one of the links under the **WRITE SOME CODE** section, copy the code  and use it in your application.
 
-
-
-
 ## Next steps
 
-- [Get started with delivering Video-on-Demand (VoD) content using .NET SDK](/documentation/articles/media-services-dotnet-get-started/)
+- [Get started with delivering Video-on-Demand (VoD) content using .NET SDK](./media-services-dotnet-get-started.md)
 
-- [Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream](/documentation/articles/media-services-dotnet-creating-live-encoder-enabled-channel/)
+- [Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream](./media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -88,4 +82,4 @@ In addition, you can view code that uses the Azure Media Services SDK to accompl
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 
-  [Azure Management Portal]: http://manage.windowsazure.cn/
+  [Azure Classic Management Portal]: http://manage.windowsazure.cn/
