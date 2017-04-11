@@ -220,7 +220,7 @@ Create the vNet and subnet of the [virtual network](../virtual-network/virtual-n
     $vnetName = "myVnet"
     $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-    ```
+    ```    
 
 ## Create a public IP address and network interface
 
@@ -232,7 +232,7 @@ To enable communication with the virtual machine in the virtual network, you nee
     $ipName = "myPip"
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
-    ```
+    ```       
 2. Create the NIC. This example creates a NIC named **myNic**. 
 
     ```powershell

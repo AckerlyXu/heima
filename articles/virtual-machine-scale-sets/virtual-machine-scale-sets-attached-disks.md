@@ -105,7 +105,7 @@ You can remove a data disk from a VM scale set using Azure CLI _az vmss disk det
 
 ```bash
 az vmss disk detach -g dsktest -n dskvmss --lun 2
-```
+```  
 
 Similarly you can also remove a disk from a scale set by removing an entry from the _dataDisks_ property in the _storageProfile_ and applying the change. 
 

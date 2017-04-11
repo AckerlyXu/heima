@@ -76,7 +76,7 @@ To create the route table and route needed for the front end subnet based on the
 
 2. Create a route that sends all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4) using the [az network route-table route create](https://docs.microsoft.com/cli/azure/network/route-table/route#create) command:
 
-    ```azurecli
+    ```azurecli 
     az network route-table route create \
     --resource-group testrg \
     --name RouteToBackEnd \

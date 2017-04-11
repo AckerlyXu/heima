@@ -39,19 +39,19 @@ All resources must be deployed in a [resource group](../azure-resource-manager/r
 
 1. Get a list of available locations where resources can be created.
 
-    ```powershell
+    ```powershell   
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
 2. Create the resource group in the location that you select. This example shows the creation of a resource group named **myResourceGroup** in the **China North** location:
 
-    ```powershell
+    ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
     ```
 
     You should see something like this example:
 
-    ```powershell
+    ```powershell 
     ResourceGroupName : myResourceGroup
     Location          : chinaeast
     ProvisioningState : Succeeded

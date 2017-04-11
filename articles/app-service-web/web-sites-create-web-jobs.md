@@ -80,7 +80,7 @@ For example, to trigger your WebJob every 15 minutes, your `settings.job` would 
 {
     "schedule": "0 */15 * * * *"
 }
-```
+``` 
 
 Other CRON schedule examples:
 

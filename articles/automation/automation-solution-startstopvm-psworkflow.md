@@ -6,8 +6,6 @@ documentationcenter: ''
 author: mgoedtel
 manager: jwhit
 editor: tysonn
-redirect_url: https://docs.microsoft.com/azure/automation/automation-solution-vm-management
-redirect_document_id: FALSE
 
 ms.assetid: d380bd43-d45d-45af-a5b2-78e7f66263c3
 ms.service: automation
@@ -18,6 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/06/2016
 wacn.date: ''
 ms.author: magoedte;bwren
+
+#Redirection
+redirect_url: /azure/automation/automation-solution-vm-management 
+redirect_document_id: FALSE
 ---
 
 # Azure Automation scenario - starting and stopping virtual machines
@@ -40,7 +42,7 @@ This scenario consists of two PowerShell Workflow runbooks that you can download
 
 ## <a id="installing-and-configuring-the-scenario" name="installing-the-solution"></a> Installing and configuring the scenario
 ### 1. Install the runbooks
-After downloading the runbooks, you can import them using the procedure in [Importing a Runbook](automation-creating-importing-runbook.md#ImportRunbook).
+After downloading the runbooks, you can import them using the procedure in [Importing a Runbook](/azure/automation/automation-creating-importing-runbook#ImportRunbook).
 
 ### 2. Review the description and requirements
 The runbooks include commented help text that includes a description and required assets.  You can also get the same information from this article.

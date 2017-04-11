@@ -157,7 +157,7 @@ You can now run the HPC Pack commands or use the HPC Pack Job manager GUI to sub
 
 For example, after completing the previous steps, you can query for jobs from an on-premises client as follows:
 
-```powershell
+```powershell 
 Get-HpcJob -State All -Scheduler https://<Azure load balancer DNS name> -Owner <Azure AD account>
 ```
 

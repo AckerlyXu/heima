@@ -85,7 +85,7 @@ The following steps describe how to change the availability set of a VM using Az
     Add-AzureRmVMNetworkInterface -VM <vmConfig> -Id  <nicId> 
 
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
-    ```
+    ``` 
 5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 
 ## Example Script

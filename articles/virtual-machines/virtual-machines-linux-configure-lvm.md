@@ -33,32 +33,32 @@ One will usually want to start with two or more empty data disks when using LVM.
 ## Install the LVM utilities
 * **Ubuntu**
 
-    ```bash
+    ```bash  
     sudo apt-get update
     sudo apt-get install lvm2
     ```
 
 * **RHEL, CentOS & Oracle Linux**
 
-    ```bash
+    ```bash   
     sudo yum install lvm2
     ```
 
 * **SLES 12 and openSUSE**
 
-    ```bash
+    ```bash   
     sudo zypper install lvm2
     ```
 
 * **SLES 11**
 
-    ```bash
+    ```bash   
     sudo zypper install lvm2
     ```
 
     On SLES11 you must also edit `/etc/sysconfig/lvm` and set `LVM_ACTIVATED_ON_DISCOVERED` to "enable":
 
-    ```sh
+    ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
@@ -67,7 +67,7 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
 1. Prepare the physical volumes:
 
-    ```bash
+    ```bash    
     sudo pvcreate /dev/sd[cde]
     Physical volume "/dev/sdc" successfully created
     Physical volume "/dev/sdd" successfully created
@@ -76,21 +76,21 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
 2. Create a volume group. In this example we are calling the volume group `data-vg01`:
 
-    ```bash
+    ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
 3. Create the logical volume(s). The command below we will create a single logical volume called `data-lv01` to span the entire volume group, but note that it is also feasible to create multiple logical volumes in the volume group.
 
-    ```bash
+    ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
     Logical volume "data-lv01" created.
     ```
 
 4. Format the logical volume
 
-    ```bash
+    ```bash  
     sudo mkfs -t ext4 /dev/data-vg01/data-lv01
     ```
 
@@ -103,13 +103,13 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
 1. Create the desired mount point for your new file system, for example:
 
-    ```bash
+    ```bash  
     sudo mkdir /data
     ```
 
 2. Locate the logical volume path
 
-    ```bash
+    ```bash    
     lvdisplay
     --- Logical volume ---
     LV Path                /dev/data-vg01/data-lv01
@@ -118,15 +118,15 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
 3. Open `/etc/fstab` in a text editor and add an entry for the new file system, for example:
 
-    ```bash
+    ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
-    ```
+    ```   
 
     Then, save and close `/etc/fstab`.
 
 4. Test that the `/etc/fstab` entry is correct:
 
-    ```bash
+    ```bash    
     sudo mount -a
     ```
 
@@ -134,7 +134,7 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
     Next run the `mount` command to ensure the file system is mounted:
 
-    ```bash
+    ```bash    
     mount
     ......
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
@@ -146,7 +146,7 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
     Example (Ubuntu):
 
-    ```bash
+    ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
@@ -157,7 +157,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 - Use the `discard` mount option in `/etc/fstab`, for example:
 
-    ```bash
+    ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
@@ -165,14 +165,14 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
     **Ubuntu**
 
-    ```bash
+    ```bash 
     # sudo apt-get install util-linux
     # sudo fstrim /datadrive
     ```
 
     **RHEL/CentOS**
 
-    ```bash
+    ```bash 
     # sudo yum install util-linux
     # sudo fstrim /datadrive
     ```

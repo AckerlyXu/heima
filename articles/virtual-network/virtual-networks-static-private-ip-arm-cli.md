@@ -217,7 +217,7 @@ To change the NIC for the VM used in the commands above, follow the steps below.
     --location chinaeast     \
     --subnet FrontEnd    \
     --vnet-name TestVNet
-    ```
+    ```        
 
     Expected output:
 

@@ -77,6 +77,7 @@ az appservice web deployment slot swap --name $webappname --resource-group myRes
 
 # Browse to the production slot. 
 az appservice web browse --name $webappname --resource-group myResourceGroup
+
 ```
 
 ## Clean up deployment 

@@ -70,6 +70,7 @@ az vm create \
 
 # Open port 3389 to allow RDP traffic to host.
 az vm open-port --port 3389 --resource-group myResourceGroup --name myVM
+
 ```
 
 ## Clean up deployment 

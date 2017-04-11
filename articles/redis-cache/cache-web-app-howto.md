@@ -171,7 +171,7 @@ In this section of the tutorial, you'll create the basic application that reads 
     ![Web.config][cache-web-config]
 2. Add the following connection string to the `connectionStrings` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
 
-    ```xml
+    ```xml   
     <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
     ```
 
@@ -267,14 +267,14 @@ In this section of the tutorial, you'll configure the sample application to stor
     ![Teams controller][cache-teamscontroller]
 4. Add the following two `using` statements to **TeamsController.cs**.
 
-    ```c#
+    ```c#   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Add the following two properties to the `TeamsController` class.
 
-    ```c#
+    ```c#   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -321,7 +321,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 1. Add the following `using` statements to the `TeamsController.cs` file at the top with the other `using` statements.
 
-    ```c#
+    ```c#   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```

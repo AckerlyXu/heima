@@ -70,7 +70,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
 3. Next, press 'p' to create a **p**rimary partition:
 
-    ```bash
+    ```bash 
     Command action
             e   extended
             p   primary partition (1-4)
@@ -84,21 +84,21 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
 5. Select the starting point of the new partition, or press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
 
-    ```bash
+    ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
 6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, press `<enter>` create a single partition that spans the entire drive:
 
-    ```bash
+    ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
 7. Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
 
-    ```bash
+    ```bash  
     Command (m for help): t
     Selected partition 1
     Hex code (type L to list codes): fd
@@ -106,7 +106,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
 8. Finally, write the partition table to the drive and exit fdisk:
 
-    ```bash
+    ```bash   
     Command (m for help): w
     The partition table has been altered!
     ```
@@ -114,7 +114,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 ## Create the RAID array
 1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1).  After running this command a new RAID device called **/dev/md127** is created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command:
 
-    ```bash
+    ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
@@ -123,7 +123,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
     a. **CentOS, Oracle Linux, SLES 12, openSUSE, and Ubuntu**
 
-    ```bash
+    ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
 
@@ -156,7 +156,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     ```
 2. When editing /etc/fstab, the **UUID** should be used to reference the file system rather than the device name.  Use the `blkid` utility to determine the UUID for the new file system:
 
-    ```bash
+    ```bash   
     sudo /sbin/blkid
     ...........
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
@@ -164,7 +164,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
 3. Open /etc/fstab in a text editor and add an entry for the new file system, for example:
 
-    ```bash
+    ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
     ```
 
@@ -178,7 +178,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
 4. Test that the /etc/fstab entry is correct:
 
-    ```bash
+    ```bash  
     sudo mount -a
     ```
 
@@ -186,7 +186,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
     Next run the `mount` command to ensure the file system is mounted:
 
-    ```bash
+    ```bash   
     mount
     .................
     /dev/md127 on /data type ext4 (rw)
@@ -200,9 +200,9 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
     Example (Ubuntu):
 
-    ```bash
+    ```bash  
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
-    ```
+    ```   
 
     **Linux boot parameters**
 

@@ -74,7 +74,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
 
-```bash
+```bash 
 ssh <Public IP Address>
 ```
 

@@ -47,7 +47,7 @@ To create a virtual network using PowerShell, complete the following steps:
 
 2. If necessary, create a new resource group, as shown below. For this scenario, create a resource group named *TestRG*. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
 
-    ```powershell
+    ```powershell   
     New-AzureRmResourceGroup -Name TestRG -Location chinaeast
     ```
 

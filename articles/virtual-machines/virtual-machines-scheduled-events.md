@@ -152,7 +152,7 @@ foreach($event in $scheduledEvents.Events)
 	ApproveScheduledEvent $event.EventId $scheduledEventURI 
     }
 }
-```
+``` 
 
 ## C\# Sample 
 The following sample is of a client surfacing APIs to communicate with the Metadata Service

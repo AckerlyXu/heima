@@ -68,7 +68,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 2. To get the token that's needed to create the credentials, add this method to the Program class:
 
-    ```
+    ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
       var cc = new ClientCredential("{client-id}", "{client-secret}");
@@ -105,7 +105,7 @@ All resources must be contained in a resource group. Before you can add resource
 
 1. Add variables to the Main method of the Program class to specify the names that you want to use for the resources:
 
-    ```
+    ```   
     var groupName = "myResourceGroup";
     var subscriptionId = "subsciptionId";
     var storageName = "myStorageAccount";
@@ -158,7 +158,7 @@ All resources must be contained in a resource group. Before you can add resource
 
 3. To call the method that you previously added, add this code to the Main method:
 
-    ```
+    ```   
     var rgResult = CreateResourceGroupAsync(
       credential,
       groupName,
@@ -174,7 +174,7 @@ When using an unmanaged disk, a [storage account](../storage/storage-create-stor
 
 1. To create the storage account, add this method to the Program class:
 
-    ```
+    ```   
     public static async Task<StorageAccount> CreateStorageAccountAsync(
       TokenCredentials credential,       
       string groupName,
@@ -247,7 +247,7 @@ A public IP address is needed to communicate with the virtual machine.
 
 2. To call the method that you previously added, add this code to the Main method:
 
-    ```
+    ```   
     var ipResult = CreatePublicIPAddressAsync(
       credential,
       groupName,
@@ -264,7 +264,7 @@ A virtual machine that's created with the Resource Manager deployment model must
 
 1. To create a subnet and a virtual network, add this method to the Program class:
 
-    ```
+    ```   
     public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
       TokenCredentials credential,
       string groupName,
@@ -303,7 +303,7 @@ A virtual machine that's created with the Resource Manager deployment model must
 
 2. To call the method that you previously added, add this code to the Main method:
 
-    ```
+    ```   
     var vnResult = CreateVirtualNetworkAsync(
       credential,
       groupName,
@@ -321,7 +321,7 @@ A virtual machine needs a network interface to communicate on the virtual networ
 
 1. To create a network interface, add this method to the Program class:
 
-    ```
+    ```   
     public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
       TokenCredentials credential,
       string groupName,
@@ -387,7 +387,7 @@ Availability sets make it easier for you to manage the maintenance of the virtua
 
 1. To create the availability set, add this method to the Program class:
 
-    ```
+    ```   
     public static async Task<AvailabilitySet> CreateAvailabilitySetAsync(
       TokenCredentials credential,
       string groupName,
@@ -426,7 +426,7 @@ Now that you created all the supporting resources, you can create a virtual mach
 
 1. To create the virtual machine, add this method to the Program class:
 
-    ```
+    ```   
     public static async Task<VirtualMachine> CreateVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName,
@@ -550,7 +550,7 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 2. To call the method that you previously added, add this code to the Main method:
 
-    ```
+    ```   
     DeleteResourceGroupAsync(
       credential,
       groupName,

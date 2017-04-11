@@ -61,6 +61,7 @@ az appservice web source-control config --name $webappname --resource-group myRe
 
 # Browse to the web app.
 az appservice web browse --name $webappname --resource-group myResourceGroup
+
 ```
 
 ## Clean up deployment 

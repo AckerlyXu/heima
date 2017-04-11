@@ -133,7 +133,7 @@ The preceding command gives you the input for the Resource Manager template.
 
 Add this property to the "virtualMachineProfile" as part of the scale set Resource:
 
-```json
+```json 
 "osProfile": {
             "computerNamePrefix": "[variables('namingInfix')]",
             "adminUsername": "[parameters('adminUsername')]",
@@ -162,7 +162,7 @@ https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration
 
 Include an `osProfile` in your template like the following example:
 
-```json
+```json 
 "osProfile": {
           "computerName": "[variables('vmName')]",
           "adminUsername": "[parameters('adminUserName')]",
@@ -305,7 +305,7 @@ You can generate a pfx file that only contains .cer files, with X509ContentType 
 
 You can extract the latest versioned URL within a Resource Manager template to emulate the behavior you describe. You can include the following JSON property in your Resource Manager template:
 
-```json
+```json 
 "certificateUrl": "[reference(resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults/secrets', parameters('vaultName'), parameters('secretName')), '2015-06-01').secretUriWithVersion]"
 ```
 

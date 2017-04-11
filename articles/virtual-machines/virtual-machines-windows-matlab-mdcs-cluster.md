@@ -41,10 +41,10 @@ To use Azure virtual machines for your MATLAB Distributed Computing Server clust
 
     * Download and install MATLAB Distributed Computing Server software onto this VM. 
 
-        > [!NOTE]
-        > This process can take a couple of hours, but you only have to do it once for each version of MATLAB you use.   
-        > 
-        > 
+    > [!NOTE]
+    > This process can take a couple of hours, but you only have to do it once for each version of MATLAB you use.   
+    > 
+    > 
 2. **Create one or more clusters**  
 
     * Use the supplied PowerShell script or use the quickstart template to create a cluster from the base VM image.   

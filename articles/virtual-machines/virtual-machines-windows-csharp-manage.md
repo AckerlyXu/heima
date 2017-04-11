@@ -49,7 +49,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
 1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
 
-    ```
+    ```   
     using Microsoft.Azure;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Azure.Management.Compute;
@@ -59,7 +59,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
 2. Add variables to the Main method of the Program class to specify the name of the resource group, the name of the virtual machine, and your subscription identifier:
 
-    ```
+    ```   
     var groupName = "myResourceGroup";
     var vmName = "myVM";  
     var subscriptionId = "subsciptionId";
@@ -69,7 +69,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
 3. To get the token that is needed to create the credentials, add this method to the Program class:
 
-    ```
+    ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
       var cc = new ClientCredential("{client-id}", "{client-secret}");
@@ -102,7 +102,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
 1. Add this method to the Program class in the project that you previously created:
 
-    ```
+    ```   
     public static async void GetVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -189,7 +189,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
 2. To call the method that you just added, add this code to the Main method:
 
-    ```
+    ```   
     GetVirtualMachineAsync(
       credential,
       groupName,
@@ -274,7 +274,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
 2. Add this method to the Program class:
 
-    ```
+    ```   
     public static async void StopVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -318,7 +318,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
 2. Add this method to the Program class:
 
-    ```
+    ```   
     public static async void StartVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -334,7 +334,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
 3. To call the method that you just added, add this code to the Main method:
 
-    ```
+    ```   
     StartVirtualMachineAsync(
       credential,
       groupName,
@@ -356,7 +356,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
 2. Add this method to the Program class:
 
-    ```
+    ```   
     public static async void RestartVirtualMachineAsync(
       TokenCredentials credential,
       string groupName,
@@ -372,7 +372,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
 3. To call the method that you just added, add this code to the Main method:
 
-    ```
+    ```   
     RestartVirtualMachineAsync(
       credential,
       groupName,
@@ -394,7 +394,7 @@ This example shows you how to change the size of a running virtual machine.
 
 2. Add this method to the Program class:
 
-    ```
+    ```   
     public static async void UpdateVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -412,7 +412,7 @@ This example shows you how to change the size of a running virtual machine.
 
 3. To call the method that you just added, add this code to the Main method:
 
-    ```
+    ```   
     UpdateVirtualMachineAsync(
       credential,
       groupName,
@@ -436,7 +436,7 @@ This example shows you how to add a data disk to a running virtual machine.
 
 2. Add this method to the Program class:
 
-    ```
+    ```   
     public static async void AddDataDiskAsync(
       TokenCredentials credential, 
       string groupName, 

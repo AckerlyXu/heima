@@ -767,7 +767,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: https://www.azure.cn/downloads/
-[powershell-about-profiles]: https://technet.microsoft.com/library/hh847857.aspx
+[powershell-about-profiles]: https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Profiles
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx

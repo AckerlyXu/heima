@@ -39,7 +39,7 @@ The WebJobs dashboard in the Azure portal preview provides powerful management c
 * [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [How to use Azure table storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [How to use Azure Service Bus with the WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Azure WebJobs SDK Quick Reference (PDF download)](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Azure%20WebJobs%20SDK%20Cheat%20Sheet%202014.pdf)
+* [Azure WebJobs SDK Quick Reference (PDF download)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [WebJobs settings documentation in GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 
 See also the following sections on [Deploying WebJobs](#deploy) and [Testing and debugging WebJobs](#debug).
@@ -104,6 +104,6 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 ## <a name="gethelp"></a>Getting help with WebJobs
 * [StackOverflow for Azure Functions](http://stackoverflow.com/questions/tagged/azure-functions)
 * [Azure and ASP.NET forum](http://forums.asp.net/1247.aspx)
-* [Azure App Service Web Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurezhchs)
+* [Azure App Service Web Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview)
 * [Azure Web Apps User Voice site](https://feedback.azure.com/forums/169385-websites/)
 * [Report a WebJobs bug or issue](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)

@@ -52,7 +52,7 @@ You should feel pretty comfortable using the network configuration file by the t
 ## Before you begin
 Before you begin configuration, verify that you have the following:
 
-* An Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+* An Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
 * Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
 * An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
 * You'll need to install the latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.

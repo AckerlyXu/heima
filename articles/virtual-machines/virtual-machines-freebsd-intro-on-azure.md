@@ -43,7 +43,7 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 ### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
 First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
 
-```bash
+```bash 
     curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
@@ -77,7 +77,7 @@ Then you can log in to your FreeBSD VM through the ip address that printed in th
 
 ```bash
     ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
-```
+```   
 
 ## VM extensions for FreeBSD
 Following are supported VM extensions in FreeBSD.
@@ -117,7 +117,7 @@ The user account that is specified during virtual machine instance deployment on
 After you're logged in through this user account, you can run commands as root by using the command syntax.
 
 ```
-$ sudo <COMMAND>
+    $ sudo <COMMAND>
 ```
 
 You can optionally obtain a root shell by using `sudo -s`.

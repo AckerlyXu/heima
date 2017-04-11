@@ -98,8 +98,8 @@ For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT),
 
 For more information about Azure Active Directory, see the following resources.
 
-* [Azure AD scenarios](/azure/active-directory/active-directory-authentication-scenarios/)
-* [Azure AD developers' guide](/azure/active-directory/active-directory-developers-guide/)
+* [Azure AD scenarios](/azure/active-directory/develop/active-directory-authentication-scenarios)
+* [Azure AD developers' guide](/azure/active-directory/develop/active-directory-developers-guide)
 * [Azure AD samples](https://github.com/azure-samples?query=active-directory)
 
 ## Next steps

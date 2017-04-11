@@ -66,9 +66,9 @@ If the VM Agent is installed, run these commands.
 ## Next steps
 It takes a few minutes for the agent to start running when it is installed. After that, you need to activate Deep Security on the virtual machine so it can be managed by a Deep Security Manager. See the following articles for additional instructions:
 
-* Trend's article about this solution, [Instant-On Cloud Security for Azure](http://www.trendmicro.com/us/business/saas/deep-security-as-a-service/microsoft-azure-security/index.html?cm_mmc=VURL:www.trendmicro.com-_-VURL-_-%2Fazure%2Findex.html-_-1-1#how-it-works)
-* A [sample Windows PowerShell script](https://dsahandler.blob.core.windows.net/dsaas/ds-config.ps1) to configure the virtual machine
-* [Instructions](https://dsahandler.blob.core.windows.net/dsaas/ds-config-README.txt) for the sample
+* Trend's article about this solution, [Instant-On Cloud Security for Azure](https://www.trendmicro.com/azure/?cm_mmc=VURL%3Awww.trendmicro.com-_-VURL-_-%2Fazure%2Findex.html-_-1-1#how-it-works)
+* A [sample Windows PowerShell script](http://go.microsoft.com/fwlink/?LinkId=404100) to configure the virtual machine
+* [Instructions](http://go.microsoft.com/fwlink/?LinkId=404099) for the sample
 
 ## Additional resources
 [How to log on to a virtual machine running Windows Server]
@@ -77,4 +77,4 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 
 <!--Link references-->
 [How to log on to a virtual machine running Windows Server]: virtual-machines-windows-classic-connect-logon.md
-[Azure VM Extensions and features]: /azure/virtual-machines/virtual-machines-windows-extensions-features/
+[Azure VM Extensions and features]: /azure/virtual-machines/windows/extensions-features

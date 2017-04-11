@@ -161,10 +161,10 @@ Complete the following steps to troubleshoot NSGs for a VM:
       Read the [NSG overview](virtual-networks-nsg.md#default-rules) article to learn more about NSG default security rules.
     * **ExpandedAddressPrefix** expands the address prefixes for NSG default tags. Tags represent multiple address prefixes. Expansion of the tags can be useful when troubleshooting VM connectivity to/from specific address prefixes. For example, with VNET peering, VIRTUAL_NETWORK tag expands to show peered VNet prefixes in the previous output.
 
-        > [!NOTE]
-        > The command only shows effective rules if an NSG is associated with either a subnet, a NIC, or both. A VM may have multiple NICs with different NSGs applied. When troubleshooting, run the command for each NIC.
-        > 
-        > 
+    > [!NOTE]
+    > The command only shows effective rules if an NSG is associated with either a subnet, a NIC, or both. A VM may have multiple NICs with different NSGs applied. When troubleshooting, run the command for each NIC.
+    > 
+    > 
 3. To ease filtering over larger number of NSG rules, enter the following commands to troubleshoot further: 
 
         $NSGs = Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

@@ -68,6 +68,7 @@ git push azure master
 
 # Browse to the deployed web app.
 az appservice web browse --name $webappname --resource-group myResourceGroup
+
 ```
 
 ## Clean up deployment 

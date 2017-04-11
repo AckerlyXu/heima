@@ -1,6 +1,6 @@
 ---
 title: Create your first PHP web app in Azure in five minutes | Azure
-description: Learn how easy it is to run web apps in App Service by deploying a sample PHP app.
+description: Learn how easy it is to run web apps in App Service by deploying a sample PHP app. 
 services: app-service\web
 documentationcenter: ''
 author: cephalin

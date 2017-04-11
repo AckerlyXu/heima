@@ -184,7 +184,7 @@ To add a rule allowing **inbound** traffic to port **443** from any machine to t
 
 1. Run the following command to retrieve the existing NSG and store it in a variable:
 
-    ```powershell
+    ```powershell   
     $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     ```
 
@@ -245,7 +245,7 @@ To change the rule created above to allow inbound traffic from the **Internet** 
 
 1. Run the following command to retrieve the existing NSG and store it in a variable:
 
-    ```powershell
+    ```powershell 
     $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     ```
 

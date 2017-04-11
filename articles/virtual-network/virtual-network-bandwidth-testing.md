@@ -98,21 +98,21 @@ On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare nttt
 
 CentOS - Install Git:
 
-```bash
+``` bash
   yum install gcc -y  
   yum install git -y
 ```
 
 Ubuntu - Install Git:
 
-```bash
+``` bash
  apt-get -y install build-essential  
  apt-get -y install git
 ```
 
 Make and Install on both:
 
-```bash
+``` bash
  git clone <https://github.com/Microsoft/ntttcp-for-linux>
  cd ntttcp-for-linux/src
  make && make install
@@ -122,13 +122,13 @@ As in the Windows example, we assume the Linux RECEIVER's IP is 10.0.0.4
 
 Start NTTTCP-for-Linux on the RECEIVER:
 
-```bash
+``` bash
 ntttcp -r -t 300
 ```
 
 And on the SENDER, run:
 
-```bash
+``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
 

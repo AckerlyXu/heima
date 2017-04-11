@@ -79,7 +79,7 @@ overview](../storage/storage-managed-disks-overview.md).
 
     ```azurecli
     az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
-    ```
+    ``` 
 
 1.  Verify the managed disks now in your resource group by using [az disk
     list](https://docs.microsoft.com/cli/azure/disk#list). The following example lists the managed disks

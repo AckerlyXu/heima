@@ -20,7 +20,7 @@ ms.author: cephalin
 ---
 # Deploy your first web app to Azure in five minutes
 This tutorial helps you deploy your first web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
-You can use App Service to create web apps, [mobile app back ends](../app-service-mobile/index.md),
+You can use App Service to create web apps, [mobile app back ends](/azure/app-service-mobile/),
 and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 You will: 

@@ -54,6 +54,7 @@ az vm disk attach --resource-group $resourcegroup --vm-name myVM --disk $diskid
 ip=$(az vm list-ip-addresses --resource-group $resourcegroup --name myVM --query '[].virtualMachine.network.publicIpAddresses[0].ipAddress' -o tsv)
 ssh $ip 'sudo mkdir /mnt/remountedOsDisk'
 ssh $ip 'sudo mount -t ext4 /dev/sdc1 /mnt/remountedOsDisk'
+
 ```
 
 ## Script explanation

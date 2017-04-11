@@ -202,7 +202,7 @@ Again, if you do not use the default Azure Managed Disks, add the following addi
 ```azurecli
   --use-unmanaged-disk \
   --storage-account mystorageaccount
-```
+``` 
 
 Verify that everything that was built correctly with [az vm show](https://docs.microsoft.com/cli/azure/vm#show):
 
@@ -233,7 +233,7 @@ az group create --name myResourceGroup --location chinanorth
 
 By default, the output is in JSON (JavaScript Object Notation). To output as a list or table, for example, use [az configure --output](https://docs.microsoft.com/cli/azure/#configure). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the **az group create** command:
 
-```json
+```json                       
 {
   "id": "/subscriptions/guid/resourceGroups/myResourceGroup",
   "location": "chinanorth",

@@ -62,6 +62,7 @@ az vm extension set \
     --port 80 \
     --resource-group myResourceGroup \
     --name myVM
+
 ```
 
 ## Clean up deployment 

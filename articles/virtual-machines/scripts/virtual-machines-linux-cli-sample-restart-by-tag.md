@@ -81,6 +81,7 @@ while [[ $(az vm list --resource-group myResourceGroup --query "length([?provisi
     fi
 done
 echo "The VMs are provisioned."
+
 ```
 
 ### Restart the VMs
@@ -96,6 +97,7 @@ az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id
 
 # Get the IDs of the tagged VMs and restart those
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
+
 ```
 
 ## Clean up deployment 

@@ -142,7 +142,7 @@ This example shows a typical resource section of a template for creating a speci
     ]
   } 
 ]
-```
+``` 
 
 > [!NOTE] 
 >This example relies on a storage account that was previously created. You could create the storage account by deploying it from the template. The example also relies on a network interface and its dependent resources that would be defined in the template. These resources are not shown in the example.
@@ -171,7 +171,7 @@ Use these opportunities for getting the latest API versions:
 
 [Parameters](../resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
 
-```
+```        
 "parameters": {
   "adminUsername": { "type": "string" },
   "adminPassword": { "type": "securestring" },

@@ -263,7 +263,7 @@ To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the
 
     Expected output:
 
-    ```json
+    ```json  
     {
     "access": "Allow",
     "description": null,

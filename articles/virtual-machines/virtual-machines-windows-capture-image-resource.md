@@ -92,7 +92,7 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 
     ```powershell
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
-    ```
+    ```	
 
 ## Create a managed image of a VHD in PowerShell
 
@@ -116,7 +116,7 @@ Create a managed image using your generalized OS VHD.
 3. Mark the VM as generalized.
 
     ```powershell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized    
+    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized	
     ```
 4.  Create the image using your generalized OS VHD.
 
@@ -144,7 +144,7 @@ You can also create a managed image from a snapshot of the VHD from a generalize
     ```powershell
     $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
     ```
-   
+
 3. Create the image configuration.
 
     ```powershell
@@ -155,7 +155,7 @@ You can also create a managed image from a snapshot of the VHD from a generalize
 
     ```powershell
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```
+    ```	
 
 ## Next steps
 - Now you can [create a VM from the generalized managed image](virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

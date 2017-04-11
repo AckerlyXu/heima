@@ -9,9 +9,9 @@ Yes. For instructions on how to migrate, see:
 ## What can I run on an Azure VM?
 All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)
+• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](/azure/virtual-machines/virtual-machines-linux-endorsed-distros/)
+• For Linux VMs -- [Linux on Azure-Endorsed Distributions](/azure/virtual-machines/linux/endorsed-distros)
 
 ## Why are affinity groups being deprecated?
 Affinity groups are a legacy concept for a geographical grouping of a customer's cloud service deployments and storage accounts within Azure. They were originally provided to improve VM-to-VM network performance in the early Azure network designs. They also supported the initial release of virtual networks (VNets), which were limited to a small set of hardware in a region.
@@ -23,10 +23,10 @@ Affinity group features are already deprecated in the Azure Resource Manager dep
 ## How much storage can I use with a virtual machine?
 Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/).
+An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/blob/).
 
 ## Which virtual hard disk types can I use?
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
+Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
 
 * For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 * For Windows instructions, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -86,7 +86,7 @@ Additional details:
 ## Can Azure run anti-virus on my virtual machines?
 Azure offers several options for anti-virus solutions, but it's up to you to manage it. For example, you might need a separate subscription for antimalware software, and you'll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. For details, see:
 
-* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](/azure/virtual-machines/virtual-machines-windows-classic-install-trend/)
+* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](/azure/virtual-machines/windows/classic/install-trend)
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## What are my options for backup and recovery?

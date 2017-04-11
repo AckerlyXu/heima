@@ -41,8 +41,6 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 
 This example shows how to add an empty data disk to an existing virtual machine.
 
-_p_
-
 ### Using managed disks
 
 ```powershell

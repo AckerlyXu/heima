@@ -113,10 +113,10 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 1. Use one of these methods to find the **.azurewebsite.net** domain name assigned to your website.
 
     * Login to the [Azure Classic Management Portal][portal], select your website, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
-    * Install and configure [Azure Powershell](/azure/install-and-configure-windows-powershell/), and then use the following command:
+    * Install and configure [Azure Powershell](/azure/install-and-configure-windows-powershell), and then use the following command:
      
             get-azurewebsite yoursitename | select hostnames
-    * Install and configure the [Azure Command Line Interface](/azure/install-and-configure-cli/), and then use the following command:
+    * Install and configure the [Azure Command Line Interface](/azure/install-and-configure-cli), and then use the following command:
      
             azure site domain list yoursitename
 
@@ -156,7 +156,7 @@ After the CNAME record for domain name has propagated, you must associate it wit
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Command-Line Interface](/azure/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure Command-Line Interface](/azure/install-and-configure-cli), and then use the following command:
 
     azure site domain add customdomain yoursitename
 
@@ -246,7 +246,7 @@ After the **awverify** CNAME record for domain name has propagated, you can then
 
 **To add a domain name using the Azure Command-Line Interface (Azure CLI)**
 
-Install and configure the [Azure CLI](/azure/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure CLI](/azure/install-and-configure-cli), and then use the following command:
 
     azure site domain add customdomain yoursitename
 
@@ -279,8 +279,8 @@ Once configuration has completed, the custom domain name will be listed in the *
 > 
 
 ## Next steps
-* [How to manage web sites](/azure/app-service-web/web-sites-manage/)
-* [Configure an SSL certificate for Web Sites](/azure/app-service-web/web-sites-configure-ssl-certificate/)
+* [How to manage web sites](/azure/app-service-web/web-sites-manage)
+* [Configure an SSL certificate for Web Sites](/azure/app-service-web/web-sites-configure-ssl-certificate)
 
 <!-- Bookmarks -->
 

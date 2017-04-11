@@ -284,7 +284,7 @@ azure group create --name myResourceGroup --location chinanorth
 
 Output:
 
-```azurecli
+```azurecli                        
 info:    Executing command group create
 + Getting resource group myResourceGroup
 + Creating resource group myResourceGroup

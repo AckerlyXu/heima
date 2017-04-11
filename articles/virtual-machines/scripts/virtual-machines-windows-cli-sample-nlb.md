@@ -106,6 +106,7 @@ for i in `seq 1 3`; do
     --admin-username azureuser \
     --no-wait
 done
+
 ```
 
 ## Clean up deployment 

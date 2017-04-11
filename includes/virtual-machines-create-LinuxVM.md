@@ -8,7 +8,7 @@
 
 3. Find out the Linux image that you want to load from the available images as follows:
 
-    ```azurecli
+    ```azurecli   
     azure vm image list | grep "Linux"
     ```
 
@@ -40,7 +40,7 @@
 
 5. You can verify the attributes of the VM by using the `azure vm show` command. The following example lists information for the VM named `myVM`:
 
-    ```azurecli
+    ```azurecli   
     azure vm show myVM
     ```
 

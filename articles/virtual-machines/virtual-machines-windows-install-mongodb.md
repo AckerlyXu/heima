@@ -78,7 +78,6 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
     mkdir F:\MongoData
     mkdir F:\MongoLogs
     ```
-
 3. Start a MongoDB instance with the following command, adjusting the path to your data and log directories accordingly:
 
     ```
