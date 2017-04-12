@@ -1,5 +1,5 @@
 ---
-title: Restore data to a Windows Server or Windows Client from Azure using the classic deployment model | Azure
+title: Restore data to a Windows Server or Windows Client from Azure using the classic deployment model | Microsoft Docs
 description: Learn how to restore from a Windows Server or Windows Client.
 services: backup
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
-wacn.date: ''
 ms.author: saurse;trinadhk;markgal;
----
 
+---
 # Restore files to a Windows server or Windows client machine using the classic deployment model
 > [!div class="op_single_selector"]
->- [Classic Management Portal](./backup-azure-restore-windows-server-classic.md)
->- [Azure portal](./backup-azure-restore-windows-server.md)
+> * [Classic Management Portal](backup-azure-restore-windows-server-classic.md)
+> * [Azure portal](backup-azure-restore-windows-server.md)
+>
+>
 
 This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Azure Recovery Services (MARS) agent. When you restore data, it is possible to:
 
@@ -35,6 +36,7 @@ In January 2017, Microsoft released a Preview update to the MARS agent. Along wi
 >
 
 Instant Restore is available for use in Recovery Services vaults in the Azure portal and Backup vaults in the Classic Management Portal. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
+
 
 ## Use Instant Restore to recover data to the same machine
 
@@ -71,6 +73,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 
     ![Recovery options](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
+
 8. In Windows Explorer, copy the files and/or folders you want to restore and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume and verify the correct versions are recovered.
 
     ![Copy and paste files and folders from mounted volume to local location](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
@@ -82,6 +85,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
     > [!Important]
     > If you do not click Unmount, the Recovery Volume will remain mounted for six hours from the time when it was mounted. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted, will run after the recovery volume is unmounted.
     >
+
 
 ## Recover data to the same machine
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
@@ -217,11 +221,13 @@ The terminology used in these steps includes:
     > If you do not click Unmount, the Recovery Volume will remain mounted for six hours from the time when it was mounted. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted, will run after the recovery volume is unmounted.
     >
 
+
 ## Next steps
-- [Azure Backup FAQ](./backup-azure-backup-faq.md)
+- [Azure Backup FAQ](backup-azure-backup-faq.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 ## Learn more
 - [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Backup Azure virtual machines](./backup-azure-vms-introduction.md)
+- [Backup Azure virtual machines](backup-azure-vms-introduction.md)
 - [Backup up Microsoft workloads](./backup-azure-dpm-introduction-classic.md)
+

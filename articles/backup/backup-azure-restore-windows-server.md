@@ -1,5 +1,5 @@
 ---
-title: Restore data in Azure to a Windows Server or Windows computer | Azure
+title: Restore data in Azure to a Windows Server or Windows computer | Microsoft Docs
 description: Learn how to restore data stored in Azure to a Windows Server or Windows computer.
 services: backup
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2017
-wacn.date: ''
 ms.author: saurse;trinadhk;markgal;
----
 
+---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
 > [!div class="op_single_selector"]
->- [Azure portal](./backup-azure-restore-windows-server.md)
->- [Classic Management Portal](./backup-azure-restore-windows-server-classic.md)
+> * [Azure portal](backup-azure-restore-windows-server.md)
+> * [Classic Management Portal](backup-azure-restore-windows-server-classic.md)
+>
+>
 
 This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Azure Recovery Services (MARS) agent. When you restore data, it is possible to:
 
@@ -105,6 +106,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 
     ![Recovery options](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
+
 8. In Windows Explorer, copy the files and/or folders you want to restore and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume and verify the correct versions are recovered.
 
     ![Copy and paste files and folders from mounted volume to local location](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
@@ -158,8 +160,10 @@ The terminology used in these steps includes:
     ![Encryption](./media/backup-azure-restore-windows-server-classic/encryption.png)
 11. Once the input is provided, click **Recover**, which triggers the restore of the backed up files to the destination provided.
 
+
 ## Use Instant Restore to restore data to an alternate machine
 If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.
+
 
 The terminology used in these steps includes:
 
@@ -221,4 +225,5 @@ The terminology used in these steps includes:
     >
 
 ## Next steps
-- Now that you've recovered your files and folders, you can [manage your backups](./backup-azure-manage-windows-server-classic.md).
+- Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server-classic.md).
+

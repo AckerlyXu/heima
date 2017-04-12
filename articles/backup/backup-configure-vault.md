@@ -1,6 +1,6 @@
 ---
-title: Back up Windows Server to Azure (Resource Manager) | Azure
-description: Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders.
+title: Use Azure Backup agent to back up files and folders | Microsoft Docs
+description: Use the Azure Backup agent to back up Windows files and folders to Azure. Create a Recovery Services vault, install the Backup agent, define the backup policy, and run the initial backup on the files and folders.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,15 +14,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/16/2017
-wacn.date: ''
+ms.date: 2/23/2017
 ms.author: markgal;trinadhk;
----
 
+---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
 > [!div class="op_single_selector"]
->- [Azure portal](./backup-configure-vault.md)
->- [Classic Management Portal](./backup-configure-vault-classic.md)
+> * [Azure portal](backup-configure-vault.md)
+> * [Classic Management Portal](backup-configure-vault-classic.md)
+>
+>
 
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
@@ -31,76 +32,55 @@ This article explains how to back up your Windows Server (or Windows client) fil
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
 ## Before you start
-To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
+To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](/pricing/1rmb-trial/) in just a couple of minutes.
 
-## Step 1: Create a Recovery Services vault
+## Create a Recovery Services vault
 A Recovery Services vault is an entity that stores all the backups and recovery points you create over time. The Recovery Services vault also contains the backup policy applied to the protected files and folders. When you create a Recovery Services vault, you should also select the appropriate storage redundancy option.
 
 ### To create a Recovery Services vault
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.cn/) using your Azure subscription.
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
-    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+1. login with your subscription using command below.
 
-    The list of Recovery Services vaults is displayed.
-3. On the **Recovery Services vaults** menu, click **Add**.
+    ```
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    ```
 
-    ![Create Recovery Services Vault step 2](./media/backup-configure-vault/rs-vault-menu.png)
+2. If you are using Azure Backup for the first time, you must use the **[Register-AzureRMResourceProvider](https://msdn.microsoft.com/library/mt679020.aspx)** cmdlet to register the Azure Recovery Service provider with your subscription.
 
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
+3. The Recovery Services vault is a Resource Manager resource, so you need to place it within a resource group. You can use an existing resource group, or create a new resource group with the **[New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx)** cmdlet. When creating a new resource group, specify the name and location for the resource group.  
 
-    ![Create Recovery Services vault step 5](./media/backup-configure-vault/rs-vault-attributes.png)
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
-5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
-7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region that's close to your location, you can reduce network latency when backing up to Azure.
-8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it should open in the portal. If you don't see your vault listed after it has been completed, click **Refresh**. When the list refreshes, click the name of the vault.
+    ```
+    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    ```
+4. Use the **[New-AzureRmRecoveryServicesVault](https://msdn.microsoft.com/library/mt643910.aspx)** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
 
-### To determine storage redundancy
-When you first create a Recovery Services vault you determine how storage is replicated.
+    ```
+    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    ```
+5. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
 
-1. In the **Settings** blade, which opens automatically with your vault dashboard, click **Backup Infrastructure**.
-2. In the Backup Infrastructure blade, click **Backup Configuration** to view the **Storage replication type**.
+    ```
+    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
+    ```
 
-    ![Create Recovery Services vault step 5](./media/backup-configure-vault/backup-infrastructure.png)
-3. Choose the storage replication option for your vault.
+   > [!TIP]
+   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+   >
+   >
 
-    ![List of recovery services vaults](./media/backup-configure-vault/choose-storage-configuration.png)
+## Step 2: Download the vault credential file
+Click [here](https://go.microsoft.com/fwLink/?LinkID=288905&clcid=0x0409) to download Windows Server or Windows client agent.
 
-    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
+You can use powershell script below to download the vault credential file:
 
-    After choosing the storage option for your vault, you are ready to associate your files and folders with the vault.
-
-Now that you've created a vault, you prepare your infrastructure to back up files and folders by downloading and installing the Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
-
-## Step 2: Download files
-> [!NOTE]
-> Enabling backup through the Azure portal is coming soon. At this time, you use the Azure Recovery Services Agent on-premises to back up your files and folders.
->
->
-
-1. Click **Settings** on the Recovery Services vault dashboard.
-
-    ![Open backup goal blade](./media/backup-configure-vault/settings-button.png)
-2. Click **Getting Started > Backup** on the Settings blade.
-
-    ![Open backup goal blade](./media/backup-configure-vault/getting-started-backup.png)
-3. Click **Backup goal** on the Backup blade.
-
-    ![Open backup goal blade](./media/backup-configure-vault/backup-goal.png)
-4. Select **On-premises** from the Where is your workload running? menu.
-5. Select **Files and folders** from the What do you want to backup? menu, and click **OK**.
-
-#### Download the Recovery Services agent
-1. Click **Download Agent for Windows Server or Windows Client** in the **Prepare infrastructure** blade.
-
-    ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-short.png)
-2. Click **Save** in the download pop-up. By default, the **MARSagentinstaller.exe** file is saved to your Downloads folder.
-
-#### Download vault credentials
-1. Click **Download > Save** on the Prepare infrastructure blade.
-
-    ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-download.png)
+	$vault1 = Get-AzureRmRecoveryServicesVault –Name “testVault”
+	$credspath = "C:\downloads"
+	$credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 
 ## Step 3: Install and register the agent
 1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
@@ -119,26 +99,6 @@ Now that you've created a vault, you prepare your infrastructure to back up file
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
-### Confirm the installation
-To confirm that the agent was installed and registered correctly, you can check for the items you backed up in the **Production Server** section of the management portal. To do this:
-
-1. Sign in to the [Azure Portal](https://portal.azure.cn/) using your Azure subscription.
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
-
-    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
-
-    The list of Recovery Services vaults is displayed.
-3. Select the name of the vault you created.
-
-    The Recovery Services vault dashboard blade opens.
-
-    ![recovery services vault dashboard](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
-4. Click the **Settings** button at the top of the page.
-5. Click **Backup Infrastructure > Production Servers**.
-
-    ![Production servers](./media/backup-configure-vault/production-server-verification.png)
-
-If you see your servers in the list, you have confirmation that the agent has been installed and registered correctly.
 
 ## Step 4: Complete the initial backup
 The initial backup includes two key tasks:
