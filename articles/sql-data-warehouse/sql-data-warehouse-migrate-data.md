@@ -2,11 +2,12 @@
 title: Migrate your data to SQL Data Warehouse | Azure
 description: Tips for migrating your data to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: lodipalm
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,36 +15,30 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: lodipalm;barbkess;sonyama
+ms.author: jrj;barbkess
 ---
 
 # Migrate Your Data
 Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS, and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
 
-This article first discusses the simple migration scenarios of ADF Copy, SSIS, and bcp. It then look a little deeper into how the migration can be optimized.
+This article first discusses the simple migration scenarios of SSIS and bcp. It then look a little deeper into how the migration can be optimized.
 
-## Azure Data Factory (ADF) copy
-[ADF Copy][ADF Copy] is part of [Azure Data Factory][Azure Data Factory]. You can use ADF Copy to export your data to flat files residing on local storage, to remote flat files held in Azure blob storage or directly into SQL Data Warehouse.
-
-If your data starts in flat files, then you will first need to transfer it to Azure storage blob before initiating a load it into SQL Data Warehouse. Once the data is transferred into Azure blob storage you can choose to use [ADF Copy][ADF Copy] again to push the data into SQL Data Warehouse.
-
-PolyBase also provides a high-performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
-
-> [!NOTE]
-> PolyBase requires your data files to be in UTF-8. This is ADF Copy's default encoding so there is nothing to change. This is just a reminder to not change the default behavior of ADF Copy.
-
-Head over to the following article for some great [ADF samples][ADF samples].
+<!-- Azure Data Factory (ADF) Not supported in ACN-->
 
 ## Integration Services
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
 
 > [!NOTE]
 > SSIS can export to UTF-8 without the byte order mark in the file. To configure this you must first use the derived column component to convert the character data in the data flow to use the 65001 UTF-8 code page. Once the columns have been converted, write the data to the flat file destination adapter ensuring that 65001 has also been selected as the code page for the file.
+> 
+> 
 
 SSIS connects to SQL Data Warehouse just as it would connect to a SQL Server deployment. However, your connections will need to be using an ADO.NET connection manager. You should also take care to configure the "Use bulk insert when available" setting to maximize throughput. Please refer to the [ADO.NET destination adapter][ADO.NET destination adapter] article to learn more about this property
 
 > [!NOTE]
 > Connecting to Azure SQL Data Warehouse by using OLEDB is not supported.
+> 
+> 
 
 In addition, there is always the possibility that a package might fail due to throttling or network issues. Design packages so they can be resumed at the point of failure, without redoing work that completed before the failure.
 
@@ -54,6 +49,8 @@ bcp is a command-line utility that is designed for flat file data import and exp
 
 > [!NOTE]
 > It is often a good idea to encapsulate the transformations used during data export in a view on the source system. This ensures that the logic is retained and the process is repeatable.
+> 
+> 
 
 Advantages of bcp are:
 
@@ -63,7 +60,6 @@ Advantages of bcp are:
 Limitations of bcp are:
 
 * bcp works with tabulated flat files only. It does not work with files such as xml or JSON
-* bcp does not support exporting to UTF-8. This may prevent using PolyBase on bcp exported data
 * Data transformation capabilities are limited to the export stage only and are simple in nature
 * bcp has not been adapted to be robust when loading data over the internet. Any network instability may cause a load error.
 * bcp relies on the schema being present in the target database prior to the load
@@ -87,12 +83,7 @@ Looking at these in reverse order for a moment; the fastest way to load data is 
 3. Location of data files
 
 ### Encoding
-PolyBase requires data files to be UTF-8 encoded. This means that when you export your data it must conform to this requirement. If your data only contains basic ASCII characters (not extended ASCII) then these map directly to the UTF-8 standard and you don't have to worry too much about the encoding. However, if your data contains any special characters such as umlauts, accents or symbols or your data supports non-latin languages then you will have to ensure that your export files are properly UTF-8 encoded.
-
-> [!NOTE]
-> bcp does not support exporting data to UTF-8. Therefore your best option is to use either Integration Services or ADF Copy for the data export. It is worth pointing out that the UTF-8 byte order mark (BOM) is not required in the data file.
-
-Any files encoded using UTF-16 will need to be re-written ***prior*** to the data transfer.
+PolyBase requires data files to be UTF-8 or UTF-16FE. 
 
 ### Format of data files
 PolyBase mandates a fixed row terminator of \n or newline. Your data files must conform to this standard. There aren't any restrictions on string or column terminators.
@@ -159,9 +150,6 @@ Full documentation available: [AZCopy][AZCopy].
 ## Optimizing data export
 In addition to ensuring that the export conforms to the requirements laid out by PolyBase you can also seek to optimize the export of the data to improve the process further.
 
-> [!NOTE]
-> As PolyBase requires the data to be in UTF-8 format it is unlikely you will use bcp to perform the data export. bcp does not support outputting data files to UTF-8. SSIS or ADF Copy are much better suited to performing this kind of data export.
-
 ### Data compression
 PolyBase can read gzip compressed data. If you are able to compress your data to gzip files then you will minimize the amount of data being pushed over the network.
 
@@ -180,10 +168,8 @@ For more development tips, see [development overview][development overview].
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-[ADF Copy]: /documentation/articles/data-factory-copy-activity/
-[ADF samples]: ../data-factory/data-factory-samples.md
-[ADF Copy examples]: /documentation/articles/data-factory-copy-activity-examples/
-[development overview]: /documentation/articles/sql-data-warehouse-develop-overview/
+<!--Azure Data Factory (ADF) Not supported in ACN-->
+[development overview]: ./sql-data-warehouse-overview-develop.md
 [Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: ./sql-data-warehouse-load-with-bcp.md
@@ -192,9 +178,8 @@ For more development tips, see [development overview][development overview].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: /services/data-factory/
-[ExpressRoute]: /services/expressroute/
-[ExpressRoute documentation]: ../expressroute/index.md
+[ExpressRoute]: /documentation/services/expressroute/
+[ExpressRoute documentation]: /documentation/services/expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/

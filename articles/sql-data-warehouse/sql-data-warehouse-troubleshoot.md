@@ -1,19 +1,21 @@
 ---
-title: Troubleshooting Azure SQL Data Warehouse | Azure
+title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: sonyam
-manager: barbkess
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: sonyama;barbkess
+ms.date: 03/03/2017
+ms.author: barbkess
+
 ---
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -53,7 +55,6 @@ This topic lists some of the more common troubleshooting questions we hear from 
 ## Polybase
 | Issue | Resolution |
 |:--- |:--- |
-| UTF-8 error |Currently PolyBase only supports loading data files that have been UTF-8 encoded.  See [Working around the PolyBase UTF-8 requirement][Working around the PolyBase UTF-8 requirement] for guidance on how to work around this limitation. |
 | Load fails because of large rows |Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loads for large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release. |
 | bcp load of table with MAX data type is failing |There is a known issue which requires that VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX) be placed at the end of the table in some scenarios.  Try moving your MAX columns to the end of the table. |
 
@@ -70,10 +71,10 @@ This topic lists some of the more common troubleshooting questions we hear from 
 ## Next steps
 If you are were unable to find a solution to your issue above, here are some other resources you can try.
 
-- [Blogs]
-- [Feature requests]
-- [CAT team blogs]
-- [MSDN forum]
+* [Blogs]
+* [Feature requests]
+* [CAT team blogs]
+* [MSDN forum]
 
 <!--Image references-->
 
@@ -85,11 +86,11 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change 
+[DWU]: ./sql-data-warehouse-overview-what-is.md
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features

@@ -4,7 +4,7 @@ description: Learn what PolyBase is and how to use it for data warehousing scena
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
-manager: barbkess
+manager: jhubbard
 editor: ''
 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
@@ -13,22 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 03/01/2017
 wacn.date: ''
-ms.author: cakarst;barbkess
+ms.author: cakarst
 ---
 
 # Load data with PolyBase in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Redgate](./sql-data-warehouse-load-with-redgate.md)
-- [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
-- [BCP](./sql-data-warehouse-load-with-bcp.md)
+> * [Redgate](./sql-data-warehouse-load-with-redgate.md)
+> * [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
+> * [BCP](./sql-data-warehouse-load-with-bcp.md)
 
 <!-- Data Factory not supported on Azure.cn-->
 <!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
 
-This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
+This tutorial shows how to load data into SQL Data Warehouse using AzCopy and PolyBase. When finished, you will know how to:
 
 * Use AzCopy to copy data to Azure blob storage
 * Create database objects to define the data
@@ -53,18 +53,20 @@ To prepare a sample text file:
 
 1. Open Notepad and copy the following lines of data into a new file. Save this to your local temp directory as %temp%\DimDate2.txt.
 
-    20150301,1,3
-    20150501,2,4
-    20151001,4,2
-    20150201,1,3
-    20151201,4,2
-    20150801,3,1
-    20150601,2,4
-    20151101,4,2
-    20150401,2,4
-    20150701,3,1
-    20150901,3,1
-    20150101,1,3
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 ### B. Find your blob service endpoint
 To find your blob service endpoint:
@@ -203,16 +205,18 @@ Once the external table is created, you can either load the data into a new tabl
 * To load the data into a new table, run the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. The new table will have the columns named in the query. The data types of the columns will match the data types in the external table definition.
 * To load the data into an existing table, use the [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] statement.
 
-    -- Load the data from Azure blob storage to SQL Data Warehouse
+```sql
+-- Load the data from Azure blob storage to SQL Data Warehouse
 
-    CREATE TABLE dbo.DimDate2
-    WITH
-    (   
-        CLUSTERED COLUMNSTORE INDEX,
-        DISTRIBUTION = ROUND_ROBIN
-    )
-    AS
-    SELECT * FROM [dbo].[DimDate2External];
+CREATE TABLE dbo.DimDate2
+WITH
+(   
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+)
+AS
+SELECT * FROM [dbo].[DimDate2External];
+```
 
 ## Step 4: Create statistics on your newly loaded data
 SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data.

@@ -1,14 +1,20 @@
 ---
-title: Load data into Azure SQL Data Warehouse | Azure
+title: Load data into Azure SQL Data Warehouse | Microsoft Docs
 description: Learn the common scenarios for data loading into SQL Data Warehouse. These include using PolyBase, Azure blob storage, flat files, and disk shipping. You can also use third-party tools.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: lodipalm
-manager: barbkess
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
 ms.date: 10/31/2016
+ms.author: barbkess
 wacn.date: ''
 ---
 
@@ -22,29 +28,18 @@ For tutorials that load sample databases, see [Load sample databases][Load sampl
 ## Load from Azure blob storage
 The fastest way to import data into SQL Data Warehouse is to use PolyBase to load data from Azure blob storage. PolyBase uses SQL Data Warehouse's massively parallel processing (MPP) design to load data in parallel from Azure blob storage. To use PolyBase, you can use T-SQL commands or an Azure Data Factory pipeline.
 
-### 1. Use PolyBase and T-SQL
+### Use PolyBase and T-SQL
 Summary of loading process:
 
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to Azure blob storage and store it in text files.
-3. Configure external objects in SQL Data Warehouse to define the location and format of the data
-4. Run a T-SQL command to load the data in parallel into a new database table.
+1. Move your data to Azure blob storage and store it in text files.    <!--Data Lake Store Not supported in ACN-->
+2. Configure external objects in SQL Data Warehouse to define the location and format of the data
+3. Run a T-SQL command to load the data in parallel into a new database table.
 
 <!-- 5. Schedule and run a loading job. --> 
 
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
 
-### 2. Use Azure Data Factory
-For a simpler way to use PolyBase, you can create an Azure Data Factory pipeline that uses PolyBase to load data from Azure blob storage into SQL Data Warehouse. This is fast to configure since you don't need to define the T-SQL objects. If you need to query the external data without importing it, use T-SQL. 
-
-Summary of loading process:
-
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to Azure blob storage and store it in text files.
-3. Create an Azure Data Factory pipeline to ingest the data. Use the PolyBase option.
-4. Schedule and run the pipeline.
-
-For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)][Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)].
+<!-- ADF Not supported in ACN-->
 
 ## Load from SQL Server
 To load data from SQL Server to SQL Data Warehouse you can use Integration Services (SSIS), transfer flat files, or ship disks to Microsoft. Read on to see a summary of the different loading processes and links to tutorials.
@@ -97,13 +92,12 @@ Summary of loading process
 SQL Data Warehouse supports loading data from HDInsight via PolyBase. The process is the same as 
 loading data from Azure Blob Storage - using PolyBase to connect to HDInsight to load data. 
 
-### 1. Use PolyBase and T-SQL
+### Use PolyBase and T-SQL
 Summary of loading process:
 
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to HDInsight and store it in text files, ORC or Parquet format.
-3. Configure external objects in SQL Data Warehouse to define the location and format of the data.
-4. Run a T-SQL command to load the data in parallel into a new database table.
+1. Move your data to HDInsight and store it in text files, ORC or Parquet format.
+2. Configure external objects in SQL Data Warehouse to define the location and format of the data.
+3. Run a T-SQL command to load the data in parallel into a new database table.
 
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
 
@@ -128,9 +122,9 @@ For more development tips, see the [development overview][development overview].
 
 [Load sample databases]: ./sql-data-warehouse-load-sample-databases.md
 [Migration overview]: ./sql-data-warehouse-overview-migrate.md
-[solution partners]: /documentation/articles/sql-data-warehouse-solution-partners/
-[development overview]: sql-data-warehouse-overview-develop
-[Statistics]: /documentation/articles/sql-data-warehouse-develop-statistics/
+[solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 
