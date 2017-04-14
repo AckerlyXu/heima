@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator app help and support | Azure
+title: Microsoft Authenticator app help and support | Microsoft Docs
 description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -13,22 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
-wacn.date: ''
+ms.date: 02/17/2017
 ms.author: kgremban
----
 
+---
 # Microsoft Authenticator app FAQ
 
-This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](./microsoft-authenticator-app-phone-signin-faq.md).
+This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
 
-The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. This app is available for Windows Phone, Android, and iOS.
+The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## Frequently asked questions
-### What happened to the Azure Authenticator, Multi-Factor Auth, and Microsoft account apps?
-The Microsoft Authenticator app replaces each other these apps. Azure Authenticator upgraded to Microsoft Authenticator. If you use the Multi-Factor Auth or Microsoft account apps, install Microsoft Authenticator and add your accounts again. Make sure to finish adding your accounts to the new app before deleting the old ones.
 
-The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+### What are the codes in the app for? Why does the number keep counting down?
+
+When you open the Microsoft Authenticator app, you'll see the accounts you've added and a six- or eight-digit number by each of them. You might see a thirty-second timer counting down.
+
+These codes are used when you sign in to your account. After you enter your username and password, you might be asked to enter a verification code. Open the Microsoft Authenticator app and copy the code that's currently showing. Enter that code in the sign-in page to finish.
+
+The reason that the codes change every 30 seconds is so that you never use the same code twice. It's not like a password that you're supposed to remember. The idea is that only someone with access to your phone will know your verification code.
+
+The codes don't require internet or data, so you don't have to worry about having phone service to sign in, or that the app will use up your data plan. When you close the app, it doesn't keep running in the background so it won't drain your battery. You can close the app and ignore it until the next time that you sign in.  
 
 ### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
 Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
@@ -80,7 +85,10 @@ This is by design. Two-step verification requires proving two things - a thing y
 ### Contact us
 If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.
 
+
 ### Related topics
 - [About two-step verification](https://support.microsoft.com/zh-cn/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-- [Having trouble with two-step verification](../multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
-- [Use the Microsoft Authenticator to sign in from your phone](./microsoft-authenticator-app-phone-signin-faq.md)
+- [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
+- [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
+
+
