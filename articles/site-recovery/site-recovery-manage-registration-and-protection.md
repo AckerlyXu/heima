@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/28/2016
-wacn.date: ''
+ms.date: 03/27/2017
 ms.author: raynew
+
 ---
 
 # Remove servers and disable protection
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy. The service orchestrates replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](./site-recovery-overview.md)
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy. The service orchestrates replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
 This article describes how to unregister servers from a Recovery Services vault in the Azure portal, and how to disable protection for machines protected by Site Recovery.
+
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Unregister a connected configuration server
 
@@ -62,6 +64,8 @@ As a best practice, we recommend that you unregister the VMM server when it's co
 5. Uninstall the Provider manually on the VMM server. If you have a cluster, remove from all nodes.
 6. If you're replicating to Azure, manually remove the Microsoft Recovery Services agent from Hyper-V hosts in the deleted clouds.
 
+
+
 ### Unregister an unconnected VMM server
 
 1. Stop replicating VMs in clouds on the VMM server you want to remove.
@@ -85,87 +89,88 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 4. Delete the Hyper-V site after all hosts have been removed from it. In **Site Recovery Infrastructure** > **For System Center VMM** > **Hyper-V Sites**, right-click the site > **Delete**.
 5. Run the following script on each Hyper-V host that you removed. The script cleans up settings on the server, and unregisters it from the vault.
 
-    ```
-    `` pushd .
-    try
-    {
-         $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-         $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
-         $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
-         $isAdmin=$principal.IsInRole($administrators)
-         if (!$isAdmin)
-         {
-            "Please run the script as an administrator in elevated mode."
-            $choice = Read-Host
-            return;       
-         }
 
-        $error.Clear()    
-        "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
-        $choice =  Read-Host
-
-        if (!($choice -eq 'Y' -or $choice -eq 'y'))
+        `` pushd .
+        try
         {
-        "Stopping cleanup."
-        return;
-        }
+             $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+             $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
+             $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+             $isAdmin=$principal.IsInRole($administrators)
+             if (!$isAdmin)
+             {
+                "Please run the script as an administrator in elevated mode."
+                $choice = Read-Host
+                return;       
+             }
 
-        $serviceName = "dra"
-        $service = Get-Service -Name $serviceName
-        if ($service.Status -eq "Running")
-        {
-            "Stopping the Azure Site Recovery service..."
-            net stop $serviceName
-        }
+            $error.Clear()    
+            "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
+            $choice =  Read-Host
 
-        $asrHivePath = "HKLM:\SOFTWARE\Microsoft\Azure Site Recovery"
-        $registrationPath = $asrHivePath + '\Registration'
-        $proxySettingsPath = $asrHivePath + '\ProxySettings'
-        $draIdvalue = 'DraID'
-
-        if (Test-Path $asrHivePath)
-        {
-            if (Test-Path $registrationPath)
+            if (!($choice -eq 'Y' -or $choice -eq 'y'))
             {
-                "Removing registration related registry keys."    
-                Remove-Item -Recurse -Path $registrationPath
+            "Stopping cleanup."
+            return;
             }
 
-            if (Test-Path $proxySettingsPath)
-        {
-                "Removing proxy settings"
-                Remove-Item -Recurse -Path $proxySettingsPath
+            $serviceName = "dra"
+            $service = Get-Service -Name $serviceName
+            if ($service.Status -eq "Running")
+            {
+                "Stopping the Azure Site Recovery service..."
+                net stop $serviceName
             }
 
-            $regNode = Get-ItemProperty -Path $asrHivePath
-            if($regNode.DraID -ne $null)
-            {            
-                "Removing DraId"
-                Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
+            $asrHivePath = "HKLM:\SOFTWARE\Microsoft\Azure Site Recovery"
+            $registrationPath = $asrHivePath + '\Registration'
+            $proxySettingsPath = $asrHivePath + '\ProxySettings'
+            $draIdvalue = 'DraID'
+
+            if (Test-Path $asrHivePath)
+            {
+                if (Test-Path $registrationPath)
+                {
+                    "Removing registration related registry keys."    
+                    Remove-Item -Recurse -Path $registrationPath
+                }
+
+                if (Test-Path $proxySettingsPath)
+            {
+                    "Removing proxy settings"
+                    Remove-Item -Recurse -Path $proxySettingsPath
+                }
+
+                $regNode = Get-ItemProperty -Path $asrHivePath
+                if($regNode.DraID -ne $null)
+                {            
+                    "Removing DraId"
+                    Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
+                }
+                "Registry keys removed."
             }
-            "Registry keys removed."
+
+            # First retrive all the certificates to be deleted
+            $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
+            # Open a cert store object
+            $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
+            $store.Open('ReadWrite')
+            # Delete the certs
+            "Removing all related certificates"
+            foreach ($cert in $ASRcerts)
+            {
+                $store.Remove($cert)
+            }
+        }catch
+        {    
+            [system.exception]
+            Write-Host "Error occured" -ForegroundColor "Red"
+            $error[0]
+            Write-Host "FAILED" -ForegroundColor "Red"
         }
+        popd``
 
-        # First retrive all the certificates to be deleted
-        $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
-        # Open a cert store object
-        $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
-        $store.Open('ReadWrite')
-        # Delete the certs
-        "Removing all related certificates"
-        foreach ($cert in $ASRcerts)
-        {
-            $store.Remove($cert)
-        }
-    }catch
-    {    
-        [system.exception]
-        Write-Host "Error occured" -ForegroundColor "Red"
-        $error[0]
-        Write-Host "FAILED" -ForegroundColor "Red"
-    }
-    popd``
-    ```
+
 
 ## Disable protection for a VMware VM or physical server
 
@@ -188,22 +193,16 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
 If you selected **Stop managing the machine** and you replicating to a secondary site, run this script on the primary server to clean up the settings for the primary virtual machine. In the VMM console click the PowerShell button to open the VMM PowerShell console. Replace SQLVM1 with the name of your virtual machine.
 
-```
-     ``$vm = get-scvirtualmachine -Name "SQLVM1"
-     Set-SCVirtualMachine -VM $vm -ClearDRProtection``
-```
+         ``$vm = get-scvirtualmachine -Name "SQLVM1"
+         Set-SCVirtualMachine -VM $vm -ClearDRProtection``
 2. On the secondary VMM server run this script to clean up the settings for the secondary virtual machine:
 
-    ```
-    ``$vm = get-scvirtualmachine -Name "SQLVM1"
-    Remove-SCVirtualMachine -VM $vm -Force``
-    ```
+        ``$vm = get-scvirtualmachine -Name "SQLVM1"
+        Remove-SCVirtualMachine -VM $vm -Force``
 3. On the secondary VMM server, refresh the virtual machines on the Hyper-V host server, so that the secondary VM gets detected again in the VMM console.
 4. The above steps clear up the replication settings on the VMM server. If you want to stop replication for the virtual machine, run the following script oh the primary and secondary VMs. Replace SQLVM1 with the name of your virtual machine.
 
-    ```
-    ``Remove-VMReplication –VMName “SQLVM1”``
-    ```
+        ``Remove-VMReplication –VMName “SQLVM1”``
 
 ### Clean up protection settings - replication to Azure
 
@@ -212,13 +211,12 @@ If you selected **Stop managing the machine** and you replicating to a secondary
         Set-SCVirtualMachine -VM $vm -ClearDRProtection``
 2. The above steps clear the replication settings on the VMM server. To stop replication for the virtual machine running on the Hyper-V host server, run this script. Replace SQLVM1 with the name of your virtual machine, and host01.contoso.com with the name of the Hyper-V host server.
 
-    ```
-    ``$vmName = "SQLVM1"
-    $hostName  = "host01.contoso.com"
-    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
-    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
-    $replicationService.RemoveReplicationRelationship($vm.__PATH)``
-    ```
+        ``$vmName = "SQLVM1"
+        $hostName  = "host01.contoso.com"
+        $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
+        $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
+        $replicationService.RemoveReplicationRelationship($vm.__PATH)``
+
 
 ## Disable protection for a Hyper-V VM in a Hyper-V Site
 
@@ -231,9 +229,7 @@ Use this procedure if you're replicating Hyper-V VMs to Azure without a VMM serv
    - **Stop managing the machine**. If you select this option the machine will only be removed from the vault. On-premises protection settings for the machine won’t be affected. To remove settings on the machine, and to remove the virtual machine from the Azure subscription, you need to clean the settings up manually. If you select to delete the virtual machine and its hard disks they will be removed from the target location.
 3. If you selected **Stop managing the machine**, run this script on the source Hyper-V host server, to remove replication for the virtual machine. Replace SQLVM1 with the name of your virtual machine.
 
-    ```
-    $vmName = "SQLVM1"
-    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
-    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
-    $replicationService.RemoveReplicationRelationship($vm.__PATH)
-    ```
+        $vmName = "SQLVM1"
+        $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
+        $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
+        $replicationService.RemoveReplicationRelationship($vm.__PATH)
