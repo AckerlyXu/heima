@@ -7,24 +7,24 @@ author: seguler
 manager: jahogg
 editor: tysonn
 
+ms.assetid: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/07/2017
-wacn.date: ''
-ms.author: micurd
----
+ms.date: 03/22/2017
+ms.author: seguler
 
+---
 # Transfer Data with the Azure Storage Data Movement Library
 
 ## Overview
 The Azure Storage Data Movement Library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](./storage-use-azcopy.md). The Data Movement Library provides convenient methods that aren't available in our traditional [.NET Azure Storage Client Library](./storage-dotnet-how-to-use-blobs.md). This includes the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.  
 
-This library also uses .NET Core, which means you can use it when building .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, refer to the [.NET Core documentation](https://dotnet.github.io/). This library also works for traditional .NET Framework apps for Windows. 
+This library also uses .NET Core, which means you can use it when building .NET apps for Windows, Linux and macOS. To learn more about .NET Core, refer to the [.NET Core documentation](https://dotnet.github.io/). This library also works for traditional .NET Framework apps for Windows. 
 
-This document demonstrates how to create a .NET Core console application that that runs on Windows, Linux, and MacOS and performs the following scenarios:
+This document demonstrates how to create a .NET Core console application that that runs on Windows, Linux, and macOS and performs the following scenarios:
 
 - Upload files and directories to Blob Storage.
 - Define the number of parallel operations when transferring data.
@@ -36,7 +36,7 @@ This document demonstrates how to create a .NET Core console application that th
 **What you need:**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* An [Azure storage account](./storage-create-storage-account.md#create-a-storage-account)
+* An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 > [!NOTE]
 > This guide assumes that you are already familiar with [Azure Storage](https://www.azure.cn/home/features/storage/). If not, reading the [Introduction to Azure Storage](./storage-introduction.md) documentation is helpful. Most importantly, you need to [create a Storage account](./storage-create-storage-account.md#create-a-storage-account) to start using the Data Movement Library.
@@ -61,7 +61,6 @@ This document demonstrates how to create a .NET Core console application that th
 
 Modify `project.json`:
 
-```
     {
       "version": "1.0.0-*",
       "buildOptions": {
@@ -86,7 +85,6 @@ Modify `project.json`:
         }
       }
     }
-```
 
 ## Set up the skeleton of your application
 The first thing we do is set up the "skeleton" code of our application. This code prompts us for a Storage account name and account key and uses those credentials to create a `CloudStorageAccount` object. This object is used to interact with our Storage account in all transfer scenarios. The code also prompts us to choose the type of transfer operation we would like to execute. 
@@ -144,12 +142,12 @@ namespace DMLibSample
 
         public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
         { 
-
+            
         }
 
         public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorageAccount account)
         { 
-
+            
         }
 
         public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
@@ -289,7 +287,7 @@ public static SingleTransferContext GetSingleTransferContext(TransferCheckpoint 
     {
         Console.Write("\rBytes transferred: {0}", progress.BytesTransferred );
     });
-
+    
     return context;
 }
 
@@ -301,7 +299,7 @@ public static DirectoryTransferContext GetDirectoryTransferContext(TransferCheck
     {
         Console.Write("\rBytes transferred: {0}", progress.BytesTransferred );
     });
-
+    
     return context;
 }
 ```
@@ -579,6 +577,10 @@ In this example, we set the boolean parameter in `TransferManager.CopyAsync` to 
 Our data movement application is now complete. [The full code sample is available on GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
 ## Next steps
-In this getting started, we created an application that interacts with Azure Storage and runs on Windows, Linux, and MacOS. This getting started focused on Blob Storage. However, this same knowledge can be applied to File Storage. To learn more, check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement).
+In this getting started, we created an application that interacts with Azure Storage and runs on Windows, Linux, and macOS. This getting started focused on Blob Storage. However, this same knowledge can be applied to File Storage. To learn more, check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+
+
+
+

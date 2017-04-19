@@ -13,16 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
-wacn.date: ''
+ms.date: 03/27/2017
 ms.author: robinsh
 ---
 
 # Get started with Azure Queue storage using .NET
-
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
-<br/>
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## Overview
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
@@ -34,10 +32,10 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 **Prerequisities:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/zh-cn/visual-studio-homepage-vs.aspx)
-- [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- An [Azure storage account](./storage-create-storage-account.md#create-a-storage-account)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -47,31 +45,28 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Add namespace declarations
-Add the following `using` statements to the top of the `program.cs` file:
+### Add using directives
+Add the following `using` directives to the top of the `Program.cs` file:
 
 ```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
 
 ### Parse the connection string
-
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Queue service client
-
 The **CloudQueueClient** class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
-
+    
 Now you are ready to write code that reads data from and writes data to Queue storage.
 
 ## Create a queue
-
 This example shows how to create a queue if it does not already exist:
 
 ```csharp
@@ -90,7 +85,6 @@ queue.CreateIfNotExists();
 ```
 
 ## Insert a message into a queue
-
 To insert a message into an existing queue, first create a new
 **CloudQueueMessage**. Next, call the **AddMessage** method. A
 **CloudQueueMessage** can be created from either a string (in UTF-8
@@ -117,7 +111,6 @@ queue.AddMessage(message);
 ```
 
 ## Peek at the next message
-
 You can peek at the message in the front of a queue without removing it
 from the queue by calling the **PeekMessage** method.
 
@@ -140,7 +133,6 @@ Console.WriteLine(peekedMessage.AsString);
 ```
 
 ## Change the contents of a queued message
-
 You can change the contents of a message in-place in the queue. If the
 message represents a work task, you could use this feature to update the
 status of the work task. The following code updates the queue message
@@ -169,12 +161,11 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 CloudQueueMessage message = queue.GetMessage();
 message.SetMessageContent("Updated contents.");
 queue.UpdateMessage(message,
-    TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
+    TimeSpan.FromSeconds(60.0),  // Make it invisible for another 60 seconds.
     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
 ## De-queue the next message
-
 Your code de-queues a message from a queue in two steps. When you call
 **GetMessage**, you get the next message in a queue. A message returned
 from **GetMessage** becomes invisible to any other code reading messages
@@ -205,8 +196,7 @@ queue.DeleteMessage(retrievedMessage);
 ```
 
 ## Use Async-Await pattern with common Queue storage APIs
-
-This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/zh-cn/library/hh191443.aspx)
+This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
 // Create the queue if it doesn't already exist
@@ -234,9 +224,8 @@ Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsStr
 await queue.DeleteMessageAsync(retrievedMessage);
 Console.WriteLine("Deleted message");
 ```
-
+    
 ## Leverage additional options for de-queuing messages
-
 There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
 longer or shorter invisibility timeout, allowing your code more or less
@@ -267,7 +256,6 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## Get the queue length
-
 You can get an estimate of the number of messages in a queue. The
 **FetchAttributes** method asks the Queue service to
 retrieve the queue attributes, including the message count. The **ApproximateMessageCount**
@@ -296,7 +284,6 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## Delete a queue
-
 To delete a queue and all the messages contained in it, call the
 **Delete** method on the queue object.
 
@@ -314,25 +301,25 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 // Delete the queue.
 queue.Delete();
 ```
+    
 
 ## Next steps
-
 Now that you've learned the basics of Queue storage, follow these links
 to learn about more complex storage tasks.
 
-- View the Queue service reference documentation for complete details about available APIs:
-    - [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-    - [REST API reference](http://msdn.microsoft.com/zh-cn/library/azure/dd179355)
-- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
-- View more feature guides to learn about additional options for storing data in Azure.
-    - [Get started with Azure Table storage using .NET](./storage-dotnet-how-to-use-tables.md) to store structured data.
-    - [Get started with Azure Blob storage using .NET](./storage-dotnet-how-to-use-blobs.md) to store unstructured data.
-    - [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
+* View the Queue service reference documentation for complete details about available APIs:
+  * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
+* View more feature guides to learn about additional options for storing data in Azure.
+  * [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md) to store structured data.
+  * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+  * [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
-  [Download and install the Azure SDK for .NET]: /develop/net/
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/zh-cn/library/azure/ee405487.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+[Download and install the Azure SDK for .NET]: /develop/net/
+[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
+[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2

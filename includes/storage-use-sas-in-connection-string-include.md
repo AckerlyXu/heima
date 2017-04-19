@@ -1,4 +1,4 @@
-If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS includes on the URI the information required to authenticate the request, the SAS URI provides the protocol, the service endpoint, and the necessary credentials to access the resource.
+If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS contains the information required to authenticate the request, a connection string with a SAS provides the protocol, the service endpoint, and the necessary credentials to access the resource.
 
 To create a connection string that includes a shared access signature, specify the string in the following format:
 
@@ -12,13 +12,14 @@ SharedAccessSignature=sasToken
 
 Each service endpoint is optional, although the connection string must contain at least one.
 
->[!NOTE]
+> [!NOTE]
 > Using HTTPS with a SAS is recommended as a best practice.
 >
->If you are specifying a SAS in a connection string in a configuration file, you may need to encode special characters in the URL.
+> If you are specifying a SAS in a connection string in a configuration file, you may need to encode special characters in the URL.
+>
+>
 
 ### Service SAS example
-
 Here's an example of a connection string that includes a service SAS for Blob storage:
 
 ```
@@ -32,7 +33,6 @@ BlobEndpoint=https://storagesample.blob.core.chinacloudapi.cn;SharedAccessSignat
 ```
 
 ### Account SAS example
-
 Here's an example of a connection string that includes an account SAS for Blob and File storage. Note that endpoints for both services are specified:
 
 ```
