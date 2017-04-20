@@ -1,4 +1,4 @@
 > [!div class="op_single_selector"]
->- [Azure portal preview](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md)
->- [PowerShell](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-ps.md)
->- [Template](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md)
+> * [Azure portal preview](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md)
+> * [PowerShell](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-ps.md)
+> * [Template](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md)

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 04/03/2017
 wacn.date: ''
 ms.author: sdanie
 
@@ -104,7 +104,7 @@ New Azure Redis Cache instances are created using the [New-AzureRmRedisCache](ht
 
 > [!IMPORTANT]
 > The first time you create a Redis cache in a subscription using the Azure portal preview, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` fail.
-><p> 
+> <p> 
 > `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 > 
 > 
@@ -269,14 +269,14 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 
 > [!NOTE]
 > Scaling a cache using PowerShell is subject to the same limits and guidelines as scaling a cache from the Azure portal preview. You can scale to a different pricing tier with the following restrictions.
-><p> 
+> <p> 
 > * You can't scale from a higher pricing tier to a lower pricing tier.
-><p> * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
-><p> * You can't scale from a **Standard** cache down to a **Basic** cache.
-><p> * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
-><p> * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
-><p> * You can't scale from a larger size down to the **C0 (250 MB)** size.
-><p> 
+> <p> * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+> <p> * You can't scale from a **Standard** cache down to a **Basic** cache.
+> <p> * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+> <p> * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+> <p> * You can't scale from a larger size down to the **C0 (250 MB)** size.
+> <p> 
 > For more information, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 > 
 > 
@@ -701,7 +701,7 @@ The following command reboots both nodes of the specified cache.
 To learn more about using Windows PowerShell with Azure, see the following resources:
 
 * [Azure Redis Cache cmdlet documentation on MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
-* [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/mt125356.aspx): Learn to use the cmdlets in the AzureResourceManager module.
+* [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/mt125356.aspx): Learn to use the cmdlets in the Azure Resource Manager module.
 * [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal preview.
 * [Azure blog](https://www.azure.cn/blog/): Learn about new features in Azure.
 * [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.

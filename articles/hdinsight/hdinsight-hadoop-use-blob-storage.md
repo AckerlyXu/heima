@@ -11,6 +11,7 @@ editor: cgronlun
 
 ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -44,7 +45,7 @@ Azure storage is a robust, general-purpose storage solution that integrates seam
 > | Blob Storage Account | Hot | No |
 > | &nbsp; | Cool | No |
 
-## <a id="architecture"></a> HDInsight storage architecture
+### <a id="architecture"></a> HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
 ![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
@@ -105,6 +106,9 @@ When creating an HDInsight cluster from the Portal, you have the options (as sho
 
 ![HDInsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
+> [!WARNING]
+> Using an additional storage account in a different location than the HDInsight cluster is not supported.
+
 #### Using Azure CLI
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -153,7 +157,7 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-## <a id="addressing"></a> Address files in Azure storage
+### <a id="addressing"></a> Address files in Azure storage
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/<path>
@@ -204,7 +208,7 @@ Use the following command to list the blob-related commands:
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-## <a id="powershell" name="access-blobs-using-azure-powershell"></a> Access blobs using Azure PowerShell
+### <a id="powershell" name="access-blobs-using-azure-powershell"></a> Access blobs using Azure PowerShell
 > [!NOTE]
 > The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 > 
@@ -283,8 +287,73 @@ This example shows how to list a folder from storage account that is not defined
 
 While creating an HDInsight cluster you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a id="nextsteps"></a> Next steps
-In this article, you learned how to use HDFS-compatible Azure storage with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
+> [!WARNING]
+> Using an additional storage account in a different location than the HDInsight cluster is not supported.
+
+## Using Azure Data Lake Store with HDInsight clusters
+
+HDInsight clusters can use Azure Data Lake Store in two ways:
+
+* Azure Data Lake Store as the default storage
+* Azure Data Lake Store as additional storage, with Azure Storage Blob as default storage.
+
+> [!NOTE]
+> Azure Data Lake Store is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
+> 
+> 
+
+### Using Azure Data Lake Store as default storage
+
+When HDInsight is deployed with Azure Data Lake Store as default storage, the cluster-related files are stored in Azure Data Lake store in the following location:
+
+	adl://mydatalakestore/<cluster_root_path>/
+
+where `<cluster_root_path>` is the name of a folder you create in Azure Data Lake Store. By specifying a root path for each cluster, you can use the same Azure Data Lake Store account for more than one cluster. So, you can have a setup where:
+
+* Cluster1 can use the path `adl://mydatalakestore/cluster1storage`
+* Cluster2 can use the path `adl://mydatalakestore/cluster2storage`
+
+Notice that both the clusters use the same Data Lake Store account **mydatalakestore**. Each cluster has access to its own root filesystem in Data Lake Store. The Azure portal preview deployment experience in particular prompts you to use a folder name such as **/clusters/\<clustername>** for the root path.
+
+#### Accessing files from the cluster
+
+There are a number of ways you can access the files in Azure Data Lake Store from an HDInsight cluster.
+
+* **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
+
+        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/<file_path>
+
+* **Using the shortened path format**. With this approach, you replace the path up to the cluster root with adl:///. So, in the example above, you can replace `adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/` with `adl:///`.
+
+        adl:///<file path>
+
+* **Using the relative path**. With this approach, you only provide the relative path to the file that you want to access. For example, if the complete path to the file is:
+
+        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/example/data/sample.log
+
+    You can access the same sample.log file by using this relative path instead.
+
+        /example/data/sample.log
+
+### Using Azure Data Lake Store as additional storage
+
+You can use Data Lake Store as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Storage Blob or an Azure Data Lake Store account. If you are running HDInsight jobs against the data stored in Azure Data Lake Store as additional storage, you must use the fully-qualified path to the files. For example:
+
+	adl://mydatalakestore.azuredatalakestore.net/<file_path>
+
+Note that there's no **cluster_root_path** in the URL now. That's because Data Lake Store is not a default storage in this case so all you need to do is provide the path to the files.
+
+### Creating HDInsight clusters with access to Data Lake Store
+
+Follow the links below for detailed instructions on how to create HDInsight clusters with access to Data Lake Store.
+
+* [Using Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Using PowerShell (with Data Lake Store as default storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Using PowerShell (with Data Lake Store as additional storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Using Azure templates](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+
+## Next steps
+In this article, you learned how to use HDFS-compatible Azure storage and Azure Data Lake Store with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
 
 For more information, see:
 

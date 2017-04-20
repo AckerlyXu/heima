@@ -175,6 +175,6 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - Be sure to replace:
-    - **10.0.0.5** with the private IP address that has a public IP address associated to it
-    - **10.0.0.1** to your default gateway
-    - **eth2** to the name of your secondary NIC
+	- **10.0.0.5** with the private IP address that has a public IP address associated to it
+	- **10.0.0.1** to your default gateway
+	- **eth2** to the name of your secondary NIC

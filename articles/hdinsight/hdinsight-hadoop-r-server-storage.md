@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
 ms.service: HDInsight
+ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -24,7 +25,10 @@ Microsoft R Server on HDInsight has access to both Azure Blob, as a means of per
 When you create a Hadoop cluster in HDInsight, you specify either an Azure Storage account. A specific storage container from that account holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
 ## Use multiple Azure Blob storage accounts
-If necessary, you can access multiple Azure storage accounts or containers with your HDI cluster. To do so, you need to specify the additional storage accounts in the UI when you create the cluster, and then follow these steps to use them in R.  
+If necessary, you can access multiple Azure storage accounts or containers with your HDI cluster. To do so, you need to specify the additional storage accounts in the UI when you create the cluster, and then follow these steps to use them in R.
+
+> [!WARNING]
+> Using a storage account in a different location than the HDInsight cluster is not supported.
 
 1. Create an HDInsight cluster with a storage account name of **storage1** and a default container called **container1**.
 2. Specify an additional storage account called **storage2**.  

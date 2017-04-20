@@ -18,7 +18,7 @@ ms.date: 02/27/2017
 wacn.date: ''
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight
 
@@ -31,7 +31,7 @@ Hive and Pig are great for working with data in HDInsight, but sometimes you nee
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * A text editor
 
@@ -183,7 +183,8 @@ When the data is returned to Pig, it has a consistent schema as defined in the *
 If you are using a Linux-based HDInsight cluster, use the **SSH** steps. If you are using a Windows-based HDInsight cluster and a Windows client, use the **PowerShell** steps.
 
 ### SSH
-For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.
 
@@ -268,7 +269,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 ### PowerShell
 
-These steps use Azure PowerShell. For more information on using 
+These steps use Azure PowerShell. For more information on using
 Azure PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
 
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.

@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -33,7 +34,7 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that allo
 * A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * The example files from [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). This repository contains the following items:
 
@@ -55,9 +56,9 @@ The difference between the two forms is important for one key scenario: revocati
 4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all application components that use the previous key to fail authentication until they are updated the new key.
 
 > [!IMPORTANT]
-> A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key. 
-> 
-> 
+> A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
+>
+>
 
 It is recommended that you always use stored access policies, so that you can either revoke signatures or extend the expiry date as needed. The steps in this document use stored access policies to generate SAS.
 
@@ -148,11 +149,11 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     > [!IMPORTANT]
     > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
-    > <p>  
-    ><p> * Must be at least 10 characters in length
-    ><p> * Must contain at least one digit
-    ><p> * Must contain at least one non-alphanumeric character
-    ><p> * Must contain at least one upper or lower case letter
+    > <p>
+    > <p> * Must be at least 10 characters in length
+    > <p> * Must contain at least one digit
+    > <p> * Must contain at least one non-alphanumeric character
+    > <p> * Must contain at least one upper or lower case letter
     > 
     > 
 
@@ -191,10 +192,7 @@ To verify that you have restricted access, use the following methods:
 * For **Windows-based** HDInsight clusters, use Remote Desktop to connect to the cluster. For more information, see [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
     Once connected, use the **Hadoop Command-Line** icon on the desktop to open a command prompt.
-* For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. See one of the following documents for information on using SSH with Linux-based clusters:
-
-  * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, or Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected to the cluster, use the following steps to verify that you can only read and list items on the SAS storage account:
 

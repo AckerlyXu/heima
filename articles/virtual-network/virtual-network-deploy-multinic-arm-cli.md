@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 8e906a4b-8583-4a97-9416-ee34cfa09a98
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -37,25 +37,26 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) if you don't already have it installed.
-2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login`.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet) with two subnets, two NICs, and a VM with the two NICs attached to it. One of the NICs is connected to one subnet and is assigned a static public and private IP address. The other NIC is connected to the other subnet and is assigned a static private IP address and no public IP address. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
-    ```azurecli
+    ```bash
     #!/bin/sh
 
     RgName="Multi-NIC-VM"
     Location="chinanorth"
-    az group create --name $RgName --location $Location
 
-    # Create a public IP address resource with a static IP address using the `--allocation-method Static` option.
-    # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
-    # resource from a pool of IP adresses unique to each Azure region. 
+    # Create a resource group.
+    az group create \
+    --name $RgName \
+    --location $Location
+
+    # The address is assigned to the resource from a pool of IP adresses unique to each Azure region. 
     # Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653 that lists
     # the ranges for each region.
 
     PipName="PIP-WEB"
-
     az network public-ip create \
     --name $PipName \
     --resource-group $RgName \
@@ -68,7 +69,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     VnetPrefix="10.0.0.0/16"
     VnetSubnet1Name="Front-End"
     VnetSubnet1Prefix="10.0.0.0/24"
-
     az network vnet create \
     --name $VnetName \
     --resource-group $RgName \
@@ -81,7 +81,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
     VnetSubnet2Name="Back-end"
     VnetSubnet2Prefix="10.0.1.0/24"
-
     az network vnet subnet create \
     --vnet-name $VnetName \
     --resource-group $RgName \
@@ -91,7 +90,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     # Create a network interface connected to one of the subnets. The NIC is assigned a single dynamic private and
     # public IP address by default, but you can instead, assign static addresses, or no public IP address at all.
     # You can also assign multiple private or public IP addresses to each NIC. To learn more about IP addressing
-    # options for NICs, enter the `az network nic create -h` command.
+    # options for NICs, enter the az network nic create -h command.
 
     Nic1Name="NIC-FE"
     PrivateIpAddress1="10.0.0.5"
@@ -117,7 +116,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --location $Location \
     --subnet $VnetSubnet2Name \
     --vnet-name $VnetName \
-    --private-ip-address $PrivateIpAddress2 \
+    --private-ip-address $PrivateIpAddress2
 
     # Create a VM and attach the two NICs.
 
@@ -133,7 +132,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     VmSize="Standard_DS2"
 
     # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-    # `az vm image list` command.
+    # az vm image list command.
 
     OsImage="credativ:Debian:8:latest"
 
@@ -158,9 +157,9 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --ssh-key-value $SshKeyValue
     ```
 
-    In addition to creating a VM with two NICs, the script creates:
-    - A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
-    - A virtual network with two subnets and a single public IP address. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
+In addition to creating a VM with two NICs, the script creates:
+- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
+- A virtual network with two subnets and a single public IP address. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
 ## <a name = "validate"></a>Validate VM creation and NICs
 
@@ -171,12 +170,10 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 ## <a name= "clean-up"></a>Remove the VM and associated resources
 
-If you created a resource group solely for the purposes of completing the steps in this article, you can remove all the resources by deleting the resource group with the `az group delete --name Multi-NIC-VM` command.
-
->[!WARNING]
->Confirm there are no other resources in the resource group, other than the resources created by the script in this article, before deleting the resource group. Run the `az resource list --resource-group Multi-NIC-VM` command to view the resources in the resource group.
-
-It's recommended that you delete the resources if you won't use the VM in production. VM, public IP address, and disk resources incur charges, as long as they're provisioned.
+It's recommended that you delete the resources created in this exercise if you won't use them in production. VM, public IP address, and disk resources incur charges, as long as they're provisioned. To remove the resources created during this exercise, complete the following steps:
+1. To view the resources in the resource group, run the `az resource list --resource-group Multi-NIC-VM` command.
+2. Confirm there are no resources in the resource group, other than the resources created by the script in this article. 
+3. To delete all resources created in this exercise, run the `az group delete --name Multi-NIC-VM` command. The command deletes the resource group and all the resources it contains.
 
 ## Next steps
 

@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -32,18 +33,14 @@ To complete the steps in this article, you will need the following:
 * A Linux-based Hadoop on HDInsight cluster
 
     > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * A text editor
 
     > [!IMPORTANT]
     > The text editor must use LF as the line ending. If it uses CRLF, this will cause errors when running the MapReduce job on Linux-based HDInsight clusters. If you are not sure, use the optional step in the [Run MapReduce](#run-mapreduce) section to convert any CRLF to LF.
 
-* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
-
-    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Familiarity with SSH and SCP**. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Word count
 
@@ -152,9 +149,9 @@ Both **mapper.py** and **reducer.py** must be on the head node of the cluster be
 
 > [!IMPORTANT]
 > There is an important difference between using `scp` and PowerShell to upload the files:
-><p>
-><p> * Using `scp` places the files on the primary head node of the cluster. This assumes that you will later connect to the head node and run the job from an SSH session.
-><p> * Using the PowerShell script places the files into the default storage for the cluster. This assumes that you will later use a PowerShell script to run the job from a remote client.
+> <p>
+> <p> * Using `scp` places the files on the primary head node of the cluster. This assumes that you will later connect to the head node and run the job from an SSH session.
+> <p> * Using the PowerShell script places the files into the default storage for the cluster. This assumes that you will later use a PowerShell script to run the job from a remote client.
 
 ### Upload using scp
 
@@ -301,7 +298,7 @@ Use the following steps to run the streaming MapReduce from PowerShell on your d
 
     # Create the streaming job definition
     # Note: This assumes that the mapper.py and reducer.py
-    #       are in the root of default storage. If you put them in a 
+    #       are in the root of default storage. If you put them in a
     #       subdirectory, change the -Files parameter to the correct path.
     $jobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
         -Files "/mapper.py", "/reducer.py" `

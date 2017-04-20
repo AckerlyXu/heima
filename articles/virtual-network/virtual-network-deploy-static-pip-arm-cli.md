@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -23,17 +23,16 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with a static public IP address using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
->- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
->- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
->- [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
->- [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
->- [Template](virtual-network-deploy-static-pip-arm-template.md)
->- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+> * [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Template](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
+Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -44,33 +43,34 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) if you don't already have it installed.
-2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login`.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The Azure public IP address, virtual network, network interface, and VM resources must all exist in the same location. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
-    ```azurecli
-    #!/bin/sh
-
+    ```bash
     RgName="IaaSStory"
     Location="chinanorth"
-    az group create --name $RgName --location $Location
 
-    # Create a public IP address resource with a static IP address
+    # Create a resource group.
+
+    az group create \
+    --name $RgName \
+    --location $Location
+
+    # Create a public IP address resource with a static IP address using the --allocation-method Static option.
+    # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
+    # resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
+    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653#
+    # that lists the ranges for each region.
+
     PipName="PIPWEB1"
-    # Note: The value below must be unique within the azure location it's created in.
     DnsName="iaasstoryws1"
-
     az network public-ip create \
     --name $PipName \
     --resource-group $RgName \
     --location $Location \
-
-    # The following option allocates a static public IP address to the resource. If you do not specify it, the address is
-    # allocated dynamically. The address is assigigned to the resource from a pool of IP adresses unique to each Azure regions.
-    # Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653 to see the ranges for each region.
     --allocation-method Static \
-
-    --dns-name $DnsName \
+    --dns-name $DnsName
 
     # Create a virtual network with one subnet
 
@@ -78,7 +78,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     VnetPrefix="192.168.0.0/16"
     SubnetName="FrontEnd"
     SubnetPrefix="192.168.1.0/24"
-
     az network vnet create \
     --name $VnetName \
     --resource-group $RgName \
@@ -89,9 +88,9 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
     # Create a network interface connected to the VNet with a static private IP address and associate the public IP address
     # resource to the NIC.
+
     NicName="NICWEB1"
     PrivateIpAddress="192.168.1.101"
-
     az network nic create \
     --name $NicName \
     --resource-group $RgName \
@@ -102,16 +101,17 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --public-ip-address $PipName
 
     # Create a new VM with the NIC
+
     VmName="WEB1"
 
     # Replace the value for the VmSize variable with a value from the
     # https://www.azure.cn/documentation/articles/virtual-machines-linux-sizes/ article.
     VmSize="Standard_DS1"
 
-    # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-    # `az vm image list` command. 
-    OsImage="credativ:Debian:8:latest"
+    # Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
+    # the `az vm image list` command. 
 
+    OsImage="credativ:Debian:8:latest"
     Username='adminuser'
 
     # Replace the following value with the path to your public key file.
@@ -125,14 +125,13 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --size $VmSize \
     --nics $NicName \
     --admin-username $Username \
-
-    # If creating a Windows VM, remove the next line and you'll be prompted for the password you want to configure for the VM.
     --ssh-key-value $SshKeyValue
+    # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
     ```
 
-    In addition to creating a VM, the script creates:
-    - A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
-    - Virtual network, subnet, NIC, and public IP address resources. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
+In addition to creating a VM, the script creates:
+- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
+- Virtual network, subnet, NIC, and public IP address resources. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
 ## <a name = "validate"></a>Validate VM creation and public IP address
 
@@ -142,12 +141,11 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 ## <a name= "clean-up"></a>Remove the VM and associated resources
 
-If you created a resource group solely for the purposes of completing the steps in this article, you can remove all the resources by deleting the resource group with the `az group delete -n IaaSStory` command.
+It's recommended that you delete the resources created in this exercise if you won't use them in production. VM, public IP address, and disk resources incur charges, as long as they're provisioned. To remove the resources created during this exercise, complete the following steps:
 
->[!WARNING]
->Confirm there are no other resources in the resource group, other than the resources created by the script in this article, before deleting the resource group. Run the `az resource list --resouce-group IaaSStory` command to view the resources in the resource group.
-
-It's recommended that you delete the resources if you won't use the VM in production. The VM, public IP address, and disk resources incur charges, as long as they're provisioned. 
+1. To view the resources in the resource group, run the `az resource list --resource-group IaaSStory` command.
+2. Confirm there are no resources in the resource group, other than the resources created by the script in this article. 
+3. To delete all resources created in this exercise, run the `az group delete -n IaaSStory` command. The command deletes the resource group and all the resources it contains.
 
 ## Next steps
 

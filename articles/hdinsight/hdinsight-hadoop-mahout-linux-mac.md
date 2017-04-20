@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/03/2017
 wacn.date: ''
 ms.author: larryfr
 
@@ -34,7 +35,7 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Mahout versioning
 
@@ -185,52 +186,17 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
 
-        The output from this command is similar to the following text:
+    The output from this command is similar to the following text:
 
-        ```
-          Reading Movies Descriptions
-          Reading Rated Movies
-          Reading Recommendations
-
-        ##   Rated Movies
-          Mimic (1997), rating=3
-          Ulee's Gold (1997), rating=5
-          Incognito (1997), rating=5
-          One Flew Over the Cuckoo's Nest (1975), rating=4
-          Event Horizon (1997), rating=4
-          Client, The (1994), rating=3
-          Liar Liar (1997), rating=5
-          Scream (1996), rating=4
-          Star Wars (1977), rating=5
-          Wedding Singer, The (1998), rating=5
-          Starship Troopers (1997), rating=4
-          Air Force One (1997), rating=5
-          Conspiracy Theory (1997), rating=3
-          Contact (1997), rating=5
-          Indiana Jones and the Last Crusade (1989), rating=3
-          Desperate Measures (1998), rating=5
-          Seven (Se7en) (1995), rating=4
-          Cop Land (1997), rating=5
-          Lost Highway (1997), rating=5
-          Assignment, The (1997), rating=5
-          Blues Brothers 2000 (1998), rating=5
-          Spawn (1997), rating=2
-          Wonderland (1997), rating=5
-
-        ##   In & Out (1997), rating=5
-        ##   Recommended Movies
-          Seven Years in Tibet (1997), score=5.0
-          Indiana Jones and the Last Crusade (1989), score=5.0
-          Jaws (1975), score=5.0
-          Sense and Sensibility (1995), score=5.0
-          Independence Day (ID4) (1996), score=5.0
-          My Best Friend's Wedding (1997), score=5.0
-          Jerry Maguire (1996), score=5.0
-          Scream 2 (1997), score=5.0
-          Time to Kill, A (1996), score=5.0
-
-        ##   Rock, The (1996), score=5.0
-        ```
+        Seven Years in Tibet (1997), score=5.0
+        Indiana Jones and the Last Crusade (1989), score=5.0
+        Jaws (1975), score=5.0
+        Sense and Sensibility (1995), score=5.0
+        Independence Day (ID4) (1996), score=5.0
+        My Best Friend's Wedding (1997), score=5.0
+        Jerry Maguire (1996), score=5.0
+        Scream 2 (1997), score=5.0
+        Time to Kill, A (1996), score=5.0
 
 ## Delete temporary data
 
@@ -242,8 +208,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 > [!WARNING]
 > If you want to run the command again, you must also delete the output directory. Use the following to delete this directory:
-> <p>  
-> ```hdfs dfs -rm -f -r /example/data/mahoutout```
+> <p>
+> `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 ## Next steps
 

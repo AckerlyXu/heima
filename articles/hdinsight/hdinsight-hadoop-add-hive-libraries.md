@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 wacn.date: ''
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Add custom Hive libraries when creating your HDInsight cluster
 
@@ -32,8 +32,8 @@ During cluster creation, the script enumerates the files, copies them to the `/u
 > [!NOTE]
 > Using the script actions in this article makes the libraries available in the following scenarios:
 ><p>
-><p> * **Linux-based HDInsight** - when using the **Hive command-line**, **WebHCat**, and **HiveServer2**.
-><p> * **Windows-based HDInsight** - when using the **Hive command-line** and **WebHCat**.
+><p> * **Linux-based HDInsight** - when using the a Hive client, **WebHCat**, and **HiveServer2**.
+><p> * **Windows-based HDInsight** - when using the Hive client and **WebHCat**.
 
 ## The script
 
@@ -46,7 +46,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 **Requirements**
 

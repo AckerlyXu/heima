@@ -18,14 +18,14 @@ ms.date: 03/17/2017
 wacn.date: ''
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 #Get started with the Storm Starter samples for big data analytics on Linux-based HDInsight
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -33,11 +33,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following documents:
-
-    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Familiarity with SSH and SCP**. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### Access control requirements
 
@@ -97,11 +93,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
     If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`.
 
-    For more information on using SSH with Linux-based HDInsight, see the following articles:
-
-    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to start an example topology:
 
@@ -114,7 +106,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
     > [!NOTE]
     > When submitting your own topologies to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. Use the `scp` command to copy the file. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
-    > <p>  
+    > <p>
     > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 If you are interested in viewing the source for the storm starter examples, you can find the code at [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). This link is for Storm 1.0.x, which is provided with HDInsight 3.5. For other versions of Storm, use the __Branch__ button at the top of the page to select a different Storm version.

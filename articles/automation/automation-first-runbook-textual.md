@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.date: 03/26/2017
 wacn.date: ''
 ms.author: magoedte;bwren
 
@@ -24,11 +24,11 @@ ms.author: magoedte;bwren
 This tutorial walks you through the creation of a PowerShell Workflow runbook in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
 
 ## <a name="prerequisites"></a> Prerequisites
-To complete this tutorial, you will need the following.
+To complete this tutorial, you will need the following:
 
 * Azure subscription. If you don't have one yet, you can [sign up for an account](https://www.azure.cn/pricing/1rmb-trial).
-* [Automation account](automation-security-overview.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
-* An Azure virtual machine. We will stop and start this machine so it should not be production.
+* [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+* An Azure virtual machine. We stop and start this machine so it should not be a production VM.
 
 ## Step 1 - Create new runbook
 We'll start by creating a simple runbook that outputs the text *Hello World*.
@@ -103,7 +103,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
         Tenants                    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 ## Step 6 - Add code to start a virtual machine
-Now that our runbook is authenticating to our Azure subscription, we can manage resources. We'll add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.
+Now that our runbook is authenticating to our Azure subscription, we can manage resources. We add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we will be hardcoding that name in the runbook.
 
 1. After *Add-AzureRmAccount -EnvironmentName AzureChinaCloud*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
 

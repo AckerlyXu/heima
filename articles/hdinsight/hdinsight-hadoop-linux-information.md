@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -24,7 +25,7 @@ ms.author: larryfr
 Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -68,21 +69,21 @@ This command returns a JSON document describing the service, and then jq pulls o
 
     > [!IMPORTANT]
     > While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since internal domain name are not publicly accessible, you may receive "server not found" errors when trying to access some features over the Internet.
-    ><p>
+    > <p>
     > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.cn/ambari
 
     > [!NOTE]
     > Authenticate by using the cluster administrator user and password.
-    ><p>
+    > <p>
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.cn/templeton
 
     > [!NOTE]
     > Authenticate by using the cluster administrator user and password.
-    ><p>
+    > <p>
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
 * **SSH** - &lt;clustername>-ssh.azurehdinsight.cn on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
@@ -99,11 +100,11 @@ Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This direc
 
 Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`
 
-## HDFS and Azure Storage
+## HDFS, Azure Storage, and Data Lake Store
 
 In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While using local storage is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
-HDInsight uses blobs in Azure Storage as the default store. This services provides the following benefits:
+HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the default store. These services provide the following benefits:
 
 * Cheap long-term storage
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
@@ -177,10 +178,7 @@ The different cluster types are affected by scaling as follows:
 * **Hadoop**: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. This can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
 * **HBase**: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers, use the following steps:
 
-    1. Connect to the HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
-
-        * [Use SSH with HDInsight from Linux, Unix, and Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Use SSH (PuTTY) with HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    1. Connect to the HDInsight cluster using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     2. Use the following to start the HBase shell:
 
@@ -231,16 +229,16 @@ For example, if you want to use the latest version of [DataFu](http://datafu.inc
 
 > [!IMPORTANT]
 > Some components that are standalone jar files are provided with HDInsight, but are not in the path. If you are looking for a specific component, you can use the follow to search for it on your cluster:
-><p>
+> <p>
 > ```find / -name *componentname*.jar 2>/dev/null```
-><p>
+> <p>
 > This command returns the path of any matching jar files.
 
 If you want to use a different version than the one that comes with the cluster, you can upload a new version of the component to the and try using it in your jobs.
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Azure Support helps to isolate and resolve issues related to these components.
-><p>
+> <p>
 > Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## Next steps

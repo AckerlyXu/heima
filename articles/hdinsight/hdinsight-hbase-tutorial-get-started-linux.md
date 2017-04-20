@@ -10,11 +10,12 @@ editor: cgronlun
 
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 wacn.date: ''
 ms.author: jgao
 
@@ -65,7 +66,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
 > 
 
 ## Create tables and insert data
-You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) and [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 For most people, data appears in the tabular format:
 
@@ -144,7 +145,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 > [!NOTE]
 > If Hive and HBase are on different clusters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
 ><p>
->`hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn --hiveconf zookeeper.znode.parent=/hbase-unsecure`
+>`hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn --hiveconf zookeeper.znode.parent=/hbase-unsecure`  
 >
 >
 
@@ -166,9 +167,9 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 ## Use HBase REST APIs using Curl
 > [!NOTE]
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server.
-> <p>  
+> <p> 
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-> <p>  
+> <p> 
 > The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 > 
 > 
@@ -224,6 +225,11 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         -v
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Thrift is not supported by HBase in HDInsight.
+>
 
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.

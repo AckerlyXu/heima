@@ -28,7 +28,7 @@ To complete this tutorial, you need:
 * Git. You can download the installation binary [here](http://www.git-scm.com/downloads).  
 * Basic knowledge of Git.
 * A Azure account. If you don't have an account, you can 
-  [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial).
+  [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial). 
 
 ## <a name="Step1"></a>Step 1: Create a local repository
 Perform the following tasks to create a new Git repository.
@@ -122,6 +122,15 @@ The following are errors or problems commonly encountered when using Git to publ
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
     git push azure master
+
+- - -
+**Symptom**: RPC failed; result=22, HTTP code = 502.
+
+**Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
+
+**Resolution**: Change the git configuration on the local machine to make the postBuffer bigger
+
+    git config --global http.postBuffer 524288000
 
 - - -
 **Symptom**: Error - Changes committed to remote repository but your web app not updated.
