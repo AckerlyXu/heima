@@ -21,7 +21,7 @@ ms.author: robmcm
 # How to use io.js with Azure App Service Web Apps
 The popular Node fork [io.js] features various differences to Joyent's Node.js project, including a more open governance model, a faster release cycle and a faster adoption of new and experimental JavaScript features.
 
-While [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary. This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
+While [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary. This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
 
 ## <a id="deploymentscript"></a> Using a Deployment Script
 Upon deployment of a Node.js app, App Service Web Apps runs a number of small commands to ensure that the environment is configured properly. Using a deployment script, this process can be customized to include the download and configuration of io.js.
@@ -51,7 +51,7 @@ In this article you learned how to use io.js with App Service Web Apps, using bo
 > 
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
 
 [io.js]: https://iojs.org
 [io.js distribution]: https://iojs.org/dist/

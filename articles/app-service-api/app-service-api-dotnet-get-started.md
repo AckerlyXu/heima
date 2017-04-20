@@ -3,7 +3,7 @@ title: Get started with API Apps and ASP.NET in App Service | Azure
 description: Learn how to create, deploy, and consume an ASP.NET API app in Azure App Service, by using Visual Studio 2015.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # Get started with API Apps, ASP.NET, and Swagger in Azure App Service

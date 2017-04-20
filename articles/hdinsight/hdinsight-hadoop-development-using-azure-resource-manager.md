@@ -9,6 +9,7 @@ documentationcenter: ''
 
 ms.assetid: 05efedb5-6456-4552-87ff-156d77fbe2e1
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -257,7 +258,7 @@ Following are some examples on how an operation is performed using the ASM-based
         //Service principal auth
         //This will log the application in as itself, rather than on behalf of a specific user.
         //For details, including how to set up the application, see:
-       //   https://www.azure.cn/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
+        // https://www.azure.cn/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
 
         var authFactory = new AuthenticationFactory();
 

@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -31,7 +32,7 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 * **EventHubWriter**: Randomly generates data and writes it to Event Hubs
 * **EventHubReader**: Reads data from Event Hubs and logs the data to the Storm logs
 
-> [!NOTE] 
+> [!NOTE]
 > For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## SCP.NET
@@ -48,7 +49,7 @@ The Microsoft.SCP.Net.SDK NuGet package used by your project must match the majo
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 HDInsight 3.4 and greater use Mono to run C# topologies. Most things work with Mono. However you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 

@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -28,7 +29,7 @@ Learn how to create an HDInsight cluster using an Azure Resource Manager templat
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -44,11 +45,11 @@ The Azure REST API allows you to perform management operations on services hoste
 
     > [!NOTE]
     > If you are using PowerShell to run the commands in this document, you must first remove the `curl` alias that it creates by default. This alias uses Invoke-WebRequest instead of cURL. If you do not remove this alias, you may receive errors with some of the commands used in this document.
-    ><p>
+    > <p>
     > To remove this alias, use the following command from the PowerShell prompt:
-    ><p>
+    > <p>
     > `Remove-item alias:curl`
-    ><p>
+    > <p>
     > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
 
 ### Access control requirements
@@ -249,7 +250,7 @@ This example is used in the steps in this document. Replace the example *values*
 
 > [!IMPORTANT]
 > The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14 GB ram.
-><p>
+> <p>
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
 ## Log in to your Azure subscription
@@ -363,7 +364,7 @@ Use the following command to deploy the template to the resource group.
 
 > [!NOTE]
 > If you saved the teplate to a file, you can use the following command instead of `-d "{ template and parameters}"`:
-><p>
+> <p>
 > `--data-binary "@/path/to/file.json"`
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the deployment operation.

@@ -4,7 +4,7 @@ description: Credential assets in Azure Automation contain security credentials 
 services: automation
 documentationcenter: ''
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 04/14/2017
 wacn.date: ''
 ms.author: bwren
 
@@ -25,7 +25,7 @@ An Automation credential asset holds a [PSCredential](http://msdn.microsoft.com/
 > Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account. This key is encrypted by a master certificate and stored in Azure Automation. Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.  
 
 ## Windows PowerShell cmdlets
-The cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [Azure PowerShell module](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) which is available for use in Automation runbooks.
+The cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell. They ship as part of the [Azure PowerShell module](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) which is available for use in Automation runbooks.
 
 | Cmdlets | Description |
 |:--- |:--- |
@@ -73,4 +73,3 @@ The following sample commands show how to use a PowerShell credential in a runbo
     $userName = $myCredential.UserName
     $securePassword = $myCredential.Password
     $password = $myCredential.GetNetworkCredential().Password
-

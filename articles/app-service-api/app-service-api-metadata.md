@@ -3,7 +3,7 @@ title: App Service API Apps metadata for API discovery and code generation | Azu
 description: Learn how API Apps in Azure App Service use Swagger metadata to facilitate API discovery and code generation.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # App Service API Apps metadata for API discovery and code generation

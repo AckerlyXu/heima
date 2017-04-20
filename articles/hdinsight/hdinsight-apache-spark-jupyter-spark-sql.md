@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -85,7 +86,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 
     > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    ><p>
+    > <p>
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     >
     >

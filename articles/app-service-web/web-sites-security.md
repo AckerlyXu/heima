@@ -32,7 +32,7 @@ through vigorous compliance and checks on a continuous basis to make sure that:
 
 * Your App Service apps are isolated from both the Internet and from the other customers' Azure resources.
 * Communication of secrets (e.g. connection strings) between your App Service app and other Azure resources (e.g. SQL Database) in a resource group stays within Azure and doesn't cross any network boundaries. Secrets are 
-    always encrypted.
+  always encrypted.
 * All communication between your App Service app and external resources, such as PowerShell management, command-line interface, Azure SDKs, and REST APIs, are properly encrypted.
 * 24-hour threat management protects App Service resources from malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats. 
 
@@ -67,7 +67,7 @@ Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against M
 ## Secure data tier
 App Service highly integrates with SQL Database, such that all the connection strings are encrypted across the board and are only decrypted on the VM that the app runs on *and* only when the app runs. 
 In addition, Azure SQL Database includes many security features to help you secure your application data from cyber threats, including 
-[at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx) and [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+[at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx) and [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security-overview.md) for more information on how to secure 
 your data.
 
@@ -128,4 +128,4 @@ For more information on **web.config** or **applicationhost.config** files in Ap
 For information on logging information for App Service apps, which may be useful in detecting attacks, see [Enable diagnostic logging](web-sites-enable-diagnostic-log.md).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)

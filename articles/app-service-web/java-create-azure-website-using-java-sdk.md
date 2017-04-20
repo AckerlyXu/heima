@@ -515,7 +515,7 @@ This procedure creates an App Service web app. You will be billed for the resour
 [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
 [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
 
-[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
+[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Azure Toolkit for Eclipse]: /azure/azure-toolkit-for-eclipse-installation/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn

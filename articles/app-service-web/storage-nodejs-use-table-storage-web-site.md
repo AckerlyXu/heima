@@ -21,7 +21,7 @@ ms.author: robmcm
 ---
 # Node.js web app using the Azure Table Service
 ## Overview
-This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
+This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
 
 You will learn:
 
@@ -544,11 +544,11 @@ While the steps in this article describe using the Table Service to store inform
 [Azure CLI]
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
 
 <!-- URLs -->
 
-[Build and deploy a Node.js web app in Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
+[Build and deploy a Node.js web app in Azure App Service]: app-service-web-get-started-nodejs.md
 [Azure Developer Center]: https://www.azure.cn/develop/nodejs/
 
 [node]: http://nodejs.org
@@ -566,18 +566,12 @@ While the steps in this article describe using the Table Service to store inform
 
 [Azure Portal Preview]: https://portal.azure.cn
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: app-service-web-get-started-nodejs.md
 
 <!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
 [download-publishing-settings]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
-[portal-new]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
-[portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
-[portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-[go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
-[web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
-[app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png

@@ -187,7 +187,7 @@ After the WordPress site has been created or migrated, use the following informa
 * [Tips for WordPress on Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 ## What's changed
-For a guide to the change from websites to App Service, see [Azure App Service and its impact on existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/).
+For a guide to the change from websites to App Service, see [Azure App Service and its impact on existing Azure Services](/azure/app-service-web/app-service-changes-existing-services).
 
 <!-- URL List -->
 
@@ -213,8 +213,8 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
+[mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: https://www.azure.cn/pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/

@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -33,9 +34,9 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 > [!IMPORTANT]
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies__.
-> <p>  
+> <p>
 > To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
-> <p>  
+> <p>
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
 ## Prerequisites
@@ -62,7 +63,7 @@ You also learn how to create hybrid topologies that use C# and Java components.
 * Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Templates
 
@@ -509,9 +510,9 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 
 > [!IMPORTANT]
 > If your project was created with an earlier version of SCP.NET that did not use NuGet, you must perform the following steps to update to a newer version:
-> <p>  
-><p> 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
-><p> 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
+> <p>
+> <p> 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
+> <p> 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
 
 ## Troubleshooting
 

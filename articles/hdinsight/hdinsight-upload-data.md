@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -89,9 +90,9 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
 > [!NOTE]
 > If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
-><p>
-><p> * **AZURE\_STORAGE\_ACCOUNT**: The storage account name
-><p> * **AZURE\_STORAGE\_ACCESS\_KEY**: The storage account key
+> <p>
+> <p> * **AZURE\_STORAGE\_ACCOUNT**: The storage account name
+> <p> * **AZURE\_STORAGE\_ACCESS\_KEY**: The storage account key
 >
 >
 
@@ -272,7 +273,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 [azure-management-portal]: https://portal.azure.cn
 [azure-powershell]: http://msdn.microsoft.com/library/azure/jj152841.aspx
 
-[azure-storage-client-library]: /azure/storage/storage-dotnet-how-to-use-blobs/
+[azure-storage-client-library]: /azure/storage/storage-dotnet-how-to-use-blobs
 [azure-create-storage-account]: ../storage/storage-create-storage-account.md
 [azure-azcopy-download]: ../storage/storage-use-azcopy.md
 [azure-azcopy]: ../storage/storage-use-azcopy.md

@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture | Azure
 description: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: syntaxc4
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
@@ -28,6 +28,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
+
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 

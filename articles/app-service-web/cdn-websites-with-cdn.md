@@ -83,7 +83,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
      ![](./media/cdn-websites-with-cdn/cdn-profile-blade.png)
 
-    > [!NOTE]
+    > [!NOTE] 
     > Once your CDN endpoint is created, the **Endpoint** blade will show you its CDN URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 1. Back in the **Endpoint** blade, click the name of the CDN endpoint you just created.

@@ -136,7 +136,7 @@ To view your domain names, click **All Settings** > **Custom domains and SSL**.
 To view your deployment slots, click **All Settings** > **Deployment slots**.
 
 ### Monitoring
-In Basic or Standard mode, you can  test the availability of HTTP or HTTPS endpoints, from up to two geo-distributed locations. A monitoring test fails if the HTTP response code is an error (4xx or 5xx) or the response takes more than 30 seconds. An endpoint is considered available if the monitoring tests succeed from all the specified locations. 
+In Basic or Standard mode, you can test the availability of HTTP or HTTPS endpoints, from up to two geo-distributed locations. A monitoring test fails if the HTTP response code is an error (4xx or 5xx) or the response takes more than 30 seconds. An endpoint is considered available if the monitoring tests succeed from all the specified locations. 
 
 For more information, see [How to: Monitor web endpoint status].
 ## Next steps
@@ -152,7 +152,7 @@ For more information, see [How to: Monitor web endpoint status].
 [Configure a custom domain name in Azure App Service]: ./web-sites-custom-domain-name.md
 [Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [Enable HTTPS for an app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
-[How to: Monitor web endpoint status]: /azure/app-service-web/web-sites-monitor/
+[How to: Monitor web endpoint status]: /azure/app-service-web/web-sites-monitor
 [Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale a web app in Azure App Service]: ./web-sites-scale.md

@@ -40,7 +40,7 @@ Updated **Mobile Apps** templates to reflect newest [NuGet package](https://www.
 General bug fixes and improvements. For detail on updates and features, please refer to the release notes of the latest [Service Bus NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### HDInsight Tools
-In this release the following updates were made. These updates are in preview. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started/).
+In this release the following updates were made. These updates are in preview. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
 
 * Hive graphs for Hive on Tez jobs
 * Full Hive DML IntelliSense support
@@ -48,8 +48,8 @@ In this release the following updates were made. These updates are in preview. F
 * Storm templates for Azure services
 
 #### Breaking changes
-* Old **Storm** project must be upgraded when using this version of the tools. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started/).
-* Visual Studio Web Express is no longer supported. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started/).
+* Old **Storm** project must be upgraded when using this version of the tools. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
+* Visual Studio Web Express is no longer supported. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
 
 ### Azure App Service Tools
 In this release the following updates were made to Web Tools Extensions. For more information see [this](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)  blog. 

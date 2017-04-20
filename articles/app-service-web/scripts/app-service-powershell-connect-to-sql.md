@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Connect a web app to a SQL database | Azure
 description: Azure PowerShell Script Sample - Connect a web app to a SQL database
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: syntaxc4
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
@@ -28,6 +28,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
+
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 

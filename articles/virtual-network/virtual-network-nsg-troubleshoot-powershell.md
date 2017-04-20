@@ -49,7 +49,7 @@ Complete the following steps to troubleshoot NSGs for a VM:
 
     > [!TIP]
     > If you don't know the name of a NIC, enter the following command to retrieve the names of all NICs in a resource group: 
-    ><p> 
+    > <p> 
     > `Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`
     > 
     > 

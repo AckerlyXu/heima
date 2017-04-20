@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Monitor a web app with web server logs | Azure
 description: Azure PowerShell Script Sample - Monitor a web app with web server logs
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: syntaxc4
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
@@ -28,6 +28,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
+
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 

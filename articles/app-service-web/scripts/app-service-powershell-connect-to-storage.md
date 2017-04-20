@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Connect a web app to a storage account | Azure
 description: Azure PowerShell Script Sample - Connect a web app to a storage account
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: syntaxc4
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
@@ -28,6 +28,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
+
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 

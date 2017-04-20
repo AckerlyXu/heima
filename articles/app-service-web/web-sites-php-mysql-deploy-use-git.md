@@ -23,11 +23,11 @@ ms.author: robmcm
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](/azure/app-service-web/app-service-changes-existing-services/) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
+This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](/azure/app-service-web/app-service-changes-existing-services) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
 
 You will learn:
 
-* How to create a web app and a MySQL database using the [Azure Portal Preview][management-portal]. Because PHP is enabled in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/) by default, nothing special is required to run your PHP code.
+* How to create a web app and a MySQL database using the [Azure Portal Preview][management-portal]. Because PHP is enabled in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services) by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
 * How to enable the Composer extension to automate Composer tasks at every `git push`.
 

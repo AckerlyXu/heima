@@ -19,7 +19,7 @@ ms.author: dariagrigoriu
 
 ---
 # Best Practices for Azure App Service
-This article summarizes best practices for using [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). 
+This article summarizes best practices for using [Azure App Service](/azure/app-service-web/app-service-changes-existing-services). 
 
 ## <a name="colocation"></a>Colocation
 When Azure resources composing a solution such as a web app and a database are located in different regions the effects can include the following:

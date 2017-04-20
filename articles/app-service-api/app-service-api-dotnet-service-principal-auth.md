@@ -3,7 +3,7 @@ title: Service principal authentication for API Apps in Azure App Service | Azur
 description: Learn how to protect an API app in Azure App Service for service-to-service scenarios.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # Service principal authentication for API Apps in Azure App Service

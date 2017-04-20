@@ -93,7 +93,7 @@ Each rule is discussed in more detail as follows:
         "properties": { }
       }
     ]
-    ```
+    ``` 
 
 2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
     * "destinationAddressPrefix" - Rules can use a special type of address prefix called a "Default Tag", these tags are system-provided identifiers that allow an easy way to address a larger category of address prefixes. This rule uses the Default Tag "Internet" to signify any address outside of the VNet. Other prefix labels are VirtualNetwork and AzureLoadBalancer.

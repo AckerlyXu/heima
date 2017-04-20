@@ -19,7 +19,7 @@ ms.author: rachelap
 
 ---
 # Manage a web app in Azure App Service
-This topic contains links to resources for managing a web app in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). Management includes all of the tasks that keep your web app running smoothly. 
+This topic contains links to resources for managing a web app in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services). Management includes all of the tasks that keep your web app running smoothly. 
 
 Over the lifetime of a web app, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.
 

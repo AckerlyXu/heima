@@ -30,7 +30,7 @@ App Service can back up the following information:
 
 * App configuration
 * File content
-* Any Azure SQL Databases or Azure MySQL databases connected to your app (you can choose which ones to include
+* Any Azure SQL Databases or Azure MySQL databases connected to your app (you can choose which ones to include 
   in the backup)
 
 This information is backed up to the Azure storage account and container that you specify. 

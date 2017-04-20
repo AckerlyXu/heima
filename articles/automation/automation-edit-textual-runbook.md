@@ -19,7 +19,7 @@ ms.author: magoedte;bwren
 
 ---
 # Editing textual runbooks in Azure Automation
-The textual editor in Azure Automation can be used to edit PowerShell Workflow runbooks. This has the typical features of other code editors such as intellisense and color coding  with additional special features to assist you in accessing resources common to runbooks.  This article provides detailed steps for performing different functions with this editor.
+The textual editor in Azure Automation can be used to edit PowerShell Workflow runbooks. This has the typical features of other code editors such as intellisense and color coding with additional special features to assist you in accessing resources common to runbooks. This article provides detailed steps for performing different functions with this editor.
 
 The textual editor includes a feature to insert code for activities, assets, and child runbooks into a runbook. Rather than typing in the code yourself, you can select from a list of available resources and have the appropriate code inserted into the runbook.
 

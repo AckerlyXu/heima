@@ -23,15 +23,15 @@ ROBOTS: NOINDEX
 The Tez UI is a web page that can be used to understand and debug jobs that use Tez as the execution engine on Windows-based HDInsight clusters. The Tez UI allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 * A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
     > [!IMPORTANT]
     > The Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
-    > 
-    > 
+    >
+    >
 * A Windows-based Remote Desktop client.
 
 ## Understanding Tez
@@ -70,8 +70,8 @@ Use the following steps to run a Hive query that will execute using Tez.
 ## Use the Tez UI
 > [!NOTE]
 > The Tez UI is only available from the desktop of the cluster head nodes, so you must use Remote Desktop to connect to the head nodes.
-> 
-> 
+>
+>
 
 1. From the [Azure portal preview](https://portal.azure.cn), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This will display the remote desktop blade
 
@@ -82,8 +82,8 @@ Use the following steps to run a Hive query that will execute using Tez.
 
     > [!NOTE]
     > If you have not enabled Remote Desktop connectivity, provide a user name, password, and expiration date, then select **Enable** to enable Remote Desktop. Once it has been enabled, use the previous steps to connect.
-    > 
-    > 
+    >
+    >
 3. Once connected, open Internet Explorer on the remote desktop, select the gear icon in the upper right of the browser, and then select **Compatibility View Settings**.
 4. From the bottom of **Compatibility View Settings**, clear the check box for **Display intranet sites in Compatibility View** and **Use Microsoft compatibility lists**, and then select **Close**.
 5. In Internet Explorer, browse to http://headnodehost:8188/tezui/#/. This will display the Tez UI
@@ -106,8 +106,8 @@ Use the following steps to run a Hive query that will execute using Tez.
 
         > [!NOTE]
         > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
-        > 
-        > 
+        >
+        >
 
         If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
 8. Select **Graphical View**. This displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
@@ -120,8 +120,8 @@ Use the following steps to run a Hive query that will execute using Tez.
 
     > [!NOTE]
     > You can also arrive at this page by going back to **DAG Details**, selecting **Vertex Details**, and then selecting the **Map 1** vertex.
-    > 
-    > 
+    >
+    >
 
     * **Vertex Counters** displays counter information for this vertex.
     * **Tasks** displays tasks for this vertex.
@@ -130,8 +130,8 @@ Use the following steps to run a Hive query that will execute using Tez.
 
         > [!NOTE]
         > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
-        > 
-        > 
+        >
+        >
 11. Select **Tasks**, and then select the item named **00_000000**. This will display **Task Details** for this task. From this screen, you can view **Task Counters** and **Task Attempts**.
 
     ![Task details](./media/hdinsight-debug-tez-ui/taskdetails.png)

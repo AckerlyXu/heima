@@ -121,17 +121,17 @@ To add a rule allowing **inbound** traffic to port **443** from any machine to t
 
 ```azurecli
 azure network nsg rule create --resource-group RG-NSG \
-    --nsg-name NSG-FrontEnd \
-    --name allow-https \
-    --description "Allow access to port 443 for HTTPS" \
-    --protocol Tcp \
-    --source-address-prefix * \
-    --source-port-range * \
-    --destination-address-prefix * \
-    --destination-port-range 443 \
-    --access Allow \
-    --priority 102 \
-    --direction Inbound
+	--nsg-name NSG-FrontEnd \
+	--name allow-https \
+	--description "Allow access to port 443 for HTTPS" \
+	--protocol Tcp \
+	--source-address-prefix * \
+	--source-port-range * \
+	--destination-address-prefix * \
+	--destination-port-range 443 \
+	--access Allow \
+	--priority 102 \
+	--direction Inbound
 ```
 
 Expected output:
@@ -160,9 +160,9 @@ To change the rule created above to allow inbound traffic from the **Internet** 
 
 ```azurecli
 azure network nsg rule set --resource-group RG-NSG \
-    --nsg-name NSG-FrontEnd \
-    --name allow-https \
-    --source-address-prefix Internet
+	--nsg-name NSG-FrontEnd \
+	--name allow-https \
+	--source-address-prefix Internet
 ```
 
 Expected output:
@@ -191,9 +191,9 @@ To delete the rule created above, run the following command:
 
 ```azurecli
 azure network nsg rule delete --resource-group RG-NSG \
-    --nsg-name NSG-FrontEnd \
-    --name allow-https \
-    --quiet
+	--nsg-name NSG-FrontEnd \
+	--name allow-https \
+	--quiet
 ```
 
 > [!NOTE]
@@ -215,8 +215,8 @@ To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, run the follow
 
 ```azurecli
 azure network nic set --resource-group RG-NSG \
-    --name TestNICWeb1 \
-    --network-security-group-name NSG-FrontEnd
+	--name TestNICWeb1 \
+	--network-security-group-name NSG-FrontEnd
 ```
 
 Expected output:
@@ -288,9 +288,9 @@ To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, run the fol
 
 ```azurecli
 azure network vnet subnet set --resource-group RG-NSG \
-    --vnet-name TestVNet \
-    --name FrontEnd \
-    --network-security-group-id ""
+	--vnet-name TestVNet \
+	--name FrontEnd \
+	--network-security-group-id ""
 ```
 
 Expected output:
@@ -315,9 +315,9 @@ To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, run the f
 
 ```azurecli
 azure network vnet subnet set --resource-group RG-NSG \
-    --vnet-name TestVNet \
-    --name FrontEnd \
-    --network-security-group-name NSG-FronEnd
+	--vnet-name TestVNet \
+	--name FrontEnd \
+	--network-security-group-name NSG-FronEnd
 ```
 
 > [!NOTE]

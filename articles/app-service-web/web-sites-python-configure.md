@@ -20,12 +20,12 @@ ms.author: huvalo
 
 ---
 # Configuring Python with Azure App Service Web Apps
-This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/).
+This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services).
 
 It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.
 
 ## <a name="bottle-django-flask"></a> Bottle, Django or Flask?
-If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
+ If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
 
 * [Creating web apps with Bottle](web-sites-python-create-deploy-bottle-app.md)
 * [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)
@@ -345,4 +345,4 @@ Contents of `ptvs_virtualenv_proxy.py`:
 For more information, see the [Python Developer Center](https://www.azure.cn/develop/python/).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)

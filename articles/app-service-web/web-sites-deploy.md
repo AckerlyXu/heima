@@ -19,7 +19,7 @@ ms.author: cephalin;dariac
 
 ---
 # Deploy your app to Azure App Service
-This article helps you determine the best option to deploy the files for your web app, mobile app backend, or API app to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/), and then guides you to appropriate resources with instructions specific to your preferred option.
+This article helps you determine the best option to deploy the files for your web app, mobile app backend, or API app to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services), and then guides you to appropriate resources with instructions specific to your preferred option.
 
 ## <a name="overview"></a>Azure App Service deployment overview
 Azure App Service maintains the application framework for you (ASP.NET, PHP, Node.js, etc). Some frameworks are enabled by default while others, like Java and Python, may need a simple checkmark configuration to enable it. In addition, you can customize your application framework, such as the PHP version or the bitness of your runtime. For more information, see [Configure your app in Azure App Service](web-sites-configure.md).
@@ -30,7 +30,7 @@ following processes:
 * [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): Use your favorite FTP or FTPS enabled tool to move your files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
 * [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment): Kudu is the [deployment engine](https://github.com/projectkudu/kudu/wiki) in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) for continuous deployment and other automation tasks. The Kudu deployment engine supports 2 different types of deployment sources:   
 
-    * Repository-based continuous deployment with auto-sync from GitHub 
+    * Repository-based continuous deployment with auto-sync from GitHub  
     * Repository-based deployment with manual sync from local Git  
 * [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): Deploy code to App Service directly from your favorite Microsoft tools such as Visual Studio using the same tooling that automates deployment to IIS servers. This tool supports diff-only deployment, database creation, transforms of connection strings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. Similar to FTP, no additional services are provided by App Service.
 
@@ -128,7 +128,7 @@ Additional pros of deploying using Visual Studio with Azure SDK are:
 * Diff-only deployment. 
 
 ### <a name="vs"></a>How to deploy from Visual Studio directly
-* [Get started with Azure and ASP.NET](web-sites-dotnet-get-started.md). How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.
+* [Get started with Azure and ASP.NET](app-service-web-get-started-dotnet.md). How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.
 * [How to Deploy Azure WebJobs using Visual Studio](websites-dotnet-deploy-webjobs.md). How to configure Console Application projects so that they deploy as WebJobs.  
 * [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to Web Apps](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.
 * [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing.

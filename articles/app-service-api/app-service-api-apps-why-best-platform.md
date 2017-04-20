@@ -3,7 +3,7 @@ title: API Apps introduction | Azure
 description: Learn how Azure App Service helps you develop, host, and consume RESTful APIs.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # API Apps overview

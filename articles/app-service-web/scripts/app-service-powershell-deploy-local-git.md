@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository | Azure
 description: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
@@ -60,6 +60,7 @@ $password = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@use
 #### This method saves your password in the git remote. You can use a Git credential manager to secure your password instead.
 git remote add azure "https://${username}:$password@$webappname.scm.chinacloudsites.cn"
 git push azure master
+
 ```
 
 ## Clean up deployment 

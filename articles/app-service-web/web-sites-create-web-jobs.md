@@ -3,7 +3,7 @@ title: Run Background tasks with WebJobs
 description: Learn how to run background tasks in Azure web apps.
 services: app-service
 documentationcenter: ''
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 
@@ -20,7 +20,9 @@ ms.author: glenga
 ---
 # Run Background tasks with WebJobs
 ## Overview
-You can run programs or scripts in WebJobs in your [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
+You can run programs or scripts in WebJobs in your [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 This article shows how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
@@ -174,7 +176,7 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [Cl
 For more information, see [Azure WebJobs Recommended Resources][WebJobsRecommendedResources].
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
-[WebJobsRecommendedResources]:/azure/app-service-web/websites-webjobs-resources/
+[WebJobsRecommendedResources]:/azure/app-service-web/websites-webjobs-resources
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png
 [WebJobsList]: ./media/web-sites-create-web-jobs/02aWebJobsList.png

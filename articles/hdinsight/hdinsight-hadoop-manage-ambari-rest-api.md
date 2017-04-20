@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -52,15 +53,15 @@ The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehd
 
 > [!IMPORTANT]
 > While the cluster name in the fully qualified domain name (FQDN) part of the URI (CLUSTERNAME.azurehdinsight.cn) is case-insensitive, other occurrences in the URI are case-sensitive. For example, if your cluster is named `MyCluster`, the following are valid URIs:
-> <p>  
+> <p> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
-><p>
+> <p>
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
-> <p>  
+> <p> 
 > The following URIs return an error because the second occurrence of the name is not the correct case.
-> <p>  
+> <p> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster`
-><p>
+> <p>
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/mycluster`
 
 ### Authentication
@@ -77,10 +78,10 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 
 > [!IMPORTANT]
 > The Bash examples in this document make the following assumptions:
-><p>
-><p> * The login name for the cluster is the default value of `admin`.
-><p> * `$PASSWORD` contains the password for the HDInsight login command. You can set this value by using `PASSWORD='mypassword'`.
-><p> * `$CLUSTERNAME` contains the name of the cluster. You can set this value by using `set CLUSTERNAME='clustername'`
+> <p>
+> <p> * The login name for the cluster is the default value of `admin`.
+> <p> * `$PASSWORD` contains the password for the HDInsight login command. You can set this value by using `PASSWORD='mypassword'`.
+> <p> * `$CLUSTERNAME` contains the name of the cluster. You can set this value by using `set CLUSTERNAME='clustername'`
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName" `
@@ -90,9 +91,9 @@ $resp.Content
 
 > [!IMPORTANT]
 > The PowerShell examples in this document make the following assumptions:
-><p>
-><p> * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
-><p> * `$clusterName` is a string that contains the name of the cluster. You can set this value by using `$clusterName="clustername"`.
+> <p>
+> <p> * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
+> <p> * `$clusterName` is a string that contains the name of the cluster. You can set this value by using `$clusterName="clustername"`.
 
 Both examples return a JSON document that begins with information similar to the following example:
 
@@ -203,7 +204,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 > [!IMPORTANT]
 > The IP addresses returned by the examples in this section are not directly accessible over the internet. They are only accessible within the Azure Virtual Network that contains the HDInsight cluster.
-><p>
+> <p>
 > For more information on working with HDInsight and virtual networks, see [Extend HDInsight capabilities by using a custom Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 You must know the FQDN for the host before you can obtain the IP address. Once you have the FQDN, you can then get the IP address of the host. The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.

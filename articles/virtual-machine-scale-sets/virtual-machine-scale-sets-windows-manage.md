@@ -22,7 +22,7 @@ ms.author: adegeo
 # Manage virtual machines in a virtual machine scale set
 Use the tasks in this article to manage virtual machines in your virtual machine scale set.
 
-Most of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage. 
+Most of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage.
 
 See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 

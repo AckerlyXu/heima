@@ -3,7 +3,7 @@ title: What is the Azure WebJobs SDK
 description: An introduction to the Azure WebJobs SDK. Explains what the SDK is, typical scenarios it is useful for, and code samples.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 
@@ -24,6 +24,8 @@ ms.author: glenga
 
 ## <a id="overview"></a>Overview
 This article explains what the WebJobs SDK is, reviews some common scenarios it is useful for, and gives an overview of how you use it in your code.
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 [WebJobs](websites-webjobs-resources.md) is a feature of Azure App Service that enables you to run a program or script in the same context as a web app, API app, or mobile app. The purpose of the [WebJobs SDK](websites-webjobs-resources.md) is to simplify the code you write for common tasks that a WebJob can perform, such as image processing, queue processing, RSS aggregation, file maintenance, and sending emails. The WebJobs SDK has built-in features for working with Azure Storage and Service Bus, for scheduling tasks and handling errors, and for many other common scenarios. In addition, it's designed to be extensible. The [WebJobs SDK is open source](https://github.com/Azure/azure-webjobs-sdk/), and there's an [open source repository for extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
@@ -164,6 +166,6 @@ The WebJobs SDK provides several advantages even if you don't use WebJobs SDK tr
 For more information, see [How to manually invoke a function](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) and [How to write logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
 
 ## <a id="nextsteps"></a>Next steps
-For more information about the WebJobs SDK, see [Azure WebJobs Recommended Resources](/azure/app-service-web/websites-webjobs-resources/).
+For more information about the WebJobs SDK, see [Azure WebJobs Recommended Resources](/azure/app-service-web/websites-webjobs-resources).
 
 For information about the latest enhancements to the WebJobs SDK, see the [Release Notes](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).

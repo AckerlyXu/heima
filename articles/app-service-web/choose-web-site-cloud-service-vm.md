@@ -3,7 +3,7 @@ title: Azure App Service, Virtual Machines, Service Fabric, and Cloud Services c
 description: Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
 wacn.date: ''
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
@@ -44,7 +44,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | WebMatrix support |X | |X | | |
 | Access to services like Service Bus, Storage, SQL Database |X |X |X |X | |
 | Host web or web services tier of a multi-tier architecture |X |X |X |X | |
-| Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](/azure/app-service-web/websites-webjobs-resources/) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services. |
+| Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](/azure/app-service-web/websites-webjobs-resources) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services. |
 | Support for ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric supports the creation of a web front-end using [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Scale out to multiple instances without redeploy |X |X |X |X |Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures. |
 | Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](web-sites-configure-ssl-certificate.md). |
@@ -165,8 +165,8 @@ To get started with the option(s) you choose for your application, see the follo
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: https://www.azure.cn/home/features/service-fabric/
 [ClearDB]: http://www.cleardb.com/
-[WebJobs]: /azure/app-service-web/websites-webjobs-resources/
-[Configuring an SSL certificate for an Azure Website]: /azure/app-service-web/web-sites-configure-ssl-certificate/
+[WebJobs]: /azure/app-service-web/websites-webjobs-resources
+[Configuring an SSL certificate for an Azure Website]: /azure/app-service-web/web-sites-configure-ssl-certificate
 [dotnet]: https://www.azure.cn/develop/net/
 [nodejs]: https://www.azure.cn/develop/nodejs/
 [PHP]: https://www.azure.cn/develop/php/

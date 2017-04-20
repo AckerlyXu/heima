@@ -20,7 +20,7 @@ ms.author: cephalin
 ---
 # Enable diagnostics logging for web apps in Azure App Service
 ## Overview
-Azure provides built-in diagnostics to assist with debugging an [App Service web app](/azure/app-service-web/app-service-changes-existing-services/). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+Azure provides built-in diagnostics to assist with debugging an [App Service web app](/azure/app-service-web/app-service-changes-existing-services). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
 This article uses the [Azure Portal Preview](https://portal.azure.cn), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -83,7 +83,7 @@ While all three storage locations provide the same basic information for logged 
 > Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](https://www.azure.cn/downloads/#).
 >
 > [!NOTE]
-> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure/).
+> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure).
 >
 >
 
@@ -114,7 +114,7 @@ To download the log files, start a new instance of Azure PowerShell and use the 
 This will save the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure).
 >
 >
 
@@ -159,7 +159,7 @@ To filter specific log types, such as HTTP, use the **-Path** parameter. For exa
 To see a list of available paths, use the -ListPath parameter.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure).
 >
 >
 
@@ -260,10 +260,10 @@ The web server logs are formatted using the [W3C extended log file format](http:
 >
 
 ## <a name="nextsteps"></a> Next steps
-* [How to Monitor Web Apps](/azure/app-service-web/web-sites-monitor/)
+* [How to Monitor Web Apps](/azure/app-service-web/web-sites-monitor)
 * [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal preview](/azure/app-service-web/app-service-web-app-azure-portal/)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal preview](/azure/app-service-web/app-service-web-app-azure-portal)

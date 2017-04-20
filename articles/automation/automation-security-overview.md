@@ -25,7 +25,7 @@ Azure Automation allows you to automate tasks against resources in Azure, on-pre
 This article will cover the various authentication scenarios supported by Azure Automation and will show you how to get started based on the environment or environments you need to manage.  
 
 ## Automation Account overview
-When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets, configurations) from the resources contained in other Automation accounts. You can use Automation accounts to separate resources into separate logical environments. For example, you might use one account for development, another for production, and another for your on-premises environment.  An Azure Automation account is different from your Azure account or accounts created in your Azure subscription.
+When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets, configurations) from the resources contained in other Automation accounts. You can use Automation accounts to separate resources into separate logical environments. For example, you might use one account for development, another for production, and another for your on-premises environment. An Azure Automation account is different from your Azure account or accounts created in your Azure subscription.
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.
 
@@ -38,6 +38,6 @@ The following table summarizes the different authentication methods for each env
 
 | Method | Environment | Article |
 | --- | --- | --- |
-| Azure AD User Account |Azure Resource Manager and Azure Service Management |[Authenticate Runbooks with Azure AD User account](automation-sec-configure-aduser-account.md) |
+| Azure AD User Account |Azure Resource Manager and Azure Service Management |[Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md) |
 | Azure Run As Account |Azure Resource Manager | None |
 | Azure Classic Run As Account |Azure Service Management | None |

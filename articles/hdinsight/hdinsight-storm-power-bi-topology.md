@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 36fe3b9c-5232-4464-8d75-95403b6da7a1
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -29,9 +30,9 @@ Power BI allows you to visually display data as reports. This document provides 
 
 > [!NOTE]
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.
-> <p> 
+> <p>
 > To use a C# topology with a Linux-based cluster, update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
-> <p> 
+> <p>
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work. However you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 > <p>
 > For a Java version of this project, which works with Linux-based or Windows-based HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
@@ -42,7 +43,7 @@ Power BI allows you to visually display data as reports. This document provides 
 * An HDInsight cluster. For more information, see [Get started with Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio (one of the following versions)
 
@@ -95,7 +96,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
     > [!NOTE]
     > It may take a few seconds for the **Storm Cluster** dropdown to populate with server names.
-    > <p> 
+    > <p>
     > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
 2. When the topology has been submitted, the __Topology Viewer__ appears. To view this topology, select the SqlAzureWriterTopology entry from the list.

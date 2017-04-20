@@ -114,7 +114,7 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/compute">Compute REST API Reference</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/virtualmachinescalesets/">Virtual Machine Scale Sets REST API Reference</a></p>
                     </div>
                 </div>
             </div>

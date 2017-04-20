@@ -86,7 +86,7 @@ You should be rewarded with success that looks like the following.
 ## Next steps
 You can now use your new Azure Active Directory identity to use [Azure resource group templates](../articles/xplat-cli-azure-resource-manager.md).
 
-    azure login -e AzureChinaCloud -u <username>    
+    azure login -e AzureChinaCloud -u <username>
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
     Password: *********

@@ -81,13 +81,13 @@ Traffic Manager periodically checks the health of every endpoint, including unhe
 
 > [!NOTE]
 > Traffic Manager only considers an endpoint to be online if the return message is 200 OK. An endpoint is unhealthy when any of the following events occur:
-><p>
-><p> * A non-200 response is received (including a different 2xx code, or a 301/302 redirect)
-><p> * Request for client authentication
-><p> * Timeout (the timeout threshold is 10 seconds)
-><p> * Unable to connect
-><p>
-><p> For more information about troubleshooting failed checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+> <p>
+> <p> * A non-200 response is received (including a different 2xx code, or a 301/302 redirect)
+> <p> * Request for client authentication
+> <p> * Timeout (the timeout threshold is 10 seconds)
+> <p> * Unable to connect
+> <p>
+> <p> For more information about troubleshooting failed checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
 The following timeline is a detailed description of the monitoring process.
 
@@ -119,13 +119,13 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 
 > [!NOTE]
 > One exception to normal traffic-routing behavior occurs when all eligible endpoints have a degraded status. Traffic Manager makes a "best effort" attempt and *responds as if all the Degraded status endpoints actually are in an online state*. This behavior is preferable to the alternative, which would be to not return any endpoint in the DNS response. Disabled or Stopped endpoints are not monitored, therefore, they are not considered eligible for traffic.
-><p>
-><p> This condition is commonly caused by improper configuration of the service, such as:
-><p>
-><p> * An access control list [ACL] blocking the Traffic Manager health checks
-><p> * An improper configuration of the monitoring path in the Traffic manager profile
-><p>
-><p> The consequence of this behavior is that if Traffic Manager health checks are not configured correctly, it might appear from the traffic routing as though Traffic Manager *is* working properly. However, in this case, endpoint failover cannot happen which affects overall application availability. It is important to check that the profile shows an Online status, not a Degraded status. An Online status indicates that the Traffic Manager health checks are working as expected.
+> <p>
+> <p> This condition is commonly caused by improper configuration of the service, such as:
+> <p>
+> <p> * An access control list [ACL] blocking the Traffic Manager health checks
+> <p> * An improper configuration of the monitoring path in the Traffic manager profile
+> <p>
+> <p> The consequence of this behavior is that if Traffic Manager health checks are not configured correctly, it might appear from the traffic routing as though Traffic Manager *is* working properly. However, in this case, endpoint failover cannot happen which affects overall application availability. It is important to check that the profile shows an Online status, not a Degraded status. An Online status indicates that the Traffic Manager health checks are working as expected.
 
 For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 

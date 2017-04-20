@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: e17794e8-faae-4264-9434-67f61ea78f13
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -163,7 +164,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
     ![Cloning the project][image-hdi-hivejson-serde]
 
-4. Go to the folder where you have downloaded this package and  type "mvn package". This should create the necessary jar files that you can then copy over to the cluster.
+4. Go to the folder where you have downloaded this package and type "mvn package". This should create the necessary jar files that you can then copy over to the cluster.
 
 5. Go to the target folder under the root folder where you downloaded the package. Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster. I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.
 

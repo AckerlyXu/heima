@@ -45,15 +45,15 @@ To create a public IP address, complete the following steps:
 3. Click **+ Add** in the **Public IP address** blade that appears.
 4. Enter or select values for the following settings in the **Create public IP address** blade that appears, then click **Create**:
 
-    |**Setting**|Required?|**Details**|
-    |---|---|---|
-    |**Name**|Yes|The name must be unique within the resource group you select.|
-    |**IP address assignment**|Yes|**Dynamic:** Dynamic addresses are assigned only after the public IP address is associated to a NIC attached to a VM and the VM is started for the first time. Dynamic addresses can change if the VM the NIC is attached to is stopped (deallocated). The address remains the same if the VM is rebooted or stopped (but not deallocated). **Static:** Static addresses are assigned when the public IP address is created. Static addresses do not change even if the VM is put in the stopped (deallocated) state. The address is only released when the NIC is deleted. You can change the assignment method after the NIC is created.|
-    |**Idle timeout (minutes)**|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages.|
-    |**DNS name label**|No|Must be unique within the Azure location you create the name in (across all subscriptions and all customers). The Azure public DNS service automatically registers the name and IP address so you can connect to a resource with the name. Azure appends *location.chinacloudapp.cn* (where location is the location you select) to the name you provide to create the fully-qualifed DNS name. |
-    |**Subscription**|Yes|Must exist in the same subscription as the resource you want to associate the public IP address to.|
-    |**Resource group**|Yes|Can exist in the same, or different, resource group as the resource you want to associate the public IP address to.|
-    |**Location**|Yes|Must exist in the same location as the resource you want to associate the public IP address to.|
+	|**Setting**|Required?|**Details**|
+	|---|---|---|
+	|**Name**|Yes|The name must be unique within the resource group you select.|
+	|**IP address assignment**|Yes|**Dynamic:** Dynamic addresses are assigned only after the public IP address is associated to a NIC attached to a VM and the VM is started for the first time. Dynamic addresses can change if the VM the NIC is attached to is stopped (deallocated). The address remains the same if the VM is rebooted or stopped (but not deallocated). **Static:** Static addresses are assigned when the public IP address is created. Static addresses do not change even if the VM is put in the stopped (deallocated) state. The address is only released when the NIC is deleted. You can change the assignment method after the NIC is created.|
+	|**Idle timeout (minutes)**|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages.|
+	|**DNS name label**|No|Must be unique within the Azure location you create the name in (across all subscriptions and all customers). The Azure public DNS service automatically registers the name and IP address so you can connect to a resource with the name. Azure appends *location.chinacloudapp.cn* (where location is the location you select) to the name you provide to create the fully-qualifed DNS name. |
+	|**Subscription**|Yes|Must exist in the same subscription as the resource you want to associate the public IP address to.|
+	|**Resource group**|Yes|Can exist in the same, or different, resource group as the resource you want to associate the public IP address to.|
+	|**Location**|Yes|Must exist in the same location as the resource you want to associate the public IP address to.|
 
 |**Tool**|**Command**|
 |---|---|
@@ -82,7 +82,7 @@ To change or delete a public IP address, complete the following steps:
 ## <a name="next-steps"></a>Next steps
 Assign public IP addresses when creating the following Azure resources:
 
-- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines
+- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines
 - [Internet-facing Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Site-to-site connection using an Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

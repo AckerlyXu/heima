@@ -22,17 +22,17 @@ ms.author: cephalin
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, mobile back end, and API app to [App Service](/azure/app-service-web/app-service-changes-existing-services/), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app, mobile back end, and API app to [App Service](/azure/app-service-web/app-service-changes-existing-services), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
-* Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#configure-auto-swap-for-your-web-app) when pre-swap validation is not needed.
+* Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
 * After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
 Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your app's mode supports, see [App Service Pricing](https://www.azure.cn/pricing/details/app-service/).
 
 * When your app has multiple slots, you cannot change the mode.
 * Scaling is not available for non-production slots.
-* Linked resource management is not supported for non-production slots. In the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal/) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+* Linked resource management is not supported for non-production slots. In the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 ## <a name="Add"></a> Add a deployment slot
 The app must be running in the **Standard** or **Premium** mode in order for you to enable multiple deployment slots.
@@ -85,7 +85,7 @@ To configure an app setting or connection string to stick to a slot (not swapped
 
 ![Slot settings][SlotSettings]
 
-## <a name="Swap" id="to-swap-deployment-slots"></a> Swap deployment slots
+## <a name="Swap" id="to-swap-deployment-slots"></a> Swap deployment slots 
 You can swap deployment slots in the **Overview** or **Deployment slots** view of your app's resource blade.
 
 > [!IMPORTANT]
@@ -125,7 +125,7 @@ and clients will not experience any downtime.
 
 Samples for the Azure PowerShell cmdlets available for multi-phase swap are included in the Azure PowerShell cmdlets for deployment slots section.
 
-## <a name="configure-auto-swap-for-your-web-app" id="configure-auto-swap"></a> Configure Auto Swap
+## <a name="configure-auto-swap-for-your-web-app" id="configure-auto-swap"></a> <a name="Auto-Swap"></a> Configure Auto Swap
 Auto Swap streamlines DevOps scenarios where you want to continuously deploy your app with zero cold start and zero downtime for end customers of the app. When a deployment slot is configured for Auto Swap into production, every time you push your code update to that slot, App Service will automatically swap the app into production after it has already warmed up in the slot.
 
 > [!IMPORTANT]

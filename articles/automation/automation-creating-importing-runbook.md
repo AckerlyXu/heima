@@ -47,7 +47,7 @@ You can create a new runbook in Azure Automation by importing a PowerShell Workf
 If the file contains multiple PowerShell Workflows, then the import will fail. You must save each workflow to its own file and import each separately.
 
 ### To import a runbook from a file with the Azure Classic Management Portal
-You can use the following procedure to import a script file into Azure Automation.  Note that you can only import a .ps1 file into a PowerShell Workflow runbook using this portal.
+You can use the following procedure to import a script file into Azure Automation. Note that you can only import a .ps1 file into a PowerShell Workflow runbook using this portal.
 
 1. In the Azure Classic Management portal, select **Automation** and then select an Automation Account.
 2. Click **Import**.

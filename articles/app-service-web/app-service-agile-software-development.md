@@ -22,7 +22,7 @@ ms.author: cephalin
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-In this tutorial, you will learn how to create high-scale complex applications with [Azure App Service](https://www.azure.cn/home/features/app-service/) in a way that supports [agile software development](https://en.wikipedia.org/wiki/Agile_software_development). It assumes that you already know how to [deploy complex applications predictably in Azure](app-service-deploy-complex-application-predictably.md).
+In this tutorial, you will learn how to create high-scale complex applications with [Azure App Service](/azure/app-service/) in a way that supports [agile software development](https://en.wikipedia.org/wiki/Agile_software_development). It assumes that you already know how to [deploy complex applications predictably in Azure](app-service-deploy-complex-application-predictably.md).
 
 Limitations in technical processes can often stand in the way of successful implementation of agile methodologies. Azure App Service with features such as [continuous publishing](app-service-continuous-deployment.md), [staging environments](web-sites-staged-publishing.md) (slots), and [monitoring](web-sites-monitor.md), when coupled wisely with the orchestration and management of deployment in [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), can be part of a great solution for developers who embrace agile software development.
 
@@ -76,7 +76,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 > 
 
 ## Set up your production environment
->[!NOTE]
+> [!NOTE]
 > Currently, in Azure China, you cannot enter GitHub Credential in the new portal; hence, only public GitHub repo is going to work for continuous publishing, and you have to configure it through Kudu.
 
 In a typical DevOps scenario, you have an application that's running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you have a template that you developed, tested, and used to deploy the production environment. You will set it up in this section.
@@ -166,7 +166,7 @@ Now that you have a complex application running in production in Azure, you will
 > When you have multiple developers working on the new update, each of them can easily create a branch and dedicated dev environment by doing the following:
 ><p> 
 ><p> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)).
-><p> 2. Clone the fork on their local machine.
+><p> 2. Clone the fork on their local machine
 ><p> 3. Run the same commands to create their own dev branch and environment.
 > 
 > 

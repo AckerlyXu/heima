@@ -39,7 +39,7 @@ All app types rely on the scalable and flexible Web Apps platform, which enables
 * **Scaling the app**. Use one of many options to automatically scale your service horizontally and vertically based on traffic and resource utilization. Configure private environments that are dedicated to your apps.   
 * **Maintaining the app**. Use many of the debugging and diagnostics features to stay ahead of problems and to efficiently resolve them either in real time (with features such as auto-healing and live debugging) or after the fact by analyzing logs and memory dumps.
 
-As a whole, App Service capabilities enable developers to focus on their code and quickly reach a stable and highly scalable production state. With the API Apps features, developers can build real-world enterprise applications that bridge barriers between business solutions and on-premises to cloud integration.  
+As a whole, App Service capabilities enable developers to focus on their code and quickly reach a stable and highly scalable production state. With the API Apps features, developers can build real-world enterprise applications that bridge barriers between business solutions and on-premises to cloud integration. 
 
 ## Next steps
 

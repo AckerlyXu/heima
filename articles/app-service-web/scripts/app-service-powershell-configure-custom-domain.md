@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Assign a custom domain to a web app | Azure
 description: Azure PowerShell Script Sample - Assign a custom domain to a web app
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
@@ -56,6 +56,7 @@ Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName $webappname `
 # Add a custom domain name to the web app. 
 Set-AzureRmWebApp -Name $webappname -ResourceGroupName $webappname `
 -HostNames @($fqdn,"$webappname.chinacloudsites.cn")
+
 ```
 
 ## Clean up deployment 

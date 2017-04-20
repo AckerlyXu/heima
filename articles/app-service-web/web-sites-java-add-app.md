@@ -32,10 +32,8 @@ Note for Tomcat web apps: Once you've uploaded your WAR file to the **webapps** 
 ## <a name="see-also"></a> See Also
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
-[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
 <!-- URL List -->
 
 [Azure Java Developer Center]: https://www.azure.cn/develop/java/
-[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
+[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services
 [Deploy your app to Azure App Service]: ./web-sites-deploy.md

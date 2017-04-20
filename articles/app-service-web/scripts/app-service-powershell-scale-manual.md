@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Scale a web app manually | Azure
 description: Azure PowerShell Script Sample - Scale a web app manually
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: syntaxc4
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
@@ -28,6 +28,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
+
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 

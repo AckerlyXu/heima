@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 5452a0b8-21a6-4699-8d6a-e2d8faf32c25
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -22,11 +22,11 @@ ms.author: jdial
 # Create User-Defined Routes (UDR) using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
->- [PowerShell](virtual-network-create-udr-arm-ps.md)
->- [Azure CLI](virtual-network-create-udr-arm-cli.md)
->- [Template](virtual-network-create-udr-arm-template.md)
->- [PowerShell (Classic deployment)](virtual-network-create-udr-classic-ps.md)
->- [CLI (Classic deployment)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [Template](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (Classic deployment)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (Classic deployment)](virtual-network-create-udr-classic-cli.md)
 
 ## CLI versions to complete the task 
 
@@ -112,10 +112,10 @@ To create the route table and route needed for the front end subnet based on the
 
     ```azurecli
     az network vnet subnet update \
-    > --resource-group testrg \
-    > --vnet-name testvnet \
-    > --name FrontEnd \
-    > --route-table UDR-FrontEnd
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name FrontEnd \
+    --route-table UDR-FrontEnd
     ```
 
     Output:
@@ -157,32 +157,32 @@ To create the route table and route needed for the back-end subnet based on the 
 1. Run the following command to create a route table for the back-end subnet:
 
     ```azurecli
-        az network route-table create \
-        --resource-group testrg \
-        --name UDR-BackEnd \
-        --location chinaeast
+    az network route-table create \
+    --resource-group testrg \
+    --name UDR-BackEnd \
+    --location chinaeast
     ```
 
 2. Run the following command to create a route in the route table to send all traffic destined to the front-end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4):
 
     ```azurecli
-        az network route-table route create \
-        --resource-group testrg \
-        --name RouteToFrontEnd \
-        --route-table-name UDR-BackEnd \
-        --address-prefix 192.168.1.0/24 \
-        --next-hop-type VirtualAppliance \
-        --next-hop-ip-address 192.168.0.4
+    az network route-table route create \
+    --resource-group testrg \
+    --name RouteToFrontEnd \
+    --route-table-name UDR-BackEnd \
+    --address-prefix 192.168.1.0/24 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 192.168.0.4
     ```
 
 3. Run the following command to associate the route table with the **BackEnd** subnet:
 
     ```azurecli
-        az network vnet subnet update \
-        --resource-group testrg \
-        --vnet-name testvnet \
-        --name BackEnd \
-        --route-table UDR-BackEnd
+    az network vnet subnet update \
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name BackEnd \
+    --route-table UDR-BackEnd
     ```
 
 ## Enable IP forwarding on FW1
@@ -192,39 +192,35 @@ To enable IP forwarding in the NIC used by **FW1**, complete the following steps
 1. Run the [az network nic show](https://docs.microsoft.com/cli/az/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
 
     ```azurecli
-        az network nic show \
-        --resource-group testrg \
-        --nname nicfw1 \
-        --query 'enableIpForwarding' -o tsv
+    az network nic show \
+    --resource-group testrg \
+    --nname nicfw1 \
+    --query 'enableIpForwarding' -o tsv
     ```
 
     Output:
 
-    ```bash
         false
-    ```
 
 2. Run the following command to enable IP forwarding:
 
     ```azurecli
-        az network nic update \
-        > --resource-group testrg \
-        > --name nicfw1 \
-        > --ip-forwarding true
+    az network nic update \
+    --resource-group testrg \
+    --name nicfw1 \
+    --ip-forwarding true
     ```
 
     You can examine the output streamed to the console, or just retest for the specific **enableIpForwarding** value:
 
     ```azurecli
-        az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
+    az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
     ```
 
     Output:
 
-    ```bash
         true
-    ```
 
     Parameters:
 
-    * **--ip-forwarding**. *true* or *false*.
+    **--ip-forwarding**: *true* or *false*.

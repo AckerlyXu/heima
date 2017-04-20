@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Upload files to a web app using FTP | Azure
 description: Azure PowerShell Script Sample - Upload files to a web app using FTP
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
@@ -65,6 +65,7 @@ foreach ($file in $files)
     $webclient.UploadFile($uri, $file.FullName)
 } 
 $webclient.Dispose()
+
 ```
 
 ## Clean up deployment 

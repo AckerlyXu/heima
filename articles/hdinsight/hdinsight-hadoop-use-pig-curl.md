@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: ed5e10d1-4f47-459c-a0d6-7ff967b468c4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -37,7 +38,7 @@ To complete the steps in this article, you need the following:
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
@@ -46,9 +47,9 @@ To complete the steps in this article, you need the following:
 
 > [!NOTE]
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the administrator user name and password for the HDInsight cluster. You must also use the cluster name as part of the Uniform Resource Identifier (URI) that is used to send the requests to the server.
-><p> 
+> <p>
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-><p> 
+> <p>
 > The REST API is secured via [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
@@ -98,7 +99,7 @@ To complete the steps in this article, you need the following:
 
 When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from the default storage used by the cluster. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/pigcurl**.
 
-The backing store for HDInsight can be either Azure Storage, and there are a variety of ways to get at the data depending on which one you use. For more information on how to work with Azure Storage, see the [HDFS and Blob storage](hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) section of the HDInsight on Linux document.
+The backing store for HDInsight can be either Azure Storage, and there are a variety of ways to get at the data depending on which one you use. For more information on how to work with Azure Storage, see the [HDFS and Blob storage](hdinsight-hadoop-linux-information.md#hdfs-blob-storage-and-data-lake-store) section of the HDInsight on Linux document.
 
 ## <a id="summary"></a>Summary
 

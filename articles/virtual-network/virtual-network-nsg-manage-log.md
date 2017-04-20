@@ -48,14 +48,14 @@ To use the portal to enable logging, login to the [portal](https://portal.azure.
 
 ### PowerShell
 
-Evaluate the following information before entering a command from the article:
+ Evaluate the following information before entering a command from the article:
 
 - You can determine the value to use for the `-ResourceId` parameter by replacing the following [text], as appropriate, then entering the command `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. The ID output from the command looks similar to */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
 - If you only want to collect data from log category add `-Categories [category]` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you don't use the `-Categories` parameter, data collection is enabled for both log categories.
 
 ### Azure command-line interface (CLI)
 
-Evaluate the following information before entering a command from the article:
+ Evaluate the following information before entering a command from the article:
 
 - You can determine the value to use for the `-ResourceId` parameter by replacing the following [text], as appropriate, then entering the command `azure network nsg show [resource-group-name] [nsg-name]`. The ID output from the command looks similar to */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
 - If you only want to collect data from log category add `-Categories [category]` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you don't use the `-Categories` parameter, data collection is enabled for both log categories.
@@ -69,28 +69,28 @@ This log contains information about which NSG rules are applied to VMs and cloud
 
 ```json
 {
-    "time": "[DATE-TIME]",
-    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
-    "category": "NetworkSecurityGroupEvent",
-    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION-ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
-    "operationName": "NetworkSecurityGroupEvents",
-    "properties": {
-        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-B791E1DBC2F4}",
-        "subnetPrefix":"192.168.1.0/24",
-        "macAddress":"00-0D-3A-92-6A-7C",
-        "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"UserRule_default-allow-rdp",
-        "direction":"In",
-        "priority":1000,
-        "type":"allow",
-        "conditions":{
-            "protocols":"6",
-            "destinationPortRange":"3389-3389",
-            "sourcePortRange":"0-65535",
-            "sourceIP":"0.0.0.0/0",
-            "destinationIP":"0.0.0.0/0"
-            }
-        }
+	"time": "[DATE-TIME]",
+	"systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+	"category": "NetworkSecurityGroupEvent",
+	"resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION-ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
+	"operationName": "NetworkSecurityGroupEvents",
+	"properties": {
+		"vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-B791E1DBC2F4}",
+		"subnetPrefix":"192.168.1.0/24",
+		"macAddress":"00-0D-3A-92-6A-7C",
+		"primaryIPv4Address":"192.168.1.4",
+		"ruleName":"UserRule_default-allow-rdp",
+		"direction":"In",
+		"priority":1000,
+		"type":"allow",
+		"conditions":{
+			"protocols":"6",
+			"destinationPortRange":"3389-3389",
+			"sourcePortRange":"0-65535",
+			"sourceIP":"0.0.0.0/0",
+			"destinationIP":"0.0.0.0/0"
+			}
+		}
 }
 ```
 
@@ -100,20 +100,20 @@ This log contains information about each rule applied to resources. The followin
 
 ```json
 {
-    "time": "[DATE-TIME]",
-    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
-    "category": "NetworkSecurityGroupRuleCounter",
-    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]TESTRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
-    "operationName": "NetworkSecurityGroupCounters",
-    "properties": {
-        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-791E1DBC2F4}",
-        "subnetPrefix":"192.168.1.0/24",
-        "macAddress":"00-0D-3A-92-6A-7C",
-        "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"UserRule_default-allow-rdp",
-        "direction":"In",
-        "type":"allow",
-        "matchedConnections":125
-        }
+	"time": "[DATE-TIME]",
+	"systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+	"category": "NetworkSecurityGroupRuleCounter",
+	"resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]TESTRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
+	"operationName": "NetworkSecurityGroupCounters",
+	"properties": {
+		"vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-791E1DBC2F4}",
+		"subnetPrefix":"192.168.1.0/24",
+		"macAddress":"00-0D-3A-92-6A-7C",
+		"primaryIPv4Address":"192.168.1.4",
+		"ruleName":"UserRule_default-allow-rdp",
+		"direction":"In",
+		"type":"allow",
+		"matchedConnections":125
+		}
 }
 ```

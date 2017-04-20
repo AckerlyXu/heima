@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,7 +46,7 @@ Once your data is saved as a table, in the next section we use BI tools to conne
 
     > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    ><p>
+    > <p>
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     >
     >

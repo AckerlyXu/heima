@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -37,13 +37,13 @@ You can complete the task using one of the following CLI versions:
     You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
->- [Portal](virtual-networks-create-vnet-arm-pportal.md)
->- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
->- [CLI](virtual-networks-create-vnet-arm-cli.md)
->- [Template](virtual-networks-create-vnet-arm-template-click.md)
->- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
->- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
->- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [CLI](virtual-networks-create-vnet-arm-cli.md)
+> * [Template](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -63,12 +63,12 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     ```azurecli
     az network vnet create \
-        --name TestVNet \
-        --resource-group TestRG \
-        --location chinaeast \
-        --address-prefix 192.168.0.0/16 \
-        --subnet-name FrontEnd \
-        --subnet-prefix 192.168.1.0/24
+    --name TestVNet \
+    --resource-group TestRG \
+    --location chinaeast \
+    --address-prefix 192.168.0.0/16 \
+    --subnet-name FrontEnd \
+    --subnet-prefix 192.168.1.0/24
     ```
 
     Expected output:
@@ -78,7 +78,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
         "newVNet": {
             "addressSpace": {
             "addressPrefixes": [
-                "192.168.0.0/16"
+            "192.168.0.0/16"
             ]
             },
             "dhcpOptions": {
@@ -98,7 +98,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
                 "resourceGroup": "TestRG"
             }
             ]
-        }
+            }
     }
     ```
 
@@ -119,18 +119,18 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Which produces the following output:
 
-            Where      Name      Group
-            ---------  --------  -------
-            chinaeast  TestVNet  TestRG
+        Where      Name      Group
+
+        chinaeast  TestVNet  TestRG
 
 4. Create a subnet:
 
     ```azurecli
     az network vnet subnet create \
-        --address-prefix 192.168.2.0/24 \
-        --name BackEnd \
-        --resource-group TestRG \
-        --vnet-name TestVNet
+    --address-prefix 192.168.2.0/24 \
+    --name BackEnd \
+    --resource-group TestRG \
+    --vnet-name TestVNet
     ```
 
     Expected output:
@@ -170,7 +170,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
     Expected output:
 
         Name      Where      Group    Status       SubnetCount
-        --------  ---------  -------  ---------  -------------
+
         TestVNet  chinaeast  TestRG   Succeeded              2
 
 6. Query the properties of the subnets:
@@ -186,7 +186,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
     Expected output:
 
         Name      CIDR            Status
-        --------  --------------  ---------
+
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 
@@ -194,6 +194,6 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 Learn how to connect:
 
-- A virtual machine (VM) to a virtual network by reading the [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) article. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
+- A virtual machine (VM) to a virtual network by reading the [Create a Linux VM](../virtual-machines/linux/quick-create-cli.md) article. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
 - The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article.
 - The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

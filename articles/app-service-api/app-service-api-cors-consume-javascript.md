@@ -3,7 +3,7 @@ title: CORS support in App Service | Azure
 description: Learn how to use CORS support in Azure Azure App Service.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # Consume an API app from JavaScript using CORS
@@ -248,5 +248,5 @@ In case you run into a problem while going through this tutorial, here are some 
 
 To learn more about Visual Studio features that simplify troubleshooting, see [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## <a name="next-steps"></a> Next steps 
+## <a name="next-steps"></a> Next steps
 In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. To learn more about API apps, read the [introduction to authentication in App Service](../app-service/app-service-authentication-overview.md), and then go to the [user authentication for API apps](app-service-api-dotnet-user-principal-auth.md) tutorial.

@@ -34,7 +34,7 @@ Affixes can refer to different aspects that describe the particular resources. T
 | Aspect | Examples | Notes |
 | --- | --- | --- |
 | Environment |dev, stg, prod |Depending on the purpose and name of each environment. |
-| Location | China North, China East | Depending on the region of the datacenter or the region of the organization. |
+| Location | China North, China East |Depending on the region of the datacenter or the region of the organization. |
 | Azure component, service, or product |Rg for resource group, Svc for cloud service, VNet for virtual network |Depending on the product for which the resource provides support. |
 | Role |sql, ora, sp, iis |Depending on the role of the virtual machine. |
 | Instance |01, 02, 03, etc. |For resources that have more than one instance. For example, load balanced web servers in a cloud service. |
@@ -138,7 +138,7 @@ Operating system disks and data disks have a maximum size of 1023 gigabytes (GB)
 ### Striped disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -388,7 +388,7 @@ This configuration incorporates:
 ## Additional resources
 [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md)
 

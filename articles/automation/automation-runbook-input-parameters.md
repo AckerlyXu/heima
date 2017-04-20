@@ -22,10 +22,10 @@ ms.author: sngun
 Runbook input parameters increase the flexibility of runbooks by allowing you to pass data to it when it is started. The parameters allow the runbook actions to be targeted for specific scenarios and environments. In this article, we will walk you through different scenarios where input parameters are used in runbooks.
 
 ## Configure input parameters
-Input parameters can be configured in PowerShell Workflow. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can assign a default value for optional parameters. You can assign values to the input parameters for a runbook when you start it through one of the available methods. These methods include starting  a runbook from the portal  or a web service. You can also start one as a child runbook that is called inline in another runbook.
+Input parameters can be configured in PowerShell Workflow. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can assign a default value for optional parameters. You can assign values to the input parameters for a runbook when you start it through one of the available methods. These methods include starting a runbook from the portal or a web service. You can also start one as a child runbook that is called inline in another runbook.
 
 ## Configure input parameters in PowerShell Workflow runbooks
-[PowerShell Workflow runbooks](automation-first-runbook-textual.md) in Azure Automation support input parameters that are defined through the following attributes.  
+ [PowerShell Workflow runbooks](automation-first-runbook-textual.md) in Azure Automation support input parameters that are defined through the following attributes.  
 
 | **Property** | **Description** |
 |:--- |:--- |
@@ -71,7 +71,7 @@ Then you can pass the following value to the parameter:
 You can pass values to input parameters in runbooks in the following scenarios.
 
 ### Start a runbook and assign parameters
-A runbook can be started many ways: through the Azure Classic Management Portal, with a webhook,  with PowerShell cmdlets, with the REST API, or with the SDK. Below we discuss different methods for starting a runbook and assigning parameters.
+A runbook can be started many ways: through the Azure Classic Management Portal, with a webhook, with PowerShell cmdlets, with the REST API, or with the SDK. Below we discuss different methods for starting a runbook and assigning parameters.
 
 #### Start a published runbook by using the Azure Classic Management Portal and assign parameters
 When you [start the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), the **Start Runbook** Pop-up opens and you can configure values for the parameters that you just created.
@@ -96,12 +96,12 @@ In the label beneath the input box, you can see the attributes that have been se
     ```
 
 > [!NOTE]
-> When you start a runbook by using PowerShell cmdlets, a default parameter, **MicrosoftApplicationManagementStartedBy** is created with the value **PowerShell**. 
+> When you start a runbook by using PowerShell cmdlets, a default parameter, **MicrosoftApplicationManagementStartedBy** is created with the value **PowerShell**.  
 > 
 > 
 
 #### Start a runbook by using an SDK and assign parameters
-* **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```      
     public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)

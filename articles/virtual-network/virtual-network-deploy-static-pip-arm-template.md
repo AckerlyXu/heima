@@ -23,11 +23,11 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with a static public IP address using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
->- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
->- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
->- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
->- [Template](virtual-network-deploy-static-pip-arm-template.md)
->- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+> * [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Template](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -48,10 +48,10 @@ The following section shows the definition of the public IP resource, based on t
   "name": "[variables('webVMSetting').pipName]",
   "location": "[variables('location')]",
   "properties": {
-    "publicIPAllocationMethod": "Static"
+	"publicIPAllocationMethod": "Static"
   },
   "tags": {
-    "displayName": "PublicIPAddress - Web"
+	"displayName": "PublicIPAddress - Web"
   }
 },
 ```
@@ -62,33 +62,33 @@ The following section shows the association of the public IP address with a netw
 
 ```json
   {
-    "apiVersion": "2015-06-15",
-    "type": "Microsoft.Network/networkInterfaces",
-    "name": "[variables('webVMSetting').nicName]",
-    "location": "[variables('location')]",
-    "tags": {
-    "displayName": "NetworkInterface - Web"
-    },
-    "dependsOn": [
-      "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
-      "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-    ],
-    "properties": {
-      "ipConfigurations": [
-        {
-          "name": "ipconfig1",
-          "properties": {
-          "privateIPAllocationMethod": "Static",
-          "privateIPAddress": "[variables('webVMSetting').ipAddress]",
-          "publicIPAddress": {
-          "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
-          },
-          "subnet": {
-            "id": "[variables('frontEndSubnetRef')]"
-          }
-        }
-      }
-    ]
+	"apiVersion": "2015-06-15",
+	"type": "Microsoft.Network/networkInterfaces",
+	"name": "[variables('webVMSetting').nicName]",
+	"location": "[variables('location')]",
+	"tags": {
+	"displayName": "NetworkInterface - Web"
+	},
+	"dependsOn": [
+	  "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
+	  "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+	],
+	"properties": {
+	  "ipConfigurations": [
+		{
+		  "name": "ipconfig1",
+		  "properties": {
+		  "privateIPAllocationMethod": "Static",
+		  "privateIPAddress": "[variables('webVMSetting').ipAddress]",
+		  "publicIPAddress": {
+		  "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
+		  },
+		  "subnet": {
+		    "id": "[variables('frontEndSubnetRef')]"
+		  }
+		}
+	  }
+	]
   }
 },
 ```

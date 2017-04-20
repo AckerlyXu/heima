@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,7 +46,7 @@ In this article, you learn how to use these kernels and the benefits of using th
 
     > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    ><p>
+    > <p>
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     > 
     > 

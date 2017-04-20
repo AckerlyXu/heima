@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app | Azure
 description: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5

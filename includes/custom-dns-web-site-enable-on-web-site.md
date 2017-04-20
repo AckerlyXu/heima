@@ -2,7 +2,7 @@ After the records for your domain name have propagated, you must associate them 
 
 > [!NOTE]
 > It can take some time for TXT records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your web app until the TXT record has propagated. If you are using an A record, you cannot add the A record domain name to your web app until the TXT record created in the previous step has propagated.
-><p> 
+> <p> 
 > You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the TXT record is available.
 > 
 > 
