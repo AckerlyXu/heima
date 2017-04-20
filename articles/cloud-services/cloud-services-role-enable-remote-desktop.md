@@ -1,24 +1,29 @@
 ---
-title: Enable Remote Desktop Connection for a Role in Azure Cloud Services
+title: Enable Remote Desktop in an Azure Cloud Service | Azure
 description: How to configure your azure cloud service application to allow remote desktop connections
 services: cloud-services
-documentationCenter: ''
-authors: sbtron
+documentationcenter: ''
+author: thraka
 manager: timlt
 editor: ''
 
+ms.assetid: d3110ee8-6526-4585-aba5-d0bc9a713e9b
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
 ms.date: 11/22/2016
-wacn.date: ''
+ms.author: adegeo
 ---
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
 
 >[!div class="op_single_selector"]
->- [Azure portal](./cloud-services-role-enable-remote-desktop-new-portal.md)
->- [Azure classic portal](./cloud-services-role-enable-remote-desktop.md)
->- [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
->- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+> * [Azure portal](./cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure classic portal](./cloud-services-role-enable-remote-desktop.md)
+> * [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension. The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application. 
 
@@ -30,8 +35,8 @@ The Azure classic portal uses the Remote Desktop Extension approach so you can e
 
     ![Cloud services remote](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
 
-    > [!WARNING]
-    > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](./cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) and then return to this dialog.
+   > [!WARNING]
+   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) and then return to this dialog.
 
 3. In **Roles**, select the role you want to update or select **All** for all roles.
 
@@ -131,5 +136,5 @@ The [ServiceConfiguration.cscfg](./cloud-services-model-and-package.md#cscfg) fi
 ```
 
 ## Additional Resources
-
 [How to Configure Cloud Services](./cloud-services-how-to-configure.md)
+[Cloud services FAQ - Remote Desktop](./cloud-services-faq.md#remote-desktop)

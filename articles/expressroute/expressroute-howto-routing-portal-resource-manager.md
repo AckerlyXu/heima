@@ -1,23 +1,24 @@
 ---
-title: How to configure routing for an ExpressRoute circuit using the Azure Portal | Azure
+title: 'How to configure routing (peering) for an ExpressRoute circuit: Resource Manager: Azure '
 description: This article walks you through the steps for creating and provisioning the private, public peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 documentationCenter: na
 services: expressroute
-authors: cherylmc
-manager: carmonm
+author: cherylmc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/21/2017
 ms.author: cherylmc
----
 
-# Create and modify routing for an ExpressRoute circuit
+---
+# Create and modify peering for an ExpressRoute circuit
 > [!div class="op_single_selector"]
 >- [Resource Manager- Azure Portal](./expressroute-howto-routing-portal-resource-manager.md)
 >- [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
@@ -32,13 +33,15 @@ This article walks you through the steps to create and manage routing configurat
 ## Configuration prerequisites
 
 - Make sure that you have reviewed the [prerequisites](./expressroute-prerequisites.md) page, the [routing requirements](./expressroute-routing.md) page, and the [workflows](./expressroute-workflows.md) page before you begin configuration.
-- You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](./expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
+- You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](./expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 - If you plan to use a shared key/MD5 hash, be sure to use this on both sides of the tunnel and limit the number of characters to a maximum of 25.
 
 These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. 
 
 >[!IMPORTANT]
 > We currently do not advertise peerings configured by service providers through the service management portal. We are working on enabling this capability soon. Please check with your service provider before configuring BGP peerings.
+> 
+> 
 
 You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
 
@@ -202,7 +205,7 @@ You can remove your peering configuration by selecting the delete icon as shown 
 
 ## Next steps
 
-Next step, [Link a VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-arm.md).
+Next step, [Link a VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-portal-resource-manager.md).
 
 -  For more information about ExpressRoute workflows, see [ExpressRoute workflows](./expressroute-workflows.md).
 

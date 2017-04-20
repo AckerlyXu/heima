@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
-wacn.date: ''
 ms.author: elioda
+
 ---
 
 # Reference - IoT Hub query language for device twins and jobs
@@ -29,44 +29,42 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 [Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins as a single JSON document containing all device twin information.
 Assume, for instance, that your IoT hub device twins have the following structure:
 
-```
-    {                                                                      
-        "deviceId": "myDeviceId",                                            
-        "etag": "AAAAAAAAAAc=",                                              
-        "tags": {                                                            
-            "location": {                                                      
-                "region": "CN",                                                  
-                "plant": "Redmond43"                                             
-            }                                                                  
-        },                                                                   
-        "properties": {                                                      
-            "desired": {                                                       
-                "telemetryConfig": {                                             
-                    "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                    "sendFrequencyInSecs": 300                                          
-                },                                                               
-                "$metadata": {                                                   
-                ...                                                     
-                },                                                               
-                "$version": 4                                                    
-            },                                                                 
-            "reported": {                                                      
-                "connectivity": {                                                
-                    "type": "cellular"                            
-                },                                                               
-                "telemetryConfig": {                                             
-                    "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                    "sendFrequencyInSecs": 300,                                         
-                    "status": "Success"                                            
-                },                                                               
-                "$metadata": {                                                   
-                ...                                                
-                },                                                               
-                "$version": 7                                                    
-            }                                                                  
-        }                                                                    
-    }
-```
+        {                                                                      
+            "deviceId": "myDeviceId",                                            
+            "etag": "AAAAAAAAAAc=",                                              
+            "tags": {                                                            
+                "location": {                                                      
+                    "region": "CN",                                                  
+                    "plant": "Redmond43"                                             
+                }                                                                  
+            },                                                                   
+            "properties": {                                                      
+                "desired": {                                                       
+                    "telemetryConfig": {                                             
+                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
+                        "sendFrequencyInSecs": 300                                          
+                    },                                                               
+                    "$metadata": {                                                   
+                    ...                                                     
+                    },                                                               
+                    "$version": 4                                                    
+                },                                                                 
+                "reported": {                                                      
+                    "connectivity": {                                                
+                        "type": "cellular"                            
+                    },                                                               
+                    "telemetryConfig": {                                             
+                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
+                        "sendFrequencyInSecs": 300,                                         
+                        "status": "Success"                                            
+                    },                                                               
+                    "$metadata": {                                                   
+                    ...                                                
+                    },                                                               
+                    "$version": 7                                                    
+                }                                                                  
+            }                                                                    
+        }
 
 IoT Hub exposes the device twins as a document collection called **devices**.
 So the following query retrieves the whole set of device twins:
@@ -188,6 +186,11 @@ Note how the **query** object is instantiated with a page size (up to 1000), and
 Note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
 
 ### Limitations
+> [!IMPORTANT]
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by id, it is always preferable to use the retrieve device twin API, which always contains the latest values and has higher throttling limits.
+>
+>
+
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
 ## Get started with jobs queries

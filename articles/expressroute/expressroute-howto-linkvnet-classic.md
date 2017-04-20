@@ -1,13 +1,14 @@
 ---
-title: Link a virtual network to an ExpressRoute circuit by using the classic deployment model and PowerShell | Azure
+title: 'Link a virtual network to an ExpressRoute circuit: PowerShell: classic: Azure '
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
-documentationCenter: na
-authors: ganesr
+documentationcenter: na
+author: ganesr
 manager: carmonm
 editor: ''
 tags: azure-service-management
 
+ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -16,15 +17,17 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 ---
-
-# Connect a virtual network to an ExpressRoute circuit
-
+# Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
->- [Azure Portal - Resource Manager](./expressroute-howto-linkvnet-portal-resource-manager.md/)
->- [PowerShell - Resource Manager] (./expressroute-howto-linkvnet-arm.md/)  
->- [PowerShell - Classic](./expressroute-howto-linkvnet-classic.md/)
+> * [Resource Manager - Azure Portal](./expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
+> * [Classic - PowerShell](./expressroute-howto-linkvnet-classic.md)
+>
+>
 
 This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the classic deployment model and PowerShell. Virtual networks can either be in the same subscription or can be part of another subscription.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **About Azure deployment models**
 
@@ -43,44 +46,40 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual networks must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit, or link virtual networks that are in other geopolitical regions if you enabled the ExpressRoute premium add-on. Check the [FAQ](./expressroute-faqs.md/) for more details on the premium add-on.
 
 ## Connect a virtual network in the same subscription to a circuit
-
 You can link a virtual network to an ExpressRoute circuit by using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
 
-```
-New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
-Provisioned
-```
+    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+    Provisioned
 
 ## Connect a virtual network in a different subscription to a circuit
-
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization can use their own subscription for deploying their services--but the departments can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit.
 
->[!NOTE]
+> [!NOTE]
 > Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
+> 
+> 
 
 ![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### Administration
-
 The *circuit owner* is the administrator/coadministrator of the subscription in which the ExpressRoute circuit is created. The circuit owner can authorize administrators/coadministrators of other subscriptions, referred to as *circuit users*, to use the dedicated circuit that they own. Circuit users who are authorized to use the organization's ExpressRoute circuit can link the virtual network in their subscription to the ExpressRoute circuit after they are authorized.
 
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization will result in all links being deleted from the subscription whose access was revoked.
 
-### Circuit owner operations 
+### Circuit owner operations
 
 **Creating an authorization**
 
 The circuit owner authorizes the administrators of other subscriptions to use the specified circuit. In the following example, the administrator of the circuit (Contoso IT) enables the administrator of another subscription (Dev-Test) to link up to two virtual networks to the circuit. The Contoso IT administrator enables this by specifying the Dev-Test Microsoft ID. The cmdlet doesn't send email to the specified Microsoft ID. The circuit owner needs to explicitly notify the other subscription owner that the authorization is complete.
 
-```
-New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
+    New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 
-    Description         : Dev-Test Links 
-    Limit               : 2 
-    LinkAuthorizationId : ********************************** 
-    MicrosoftIds        : devtest@contoso.com 
+    Description         : Dev-Test Links
+    Limit               : 2
+    LinkAuthorizationId : **********************************
+    MicrosoftIds        : devtest@contoso.com
     Used                : 0
 ```
 
@@ -88,49 +87,46 @@ New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
 
 The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
 
-```
-Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
+    Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 
-Description         : EngineeringTeam 
-Limit               : 3 
-LinkAuthorizationId : #################################### 
-MicrosoftIds        : engadmin@contoso.com 
-Used                : 1 
+    Description         : EngineeringTeam
+    Limit               : 3
+    LinkAuthorizationId : ####################################
+    MicrosoftIds        : engadmin@contoso.com
+    Used                : 1
 
-Description         : MarketingTeam 
-Limit               : 1 
-LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
-MicrosoftIds        : marketingadmin@contoso.com 
-Used                : 0 
+    Description         : MarketingTeam
+    Limit               : 1
+    LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    MicrosoftIds        : marketingadmin@contoso.com
+    Used                : 0
 
-Description         : Dev-Test Links 
-Limit               : 2 
-LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
-MicrosoftIds        : salesadmin@contoso.com 
-Used                : 2 
-```
+    Description         : Dev-Test Links
+    Limit               : 2
+    LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    MicrosoftIds        : salesadmin@contoso.com
+    Used                : 2
+
 
 **Updating authorizations**
 
 The circuit owner can modify authorizations by using the following cmdlet:
 
-```
-Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
+    Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 
-Description         : Dev-Test Links 
-Limit               : 5 
-LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
-MicrosoftIds        : devtest@contoso.com 
-Used                : 0
-```
+    Description         : Dev-Test Links
+    Limit               : 5
+    LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    MicrosoftIds        : devtest@contoso.com
+    Used                : 0
+
 
 **Deleting authorizations**
 
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
-```
-Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
-```
+    Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
+
 
 ### Circuit user operations
 
@@ -138,31 +134,27 @@ Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*********************
 
 The circuit user can review authorizations by using the following cmdlet:
 
-```
-Get-AzureAuthorizedDedicatedCircuit
+    Get-AzureAuthorizedDedicatedCircuit
 
-Bandwidth                        : 200
-CircuitName                      : ContosoIT
-Location                         : Washington DC
-MaximumAllowedLinks              : 2
-ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-ServiceProviderName              : equinix
-ServiceProviderProvisioningState : Provisioned
-Status                           : Enabled
-UsedLinks                        : 0
-```
+    Bandwidth                        : 200
+    CircuitName                      : ContosoIT
+    Location                         : Washington DC
+    MaximumAllowedLinks              : 2
+    ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Status                           : Enabled
+    UsedLinks                        : 0
 
 **Redeeming link authorizations**
 
 The circuit user can run the following cmdlet to redeem a link authorization:
 
-```
-New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
+    New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 
-State VnetName
------ --------
-Provisioned SalesVNET1
-```
+    State VnetName
+    ----- --------
+    Provisioned SalesVNET1
 
 ## Next steps
 

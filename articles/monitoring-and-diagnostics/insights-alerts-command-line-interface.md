@@ -1,12 +1,13 @@
 ---
 title: Create alerts for Azure services - Cross-platform CLI | Azure
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
-authors: rboucher
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
+ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
+
 ---
-
-# Create alerts in Azure Monitor for Azure services - Cross-platform CLI
-
+# Create metric alerts in Azure Monitor for Azure services - Cross-platform CLI
 > [!div class="op_single_selector"]
 >- [Portal](./insights-alerts-portal.md)
 >- [PowerShell](./insights-alerts-powershell.md)
 >- [CLI](./insights-alerts-command-line-interface.md) 
 
 ## Overview
-This article shows you how to set up Azure alerts using the cross-platform Command Line Interface (CLI).
+This article shows you how to set up Azure metric alerts using the cross-platform Command Line Interface (CLI).
 
-> [Azure.NOTE]
+> [!NOTE]
 > Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
 > 
 > 
@@ -34,21 +34,21 @@ This article shows you how to set up Azure alerts using the cross-platform Comma
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
 - **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
-- **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
+- **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. To learn more about activity log alerts [click here](monitoring-activity-log-alerts.md)
 
-You can configure an alert to do the following when it triggers: 
+You can configure a metric alert to do the following when it triggers:
 
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
 - call a webhook
 - start execution of an Azure runbook (only from the Azure portal at this time) 
 
-You can configure and get information about alert rules using 
+You can configure and get information about metric alert rules using
 
 - [Azure portal](./insights-alerts-portal.md)
 - [PowerShell](./insights-alerts-powershell.md) 
 - [command-line interface (CLI)](./insights-alerts-command-line-interface.md) 
-- [Azure Insights REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931945.aspx)
+- [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 You can always receive help for commands by typing a command and putting -help at the end. For example:
 
@@ -82,9 +82,9 @@ azure insights alerts actions email create -help
 
     An example resource id for a web app is 
 
-    ```
-    /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
-    ```
+     ```console
+     /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
+     ```
 
     To get a list of the available metrics and units for those metrics for the previous resource example, use the following CLI command:  
 
@@ -92,8 +92,7 @@ azure insights alerts actions email create -help
     azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M 
       ```
 
-    _PT1M_  is the granularity of the available measurement (1-minute intervals). Using different granularities gives you different metric options.
-
+     *PT1M* is the granularity of the available measurement (1-minute intervals). Using different granularities gives you different metric options.
 4. To create a metric-based alert rule, use a command of the following form:
 
     **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
@@ -104,8 +103,7 @@ azure insights alerts actions email create -help
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-
-5. To create webhook or send email when an alert fires, first create the email and/or webhooks. Then create the rule immediately afterwards. You cannot associate webhook or emails with already created rules using the CLI. 
+5. To create webhook or send email when a metric alert fires, first create the email and/or webhooks. Then create the rule immediately afterwards. You cannot associate webhook or emails with already created rules using the CLI.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
@@ -115,21 +113,7 @@ azure insights alerts actions email create -help
     azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
 
-6. To create an alert that fires on a specific condition in the activity log, use the form:
-
-    **insights alerts rule log set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;operationName&gt;*
-
-    For example
-
-    ```console
-    azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
-    ```
-
-    The operationName corresponds to an event type for an entry in the activity log. Examples include *Microsoft.Compute/virtualMachines/delete* and *microsoft.insights/diagnosticSettings/write*.
-
-    You can use the PowerShell command [Get-AzureRmProviderOperation](https://msdn.microsoft.com/zh-cn/library/mt603720.aspx) to obtain a list of possible operationNames. Alternately, you can use the Azure portal to query the Activity log and find specific past operations that you want to create an alert for. The operations shown in the graphic log view of the friendly names. Look in the JSON for the entry and pull out the OperationName value.   
-
-7. You can verify that your alerts have been created properly by looking at an individual rule.
+6. You can verify that your alerts have been created properly by looking at an individual rule.
 
     ```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
@@ -151,6 +135,7 @@ azure insights alerts actions email create -help
 
 * [Get an overview of Azure monitoring](./monitoring-overview.md) including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](./insights-webhooks-alerts.md).
+* Learn more about [configuring alerts on Activity log events](./monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
 * Get an [overview of collecting diagnostic logs](./monitoring-overview-of-diagnostic-logs.md) to collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

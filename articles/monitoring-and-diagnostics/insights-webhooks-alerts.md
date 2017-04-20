@@ -1,18 +1,19 @@
 ---
 title: Configure webhooks on Azure metric alerts | Azure
 description: Reroute Azure alerts to other non-Azure systems.
-authors: kamathashwin
-manager: ''
+author: kamathashwin
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
+ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/03/2017
 ms.author: ashwink
 wacn.date: ''
 ---
@@ -29,20 +30,15 @@ You can add or update the webhook URI in the Create/Update Alerts screen in the 
 
 ![Add an alert Rule](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
+You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
 
 ## Authenticating the webhook
-
-The webhook can authenticate using either of these methods:
-
-1. **Token-based authorization** - The webhook URI is saved with a token ID, eg. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Password-based authorization** - The webhook URI is saved with a username and password, eg. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+The webhook can authenticate using token-based authorization. The webhook URI is saved with a token ID, eg. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## Payload schema
-
 The POST operation contains the following JSON payload and schema for all metric-based alerts.
 
-```
+```JSON
 {
 "status": "Activated",
 "context": {
@@ -75,6 +71,7 @@ The POST operation contains the following JSON payload and schema for all metric
 }
 ```
 
+
 | Field | Mandatory | Fixed Set of Values | Notes |
 |:--- |:--- |:--- |:--- |
 | status |Y |“Activated”, “Resolved” |Status for the alert based off of the conditions you have set. |
@@ -101,11 +98,13 @@ The POST operation contains the following JSON payload and schema for all metric
 | portalLink |Y | |Direct link to the portal resource summary page. |
 | properties |N |Optional |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. The properties field is optional. In a custom UI or Logic app-based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters) |
 
->[!NOTE]
-> The properties field can only be set using the [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
+> [!NOTE]
+> The properties field can only be set using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+>
+>
 
 ## Next steps
-
+- Learn more about Azure alerts and webhooks in the video [Integrate Azure Alerts with PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)
 - [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 - [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)

@@ -1,18 +1,19 @@
 ---
-title: How to use Service Bus topics with Java | Azure
+title: How to use Azure Service Bus topics with Java | Azure
 description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications.
 services: service-bus
 documentationCenter: java
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 03/23/2017
 ms.author: sethm
 wacn.date: ''
 ---
@@ -21,11 +22,10 @@ wacn.date: ''
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
+This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
 
 ## What are Service Bus topics and subscriptions?
-
 Service Bus topics and subscriptions support a *publish/subscribe*
 messaging communication model. When using topics and subscriptions,
 components of a distributed application do not communicate directly with
@@ -52,9 +52,8 @@ very large number of messages across a very large number of users and
 applications.
 
 ## Create a service namespace
-
 To begin using Service Bus topics and subscriptions in Azure,
-you must first create a service namespace. A namespace provides
+you must first create a namespace, which provides
 a scoping container for addressing Service Bus resources within your
 application.
 
@@ -63,12 +62,11 @@ To create a namespace:
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Configure your application to use Service Bus
-
-Make sure you have installed the [Azure SDK for Java][] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
+Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
 ![](./media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Add the following import statements to the top of the Java file:
+Add the following `import` statements to the top of the Java file:
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -80,7 +78,6 @@ import javax.xml.datatype.*;
 Add the Azure Libraries for Java to your build path and include it in your project deployment assembly.
 
 ## Create a topic
-
 Management operations for Service Bus topics can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
 constructed with an appropriate configuration that encapsulates the
@@ -157,16 +154,16 @@ You can also create filters that enable you to scope which messages sent
 to a topic should show up within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
-[SqlFilter][], which implements a subset of SQL92. SQL filters operate
+[SqlFilter][SqlFilter], which implements a subset of SQL92. SQL filters operate
 on the properties of the messages that are published to the topic. For
 more details about the expressions that can be used with a SQL filter,
-review the [SqlFilter.SqlExpression][] syntax.
+review the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
 The following example creates a subscription named `HighMessages` with a
-[SqlFilter][] object that only selects messages that have a custom
+[SqlFilter][SqlFilter] object that only selects messages that have a custom
 **MessageNumber** property greater than 3:
 
-```
+```java
 // Create a "HighMessages" filtered subscription  
 SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
 CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
@@ -177,7 +174,7 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ru
 service.deleteRule("TestTopic", "HighMessages", "$Default");
 ```
 
-Similarly, the following example creates a subscription named `LowMessages` with a [SqlFilter][] object that only selects messages that have a **MessageNumber** property less than or equal to 3:
+Similarly, the following example creates a subscription named `LowMessages` with a [SqlFilter][SqlFilter] object that only selects messages that have a **MessageNumber** property less than or equal to 3:
 
 ```java
 // Create a "LowMessages" filtered subscription
@@ -195,7 +192,6 @@ delivered to receivers subscribed to the `AllMessages` subscription, and selecti
 message content).
 
 ## Send messages to a topic
-
 To send a message to a Service Bus topic, your application obtains a
 **ServiceBusContract** object. The following code demonstrates how to send a
 message for the `TestTopic` topic created previously within the `HowToSample` namespace:
@@ -206,12 +202,12 @@ service.sendTopicMessage("TestTopic", message);
 ```
 
 Messages sent to Service Bus Topics are instances of the
-[BrokeredMessage][] class. [BrokeredMessage][]* objects have a set of
+[BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage]* objects have a set of
 standard methods (such as **setLabel** and **TimeToLive**), a dictionary
 that is used to hold custom application-specific properties, and a body
 of arbitrary application data. An application can set the body of the
 message by passing any serializable object into the constructor of the
-[BrokeredMessage][], and the appropriate **DataContractSerializer** will
+[BrokeredMessage][BrokeredMessage], and the appropriate **DataContractSerializer** will
 then be used to serialize the object. Alternatively, a
 **java.io.InputStream** can be provided.
 
@@ -239,7 +235,6 @@ held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
 
 ## How to receive messages from a subscription
-
 To receive messages from a subscription, use a
 **ServiceBusContract** object. Received messages can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**.
@@ -324,7 +319,6 @@ catch (Exception e) {
 ```
 
 ## How to handle application crashes and unreadable messages
-
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
@@ -352,7 +346,6 @@ using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
 ## Delete topics and subscriptions
-
 The primary way to delete topics and subscriptions is to use a
 **ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently.
@@ -368,16 +361,14 @@ service.deleteTopic("TestTopic");
 ```
 
 ## Next Steps
-
-Now that you've learned the basics of Service Bus queues, see [Service Bus queues, topics, and subscriptions][] for more information.
+Now that you've learned the basics of Service Bus queues, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
 
   [Azure SDK for Java]: /develop/java/
-  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
-  [Azure classic portal]: http://manage.windowsazure.cn
+[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
   [Service Bus queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
-  [SqlFilter]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
-  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [BrokeredMessage]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter 
+[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
   [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
   [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png

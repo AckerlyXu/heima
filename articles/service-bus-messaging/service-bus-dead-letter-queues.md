@@ -3,10 +3,11 @@ title: Service Bus dead-letter queues | Azure
 description: Overview of Azure Service Bus dead-letter queues
 services: service-bus
 documentationCenter: .net
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
@@ -14,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2017
 ms.author: clemensv;sethm
----
 
+---
 # Overview of Service Bus dead-letter queues
 Service Bus queues and topic subscriptions provide a secondary sub-queue, called a *dead-letter queue* (DLQ). The dead-letter queue does not need to be explicitly created and cannot be deleted or otherwise managed independent of the main entity.
 
@@ -26,7 +27,6 @@ From an API and protocol perspective, the DLQ is mostly similar to any other que
 Note that there is no automatic cleanup of the DLQ. Messages remain in the DLQ until you explicitly retrieve them from the DLQ and call [Complete()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CompleteAsync) on the dead-letter message.
 
 ## Moving messages to the DLQ
-
 There are several activities in Service Bus that cause messages to get pushed to the DLQ from within the messaging engine itself. An application can also explicitly push messages to the DLQ. 
 
 As the message gets moved by the broker, two properties are added to the message as the broker calls its internal version of the [DeadLetter](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeadLetter_System_String_System_String_) method on the message: `DeadLetterReason` and `DeadLetterErrorDescription`.
@@ -34,7 +34,7 @@ As the message gets moved by the broker, two properties are added to the message
 Applications can define their own codes for the `DeadLetterReason` property, but the system sets the following values.
 
 | Condition                                                                                                                             | DeadLetterReason            | DeadLetterErrorDescription                                                       |
-|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------|
+| --- | --- | --- |
 | Always                                                                                                                                | HeaderSizeExceeded          | The size quota for this stream has been exceeded.                                |
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions | exception.GetType().Name    | exception.Message                                                                |
 | EnableDeadLetteringOnMessageExpiration                                                                                                | TTLExpiredException         | The message expired and was dead lettered.                                       |
@@ -64,6 +64,7 @@ Messages will be sent to the transfer dead-letter queue under the following cond
 
 - A message passes through more than 3 queues or topics that are [chained together](./service-bus-auto-forwarding.md).
 - The destination queue or topic is disabled or deleted.
+- The destination queue or topic exceeds the maximum entity size.
 
 To retrieve these dead-lettered messages, you can create a receiver using the [FormatTransferDeadletterPath](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_FormatTransferDeadLetterPath_System_String_) utility method.
 

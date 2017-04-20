@@ -13,11 +13,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
-wacn.date: ''
+ms.date: 03/17/2017
 ms.author: juanpere
----
 
+---
 # Use device management to initiate a device firmware update (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
@@ -37,9 +36,9 @@ At the end of this tutorial, you have a Node.js console device app and a .NET (C
 
 To complete this tutorial, you need the following:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 or Visual Studio 2017.
 * Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
-* An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 Follow the [Get started with device management](./iot-hub-csharp-node-device-management-get-started.md) article to create your IoT hub and get your IoT Hub connection string.
 
@@ -58,61 +57,53 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
 
     ![NuGet Package Manager window][img-servicenuget]
-4. Add the following `using` statements at the top of the **Program.cs** file:
+1. Add the following `using` statements at the top of the **Program.cs** file:
+   
+        using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+        
+1. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the Id of your device.
+   
+        static RegistryManager registryManager;
+        static string connString = "{iot hub connection string}";
+        static ServiceClient client;
+        static JobClient jobClient;
+        static string targetDevice = "{deviceIdForTargetDevice}";
+        
+1. Add the following method to the **Program** class:
+   
+        public static async Task QueryTwinFWUpdateReported()
+        {
+            Twin twin = await registryManager.GetTwinAsync(targetDevice);
+            Console.WriteLine(twin.Properties.Reported.ToJson());
+        }
+        
+1. Add the following method to the **Program** class:
 
-    ```
-    using Microsoft.Azure.Devices;
-    using Microsoft.Azure.Devices.Shared;
-    ```
+        public static async Task StartFirmwareUpdate()
+        {
+            client = ServiceClient.CreateFromConnectionString(connString);
+            CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
+            method.ResponseTimeout = TimeSpan.FromSeconds(30);
+            method.SetPayloadJson(
+                @"{
+                    fwPackageUri : 'https://someurl'
+                }");
 
-5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the Id of your device.
+            CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
 
-    ```
-    static RegistryManager registryManager;
-    static string connString = "{iot hub connection string}";
-    static ServiceClient client;
-    static JobClient jobClient;
-    static string targetDevice = "{deviceIdForTargetDevice}";
-    ```
+            Console.WriteLine("Invoked firmware update on device.");
+        }
 
-6. Add the following method to the **Program** class:
-
-    ```
-    public static async Task QueryTwinFWUpdateReported()
-    {
-        Twin twin = await registryManager.GetTwinAsync(targetDevice);
-        Console.WriteLine(twin.Properties.Reported.ToJson());
-    }
-    ```
-
-7. Add the following method to the **Program** class:
-
-    ```
-    public static async Task StartFirmwareUpdate()
-    {
-        client = ServiceClient.CreateFromConnectionString(connString);
-        CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
-        method.ResponseTimeout = TimeSpan.FromSeconds(30);
-        method.SetPayloadJson(
-            @"{
-                fwPackageUri : 'https://someurl'
-            }");
-
-        CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
-
-        Console.WriteLine("Invoked firmware update on device.");
-    }
-    ```
-
-7. Finally, add the following lines to the **Main** method:
-
-    ```
-    registryManager = RegistryManager.CreateFromConnectionString(connString);
-    StartFirmwareUpdate().Wait();
-    QueryTwinFWUpdateReported().Wait();
-    Console.WriteLine("Press ENTER to exit.");
-    Console.ReadLine();
-    ```
+1. Finally, add the following lines to the **Main** method:
+   
+        registryManager = RegistryManager.CreateFromConnectionString(connString);
+        StartFirmwareUpdate().Wait();
+        QueryTwinFWUpdateReported().Wait();
+        Console.WriteLine("Press ENTER to exit.");
+        Console.ReadLine();
+        
+1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **TriggerFWUpdate** project is **Start**.
 
 8. Build the solution.
 
@@ -121,7 +112,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 ## Run the apps
 You are now ready to run the apps.
 
-1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
+1. At the command prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
 
     ```
     node dmpatterns_fwupdate_device.js
@@ -129,6 +120,8 @@ You are now ready to run the apps.
 2. In Visual Studio, right-click on the **TriggerFWUpdate** projectRun to the C# console app, select **Debug** and **Start new instance**.
 
 3. You see the device response to the direct method in the console.
+
+    ![Firmware updated successfully][img-fwupdate]
 
 ## Next steps
 In this tutorial, you used a direct method to trigger a remote firmware update on a device and used the reported properties to follow the progress of the firmware update.
@@ -138,6 +131,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 <!-- images -->
 [img-servicenuget]: ./media/iot-hub-csharp-node-firmware-update/servicesdknuget.png
 [img-createapp]: ./media/iot-hub-csharp-node-firmware-update/createnetapp.png
+[img-fwupdate]: ./media/iot-hub-csharp-node-firmware-update/fwupdated.png
 
 [lnk-devtwin]: ./iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md
