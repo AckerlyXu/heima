@@ -25,7 +25,7 @@ In this scenario, you learn how to create a 6 GB Premium tier Azure Redis Cache 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Sample script
 
