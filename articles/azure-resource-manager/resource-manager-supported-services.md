@@ -145,40 +145,40 @@ To get all the available resource providers, including their types, locations, A
 ### PowerShell
 The following example shows how to get all the available resource providers.
 
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
+    ```powershell
+    Get-AzureRmResourceProvider -ListAvailable
+    ```
 
 The next example shows how to get the resource types for a particular resource provider.
 
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
-```
+    ```powershell
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+    ```
 
 To register a resource provider, provide the namespace:
 
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
-```
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+    ```
 
 ### Azure CLI
 The following example shows how to get all the available resource providers.
 
-```azurecli
-az provider list
-```
+    ```azurecli
+    az provider list
+    ```
 
 You can view the information for a particular resource provider with the following command:
 
-```azurecli
-az provider show --namespace Microsoft.Web
-```
+    ```azurecli
+    az provider show --namespace Microsoft.Web
+    ```
 
 To register a resource provider, provide the namespace:
 
-```azurecli
-az provider register --namespace Microsoft.ServiceBus
-```
+    ```azurecli
+    az provider register --namespace Microsoft.ServiceBus
+    ```
 
 ## <a name="supported-regions"></a> Supported regions
 When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed by your subscription administrator to use only certain regions. 
@@ -204,16 +204,16 @@ To discover which regions are available for a particular resource type in your s
 ### PowerShell
 The following example shows how to get the supported regions for web sites.
 
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-```
+    ```powershell
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    ```
 
 ### Azure CLI
 The following example show how to get the supported locations for web sits.
 
-```azurecli
-az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
-```
+    ```azurecli
+    az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
+    ```
 
 ## Supported API versions
 When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the template. In general, you want to select the most recent API version when creating templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
@@ -227,31 +227,31 @@ To discover which API versions are available for resource types, use the [List a
 ### PowerShell
 The following example shows how to get the available API versions for a particular resource type.
 
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
-```
+    ```powershell
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    ```
 
 The output is similar to:
 
-```powershell
-2015-08-01
-2015-07-01
-2015-06-01
-2015-05-01
-2015-04-01
-2015-02-01
-2014-11-01
-2014-06-01
-2014-04-01-preview
-2014-04-01
-```
+    ```powershell
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
+    ```
 
 ### Azure CLI
 You get the available API versions for a resource provider with the following command:
 
-```azurecli
-az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
-```
+    ```azurecli
+    az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
+    ```
 
 ## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).

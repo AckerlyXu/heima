@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 03/31/2017
 wacn.date: ''
 ms.author: rodend;karlku;tomfitz
 ---
@@ -78,6 +78,7 @@ You apply the scaffold at the subscription level to extend the governance requir
 ## Naming standards
 The first pillar of the scaffold is naming standards. Well-designed naming standards enable you to identify resources in the portal, on a bill, and within scripts. Most likely, you already have naming standards for on-premise infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standard facilitate more efficient management of the environment at all levels.
 
+<!--nameing convention not available in Azure.cn -->
 > [!TIP]
 ><p> * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
 ><p> * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
@@ -150,14 +151,14 @@ Resource tags are flexible and should be attached to most resources. Examples of
 ![tags](./media/resource-manager-subscription-governance/resource-group-tagging.png)
 
 > [!TIP]
-> Create a tagging strategy that identifies across your subscriptions what metadata is needed for the business, finance, security, risk management, and overall management of the environment. Consider making a policy that mandates tagging for:
-><p> 
-><p> * Resource groups
-><p> * Storage
-><p> * Virtual Machines
-><p> * Application Service Environments/web servers
+> Consider making a policy that mandates tagging for:
 > 
+> * Resource groups
+> * Storage
+> * Virtual Machines
+> * Application Service Environments/web servers
 > 
+> This tagging strategy identifies across your subscriptions what metadata is needed for the business, finance, security, risk management, and overall management of the environment. 
 
 ## Resource group
 Resource Manager enables you to put resources into meaningful groups for management, billing, or natural affinity. As mentioned earlier, Azure has two deployment models. In the earlier Classic model, the basic unit of management was the subscription. It was difficult to break down resources within a subscription, which led to the creation of large numbers of subscriptions. With the Resource Manager model, we saw the introduction of resource groups. Resource groups are containers of resources that have a common lifecycle or share an attribute such as "all SQL servers" or "Application A".
@@ -165,29 +166,30 @@ Resource Manager enables you to put resources into meaningful groups for managem
 Resource groups cannot be contained within each other and resources can only belong to one resource group. You can apply certain actions on all resources in a resource group. For example, deleting a resource group removes all resources within the resource group. Typically, you place an entire application or related system in the same resource group. For example, a three tier application called Contoso Web Application would contain the web server, application server and SQL server in the same resource group.
 
 > [!TIP]
-> How you organize your resource groups may vary from "Traditional IT" workloads to "Agile IT" workloads
+> How you organize your resource groups may vary from "Traditional IT" workloads to "Agile IT" workloads:
 > 
 > * "Traditional IT" workloads are most commonly grouped by items within the same lifecycle, such as an application. Grouping by application allows for individual application management.
 > * "Agile IT" workloads tend to focus on external customer-facing cloud applications. The resource groups should reflect the layers of deployment (such as Web Tier, App Tier) and management.
 > 
-> 
+> Understanding your workload helps you develop a resource group strategy.
 
 ## Role-based access control
-You probably are asking yourself "who should have access to resources?" and "how do I control this access?" Allowing or disallowing access to the Azure portal preview, and controlling access to resources in the portal is crucial. 
+You probably are asking yourself "who should have access to resources?" and "how do I control this access?" Allowing or disallowing access to the Azure portal, and controlling access to resources in the portal is crucial. 
 
 When Azure was initially released, access controls to a subscription were basic: Administrator or Co-Administrator. Access to a subscription in the Classic model implied access to all the resources in the portal. This lack of fine-grained control led to the proliferation of subscriptions to provide a level of reasonable access control for an Azure Enrollment.
 
 This proliferation of subscriptions is no longer needed. With role-based access control, you can assign users to standard roles (such as common "reader" and "writer" types of roles). You can also define custom roles.
 
 > [!TIP]
+> To implement role-based access control:
 > * Connect your corporate identity store (most commonly Active Directory) to Azure Active Directory using the AD Connect tool.
 > * Control the Admin/Co-Admin of a subscription using a managed identity. **Don't** assign Admin/Co-admin to a new subscription owner. Instead, use RBAC roles to provide **Owner** rights to a group or individual.
 > * Add Azure users to a group (for example, Application X Owners) in Active Directory. Use the synced group to provide group members the appropriate rights to manage the resource group containing the application.
 > * Follow the principle of granting the **least privilege** required to do the expected work. For example:
-> * Deployment Group: A group that is only able to deploy resources.
-> * Virtual Machine Management: A group that is able to restart VMs (for operations)
+>   * Deployment Group: A group that is only able to deploy resources.
+>   * Virtual Machine Management: A group that is able to restart VMs (for operations)
 > 
-> 
+> These tips help you manage user access across your subscription.
 
 ## Azure resource locks
 As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](./resource-group-lock-resources.md) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts. 
@@ -204,7 +206,7 @@ Of the built-in roles, only Owner and User Access Administrator are granted thos
 > * Network Security Group: CanNotDelete
 > * Policies: CanNotDelete
 > 
-> 
+> Policies are also crucial to the maintenance of appropriate controls. We recommend that you apply a **CanNotDelete** lock to polices that are in use.
 
 ## Core networking resources
 Access to resources can be either internal (within the corporation's network) or external (through the internet). It is easy for users in your organization to inadvertently put resources in the wrong spot, and potentially open them to malicious access. As with on-premise devices, enterprises must add appropriate controls to ensure that Azure users make the right decisions. For subscription governance, we identify core resources that provide basic control of access. The core resources consist of:
@@ -215,15 +217,17 @@ Access to resources can be either internal (within the corporation's network) or
 ![core networking](./media/resource-manager-subscription-governance/core-network.png)
 
 > [!TIP]
+> For networking:
 > * Create virtual networks dedicated to external-facing workloads and internal-facing workloads. This approach reduces the chance of inadvertently placing virtual machines that are intended for internal workloads in an external facing space.
-> * Network security groups are critical to this configuration. At a minimum, block access to the internet from internal virtual networks, and block access to the corporate network from external virtual networks.
+> * Configure network security groups to limit access. At a minimum, block access to the internet from internal virtual networks, and block access to the corporate network from external virtual networks.
 > 
-> 
+> These tips help you implement secure networking resources.
 
 ### Automation
 Managing resources individually is both time-consuming and potentially error prone for certain operations. Azure provides various automation capabilities including Azure Automation, Logic Apps, and Azure Functions. [Azure Automation](../automation/automation-intro.md) enables administrators to create and define runbooks to handle common tasks in managing resources. You create runbooks by using either a PowerShell code editor or a graphical editor. You can produce complex multi-stage workflows. Azure Automation is often used to handle common tasks such as shutting down unused resources, or creating resources in response to a specific trigger without needing human intervention.
 
 > [!TIP]
+> For automation:
 > * Create an Azure Automation account and review the available runbooks (both graphical and command line) available in the [Runbook Gallery](../automation/automation-runbook-gallery.md).
 > * Import and customize key runbooks for your own use.
 > 
@@ -246,4 +250,3 @@ The Azure Security Center provides a central view of the security status of reso
 ## Next steps
 * Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](./resource-manager-subscription-examples.md).
 
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) contributed to this topic.*

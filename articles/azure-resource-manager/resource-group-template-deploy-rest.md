@@ -20,10 +20,12 @@ ms.author: tomfitz
 
 # Deploy resources with Resource Manager templates and Resource Manager REST API
 > [!div class="op_single_selector"]
->- [PowerShell](./resource-group-template-deploy.md)
->- [Azure CLI](./resource-group-template-deploy-cli.md)
->- [Portal](./resource-group-template-deploy-portal.md)
->- [REST API](./resource-group-template-deploy-rest.md)
+> * [PowerShell](resource-group-template-deploy.md)
+> * [Azure CLI](resource-group-template-deploy-cli.md)
+> * [Portal](resource-group-template-deploy-portal.md)
+> * [REST API](resource-group-template-deploy-rest.md)
+> 
+> 
 
 This article explains how to use the Resource Manager REST API with Resource Manager templates to deploy your resources to Azure.  
 
@@ -43,52 +45,45 @@ Your template can be either a local file or an external file that is available t
 1. Set [common parameters and headers](https://docs.microsoft.com/rest/api/index), including authentication tokens.
 2. If you do not have an existing resource group, create a resource group. Provide your subscription ID, the name of the new resource group, and location that you need for your solution. For more information, see [Create a resource group](https://docs.microsoft.com/rest/api/resources/resourcegroups#ResourceGroups_CreateOrUpdate).
 
-    ```
-    PUT https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
-      <common headers>
-      {
-        "location": "China North",
-        "tags": {
-           "tagname1": "tagvalue1"
-        }
-      }
-    ```
+        PUT https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+            <common headers>
+            {
+        		"location": "China North",
+                "tags": {
+                    "tagname1": "tagvalue1"
+                }
+            }
 3. Validate your deployment before executing it by running the [Validate a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Validate) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 4. Create a deployment. Provide your subscription ID, the name of the resource group, the name of the deployment, and a link to your template. For information about the template file, see [Parameter file](#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that are not in your template.
 
-    ```
-    PUT https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-      <common headers>
-      {
-        "properties": {
-          "templateLink": {
-            "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/template.json",
-            "contentVersion": "1.0.0.0"
-          },
-          "mode": "Incremental",
-          "parametersLink": {
-            "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/parameters.json",
-            "contentVersion": "1.0.0.0"
-          }
-        }
-      }
-    ```
+        PUT https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+            <common headers>
+            {
+                "properties": {
+                    "templateLink": {
+                        "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/template.json",
+                        "contentVersion": "1.0.0.0"
+                    },
+                    "mode": "Incremental",
+                    "parametersLink": {
+                        "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/parameters.json",
+                        "contentVersion": "1.0.0.0"
+                    }
+                }
+            }
+
 
     If you want to log response content, request content, or both, include **debugSetting** in the request.
 
-    ```
-    "debugSetting": {
-      "detailLevel": "requestContent, responseContent"
-    }
-    ```
-
+        "debugSetting": {
+            "detailLevel": "requestContent, responseContent"
+        }
+   
     You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/fileservices/delegating-access-with-a-shared-access-signature).
 5. Get the status of the template deployment. For more information, see [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
 
-    ```
-    GET https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-       <common headers>
-    ```
+        GET https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+            <common headers>
 
 ## Parameter file
 

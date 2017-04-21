@@ -1,6 +1,6 @@
 ---
 title: Use Azure portal preview to deploy Azure resources | Azure
-description: Use Azure portal preview and Azure Resource Manage to deploy your resources.
+description: Use Azure portal and Azure Resource Manage to deploy your resources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
@@ -18,19 +18,21 @@ wacn.date: ''
 ms.author: tomfitz
 ---
 
-# Deploy resources with Resource Manager templates and Azure portal preview
+# Deploy resources with Resource Manager templates and Azure portal
 > [!div class="op_single_selector"]
->- [PowerShell](./resource-group-template-deploy.md)
->- [Azure CLI](./resource-group-template-deploy-cli.md)
->- [Portal](./resource-group-template-deploy-portal.md)
->- [REST API](./resource-group-template-deploy-rest.md)
+> * [PowerShell](resource-group-template-deploy.md)
+> * [Azure CLI](resource-group-template-deploy-cli.md)
+> * [Portal](resource-group-template-deploy-portal.md)
+> * [REST API](resource-group-template-deploy-rest.md)
+> 
+> 
 
-This topic shows how to use the [Azure portal preview](https://portal.azure.cn) with [Azure Resource Manager](./resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./resource-group-portal.md).
+This topic shows how to use the [Azure portal](https://portal.azure.cn) with [Azure Resource Manager](./resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./resource-group-portal.md).
 
 Currently, not every service supports the portal or Resource Manager. For those services, you need to use
-the [Classic Management Portal](https://manage.windowsazure.cn).  For the status of each service, see [Azure portal preview availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+the [classic portal](https://manage.windowsazure.cn).  For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
-## <a name="create-resource-group"></a> Create resource group
+## <a name="create-resource-group"></a>Create resource group
 1. To create an empty resource group, select **New** > **Management** > **Resource Group**.
 
     ![create empty resource group](./media/resource-group-template-deploy-portal/create-empty-group.png)
@@ -61,7 +63,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
     ![add resource](./media/resource-group-template-deploy-portal/add-resource.png)
 
-## <a name="deploy-resources-from-custom-template"></a> Deploy resources from custom template
+## <a name="deploy-resources-from-custom-template"></a>Deploy resources from custom template
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
 
 1. To deploy a customized template through the portal, select **New**, and start searching for **Template Deployment** until you can select it from the options.
@@ -77,7 +79,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
     In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](./resource-manager-template-walkthrough.md).
 
     ![edit template](./media/resource-group-template-deploy-portal/edit-template.png)
-4. Or, you can select a pre-existing template from the [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/). These templates are contributed by the community. They cover many common scenarios, and someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.
+4. Or, you can select a pre-existing template from the [Azure quickstart templates](https://azure.microsoft.com/zh-cn/documentation/templates/). These templates are contributed by the community. They cover many common scenarios, and someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.
 
     ![select quickstart template](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
 
