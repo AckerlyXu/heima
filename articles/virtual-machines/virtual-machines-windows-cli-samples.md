@@ -33,6 +33,3 @@ The following table includes links to bash scripts built using the Azure CLI tha
 | [Create a VM and run DSC configuration](./scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
-|**Monitor virtual machines**||
-| [Monitor a VM with Operations Management Suite](./scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
-| | |

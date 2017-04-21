@@ -108,7 +108,7 @@ Although you can create a resource group from a template, the template that you 
     - *myResourceGroup* with the name of the resource group being created.
     - *subscriptionId* with your subscription identifier. You can find the subscription identifier on the Subscriptions blade of the Azure portal preview.
     - *deploymentName* with the name of the deployment.
-    - *location* with the [Azure region](https://azure.microsoft.com/regions/) where you want to create the resources.
+    - *location* with the Azure region where you want to create the resources.
 
 2. To create the resource group, add this method to the Program class:
 
@@ -119,7 +119,7 @@ Although you can create a resource group from a template, the template that you 
       string subscriptionId,
       string location)
     {
-      var resourceManagementClient = new ResourceManagementClient(credential)
+      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
         { SubscriptionId = subscriptionId };
 
       Console.WriteLine("Creating the resource group...");

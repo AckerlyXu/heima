@@ -46,7 +46,7 @@ Verify that you have the following items before beginning your configuration:
 
 * A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 * An externally facing public IPv4 IP address for your VPN device. This IP address cannot be located behind a NAT.
-* An Azure subscription. If you don't already have an Azure subscription, you can sign up for a [free account](https://www.azure.cn/pricing/free-trial).
+* An Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 * Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). When working with PowerShell for this configuration, make sure that you are running as administrator. 
 
 > [!NOTE]

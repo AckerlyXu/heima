@@ -30,9 +30,9 @@ To increase the size of a managed data disk, use the following PowerShell cmdlet
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
-| [Get-AzureRMReseourceGroup](https://docs.microsoft.com/powershell/Get-AzureRMReseourceGroup) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/getazurermvm)                  |
-| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/Set-AzureRmVMDataDisk) |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/update-azurermvm)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/start-azurermvm)             |
+| [Get-AzureRMReseourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup?view=azurermps-3.8.0) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?view=azurermps-3.8.0)                  |
+| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-3.8.0)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-3.8.0) |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm?view=azurermps-3.8.0)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-3.8.0)             |
 <br>
 
 The following script will walk you through getting the VM information, selecting the data disk and specifying the new size.
@@ -92,9 +92,9 @@ To increase the size of unmanaged data disks in a storage account, use the follo
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
-| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/Get-AzureRMStorageAccount) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/getazurermvm)                  |
-| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/Set-AzureRmVMDataDisk) |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/update-azurermvm)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/start-azurermvm)             |
+| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-3.8.0) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?view=azurermps-3.8.0)                  |
+| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-3.8.0)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-3.8.0) |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm?view=azurermps-3.8.0)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-3.8.0)             |
 
 <br>
 

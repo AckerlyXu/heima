@@ -58,7 +58,7 @@ The weighted method enables some useful scenarios:
 * Application migration to Azure: Create a profile with both Azure and external endpoints. Adjust the weight of the endpoints to prefer the new endpoints.
 * Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile. When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.
 
-The Resource Manager Azure portal preview supports the configuration of weighted traffic routing.  You can configure weights using the Resource Manager versions of Azure PowerShell, CLI, and the REST APIs.
+The Azure portal preview supports the configuration of weighted traffic routing.  You can configure weights using the Resource Manager versions of Azure PowerShell, CLI, and the REST APIs.
 
 It is important to understand that DNS responses are cached by clients and by the recursive DNS servers that the clients use to resolve DNS names. This caching can have an impact on weighted traffic distributions. When the number of clients and recursive DNS servers is large, traffic distribution works as expected. However, when the number of clients or recursive DNS servers is small, caching can significantly skew the traffic distribution.
 
@@ -72,7 +72,7 @@ These DNS caching effects are common to all DNS-based traffic routing systems, n
 
 ## <a name="performance-traffic-routing-method"></a> Performance traffic-routing method
 
-Deploying endpoints in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
+Deploying endpoints in two locations across the nation can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
 
 ![Azure Traffic Manager 'Performance' traffic-routing method][3]
 
@@ -82,7 +82,7 @@ Traffic Manager looks up the source IP address of the incoming DNS request in th
 
 As explained in [How Traffic Manager Works](traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager does not receive DNS queries directly from clients. Rather, DNS queries come from the recursive DNS service that the clients are configured to use. Therefore, the IP address used to determine the 'closest' endpoint is not the client's IP address, but it is the IP address of the recursive DNS service. In practice, this IP address is a good proxy for the client.
 
-Traffic Manager regularly updates the Internet Latency Table to account for changes in the global Internet and new Azure regions. However, application performance varies based on real-time variations in load across the Internet. Performance traffic-routing does not monitor load on a given service endpoint. However, if an endpoint becomes unavailable, Traffic Manager does not include it in DNS query responses.
+Traffic Manager regularly updates the Internet Latency Table to account for changes in the national Internet and new Azure regions. However, application performance varies based on real-time variations in load across the Internet. Performance traffic-routing does not monitor load on a given service endpoint. However, if an endpoint becomes unavailable, Traffic Manager does not include it in DNS query responses.
 
 Points to note:
 

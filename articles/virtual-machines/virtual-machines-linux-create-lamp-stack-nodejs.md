@@ -25,8 +25,10 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0] - our CLI for the classic and resource management deployment models (this article)
+- Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI 2.0](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+
+<br/>
 
 ```
 # One command to create a resource group holding a VM with LAMP already on it
@@ -34,6 +36,8 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 ```
 
 * Deploy LAMP on existing VM
+
+<br/>
 
 ```
 # Two commands: one updates packages, the other installs Apache, MySQL, and PHP

@@ -73,7 +73,7 @@ ssh-keygen \
 
 `ssh-keygen` = the program used to create the keys
 
-`-t rsa` = type of key to create which is the RSA format [wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = type of key to create which is the RSA format [wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 
 `-b 2048` = bits of the key
 

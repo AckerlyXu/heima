@@ -28,7 +28,7 @@ You can reset Remote Desktop services and credentials in a few different ways, d
 - [Reset using the Azure portal preview](#azure-portal)
 - [Reset using Azure PowerShell](#vmaccess-extension-and-powershell)
 
-## Azure portal preview
+## <a name="azure-portal"></a> Azure portal preview
 To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines**:
 
 ![Browse for your Azure VM](./media/virtual-machines-windows-reset-rdp/Portal-Select-VM.png)
@@ -49,7 +49,7 @@ Select your Windows virtual machine then click **Support + Troubleshooting** > *
 
 Select **Reset configuration only** from the drop-down menu, then click **Update**. Try connecting to your VM again.
 
-## <a name="vmaccess-extension-and-powershell---resource-manager"></a> VMAccess extension and PowerShell
+## <a name="vmaccess-extension-and-powershell"></a> VMAccess extension and PowerShell
 Make sure that you have the [latest PowerShell module installed and configured](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) and are signed in to your Azure subscription with the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` cmdlet.
 
 ### **Reset the local administrator account password**

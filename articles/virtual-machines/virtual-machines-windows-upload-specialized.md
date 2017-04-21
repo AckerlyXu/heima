@@ -32,7 +32,6 @@ A specialized VHD maintains the user accounts, applications and other state data
 
 * For information about pricing of the various VM sizes, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Windows).
 * For information on storage pricing, see [Storage Pricing](https://www.azure.cn/pricing/details/storage/blob/). 
-* For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 * To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 ## Before you begin

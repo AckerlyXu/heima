@@ -27,7 +27,7 @@ See [How to install and configure Azure PowerShell](https://docs.microsoft.com/p
 
 These variables might be useful for you if running more than one of the commands in this article:
 
-- $location - The location of the virtual machine. You can use [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) to find a [geographical region](https://azure.microsoft.com/regions/) that works for you.
+- $location - The location of the virtual machine. You can use [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) to find a geographical region that works for you.
 - $myResourceGroup - The name of the resource group that contains the virtual machine.
 - $myVM - The name of the virtual machine.
 

@@ -31,7 +31,7 @@ You can reset Remote Desktop services and credentials in a few different ways, d
 - [Reset using the Azure portal preview](#azure-portal)
 - [Reset using Azure PowerShell](#vmaccess-extension-and-powershell)
 
-## Azure portal preview
+## <a name="azure-portal"></a> Azure portal preview
 You can use the [Azure portal preview](https://portal.azure.cn) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
 
 ![Browse for your Azure VM](./media/virtual-machines-windows-reset-rdp/Portal-Select-Classic-VM.png)
@@ -103,6 +103,6 @@ If the Azure VM access extension does not respond and you are unable to reset th
 
 [Azure VM extensions and features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Connect to an Azure virtual machine with RDP or SSH](/azure/virtual-machines/virtual-machines-linux-azure-overview/)
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

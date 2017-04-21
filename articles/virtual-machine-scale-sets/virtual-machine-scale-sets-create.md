@@ -31,7 +31,7 @@ This tutorial shows you how to create a virtual machine scale set **without** us
 
 If you're using Azure CLI 2.0 or Azure PowerShell to create a scale set, you first need to sign in to your subscription.
 
-For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) or [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/resourcemanager/).
+For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/resourcemanager/).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -48,11 +48,11 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 You first need to create a resource group that the virtual machine scale set is associated with.
 
 ```azurecli
-az group create --location chinanorth2 --name vmss-test-1
+az group create --location chinanorth --name vmss-test-1
 ```
 
 ```powershell
-New-AzureRmResourceGroup -Location chinanorth2 -Name vmss-test-1
+New-AzureRmResourceGroup -Location chinanorth -Name vmss-test-1
 ```
 
 ## Create from Azure CLI
@@ -113,7 +113,7 @@ PowerShell is more complicated to use than Azure CLI. While Azure CLI provides d
 The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **China North 2** region with a publisher that has the name **microsoft** in it.
 
 ```powershell
-Get-AzureRMVMImagePublisher -Location ChinaNorth2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
+Get-AzureRMVMImagePublisher -Location ChinaNorth | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
 
 ```
@@ -141,7 +141,7 @@ This example creates a basic two-instance scale set for a computer that has Wind
 
 ```powershell
 # Create a config object
-$vmssConfig = New-AzureRmVmssConfig -Location ChinaNorth2 -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
+$vmssConfig = New-AzureRmVmssConfig -Location ChinaNorth -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
 
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
@@ -151,7 +151,7 @@ Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@s
 
 # Create the virtual network resources
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName "vmss-test-1" -Location "chinanorth2" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName "vmss-test-1" -Location "chinanorth" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 $ipConfig = New-AzureRmVmssIpConfig -Name "my-ip-address" -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
 # Attach the virtual network to the config object
@@ -163,12 +163,12 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 
 ## Create from a template
 
-You can deploy a virtual machine scale set by using an Azure Resource Manager template. You can create your own template or use one from the [template repository](https://azure.microsoft.com/resources/templates/?term=vmss). These templates can be deployed directly to your Azure subscription.
+You can deploy a virtual machine scale set by using an Azure Resource Manager template. You can create your own template or use one from the [template repository](https://www.github.com/Azure/azure-quickstart-templates/). These templates can be deployed directly to your Azure subscription.
 
 >[!NOTE]
 >To create your own template, you create a JSON text file. For general information about how to create and customize a template, see [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
-A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information about how to create and use that sample, see [Minimum viable scale set](.\virtual-machine-scale-sets-mvss-start.md).
+A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information about how to create and use that sample, see [Minimum viable scale set](./virtual-machine-scale-sets-mvss-start.md).
 
 ## Create from Visual Studio
 

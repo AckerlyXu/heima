@@ -73,7 +73,7 @@ See the following table for current region pairs:
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
+[image4]: ./media/virtual-machines-common-planned-maintenance/AvailabilitySetExample.png
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md

@@ -25,62 +25,6 @@ ms.custom: na
 
 Get answers to frequently asked questions about virtual machine scale sets in Azure.
 
-## Autoscale
-
-### What are best practices for Azure Autoscale?
-
-For best practices for Autoscale, see [Best practices for autoscaling virtual machines](/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
-
-### Where do I find metric names for autoscaling that uses host-based metrics?
-
-For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](/azure/monitoring-supported-metrics/).
-
-### Are there any examples of autoscaling based on an Azure Service Bus topic and queue length?
-
-Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](/azure/insights-autoscale-common-metrics/).
-
-For a Service Bus queue, use the following JSON:
-
-```json
-"metricName": "MessageCount",
-"metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
-```
-
-For a storage queue, use the following JSON:
-
-```json
-"metricName": "ApproximateMessageCount",
-"metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
-```
-
-Replace example values with your resource Uniform Resource Identifiers (URIs).
-
-### Should I autoscale by using host-based metrics or a diagnostics extension?
-
-You can create an autoscale setting on a VM to use host-level metrics or guest OS-based metrics.
-
-For a list of supported metrics, see [Azure Monitor autoscaling common metrics](/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
-
-For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
-
-The sample uses the host-level CPU metric and a message count metric.
-
-### How do I set alert rules on a virtual machine scale set?
-
-You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quick start samples](/azure/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quick start samples](/azure/insights-cli-samples/#work-with-alerts).
-
-The TargetResourceId of the virtual machine scale set looks like this: 
-
-/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
-
-You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](/azure/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](/azure/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](/azure/insights-autoscale-common-metrics/) article.
-
-### How do I set up autoscale on a virtual machine scale set by using PowerShell?
-
-To set up autoscale on a virtual machine scale set by using PowerShell, see the blog post [How to add autoscale to an Azure virtual machine scale set](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/).
-
 ## Certificates
 
 ### How do I securely ship a certificate to the VM? How do I provision a virtual machine scale set to run a website where the SSL for the website is shipped securely from a certificate configuration? (The common certificate rotation operation would be almost the same as a configuration update operation.) Do you have an example of how to do this? 
@@ -317,7 +261,7 @@ Virtual machine scale sets are a thin API layer on top of the CRP. Both componen
 
 From a compliance perspective, virtual machine scale sets are a fundamental part of the Azure compute platform. They share a team, tools, processes, deployment methodology, security controls, just-in-time (JIT) compilation, monitoring, alerting, and so on, with the CRP itself. Virtual machine scale sets are Payment Card Industry (PCI)-compliant because the CRP is part of the current PCI Data Security Standard (DSS) attestation.
 
-For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+For more information, see [the Microsoft Trust Center](https://www.trustcenter.cn/).
 
 ## Extensions
 
@@ -334,10 +278,6 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
 ```
 
 You can find the extensionName value in `$vmss`.
-
-### Is there a virtual machine scale set template example that integrates with Operations Management Suite?
-
-For a virtual machine scale set template example that integrates with Operations Management Suite, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### Extensions seem to run in parallel on virtual machine scale sets. This causes my custom script extension to fail. What can I do to fix this?
 
@@ -468,43 +408,6 @@ Another reason you might create a virtual machine scale set with fewer than two 
 
 To change the number of VMs in a virtual machine scale set, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
-### How do I define custom alerts for when certain thresholds are reached?
-
-You have some flexibility in how you handle alerts for specified thresholds. For example, you can define customized webhooks. The following webhook example is from a Resource Manager template:
-
-```json
-   {
-         "type": "Microsoft.Insights/autoscaleSettings",
-	       "apiVersion": "[variables('insightsApi')]",
-	             "name": "autoscale",
-		           "location": "[parameters('resourceLocation')]",
-			         "dependsOn": [
-				         "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-				 ],
-				 "properties": {
-				         "name": "autoscale",
-					 "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-					 "enabled": true,
-					 "notifications": [{
-					 		  "operation": "Scale",
-							  "email": {
-							  	   "sendToSubscriptionAdministrator": true,
-							  	   "sendToSubscriptionCoAdministrators": true,
-							  	   "customEmails": [
-							  		  "youremail@address.com"
-							  	   ]},
-							  "webhooks": [{
-									"serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
-									"properties": {
-										"key1": "custommetric",
-										"key2": "scalevmss"
-									}
-									}
-							  ]}],
-```
-
-In this example, an alert goes to Pagerduty.com when a threshold is reached.
-
 ## Patching and operations
 
 ### How do I create a scale set in an existing resource group?
@@ -573,5 +476,5 @@ The main difference between deleting a VM in a virtual machine scale set and dea
 
 - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.
-  - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
+  - Related to this scenario, you might have created your own scale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.

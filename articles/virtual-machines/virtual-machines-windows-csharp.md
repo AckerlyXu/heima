@@ -124,7 +124,7 @@ All resources must be contained in a resource group. Before you can add resource
 
     - All resource names that start with *my*, with names that make sense for your environment.
     - *subscriptionId* with your subscription identifier. You can find the subscription identifier on the Subscriptions blade of the Azure portal preview.
-    - *location* with the [Azure region](https://azure.microsoft.com/regions/) where you want to create the resources.
+    - *location* with the Azure region where you want to create the resources.
     - *adminName* with the name of the administrator account on the virtual machine.
     - *adminPassword* with the password of the administrator account.
 

@@ -29,7 +29,7 @@ ms.author: cherylmc
 
 You can delete a VPN gateway in the classic deployment model by using PowerShell. After the virtual network gateway has been deleted, modify the network configuration file to remove elements that you are no longer using.
 
-##Step 1: Connect to Azure
+## Step 1: Connect to Azure
 
 ### 1. Install the latest PowerShell cmdlets.
 
@@ -79,7 +79,7 @@ If successful, the return shows:
 
 When you delete a virtual network gateway, the cmdlet does not modify the network configuration file. You need to modify the file to remove the elements that are no longer being used. The following sections help you modify the network configuration file that you downloaded.
 
-###Local Network Site References
+### Local Network Site References
 
 To remove site reference information, make configuration changes to **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Removing a local site reference triggers Azure to delete a tunnel. Depending on the configuration that you created, you may not have a **LocalNetworkSiteRef** listed.
 
@@ -98,7 +98,7 @@ Example:
        </ConnectionsToLocalNetwork>
      </Gateway>
 
-###Local Network Sites
+### Local Network Sites
 
 Remove any local sites that you are no longer using. Depending on the configuration you created, it is possible that you don't have a **LocalNetworkSite** listed.
 

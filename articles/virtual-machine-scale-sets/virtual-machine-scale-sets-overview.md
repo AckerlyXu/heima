@@ -82,14 +82,8 @@ $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -
 Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
 ```
 
- You can find a list of valid metrics to scale on in [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) under the heading "Microsoft.Compute/virtualMachineScaleSets." More advanced autoscale options are also available, including schedule-based autoscale and using webhooks to integrate with alert systems.
-
 ## Monitoring your scale set
 The [Azure portal preview](https://portal.azure.cn) lists scale sets and shows their properties. The portal also supports management operations. You can perform management operations on both scale sets and individual VMs within a scale set. The portal also provides a customizable resource usage graph. 
-
-If you need to see or edit the underlying JSON definition of an Azure resource, you can also use [Azure Resource Explorer](https://resources.azure.com). Scale sets are a resource under the Microsoft.Compute Azure resource provider. From this site, you can see them by expanding the following links:
-
-**Subscriptions** > **your subscription** > **resourceGroups** > **providers** > **Microsoft.Compute** > **virtualMachineScaleSets** > **your scale set** > etc.
 
 ## Scale set scenarios
 This section lists some typical scale set scenarios. Some higher-level Azure services (like Batch, Service Fabric, and Container Service) use these scenarios.
@@ -118,8 +112,6 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 * **Deploying a scale set as a compute cluster in a PaaS cluster manager**: Scale sets are sometimes described as a next-generation worker role. Though a valid description, it does run the risk of confusing scale set features with Azure Cloud Services features. In a sense, scale sets provide a true worker role or worker resource. They are a generalized compute resource that is platform/runtime independent, is customizable, and integrates into Azure Resource Manager IaaS.
 
    A Cloud Services worker role is limited in terms of platform/runtime support (Windows platform images only). But it also includes services such as VIP swap, configurable upgrade settings, and runtime/app deployment-specific settings. These services are not *yet* available in scale sets, or they're delivered by other higher-level PaaS services like Azure Service Fabric. You can look at scale sets as an infrastructure that supports PaaS. PaaS solutions like [Service Fabric](https://www.azure.cn/home/features/service-fabric/) build on this infrastructure.
-
-   In [this example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) of this approach, [Azure Container Service](https://www.azure.cn/home/features/container-service/) deploys a cluster based on scale sets with a container orchestrator.
 
 ## Scale set performance and scale guidance
 * A scale set supports up to 1,000 VMs. If you create and upload your own custom VM images, the limit is 100. For considerations in using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).

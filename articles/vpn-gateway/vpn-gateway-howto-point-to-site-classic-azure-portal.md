@@ -68,7 +68,7 @@ You can use the following example settings:
 
 ## <a name="vnetvpn"></a>Section 1 - Create a virtual network and a VPN gateway
 
-Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/1rmb-trial).
+Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 ### <a name="createvnet"></a>Part 1: Create a virtual network
 If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure portal preview, use the following steps:
 

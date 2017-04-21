@@ -25,7 +25,7 @@ In the Azure Resource Manager stack, secrets/certificates are modeled as resourc
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions
 
-- [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
+- Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI 2.0](virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Use CLI 1.0 to set up Key Vault

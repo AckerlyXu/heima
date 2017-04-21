@@ -58,7 +58,7 @@ The following table shows the two deployment models and available deployment met
 * **Client address pool: 172.16.201.0/24**<br>VPN clients that connect to the VNet using this Point-to-Site connection receive an IP address from the client address pool.
 
 ## <a name="createvnet"></a>Part 1 - Create a virtual network
-Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/1rmb-trial). If you are creating this configuration as an exercise, you can refer to the [example values](#example).
+Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial). If you are creating this configuration as an exercise, you can refer to the [example values](#example).
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
