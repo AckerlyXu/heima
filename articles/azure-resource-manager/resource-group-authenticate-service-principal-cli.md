@@ -46,7 +46,7 @@ In this section, you perform the steps to create the AD application with a passw
 1. Sign in to your account.
    
         ```azurecli
-        azure login
+        azure login -e AzureChinaCloud
         ```
 2. To create an app identity, provide the name of the app and a password, as shown in the following command:
      
