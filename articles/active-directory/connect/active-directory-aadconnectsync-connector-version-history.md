@@ -1,5 +1,5 @@
 ---
-title: Connector Version Release History | Azure
+title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
-wacn.date: ''
+ms.date: 03/28/2017
 ms.author: billmath
----
 
+---
 # Connector Version Release History
 The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM) are updated frequently.
 
@@ -29,11 +28,11 @@ This topic list all versions of the Connectors that have been released.
 Related links:
 
 - [Download Latest Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
-- [Generic LDAP Connector](./active-directory-aadconnectsync-connector-genericldap.md) reference documentation
-- [Generic SQL Connector](./active-directory-aadconnectsync-connector-genericsql.md) reference documentation
+- [Generic LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md) reference documentation
+- [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md) reference documentation
 - [Web Services Connector](http://go.microsoft.com/fwlink/?LinkID=226245) reference documentation
-- [PowerShell Connector](./active-directory-aadconnectsync-connector-powershell.md) reference documentation
-- [Lotus Domino Connector](./active-directory-aadconnectsync-connector-domino.md) reference documentation
+- [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
+- [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
 ## 1.1.443.0
 
@@ -48,12 +47,14 @@ Released: 2017 March
 - This will create many placeholders
 - It is required to make sure the naming is unique cross object types.
 
+
 - Generic LDAP:</br>
  **Scenario:**
 When only few containers are selected in specific partition, then the search still will be done in whole partition. Specific will be filtered by Synchronization
 Service, but not by MA which might cause performance degradation. </br>
 
  **Solution description:** Changed GLDAP connector's code to make it possible go through all containers and search objects in each of them, instead of searching in the whole partition.
+
 
 - Lotus Domino:
 
@@ -65,18 +66,20 @@ Service, but not by MA which might cause performance degradation. </br>
  - When changing the service URL in Default SAP wsconfig projects through WebService Configuration Tool then the following error happens:
 Could not find a part of the path
 
-      `'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. `
+      ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 - Generic LDAP:
- - Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
  - GLDAP Connector does not see all attributes in AD LDS
  - Wizard breaks when no UPN attributes are detected from the LDAP directory schema
  - Delta Imports Failing with discovery errors not present during full import, when "objectclass" attribute is not selected
  - A "Configure Partitions and Hierarchies” configuration page, doesn’t show any objects which type is equal to the partition for Novel servers in the Generic  
 LDAP MA. They showed only objects from RootDSE partition.
 
+
 - Generic SQL:
+ - Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
  - When exporting deleted\added values of multivalued attribute, they are not deleted\added in data source.  
+
 
 - Lotus Notes:
  - A specific field "Full Name" is shown in the metaverse correctly however when exporting to Notes the value for the attribute is Null or Empty.
@@ -93,7 +96,7 @@ LDAP MA. They showed only objects from RootDSE partition.
 Released: 2016 March
 
 **New Connector**  
-Initial release of the [Generic SQL Connector](./active-directory-aadconnectsync-connector-genericsql.md).
+Initial release of the [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md).
 
 **New features:**
 
@@ -147,6 +150,7 @@ Before March 2016, the Connectors were released as support topics.
 - [KB2875551](https://support.microsoft.com/zh-cn/kb/2875551) - 5.3.0534, 2013 August
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

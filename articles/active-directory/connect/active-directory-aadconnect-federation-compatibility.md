@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-wacn.date: ''
+ms.date: 03/21/2017
 ms.author: billmath
+
 ---
 
 # Azure AD federation compatibility list
@@ -48,13 +48,13 @@ For information on how you can get your third-party identity provider listed her
 - [Okta](#okta) 
 - [OneLogin](#onelogin) 
 - [NetIQ Access Manager 4.0.1](#netiq-access-manager-401) 
-- [BIG-IP with Access Policy Manager BIG-IP ver. 11.3x - 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x) 
-- [VMware  Workspace Portal version 2.1](#vmware-workspace-portal-version-21) 
-- [Sign&go 5.3](#signampgo-53) 
+- [BIG-IP with Access Policy Manager BIG-IP ver. 11.3x - 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x--116x) 
+- [VMware  Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
+- [Sign&go 5.3](#signgo-53) 
 - [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 - [CA Secure Cloud](#ca-secure-cloud) 
 - [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
-- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
+- [AuthAnvil Single Sign On 4.5](#authanvil-single-sign-on-45)
 - [Sailpoint IdentityNow](#sailpoint-identitynow)
 - [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
@@ -77,9 +77,9 @@ The following is the scenario support matrix for this sign-on experience:
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 | Modern Applications using ADAL such as Office 2016 |Supported |None |
 
-For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs/)
+For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
-For more information about using Azure Active Directory with Password sync see [Azure AD Connect](./active-directory-aadconnect.md).
+For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
 
 ## Optimal IDM Virtual Identity Server Federation Services <a name="optimal-idm-virtual-identity-server-federation-services"></a>
 Optimal IDM Virtual Identity Server Federation Services can authenticate users that reside in customers’ on-premises Active Directories.
@@ -90,7 +90,7 @@ The following is the scenario support matrix this single sign-on experience:
 | --- | --- | --- |
 | Web-based clients such as Exchange Web Access and SharePoint Online |Supported |None |
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication |
-| Email-rich clients such as Outlook and ActiveSync |Supported |For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/zh-cn/library/hh526961.aspx) |
+| Email-rich clients such as Outlook and ActiveSync |Supported |For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx) |
 
 ## PingFederate 6.11 <a name="pingfederate-611"></a>
 PingFederate 6.11 implements the widely used WS Federation identity standard to provide a single sign-on and attribute exchange framework.
@@ -235,7 +235,7 @@ The following is the scenario support matrix for this single sign-on experience:
 
 *NetIQ support Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact NetIQ or view the setup guide. For more information about NetIQ Access Manager, see [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
 
-## BIG-IP with Access Policy Manager BIG-IP ver. 11.3x - 11.6x <a name="big-ip-with-access-policy-manager-big-ip-ver-113x-116x"></a>
+## BIG-IP with Access Policy Manager BIG-IP ver. 11.3x - 11.6x <a name="big-ip-with-access-policy-manager-big-ip-ver-113x--116x"></a>
 The BIG-IP with Access Policy Manager, (APM) BIG-IP ver. 11.3x - 11.6x implements the widely used SAML identity standard to provide a single sign-on experience and attribute exchange framework.
 
 The following is the scenario support matrix for this single sign-on experience: 
@@ -250,7 +250,7 @@ For more information about BIG-IP Access Policy Manager, see [BIG-IP Access Poli
 
 For the BIG-IP Access Policy Manager instructions on how to configure this STS to provide the single sign-on experience to your Active Directory Users, download the pdf [here.](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
 
-## VMware  Workspace Portal version 2.1 <a name="vmware-workspace-portal-version-21"></a>
+## VMware  Workspace Portal version 2.1 <a name="vmware--workspace-portal-version-21"></a>
 VMware  Workspace Portal version 2.1 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
 The following is the scenario support matrix for this single sign-on experience:
@@ -263,7 +263,7 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about VMware  Workspace Portal version 2.1, download the pdf [here.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
 
-## Sign&go 5.3 <a name="signampgo-53"></a>
+## Sign&go 5.3 <a name="signgo-53"></a>
 Sign&go 5.3 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
 The following is the scenario support matrix for this single sign-on experience:
@@ -317,7 +317,7 @@ For more information about Dell One Identity Cloud Access Manager, see [Dell One
 
  For the instructions on how to configure this STS to provide the single sign-on experience to your Office 365 Users, see [Configure Office 365 Users.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
 
-## AuthAnvil Single Sign On 4.5 <a name="authavil-single-sign-on-45"></a>
+## AuthAnvil Single Sign On 4.5 <a name="authanvil-single-sign-on-45"></a>
 AuthAnvil Single Sign On 4.5 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
 The following is the scenario support matrix for this single sign-on experience:
@@ -355,3 +355,5 @@ The following is the scenario support matrix for this single sign-on experience:
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
 For more information, see [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
+
+

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication on Android  | Azure
+title: Azure Active Directory certificate-based authentication on Android  | Microsoft Docs
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices
 services: active-directory
 author: MarkusVi
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
-wacn.date: ''
+ms.date: 04/12/2017
 ms.author: markvi
----
 
+---
 # Azure Active Directory certificate-based authentication on Android
+
 
 Certificate-based authentication (CBA) enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
 
@@ -30,6 +30,7 @@ This topic provides you with the requirements and the supported scenarios for co
 
 This feature is available in preview in Office 365 US Government Defense and Federal plans.
 
+
 ## Office mobile applications support
 | Apps | Support |
 | --- | --- |
@@ -39,6 +40,8 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 | Outlook |![Check][1] |
 | Yammer |![Check][1] |
 | Skype for Business |![Check][1] |
+| Azure Information Protection app |![Check][1] |
+
 
 ### Implementation requirements
 
@@ -56,19 +59,23 @@ For Azure Active Directory to revoke a client certificate, the ADFS token must h
 Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
 
 As a best practice, you should update the ADFS error pages with instructions on how to get a user certificate.  
-For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/zh-cn/library/dn280950.aspx).  
+For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
 Some Office apps (with modern authentication enabled) send ‘*prompt=login*’ to Azure AD in their request. By default, Azure AD translates this in the request to ADFS to ‘*wauth=usernamepassworduri*’ (asks ADFS to do U/P auth) and ‘*wfresh=0*’ (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Just set the ‘*PromptLoginBehavior*’ in your federated domain settings to ‘*Disabled*‘. 
 You can use the [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) cmdlet to perform this task:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
+
+
 ## Exchange ActiveSync clients support
 Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. To determine if your email application does support this feature, please contact your application developer. 
 
+
 ## Next steps
 
-If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](./active-directory-certificate-based-authentication-get-started.md) for instructions.
+If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
+
