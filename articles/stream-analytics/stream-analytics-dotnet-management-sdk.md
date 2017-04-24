@@ -1,6 +1,6 @@
 ---
 title: Management .NET SDK for Stream Analytics | Azure
-description: Get started with Stream Analytics Management .NET SDK. Learn how to set up and run analytics jobs: Create a project, inputs, outputs, and transformations.
+description: 'Get started with Stream Analytics Management .NET SDK. Learn how to set up and run analytics jobs: Create a project, inputs, outputs, and transformations.'
 keywords: .net SDK, analytics API
 services: stream-analytics
 documentationcenter: ''
