@@ -61,7 +61,7 @@ The previous `quick-create` example only called out the `-M` flag to identify th
 
 * resource group name (any string is typically fine for your first Azure resource group)
 * VM name
-* location (`chinanorth` or `chinanorth` are good defaults)
+* location (`chinanorth` or `chinaeast` are good defaults)
 * linux (to let Azure know which OS you want)
 * username
 

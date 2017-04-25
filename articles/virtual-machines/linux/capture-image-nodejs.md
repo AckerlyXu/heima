@@ -57,7 +57,7 @@ First, run the **waagent** command with the **deprovision** parameter on the Lin
 3. Type **y** to continue. You can add the **-force** parameter to avoid this confirmation step.
 4. After the command completes, type **exit**. This step closes the SSH client.
 
-## <a name="capture-the-vm" id="step-2-capture-the-vm"></a> Step 2: Capture the VM
+## Step 2: Capture the VM
 Use the Azure CLI to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include **myResourceGroup**, **myVnet**, and **myVM**.
 
 1. From your local computer, open the Azure CLI and [login to your Azure subscription](../../xplat-cli-connect.md). 

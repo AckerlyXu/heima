@@ -64,7 +64,7 @@ To reset the credentials of an existing user, select either `Reset SSH public ke
 
 You can also create a user with sudo privileges on the VM from this menu. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
-## <a name="using-the-azure-cli" id="use-the-azure-cli-20"></a> Use the Azure CLI 2.0
+## Use the Azure CLI 2.0
 If you haven't already, install the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -86,7 +86,7 @@ az vm access set-linux-user --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-## <a name="using-the-vmaccess-extension" id="use-the-vmaccess-extension"></a> Use the VMAccess extension
+## Use the VMAccess extension
 The VM Access Extension for Linux reads in a json file that defines actions to carry out. These actions include resetting SSHD, resetting an SSH key, or adding a user. You still use the Azure CLI to call the VMAccess extension, but you can reuse the json files across multiple VMs if desired. This approach allows you to create a repository of json files that can then be called for given scenarios.
 
 ### Reset SSHD

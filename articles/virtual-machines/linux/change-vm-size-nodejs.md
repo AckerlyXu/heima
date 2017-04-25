@@ -72,11 +72,10 @@ To resize a VM, perform the following steps.
     > 
 
 ## Next steps
-For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Linux machines in a Virtual Machine Scale Set][scale-set]. 
+For additional scalability, run multiple VM instances and scale out.
 
 <!-- links -->
 
 [azure-cli]:../../cli-install-nodejs.md
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]:sizes.md

@@ -43,7 +43,6 @@ openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
-RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 ```
 
 ### Finding all current images
@@ -74,8 +73,8 @@ You can perform similar filters on the **--publisher** and **--sku** option. You
 
 If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from the preceding example you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **chinanorth**:
 
-```azurecli
-az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
+```azurecli 
+az vm image show -l chinanorth -f debian -p credativ --skus 8 --version 8.0.201701180
 ```
 
 and the output is:

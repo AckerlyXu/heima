@@ -86,5 +86,3 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
     The JDK available in this JDK 6 and 7 images, and the virtual machines and images derived from them, can only be used within Azure.
 * **64-bit JDK.** The Oracle WebLogic Server virtual machine images and the Oracle JDK virtual machine images provided by Azure contain the 64-bit versions of both Windows Server and the JDK.
-
-## Additional resources

@@ -22,7 +22,7 @@ ms.author: davidmu
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
 This article shows you how to deploy an Azure Resource Manager template using C#. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-create-first-template.md).
 
 It takes about 10 minutes to do these steps.
 
@@ -46,7 +46,7 @@ Now you're ready to start using the libraries to create your application.
 
 ## Step 3: Create credentials used to authenticate requests
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager.
 
 1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
 
@@ -258,6 +258,6 @@ It should take about five minutes for this console application to run completely
 3. Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal preview. Click the deployment status to see information about the deployment.
 
 ## Next Steps
-* If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+* If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).
 * Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -22,7 +22,7 @@ ms.author: iainfou
 # Create a complete Linux environment with the Azure CLI 2.0
 In this article, we build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. We walk through the process command by command, until you have two working, secure Linux VMs to which you can connect from anywhere on the Internet. Then you can move on to more complex networks and environments. This article details how to build the environment with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Along the way, you learn about the dependency hierarchy that the Resource Manager deployment model gives you, and about how much power it provides. After you see how the system is built, you can rebuild it much more quickly by using [Azure Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Also, after you learn how the parts of your environment fit together, creating templates to automate them becomes easier.
+Along the way, you learn about the dependency hierarchy that the Resource Manager deployment model gives you, and about how much power it provides. After you see how the system is built, you can rebuild it much more quickly by using [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Also, after you learn how the parts of your environment fit together, creating templates to automate them becomes easier.
 
 The environment contains:
 
@@ -74,6 +74,8 @@ Create the load balancer with [az network lb create](https://docs.microsoft.com/
 - associates the public IP `myPublicIP`
 - creates a front-end IP pool named `mySubnetPool`
 - creates a back-end IP pool named `myBackEndPool`
+
+<br/>
 
 ```azurecli
 az network lb create --resource-group myResourceGroup --location chinanorth \
@@ -1084,13 +1086,13 @@ Again, if you do not use the default Azure Managed Disks, add the following addi
 At this point, you're running your Ubuntu VMs behind a load balancer in Azure that you can sign into only with your SSH key pair (because passwords are disabled). You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
 
 ## Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or export an existing environment to create the JSON template for you. Use [az group export](https://docs.microsoft.com/cli/azure/group#export) to export your resource group as follows:
+Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or export an existing environment to create the JSON template for you. Use [az group export](https://docs.microsoft.com/cli/azure/group#export) to export your resource group as follows:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-This command creates the `myResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the **az group export** command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that specifies the resource names.
+This command creates the `myResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the **az group export** command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that specifies the resource names.
 
 To create an environment from your template, use [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) as follows:
 
@@ -1099,7 +1101,7 @@ az group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-You might want to read [more about how to deploy from templates](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
+You might want to read [more about how to deploy from templates](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
 
 ## Next steps
 Now you're ready to begin working with multiple networking components and VMs. You can use this sample environment to build out your application by using the core components introduced here.

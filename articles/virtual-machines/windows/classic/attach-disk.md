@@ -40,7 +40,7 @@ Before you attach a disk, review these tips:
 You can also [attach a data disk using Powershell](../../virtual-machines-windows-attach-disk-ps.md).
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Find the virtual machine
 1. Sign in to the [Azure portal preview](https://portal.azure.cn/).
@@ -111,4 +111,4 @@ fsutil behavior set DisableDeleteNotify 0
 If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](../../virtual-machines-windows-change-drive-letter.md).
 
 ## Additional resources
-[About disks and VHDs for virtual machines](../../virtual-machines-linux-about-disks-vhds.md)
+[About disks and VHDs for virtual machines](../../../storage/storage-about-disks-and-vhds-linux.md)

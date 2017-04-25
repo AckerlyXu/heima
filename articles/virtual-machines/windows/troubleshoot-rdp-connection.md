@@ -106,7 +106,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="using-azure-powershell"></a> Troubleshoot using Azure PowerShell
+## Troubleshoot using Azure PowerShell
 If you haven't already, [install and configure the latest Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
 
 The following examples use variables such as `myResourceGroup`, `myVM`, and `myVMAccessExtension`. Replace these variable names and locations with your own values.
