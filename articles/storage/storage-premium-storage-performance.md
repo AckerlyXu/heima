@@ -1,5 +1,5 @@
 ---
-title: Azure Premium Storage: Design for Performance | Azure
+title: 'Azure Premium Storage: Design for Performance | Azure'
 description: Design high-performance applications using Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 services: storage
 documentationcenter: na

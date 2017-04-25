@@ -1,6 +1,6 @@
 ---
 title: Azure compute options - Cloud Services | Azure
-description: Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines
+description: 'Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines'
 services: cloud-services
 documentationcenter: ''
 author: Thraka

@@ -1,5 +1,5 @@
 ---
-title: PowerShell:Restore Azure SQL Database to point in time | Azure
+title: 'PowerShell:Restore Azure SQL Database to point in time | Azure'
 description: Restore an Azure SQL Database to a previous point in time using PowerShell
 services: sql-database
 documentationcenter: ''

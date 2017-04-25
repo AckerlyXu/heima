@@ -1,5 +1,5 @@
 ---
-title: Quick start guide: Machine Learning Recommendations API | Azure
+title: 'Quick start guide: Machine Learning Recommendations API | Azure'
 description: Azure Machine Learning Recommendations - Quick Start Guide
 services: cognitive-services
 documentationCenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Connect: FAQ - | Azure
+title: 'Azure Active Directory Connect: FAQ - | Azure'
 description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''

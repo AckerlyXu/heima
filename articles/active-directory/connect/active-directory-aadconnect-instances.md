@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: Sync service instances | Azure
+title: 'Azure AD Connect: Sync service instances | Azure'
 description: This page documents special considerations for Azure AD instances.
 services: active-directory
 documentationcenter: ''

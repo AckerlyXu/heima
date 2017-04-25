@@ -1,5 +1,5 @@
 ---
-title: Optional: Configure a new storage account for the service
+title: 'Optional: Configure a new storage account for the service'
 description: Explains how to configure a storage account for th StorSimple service.
 services: storsimple
 documentationCenter: NA

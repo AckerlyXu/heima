@@ -1,5 +1,5 @@
 ---
-title: Azure portal: Back up and restore-Azure SQL database | Azure
+title: 'Azure portal: Back up and restore-Azure SQL database | Azure'
 description: This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault
 keywords: sql database tutorial
 services: sql-database

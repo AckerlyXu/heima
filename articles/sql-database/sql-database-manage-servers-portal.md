@@ -1,5 +1,5 @@
 ---
-title: Azure portal: Create and manage Azure SQL Database servers | Azure
+title: 'Azure portal: Create and manage Azure SQL Database servers | Azure'
 description: Quick reference on how to create and manage Azure SQL Database servers with the Azure portal.
 services: sql-database
 documentationcenter: ''

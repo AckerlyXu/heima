@@ -1,5 +1,5 @@
 ---
-title: Quick start guide: Machine Learning Text Analytics APIs | Azure
+title: 'Quick start guide: Machine Learning Text Analytics APIs | Azure'
 description: Azure Machine Learning Text Analytics - Quick Start Guide
 services: cognitive-services
 documentationCenter: ''

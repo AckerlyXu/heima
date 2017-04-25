@@ -7,7 +7,8 @@ author: bsiva
 manager: abhemraj
 editor: ''
 
-ms.assetid: ms.service: site-recovery
+ms.assetid:
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -1,5 +1,5 @@
 ---
-title: Stream Analytics outputs: Options for storage, analysis | Azure
+title: 'Stream Analytics outputs: Options for storage, analysis | Azure'
 description: Learn about targeting Stream Analytics data outputs options including Power BI for analysis results.
 keywords: data transformation, analysis results, data storage options
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage

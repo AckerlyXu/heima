@@ -1,5 +1,5 @@
 ---
-title: Azure portal:Restore Azure SQL Database to point in time | Azure
+title: 'Azure portal:Restore Azure SQL Database to point in time | Azure'
 description: Restore an Azure SQL Database to a previous point in time using the Azure portal
 documentationcenter: ''
 author: stevestein

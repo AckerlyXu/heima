@@ -7,7 +7,8 @@ documentationcenter: na
 author: jtaubensee
 manager: timlt
 
-ms.assetid: ms.service: service-bus-messaging
+ms.assetid:
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

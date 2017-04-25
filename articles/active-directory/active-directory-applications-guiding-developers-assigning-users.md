@@ -1,5 +1,5 @@
 ---
-title: Azure AD and Applications: Assigning Users to an Application | Azure
+title: 'Azure AD and Applications: Assigning Users to an Application | Azure'
 description: How to implement user assignment for Azure applications.
 services: active-directory
 documentationcenter: ''

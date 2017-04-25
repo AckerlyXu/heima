@@ -1,5 +1,5 @@
 ---
-title: Application upgrade: data serialization | Azure
+title: 'Application upgrade: data serialization | Azure'
 description: Best practices for data serialization and how it affects rolling application upgrades.
 services: service-fabric
 documentationcenter: .net

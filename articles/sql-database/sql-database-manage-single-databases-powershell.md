@@ -1,5 +1,5 @@
 ---
-title: PowerShell: Create and manage single Azure SQL databases | Azure
+title: 'PowerShell: Create and manage single Azure SQL databases | Azure'
 description: Quick reference on how to create and manage single Azure SQL database using the Azure portal
 services: sql-database
 documentationcenter: ''

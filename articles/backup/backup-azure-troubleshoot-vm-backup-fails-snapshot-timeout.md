@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Backup failure: Snapshot VM sub task timed out | Azure
-description: Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
+title: 'Troubleshoot Azure Backup failure: Snapshot VM sub task timed out | Azure'
+description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out'
 services: backup
 documentationcenter: ''
 author: genlin

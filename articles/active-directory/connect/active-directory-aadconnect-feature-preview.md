@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: Features in preview | Azure
+title: 'Azure AD Connect: Features in preview | Azure'
 description: This topic describes in more detail features which are in preview in Azure AD Connect.
 services: active-directory
 documentationcenter: ''

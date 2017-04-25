@@ -1,5 +1,5 @@
 ---
-title: Azure portal:Manage long-term database backup retention | Azure
+title: 'Azure portal:Manage long-term database backup retention | Azure'
 description: Quick reference on how to configure, manage, and restore from long-term retention of automated Azure SQL database backups in an Azure Recovery Services vault using the Azure portal
 services: sql-database
 documentationcenter: ''

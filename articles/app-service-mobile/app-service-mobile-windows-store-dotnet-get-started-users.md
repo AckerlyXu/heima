@@ -1,6 +1,6 @@
 ---
 title: Add authentication to your Universal Windows Platform (UWP) app | Azure Mobile Apps
-description: Learn how to use Azure App Service Mobile Apps to authenticate users of your Universal Windows Platform (UWP) app using a variety of identity providers, including: AAD and Microsoft.
+description: 'Learn how to use Azure App Service Mobile Apps to authenticate users of your Universal Windows Platform (UWP) app using a variety of identity providers, including: AAD and Microsoft.'
 services: app-service\mobile
 documentationCenter: windows
 authors: adrianhall

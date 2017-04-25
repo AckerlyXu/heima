@@ -1,5 +1,5 @@
 ---
-title: T-SQL: Azure SQL Database firewall rules | Azure
+title: 'T-SQL: Azure SQL Database firewall rules | Azure'
 description: Learn how to configure server-level and database-level firewall rules for IP addresses that access Azure SQL databases using Transact-SQL.
 services: sql-database
 documentationcenter: ''

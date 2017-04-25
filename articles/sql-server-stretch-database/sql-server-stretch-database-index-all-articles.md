@@ -1,6 +1,6 @@
 ---
 title: All topics for SQL Server Stretch Database service | Microsoft Azure
-description: Table of all topics for the Azure service named SQL Server Stretch Database that exist on http://azure.microsoft.com/documentation/articles/, Title and description.
+description: 'Table of all topics for the Azure service named SQL Server Stretch Database that exist on http://azure.microsoft.com/documentation/articles/, Title and description.'
 services: sql-server-stretch-database
 documentationCenter: ''
 authors: DouglasL

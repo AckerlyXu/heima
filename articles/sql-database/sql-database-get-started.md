@@ -1,5 +1,5 @@
 ---
-title: Quick start: Your first Azure SQL Database | Azure
+title: 'Quick start: Your first Azure SQL Database | Azure'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to use SQL Server Management Studio with Azure SQL Database.
 keywords: sql database tutorial, create a sql database
 services: sql-database

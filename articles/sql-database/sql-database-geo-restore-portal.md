@@ -1,5 +1,5 @@
 ---
-title: Azure portal:Restore SQL Database from geo-redundant backup | Azure
+title: 'Azure portal:Restore SQL Database from geo-redundant backup | Azure'
 description: Restore an Azure SQL Database into a new server from a geo-redundant backup using the Azure portal
 services: sql-database
 documentationcenter: ''

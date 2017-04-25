@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync: Technical concepts | Azure
+title: 'Azure AD Connect sync: Technical concepts | Azure'
 description: Explains the technical concepts of Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''

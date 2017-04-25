@@ -1,5 +1,5 @@
 ---
-title: Testability: Service communication | Azure
+title: 'Testability: Service communication | Azure'
 description: Service-to-service communication is a critical integration point of a Service Fabric application. This article discusses design considerations and testing techniques.
 services: service-fabric
 documentationcenter: .net

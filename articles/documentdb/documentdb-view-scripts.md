@@ -1,5 +1,5 @@
 ---
-title: Azure DocumentDB portal tool: Script Explorer | Azure
+title: 'Azure DocumentDB portal tool: Script Explorer | Azure'
 description: Learn about the DocumentDB Script Explorer, an Azure Portal tool to manage DocumentDB server-side programming artifacts including JavaScript stored procedures, triggers, and user-defined functions.
 keywords: javascript editor
 services: documentdb

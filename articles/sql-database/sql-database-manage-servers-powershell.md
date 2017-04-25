@@ -1,5 +1,5 @@
 ---
-title: PowerShell: Create and manage Azure SQL Database servers | Azure
+title: 'PowerShell: Create and manage Azure SQL Database servers | Azure'
 description: Quick reference on how to create and manage Azure SQL Database servers with the PowerShell.
 services: sql-database
 documentationcenter: ''

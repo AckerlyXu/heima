@@ -1,5 +1,5 @@
 ---
-title: PowerShell: Manage Azure SQL Database Auditing | Azure
+title: 'PowerShell: Manage Azure SQL Database Auditing | Azure'
 description: Configure Azure SQL Database auditing with PowerShell to track database events and write them to an audit log in your Azure Storage account.
 services: sql-database
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Cluster Resource Manager: Movement cost | Azure
+title: 'Service Fabric Cluster Resource Manager: Movement cost | Azure'
 description: Overview of movement cost for Service Fabric services
 services: service-fabric
 documentationcenter: .net

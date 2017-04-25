@@ -7,7 +7,8 @@ author: CarlRabeler
 manager: jhubbard
 editor: ''
 
-ms.assetid: ms.service: sql-database
+ms.assetid:
+ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: NA
 ms.workload: data-management

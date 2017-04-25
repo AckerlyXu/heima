@@ -1,5 +1,5 @@
 ---
-title: REST API: Manage Azure SQL Database Auditing | Azure
+title: 'REST API: Manage Azure SQL Database Auditing | Azure'
 description: Configure Azure SQL Database auditing using the REST API to track database events and write them to an audit log in your Azure Storage account.
 services: sql-database
 documentationcenter: ''

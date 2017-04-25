@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync: Functions Reference | Azure
+title: 'Azure AD Connect sync: Functions Reference | Azure'
 description: Reference of declarative provisioning expressions in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''

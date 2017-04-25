@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: Supported topologies | Azure
+title: 'Azure AD Connect: Supported topologies | Azure'
 description: This topic details supported and unsupported topologies for Azure AD Connect
 services: active-directory
 documentationcenter: ''

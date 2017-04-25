@@ -1,5 +1,5 @@
 ---
-title: SQL Database tutorial: Getting Started with Security
+title: 'SQL Database tutorial: Getting Started with Security'
 description: Learn how to create user accounts to access and to manage a database.
 keywords: ''
 services: sql-database

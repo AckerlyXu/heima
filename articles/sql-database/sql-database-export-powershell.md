@@ -1,5 +1,5 @@
 ---
-title: PowerShell: Export an Azure SQL database to a BACPAC file | Azure
+title: 'PowerShell: Export an Azure SQL database to a BACPAC file | Azure'
 description: Export an Azure SQL database to a BACPAC file by using PowerShell
 services: sql-database
 documentationcenter: ''

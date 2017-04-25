@@ -1,6 +1,6 @@
 ---
 title: All topics for SQL Data Warehouse service | Azure
-description: Table of all topics for the Azure service named SQL Data Warehouse that exist on http://azure.cn/documentation/articles/, Title and description.
+description: 'Table of all topics for the Azure service named SQL Data Warehouse that exist on http://azure.cn/documentation/articles/, Title and description.'
 services: sql-data-warehouse
 documentationCenter: ''
 authors: barbkess

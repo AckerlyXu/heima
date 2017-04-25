@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: Single Sign-on | Azure
+title: 'Azure AD Connect: Single Sign-on | Azure'
 description: This topic provides you with the information you need to know about how single sign on from an on-premises Active Directory (AD) to cloud-based Azure Active Directory (Azure AD) and connected services.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on

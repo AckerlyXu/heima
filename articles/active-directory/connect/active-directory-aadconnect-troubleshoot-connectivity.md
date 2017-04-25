@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: Troubleshoot connectivity issues | Azure
+title: 'Azure AD Connect: Troubleshoot connectivity issues | Azure'
 description: Explains how to troubleshoot connectivity issues with Azure AD Connect.
 services: active-directory
 documentationcenter: ''

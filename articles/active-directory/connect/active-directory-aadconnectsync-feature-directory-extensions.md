@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync: Directory extensions | Azure
+title: 'Azure AD Connect sync: Directory extensions | Azure'
 description: This topic describes the directory extensions feature in Azure AD Connect.
 services: active-directory
 documentationcenter: ''

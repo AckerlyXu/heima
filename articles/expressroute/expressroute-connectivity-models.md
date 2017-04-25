@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute connectivity models: Connect to Microsoft Azure through network service providers, exchanges, and Ethernet providers | Azure
+title: 'ExpressRoute connectivity models: Connect to Microsoft Azure through network service providers, exchanges, and Ethernet providers | Azure'
 description: This article describes the different modes of connectivity between the customer's network and Microsoft Azure, Office 365 and Dynamics 365 services. Customers can use MPLS providers, cloud exchanges and Ethernet providers.
 documentationcenter: na
 services: expressroute
@@ -7,7 +7,8 @@ author: cherylmc
 manager: timlt
 editor: ''
 
-ms.assetid: ms.service: expressroute
+ms.assetid:
+ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na

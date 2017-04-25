@@ -7,7 +7,8 @@ author: masnider
 manager: timlt
 editor: vturecek;
 
-ms.assetid: ms.service: Service-Fabric
+ms.assetid:
+ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA

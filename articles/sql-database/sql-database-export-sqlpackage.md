@@ -1,5 +1,5 @@
 ---
-title: SqlPackage: Export a SQL Server database to a BACPAC file (Azure) | Azure
+title: 'SqlPackage: Export a SQL Server database to a BACPAC file (Azure) | Azure'
 description: his article shows how to export a SQL Server database to a BACPAC file using the SqlPackage command-line utility.
 keywords: Azure SQL Database, database migration, export database, export BACPAC file, sqlpackage
 services: sql-database

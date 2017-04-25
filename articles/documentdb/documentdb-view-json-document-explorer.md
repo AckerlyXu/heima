@@ -1,5 +1,5 @@
 ---
-title: Azure DocumentDB portal tool: Document Explorer | Azure
+title: 'Azure DocumentDB portal tool: Document Explorer | Azure'
 description: Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database.
 keywords: view json
 services: documentdb

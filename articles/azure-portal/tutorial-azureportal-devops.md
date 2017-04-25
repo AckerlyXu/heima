@@ -1,5 +1,5 @@
 ---
-title: Tutorial:  DevOps with the Azure Portal | Azure
+title: 'Tutorial:  DevOps with the Azure Portal | Azure'
 description: Learn the various DevOps workflows in the Azure Portal.
 services: azure-portal
 documentationCenter: ''

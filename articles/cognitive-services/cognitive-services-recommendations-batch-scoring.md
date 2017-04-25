@@ -1,5 +1,5 @@
 ---
-title: Getting recommendations in batches: Machine learning recommendations API | Azure
+title: 'Getting recommendations in batches: Machine learning recommendations API | Azure'
 description: Azure machine learning recommendations--getting recommendations in batches
 services: cognitive-services
 documentationCenter: ''

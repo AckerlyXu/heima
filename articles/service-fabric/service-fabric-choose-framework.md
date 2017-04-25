@@ -1,6 +1,6 @@
 ---
 title: Service Fabric programming model overview | Azure
-description: Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct trade-offs in simplicity and control.
+description: 'Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct trade-offs in simplicity and control.'
 services: service-fabric
 documentationcenter: .net
 author: seanmck

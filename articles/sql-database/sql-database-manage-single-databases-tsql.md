@@ -1,5 +1,5 @@
 ---
-title: T-SQL: Create and manage single Azure SQL databases | Azure
+title: 'T-SQL: Create and manage single Azure SQL databases | Azure'
 description: Quick reference on how to create and manage single Azure SQL database using the Azure portal
 services: sql-database
 documentationcenter: ''

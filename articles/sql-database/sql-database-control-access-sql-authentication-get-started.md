@@ -1,5 +1,5 @@
 ---
-title: SQL auth: Azure SQL Database firewalls, authentication, access | Azure
+title: 'SQL auth: Azure SQL Database firewalls, authentication, access | Azure'
 description: In this getting-started tutorial, you learn how to use SQL Server Management Studio and Transact-SQL to work with server-level and database-level firewall rules, SQL authentication, logins, users, and roles to grant access and control to Azure SQL Database servers and databases.
 keywords: ''
 services: sql-database

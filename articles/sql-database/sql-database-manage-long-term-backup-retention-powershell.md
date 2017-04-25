@@ -1,5 +1,5 @@
 ---
-title: PowerShell:Manage long-term database backup retention (Azure) | Azure
+title: 'PowerShell:Manage long-term database backup retention (Azure) | Azure'
 description: Quick reference on how to configure, manage, and restore from long-term retention of automated Azure SQL database backups in an Azure Recovery Services vault using PowerShell
 services: sql-database
 documentationcenter: ''

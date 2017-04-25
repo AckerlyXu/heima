@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: Automatic upgrade | Azure
+title: 'Azure AD Connect: Automatic upgrade | Azure'
 description: This topic describes the built-in automatic upgrade feature in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''

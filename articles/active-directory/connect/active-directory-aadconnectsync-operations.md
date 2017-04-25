@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync: Operational tasks and considerations | Azure
+title: 'Azure AD Connect sync: Operational tasks and considerations | Azure'
 description: This topic describes operational tasks for Azure AD Connect sync and how to prepare for operating this component.
 services: active-directory
 documentationcenter: ''

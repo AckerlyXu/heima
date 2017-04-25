@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: User Sign In | Azure
+title: 'Azure AD Connect: User Sign In | Azure'
 description: Azure AD Connect user sign in for custom settings.
 services: active-directory
 documentationcenter: ''

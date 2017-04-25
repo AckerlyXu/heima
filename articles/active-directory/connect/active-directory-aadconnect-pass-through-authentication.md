@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect: Pass-through authentication | Azure
+title: 'Azure AD Connect: Pass-through authentication | Azure'
 description: This topic provides you with the information you need to know about how Azure AD pass-through authentications works with on-premises Active Directory (AD) to provide access to Azure Active Directory (Azure AD) and connected services.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on

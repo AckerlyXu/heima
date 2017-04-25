@@ -7,7 +7,8 @@ editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
-ms.assetid: ms.service: monitoring-and-diagnostics
+ms.assetid:
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

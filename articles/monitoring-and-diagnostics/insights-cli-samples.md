@@ -1,5 +1,5 @@
 ---
-title: Azure Insights: Azure Insights CLI quick start samples. | Azure
+title: 'Azure Insights: Azure Insights CLI quick start samples. | Azure'
 description: Sample CLI command can help you access Azure Insights monitoring features. Azure Insights is a Microsoft Azure service which allows you to autoScale Cloud Services, Virtual Machines, and Web Apps, send alert notifications, or call web URLs based on values of configured telemetry data.
 authors: kamathashwin
 manager: ''

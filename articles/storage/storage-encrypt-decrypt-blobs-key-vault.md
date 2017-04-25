@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vault | Azure
+title: 'Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vault | Azure'
 description: How to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
 services: storage
 documentationcenter: ''

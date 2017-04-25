@@ -1,5 +1,5 @@
 ---
-title: Stream Analytics: Rotate log-in credentials for inputs and outputs | Azure
+title: 'Stream Analytics: Rotate log-in credentials for inputs and outputs | Azure'
 description: Learn how to update the credentials for Stream Analytics inputs and outputs.
 keywords: login credentials
 services: stream-analytics

@@ -1,5 +1,5 @@
 ---
-title: SQL Database: What is a DTU? | Azure
+title: 'SQL Database: What is a DTU? | Azure'
 description: Understanding what an Azure SQL Database transaction unit is.
 keywords: database options,database performance
 services: sql-database

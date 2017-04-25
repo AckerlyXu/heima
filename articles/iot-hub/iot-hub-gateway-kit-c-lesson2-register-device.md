@@ -1,6 +1,7 @@
 ---
 title: Create an Azure IoT hub and register your device | Azure
-description: services: iot-hub
+description:
+services: iot-hub
 documentationcenter: ''
 author: shizn
 manager: timtl

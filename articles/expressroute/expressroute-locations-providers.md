@@ -1,5 +1,5 @@
 ---
-title: Locations and connectivity providers: Azure ExpressRoute | Azure
+title: 'Locations and connectivity providers: Azure ExpressRoute | Azure'
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
 services: expressroute
 documentationCenter: na

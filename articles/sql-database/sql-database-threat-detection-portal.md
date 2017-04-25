@@ -1,5 +1,5 @@
 ---
-title: Azure portal: Configure threat detection-SQL Database | Azure
+title: 'Azure portal: Configure threat detection-SQL Database | Azure'
 description: Configure and manage threat detection with the Azure portal
 services: sql-database
 documentationcenter: ''
