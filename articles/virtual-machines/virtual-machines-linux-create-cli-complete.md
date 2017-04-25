@@ -75,6 +75,8 @@ Create the load balancer with [az network lb create](https://docs.microsoft.com/
 - creates a front-end IP pool named `mySubnetPool`
 - creates a back-end IP pool named `myBackEndPool`
 
+<br/>
+
 ```azurecli
 az network lb create --resource-group myResourceGroup --location chinanorth \
   --name myLoadBalancer --public-ip-address myPublicIP \

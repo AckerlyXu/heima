@@ -170,7 +170,7 @@ This section assumes that you have already installed a RHEL image (from an ISO f
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -401,7 +401,7 @@ This section assumes that you have already installed a RHEL image (from an ISO f
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -533,7 +533,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -624,7 +624,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
 

@@ -49,7 +49,7 @@ You can also [attach a data disk using Powershell](virtual-machines-windows-atta
 
     ![Open disk settings](./media/virtual-machines-windows-classic-attach-disk/virtualmachinedisks.png)
 
-Continue by following instructions for attaching either a [new disk](#option-1-attach-a-new-disk) or an [existing disk](#option-2-attach-an-existing-disk).
+Continue by following instructions for attaching either a [new disk](#option-1-attach-and-initialize-a-new-disk) or an [existing disk](#option-2-attach-an-existing-disk).
 
 ## Option 1: Attach and initialize a new disk
 
@@ -111,4 +111,4 @@ fsutil behavior set DisableDeleteNotify 0
 If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Additional resources
-[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[About disks and VHDs for virtual machines](storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

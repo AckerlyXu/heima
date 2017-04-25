@@ -27,12 +27,12 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 1. Save and edit the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your preference on your local machine.
 2. Run the following two commands to create a resource group and then deploy your template:
 
-```azurecli
-az group create -l chinanorth -n myResourceGroup
-az group deployment create -g myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-    --parameters @filepathToParameters.json
-```
+    ```azurecli
+    az group create -l chinanorth -n myResourceGroup
+    az group deployment create -g myResourceGroup \
+        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+        --parameters @filepathToParameters.json
+    ```
 
 ### Deploy LAMP on existing VM
 The following commands updates packages, then installs Apache, MySQL, and PHP:
@@ -46,20 +46,20 @@ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 1. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create) to contain the new VM:
 
-```azurecli
-az group create -l chinanorth -n myResourceGroup
-```
-To create the VM itself, you can use an already written Azure Resource Manager template found [here on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
+    ```azurecli
+    az group create -l chinanorth -n myResourceGroup
+    ```
+    To create the VM itself, you can use an already written Azure Resource Manager template found [here on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
 
 2. Save the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your local machine.
 3. Edit the **azuredeploy.parameters.json** file to your preferred inputs.
 4. Deploy the template with [az group deployment create] referencing the downloaded json file:
 
-```azurecli
-az group deployment create -g myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-    --parameters @filepathToParameters.json
-```
+    ```azurecli
+    az group deployment create -g myResourceGroup \
+        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+        --parameters @filepathToParameters.json
+    ```
 
 The output is similar to the following example:
 

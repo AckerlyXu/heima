@@ -24,11 +24,9 @@ This sample script creates a web app in App Service with its related resources, 
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). Also, ensure that:
 
-- A connection with Azure has been created using the `az login` command.
+- A connection with Azure has been created using the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` command.
 - You have access to your domain registrar's DNS configuration page.
 - You have a valid .PFX file and its password for the SSL certificate you want to upload and bind.
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Sample script
 

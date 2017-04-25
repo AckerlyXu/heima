@@ -45,13 +45,13 @@ Ensure that you meet the following prerequisites before you start the steps:
 | Source VM VHD file name |`azure storage blob list --container <containerName>` |
 
 * You will need to make some choices about your new VM: 
-     <br> -Container name
-     <br> -VM name 
-     <br> -VM size 
-     <br> -vNet name 
-     <br> -SubNet name 
-     <br> -IP Name 
-     <br> -NIC name
+    - Container name
+    - VM name 
+    - VM size 
+    - vNet name 
+    - SubNet name 
+    - IP Name 
+    - NIC name
 
 ## Login and set your subscription
 1. Login to the CLI.

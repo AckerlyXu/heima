@@ -69,9 +69,9 @@ After the deployment has completed, create an SSH connection with the virtual ma
 
 3. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal preview.
 
-```bash 
-ssh <replace with IP address>
-```
+    ```bash 
+    ssh <replace with IP address>
+    ```
 ## Delete virtual machine
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.

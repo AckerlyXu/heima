@@ -37,8 +37,8 @@ As for future versions of FreeBSD, the strategy is to stay current and make the 
 ## Deploying a FreeBSD virtual machine
 Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace from the Azure portal preview:
 
-- [FreeBSD 10.3 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-- [FreeBSD 11.0 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [FreeBSD 10.3 on the Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
+- [FreeBSD 11.0 on the Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM)
 
 ### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
 First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
@@ -123,8 +123,8 @@ After you're logged in through this user account, you can run commands as root b
 You can optionally obtain a root shell by using `sudo -s`.
 
 ## Known issues
-The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
+The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue](https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
-* Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
+* Go to [Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM) to create a FreeBSD VM.
 * If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
