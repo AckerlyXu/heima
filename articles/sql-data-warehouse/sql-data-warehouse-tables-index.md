@@ -1,33 +1,38 @@
 ---
-title: Indexing tables in SQL Data Warehouse | Microsoft Azure
+title: Indexing tables in SQL Data Warehouse | Azure
 description: Getting started with table indexing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
+documentationcenter: NA
+author: jrowlandjones
 manager: barbkess
 editor: ''
 
+ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 07/12/2016
+wacn.date: ''
 ms.author: jrj;barbkess;sonyama
 ---
 
 # Indexing tables in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Overview][]
->- [Data Types][]
->- [Distribute][]
->- [Index][]
->- [Partition][]
->- [Statistics][]
->- [Temporary][]
+> * [Overview][Overview]
+> * [Data Types][Data Types]
+> * [Distribute][Distribute]
+> * [Index][Index]
+> * [Partition][Partition]
+> * [Statistics][Statistics]
+> * [Temporary][Temporary]
+> 
+> 
 
-SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][], [clustered indexes and nonclustered indexes][].  In addition, it also offers a no index option also known as [heap][].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][] for more detail on how to create a table in SQL Data Warehouse.
+SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][clustered columnstore indexes], [clustered indexes and nonclustered indexes][clustered indexes and nonclustered indexes].  In addition, it also offers a no index option also known as [heap][heap].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][create table syntax] for more detail on how to create a table in SQL Data Warehouse.
 
 ## Clustered columnstore indexes
 
@@ -47,10 +52,9 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 There are a few scenarios where clustered columnstore may not be a good option:
 
-- Columnstore tables do not support secondary non-clustered indexes.  Consider heap or clustered index tables instead.
-- Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
-- Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
-- Small tables with less than 100 million rows.  Consider heap tables.
+* Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
+* Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
+* Small tables with less than 100 million rows.  Consider heap tables.
 
 ## Heap tables
 
@@ -86,7 +90,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-To add a nonclustered index on a table, simply specify CLUSTERED INDEX in the WITH clause:
+To add a non-clustered index on a table, simply use the following syntax:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
@@ -106,10 +110,10 @@ SELECT
 ,       DB_Name()                                                               AS [database_name]
 ,       s.name                                                                  AS [schema_name]
 ,       t.name                                                                  AS [table_name]
-,	COUNT(DISTINCT rg.[partition_number])					AS [table_partition_count]
+,    COUNT(DISTINCT rg.[partition_number])                    AS [table_partition_count]
 ,       SUM(rg.[total_rows])                                                    AS [row_count_total]
 ,       SUM(rg.[total_rows])/COUNT(DISTINCT rg.[distribution_id])               AS [row_count_per_distribution_MAX]
-,	CEILING	((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
+,    CEILING    ((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN 1                   ELSE 0    END)    AS [INVISIBLE_rowgroup_count]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE 0    END)    AS [INVISIBLE_rowgroup_rows]
 ,       MIN(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE NULL END)    AS [INVISIBLE_rowgroup_rows_MIN]
@@ -148,9 +152,9 @@ GROUP BY
 Now that you have created the view, run this query to identify tables with row groups with less than 100K rows.  Of course, you may want to increase the threshold of 100K if you are looking for more optimal segment quality. 
 
 ```sql
-SELECT	*
-FROM	[dbo].[vColumnstoreDensity]
-WHERE	COMPRESSED_rowgroup_rows_AVG < 100000
+SELECT    *
+FROM    [dbo].[vColumnstoreDensity]
+WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
         OR INVISIBLE_rowgroup_rows_AVG < 100000
 ```
 
@@ -198,9 +202,9 @@ The number of rows per compressed row group are directly related to the width of
 
 A high volume of DML operations that update and delete rows can introduce inefficiency into the columnstore. This is especially true when the majority of the rows in a row group are modified.
 
-- Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
-- Inserting a row adds the row to to an internal rowstore table called a delta row group. The inserted row is not converted to columnstore until the delta row group is full and is marked as closed. Row groups are closed once they reach the maximum capacity of 1,048,576 rows. 
-- Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row may be stored in the delta store.
+* Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
+* Inserting a row adds the row to to an internal rowstore table called a delta row group. The inserted row is not converted to columnstore until the delta row group is full and is marked as closed. Row groups are closed once they reach the maximum capacity of 1,048,576 rows. 
+* Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row may be stored in the delta store.
 
 Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition aligned distribution will be written directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition aligned distribution is less than 102,400 then the rows will go to the delta store and will stay there until sufficient rows have been inserted or modified to close the row group or the index has been rebuilt.
 
@@ -231,7 +235,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### Step 2: Rebuild clustered columnstore indexes with higher resource class user
 Logon as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements.  Be sure that this user has ALTER permission to the tables where the index is being rebuilt.  These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
 
-Alternatively, instead of rebuilding the index, you could copy the table to a new table using [CTAS][].  Which way is best? For large volumes of data, [CTAS][] is usually faster than [ALTER INDEX][]. For smaller volumes of data, [ALTER INDEX][] is easier to use and won't require you to swap out the table.  See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
+Alternatively, instead of rebuilding the index, you could copy the table to a new table using [CTAS][CTAS].  Which way is best? For large volumes of data, [CTAS][CTAS] is usually faster than [ALTER INDEX][ALTER INDEX]. For smaller volumes of data, [ALTER INDEX][ALTER INDEX] is easier to use and won't require you to swap out the table.  See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -253,14 +257,14 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][] and the syntax topic [ALTER INDEX][].
+Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][Columnstore Indexes Defragmentation] and the syntax topic [ALTER INDEX][ALTER INDEX].
 
 ### Step 3: Verify clustered columnstore segment quality has improved
-Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.  If higher memory is needed,
+Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.
 
 ## Rebuilding indexes with CTAS and partition switching
 
-This example uses [CTAS][] and partition switching to rebuild a table partition. 
+This example uses [CTAS][CTAS] and partition switching to rebuild a table partition. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -300,11 +304,11 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-For more details about re-creating partitions using `CTAS`, see the [Partition][] article.
+For more details about re-creating partitions using `CTAS`, see the [Partition][Partition] article.
 
 ## Next steps
 
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  To learn more about best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  To learn more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 

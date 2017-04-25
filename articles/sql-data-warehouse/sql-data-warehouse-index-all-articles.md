@@ -1,18 +1,21 @@
 ---
 title: All topics for SQL Data Warehouse service | Azure
-description: 'Table of all topics for the Azure service named SQL Data Warehouse that exist on http://azure.cn/documentation/articles/, Title and description.'
+description: Table of all topics for the Azure service named SQL Data Warehouse that exist on /azure/, Title and description.
 services: sql-data-warehouse
-documentationCenter: ''
-authors: barbkess
+documentationcenter: ''
+author: barbkess
 manager: jhubbard
 editor: ''
 
+ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.custom: reference
+ms.date: 03/30/2017
+wacn.date: ''
 ms.author: barbkess
 ---
 
@@ -46,7 +49,7 @@ This section lists articles which were updated recently, where the update was bi
 | 11 |[How to create a support ticket for SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) |How to create a support ticket in Azure SQL Data Warehouse. |
 | 12 |[Load Data with Azure Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md) |Learn to load data with Azure Data Factory |
 | 13 |[Load data with PolyBase in SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) |Learn what PolyBase is and how to use it for data warehousing scenarios. |
-| 14 |[Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) |Learn how to create an Azure SQL Data Warehouse in the Azure portal |
+| 14 |[Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) |Learn how to create an Azure SQL Data Warehouse in the Azure portal preview |
 | 15 |[Create SQL Data Warehouse using PowerShell](sql-data-warehouse-get-started-provision-powershell.md) |Create SQL Data Warehouse by using PowerShell |
 | 16 |[Visualize data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) |Visualize SQL Data Warehouse data with Power BI |
 | 17 |[Query Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Query SQL Data Warehouse with Visual Studio. |
@@ -72,7 +75,7 @@ This section lists articles which were updated recently, where the update was bi
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 31 |[Manage compute power in Azure SQL Data Warehouse (Overview)](sql-data-warehouse-manage-compute-overview.md) |Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs. |
-| 32 |[Manage compute power in Azure SQL Data Warehouse (Azure portal)](sql-data-warehouse-manage-compute-portal.md) |Azure portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
+| 32 |[Manage compute power in Azure SQL Data Warehouse (Azure portal preview)](sql-data-warehouse-manage-compute-portal.md) |Azure portal preview tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
 | 33 |[Manage compute power in Azure SQL Data Warehouse (PowerShell)](sql-data-warehouse-manage-compute-powershell.md) |PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
 | 34 |[Manage compute power in Azure SQL Data Warehouse (REST)](sql-data-warehouse-manage-compute-rest-api.md) |PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
 | 35 |[Manage compute power in Azure SQL Data Warehouse (T-SQL)](sql-data-warehouse-manage-compute-tsql.md) |Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DWUs. Save costs by scaling back during non-peak times. |
@@ -80,7 +83,7 @@ This section lists articles which were updated recently, where the update was bi
 | 37 |[Manage databases in Azure SQL Data Warehouse](sql-data-warehouse-overview-manage.md) |Overview of managing SQL Data Warehouse databases. Includes management tools, DWUs and scale-out performance, troubleshooting query performance, establishing good security policies, and restoring a database from data corruption or from a regional outage. |
 | 38 |[Monitor user queries in Azure SQL Data Warehouse](sql-data-warehouse-overview-manage-user-queries.md) |Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse |
 | 39 |[SQL Data Warehouse restore](sql-data-warehouse-restore-database-overview.md) |Overview of the database restore options for recovering a database in Azure SQL Data Warehouse. |
-| 40 |[Restore an Azure SQL Data Warehouse (Portal)](sql-data-warehouse-restore-database-portal.md) |Azure portal tasks for restoring an Azure SQL Data Warehouse. |
+| 40 |[Restore an Azure SQL Data Warehouse (Portal)](sql-data-warehouse-restore-database-portal.md) |Azure portal preview tasks for restoring an Azure SQL Data Warehouse. |
 | 41 |[Restore an Azure SQL Data Warehouse (PowerShell)](sql-data-warehouse-restore-database-powershell.md) |PowerShell tasks for restoring an Azure SQL Data Warehouse. |
 | 42 |[Restore an Azure SQL Data Warehouse (REST API)](sql-data-warehouse-restore-database-rest-api.md) |REST API tasks for restoring an Azure SQL Data Warehouse. |
 
@@ -155,7 +158,7 @@ This section lists articles which were updated recently, where the update was bi
 ## Miscellaneous
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
-| 83 |[Install Visual Studio 2015 and SSDT for SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse |
+| 83 |[Install Visual Studio and SSDT for SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse |
 | 84 |[Migration to Premium Storage Details](sql-data-warehouse-migrate-to-premium-storage.md) |Instructions for migrating an existing SQL Data Warehouse to premium storage |
 | 85 |[Get started with threat detection](sql-data-warehouse-security-threat-detection.md) |How to get started with Threat Detection |
 | 86 |[SQL Data Warehouse capacity limits](sql-data-warehouse-service-capacity-limits.md) |Maximum values for connections, databases, tables and queries for SQL Data Warehouse. |

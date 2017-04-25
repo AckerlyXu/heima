@@ -2,26 +2,31 @@
 title: Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Azure
 description: Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: lodipalm
-manager: barbkess
+documentationcenter: NA
+author: douglaslms
+manager: jhubbard
 editor: ''
 
+ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.custom: loading
+ms.date: 03/30/2017
 wacn.date: ''
+ms.author: douglasl;barbkess
 ---
 
 # Load data from SQL Server into Azure SQL Data Warehouse (SSIS)
 
 > [!div class="op_single_selector"]
->- [SSIS](./sql-data-warehouse-load-from-sql-server-with-integration-services.md)
->- [PolyBase](./sql-data-warehouse-load-from-sql-server-with-polybase.md)
->- [bcp](./sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> 
+> 
 
 Create a SQL Server Integration Services (SSIS) package to load data from SQL Server into Azure SQL Data Warehouse. You can optionally restructure, transform, and cleanse the data as it passes through the SSIS data flow.
 
@@ -48,14 +53,14 @@ SQL Server Integration Services (SSIS) is a flexible set of tools that provides 
 To step through this tutorial, you need:
 
 1. **SQL Server Integration Services (SSIS)**. SSIS is a component of SQL Server and requires an evaluation version or a licensed version of SQL Server. To get an evaluation version of SQL Server 2016 Preview, see [SQL Server Evaluations][SQL Server Evaluations].
-2. **Visual Studio**. To get the free Visual Studio 2015 Community Edition, see [Visual Studio Community][Visual Studio Community].
-3. **SQL Server Data Tools for Visual Studio (SSDT)**. To get SQL Server Data Tools for Visual Studio 2015, see [Download SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
+2. **Visual Studio**. To get the free Visual Studio Community Edition, see [Visual Studio Community][Visual Studio Community].
+3. **SQL Server Data Tools for Visual Studio (SSDT)**. To get SQL Server Data Tools for Visual Studio, see [Download SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
 4. **Sample data**. This tutorial uses sample data stored in SQL Server in the AdventureWorks sample database as the source data to be loaded into SQL Data Warehouse. To get the AdventureWorks sample database, see [AdventureWorks 2014 Sample Databases][AdventureWorks 2014 Sample Databases].
 5. **A SQL Data Warehouse database and permissions**. This tutorial connects to a SQL Data Warehouse instance and loads data into it. You have to have permissions to create a table and to load data.
 6. **A firewall rule**. You have to create a firewall rule on SQL Data Warehouse with the IP address of your local computer before you can upload data to the SQL Data Warehouse.
 
 ## Step 1: Create a new Integration Services project
-1. Launch Visual Studio 2015.
+1. Launch Visual Studio.
 2. On the **File** menu, select **New | Project**.
 3. Navigate to the **Installed | Templates | Business Intelligence | Integration Services** project types.
 4. Select **Integration Services Project**. Provide values for **Name** and **Location**, and then select **OK**.
@@ -90,15 +95,15 @@ Visual Studio opens and creates a new Integration Services (SSIS) project. Then 
     ![][05]
 4. In the **Connection Manager** dialog box, do the following things.
 
-   1. For **Provider**, select the SqlClient Data Provider.
-   2. For **Server name**, enter the SQL Server name.
-   3. In the **Log on to the server** section, select or enter authentication information.
-   4. In the **Connect to a database** section, select the AdventureWorks sample database.
-   5. Click **Test Connection**.
+    1. For **Provider**, select the SqlClient Data Provider.
+    2. For **Server name**, enter the SQL Server name.
+    3. In the **Log on to the server** section, select or enter authentication information.
+    4. In the **Connect to a database** section, select the AdventureWorks sample database.
+    5. Click **Test Connection**.
 
-       ![][06]
-   6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
-   7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
+        ![][06]
+    6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
+    7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
 5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Source Editor**.
 6. In the **ADO.NET Source Editor**, in the **Name of the table or the view** list, select the **Sales.SalesOrderDetail** table.
 
@@ -115,7 +120,7 @@ Visual Studio opens and creates a new Integration Services (SSIS) project. Then 
 
     ![][10]
 
-    In a typical SSIS package, you use a number of other components from the SSIS Toolbox in between the source and the destination to restructure, transform, and cleanse your data as it passes through the SSIS data flow. To keep this example as simple as possible, we’re connecting the source directly to the destination.
+    In a typical SSIS package, you use a number of other components from the SSIS Toolbox in between the source and the destination to restructure, transform, and cleanse your data as it passes through the SSIS data flow. To keep this example as simple as possible, we're connecting the source directly to the destination.
 
 ## Step 5: Configure the destination adapter
 1. Double-click the destination adapter to open the **ADO.NET Destination Editor**.
@@ -124,25 +129,25 @@ Visual Studio opens and creates a new Integration Services (SSIS) project. Then 
 2. On the **Connection Manager** tab of the **ADO.NET Destination Editor**, click the **New** button next to the **Connection manager** list to open the **Configure ADO.NET Connection Manager** dialog box and create connection settings for the Azure SQL Data Warehouse database into which this tutorial loads data.
 3. In the **Configure ADO.NET Connection Manager** dialog box, click the **New** button to open the **Connection Manager** dialog box and create a new data connection.
 4. In the **Connection Manager** dialog box, do the following things.
-   1. For **Provider**, select the SqlClient Data Provider.
-   2. For **Server name**, enter the SQL Data Warehouse name.
-   3. In the **Log on to the server** section, select **Use SQL Server authentication** and enter authentication information.
-   4. In the **Connect to a database** section, select an existing SQL Data Warehouse database.
-   5. Click **Test Connection**.
-   6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
-   7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
+    1. For **Provider**, select the SqlClient Data Provider.
+    2. For **Server name**, enter the SQL Data Warehouse name.
+    3. In the **Log on to the server** section, select **Use SQL Server authentication** and enter authentication information.
+    4. In the **Connect to a database** section, select an existing SQL Data Warehouse database.
+    5. Click **Test Connection**.
+    6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
+    7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
 5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Destination Editor**.
 6. In the **ADO.NET Destination Editor**, click **New** next to the **Use a table or view** list to open the **Create Table** dialog box to create a new destination table with a column list that matches the source table.
 
     ![][12a]
 7. In the **Create Table** dialog box, do the following things.
 
-   1. Change the name of the destination table to **SalesOrderDetail**.
-   2. Remove the **rowguid** column. The **uniqueidentifier** data type is not supported in SQL Data Warehouse.
-   3. Change the data type of the **LineTotal** column to **money**. The **decimal** data type is not supported in SQL Data Warehouse. For info about supported data types, see [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)].
+    1. Change the name of the destination table to **SalesOrderDetail**.
+    2. Remove the **rowguid** column. The **uniqueidentifier** data type is not supported in SQL Data Warehouse.
+    3. Change the data type of the **LineTotal** column to **money**. The **decimal** data type is not supported in SQL Data Warehouse. For info about supported data types, see [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)].
 
-       ![][12b]
-   4. Click **OK** to create the table and return to the **ADO.NET Destination Editor**.
+        ![][12b]
+    4. Click **OK** to create the table and return to the **ADO.NET Destination Editor**.
 8. In the **ADO.NET Destination Editor**, select the **Mappings** tab to see how columns in the source are mapped to columns in the destination.
 
     ![][13]
@@ -159,7 +164,7 @@ When the package has finished running, you see green check marks to indicate suc
 
 ![][15]
 
-Congratulations! You’ve successfully used SQL Server Integration Services to load data into Azure SQL Data Warehouse.
+Congratulations! You've successfully used SQL Server Integration Services to load data into Azure SQL Data Warehouse.
 
 ## Next steps
 * Learn more about the SSIS data flow. Start here: [Data Flow][Data Flow].
@@ -187,15 +192,15 @@ Congratulations! You’ve successfully used SQL Server Integration Services to l
 <!-- Article references -->
 
 <!-- MSDN references -->
-[PolyBase Guide]: https://msdn.microsoft.com/zh-cn/library/mt143171.aspx
-[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx
-[CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
-[Data Flow]: https://msdn.microsoft.com/zh-cn/library/ms140080.aspx
-[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/zh-cn/library/ms137625.aspx
-[Deployment of Projects and Packages]: https://msdn.microsoft.com/zh-cn/library/hh213290.aspx
+[PolyBase Guide]: https://msdn.microsoft.com/library/mt143171.aspx
+[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/library/mt204009.aspx
+[CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
+[Data Flow]: https://msdn.microsoft.com/library/ms140080.aspx
+[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/library/ms137625.aspx
+[Deployment of Projects and Packages]: https://msdn.microsoft.com/library/hh213290.aspx
 
 <!--Other Web references-->
 [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
-[SQL Server Evaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
-[Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
+[SQL Server Evaluations]: https://www.microsoft.com/evalcenter/evaluate-sql-server-2016
+[Visual Studio Community]: https://www.visualstudio.com/products/visual-studio-community-vs.aspx
 [AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550

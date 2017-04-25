@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: barbkess
@@ -21,14 +22,15 @@ ms.author: barbkess
 # Manage compute power in Azure SQL Data Warehouse (REST)
 
 > [!div class="op_single_selector"]
->- [Overview](./sql-data-warehouse-manage-compute-overview.md)
->- [Portal](./sql-data-warehouse-manage-compute-portal.md)
->- [PowerShell](./sql-data-warehouse-manage-compute-powershell.md)
->- [REST](./sql-data-warehouse-manage-compute-rest-api.md)
->- [TSQL](./sql-data-warehouse-manage-compute-tsql.md)
+> * [Overview](sql-data-warehouse-manage-compute-overview.md)
+> * [Portal](sql-data-warehouse-manage-compute-portal.md)
+> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
+> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
+>
+>
 
-<a name="scale-performance-bk"></a>
-## <a name="scale-compute-bk"></a> Scale compute power
+## <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>Scale compute power
 
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
@@ -45,7 +47,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-## <a name="pause-compute-bk"></a> Pause compute
+## <a name="pause-compute-bk"></a>Pause compute
 
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -55,18 +57,23 @@ To pause a database, use the [Pause Database][Pause Database] REST API. The foll
 POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## <a name="resume-compute-bk"></a> Resume compute
+## <a name="resume-compute-bk"></a>Resume compute
 
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
 To start a database, use the [Resume Database][Resume Database] REST API. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
 
 ```
-POST https://management.chinacloudapi.cn/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## <a name="next-steps-bk"></a> Next steps
+## Check database state
 
+```json
+GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}?api-version=2014-04-01 HTTP/1.1
+```
+
+## <a name="next-steps-bk"></a>Next steps
 For other management tasks, see [Management overview][Management overview].
 
 <!--Image references-->
@@ -76,9 +83,9 @@ For other management tasks, see [Management overview][Management overview].
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
-[Pause Database]: https://msdn.microsoft.com/zh-cn/library/azure/mt718817.aspx
-[Resume Database]: https://msdn.microsoft.com/zh-cn/library/azure/mt718820.aspx
-[Create or Update Database]: https://msdn.microsoft.com/zh-cn/library/azure/mt163685.aspx
+[Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
+[Resume Database]: https://msdn.microsoft.com/library/azure/mt718820.aspx
+[Create or Update Database]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 
 <!--Other Web references-->
 

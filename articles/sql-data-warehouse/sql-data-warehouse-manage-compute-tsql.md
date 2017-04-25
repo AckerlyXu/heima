@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 03/30/2017
 wacn.date: ''
 ms.author: barbkess
 ---
@@ -21,16 +21,18 @@ ms.author: barbkess
 # Manage compute power in Azure SQL Data Warehouse (T-SQL)
 
 > [!div class="op_single_selector"]
->- [Overview](./sql-data-warehouse-manage-compute-overview.md)
->- [Portal](./sql-data-warehouse-manage-compute-portal.md)
->- [PowerShell](./sql-data-warehouse-manage-compute-powershell.md)
->- [REST](./sql-data-warehouse-manage-compute-rest-api.md)
->- [TSQL](./sql-data-warehouse-manage-compute-tsql.md)
+> * [Overview](sql-data-warehouse-manage-compute-overview.md)
+> * [Portal](sql-data-warehouse-manage-compute-portal.md)
+> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
+> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
+>
+>
 
 ## <a name="current-dwu-bk"></a> View current DWU settings
 To view the current DWU settings for your databases:
 
-1. Open SQL Server Object Explorer in Visual Studio 2015.
+1. Open SQL Server Object Explorer in Visual Studio.
 2. Connect to the master database associated with the logical SQL Database server.
 3. Select from the sys.database_service_objectives dynamic management view. Here is an example: 
 
@@ -45,8 +47,7 @@ JOIN
 	sys.databases db ON ds.database_id = db.database_id
 ```
 
-<a name="scale-dwu-bk"></a>
-## <a name="scale-compute-bk"></a> Scale compute
+## <a name="scale-dwu-bk"></a> <a name="scale-compute-bk"></a>Scale compute
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 To change the DWUs:
@@ -54,11 +55,36 @@ To change the DWUs:
 1. Connect to the master database associated with your logical SQL Database server.
 2. Use the [ALTER DATABASE][ALTER DATABASE] TSQL statement. The following example sets the service level objective to DW1000 for the database MySQLDW. 
 
-    ```Sql
-    ALTER DATABASE MySQLDW
-    MODIFY (SERVICE_OBJECTIVE = 'DW1000')
-    ;
-    ```
+```Sql
+ALTER DATABASE MySQLDW
+MODIFY (SERVICE_OBJECTIVE = 'DW1000')
+;
+```
+
+## <a name="check-database-state-bk"></a>Check database state and operation progress
+
+1. Connect to the master database associated with your logical SQL Database server.
+2. Submit query to check database state
+
+```sql
+SELECT *
+FROM
+sys.databases
+```
+
+3. Submit query to check status of operation
+
+```sql
+SELECT *
+FROM
+	sys.dm_operation_status
+WHERE
+	resource_type_desc = 'Database'
+AND 
+	major_resource_id = 'MySQLDW'
+```
+
+This DMV will return information about various management operations on your SQL Data Warehouse such as the operation and the state of the operation, which will either be IN_PROGRESS or COMPLETED.
 
 ## <a name="next-steps-bk"></a> Next steps
 For other management tasks, see [Management overview][Management overview].
@@ -72,7 +98,7 @@ For other management tasks, see [Management overview][Management overview].
 
 <!--MSDN references-->
 
-[ALTER DATABASE]: https://msdn.microsoft.com/zh-cn/library/mt204042.aspx
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
 
