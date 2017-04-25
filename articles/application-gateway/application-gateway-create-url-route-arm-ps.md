@@ -122,7 +122,7 @@ The following example shows how to create a virtual network by using Resource Ma
 
 ### Step 1
 
-Assign the address range 10.0.0.0/24 to the subnet variable to be used to create a virtual network. This creates the subnet configuration object for the Application Gateway which is used in the next example.
+Assign the address range 10.0.0.0/24 to the subnet variable to be used to create a virtual network.  This creates the subnet configuration object for the Application Gateway which is used in the next example.
 
 ```powershell
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
@@ -146,7 +146,7 @@ $subnet=$vnet.Subnets[0]
 
 ## Create a public IP address for the front-end configuration
 
-Create a public IP resource **publicIP01** in resource group **appgw-rg** for the China North region. Application Gateway can use a public IP address, internal IP address or both to receieve requests for load balancing. This example only uses a public IP address. In the following example no DNS name is configured for creating the Public IP address. Application Gateway does not support custom DNS names on public IP addreses. If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
+Create a public IP resource **publicIP01** in resource group **appgw-rg** for the China North region. Application Gateway can use a public IP address, internal IP address or both to receieve requests for load balancing.  This example only uses a public IP address. In the following example no DNS name is configured for creating the Public IP address.  Application Gateway does not support custom DNS names on public IP addreses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "China North" -AllocationMethod Dynamic
@@ -180,7 +180,7 @@ In this example, there are two back-end pools to route network traffic based on 
 
 ### Step 3
 
-Configure application gateway setting **poolsetting01** and **poolsetting02** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own back-end pool setting. Backend HTTP settings are used by rules to route traffic to the correct backend pool members. This determines the protocol and port that is used when sending traffic to the backend pool members. Cookie-based sessions are also determined by the backend HTTP settings. If enabled, cookie-based session affinity will send traffic to the same backend as previous requests for each packet.
+Configure application gateway setting **poolsetting01** and **poolsetting02** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own back-end pool setting.  Backend HTTP settings are used by rules to route traffic to the correct backend pool members. This determines the protocol and port that is used when sending traffic to the backend pool members. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity will send traffic to the same backend as previous requests for each packet.
 
 ```powershell
 $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
@@ -206,7 +206,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
 
 ### Step 6
 
-Configure the listener. This step configures the listener for the public IP address and port used to receive incoming network traffic. The following example takes the previously configured front-end IP configuration, front-end port configuration and a protocol (http or https) and configures the listener. In this example the listener listens to HTTP traffic on port 80 on the public IP address that was created earlier.
+Configure the listener. This step configures the listener for the public IP address and port used to receive incoming network traffic. The following example takes the previously configured front-end IP configuration,  front-end port configuration and a protocol (http or https) and configures the listener. In this example the listener listens to HTTP traffic on port 80 on the public IP address that was created earlier.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01

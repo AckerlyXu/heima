@@ -29,11 +29,11 @@ Azure provides the capability to monitor resources with logging and metrics. App
 
 [**Metrics**](#metrics) - Application gateway currently has one metric. This metric measures the throughput of the application gateway in Bytes per second.
 
-## <a name="backend-health"></a> Backend health
+## Backend health
 
 Application gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and CLI. Aggregated health summary of backend pools can also be found through the performance diagnostic logs. The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the backend can be served traffic to, it is considered healthy, otherwise it is considered unhealthy.
 
-> [!important]
+> [!IMPORTANT]
 > If there is an NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on the Application Gateway subnet for Inbound traffic. These ports are required for the backend health API to work.
 
 ### View backend health through the portal
@@ -97,7 +97,7 @@ For Logs, there are two different options to choose for storing your logs.
 * Storage account - Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
 * Event hubs - Event hubs are a great option for integrating with other SEIM tools to get alerts on your resources
 
-## <a name="enable-logging-with-powershell"></a> Enable logging with PowerShell
+### Enable logging with PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, see the following steps:
 
@@ -216,12 +216,12 @@ This log is only generated if you have enabled it on a per application gateway b
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-    "operationName": "ApplicationGatewayFirewall",
+  "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+  "operationName": "ApplicationGatewayFirewall",
   "time": "2017-03-20T15:52:09.1494499Z",
-    "category": "ApplicationGatewayFirewallLog",
-    "properties":     {
-        "instanceId": "ApplicationGatewayRole_IN_0",
+  "category": "ApplicationGatewayFirewallLog",
+  "properties": {
+    "instanceId": "ApplicationGatewayRole_IN_0",
     "clientIp": "104.210.252.3",
     "clientPort": "4835",
     "requestUri": "/?a=%3Cscript%3Ealert(%22Hello%22);%3C/script%3E",
@@ -254,11 +254,11 @@ You can view and analyze activity log data using any of the following methods:
 You can connect to your storage account and retrieve the JSON log entries for access and performance logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
+> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 > 
 > 
 
-## <a name="metrics"></a> Metrics
+## Metrics
 
 Metrics is a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, one metric is available at the time of writing this article. This metric is throughput, and can be seen in the portal. Navigate to an application gateway and click **Metrics**. To view the values, select throughput in the **Available metrics** section. In the following image, you can see an example with the filters that can be used to display the data in different time ranges.
 

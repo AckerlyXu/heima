@@ -42,7 +42,7 @@ To configure SSL offload on an application gateway, do the following steps in th
 5. [Start the gateway](#start-the-gateway)
 6. [Verify the gateway status](#verify-the-gateway-status)
 
-## <a name="create-a-new-application-gateway"></a> Create an application gateway
+## Create an application gateway
 
 To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -58,7 +58,7 @@ In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional pa
 Get-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="upload-ssl-certificates"></a> Upload SSL certificates
+## Upload SSL certificates
 
 Use `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate in *pfx* format to the application gateway. The certificate name is a user-chosen name and must be unique within the application gateway. This certificate is referred to by this name in all certificate management operations on the application gateway.
 
@@ -89,7 +89,7 @@ State..........: Provisioned
 > [!NOTE]
 > The certificate password has to be between 4 to 12 characters, letters, or numbers. Special characters are not accepted.
 
-## <a name="configure-the-gateway"></a> Configure the gateway
+## Configure the gateway
 
 An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
 
@@ -159,7 +159,7 @@ To construct your configuration by using a configuration XML file, use the follo
 </ApplicationGatewayConfiguration>
 ```
 
-## <a name="set-the-gateway-configuration"></a> Set the gateway configuration
+## Set the gateway configuration
 
 Next, you set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with either a configuration object or with a configuration XML file.
 
@@ -167,7 +167,7 @@ Next, you set the application gateway. You can use the `Set-AzureApplicationGate
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
 
-## <a name="start-the-gateway"></a> Start the gateway
+## Start the gateway
 
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
 
@@ -180,7 +180,7 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-the-gateway-status"></a> Verify the gateway status
+## Verify the gateway status
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of the gateway. If `Start-AzureApplicationGateway` succeeded in the previous step, *State* should be Running, and *VirtualIPs* and *DnsName* should have valid entries.
 

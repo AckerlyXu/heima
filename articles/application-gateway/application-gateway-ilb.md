@@ -40,7 +40,7 @@ To create an application gateway, perform the following steps in the order liste
 4. [Start the gateway](#start-the-gateway)
 5. [Verify the gateway](#verify-the-gateway-status)
 
-## <a name="create-a-new-application-gateway"></a> Create an application gateway:
+## Create an application gateway:
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -79,7 +79,7 @@ VirtualIPs:
 DnsName:
 ```
 
-## <a name="configure-the-gateway"></a> Configure the gateway
+## Configure the gateway
 An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
 
 The values are:
@@ -155,7 +155,7 @@ Note the following:
 </ApplicationGatewayConfiguration>
 ```
 
-## <a name="set-the-gateway-configuration"></a> Set the gateway configuration
+## Set the gateway configuration
 Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration object, or with a configuration XML file. 
 
 ```powershell
@@ -170,7 +170,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
-## <a name="start-the-gateway"></a> Start the gateway
+## Start the gateway
 
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
 
@@ -191,7 +191,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
-## <a name="verify-the-gateway-status"></a> Verify the gateway status
+## Verify the gateway status
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If `Start-AzureApplicationGateway` succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows the cmdlet on the first line, followed by the output. In this sample, the gateway is running, and is ready to take traffic. 
 

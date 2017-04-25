@@ -29,7 +29,7 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall (preview), cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
@@ -219,6 +219,7 @@ No, detection mode only logs traffic, which triggered a WAF rule.
 
 **Q. How do I customize WAF rules?**
 
+Yes, WAF rules are customizable, for more information on how to customize them visit [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md)
 
 **Q. What rules are currently available?**
 
@@ -238,9 +239,9 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 * Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
-**Q. Does WAF also support DDos prevention?**
+**Q. Does WAF also support DDoS prevention?**
 
-No, WAF does not provide DDos prevention.
+No, WAF does not provide DDoS prevention.
 
 ## Diagnostics and Logging
 
@@ -250,6 +251,7 @@ There are three logs available for Application Gateway. For more information on 
 
 - **ApplicationGatewayAccessLog** - This log contains each request submitted to the Application Gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of Application Gateway.
 - **ApplicationGatewayPerformanceLog** - This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count.
+- **ApplicationGatewayFirewallLog** - This log contains requests that are logged through either detection or prevention mode of an application gateway that is configured with web application firewall.
 
 **Q. How do I know if my backend pool members are healthy?**
 

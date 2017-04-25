@@ -28,7 +28,7 @@ ms.author: gwallace
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are in the cloud or on-premises.
-Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
+Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
 
 To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
@@ -63,14 +63,14 @@ You can download the existing Azure Resource Manager template to create a virtua
 
     | Parameter | Description |
     | --- | --- |
-  | **subnetPrefix** |CIDR block for the application gateway subnet. |
-  | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
-  | **backendIpaddress1** |IP address of the first web server. |
-  | **backendIpaddress2** |IP address of the second web server. |
-  | **wafEnabled** | Setting to determine if WAF is enabled.|
-  | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
-  | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
-  | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
+    | **subnetPrefix** |CIDR block for the application gateway subnet. |
+    | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
+    | **backendIpaddress1** |IP address of the first web server. |
+    | **backendIpaddress2** |IP address of the second web server. |
+    | **wafEnabled** | Setting to determine if WAF is enabled.|
+    | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
+    | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
+    | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
     > [!IMPORTANT]
     > Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
@@ -81,8 +81,8 @@ You can download the existing Azure Resource Manager template to create a virtua
     * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
     * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
-   > [!NOTE]
-   > For more information on templates visit: [Resource Manager templates reference](/templates/)
+    > [!NOTE]
+    > For more information on templates visit: [Resource Manager templates reference](/templates/)
 
 1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Click **azuredeploy-parameters.json**, and then click **RAW**.
@@ -90,31 +90,31 @@ You can download the existing Azure Resource Manager template to create a virtua
 1. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
 
     ```json
-        {
+    {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-        "addressPrefix": {
-        "value": "10.0.0.0/16"
-        },
-        "subnetPrefix": {
-        "value": "10.0.0.0/28"
-        },
-        "applicationGatewaySize": {
+            "addressPrefix": {
+            "value": "10.0.0.0/16"
+            },
+            "subnetPrefix": {
+            "value": "10.0.0.0/28"
+            },
+            "applicationGatewaySize": {
             "value": "WAF_Medium"
-        },
-        "capacity": {
-        "value": 2
-        },
-        "backendIpAddress1": {
-        "value": "10.0.1.10"
-        },
-        "backendIpAddress2": {
-        "value": "10.0.1.11"
-        },
-        "wafEnabled": {
-    "value": true
-},
+            },
+            "capacity": {
+            "value": 2
+            },
+            "backendIpAddress1": {
+            "value": "10.0.1.10"
+            },
+            "backendIpAddress2": {
+            "value": "10.0.1.11"
+            },
+            "wafEnabled": {
+            "value": true
+            },
             "wafMode": {
             "value": "Detection"
             },
@@ -207,7 +207,7 @@ Click-to-deploy is another way to use Azure Resource Manager templates. It's an 
 
 ### Step 1
 
-Go to [Create an application gateway with
+Go to [Create an application gateway with web application firewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf/).
 
 ### Step 2
 
