@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
+title: Azure SQL Data Warehouse Frequently Asked Questions | Azure
 description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
 services: sql-data-warehouse
 documentationcenter: NA

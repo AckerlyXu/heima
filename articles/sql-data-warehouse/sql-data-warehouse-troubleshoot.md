@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
+title: Troubleshooting Azure SQL Data Warehouse | Azure
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA

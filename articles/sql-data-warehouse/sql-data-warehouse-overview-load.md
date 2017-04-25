@@ -1,5 +1,5 @@
 ---
-title: Load data into Azure SQL Data Warehouse | Microsoft Docs
+title: Load data into Azure SQL Data Warehouse | Azure
 description: Learn the common scenarios for data loading into SQL Data Warehouse. These include using PolyBase, Azure blob storage, flat files, and disk shipping. You can also use third-party tools.
 services: sql-data-warehouse
 documentationcenter: NA
