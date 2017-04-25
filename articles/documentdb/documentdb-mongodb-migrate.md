@@ -1,6 +1,6 @@
 ---
 title: Use mongoimport & mongorestore with Azure DocumentDB | Azure
-description: Learn how to use mongoimport and mongorestore to import data to a DocumentDB: API for MongoDB account
+description: 'Learn how to use mongoimport and mongorestore to import data to a DocumentDB: API for MongoDB account'
 keywords: mongoimport, mongorestore
 services: documentdb
 author: AndrewHoh
