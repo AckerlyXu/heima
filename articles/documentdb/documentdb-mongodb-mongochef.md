@@ -1,6 +1,6 @@
 ---
 title: Use MongoChef for MongoDB with Azure DocumentDB | Azure
-description: Learn how to use MongoChef with a DocumentDB: API for MongoDB account
+description: 'Learn how to use MongoChef with a DocumentDB: API for MongoDB account'
 keywords: mongochef
 services: documentdb
 author: AndrewHoh

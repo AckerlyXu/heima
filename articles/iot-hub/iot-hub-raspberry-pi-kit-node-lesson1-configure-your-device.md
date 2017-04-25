@@ -1,5 +1,5 @@
-﻿---
-title: Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Configure device | Azure
+---
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Configure device | Azure'
 description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 services: iot-hub
 documentationcenter: ''

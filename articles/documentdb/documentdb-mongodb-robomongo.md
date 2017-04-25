@@ -1,6 +1,6 @@
 ---
 title: Use Robomongo for MongoDB with Azure DocumentDB | Azure
-description: Learn how to use Robomongo with a DocumentDB: API for MongoDB account
+description: 'Learn how to use Robomongo with a DocumentDB: API for MongoDB account'
 keywords: robomongo
 services: documentdb
 author: AndrewHoh

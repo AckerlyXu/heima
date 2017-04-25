@@ -1,5 +1,5 @@
 ---
-title: Create your first Azure IoT Gateway module | Azure
+title: 'Create your first Azure IoT Gateway module | Azure'
 description: Create a module and add it to a sample app to customize module behaviors.
 services: iot-hub
 documentationcenter: ''
@@ -10,7 +10,8 @@ keywords: ''
 
 ms.assetid: cd7660f4-7b8b-4091-8d71-bb8723165b0b
 ms.service: iot-hub
-ms.devlang: ms.topic: article
+ms.devlang: 
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/17/2017

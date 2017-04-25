@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute Overview: Extend your on-premises network to Azure over a dedicated private connection | Azure
+title: 'ExpressRoute Overview: Extend your on-premises network to Azure over a dedicated private connection | Azure'
 description: This ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a dedicated private connection.
 documentationCenter: na
 services: expressroute
