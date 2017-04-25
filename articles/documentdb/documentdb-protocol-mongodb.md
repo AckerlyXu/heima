@@ -1,6 +1,6 @@
 ---
-title: What is DocumentDB: API for MongoDB? | Azure
-description: Learn about DocumentDB: API for MongoDB and how you can easily run existing MongoDB applications in the Azure cloud
+title: 'What is DocumentDB: API for MongoDB? | Azure'
+description:'Learn about DocumentDB: API for MongoDB and how you can easily run existing MongoDB applications in the Azure cloud'
 keywords: what is MongoDB
 services: documentdb
 author: AndrewHoh
