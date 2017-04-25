@@ -29,7 +29,7 @@ In this article, you'll learn how to define workflows and coordinators, and how 
 > [!NOTE]
 > This article requires a Windows-based HDInsight cluster. For information on using Oozie, including time-based jobs, on a Linux-based cluster, see [Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight](hdinsight-use-oozie-linux-mac.md)
 
-## <a id="whatisoozie"></a> What is Oozie
+## What is Oozie
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
 
 The following image shows the workflow you will implement:
@@ -62,7 +62,7 @@ The workflow contains two actions:
 >
 >
 
-## <a id="prerequisites"></a> Prerequisites
+## Prerequisites
 Before you begin this tutorial, you must have the following:
 
 * **A workstation with Azure PowerShell**.
@@ -712,7 +712,7 @@ $cmd.executenonquery()
 $conn.close()
 ```
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 In this tutorial, you learned how to define an Oozie workflow and an Oozie coordinator, and how to run an Oozie coordinator job by using Azure PowerShell. To learn more, see the following articles:
 
 * [Get started with HDInsight][hdinsight-get-started]

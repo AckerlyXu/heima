@@ -52,7 +52,7 @@ In the appendixes, you can find the instructions for uploading flight delay data
 > [!NOTE]
 > The steps in this document are specific to Windows-based HDInsight clusters. For steps that work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
-### <a id="prerequisite"></a> Prerequisites
+### Prerequisites
 Before you begin this tutorial, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
@@ -60,7 +60,7 @@ Before you begin this tutorial, you must have the following items:
 
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
-    ><p>
+    > <p>
     > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 **Files used in this tutorial**
@@ -82,7 +82,7 @@ The following table lists the files used in this tutorial:
 <tr><td>\tutorials\flightdelays\jobstatus</td><td>The Hive job status folder on the default container.</td></tr>
 </table>
 
-## <a name="runjob"></a> Create cluster and run Hive/Sqoop jobs
+## Create cluster and run Hive/Sqoop jobs
 Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive job is to create a cluster for the job,
 and delete the job after the job is completed. The following script covers the whole process.
 For more information on creating an HDInsight cluster and running Hive jobs, see [Create Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive].
@@ -360,7 +360,7 @@ The path tutorials/flightdelay/data is the virtual folder you created when you u
 
 > [!NOTE]
 > You must update the Hive query to read from the new location.
-><p>
+> <p>
 > You must either configure the container access permission to be public or bind the Storage account to the HDInsight cluster. Otherwise, the Hive query string will not be able to access the data files.
 
 - - -

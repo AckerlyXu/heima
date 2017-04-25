@@ -203,7 +203,7 @@ Complete the following steps to deploy the template you downloaded by using Powe
                               }
                             ]
 
-## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a> Deploy the template using click-to-deploy
+## Deploy the template using click-to-deploy
 
 You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub repository maintained by Microsoft and open to the community. These templates can be deployed straight out of GitHub, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, complete the following steps:
 

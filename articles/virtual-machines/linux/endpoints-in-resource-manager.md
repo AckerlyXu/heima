@@ -19,12 +19,12 @@ ms.author: iainfou
 
 ---
 # Classic endpoints for Linux VMs with Azure Resource Manager
-[!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
+[!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## Next steps
 You can read more detailed information on the technologies discussed here, along with quickstart guides for using Network Security Groups, in the following articles:
 
-* [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
-* [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)  
-* [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)  
-* [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)
+* [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+* [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)  
+* [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)  
+* [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)

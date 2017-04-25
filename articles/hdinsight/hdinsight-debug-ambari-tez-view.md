@@ -92,7 +92,7 @@ Use the following steps to run a Hive query that uses Tez:
     ![DAG Details](./media/hdinsight-debug-ambari-tez-view/dagdetails.png)
 
 5. Above the **DAG Details** are several links that can be used to display information about the DAG.
-    
+
    * **DAG Counters**: Displays counters information for this DAG.
    * **Graphical View**: Displays a graphical representation of this DAG.
    * **All Vertices**: Displays a list of the vertices in this DAG.
@@ -101,7 +101,7 @@ Use the following steps to run a Hive query that uses Tez:
 
         > [!NOTE]
         > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
-        
+
         If there was a failure with the job, the DAG Details display a status of FAILED, along with links to information about the failed task. Diagnostics information is displayed beneath the DAG details.
 
         ![A DAG Details screen detailing a failure](./media/hdinsight-debug-ambari-tez-view/faileddag.png)

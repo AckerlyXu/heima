@@ -93,7 +93,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     > <p>
     > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
-## <a id="troubleshooting"></a> Troubleshooting
+## Troubleshooting
 
 If no information is returned when the job completes, an error may have occurred during processing. To view error information for this job, add the following to the end of the **hivejob.ps1** file, save it, and then run it again.
 
@@ -108,11 +108,11 @@ Get-AzureRmHDInsightJobOutput `
 
 This cmdlet returns the information that is written to STDERR on the server when you ran the job.
 
-## <a id="summary"></a> Summary
+## Summary
 
 As you can see, Azure PowerShell provides an easy way to run Hive queries in an HDInsight cluster, monitor the job status, and retrieve the output.
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 
 For general information about Hive in HDInsight:
 

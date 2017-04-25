@@ -96,7 +96,7 @@ To assist in understanding what scripts have been applied to a cluster, and in d
 > [!IMPORTANT]
 > There is no automatic way to undo the changes made by a script action. If you need to reverse the effects of a script, you must understand what changes were made and manually reverse them (or provide a script action that reverses them.)
 
-### <a name="use-a-script-action-during-cluster-creation"></a> Script Action in the cluster creation process
+### Script Action in the cluster creation process
 
 Script Actions used during cluster creation are slightly different from script actions ran on an existing cluster:
 
@@ -119,7 +119,7 @@ During cluster creation, you can specify multiple script actions that are invoke
 > <p>
 > To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Storage so that it can quickly be downloaded to the cluster.
 
-### <a name="apply-a-script-action-to-a-running-cluster"></a> Script action on a running cluster
+### Script action on a running cluster
 
 Unlike script actions used during cluster creation, a failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
 
@@ -138,7 +138,7 @@ When applying a script to a cluster, the cluster state changes to from **Running
 > [!NOTE]
 > If you have changed the cluster user (admin) password after the cluster was created, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations.
 
-## <a name="example-script-action-scripts"></a> Example Script Action scripts
+## Example Script Action scripts
 
 Script Action scripts can be used from the Azure portal preview, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK. HDInsight provides scripts to install the following components on HDInsight clusters:
 
@@ -460,7 +460,7 @@ It can take several minutes before the cluster is created.
 
 The HDInsight .NET SDK provides client libraries that makes it easier to work with HDInsight from a .NET application. For a code sample, see [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
 
-## <a name="apply-a-script-action-to-a-running-cluster"></a> Apply a Script Action to a running cluster
+## Apply a Script Action to a running cluster
 
 This section provides examples on the different ways you can apply script actions to a running HDInsight cluster; from the Azure portal preview, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK. The persisted script action used in this section adds an existing Azure storage account to a running cluster. You can also use other script actions, See [Example Script Action scripts](#example-script-action-scripts).
 
@@ -669,7 +669,7 @@ The HDInsight service provides several ways to use custom components. Regardless
 
 3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
 
-## <a name="troubleshooting"></a> Troubleshooting
+## Troubleshooting
 
 You can use Ambari web UI to view information logged by script actions. If the script is used during cluster creation, and cluster creation failed due to an error in the script, the logs are also available in the default storage account associated with the cluster. This section provides information on how to retrieve the logs using both these options.
 

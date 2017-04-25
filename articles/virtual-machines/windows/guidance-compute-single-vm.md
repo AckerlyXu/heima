@@ -20,4 +20,4 @@ ms.author: mwasson
 
 ---
 # Best Practices for running a Windows VM on Azure
-[!INCLUDE [gudiance-comput-single-vm-windows](../../includes/guidance-compute-single-vm-windows.md)]
+[!INCLUDE [gudiance-comput-single-vm-windows](../../../includes/guidance-compute-single-vm-windows.md)]

@@ -59,7 +59,7 @@ The following procedure shows you how to install HDInsight applications to an ex
 
 You can see the installation status from the portal notifications (click the bell icon on the top of the portal). After the application is installed, the application will appear on the Installed Apps blade.
 
-## <a name="install-applications-during-cluster-creation"></a> Install applications during cluster creation
+## Install applications during cluster creation
 You have the option to install HDInsight applications when you create a cluster. During the process, HDInsight applications are installed after the cluster is created and is in the running state. The following procedure shows you how to install HDInsight applications when you create a cluster.
 
 **To install an HDInsight application**
@@ -80,7 +80,7 @@ You have the option to install HDInsight applications when you create a cluster.
 9. Click **Resource Group** to select an existing resource group, or click **New** to create a new resource group
 10. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. 
 
-## <a name="list-installed-hdinsight-apps-and-properties"></a> List installed HDInsight apps and properties
+## List installed HDInsight apps and properties
 The portal shows a list of the installed HDInsight applications for a cluster, and the properties of each installed application.
 
 **To list HDInsight application and display properties**

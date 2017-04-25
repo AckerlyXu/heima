@@ -22,7 +22,7 @@ ms.author: cephalin
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-[App Service](/azure/app-service-web/app-service-changes-existing-services/) can be integrated with [Azure CDN](https://www.azure.cn/home/features/cdn/), adding to the national scaling capabilities inherent in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/) by serving your web app content nationally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
+[App Service](/azure/app-service-web/app-service-changes-existing-services) can be integrated with [Azure CDN](https://www.azure.cn/home/features/cdn/), adding to the national scaling capabilities inherent in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services) by serving your web app content nationally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience nationwide. 
 
 Integrating Web Apps with Azure CDN gives you the following advantages:
 
@@ -49,7 +49,7 @@ This tutorial has the following prerequisites:
 > 
 > 
 
-## <a name="deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint"></a> Deploy a web app to Azure with an integrated CDN endpoint
+## Deploy a web app to Azure with an integrated CDN endpoint
 In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2015 to App Service, and then integrate it with a new CDN endpoint. Follow the instructions below:
 
 1. In Visual Studio 2015, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
@@ -131,7 +131,7 @@ Note that it may not be always a good idea (or generally a good idea) to serve a
 
 The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your Azure web app. To that end, you have already seen how to access individual content files from the CDN endpoint. I will show you how to serve a specific controller action through the CDN endpoint in [Serve content from controller actions through Azure CDN](#serve-content-from-controller-actions-through-azure-cdn).
 
-## <a name="configure-caching-options-for-static-files-in-your-azure-web-app"></a> Configure caching options for static files in your Azure web app
+## Configure caching options for static files in your Azure web app
 With Azure CDN integration in your Azure web app, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your ASP.NET project (e.g. **cdnwebapp**) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
 
     <system.webServer>
@@ -158,7 +158,7 @@ For more information on how to configure the `<clientCache>` element, see [Clien
 
 In the next section, I will also show you how you can configure cache settings for controller action results in the CDN cache.
 
-## <a name="serve-content-from-controller-actions-through-azure-cdn"></a> Serve content from controller actions through Azure CDN
+## Serve content from controller actions through Azure CDN
 When you integrate Web Apps with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Again, if you decide to serve the entire Azure web app through your CDN, you don't need to do this at all since all the controller actions are reachable through the CDN already. But for the reasons I already pointed out in [Deploy an Azure web app with an integrated CDN endpoint](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), you may decide against this and choose instead to select the controller action you want to serve from Azure CDN. Maarten Balliauw shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
 
 Suppose in your web app you want to generate memes based on a young Chuck Norris image (photo by [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) like this:

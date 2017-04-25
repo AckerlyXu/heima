@@ -21,7 +21,7 @@ ms.author: jparrel
 ---
 # Use load-balanced sets to clusterize MySQL on Linux
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) is available if you need to deploy a MySQL cluster.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) is available if you need to deploy a MySQL cluster.
 
 This article explores and illustrates the different approaches available to deploy highly available Linux-based services on Azure, exploring MySQL Server high availability as a primer. A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -240,7 +240,7 @@ Shortly after starting the service, the cluster should be established in the cur
 
 You will see output similar to the following image:
 
-![corosync-quorumtool -l sample output](./media/virtual-machines-linux-classic-mysql-cluster/image001.png)
+![corosync-quorumtool -l sample output](./media/mysql-cluster/image001.png)
 
 ## Set up Pacemaker
 Pacemaker uses the cluster to monitor for resources, define when primaries go down, and switch those resources to secondaries. Resources can be defined from a set of available scripts or from LSB (init-like) scripts, among other choices.
@@ -300,11 +300,11 @@ When you first install Pacemaker, your configuration should be simple enough, so
 
 The following screenshot shows `crm_mon` with one node stopped (exit by selecting Ctrl+C):
 
-![crm_mon node stopped](./media/virtual-machines-linux-classic-mysql-cluster/image002.png)
+![crm_mon node stopped](./media/mysql-cluster/image002.png)
 
 This screenshot shows both nodes, one master and one slave:
 
-![crm_mon operational master/slave](./media/virtual-machines-linux-classic-mysql-cluster/image003.png)
+![crm_mon operational master/slave](./media/mysql-cluster/image003.png)
 
 ## Testing
 You're ready for an automatic failover simulation. There are two ways to do this: soft and hard.

@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Classic](../classic/sql-server-agent-extension.md)
 > 
 > 
 
@@ -30,9 +30,9 @@ The SQL Server IaaS Agent Extension (SQLIaaSExtension) runs on Azure virtual mac
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [SQL Server Agent Extension for SQL Server VMs Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+To view the classic version of this article, see [SQL Server Agent Extension for SQL Server VMs Classic](../classic/sql-server-agent-extension.md).
 
-## <a name="supported-services"></a> Supported services
+## Supported services
 The SQL Server IaaS Agent Extension supports the following administration tasks:
 
 | Administration feature | Description |
@@ -48,6 +48,7 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server versions**:
 

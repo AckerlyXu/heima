@@ -23,7 +23,7 @@ ms.author: ningk
 There are many factors that affect MySQL performance on Azure, both in virtual hardware selection and software configuration. This article focuses on optimizing performance through storage, system, and database configurations.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about Linux VM optimizations with the Resource Manager model, see [Optimize your Linux VM on Azure](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about Linux VM optimizations with the Resource Manager model, see [Optimize your Linux VM on Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Utilize RAID on an Azure virtual machine
 Storage is the key factor that affects database performance in cloud environments. Compared to a single disk, RAID can provide faster access via concurrency. For more information, see [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
@@ -68,7 +68,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
     sudo grep SCSI /var/log/dmesg
 
 #### Create RAID with the additional disks
-The following steps describe how to [configure software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The following steps describe how to [configure software RAID on Linux](../configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > If you are using the XFS file system, execute the following steps after you have created RAID.
@@ -328,17 +328,17 @@ For more detailed [optimization configuration parameters](http://dev.mysql.com/d
 | Disk |10 GB/disk |
 | OS |Ubuntu 14.04.1 LTS |
 
-[1]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-01.png
-[2]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-02.png
-[3]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-03.png
-[4]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-04.png
-[5]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-05.png
-[6]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-06.png
-[7]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-07.png
-[8]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-08.png
-[9]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-09.png
-[10]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-10.png
-[11]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-11.png
-[12]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
-[13]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
-[14]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
+[1]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-01.png
+[2]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-02.png
+[3]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-03.png
+[4]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-04.png
+[5]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-05.png
+[6]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-06.png
+[7]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-07.png
+[8]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-08.png
+[9]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-09.png
+[10]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-10.png
+[11]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-11.png
+[12]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
+[13]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
+[14]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png

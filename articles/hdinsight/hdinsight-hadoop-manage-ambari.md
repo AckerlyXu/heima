@@ -77,7 +77,7 @@ When the page opens, note the bar at the top. This contains the following inform
 
 * **Admin button** - Ambari management, user settings, and logout.
 
-## <a name="monitoring"></a> Monitoring
+## Monitoring
 
 ### Alerts
 

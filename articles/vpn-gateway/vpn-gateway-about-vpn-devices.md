@@ -71,7 +71,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 
 (*) ISR 7200 Series routers only support PolicyBased VPNs.
 
-## <a name="additionaldevices"  id="devices-not-on-the-compatible-list"></a> Non-validated VPN devices
+## <a name="additionaldevices" id="devices-not-on-the-compatible-list"></a> Non-validated VPN devices
 If you don't see your device listed in the Validated VPN devices table, your device still may work with a Site-to-Site connection. Contact your device manufacturer for additional support and configuration instructions.
 
 ## <a name="editing"></a>Editing device configuration samples

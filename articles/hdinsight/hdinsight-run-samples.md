@@ -218,7 +218,7 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 * [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
 
-## <a name="apendix-a---the-word-count-MapReduce-program-in-java"></a> Appendix A - The Word count source code
+## Appendix A - The Word count source code
 
 ```java
 package org.apache.hadoop.examples;

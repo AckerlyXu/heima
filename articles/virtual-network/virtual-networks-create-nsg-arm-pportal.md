@@ -34,7 +34,7 @@ This article covers the Resource Manager deployment model. You can also [create 
 
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. The steps below use **RG-NSG** as the name of the resource group the template was deployed to.
 
-## <a name="Create-the-NSG-FrontEnd-NSG"></a> Create the NSG-FrontEnd NSG
+## Create the NSG-FrontEnd NSG
 To create the **NSG-FrontEnd** NSG as shown in the scenario above, follow the steps below.
 
 1. From a browser, navigate to http://portal.azure.cn and, if necessary, sign in with your Azure account.
@@ -48,7 +48,7 @@ To create the **NSG-FrontEnd** NSG as shown in the scenario above, follow the st
 
     ![Azure portal preview - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
-## <a name="Create-rules-in-an-existing-NSG"></a> Create rules in an existing NSG
+## Create rules in an existing NSG
 To create rules in an existing NSG from the Azure portal preview, follow the steps below.
 
 1. Click **Browse >** > **Network security groups**.
@@ -66,7 +66,7 @@ To create rules in an existing NSG from the Azure portal preview, follow the ste
     ![Azure portal preview - New rule](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 6. Repeat steps  to 6 to create an inbound rule named *rdp-rule* with a priority of *250* allowing access via *TCP* to port *3389* to any VM from any source.
 
-## <a name="Associate-the-NSG-to-the-FrontEnd-subnet"></a> Associate the NSG to the FrontEnd subnet
+## Associate the NSG to the FrontEnd subnet
 1. Click **Browse >** > **Resource groups** > **RG-NSG**.
 2. In the **RG-NSG** blade, click **...** > **TestVNet**.
 

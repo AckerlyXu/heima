@@ -19,4 +19,4 @@ ms.author: rasquill
 
 ---
 # AzureLogCollector Extension
-[!INCLUDE [virtual-machines-common-log-collector-extension](../../includes/virtual-machines-common-log-collector-extension.md)]
+[!INCLUDE [virtual-machines-common-log-collector-extension](../../../includes/virtual-machines-common-log-collector-extension.md)]

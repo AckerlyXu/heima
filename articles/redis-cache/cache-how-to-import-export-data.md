@@ -66,7 +66,7 @@ Import can be used to bring Redis compatible RDB files from any Redis server run
 
     ![Import progress][cache-import-data-import-complete]
 
-## <a name="export"></a>Export
+## Export
 Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB file(s). You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
 1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure portal preview and click **Export data** from the **Resource menu**.
@@ -107,10 +107,10 @@ This section contains frequently asked questions about the Import/Export feature
 * [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
 * [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
 
-### <a name="what-pricing-tiers-can-use-importexport"></a> What pricing tiers can use Import/Export?
+### What pricing tiers can use Import/Export?
 Import/Export is available only in the premium pricing tier.
 
-### <a name="can-i-import-data-from-any-redis-server"></a> Can I import data from any Redis server?
+### Can I import data from any Redis server?
 Yes, in addition to importing data exported from Azure Redis Cache instances, you can import RDB files from any Redis server running in any cloud or environment, such as Linux, Windows, or cloud providers such as Amazon Web Services. To do this, upload the RDB file from the desired Redis server into a page or block blob in an Azure Storage Account, and then import it into your premium Azure Redis Cache instance. For example, you may want to export the data from your production cache and import it into a cache used as part of a staging environment for testing or migration.
 
 > [!IMPORTANT]
@@ -122,14 +122,14 @@ Yes, in addition to importing data exported from Azure Redis Cache instances, yo
 
 Azure Redis Cache supports RDB import up through RDB version 7.
 
-### <a name="will-my-cache-be-available-during-an-importexport-operation" id="is-my-cache-available-during-an-importexport-operation"></a> Is my cache available during an Import/Export operation?
+### Is my cache available during an Import/Export operation?
 * **Export** - Caches remain available and you can continue to use your cache during an export operation.
 * **Import** - Caches become unavailable when an import operation starts, and become available for use when the import operation completes.
 
-### <a name="can-i-use-importexport-with-redis-cluster"></a> Can I use Import/Export with Redis cluster?
+### Can I use Import/Export with Redis cluster?
 Yes, and you can import/export between a clustered cache and a non-clustered cache. Since Redis cluster [only supports database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
 
-### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a> How does Import/Export work with a custom databases setting?
+### How does Import/Export work with a custom databases setting?
 Some pricing tiers have different [databases limits](cache-configure.md#databases), so there are some considerations when importing if you configured a custom value for the `databases` setting during cache creation.
 
 * When importing to a pricing tier with a lower `databases` limit than the tier from which you exported:
@@ -137,22 +137,22 @@ Some pricing tiers have different [databases limits](cache-configure.md#database
     * If you are using a custom number of `databases` that falls within the limits for the tier to which you are importing, no data is lost.
     * If your exported data contained data in a database that exceeds the limits of the new tier, the data from those higher databases is not imported.
 
-### <a name="how-is-importexport-different-from-redis-persistence"></a> How is Import/Export different from Redis persistence?
+### How is Import/Export different from Redis persistence?
 Azure Redis Cache persistence allows you to persist data stored in Redis to Azure Storage. When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache data is restored automatically using the most recent snapshot. For more information, see [How to configure data persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
 Import/ Export allows you to bring data into or export from Azure Redis Cache. It does not configure backup and restore using Redis persistence.
 
-### <a name="can-i-automate-importexport-using-powershell-cli-or-other-management-clients"></a> Can I automate Import/Export using PowerShell, CLI, or other management clients?
+### Can I automate Import/Export using PowerShell, CLI, or other management clients?
 Yes, for PowerShell instructions see [To import a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) and [To export a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache).
 
-### <a name="i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean"></a> I received a timeout error during my Import/Export operation. What does it mean?
+### I received a timeout error during my Import/Export operation. What does it mean?
 If you remain on the **Import data** or **Export data** blade for longer than 15 minutes before initiating the operation, you receive an error with an error message similar to the following example:
 
 The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 
 To resolve this, initiate the import or export operation before 15 minutes has elapsed.
 
-### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened"></a> I got an error when exporting my data to Azure Blob Storage. What happened?
+### I got an error when exporting my data to Azure Blob Storage. What happened?
 Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including blob storage accounts with hot and cool tiers. For more information, see [Blob storage accounts](../storage/storage-blob-storage-tiers.md#blob-storage-accounts).
 
 ## Next steps

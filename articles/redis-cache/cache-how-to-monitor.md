@@ -72,7 +72,7 @@ To view the stored metrics, examine the tables in your storage account with name
 > 
 > 
 
-## <a name="available-metrics-and-reporting-intervals"></a> Available metrics and reporting intervals
+## Available metrics and reporting intervals
 Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. The **Metric** blade for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval. 
 
 Each metric includes two versions. One metric measures performance for the entire cache, and for caches that use [clustering](cache-how-to-premium-clustering.md), a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has 4 shards, `Cache Hits` is the total amount of hits for the entire cache, and `Cache Hits (Shard 3)` is just the hits for that shard of the cache.
@@ -99,7 +99,7 @@ Each metric includes two versions. One metric measures performance for the entir
 | Cache Read |The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.** |
 | Cache Write |The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client. |
 
-## <a name="how-to-view-metrics-and-customize-charts"></a> How to view metrics and customize charts
+## How to view metrics and customize charts
 You can view an overview of the metrics for your cache on the **Redis metrics** blade. To access the **Redis metrics** blade choose **All settings** > **Redis metrics**.
 
 ![Redis metrics][redis-cache-redis-metrics]
@@ -167,7 +167,7 @@ By default each chart includes the top-level cache performance counter as well a
 
 For more information on the available performance counters, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-## <a name="operations-and-alerts"></a> Operations and alerts
+## Operations and alerts
 The **Operations** section on the **Redis Cache** blade has **Events** and **Alert rules** sections.
 
 ![Oeprations][redis-cache-operations-events]
@@ -232,7 +232,7 @@ The **Redis Cache** blade displays the following categories of metrics.
 * [Monitoring charts](#monitoring-charts)
 * [Usage charts](#usage-charts)
 
-### <a name="monitoring-charts"></a> Monitoring charts
+### Monitoring charts
 The **Monitoring** section has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
 
 ![Monitoring charts][redis-cache-monitoring-part]
@@ -250,7 +250,7 @@ The **Monitoring** charts display the following metrics.
 
 For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
 
-### <a name="usage-charts"></a> Usage charts
+### Usage charts
 The **Usage** section has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
 
 ![Usage charts][redis-cache-usage-part]

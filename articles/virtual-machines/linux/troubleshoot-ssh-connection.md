@@ -23,7 +23,7 @@ ms.author: iainfou
 # Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused
 There are various reasons that you encounter Secure Shell (SSH) errors, SSH connection failures, or SSH is refused when you try to connect to a Linux virtual machine (VM). This article helps you find and correct the problems. You can use the Azure portal preview, Azure CLI, or VM Access Extension for Linux to troubleshoot and resolve connection problems.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select **Get support**. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).
 
@@ -32,7 +32,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
 1. Reset the SSH configuration.
 2. Reset the credentials for the user.
-3. Verify the [Network Security Group](../virtual-network/virtual-networks-nsg.md) rules permit SSH traffic.
+3. Verify the [Network Security Group](../../virtual-network/virtual-networks-nsg.md) rules permit SSH traffic.
     * Ensure that a Network Security Group rule exists to permit SSH traffic (by default, TCP port 22).
     * You cannot use port redirection / mapping without using an Azure load balancer.
 5. Restart the VM.
@@ -54,7 +54,7 @@ The Azure portal preview provides a quick way to reset the SSH configuration or 
 
 Select your VM in the Azure portal preview. Scroll down to the **Support + Troubleshooting** section and select **Reset password** as in the following example:
 
-![Reset SSH configuration or credentials in the Azure portal preview](./media/virtual-machines-linux-troubleshoot-ssh-connection/reset-credentials-using-portal.png)
+![Reset SSH configuration or credentials in the Azure portal preview](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
 ### Reset the SSH configuration
 As a first step, select `Reset SSH configuration only` from the **Mode** drop-down menu as in the preceding screenshot, then click the **Reset** button. Once this action has completed, try to access your VM again.
@@ -69,7 +69,7 @@ If you haven't already, install the latest [Azure CLI 2.0](https://docs.microsof
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you created and uploaded a custom Linux disk image, make sure the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
+If you created and uploaded a custom Linux disk image, make sure the [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH credentials for a user
 The following example uses [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) to reset the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
@@ -131,14 +131,14 @@ azure vm extension set myResourceGroup myVM \
     --private-config-path PrivateConf.json
 ```
 
-## <a name="use-the-azure-cli-10"></a> Use the Azure CLI 1.0
-If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../cli-install-nodejs.md). Make sure that you are using Resource Manager mode as follows:
+## Use the Azure CLI 1.0
+If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../../cli-install-nodejs.md). Make sure that you are using Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
 ```
 
-If you created and uploaded a custom Linux disk image, make sure the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
+If you created and uploaded a custom Linux disk image, make sure the [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH configuration
 The SSHD configuration itself may be misconfigured or the service encountered an error. You can reset SSHD to make sure the SSH configuration itself is valid. Resetting SSHD should be the first troubleshooting step you take.
@@ -171,7 +171,7 @@ If you have reset the SSH configuration and user credentials, or encountered an 
 ### Azure portal preview
 To restart a VM using the Azure portal preview, select your VM and click the **Restart** button as in the following example:
 
-![Restart a VM in the Azure portal preview](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
+![Restart a VM in the Azure portal preview](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
 ### Azure CLI 1.0
 The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
@@ -188,7 +188,7 @@ az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ## Redeploy a VM
-You can redeploy a VM to another node within Azure, which may correct any underlying networking issues. For information about redeploying a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You can redeploy a VM to another node within Azure, which may correct any underlying networking issues. For information about redeploying a VM, see [Redeploy virtual machine to new Azure node](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
@@ -198,7 +198,7 @@ You can redeploy a VM to another node within Azure, which may correct any underl
 ### Azure portal preview
 To redeploy a VM using the Azure portal preview, select your VM and scroll down to the **Support + Troubleshooting** section. Click the **Redeploy** button as in the following example:
 
-![Redeploy a VM in the Azure portal preview](./media/virtual-machines-linux-troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
+![Redeploy a VM in the Azure portal preview](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
 ### Azure CLI 1.0
 The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
@@ -223,10 +223,10 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
     -OR-
 
     On the [Azure Classic Management Portal](https://manage.windowsazure.cn), select **Virtual machines** > **Instances** > **Restart**.
-* Redeploy the VM to a new Azure node. For information about how to redeploy a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Redeploy the VM to a new Azure node. For information about how to redeploy a VM, see [Redeploy virtual machine to new Azure node](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
     After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
-* Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to:
+* Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to:
 
     * Reset the password or SSH key.
     * Create a *sudo* user account.
@@ -235,6 +235,6 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
      Select your VM and scroll down **Settings** > **Check Health**.
 
 ## Additional resources
-* If you are still unable to SSH to your VM after following the after steps, see [more detailed troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to review additional steps to resolve your issue.
-* For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* For more information about troubleshooting virtual machines that were created by using the classic deployment model, see [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* If you are still unable to SSH to your VM after following the after steps, see [more detailed troubleshooting steps](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to review additional steps to resolve your issue.
+* For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* For more information about troubleshooting virtual machines that were created by using the classic deployment model, see [How to reset a password or SSH for Linux-based virtual machines](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).

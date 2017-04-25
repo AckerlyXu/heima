@@ -119,11 +119,11 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 8. To exit the application, press **ENTER**.
 
-## <a id="summary"></a> Summary
+## Summary
 
 As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, and monitor the job status.
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 
 For information on Pig in HDInsight, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
 

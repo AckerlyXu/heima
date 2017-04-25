@@ -33,7 +33,7 @@ This article provides guidance for troubleshooting the following categories of A
 > 
 > 
 
-## <a name="client-side-troubleshooting"></a> Client side troubleshooting
+## Client side troubleshooting
 This section discusses troubleshooting issues that occur because of a condition on the client application.
 
 * [Memory pressure on the client](#memory-pressure-on-the-client)
@@ -43,7 +43,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 * [Large Request/Response Size](#large-requestresponse-size)
 * [What happened to my data in Redis?](#what-happened-to-my-data-in-redis)
 
-### <a name="memory-pressure-on-the-client"></a> Memory pressure on the client
+### Memory pressure on the client
 #### Problem
 Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of data that was sent by the Redis instance without any delay. When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly.
 
@@ -54,7 +54,7 @@ Memory pressure on the client machine leads to all kinds of performance problems
 #### Resolution
 Upgrade your client to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
 
-### <a name="burst-of-traffic"></a> Burst of traffic
+### Burst of traffic
 #### Problem
 Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
 
@@ -72,7 +72,7 @@ In the above message, there are several issues that are interesting:
 #### Resolution
 Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool will scale up quickly under burst scenarios.
 
-### <a name="high-client-cpu-usage"></a> High client CPU usage
+### High client CPU usage
 #### Problem
 High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform. This means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
 
@@ -87,7 +87,7 @@ Monitor the System Wide CPU usage through the Azure Portal Preview or through th
 #### Resolution
 Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes. 
 
-### <a name="client-side-bandwidth-exceeded"></a> Client side bandwidth exceeded
+### Client side bandwidth exceeded
 #### Problem
 Different sized client machines have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth, then data will not be processed on the client side as quickly as the server is sending it. This can lead to timeouts.
 
@@ -97,7 +97,7 @@ Monitor how your Bandwidth usage change over time using code [like this](https:/
 #### Resolution
 Increase Client VM size or reduce network bandwidth consumption.
 
-### <a name="large-requestresponse-size"></a> Large Request/Response Size
+### Large Request/Response Size
 #### Problem
 A large request/response can cause timeouts. As an example, Suppose your timeout value configured on your client is 1 second. Your application requests two keys (e.g. 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server will send the responses back in the same order. If response 'A' is large enough it can eat up most of the timeout for subsequent requests. 
 
@@ -118,21 +118,21 @@ This is a difficult one to measure. You basically have to instrument your client
 2. Increase the size of your VM (for client and Redis Cache Server), to get higher bandwidth capabilities, reducing data transfer times for larger responses. Note that getting more bandwidth on just the server or just on the client may not be enough. Measure your bandwidth usage and compare it to the capabilities of the size of VM you currently have.
 3. Increase the number of `ConnectionMultiplexer` objects you use and round-robin requests over different connections.
 
-### <a name="what-happened-to-my-data-in-redis"></a> What happened to my data in Redis?
+### What happened to my data in Redis?
 #### Problem
 I expected for certain data to be in my Azure Redis Cache instance but it didn't seem to be there.
 
 #### Resolution
 See [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) for possible causes and resolutions.
 
-## <a name="server-side-troubleshooting"></a> Server side troubleshooting
+## Server side troubleshooting
 This section discusses troubleshooting issues that occur because of a condition on the cache server.
 
 * [Memory Pressure on the server](#memory-pressure-on-the-server)
 * [High CPU usage / Server Load](#high-cpu-usage-server-load)
 * [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded)
 
-### <a name="memory-pressure-on-the-server"></a> Memory Pressure on the server
+### Memory Pressure on the server
 #### Problem
 Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly. There are several possible causes of this memory pressure: 
 
@@ -151,7 +151,7 @@ There are several possible changes that you can make to help keep memory usage h
 4. [Scale](cache-how-to-scale.md) to a larger cache size.
 5. If you are using a [premium cache with Redis cluster enabled](cache-how-to-premium-clustering.md) you can [increase the number of shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
 
-### <a name="high-cpu-usage-server-load"></a> High CPU usage / Server Load
+### High CPU usage / Server Load
 #### Problem
 High CPU usage can mean that the client side can fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
 
@@ -161,7 +161,7 @@ Monitor the System Wide CPU usage through the Azure Portal Preview or through th
 #### Resolution
 [Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity or investigate what is causing CPU spikes. 
 
-### <a name="server-side-bandwidth-exceeded"></a> Server Side Bandwidth Exceeded
+### Server Side Bandwidth Exceeded
 #### Problem
 Different sized cache instances have limitations on how much network bandwidth they have available. If the server exceeds the available bandwidth, then data will not be sent to the client as quickly. This can lead to timeouts.
 
@@ -171,7 +171,7 @@ You can monitor the `Cache Read` metric, which is the amount of data read from t
 #### Resolution
 If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider [scaling](cache-how-to-scale.md) to a pricing tier or size that has greater network bandwidth, using the values in [this table](cache-faq.md#cache-performance) as a guide.
 
-## <a name="stackexchangeredis-timeout-exceptions"></a> StackExchange.Redis timeout exceptions
+## StackExchange.Redis timeout exceptions
 StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations which has a default value  of 1000 ms. If a synchronous call doesn't complete in the stipulated time, the StackExchange.Redis client throws a timeout error similar to the following example.
 
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
@@ -252,7 +252,7 @@ This error message contains metrics that can help point you to the cause and pos
 
     For more information, see [Memory Pressure on the server](#memory-pressure-on-the-server).
 
-## <a name="additional-information"></a> Additional information
+## Additional information
 * [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 * [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)

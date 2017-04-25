@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure subscription and accounts guidelines for Windows VMs
 
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
 
@@ -63,5 +63,5 @@ The organization could look like the following example:
 
 We provide detailed billing via a downloadable file for a single account, or for all accounts in an enterprise agreement.
 
-## <a name="next-steps"></a> Next steps
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+## Next steps
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/28/2017
 wacn.date: ''
 ms.author: jroth
 
@@ -21,7 +21,7 @@ ms.author: jroth
 # Connect to a SQL Server Virtual Machine on Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-connect.md)
-> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)
+> * [Classic](../classic/sql-connect.md)
 > 
 > 
 
@@ -30,17 +30,17 @@ This topic describes how to connect to your SQL Server instance running on an Az
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](../sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](../classic/sql-connect.md).
 
 If you would rather have a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-## <a name="connection-scenarios"></a> Connection scenarios
+## Connection scenarios
 The way a client connects to SQL Server running on a Virtual Machine differs depending on the location of the client and the machine/networking configuration. These scenarios include:
 
 * [Connect to SQL Server over the internet](#connect-to-sql-server-over-the-internet)
 * [Connect to SQL Server in the same virtual network](#connect-to-sql-server-in-the-same-virtual-network)
 
-### <a name="connect-to-sql-server-over-the-internet"></a> Connect to SQL Server over the Internet
+### Connect to SQL Server over the Internet
 If you want to connect to your SQL Server database engine from the Internet, there are several steps required, such as configuring the firewall, enabling SQL Authentication, and configuring your network security group you must have a Network Security Group rule to allow TCP traffic on port 1433.
 
 If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps are done for you when you select **Public** for the SQL connectivity option:
@@ -67,7 +67,7 @@ Although this enables connectivity for clients over the internet, this does not 
 > 
 > 
 
-### <a name="connect-to-sql-server-in-the-same-virtual-network"></a> Connect to SQL Server in the same virtual network
+### Connect to SQL Server in the same virtual network
 [Virtual Network](../../../virtual-network/virtual-networks-overview.md) enables additional scenarios. You can connect VMs in the same virtual network, even if those VMs exist in different resource groups. And with a [site-to-site VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), you can create a hybrid architecture that connects VMs with on-premises networks and machines.
 
 Virtual networks also enables you to join your Azure VMs to a domain. This is the only way to use Windows Authentication to SQL Server. The other connection scenarios require SQL Authentication with user names and passwords.
@@ -85,7 +85,7 @@ Assuming that you have configured DNS in your virtual network, you can connect t
 
 Note that in this scenario, you could also specify the IP address of the VM.
 
-## <a name="steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm"></a> Steps for manually configuring SQL Server connectivity in an Azure VM
+## Steps for manually configuring SQL Server connectivity in an Azure VM
 The following steps demonstrate how to manually setup connectivity to the SQL Server instance and then optionally connect over the internet using SQL Server Management Studio (SSMS). Note that many of these steps are done for you when you select the appropriate SQL Server connectivity options in the portal.
 
 Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks as described in the sections that follow:

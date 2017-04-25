@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 wacn.date: ''
 ms.author: cynthn
 
@@ -22,12 +22,14 @@ ms.author: cynthn
 # Move a Windows VM to another Azure subscription or resource group
 This article walks you through how to move a Windows VM between resource groups or subscriptions. Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 
-> [!NOTE]
-> New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
+> [!IMPORTANT]
+>You cannot move Managed Disks at this time. 
+>
+>New resource IDs are created as part of the move. Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs. 
 > 
 > 
 
-[!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
+[!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## Use Powershell to move a VM
 To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To use the Move-AzureRMResource cmdlet, you need the resource name and the type of resource. You can get both from the Find-AzureRMResource cmdlet.
@@ -56,4 +58,4 @@ To move the resources to different subscription, include the **-DestinationSubsc
 You will be asked to confirm that you want to move the specified resources. Type **Y** to confirm that you want to move the resources.
 
 ## Next steps
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).

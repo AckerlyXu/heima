@@ -25,20 +25,20 @@ This article walks you through provisioning a [Deis](http://deis.io/) cluster on
 
 The following diagram shows the architecture of the deployed system. A system administrator manages the cluster using Deis tools such as **deis** and **deisctl**. Connections are established through an Azure load balancer, which forwards the connections to one of the member nodes on the cluster. The clients access deployed applications through the load balancer as well. In this case, the load balancer forwards the traffic to a Deis router mesh, which further routs traffic to corresponding Docker containers hosted on the cluster.
 
-  ![Architecture diagram of deployed Desis cluster](./media/virtual-machines-linux-deis-cluster/architecture-overview.png)
+  ![Architecture diagram of deployed Desis cluster](./media/deis-cluster/architecture-overview.png)
 
 In order to run through the following steps, you'll need:
 
 * An active Azure subscription. If you don't have one, you can get a free trail on [azure.com](https://azure.microsoft.com/).
-* A work or school id to use Azure resource groups. If you have a personal account and log in with a Microsoft id, you need to [create a work id from your personal one](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Either -- depending on your client operating system -- the [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) or the [Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
+* A work or school id to use Azure resource groups. If you have a personal account and log in with a Microsoft id, you need to [create a work id from your personal one](../windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Either -- depending on your client operating system -- the [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) or the [Azure CLI for Mac, Linux, and Windows](../../cli-install-nodejs.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL is used to generate the necessary certificates.
 * A Git client such as [Git Bash](https://git-scm.com/).
 * To test the sample application, you'll also need a DNS server. You can use any DNS servers or services that support wildcard A records.
 * A computer to run Deis client tools. You can use either a local machine or a virtual machine. You can run these tools on almost any Linux distribution, but the following instructions use Ubuntu.
 
 ## Provision the cluster
-In this section, you'll use an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) template from the open source repository [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates). First, you'll copy down the template. Then, you'll create a new SSH key pair for authentication. And then, you'll configure a new identifier for you cluster. And finally, you'll use either the Shell script or the PowerShell script to provision the cluster.
+In this section, you'll use an [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) template from the open source repository [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates). First, you'll copy down the template. Then, you'll create a new SSH key pair for authentication. And then, you'll configure a new identifier for you cluster. And finally, you'll use either the Shell script or the PowerShell script to provision the cluster.
 
 1. Clone the repository: [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
 
@@ -81,7 +81,7 @@ In this section, you'll use an [Azure Resource Manager](../azure-resource-manage
         -c ./cloud-config.yaml  
 11. Once the resource group is provisioned, you can see all the resources in the group on Azure Classic Management Portal. As shown in the following screenshot, the resource group contains a virtual network with three VMs, which are joined to the same availability set. The group also contains a load balancer, which has an associated public IP.
 
-    ![The provisioned resource group on Azure Classic Management Portal](./media/virtual-machines-linux-deis-cluster/resource-group.png)
+    ![The provisioned resource group on Azure Classic Management Portal](./media/deis-cluster/resource-group.png)
 
 ## Install the client
 You need **deisctl** to control your Deis cluster. Although deisctl is automatically installed in all the cluster nodes, it's a good practice to use deisctl on a separate administrative machine. Furthermore, because all nodes are configured with only private IP addresses, you'll need to use SSH tunneling through the load balancer, which has a public IP, to connect to the node machines. The following are the steps of setting up deisctl on a separate Ubuntu physical or virtual machine.
@@ -97,11 +97,11 @@ You need **deisctl** to control your Deis cluster. Although deisctl is automatic
         ssh-add [path to the private key file, see step 1 in the previous section]
 3. Configure deisctl:
 
-        export DEISCTL_TUNNEL=[public ip of the load balancer]: 2223
+        export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
 The template defines inbound NAT rules that map 2223 to instance 1, 2224 to instance 2, and 2225 to instance 3. This provides redundancy for using the deisctl tool. You can examine these rules on Azure Classic Management Portal:
 
-![NAT rules on the load balancer](./media/virtual-machines-linux-deis-cluster/nat-rules.png)
+![NAT rules on the load balancer](./media/deis-cluster/nat-rules.png)
 
 > [!NOTE]
 > Currently the template only supports 3-node clusters. This is because of a limitation in Azure Resource Manager template NAT rule definition, which doesn't support loop syntax.
@@ -160,7 +160,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 
 1. For the routing mesh to work properly, you'll need to have a wildcard A record for your domain pointing to the public IP of the load balancer. The following screenshot shows the A record for a sample domain registration on GoDaddy:
 
-    ![Godaddy A record](./media/virtual-machines-linux-deis-cluster/go-daddy.png)
+    ![Godaddy A record](./media/deis-cluster/go-daddy.png)
 
     <p />
 2. Install deis:
@@ -175,7 +175,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 4. Add id_rsa.pub, or the public key of your choice, to GitHub. You can do this by using the Add SSH key button in your SSH keys configuration screen:
 
-    ![Github key](./media/virtual-machines-linux-deis-cluster/github-key.png)
+    ![GitHub key](./media/deis-cluster/github-key.png)
 
     <p />
 5. Register a new user:
@@ -247,6 +247,6 @@ This article walked you through all the steps to provision a new Deis cluster on
 [How to use the Azure CLI][azure-command-line-tools]  
 [Using Azure PowerShell with Azure Resource Manager][powershell-azure-resource-manager]  
 
-[azure-command-line-tools]: ../cli-install-nodejs.md
-[resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
-[powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
+[azure-command-line-tools]: ../../cli-install-nodejs.md
+[resource-group-overview]: ../../azure-resource-manager/resource-group-overview.md
+[powershell-azure-resource-manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md

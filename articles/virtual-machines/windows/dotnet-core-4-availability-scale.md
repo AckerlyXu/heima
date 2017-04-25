@@ -60,9 +60,9 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 ```
 The availability set as seen from the Azure portal preview. Each virtual machine and details about the configuration are detailed here.
 
-![Availability Set](./media/virtual-machines-windows-dotnet-core/ase-win.png)
+![Availability Set](./media/dotnet-core-4-availability-scale/ase-win.png)
 
-For in-depth information on Availability Sets, see [Manage availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+For in-depth information on Availability Sets, see [Manage availability of virtual machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## Network Load Balancer
 Whereas an availability set provides application fault tolerance, a load balancer makes many instances of the application available on a single network address. Multiple instances of an application can be hosted on many virtual machines, each one connected to a load balancer. As the application is accessed, the load balancer routes the incoming request across the attached members. A Load Balancer can be added using the Visual Studio Add New Resource Wizard, or by inserting properly formatted JSON resource into the Azure Resource Manager template.
@@ -101,7 +101,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 From the Azure portal preview, the network load balancer overview shows the association with the public IP address.
 
-![Network Load Balancer](./media/virtual-machines-windows-dotnet-core/nlb-win.png)
+![Network Load Balancer](./media/dotnet-core-4-availability-scale/nlb-win.png)
 
 ## Load Balancer Rule
 When using a load balancer, rules are configured that control how traffic is balanced across the intended resources. With the sample Music Store application, traffic arrives on port 80 of the public IP address and is distributed across port 80 of all virtual machines. 
@@ -134,7 +134,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 A view of the network load balancer rule from the portal.
 
-![Network Load Balancer Rule](./media/virtual-machines-windows-dotnet-core/lbrule-win.png)
+![Network Load Balancer Rule](./media/dotnet-core-4-availability-scale/lbrule-win.png)
 
 ## Load Balancer Probe
 The load balancer also needs to monitor each virtual machine so that requests are served only to running systems. This monitoring takes place by constant probing of a pre-defined port. The Music Store deployment is configured to probe port 80 on all included virtual machines. 
@@ -157,7 +157,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 The load balancer probe seen from the Azure portal preview.
 
-![Network Load Balancer Probe](./media/virtual-machines-windows-dotnet-core/lbprobe-win.png)
+![Network Load Balancer Probe](./media/dotnet-core-4-availability-scale/lbprobe-win.png)
 
 ## Inbound NAT Rules
 When using a Load Balancer, rules need to be put into place that provide non-load balanced access to each Virtual Machine. For instance, when creating an RDP connection with each virtual machine, this traffic should not be load balanced, rather a pre-determined path should be configured. Pre-determined paths are configured using an Inbound NAT Rule resource. Using this resource, inbound communication can be mapped to individual Virtual Machines. 
@@ -196,9 +196,9 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 One example inbound NAT rule as seen in the Azure portal preview. An RDP NAT rule is created for each virtual machine in the deployment.
 
-![Inbound NAT Rule](./media/virtual-machines-windows-dotnet-core/natrule-win.png)
+![Inbound NAT Rule](./media/dotnet-core-4-availability-scale/natrule-win.png)
 
-For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Deploy multiple VMs
 Finally, for an Availability Set or Load Balancer to effectively function, multiple virtual machines are required. Multiple VMs can be deployed using the Azure Resource Manager template copy function. Using the copy function, it is not necessary to define a finite number of Virtual Machines, rather this value can be dynamically provided at the time of deployment. The copy function consumes the number of instances to be created and handles deploying the proper number of virtual machines and associated resources.
@@ -246,9 +246,9 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 The `copyIndex` function is used several times in the Music Store sample template. Resources and functions utilizing `copyIndex` include anything specific to a single instance of the virtual machine such and network interface, load balancer rules, and any depends on functions. 
 
-For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../azure-resource-manager/resource-group-create-multiple.md).
+For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../../resource-group-create-multiple.md).
 
 ## Next step
 <hr>
 
-[Step 4 - Application Deployment with Azure Resource Manager Templates](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

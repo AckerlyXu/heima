@@ -19,7 +19,7 @@ ms.author: cwatson
 
 ---
 # Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
-Take a snapshot of a Managed Disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. For more information about Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Take a snapshot of a Managed Disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. For more information about Managed Disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 For information about pricing, see [Azure Storage Pricing](https://www.azure.cn/pricing/details/managed-disks/). 
 
@@ -41,7 +41,7 @@ Use either the Azure portal preview or PowerShell to take a snapshot of the Mana
 2. Starting in the upper left, click **New** and search for **snapshot**.
 3. In the Snapshot blade, click **Create**.
 4. Enter a **Name** for the snapshot.
-5. Select an existing [Resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
+5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
 6. Select an Azure datacenter Location.  
 7. For **Source disk**, select the Managed Disk to snapshot.
 8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.

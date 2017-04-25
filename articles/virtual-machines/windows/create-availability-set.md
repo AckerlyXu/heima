@@ -29,16 +29,16 @@ Availability sets provide redundancy to your application. We recommend that you 
 
 If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. If your VM will be using Managed Disks, the availability set must be created as a managed availability set.
 
-For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Use the portal to create an availability set before creating your VMs
 1. In the hub menu, click **Browse** and select **Availability sets**.
 2. On the **Availability sets blade**, click **Add**.
 
-    ![Screenshot that shows the add button for creating a new availability set.](./media/virtual-machines-windows-create-availability-set/add-availability-set.png)
+    ![Screenshot that shows the add button for creating a new availability set.](./media/create-availability-set/add-availability-set.png)
 3. On the **Create availability set** blade, complete the information for your set.
 
-    ![Screenshot that shows the information you need to enter to create the availability set.](./media/virtual-machines-windows-create-availability-set/create-availability-set.png)
+    ![Screenshot that shows the information you need to enter to create the availability set.](./media/create-availability-set/create-availability-set.png)
 
     * **Name** - the name should be 1-80 characters made up of numbers, letters, periods, underscores and dashes. The first character must be a letter or number. The last character must be a letter, number or underscore.
     * **Fault domains** - fault domains define the group of virtual machines that share a common power source and network switch. By default, the VMs  are separated across up to three fault domains and can be changed to between 1 and 3.
@@ -53,12 +53,12 @@ For more information about creating and using availability sets, see [Manage the
 ## Use the portal to create a virtual machine and an availability set at the same time
 If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set. If you choose to use Managed Disks for your VM, a managed availability set will be created.
 
-![Screenshot that shows the process for creating a new availability set while you create the VM.](./media/virtual-machines-windows-create-availability-set/new-vm-avail-set.png)
+![Screenshot that shows the process for creating a new availability set while you create the VM.](./media/create-availability-set/new-vm-avail-set.png)
 
 ## Add a new VM to an existing availability set in the portal
 For each additional VM that you create that should belong in the set, make sure that you create it in the same **resource group** and then select the existing availability set in Step 3. 
 
-![Screenshot showing how to select an existing availability set to use for your VM.](./media/virtual-machines-windows-create-availability-set/add-vm-to-set.png)
+![Screenshot showing how to select an existing availability set to use for your VM.](./media/create-availability-set/add-vm-to-set.png)
 
 ## Use PowerShell to create an availability set
 This example creates an availability set named **myAvailabilitySet** in the **myResourceGroup** resource group in the **China North** location. This needs to be done before you create the first VM that will be in the set.
@@ -74,20 +74,20 @@ If you are using managed disks for your VMs, type:
 
 ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
-    -Name "myAvailabilitySet" -Location "China North" -managed
+	-Name "myAvailabilitySet" -Location "China North" -managed
 ```
 
 If you are using your own storage accounts for your VMs, type:
 
 ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
-    -Name "myAvailabilitySet" -Location "China North" 
+	-Name "myAvailabilitySet" -Location "China North" 
 ```
 
-For more information, see [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/new-azurermavailabilityset).
+For more information, see [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset).
 
 ## Troubleshooting
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Add additional storage to your VM by adding an additional [data disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

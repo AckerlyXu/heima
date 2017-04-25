@@ -39,7 +39,7 @@ ms.custom: H1Hack27Feb2017
 
 The following steps use a resource group named *IaaSStory* for the WEB servers and a resource group named *IaaSStory-BackEnd* for the DB servers.
 
-## <a name="Prerequisites"></a> Prerequisites
+## Prerequisites
 Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the following steps:
 
 1. Navigate to [the template page](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).

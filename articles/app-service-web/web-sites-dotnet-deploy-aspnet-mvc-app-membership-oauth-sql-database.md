@@ -419,7 +419,7 @@ In the **Package Manager Console** hit the up arrow key to bring up the followin
 
 The **Update-Database** command runs the **Seed** method, and that runs the **AddUserAndRole** method you added earlier. The **AddUserAndRole** method creates the user *user1@contoso.com* and adds her to the *canEdit* role.
 
-## <a name="protect-the-application-with-ssl-and-the-authorize-attribute"></a> Protect the Application with SSL and the Authorize Attribute
+## Protect the Application with SSL and the Authorize Attribute
 In this section you apply the [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) attribute to restrict access to the action methods. Anonymous users will be able to view only the **Index** action method of the home controller. Registered users will be able to see contact data (The **Index** and **Details** pages of the Cm controller), the About page, and the Contact page. Only users in the *canEdit* role will be able to access action methods that change data.
 
 1. Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following (which adds the two filters):
@@ -577,7 +577,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
     ![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
 8. Verify that the **UserId** is from *user1@contoso.com* and the Google account you registered. 
 
-## <a name="troubleshooting"></a> Troubleshooting
+## Troubleshooting
 If you run into problems, here are some suggestions for what to try.
 
 * Errors provisioning SQL Database - Make sure you have the current SDK installed. Versions before 2.8.1 have a bug that in some scenarios causes errors when VS tries to create the database server or the database.

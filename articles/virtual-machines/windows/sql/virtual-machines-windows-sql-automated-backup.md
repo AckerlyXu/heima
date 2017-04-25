@@ -22,7 +22,7 @@ ms.author: jroth
 # Automated Backup for SQL Server 2014 Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-backup.md)
-> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Classic](../classic/sql-automated-backup.md)
 > 
 > 
 
@@ -30,7 +30,7 @@ Automated Backup automatically configures [Managed Backup to Azure](https://msdn
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [Automated Backup for SQL Server in Azure Virtual Machines Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md).
+To view the classic version of this article, see [Automated Backup for SQL Server in Azure Virtual Machines Classic](../classic/sql-automated-backup.md).
 
 ## Prerequisites
 To use Automated Backup, consider the following prerequisites:

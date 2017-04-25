@@ -20,13 +20,13 @@ ms.author: juluk
 
 ---
 # Deploy LAMP stack with the Azure CLI 1.0
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure Account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI](../cli-install-nodejs.md) that is [connected to your Azure account](../xplat-cli-connect.md).
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure Account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI](../../cli-install-nodejs.md) that is [connected to your Azure account](../../xplat-cli-connect.md).
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
 - Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 <br/>
 
@@ -46,7 +46,7 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ## Deploy LAMP on new VM walkthrough
-You can start by creating a [resource group](../azure-resource-manager/resource-group-overview.md) that will contain the new VM:
+You can start by creating a [resource group](../../azure-resource-manager/resource-group-overview.md) that will contain the new VM:
 
     $ azure group create uniqueResourceGroup chinanorth
     info:    Executing command group create
@@ -102,8 +102,8 @@ You should see a response prompting some more inputs:
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed](#verify-lamp-successfully-installed).
 
 ## Deploy LAMP on existing VM walkthrough
-If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh exampleUsername@exampleDNS`.
 
 Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
@@ -168,6 +168,6 @@ Check out the Ubuntu documentation on the LAMP stack:
 
 * [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-[1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
-[2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
-[3]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
+[1]: ./media/deploy-lamp-stack/configmysqlpassword-small.png
+[2]: ./media/deploy-lamp-stack/phpsuccesspage.png
+[3]: ./media/deploy-lamp-stack/apachesuccesspage.png

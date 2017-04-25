@@ -11,7 +11,7 @@ ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
@@ -24,9 +24,9 @@ ms.author: cynthn
 This article shows you how to create a copy of your Azure virtual machine (VM)
 running Linux using the Azure CLI 2.0 and the Azure Resource Manager deployment
 model. You can also perform these steps with the [Azure CLI
-1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+1.0](copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-You can also [upload and create a VM from a VHD](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ process creates a specialized VHD as a Managed Disk that contains the same confi
 settings as the source VM.
 
 For more information about Azure Managed Disks, see [Azure Managed Disks
-overview](../storage/storage-managed-disks-overview.md). 
+overview](../../storage/storage-managed-disks-overview.md). 
 
 1.  List each VM and the name of its OS disk with [az vm
     list](https://docs.microsoft.com/cli/azure/vm#list). The following example lists all VMs in the
@@ -149,4 +149,4 @@ az vm create --resource-group myResourceGroup --name myCopiedVM \
 ## Next steps
 
 To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for
-the Azure Resource Manager](azure-cli-arm-commands.md).
+the Azure Resource Manager](../azure-cli-arm-commands.md).

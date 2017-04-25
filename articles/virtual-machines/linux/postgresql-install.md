@@ -24,18 +24,18 @@ PostgreSQL is an advanced open-source database similar to Oracle and DB2. It inc
 
 In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Install PostgreSQL
 > [!NOTE]
 > You must already have an Azure virtual machine running Linux in order to complete this tutorial. To create and set up a Linux VM before proceeding, see the
-> [Azure Linux VM tutorial](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 In this case, use port 1999 as the PostgreSQL port.  
 
-Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to learn how to use PuTTY to connect to a Linux VM.
+Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to learn how to use PuTTY to connect to a Linux VM.
 
 1. Run the following command to switch to the root (admin):
 
@@ -123,7 +123,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
     You should receive the following output:
 
-![image](./media/virtual-machines-linux-postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## Set up PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -140,7 +140,7 @@ Modify two variables in the /etc/init.d/postgresql file. The prefix is set to th
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![image](./media/virtual-machines-linux-postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 Change the file to make it executable:
 
@@ -156,7 +156,7 @@ Check if the endpoint of PostgreSQL is on:
 
 You should see the following output:
 
-![image](./media/virtual-machines-linux-postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## Connect to the Postgres database
 Switch to the postgres user once again:
@@ -187,11 +187,11 @@ You have now set up a four-column table with the following column names and rest
 
 You should see the following if your table has been successfully created:
 
-![image](./media/virtual-machines-linux-postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 You can also check the table structure by using the following command:
 
-![image](./media/virtual-machines-linux-postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
 ### Add data to a table
 First, insert information into a row:
@@ -200,7 +200,7 @@ First, insert information into a row:
 
 You should see this output:
 
-![image](./media/virtual-machines-linux-postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
 You can add a couple more people to the table as well. Here are some options, or you can create your own:
 
@@ -217,7 +217,7 @@ Use the following command to show a table:
 
 The output is:
 
-![image](./media/virtual-machines-linux-postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### Delete data in a table
 Use the following command to delete data in a table:
@@ -226,7 +226,7 @@ Use the following command to delete data in a table:
 
 This deletes all the information in the "John" row. The output is:
 
-![image](./media/virtual-machines-linux-postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### Update data in a table
 Use the following command to update data in a table. For this one, Sandy has confirmed that she is attending, so we will change her RSVP from "N" to "Y":

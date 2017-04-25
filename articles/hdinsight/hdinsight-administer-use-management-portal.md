@@ -64,14 +64,14 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
     > [!NOTE]
     > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://www.azure.cn/support/contact/).
-    ><p>
+    > <p>
     > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
     >
     >
 
 Installation of custom software on the cluster by using Remote Desktop Connection is not supported. You should avoid storing any files on the drives of the head node, as they will be lost if you need to re-create the clusters. We recommend storing files on Azure Blob storage. Blob storage is persistent.
 
-## <a name="list-and-show-clusters"></a> List and show clusters
+## List and show clusters
 1. Sign in to [https://portal.azure.cn](https://portal.azure.cn).
 2. Click **HDInsight Clusters** from the left menu.
 3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
@@ -140,7 +140,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
     * **Worker nodes pricing tier**.
     * **Head node pricing tier**.
 
-## <a name="delete-clusters"></a> Delete clusters
+## Delete clusters
 Delete a cluster will not delete the default storage account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores.
 
 1. Sign in to the [Portal][azure-portal].
@@ -204,7 +204,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     ![HDInsight Hadoop HBase Storm Spark scale](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
-## <a name="pauseshut-down-clusters"></a> Pause/shut down clusters
+## Pause/shut down clusters
 Most of Hadoop jobs are batch jobs that are only ran occasionally. For most Hadoop clusters, there are large periods of time that the cluster is not being used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use.
 You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
 
@@ -267,7 +267,7 @@ In the Azure Resource Manager mode, each HDInsight cluster is created with an Az
 
 See [List and show clusters](#list-and-show-clusters).
 
-## <a name="open-hdinsight-query-console"></a> Open HDInsight Query console
+## Open HDInsight Query console
 The HDInsight Query console includes the following features:
 
 * **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Hive queries using the Query Console](hdinsight-hadoop-use-hive-query-console.md).
@@ -317,7 +317,7 @@ To monitor the cluster, browse the file system, and check logs, click **Hadoop U
 ## Open Yarn UI
 To use Yarn user interface, click **Yarn UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
 
-## <a name="connect-to-clusters-using-rdp" id="connect-to-hdinsight-clusters-by-using-rdp"></a> Connect to clusters using RDP
+## Connect to clusters using RDP
 The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through Remote Desktop. You can turn on Remote Desktop access when you provision a cluster or after a cluster is provisioned. For the instructions about enabling Remote Desktop at creation, see [Create HDInsight cluster](hdinsight-provision-clusters.md).
 
 **To enable Remote Desktop**

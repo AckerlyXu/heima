@@ -100,7 +100,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset-commands-to-manage-your-availability-sets"></a> azure availset: commands to manage your availability sets
+## azure availset: commands to manage your availability sets
 **Creates an availability set within a resource group**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -300,7 +300,7 @@ Parameter options:
 
     location list [options]
 
-## <a name="azure-network-commands-to-manage-network-resources"></a> azure network: Commands to manage network resources
+## azure network: Commands to manage network resources
 **Commands to manage virtual networks**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -1615,7 +1615,7 @@ Parameter options:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a> azure storage: Commands to manage your Storage objects
+## azure storage: Commands to manage your Storage objects
 **Commands to manage your Storage accounts**
 
     storage account list [options]
@@ -1755,7 +1755,7 @@ Parameter options:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a> azure vm: Commands to manage your Azure Virtual Machines
+## azure vm: Commands to manage your Azure Virtual Machines
 **Create a VM**
 
     vm create [options] <resource-group> <name> <location> <os-type>

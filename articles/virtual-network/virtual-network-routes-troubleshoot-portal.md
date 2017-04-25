@@ -130,7 +130,7 @@ To see the aggregate routes for a route table, complete the following steps:
     >
     >
 
-## <a name="Considerations" id="considerations"></a> Considerations
+## Considerations
 A few things to keep in mind when reviewing the list of routes returned:
 
 * Routing is based on Longest Prefix Match (LPM) among UDRs, BGP and system routes. If there is more than one route with the same LPM match, then a route is selected based on its origin in the following order:

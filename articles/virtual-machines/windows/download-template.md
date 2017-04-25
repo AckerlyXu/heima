@@ -1,6 +1,6 @@
 ---
-title: Create a VM image from an Azure VM | Azure
-description: Learn how to create a generalized VM image from an existing Azure VM created in the Resource Manager deployment model
+title: Download the template for an Azure VM | Azure
+description: Download the templatefor a VM to help with automating deployments in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/22/2017
 wacn.date: ''
 ms.author: cynthn
 
@@ -47,4 +47,4 @@ You can also download the .json template file using the [Export-AzureRMResourceG
 ```
 
 ## Next steps
-To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../resource-manager-template-walkthrough.md).
+To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).

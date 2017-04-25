@@ -29,7 +29,7 @@ In this article, you will learn how to use the HDInsight Query Console to run Hi
 
 > [!IMPORTANT]
 > The HDInsight Query Console is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-><p>
+> <p>
 > For HDInsight 3.4 or greater, see [Run Hive queries in Ambari Hive View](hdinsight-hadoop-use-hive-ambari-view.md) for information on running Hive queries from a web browser.
 
 ## <a id="prereq"></a>Prerequisites
@@ -60,7 +60,7 @@ To complete the steps in this article, you will need the following.
 
         > [!NOTE]
         > External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
-        ><p>
+        > <p>
         > Dropping an external table does **not** delete the data, only the table definition.
         > 
         > 

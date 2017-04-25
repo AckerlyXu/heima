@@ -117,7 +117,7 @@ When you replicate a cluster, you must specify the tables to replicate. In this 
 
 Follow the instructions in [HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) to create a **Contacts** table and insert some data into the table.
 
-## <a name="enable-replication"></a> Enable replication
+## Enable replication
 
 The following steps show how to call the script action script from the Azure portal preview. For running a script action by using Azure PowerShell and the Azure command-line interface (CLI), see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
 

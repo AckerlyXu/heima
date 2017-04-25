@@ -142,7 +142,7 @@ To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, complete the f
 
     ![Azure portal preview - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure12.png)
 
-### <a name="Dissociate-an-NSG-from-a-NIC"></a> Dissociate an NSG from a NIC
+### Dissociate an NSG from a NIC
 
 To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete the following steps:
 
@@ -156,7 +156,7 @@ To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete th
 > You can also use this blade to associate the NIC to any existing NSG.
 >
 
-### <a name="Dissociate-an-NSG-from-a-subnet"></a> Dissociate an NSG from a subnet
+### Dissociate an NSG from a subnet
 
 To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, complete the following steps:
 

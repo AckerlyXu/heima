@@ -65,7 +65,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 Once deployed, the virtual machine properties can be seen in the Azure portal preview.
 
-![Virtual Machine](./media/virtual-machines-windows-dotnet-core/vm-win.png)
+![Virtual Machine](./media/dotnet-core-2-architecture/vm-win.png)
 
 ## Storage Account
 Storage accounts have many storage options and capabilities. For the context of Azure Virtual machines, a storage account holds the virtual hard drives of the virtual machine and any additional data disks. The Music Store sample includes one storage account to hold the virtual hard drive of each virtual machine in the deployment. 
@@ -104,11 +104,11 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 After deployment, the storage account can be viewed in the Azure portal preview.
 
-![Storage Account](./media/virtual-machines-windows-dotnet-core/storacct-win.png)
+![Storage Account](./media/dotnet-core-2-architecture/storacct-win.png)
 
 Clicking into the storage account blob container, the virtual hard drive file for each virtual machine deployed with the template can be seen.
 
-![Virtual Hard Drives](./media/virtual-machines-windows-dotnet-core/vhd-win.png)
+![Virtual Hard Drives](./media/dotnet-core-2-architecture/vhd-win.png)
 
 For more information on Azure Storage, see [Azure Storage documentation](/azure/storage/).
 
@@ -152,7 +152,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 From the Azure portal preview, the virtual network looks like the following image. Notice that all virtual machines deployed with the template are attached to the virtual network.
 
-![Virtual Network](./media/virtual-machines-windows-dotnet-core/vnet-win.png)
+![Virtual Network](./media/dotnet-core-2-architecture/vnet-win.png)
 
 ## Network Interface
  A network interface connects a virtual machine to a virtual network, more specifically to a subnet that has been defined in the virtual network. 
@@ -220,7 +220,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 From the Azure portal preview, the network interface looks like the following image. The internal IP address and the virtual machine association can be seen on the network interface resource.
 
-![Network Interface](./media/virtual-machines-windows-dotnet-core/nic-win.png)
+![Network Interface](./media/dotnet-core-2-architecture/nic-win.png)
 
 For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](/azure/virtual-network/).
 
@@ -265,11 +265,11 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 
 A view of the SQL server and MusicStore database as seen in the Azure portal preview.
 
-![SQL Server](./media/virtual-machines-windows-dotnet-core/sql-win.png)
+![SQL Server](./media/dotnet-core-2-architecture/sql-win.png)
 
 For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](/azure/sql-database/).
 
 ## Next step
 <hr>
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Step 2 - Access and Security in Azure Resource Manager Templates](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

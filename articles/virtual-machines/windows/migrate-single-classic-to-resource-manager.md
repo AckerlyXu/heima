@@ -1,5 +1,5 @@
 ---
-title: Migrate a single VM from the classic deployment model to Azure Managed Disks | Azure
+title: Migrate a Classic VM to an ARM Managed Disk VM | Azure
 description: Migrate a single Azure VM from the classic deployment model to Managed Disks in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -20,9 +20,9 @@ ms.author: cynthn
 
 ---
 
-# Migrate a single Azure VM from classic to Managed Disks 
+# Manually migrate a Classic VM to a new ARM Managed Disk VM from the VHD 
 
-This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
+This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
 
 ## Plan for the migration to Managed Disks
 
@@ -34,7 +34,7 @@ Pick a location where Azure Managed Disks are available. If you are migrating to
 
 ### VM sizes
 
-If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](virtual-machines-windows-sizes.md).
+If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](sizes.md).
 Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
 
 ### Disk sizes
@@ -164,4 +164,4 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 ## Next steps
 
-- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

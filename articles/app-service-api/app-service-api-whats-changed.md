@@ -81,7 +81,7 @@ To learn more about SDK 2.8.1, read the announcement [blog post](https://azure.m
 
 Alternatively, you can manually import the publish profile from the management portal to enable publish. However, Cloud Explorer, code generation and API app selection/creation will require SDK 2.8.1 or higher.
 
-## <a name="migrating-existing-api-apps"></a> Migrating existing API apps
+## Migrating existing API apps
 If your custom API is deployed to the previous Preview version of API Apps, we request that you migrate to the new model for API Apps by December 31, 2015. Since both the old and new model are based on Web APIs hosted in App Service, the majority of existing code can be reused.
 
 ### Hosting and redeployment

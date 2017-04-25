@@ -58,7 +58,7 @@ The workflow you will implement by following the instructions in this tutorial c
 > 
 > 
 
-### <a name="prerequisites"></a> Prerequisites
+### Prerequisites
 Before you begin this tutorial, you must have the following:
 
 * **A workstation with Azure PowerShell**. 

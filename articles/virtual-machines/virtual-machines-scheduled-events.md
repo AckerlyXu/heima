@@ -22,7 +22,7 @@ ms.author: zivr
 # Azure Metadata Service - Scheduled Events (Preview)
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Azure Supplemental Terms of Use for Azure Previews.](https://www.azure.cn/support/legal/preview-supplemental-terms/)
+> Previews are made available to you on the condition that you agree to the terms of use.
 >
 
 Scheduled Events is one of the subservices under Azure Metadata Service that surfaces information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS. Scheduled Events gives your Virtual Machine time to perform preventive tasks and minimize the effect of an event. 
@@ -321,4 +321,4 @@ if __name__ == '__main__':
 
 ```
 ## Next Steps 
-[Planned maintenance for virtual machines in Azure](./virtual-machines-linux-planned-maintenance.md)
+[Planned maintenance for virtual machines in Azure](linux/planned-maintenance.md)

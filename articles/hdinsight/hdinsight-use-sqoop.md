@@ -73,7 +73,7 @@ mobile device data back to HDInsight by using the following path:
 
     /tutorials/usesqoop/importeddata
 
-## <a name="create-cluster-and-sql-database"></a> Create cluster and SQL database
+## Create cluster and SQL database
 This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal preview and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database. The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
 
         "storageKeyType": "Primary",
@@ -171,7 +171,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 * [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]: Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
 * [Upload data to HDInsight][hdinsight-upload-data]: Find other methods for uploading data to HDInsight/Azure Blob storage.
 
-## <a name="appendix-a---a-powershell-sample"></a> Appendix A - a PowerShell sample
+## Appendix A - a PowerShell sample
 The PowerShell sample performs the following steps:
 
 1. Connect to Azure.

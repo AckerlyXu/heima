@@ -48,7 +48,7 @@ To download an older HDP version sandbox, expand the archive:
     ![Normal start](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
 2. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
 
-## <a name="set-passwords" id="set-sandbox-passwords"></a> Set Sandbox passwords
+## Set Sandbox passwords
 
 1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
 

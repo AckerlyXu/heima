@@ -33,7 +33,7 @@ Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-## <a id="install-azure-powershell-10-and-greater"></a> Install Azure PowerShell
+## Install Azure PowerShell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 If you have installed Azure PowerShell version 0.9x, you must uninstall it before installing a newer version.
@@ -57,7 +57,7 @@ Use the following command to show details of a specific cluster in the current s
 
     Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
-## <a name="delete-clusters"></a> Delete clusters
+## Delete clusters
 Use the following command to delete a cluster:
 
     Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
@@ -114,7 +114,7 @@ To change the Hadoop cluster size by using Azure PowerShell, run the following c
 
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 
-## <a name="grant/revoke-access" id="grantrevoke-access"></a> Grant/revoke access
+## Grant/revoke access
 HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
 
 * ODBC

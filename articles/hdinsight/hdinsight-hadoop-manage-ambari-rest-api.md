@@ -140,7 +140,7 @@ $respObj.Clusters.health_report
 
 For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-## <a name="example-get-the-fqdn-of-cluster-nodes"></a> Example: Get the FQDN of cluster nodes
+## Example: Get the FQDN of cluster nodes
 
 When working with HDInsight, you may need to know the fully qualified domain name (FQDN) of a cluster node. You can easily retrieve the FQDN for the various nodes in the cluster using the following examples:
 
@@ -306,7 +306,7 @@ The return value is similar to one of the following examples:
 
     This example returns a JSON document containing the current configuration for the `core-site` component.
 
-## <a name="example-update-ambari-configuration"></a> Example: Update configuration
+## Example: Update configuration
 
 1. Get the current configuration, which Ambari stores as the "desired configuration":
 

@@ -229,27 +229,27 @@ You can also use the WASB style addressing.
 Per the section above regarding use of public/private key pairs to access the cluster, it is possible to set up access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
 
 ```
-myNameNode <- "default"
-myPort <- 0 
+    myNameNode <- "default"
+    myPort <- 0
 
-mySshHostname  <- 'rkrrehdi1-ed-ssh.azurehdinsight.cn'  # HDI secure shell hostname
-mySshUsername  <- 'remoteuser'# HDI SSH username
-mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+    mySshHostname  <- 'rkrrehdi1-ed-ssh.azurehdinsight.cn'  # HDI secure shell hostname
+    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
-myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
 
-mySparkCluster <- RxSpark(
-  hdfsShareDir = myhdfsShareDir,
-  shareDir     = myShareDir,
-  sshUsername  = mySshUsername,
-  sshHostname  = mySshHostname,
-  sshSwitches  = mySshSwitches,
-  sshProfileScript = '/etc/profile',
-  nameNode     = myNameNode,
-  port         = myPort,
-  consoleOutput= TRUE
-)
+    mySparkCluster <- RxSpark(
+      hdfsShareDir = myhdfsShareDir,
+      shareDir     = myShareDir,
+      sshUsername  = mySshUsername,
+      sshHostname  = mySshHostname,
+      sshSwitches  = mySshSwitches,
+      sshProfileScript = '/etc/profile',
+      nameNode     = myNameNode,
+      port         = myPort,
+      consoleOutput= TRUE
+    )
 ```
 
 ## Use a compute context

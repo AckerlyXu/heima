@@ -46,7 +46,7 @@ To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll n
     > 
     > 
 
-## <a name="install-data-lake-tools-for-visual-studio"></a> Install Data Lake Tools for Visual Studio
+## Install Data Lake Tools for Visual Studio
 
 Data Lake Tools is installed by default for Visual Studio 2017. For older versions, you can install it using the [Web Platform Installer](https://www.microsoft.com/web/downloads/). You must choose the one that matches your version of Visual Studio. If you don't have Visual Studio installed, you can install the latest Visual Studio Community and Azure SDK using the [Web Platform Installer](https://www.microsoft.com/web/downloads/):
 
@@ -86,7 +86,7 @@ After you've connected to your Azure subscription, you'll be able to do the foll
 
 * From the **Tools** menu, click **HDInsight**, and then click **MSDN Forum** to ask questions, or click **Give Feedback**.
 
-## <a name="navigate-the-linked-resources"></a> Navigate the linked resources
+## Navigate the linked resources
 From Server Explorer, you can see the default storage account and any linked storage accounts. If you expand the default storage account, you can see the containers on the storage account. The default storage account and the default container are marked. You can also right-click any of the containers to view the contents.
 
 ![Data Lake Tools for Visual Studio server explorer cluster list][2]

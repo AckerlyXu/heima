@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure networking infrastructure guidelines for Windows VMs 
 
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.
 
@@ -42,7 +42,7 @@ Tasks:
 * Create the virtual network using your naming convention.
 
 ## Virtual networks
-Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, as with physical networks. By using a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route circuit](../expressroute/expressroute-introduction.md), you can connect Azure virtual networks to your on-premises networks. You can read more about [virtual networks and their components](../virtual-network/virtual-networks-overview.md).
+Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, as with physical networks. By using a [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route circuit](../../expressroute/expressroute-introduction.md), you can connect Azure virtual networks to your on-premises networks. You can read more about [virtual networks and their components](../../virtual-network/virtual-networks-overview.md).
 
 By using Resource Groups, you have flexibility in how you design your virtual networking components. VMs can connect to virtual networks outside of their own resource group. A common design approach would be to create centralized resource groups that contain your core networking infrastructure that can be managed by a common team, and then VMs and their applications deployed to separate resource groups. This approach allows application owners access to the resource group that contains their VMs without opening up access to the configuration of the wider virtual networking resources.
 
@@ -50,7 +50,7 @@ By using Resource Groups, you have flexibility in how you design your virtual ne
 ### Cloud-only virtual networks
 If on-premises users and computers do not require ongoing connectivity to VMs in an Azure virtual network, your virtual network design is straight forward:
 
-![Basic cloud-only virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Basic cloud-only virtual network diagram](./media/infrastructure-networking-guidelines/vnet01.png)
 
 This approach is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these VMs using RDP or point-to-site VPN connections.
 
@@ -59,7 +59,7 @@ Because they do not connect to your on-premises network, Azure-only virtual netw
 ### Cross-premises virtual networks
 If on-premises users and computers require ongoing connectivity to VMs in an Azure virtual network, create a cross-premises virtual network.  Connect it to your on-premises network with an ExpressRoute or site-to-site VPN connection.
 
-![Cross-premises virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Cross-premises virtual network diagram](./media/infrastructure-networking-guidelines/vnet02.png)
 
 In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
 
@@ -90,15 +90,15 @@ For cross-premises virtual networks, you should design subnets with the same con
 If you choose a subnet size that is too small, you have to re-IP and redeploy the VMs in the subnet.
 
 ## Network Security Groups
-You can apply filtering rules to the traffic that flows through your virtual networks by using Network Security Groups. You can build granular filtering rules to secure your virtual networking environment, controlling inbound and outbound traffic, source and destination IP ranges, allowed ports, etc. Network Security Groups can be applied to subnets within a virtual network or directly to a given virtual network interface. It is recommended to have some level of Network Security Group filtering traffic on your virtual networks. You can read more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+You can apply filtering rules to the traffic that flows through your virtual networks by using Network Security Groups. You can build granular filtering rules to secure your virtual networking environment, controlling inbound and outbound traffic, source and destination IP ranges, allowed ports, etc. Network Security Groups can be applied to subnets within a virtual network or directly to a given virtual network interface. It is recommended to have some level of Network Security Group filtering traffic on your virtual networks. You can read more about [Network Security Groups](../../virtual-network/virtual-networks-nsg.md).
 
 ## Additional network components
 As with an on-premises physical networking infrastructure, Azure virtual networking can contain more than subnets and IP addressing. As you design your application infrastructure, you may want to incorporate some of these additional components:
 
-* [VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) - connect Azure virtual networks to other Azure virtual networks, or connect to on-premises networks through a Site-to-Site VPN connection. Implement Express Route connections for dedicated, secure connections. You can also provide users direct access with Point-to-Site VPN connections.
-* [Load balancer](../load-balancer/load-balancer-overview.md) - provides load balancing of traffic for both external and internal traffic as desired.
-* [Application Gateway](../application-gateway/application-gateway-introduction.md) - HTTP load-balancing at the application layer, providing some additional benefits for web applications rather than deploying the Azure load balancer.
-* [Traffic Manager](../traffic-manager/traffic-manager-overview.md) - DNS-based traffic distribution to direct end-users to the closest available application endpoint, allowing you to host your application out of Azure datacenters in different regions.
+* [VPN gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) - connect Azure virtual networks to other Azure virtual networks, or connect to on-premises networks through a Site-to-Site VPN connection. Implement Express Route connections for dedicated, secure connections. You can also provide users direct access with Point-to-Site VPN connections.
+* [Load balancer](../../load-balancer/load-balancer-overview.md) - provides load balancing of traffic for both external and internal traffic as desired.
+* [Application Gateway](../../application-gateway/application-gateway-introduction.md) - HTTP load-balancing at the application layer, providing some additional benefits for web applications rather than deploying the Azure load balancer.
+* [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) - DNS-based traffic distribution to direct end-users to the closest available application endpoint, allowing you to host your application out of Azure datacenters in different regions.
 
-## <a name="next-steps"></a> Next steps
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+## Next steps
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

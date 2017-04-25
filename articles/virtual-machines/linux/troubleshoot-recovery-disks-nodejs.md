@@ -26,9 +26,9 @@ If your Linux virtual machine (VM) encounters a boot or disk error, you may need
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#recovery-process-overview) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](../windows/troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
-## <a name="recovery-process-overview"></a> Recovery process overview
+## Recovery process overview
 The troubleshooting process is as follows:
 
 1. Delete the VM encountering issues, keeping the virtual hard disks.
@@ -37,7 +37,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-Make sure that you have [the latest Azure CLI 1.0](../cli-install-nodejs.md) installed and logged in and using Resource Manager mode:
+Make sure that you have [the latest Azure CLI 1.0](../../cli-install-nodejs.md) installed and logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm
@@ -227,4 +227,4 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 ```
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

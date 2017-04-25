@@ -23,7 +23,7 @@ ms.author: ningk
 Apache Tomcat (or simply Tomcat, also formerly called Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems. Tomcat provides a pure Java HTTP web server environment in which to run Java code. In the simplest configuration, Tomcat runs in a single operating system process. This process runs a Java virtual machine (JVM). Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.  
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers how to use the classic deployment model. We recommend that most new deployments use the Resource Manager model. To use a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [this article](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm/).
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers how to use the classic deployment model. We recommend that most new deployments use the Resource Manager model. To use a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [this article](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm/).
 
 In this article, you will install Tomcat7 on a Linux image and deploy it in Azure.  
 
@@ -304,21 +304,21 @@ The following command only changes the permission of the folder directory. The f
 
      sudo chown username:group directory
 
-[1]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-01.png
-[2]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-02.png
-[3]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-03.png
-[4]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-04.png
-[5]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-05.png
-[6]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-06.png
-[7]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-07.png
-[8]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-08.png
-[9]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-09.png
-[10]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-10.png
-[11]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-11.png
-[12]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-12.png
-[13]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-13.png
-[14]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-14.png
-[15]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-15.png
-[16]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
-[17]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
-[18]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
+[1]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-01.png
+[2]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-02.png
+[3]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-03.png
+[4]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-04.png
+[5]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-05.png
+[6]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-06.png
+[7]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-07.png
+[8]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-08.png
+[9]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-09.png
+[10]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-10.png
+[11]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-11.png
+[12]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-12.png
+[13]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-13.png
+[14]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-14.png
+[15]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-15.png
+[16]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
+[17]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
+[18]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png

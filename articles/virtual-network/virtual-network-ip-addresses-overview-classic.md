@@ -51,7 +51,7 @@ When a public IP address needs to be assigned to an Azure resource, it is *dynam
 ### DNS hostname resolution
 When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.chinacloudapp.cn to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.chinacloudapp.cn** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
 
-### <a name="Cloud-services"></a> Cloud services
+### Cloud services
 A cloud service always has a public IP address referred to as a virtual IP address (VIP). You can create endpoints in a cloud service to associate different ports in the VIP to internal ports on VMs and role instances within the cloud service. 
 
 A cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP. You can also assign [multiple VIPs to a cloud service](../load-balancer/load-balancer-multivip.md), which enables multi-VIP scenarios like multi-tenant environment with SSL-based websites.
@@ -160,7 +160,7 @@ Make sure you read the full set of [limits for Networking](../azure-subscription
 ## Pricing
 In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://www.azure.cn/pricing/details/reserved-ip-addresses/).
 
-## <a name="Differences-between-Resource-Manager-and-classic-deployments" id="differences-between-resource-manager-and-classic-deployments"></a> Differences between Resource Manager and classic deployments
+## Differences between Resource Manager and classic deployments
 Below is a comparison of IP addressing features in Resource Manager and the classic deployment model.
 
 |  | Resource | Classic | Resource Manager |

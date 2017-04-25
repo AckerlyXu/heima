@@ -50,7 +50,7 @@ Before you begin this article, you must have the following:
 HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, 
 see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). For the general cluster creation information, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). 
 
-## <a name="list-and-show-clusters"></a> List and show clusters
+## List and show clusters
 1. Sign in to [https://portal.azure.cn](https://portal.azure.cn).
 2. Click **HDInsight Clusters** from the left menu to list the existing clusters.
 3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
@@ -105,7 +105,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
     * **Worker nodes size**.
     * **Head node size**.
 
-## <a name="delete-clusters"></a> Delete clusters
+## Delete clusters
 Delete a cluster will not delete the default storage account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. It is recommended to use a new default Blob container when you re-create the cluster.
 
 1. Sign in to the [Portal][azure-portal].
@@ -115,7 +115,7 @@ Delete a cluster will not delete the default storage account or any linked stora
 
 See also [Pause/shut down clusters](#pauseshut-down-clusters).
 
-## <a name="scale-clusters"></a> Scale clusters
+## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
 > [!NOTE]
@@ -171,7 +171,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
 
-## <a name="pauseshut-down-clusters"></a> Pause/shut down clusters
+## Pause/shut down clusters
 
 Most of Hadoop jobs are batch jobs that are only run occasionally. For most Hadoop clusters, there are large periods of time that the cluster is not being used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use.
 You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.

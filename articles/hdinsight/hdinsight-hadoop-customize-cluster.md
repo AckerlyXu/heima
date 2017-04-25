@@ -101,7 +101,7 @@ HDInsight provides several scripts to install the following components on HDInsi
     Press ENTER to add more than one script action to install multiple components on the cluster.
 3. Click **Select** to save the script action configuration and continue with cluster creation.
 
-## <a name="call_scripts_using_powershell" id="call-scripts-using-azure-powershell"></a> Call scripts using Azure PowerShell
+## Call scripts using Azure PowerShell
 This following PowerShell script demonstrates how to install Spark on Windows based HDInsight cluster.  
 
     # Provide values for these variables
@@ -186,7 +186,7 @@ To install other software, you will need to replace the script file in the scrip
 
 When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
 
-## <a name="call-scripts-using-net-sdk"></a> Call scripts using .NET SDK
+## Call scripts using .NET SDK
 The following sample demonstrates how to install Spark on Windows based HDInsight cluster. To install other software, you will need to replace the script file in the code.
 
 **To create an HDInsight cluster with Spark**

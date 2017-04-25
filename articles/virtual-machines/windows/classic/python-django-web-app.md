@@ -21,15 +21,15 @@ ms.author: huvalo
 ---
 # Django Hello World web application on a Windows Server VM
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Windows](python-django-web-app.md)
+> * [Mac/Linux](../../linux/python-django-web-app.md)
 > 
 > 
 
 <br>
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy Django, see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app/).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy Django, see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app/).
 
 This tutorial describes how to host a Django-based website on Microsoft
 Azure using a Windows Server virtual machine. This tutorial assumes you have no prior experience using Azure. After completing this tutorial, you will have a Django-based application up and running in the cloud.
@@ -46,15 +46,15 @@ A screenshot of the completed application appears next.
 
 ![A browser window displaying the hello world page on Azure][1]
 
-[!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
+[!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## Creating and configuring an Azure virtual machine to host Django
-1. Follow the instructions given [here](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
+1. Follow the instructions given [here](tutorial.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
 2. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
 
     * Navigate to your newly created virtual machine in the Azure Classic Management Portal and click the **ENDPOINTS** tab.
     * Click the **ADD** button at the bottom of the screen.
-      ![add endpoint](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-addendpoint.png)
+      ![add endpoint](./media/python-django-web-app/django-helloworld-addendpoint.png)
     * Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
       ![][port80]
 3. From the **DASHBOARD** tab, click **CONNECT** to use **Remote Desktop** to remotely log into the newly created Azure virtual machine.  
@@ -93,7 +93,7 @@ A screenshot of the completed application appears next.
 
         C:\Python34\Scripts\django-admin.exe startproject helloworld
 
-    ![The result of the New-AzureService command](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-cmd-new-azure-service.png)
+    ![The result of the New-AzureService command](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
 2. The **django-admin** command generates a basic structure for Django-based websites:
 
     * **helloworld\manage.py** helps you to start hosting and stop hosting your Django-based website
@@ -166,9 +166,9 @@ A screenshot of the completed application appears next.
 ## Shutting down your Azure virtual machine
 When you're done with this tutorial, shut down and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.
 
-[1]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-browser-azure.png
+[1]: ./media/python-django-web-app/django-helloworld-browser-azure.png
 
-[port80]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-port80.png
+[port80]: ./media/python-django-web-app/django-helloworld-port80.png
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/

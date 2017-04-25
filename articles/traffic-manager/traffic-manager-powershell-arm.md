@@ -106,7 +106,7 @@ In all three cases, endpoints can be added in two ways:
 1. Using a 3-step process described previously. The advantage of this method is that several endpoint changes can be made in a single update.
 2. Using the New-AzureRmTrafficManagerEndpoint cmdlet. This cmdlet adds an endpoint to an existing Traffic Manager profile in a single operation.
 
-## <a name="adding-traffic-manager-endpoints"></a> Adding Azure Endpoints
+## Adding Azure Endpoints
 
 Azure endpoints reference services hosted in Azure. Two types of Azure endpoints are supported:
 

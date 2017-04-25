@@ -157,7 +157,7 @@ Expected output:
 > You can also use `Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name "NSG-FrontEnd" | Select DefaultSecurityRules -ExpandProperty DefaultSecurityRules` to list the default rules from the **NSG-FrontEnd** NSG.
 > 
 
-### <a name="View-NSGs-associations"></a> View NSGs associations
+### View NSGs associations
 To view what resources the **NSG-FrontEnd** NSG is associate with, run the following command:
 
 ```powershell
@@ -375,7 +375,7 @@ To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, complete the f
                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
                                }
 
-### <a name="Dissociate-an-NSG-from-a-NIC"></a> Dissociate an NSG from a NIC
+### Dissociate an NSG from a NIC
 To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete the following steps:
 
 1. Run the following command to retrieve the existing NIC and store it in a variable:
@@ -400,7 +400,7 @@ To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete th
 
         NetworkSecurityGroup : null
 
-### <a name="Dissociate-an-NSG-from-a-subnet"></a> Dissociate an NSG from a subnet
+### Dissociate an NSG from a subnet
 To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, complete the following steps:
 
 1. Run the following command to retrieve the existing VNet and store it in a variable:

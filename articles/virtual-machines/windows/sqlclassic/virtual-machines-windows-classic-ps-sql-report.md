@@ -34,7 +34,7 @@ This topic describes and walks you through the deployment and configuration of a
 * **Azure Subscription**: Verify the number of cores available in your Azure Subscription. If you create the recommended VM size of **A3**, you need **4** available cores. If you use a VM size of **A2**, you need **2** available cores.
 
     * To verify the core limit of your subscription, in the Azure Classic Management Portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
-    * To increase the core quota, contact [Azure Support](https://www.azure.cn/support/contact/). For VM size information, see [Virtual Machine Sizes for Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    * To increase the core quota, contact [Azure Support](https://www.azure.cn/support/contact/). For VM size information, see [Virtual Machine Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell Scripting**: The topic assumes that you have a basic working knowledge of Windows PowerShell. For more information about using Windows PowerShell, see the following:
 
     * [Starting Windows PowerShell on Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
@@ -75,7 +75,7 @@ This topic describes and walks you through the deployment and configuration of a
     * **ENDPOINTS** Keep the **Remote Desktop** and **PowerShell** endpoints and then add either an HTTP or HTTPS endpoint, depending on your environment.
 
         * **HTTP**: The default public and private ports are **80**. Note that if you use a private port other than 80, modify **$HTTPport = 80** in the http script.
-        * **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
+        * **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
     * Click next . ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. On the last page of the wizard, keep the default **Install the VM agent** selected. The steps in this topic do not utilize the VM agent but if you plan to keep this VM, the VM agent and extensions will allow you to enhance he CM.  For more information on the VM agent, see [VM Agent and Extensions - Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). One of the default extensions installed ad running is the "BGINFO" extension that displays on the VM desktop, system information such as internal IP and free drive space.
 9. Click complete . ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -110,7 +110,7 @@ In order to use HTTPS on the VM, you need a trusted SSL certificate. Depending o
     If you want to use the script included with this topic, to configure the report server, the value of the certificates **Thumbprint** is required as a parameter of the script. See the next section for details on how to obtain the thumbprint of the certificate.
 3. Assign the server certificate to the report server. The assignment is completed in the next section when you configure the report server.
 
-### <a name="to-use-the-virtual-machines-self-signed-certificate"></a> To use the Virtual Machines Self-signed Certificate
+### To use the Virtual Machines Self-signed Certificate
 A self-signed certificate was created on the VM when the VM was provisioned. The certificate has the same name as the VM DNS name. In order to avoid certificate errors, it is required that the certificate is trusted on the VM itself, and also by all users of the site.
 
 1. To trust the root CA of the certificate on the Local VM, add the certificate to the **Trusted Root Certification Authorities**. The following is a summary of the steps required. For detailed steps on how to trust the CA, see [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
@@ -282,7 +282,7 @@ To use the Windows PowerShell script to configure the report server, complete th
 
 **Validation**: To verify that the basic report server functionality is working, see the [Verify the configuration](#verify-the-configuration) section later in this topic.
 
-### <a name="use-script-to-configure-the-report-server-and-HTTPS"></a> Use script to configure the report server and HTTPS
+### Use script to configure the report server and HTTPS
 To use Windows PowerShell to configure the report server, complete the following steps. The configuration includes HTTPS, not HTTP.
 
 1. From the Azure Classic Management Portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
@@ -545,7 +545,7 @@ To verify that the port is opened, open a Windows PowerShell window and run the 
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a> Verify the configuration
+## Verify the configuration
 To verify that the basic report server functionality is now working, open your browser with administrative privileges and then browse to the following report server ad report manager URLS:
 
 * On the VM, browse to the report server URL:

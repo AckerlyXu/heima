@@ -22,14 +22,14 @@ ms.author: memccror
 # How to tag a Linux virtual machine in Azure
 This article describes different ways to tag a Linux virtual machine in Azure through the Resource Manager deployment model. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 15 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. Please note, tags are supported for resources created via the Resource Manager deployment model only.
 
-[!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
+[!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## Tagging with Azure CLI
 To begin, you need the latest [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also perform these steps with the [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 
@@ -45,13 +45,13 @@ To remove tags, you can use the **--remove** parameter in the `azure vm update` 
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let's take a look at the usage details to see the tags in the billing portal.
 
-[!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
+[!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## Next steps
 * To learn more about tagging your Azure resources, see [Azure Resource Manager Overview][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
 * To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill][Understanding your Azure Bill].
 
-[Azure CLI environment]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-[Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
-[Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
-[Understanding your Azure Bill]: ../billing-understand-your-bill.md
+[Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
+[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md

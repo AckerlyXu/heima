@@ -110,7 +110,7 @@ Script Action can be deployed from the Azure portal preview, Azure PowerShell or
 >
 >
 
-## <a name="helper-methods-for-custom-scripts"></a> Helper methods for custom scripts
+## Helper methods for custom scripts
 Script Action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), and can be included in your scripts using the following:
 
     # Download config action module from a well-known directory.

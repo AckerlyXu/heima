@@ -334,12 +334,12 @@ The two Web API projects were created by using the **Azure API App** project tem
 
 For information about how to  create an AngularJS single-page application with a Web API back end like ToDoListAngular, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see [Securing AngularJS Single Page Apps with Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
 
-## <a name="troubleshooting"></a> Troubleshooting
+## Troubleshooting
 [!INCLUDE [troubleshooting](../../includes/app-service-api-auth-troubleshooting.md)]
 
 * Make sure that you don't confuse ToDoListAPI (middle tier) and ToDoListDataAPI (data tier). For example, in this tutorial you add authentication to the data tier API app, **but the app key must come from the Azure AD application that you created for the middle tier API app**.
 
-## <a name="next-steps"></a> Next steps
+## Next steps
 This is the last tutorial in the API Apps series. 
 
 For more information about Azure Active Directory, see the following resources.

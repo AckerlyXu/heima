@@ -21,8 +21,8 @@ ms.author: huvalo
 ---
 # Django Hello World web application on a Linux VM
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Windows](../windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Mac/Linux](../windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -39,17 +39,17 @@ By following this tutorial, you will build a simple Hello World web application.
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the hello world page on Azure](./media/virtual-machines-linux-python-django-web-app/mac-linux-django-helloworld-browser.png)
+![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
 
-[!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
+[!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
 
 ## Creating and configuring an Azure virtual machine to host Django
-1. Follow the instructions given [here](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
-2. Edit the network security group to allow incoming http traffic to port 80 using the instructions [here](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
-3. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This step is optional to complete this tutorial.
+1. Follow the instructions given [here](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
+2. Edit the network security group to allow incoming http traffic to port 80 using the instructions [here](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+3. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](../windows/portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This step is optional to complete this tutorial.
 
 ## <a id="setup"> </a>Setting up the development environment
-**Note:** If you need to install Python or would like to use the Client Libraries, please see the [Python Installation Guide](../python-how-to-install.md).
+**Note:** If you need to install Python or would like to use the Client Libraries, please see the [Python Installation Guide](../../python-how-to-install.md).
 
 The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't have Apache or django installed.  Follow these steps to connect to your VM and install Apache and django.
 
@@ -106,7 +106,7 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
        $ sudo service apache2 reload
 4. Finally, load the web page in your browser:
 
-    ![A browser window displaying the hello world page on Azure](./media/virtual-machines-linux-python-django-web-app/mac-linux-django-helloworld-browser.png)
+    ![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
 
 ## Shutting down your Azure virtual machine
 When you're done with this tutorial, shutdown and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.

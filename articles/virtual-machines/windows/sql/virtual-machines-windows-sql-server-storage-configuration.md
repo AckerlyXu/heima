@@ -97,7 +97,7 @@ The other option for expanding storage is to extend the existing drive. This opt
 
 ![Extend a drive for a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
-## <a name="storage-configuration"></a> Storage configuration
+## Storage configuration
 This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure Portal Preview.
 
 * If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.

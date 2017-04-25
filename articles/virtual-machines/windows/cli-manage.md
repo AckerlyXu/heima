@@ -22,4 +22,4 @@ ms.author: danlep
 # Common Azure CLI commands for virtual machine tasks in the Resource Manager deployment model
 This article shows common Azure Command-Line Interface (Azure CLI) commands to create and manage VMs in the Resource Manager deployment model. 
 
-[!INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
+[!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]

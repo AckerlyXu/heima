@@ -21,7 +21,7 @@ ms.author: robmcm
 ---
 # How to run a Java application server on a virtual machine created with the classic deployment model
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy a webapp with Java 8 and Tomcat, see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy a webapp with Java 8 and Tomcat, see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/).
 
 With Azure, you can use a virtual machine to provide server capabilities. As an example, a virtual machine running on Azure can be configured to host a Java application server, such as Apache Tomcat.
 
@@ -37,7 +37,7 @@ The completed installation results in Tomcat running on a virtual machine.
 
 ![Virtual machine running Apache Tomcat][virtual_machine_tomcat]
 
-[!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
+[!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
 1. Sign in to the [Azure portal preview](https://portal.azure.cn).  
@@ -131,13 +131,13 @@ At this point, your Tomcat website should be viewable from an external browser. 
 ## Next steps
 You can learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications. View the information available at the [Java Developer Center](https://www.azure.cn/develop/java/).
 
-[virtual_machine_tomcat]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
+[virtual_machine_tomcat]: ./media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
-[service_automatic_startup]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
+[service_automatic_startup]: ./media/java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
 
-[NewIBRule]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewInboundRule.png
-[NewRulePort]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRulePort.png
-[NewRuleProtocol]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProtocol.png
-[NewRuleAction]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleAction.png
-[NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
-[NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
+[NewIBRule]: ./media/java-run-tomcat-app-server/NewInboundRule.png
+[NewRulePort]: ./media/java-run-tomcat-app-server/NewRulePort.png
+[NewRuleProtocol]: ./media/java-run-tomcat-app-server/NewRuleProtocol.png
+[NewRuleAction]: ./media/java-run-tomcat-app-server/NewRuleAction.png
+[NewRuleName]: ./media/java-run-tomcat-app-server/NewRuleName.png
+[NewRuleProfile]: ./media/java-run-tomcat-app-server/NewRuleProfile.png

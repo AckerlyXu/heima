@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 01/31/2017
 wacn.date: ''
@@ -25,9 +25,9 @@ ms.author: iainfou
 This article shows you how to use the Azure CLI 2.0 to deploy a virtual machine (VM) into an existing virtual network. The requirements are:
 
 - [an Azure account](https://www.azure.cn/pricing/1rmb-trial/)
-- [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also perform these steps with the [Azure CLI 1.0](deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick Commands
 If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](#detailed-walkthrough).
@@ -62,7 +62,7 @@ In the following examples, replace example parameter names with your own values.
 
 ## Create the resource group
 
-First we create an Azure resource group to organize everything we create in this walkthrough. For more information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
+First we create an Azure resource group to organize everything we create in this walkthrough. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
 
 ```azurecli
 az group create \
@@ -72,7 +72,7 @@ az group create \
 
 ## Create the virtual network
 
-Lets build an Azure virtual network to launch the VMs into. For more information on virtual networks, see [Create a virtual network by using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
+Lets build an Azure virtual network to launch the VMs into. For more information on virtual networks, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -86,7 +86,7 @@ az network vnet create \
 
 ## Create the network security group
 
-Azure network security groups are equivalent to a firewall at the network layer. For more information on network security groups, see [How to create network security groups in the Azure CLI](../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the network security group with [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
+Azure network security groups are equivalent to a firewall at the network layer. For more information on network security groups, see [How to create network security groups in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the network security group with [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create \
@@ -143,9 +143,9 @@ az network nic create \
 
 We now have a virtual network, a subnet, and a network security group acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH. The VM can now be deployed inside this existing network infrastructure.
 
-Create your VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Create your VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-The following example creates a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about managed disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). If you wish to use unmanaged disks, see the additional note below.
+The following example creates a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about managed disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md). If you wish to use unmanaged disks, see the additional note below.
 
 ```azurecli
 az vm create \
@@ -164,11 +164,11 @@ If you use managed disks, skip this step. If you wish to use unmanaged disks, yo
     --storage-account mystorageaccount
 ```
 
-By using the CLI flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network. To reiterate, once a virtual network and subnet have been deployed, they can be left as static or permanent resources inside your Azure region. In this example, we did not create and assign a public IP address to the VNic, so this VM is not publicly accessible over the Internet. For more information, see [Create a VM with a static public IP using the Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+By using the CLI flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network. To reiterate, once a virtual network and subnet have been deployed, they can be left as static or permanent resources inside your Azure region. In this example, we did not create and assign a public IP address to the VNic, so this VM is not publicly accessible over the Internet. For more information, see [Create a VM with a static public IP using the Azure CLI](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 For more information about ways to create virtual machines in Azure, see the following resources:
 
-* [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Use an Azure Resource Manager template to create a specific deployment](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

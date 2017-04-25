@@ -48,7 +48,7 @@ Now you're ready to start using the libraries to create your application.
 
 ## Step 3: Create the credentials used to authenticate requests
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../azure-resource-manager/resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager.
 
 1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
 
@@ -170,7 +170,7 @@ All resources must be contained in a resource group. Before you can add resource
 
 ### Create a storage account
 
-When using an unmanaged disk, a [storage account](../storage/storage-create-storage-account.md) is needed to store the virtual hard disk file that is created for the virtual machine.
+When using an unmanaged disk, a [storage account](../../storage/storage-create-storage-account.md) is needed to store the virtual hard disk file that is created for the virtual machine.
 
 1. To create the storage account, add this method to the Program class:
 
@@ -507,7 +507,7 @@ Now that you created all the supporting resources, you can create a virtual mach
     ```
 
     > [!NOTE]
-    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     >
 
@@ -567,5 +567,5 @@ Because you are charged for resources used in Azure, it is always good practice 
 3. After the virtual machine is created and before you press **Enter** to start deleting resources, you could take a few minutes to inspect the resources in the Azure portal preview.
 
 ## Next Steps
-* Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

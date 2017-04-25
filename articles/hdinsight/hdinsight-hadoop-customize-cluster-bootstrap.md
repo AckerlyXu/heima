@@ -54,7 +54,7 @@ For information on installing additional components on HDInsight cluster during 
 
 * [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
-## <a name="use-azure-powershell"></a> Use Azure PowerShell
+## Use Azure PowerShell
 The following PowerShell code customizes a Hive configuration:
 
     # hive-site.xml configuration
@@ -143,7 +143,7 @@ You can use bootstrap in Resource Manager template:
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
 
-## <a name="appx-a:-powershell-sample"></a> Appx-A: PowerShell sample
+## Appx-A: PowerShell sample
 This PowerShell script creates an HDInsight cluster and customizes a Hive setting:
 
     ####################################

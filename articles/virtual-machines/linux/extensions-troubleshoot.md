@@ -20,7 +20,7 @@ ms.author: kundanap
 
 ---
 # Troubleshooting Azure Linux VM extension failures
-[!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
+[!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Viewing extension status
 Azure Resource Manager templates can be executed from the  Azure CLI. Once the template is executed, the extension status can be viewed from Azure Resource Explorer or the command line tools.

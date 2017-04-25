@@ -44,7 +44,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create clusters
-<a name="create-clusters"></a>
+
 1. Open Visual Studio 2017.
 2. Create a new Visual C# console application.
 3. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.

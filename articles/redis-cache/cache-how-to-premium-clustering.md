@@ -86,7 +86,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 * [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 * [I am getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
-### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a> Do I need to make any changes to my client application to use clustering?
+### Do I need to make any changes to my client application to use clustering?
 * When clustering is enabled, only database 0 is available. If your client application uses multiple databases and it tries to read or write to a database other than 0, the following exception is thrown. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
 
     For more information, see [Redis Cluster Specification - Implemented subset](http://redis.io/topics/cluster-spec#implemented-subset).
@@ -96,7 +96,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 * If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To accomplish this, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 * If you are using Redis ASP.NET Session State provider you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
-### <a name="how-are-keys-distributed-in-a-cluster"></a> How are keys distributed in a cluster?
+### How are keys distributed in a cluster?
 Per the Redis [Keys distribution model](http://redis.io/topics/cluster-spec#keys-distribution-model) documentation: The key space is split into 16384 slots. Each key is hashed and assigned to one of these slots, which are distributed across the nodes of the cluster. You can configure which part of the key is hashed to ensure that multiple keys are located in the same shard using hash tags.
 
 * Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following 3 keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](http://redis.io/topics/cluster-spec#keys-hash-tags).
@@ -108,10 +108,10 @@ For more information, see [Keys distribution model](http://redis.io/topics/clust
 
 For sample code on working with clustering and locating keys in the same shard with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-### <a name="what-is-the-largest-cache-size-i-can-create"></a> What is the largest cache size I can create?
+### What is the largest cache size I can create?
 The largest premium cache size is 53 GB. You can create up to 10 shards giving you a maximum size of 530 GB. If you need a larger size you can [request more](https://www.azure.cn/support/support-azure/). For more information, see [Azure Redis Cache Pricing](https://www.azure.cn/pricing/details/redis-cache/).
 
-### <a name="do-all-redis-clients-support-clustering"></a> Do all Redis clients support clustering?
+### Do all Redis clients support clustering?
 At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
 > [!NOTE]
@@ -119,10 +119,10 @@ At the present time not all clients support Redis clustering. StackExchange.Redi
 > 
 > 
 
-### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a> How do I connect to my cache when clustering is enabled?
+### How do I connect to my cache when clustering is enabled?
 You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#access-keys) that you use when connecting to a cache that does not have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
 
-### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a> Can I directly connect to the individual shards of my cache?
+### Can I directly connect to the individual shards of my cache?
 This is not officially supported. With that said, each shard consists of a primary/replica cache pair that are collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
 For non-ssl, use the following commands.
@@ -135,13 +135,13 @@ For non-ssl, use the following commands.
 
 For ssl, replace `1300N` with `1500N`.
 
-### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a> Can I configure clustering for a previously created cache?
+### Can I configure clustering for a previously created cache?
 Currently you can only enable clustering when you create a cache. You can change the cluster size after the cache is created, but you can't add clustering to a premium cache or remove clustering from a premium cache after the cache is created. A premium cache with clustering enabled and only one shard is different than a premium cache of the same size with no clustering.
 
-### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a> Can I configure clustering for a basic or standard cache?
+### Can I configure clustering for a basic or standard cache?
 Clustering is only available for premium caches.
 
-### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a> Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?
+### Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?
 * **Redis Output Cache provider** - no changes required.
 * **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 

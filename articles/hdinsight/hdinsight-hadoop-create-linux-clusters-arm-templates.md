@@ -136,7 +136,7 @@ This procedure creates a Hadoop cluster in HDInsight.
 
 For more information, see  [Deploy with PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
-## <a name="deploy-with-azure-cli"></a> Deploy with CLI
+## Deploy with CLI
 The following sample uses Azure command-line interface (CLI). It creates a cluster and its dependent storage account and container by calling a Resource Manager template:
 
     azure login -e AzureChinaCloud

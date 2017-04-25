@@ -23,7 +23,7 @@ ms.author: nepeters
 # Custom Script Extension for Windows using the classic deployment model
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal preview at extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal preview, or the Azure Virtual Machine REST API.
 
@@ -49,23 +49,23 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 
 ```json
 {
-    "name": "config-app",
-    "type": "Microsoft.ClassicCompute/virtualMachines/extensions",
-    "location": "[resourceGroup().location]",
-    "apiVersion": "2015-06-01",
-    "properties": {
-        "publisher": "Microsoft.Compute",
-        "extension": "CustomScriptExtension",
-        "version": "1.8",
-        "parameters": {
-            "public": {
-                "fileUris": "[myScriptLocation]"
-            },
-            "private": {
-                "commandToExecute": "[myExecutionString]"
-            }
-        }
-    }
+	"name": "config-app",
+	"type": "Microsoft.ClassicCompute/virtualMachines/extensions",
+	"location": "[resourceGroup().location]",
+	"apiVersion": "2015-06-01",
+	"properties": {
+		"publisher": "Microsoft.Compute",
+		"extension": "CustomScriptExtension",
+		"version": "1.8",
+		"parameters": {
+			"public": {
+				"fileUris": "[myScriptLocation]"
+			},
+			"private": {
+				"commandToExecute": "[myExecutionString]"
+			}
+		}
+	}
 }
 ```
 

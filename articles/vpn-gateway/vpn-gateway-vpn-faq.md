@@ -99,7 +99,7 @@ They are required for Azure infrastructure communication. They are protected (lo
 
 A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
-### <a name="multi-site-and-vnet-to-vnet-connectivity"></a> More information about gateway types, requirements, and throughput
+### More information about gateway types, requirements, and throughput
 For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## Site-to-Site connections and VPN devices

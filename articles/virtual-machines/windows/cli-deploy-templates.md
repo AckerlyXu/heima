@@ -21,11 +21,11 @@ ms.author: rasquill
 ---
 # Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)        
-> * [CLI](virtual-machines-windows-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)        
+> * [PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)        
+> * [CLI](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)        
 > 
 > 
 
 </br> 
 
-[!INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
+[!INCLUDE [virtual-machines-common-cli-deploy-templates](../../../includes/virtual-machines-common-cli-deploy-templates.md)]

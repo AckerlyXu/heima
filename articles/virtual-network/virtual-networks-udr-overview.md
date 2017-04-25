@@ -71,7 +71,7 @@ Every subnet created in a virtual network is automatically associated with a rou
 * **On-premises Rule**: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
 * **Internet Rule**: This rule handles all traffic destined to the public Internet (address prefix 0.0.0.0/0) and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
-### <a name="user-defined-routes"></a> User-defined routes
+### User-defined routes
 For most environments you will only need the system routes already defined by Azure. However, you may need to create a route table and add one or more routes in specific cases, such as:
 
 * Force tunneling to the Internet via your on-premises network.
@@ -100,7 +100,7 @@ If you have an ExpressRoute connection between your on-premises network and Azur
 > 
 > 
 
-## <a name="ip-forwarding" id="IP-forwarding"></a> IP forwarding
+## IP forwarding
 As describe above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance. A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.
 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system.

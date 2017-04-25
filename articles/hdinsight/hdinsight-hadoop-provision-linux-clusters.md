@@ -28,7 +28,7 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 ## Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="cluster-types"></a> Cluster types
+## Cluster types
 Currently, Azure HDInsight provides five different types of clusters, each with a set of components to provide certain functionalities.
 
 | Cluster type | Functionality |
@@ -169,7 +169,7 @@ The HDInsight cluster and its default storage account must be located at the sam
 
 For a list of supported regions, check the **Listed Region** part on [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
-### <a name="cluster-tiers"></a> Node pricing tiers
+### Node pricing tiers
 Customers are billed for the usage of those nodes for the duration of the cluster's life. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
 
 Different cluster types have different node types, numbers of nodes, and node sizes. For example, a Hadoop cluster type has two *head nodes* and a default of four *data nodes*, while a Storm cluster type has two *Nimbus nodes*, three *ZooKeeper nodes*, and a default of four *supervisor nodes*. The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes. For example, if you know that you will be performing operations that need a lot of memory, you might want to select a compute resource with more memory. For learning purposes, we recommend that you use one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
@@ -227,7 +227,7 @@ For deployment considerations to be aware of when you're planning to use these r
 
 Billing starts when a cluster is created, and stops when the cluster is deleted. For more information on pricing, see [HDInsight pricing details](https://www.azure.cn/pricing/details/hdinsight/).
 
-## <a name="use-additional-storage"></a> Use additional storage
+## Use additional storage
 In some cases, you might add additional storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or different services, but you want to analyze them all with HDInsight.
 
 You can add storage accounts when you create an HDInsight cluster or after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
@@ -237,7 +237,7 @@ For more information about secondary Azure Storage account, see [Using Azure Sto
 > [!WARNING]
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
-## <a name="use-hiveoozie-metastore"></a> Use Hive/Oozie metastore
+## Use Hive/Oozie metastore
 We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
 
 > [!IMPORTANT]
@@ -297,7 +297,7 @@ To keep the changes through the lifetime of a cluster, you can use HDInsight clu
 >
 >
 
-## <a name="customize-clusters-using-script-action"></a> Customize clusters using Script Action
+## Customize clusters using Script Action
 You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal preview, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 Some native Java components, like Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -312,7 +312,7 @@ Some native Java components, like Mahout and Cascading, can be run on the cluste
 ## Use edge node
  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
-## <a name="cluster-creation-methods"></a> Cluster creation methods
+## Cluster creation methods
 In this article, you have learned basic information about creating a Linux-based HDInsight cluster. Use the following table to find specific information about how to create a cluster by using a method that best suits your needs.
 
 | Clusters created with | Web browser | Command line | REST API | SDK | Linux, Mac OS X, or Unix | Windows |

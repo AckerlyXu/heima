@@ -33,7 +33,7 @@ Before answering the planning questions below, consider the following:
 * You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) available in Azure.
 * Different resources can be grouped together in [resource groups](../azure-resource-manager/resource-group-overview.md#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
 
-### <a name="Define-requirements"></a> Define requirements
+### Define requirements
 Use the questions below as a starting point for your Azure network design.    
 
 1. What Azure locations will you use to host VNets?
@@ -79,8 +79,8 @@ Subnets contain the following properties.
 ### Name resolution
 By default, your VNet uses [Azure-provided name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
 
-### <a name="Limits"></a> Limits
-Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a [support ticket](https://www.azure.cn/support/support-ticket-form/?l=zh-cn).
+### Limits
+Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a support ticket.
 
 ### Role-Based Access Control (RBAC)
 You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs.
@@ -157,7 +157,7 @@ You need to design a virtual network solution that meets the following requireme
 * The databases in each location should replicate to other Azure locations once a day.
 * Each application should use 5 front end web servers, 2 application servers (when necessary), and 2 database servers.
 
-### <a name="Plan"></a> Plan
+### Plan
 You should start your design planning by answering the question in the [Define requirements](#Define-requirements) section as shown below.
 
 1. What Azure locations will you use to host VNets?

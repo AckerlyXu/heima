@@ -29,7 +29,7 @@ We'll learn how to use a SQL database hosted on Azure, how to configure the web 
 
 See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
-## <a name="prerequisites"></a> Prerequisites
+## Prerequisites
 * Visual Studio 2015
 * [Python 2.7 32-bit]
 * [Python Tools 2.2 for Visual Studio]

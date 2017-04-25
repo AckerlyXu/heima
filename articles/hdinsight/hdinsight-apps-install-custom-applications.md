@@ -86,7 +86,7 @@ You can check the application status on the Azure portal preview to validate the
 5. Click **hue** from the list to list the properties.  
 6. Click the Webpage link to validate the website; open the HTTP endpoint in a browser to validate the Hue web UI, open the SSH endpoint using SSH. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="troubleshoot-the-installation"></a> Troubleshoot the installation
+## Troubleshoot the installation
 You can check the application installation status from the portal notification (Click the bell icon on the top of the portal).
 
 If an application installation failed, you can see the error messages and debug information from 3 places:

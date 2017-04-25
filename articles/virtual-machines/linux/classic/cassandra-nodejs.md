@@ -21,7 +21,7 @@ ms.author: hanuk;robmcm
 ---
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) and [Spark cluster and Cassandra on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) and [Spark cluster and Cassandra on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/).
 
 ## Overview
 Azure is an open cloud platform that runs both Microsoft as well as non-Microsoft software which  includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra's distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org; Cassandra is written in Java and hence runs on both on Windows as well as Linux platforms.
@@ -45,15 +45,15 @@ Cassandra can be deployed to a single Azure region or to multiple regions based 
 ### Single Region Deployment
 We will start with a single region deployment and harvest the learnings in creating a multi-region model. Azure virtual networking will be used to create isolated subnets so that the network security requirements mentioned above can be met.  The process described in creating the single region deployment uses Ubuntu 14.04 LTS and Cassandra 2.08; however, the process can easily be adopted to the other Linux variants. The following are some of the systemic characteristics of the single region deployment.  
 
-**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains.  Azure uses the concept of fault domain to manage unplanned down time (e.g. hardware or software failures) while the concept of upgrade domain (e.g. host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time.
+**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains. Azure uses the concept of fault domain to manage unplanned down time (e.g. hardware or software failures) while the concept of upgrade domain (e.g. host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time.
 
-![Single region deployment](./media/virtual-machines-linux-classic-cassandra-nodejs/cassandra-linux1.png)
+![Single region deployment](./media/cassandra-nodejs/cassandra-linux1.png)
 
 Figure 1: Single region deployment
 
 Note that at the time of this writing, Azure doesn't allow the explicit mapping of a group of VMs to a specific fault domain; consequently, even with the deployment model shown in Figure 1, it is statistically probable that all the virtual machines may be mapped to two fault domains instead of four.
 
-**Load Balancing Thrift Traffic:** Thrift client libraries inside the web server connect to the cluster through an internal load balancer. This requires the process of adding the internal load balancer to the "data" subnet (refer Figure 1) in the context of the cloud service hosting the Cassandra cluster. Once the internal load balancer is defined, each node requires the load balanced endpoint to be added with the annotations of a load balanced set with previously defined load balancer name. See [Azure Internal Load Balancing ](../load-balancer/load-balancer-internal-overview.md)for more details.
+**Load Balancing Thrift Traffic:** Thrift client libraries inside the web server connect to the cluster through an internal load balancer. This requires the process of adding the internal load balancer to the "data" subnet (refer Figure 1) in the context of the cloud service hosting the Cassandra cluster. Once the internal load balancer is defined, each node requires the load balanced endpoint to be added with the annotations of a load balanced set with previously defined load balancer name. See [Azure Internal Load Balancing ](../../../load-balancer/load-balancer-internal-overview.md)for more details.
 
 **Cluster Seeds:** It is important to select the most highly available nodes for seeds as the new nodes will communicate with seed nodes to discover the topology of the cluster. One node from each availability set is designated as seed nodes to avoid single point of failure.
 
@@ -87,7 +87,7 @@ Cassandra's data-center-aware replication and consistency model described above 
 
 **Disaster Recovery:** Multi-region Cassandra cluster, if properly designed, can withstand catastrophic data center outages. If one region is down, the application deployed to other regions can start serving the end users. Like any other business continuity implementations, the application has to be tolerant for some data loss resulting from the data in the asynchronous pipeline. However, Cassandra makes the recovery much swifter than the time taken by traditional database recovery processes. Figure 2 shows the typical multi-region deployment model with eight nodes in each region. Both regions are mirror images of each other for the same of symmetry; real world designs depend on the workload type (e.g. transactional or analytical), RPO, RTO, data consistency and availability requirements.
 
-![Multi region deployment](./media/virtual-machines-linux-classic-cassandra-nodejs/cassandra-linux2.png)
+![Multi region deployment](./media/cassandra-nodejs/cassandra-linux2.png)
 
 Figure 2: Multi-region Cassandra deployment
 
@@ -293,7 +293,7 @@ Log into the virtual machine using the hostname (hk-cas-template.chinacloudapp.c
 Execute the following sequence of actions to capture the image:
 
 ##### 1. Deprovision
-Use the command "sudo waagent -deprovision+user" to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to Use as a Template more details on the image capture process.
+Use the command "sudo waagent -deprovision+user" to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image.md) to Use as a Template more details on the image capture process.
 
 ##### 2: Shutdown the VM
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.
@@ -306,7 +306,7 @@ This will take a few seconds and the image should be available in MY IMAGES sect
 ## Single Region Deployment Process
 **Step 1: Create the Virtual Network**
 
-Log into the Azure Classic Management Portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure Classic Management Portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md) for detailed steps of the process.      
+Log into the Azure Classic Management Portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure Classic Management Portal](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) for detailed steps of the process.      
 
 <table>
 <tr><th>VM Attribute Name</th><th>Value</th><th>Remarks</th></tr>
@@ -477,7 +477,7 @@ Please note that the keyspace created in step 4 uses SimpleStrategy with a  repl
 Will leverage the single region deployment completed and repeat the same process for installing the second region. The key difference between the single and multiple region deployment is the VPN tunnel setup for inter-region communication; we will start with the network installation, provision the VMs and configure Cassandra.
 
 ### Step 1: Create the Virtual Network at the 2nd Region
-Log into the Azure Classic Management Portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure Classic Management Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for detailed steps of the process.      
+Log into the Azure Classic Management Portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure Classic Management Portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for detailed steps of the process.      
 
 <table>
 <tr><th>Attribute Name    </th><th>Value    </th><th>Remarks</th></tr>
@@ -500,7 +500,7 @@ Add the following subnets:
 </table>
 
 ### Step 2: Create Local Networks
-A Local Network in Azure virtual networking is a proxy address space that maps to a remote site including a private cloud or another Azure region. This proxy address space is bound to a remote gateway for routing network to the right networking destinations. See [Configure a VNet to VNet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) for the instructions on establishing VNET-to-VNET connection.
+A Local Network in Azure virtual networking is a proxy address space that maps to a remote site including a private cloud or another Azure region. This proxy address space is bound to a remote gateway for routing network to the right networking destinations. See [Configure a VNet to VNet Connection](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) for the instructions on establishing VNET-to-VNET connection.
 
 Create two local networks per the following details:
 

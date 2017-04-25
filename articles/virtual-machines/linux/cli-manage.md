@@ -20,4 +20,4 @@ ms.author: rclaus
 
 ---
 # Common Azure CLI commands on Linux and Mac
-[!INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
+[!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]

@@ -60,7 +60,7 @@ Use the following commands to list and show cluster details:
 
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
-## <a name="delete-clusters"></a> Delete clusters
+## Delete clusters
 Use the following command to delete a cluster:
 
     azure hdinsight cluster delete <Cluster Name>
@@ -69,12 +69,12 @@ You can also delete a cluster by deleting the resource group that contains the c
 
     azure group delete <Resource Group Name>
 
-## <a name="scale-clusters"></a> Scale clusters
+## Scale clusters
 To change the Hadoop cluster size:
 
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 
-## <a name="enabledisable-http-access-for-a-cluster"></a> Enable/disable HTTP access for a cluster
+## Enable/disable HTTP access for a cluster
     azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
     azure hdinsight cluster disable-http-access [options] <Cluster Name>
 

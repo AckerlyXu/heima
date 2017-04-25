@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Example Azure infrastructure walkthrough for Linux VMs
 
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
@@ -37,7 +37,7 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
     * a front-end subnet for the web servers 
     * a back-end subnet for the application servers, MongoDB cluster, and domain controllers
 
-![Diagram of different tiers for application infrastructure](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Diagram of different tiers for application infrastructure](./media/infrastructure-example/example-tiers.png)
 
 Incoming secure web traffic must be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers must be load-balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
@@ -104,7 +104,7 @@ Adventure Works Cycles decided on the following names for their Azure VMs:
 
 Here is the resulting configuration.
 
-![Final application infrastructure deployed in Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Final application infrastructure deployed in Azure](./media/infrastructure-example/example-config.png)
 
 This configuration incorporates:
 
@@ -116,5 +116,5 @@ This configuration incorporates:
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 * A single resource group
 
-## <a name="next-steps"></a> Next steps
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+## Next steps
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

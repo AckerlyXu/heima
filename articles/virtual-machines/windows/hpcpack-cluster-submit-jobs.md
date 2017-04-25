@@ -20,7 +20,7 @@ ms.author: danlep
 
 ---
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. In this way, several cluster users can submit jobs to a cloud-based HPC Pack cluster, but without connecting directly to the head node VM or accessing an Azure subscription.
 
@@ -28,7 +28,7 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - We recommend that you use
-  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
   to deploy the head node and cluster. You need the DNS
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
@@ -40,7 +40,7 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
   download the same version of HPC Pack that is installed on the head node
   VM.
 
-## <a name="step-1:-install-and-configure-the-web-components-on-the-head-node"></a> Step 1: Install and configure the web components on the head node
+## Step 1: Install and configure the web components on the head node
 To enable a REST interface to submit jobs to the cluster over HTTPS,
 ensure that the HPC Pack web components are configured on the HPC Pack head
 node. If they aren't already installed, first install the web
@@ -52,7 +52,7 @@ For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
+> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
 > you can optionally install and configure the web components as part of the deployment.
 > 
 > 
@@ -122,7 +122,7 @@ To use the HPC Pack client tools to submit jobs to the head node VM, you also ne
 > 
 > 
 
-## <a name="step-3-run-test-jobs-on-the-cluster"></a> Step 3: Run test jobs on the cluster
+## Step 3: Run test jobs on the cluster
 To verify your configuration, try running jobs on the cluster in Azure
 from the on-premises computer. For example, you can use HPC Pack GUI tools or command-line commands to submit jobs to the cluster. You can also use a web-based portal to submit jobs.
 

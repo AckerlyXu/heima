@@ -21,4 +21,4 @@ ms.author: iainfou
 
 ---
 # Troubleshoot application connectivity issues on a Linux Azure virtual machine
-[!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
+[!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

@@ -85,7 +85,7 @@ Expected output:
 > You can also use [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) to list only the custom rules from an NSG .
 >
 
-## <a name="View-NSGs-associations"></a> View NSG associations
+## View NSG associations
 
 To view what resources the **NSG-FrontEnd** NSG is associate with, run the `az network nsg show` command as shown below. 
 
@@ -281,7 +281,7 @@ Expected output:
 }
 ```
 
-## <a name="Dissociate-an-NSG-from-a-NIC"></a> Dissociate an NSG from a NIC
+## Dissociate an NSG from a NIC
 
 To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, run the [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) command again but replace the `--network-security-group` argument with an empty string (`""`).
 
@@ -291,7 +291,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 
 In the output, the `networkSecurityGroup` key is set to null.
 
-## <a name="Dissociate-an-NSG-from-a-subnet"></a> Dissociate an NSG from a subnet
+## Dissociate an NSG from a subnet
 To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, again run the [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) command again but replace the `--network-security-group` argument with an empty string (`""`).
 
 ```azurecli

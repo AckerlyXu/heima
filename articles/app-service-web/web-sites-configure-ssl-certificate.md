@@ -168,12 +168,12 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 
     > [!IMPORTANT]
     > In the **Certificate Export Wizard**, make sure that you select **Yes, export the private key**  
-    ><p> 
+    > <p> 
     > ![Export the private key][certwiz1]  
-    ><p> 
+    > <p> 
     > and also select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and 
     > **Export all extended properties**.
-    ><p> 
+    > <p> 
     > ![include all certs and extended properties][certwiz2]
     > 
     > 
@@ -235,10 +235,10 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
     > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually 
     > come as a separate download from your CA, and in several formats for different 
     > web server types. Select the version with the `.pem` extension.
-    ><p> 
+    > <p> 
     > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
     > intermediate certificates from the **intermediate-cets.pem** file:
-    ><p> 
+    > <p> 
     > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
     > 
     > 
@@ -327,10 +327,10 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
     > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They 
     > usually come as a separate download from your CA, and in several formats for different 
     > web server types. Select the version with the `.pem` extension).
-    ><p> 
+    > <p> 
     > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
     > intermediate certificates from the **intermediate-cets.pem** file:
-    ><p> 
+    > <p> 
     > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
     > 
     > 
@@ -469,7 +469,7 @@ Before you move on, review the [What you need](#bkmk_domainname) section and ver
 
     > [!NOTE] 
     > **IP based SSL** associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional method of associating SSL certificates with a web server.  
-    ><p>
+    > <p>
     > **SNI based SSL** is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern  browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
     > 
 

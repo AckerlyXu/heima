@@ -70,19 +70,19 @@ The following script will walk you through getting the VM information, selecting
 
 # Set the new disk size
 
-    Set-AzureRmVMDataDisk -VM $vm -Name "$disk" -DiskSizeInGB $size
+	Set-AzureRmVMDataDisk -VM $vm -Name "$disk" -DiskSizeInGB $size
 
 # View the new size of the data disk(s)
 
-    $vm.StorageProfile.DataDisks
+	$vm.StorageProfile.DataDisks
 
 # Update the configuration in Azure
 
-    Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+	Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 # Start the VM
 
-    Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
+	Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
 
 ```
 
@@ -114,9 +114,9 @@ The following script will walk you through getting the VM and storage account in
 # Select the VM
 
     $vm = Get-AzureRMVM `
-    -ResourceGroupName $rgName | Out-GridView `
-            -Title "Select a VM …" `
-            -PassThru
+	-ResourceGroupName $rgName | Out-GridView `
+			-Title "Select a VM …" `
+			-PassThru
 
 # Select Data Disk to resize
 
@@ -136,17 +136,17 @@ The following script will walk you through getting the VM and storage account in
 
 # Set the new disk size
 
-    Set-AzureRmVMDataDisk -VM $vm -Name "$disk" `
-        -DiskSizeInGB $size
+	Set-AzureRmVMDataDisk -VM $vm -Name "$disk" `
+		-DiskSizeInGB $size
 
 # Update the configuration in Azure
 
-    Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+	Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 # Start the VM
-    Start-AzureRmVM -ResourceGroupName $rgName `
-    -VMName $vm.name
-	
+	Start-AzureRmVM -ResourceGroupName $rgName `
+	-VMName $vm.name
+
 ```
 
 ## Allocate the unallocated disk space 
@@ -171,4 +171,4 @@ Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
 
 ## Next Steps
-- [Learn more about disks and VHDs](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Learn more about disks and VHDs](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

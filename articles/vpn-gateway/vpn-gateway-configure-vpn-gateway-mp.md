@@ -34,7 +34,7 @@ Before you configure your gateway, you first need to create your virtual network
 
 If you already have a VPN gateway and you want to change the VPN routing type, see [How to change the VPN routing type for your gateway](#how-to-change-the-vpn-routing-type-for-your-gateway).
 
-## <a name="create-a-vpn-gateway"></a> Create a VPN gateway
+## Create a VPN gateway
 1. In the [Azure Classic Management Portal](https://manage.windowsazure.cn), on the **Networks** page, verify that the status column for your virtual network is **Created**.
 2. In the **Name** column, click the name of your virtual network.
 3. On the **Dashboard** page, notice that this VNet doesn't have a gateway configured yet. You'll see this status as you go through the steps to configure your gateway.
@@ -106,7 +106,7 @@ On the **Dashboard** page you can view the following:
 * The connection between your gateway and your VPN device.
 * The shared key that is used to configure your gateway connection to your VPN device.
 
-## <a name="how-to-change-the-vpn-routing-type-for-your-gateway"  id="how-to-change-your-vpn-gateway-type"></a> How to change the VPN routing type for your gateway
+## How to change the VPN routing type for your gateway
 Because some connectivity configurations are only available for certain gateway routing types, you may find that you need to change the gateway VPN routing type of an existing VPN gateway. For example, you may want to add point-to-site connectivity to an already existing site-to-site connection that has a static gateway. Point-to-site connections require a dynamic gateway. This means to configure a P2S connection, you have to change your gateway VPN routing type from static to dynamic.
 
 If you need to change a gateway VPN routing type, you'll delete the existing gateway, and then create a new gateway with the new routing type. You don't need to delete the entire virtual network to change the gateway routing type.

@@ -30,7 +30,7 @@ PF (Packet Filter, also written pf) is a BSD licensed stateful packet filter, a 
 If you are interested in setting up a secure firewall in the cloud for your web servers, then let's get started. You can also apply the scripts used in this Azure Resource Manager template to set up your networking topology.
 The Azure Resource Manager template set up a FreeBSD virtual machine that performs NAT /redirection using PF and two FreeBSD virtual machines with the Nginx web server installed and configured. In addition to performing NAT for the two web servers egress traffic, the NAT/redirection virtual machine intercepts HTTP requests and redirect them to the two web servers in round-robin fashion. The VNet uses the private non-routable IP address space 10.0.0.2/24 and you can modify the parameters of the template. The Azure Resource Manager template also defines a route table for the whole VNet, which is a collection of individual routes used to override Azure default routes based on the destination IP address. 
 
-![pf_topology](./media/virtual-machines-linux-freebsd-pf-nat/pf_topology.jpg)
+![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
 
 ### Deploy through Azure CLI
 You need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login). Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group name `myResourceGroup` in the `China North` location.
@@ -58,6 +58,6 @@ az network public-ip list --resource-group myResourceGroup
 ## Next steps
 Do you want to set up your own NAT in Azure? Open Source, free but powerful? Then PF is a good choice. By using the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you only need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario. 
 
-If you want to learn the offering of FreeBSD in Azure, refer to [introduction to FreeBSD on Azure](./virtual-machines-freebsd-intro-on-azure.md).
+If you want to learn the offering of FreeBSD in Azure, refer to [introduction to FreeBSD on Azure](./../virtual-machines-freebsd-intro-on-azure.md).
 
 If you want to know more about PF, refer to [FreeBSD handbook](https://www.freebsd.org/doc/handbook/firewalls-pf.html) or [PF-User's Guide](https://www.freebsd.org/doc/handbook/firewalls-pf.html).

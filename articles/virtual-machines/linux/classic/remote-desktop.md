@@ -21,7 +21,7 @@ ms.author: mingzhan
 ---
 # Using Remote Desktop to connect to a Azure Linux VM
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
 ## Overview
 RDP (Remote Desktop Protocol) is a proprietary protocol used for Windows. How can we use RDP to connect to a Linux VM (virtual machine) remotely?
@@ -31,16 +31,16 @@ This guidance will give you the answer! It will help you to install and config x
 Xrdp is an open source RDP server, which allows you to connect your Linux server with Remote Desktop from a Windows machine. It performs much nicer than VNC (Virtual Network Computing). VNC has this streak of "JPEG" quality and slow behavior, whereas RDP is fast and crystal clear.
 
 > [!NOTE]
-> You must already have an Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+> You must already have an Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](createportal.md).
 > 
 > 
 
 ## Create endpoint for Remote Desktop
 We will use the default endpoint 3389 for Remote Desktop in this doc. So set up 3389 endpoint as Remote Desktop to your Linux VM like below:
 
-![image](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
+![image](./media/remote-desktop/no1.png)
 
-if you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+if you didn't know how to set up endpoint to your VM, see [guidance](setup-endpoints.md).
 
 ## Install Gnome Desktop
 Connect to your Linux VM through putty, and install `Gnome Desktop`.
@@ -101,7 +101,7 @@ Restart xrdp service, use:
 ## Connect your Linux VM from a Windows machine
 In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure Classic Management Portal and click `Connect` to connect your Linux VM, you will see below login window:
 
-![image](./media/virtual-machines-linux-classic-remote-desktop/no2.png)
+![image](./media/remote-desktop/no2.png)
 
 Login with the `user` & `password` of your Linux VM, and enjoy the Remote Desktop from your Azure Linux VM right now!
 

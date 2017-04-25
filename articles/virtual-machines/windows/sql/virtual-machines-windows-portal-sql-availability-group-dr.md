@@ -54,7 +54,7 @@ The following diagram shows how the networks communicate between data centers.
 ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->This architecture incurs outbound data charges for data replicated between Azure regions.
+>This architecture incurs outbound data charges for data replicated between Azure regions.  
 
 ## Create remote replica
 
@@ -180,4 +180,4 @@ For more information, see the following topics:
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](/azure/virtual-machines/windows/)
 * [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
-* [Azure Availability Sets](../../virtual-machines-windows-manage-availability.md)
+* [Azure Availability Sets](../manage-availability.md)

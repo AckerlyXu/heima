@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 03/22/2017
 wacn.date: ''
 ms.author: cynthn
 
@@ -21,18 +21,18 @@ ms.author: cynthn
 # Create a copy of a Linux virtual machine running on Azure with the Azure CLI 1.0
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the new virtual machine.
 
-You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [upload and create a VM from custom disk image](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
 - Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Before you begin
 Ensure that you meet the following prerequisites before you start the steps:
 
-* You have the [Azure CLI](../cli-install-nodejs.md) downloaded and installed on your machine. 
+* You have the [Azure CLI](../../cli-install-nodejs.md) downloaded and installed on your machine. 
 * You also need some information about your existing Azure Linux VM:
 
 | Source VM information | Where to get it |
@@ -112,4 +112,4 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 ```
 
 ## Next steps
-To learn how to use Azure CLI to manage your new virtual machine, see [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md).
+To learn how to use Azure CLI to manage your new virtual machine, see [Azure CLI commands for the Azure Resource Manager](../azure-cli-arm-commands.md).

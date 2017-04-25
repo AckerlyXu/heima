@@ -21,7 +21,7 @@ ms.author: asabbour
 ---
 # MariaDB (MySQL) cluster: Azure tutorial
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers the classic deployment model. Azure recommends that most new deployments use the Azure Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers the classic deployment model. Azure recommends that most new deployments use the Azure Resource Manager model.
 
 This article shows you how to create a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/) (a robust, scalable, and reliable drop-in replacement for MySQL) to work in a highly available environment on Azure virtual machines.
 
@@ -34,10 +34,10 @@ This article describes how to complete the following steps:
 - Use Azure Load Balancer to balance the load for the three nodes.
 - To minimize repetitive work, create a VM image that contains MariaDB + Galera and use it to create the other cluster VMs.
 
-![System architecture](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
+![System architecture](./media/mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> This topic uses the [Azure CLI](../cli-install-nodejs.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, see the [Azure CLI command reference](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). You will also need to [create an SSH key for authentication] and make note of the .pem file location.
+> This topic uses the [Azure CLI](../../../cli-install-nodejs.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, see the [Azure CLI command reference](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). You will also need to [create an SSH key for authentication] and make note of the .pem file location.
 >
 >
 
@@ -60,7 +60,7 @@ This article describes how to complete the following steps:
     Use that name in the following step.
 5. Create the VM template and replace /path/to/key.pem with the path where you stored the generated .pem SSH key.
 
-        azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329 azureuser
+        azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd" --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329 azureuser
 6. Attach four 500-GB data disks to the VM for use in the RAID configuration.
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-data-%d.vhd
@@ -183,7 +183,7 @@ This article describes how to complete the following steps:
     * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
     * Reload the firewall: `firewall-cmd --reload`
 
-9. Optimize the system for performance. For more information, see [performance tuning strategy](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+9. Optimize the system for performance. For more information, see [performance tuning strategy](optimize-mysql.md).
 
     a. Edit the MySQL configuration file again.
 
@@ -213,7 +213,7 @@ This article describes how to complete the following steps:
 
     b. Click **Capture** and specify the image name as **mariadb-galera-image**. Provide a description and check "I have run waagent."
 
-      ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
+      ![Capture the virtual machine](./media/mariadb-mysql-cluster/Capture2.PNG)
 
 ## Create the cluster
 Create three VMs with the template you created, and then configure and start the cluster.
@@ -269,7 +269,7 @@ Create three VMs with the template you created, and then configure and start the
         --connect mariadbha mariadb-galera-image azureuser
 3. You will need to get the internal IP address of each of the three VMs for the next step:
 
-    ![Getting IP address](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
+    ![Getting IP address](./media/mariadb-mysql-cluster/IP.png)
 4. Use SSH to sign in to the three VMs and edit the configuration file on each of them.
 
         sudo vi /etc/my.cnf.d/server.cnf
@@ -300,15 +300,15 @@ The command parameters structure is: `azure vm endpoint create-multiple <Machine
 
 The CLI sets the load balancer probe interval to 15 seconds, which might be a bit too long. Change it in the portal under **Endpoints** for any of the VMs.
 
-![Edit endpoint](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
+![Edit endpoint](./media/mariadb-mysql-cluster/Endpoint.PNG)
 
 Select **Reconfigure the Load-Balanced Set**.
 
-![Reconfigure the load-balanced Set](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
+![Reconfigure the load-balanced Set](./media/mariadb-mysql-cluster/Endpoint2.PNG)
 
 Change **Probe Interval** to 5 seconds and save your changes.
 
-![Change probe interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
+![Change probe interval](./media/mariadb-mysql-cluster/Endpoint3.PNG)
 
 ## Validate the cluster
 The hard work is done. The cluster should be now accessible at `mariadbha.chinacloudapp.cn:3306`, which hits the load balancer and route requests between the three VMs smoothly and efficiently.
@@ -340,20 +340,20 @@ The database you created returns the following table:
 ## Next steps
 In this article, you created a three-node MariaDB + Galera highly available cluster on Azure virtual machines running CentOS 7. The VMs are load balanced with Azure Load Balancer.
 
-You might want to look at [another way to cluster MySQL on Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) and ways to [optimize and test MySQL performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+You might want to look at [another way to cluster MySQL on Linux](mysql-cluster.md) and ways to [optimize and test MySQL performance on Azure Linux VMs](optimize-mysql.md).
 
 <!--Anchors-->
-[Architecture overview]: #architecture-overview
-[Creating the template]: #creating-the-template
-[Creating the cluster]: #creating-the-cluster
-[Load balancing the cluster]: #load-balancing-the-cluster
-[Validating the cluster]: #validating-the-cluster
-[Next steps]: #next-steps
+[Architecture overview]:#architecture-overview
+[Creating the template]:#creating-the-template
+[Creating the cluster]:#creating-the-cluster
+[Load balancing the cluster]:#load-balancing-the-cluster
+[Validating the cluster]:#validating-the-cluster
+[Next steps]:#next-steps
 
 <!--Image references-->
 
 <!--Link references-->
-[Galera]: http://galeracluster.com/products/
-[MariaDBs]: https://mariadb.org/en/about/
+[Galera]:http://galeracluster.com/products/
+[MariaDBs]:https://mariadb.org/en/about/
 [create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268

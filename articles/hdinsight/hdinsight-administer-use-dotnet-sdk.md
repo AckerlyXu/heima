@@ -33,7 +33,7 @@ Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-## <a name="connect-to-azure-hdinsight"></a> Connect to Azure HDInsight
+## Connect to Azure HDInsight
 
 You need the following Nuget packages:
 
@@ -114,7 +114,7 @@ You shall see a prompt when you run this program.  If you don't want to see the 
 ## Create clusters
 See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
-## <a name="list-clusters"></a> List clusters
+## List clusters
 The following code snippet lists clusters and some properties:
 
     var results = _hdiManagementClient.Clusters.List();
@@ -125,13 +125,13 @@ The following code snippet lists clusters and some properties:
         Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
     }
 
-## <a name="delete-clusters"></a> Delete clusters
+## Delete clusters
 Use the following code snippet to delete a cluster synchronously or asynchronously: 
 
     _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
     _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
 
-## <a name="scale-clusters"></a> Scale clusters
+## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ The following code snippet shows how to resize a cluster synchronously or asynch
     _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
     _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
 
-## <a name="grantrevoke-access" id="grant/revoke-access"></a> Grant/revoke access
+## Grant/revoke access
 HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
 
 * ODBC
@@ -216,10 +216,10 @@ To grant:
 
 This can also be done via the Portal. See [Administer HDInsight by using the Azure portal preview][hdinsight-admin-portal].
 
-## <a name="update-http-user-credentials"></a> Update HTTP user credentials
+## Update HTTP user credentials
 It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
 
-## <a name="find-the-default-storage-account"></a> Find the default storage account
+## Find the default storage account
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
 
     var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");

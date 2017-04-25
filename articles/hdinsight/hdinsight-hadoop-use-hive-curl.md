@@ -85,7 +85,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
         > [!NOTE]
         > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or another MapReduce operation.
-        ><p>
+        > <p>
         > Dropping an external table does **not** delete the data, only the table definition.
 
     * **ROW FORMAT** - How the data is formatted. The fields in each log are separated by a space.

@@ -12,9 +12,9 @@ ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 wacn.date: ''
 ms.author: cynthn
 
@@ -22,8 +22,10 @@ ms.author: cynthn
 # Move a Linux VM to another subscription or resource group
 This article walks you through how to move a Linux VM between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you created a VM in a personal subscription and now want to move it to your company's subscription.
 
-> [!NOTE]
-> New resource IDs are created as part of the move. Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs. 
+> [!IMPORTANT]
+>You cannot move Managed Disks at this time. 
+>
+>New resource IDs are created as part of the move. Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs. 
 > 
 > 
 
@@ -50,7 +52,7 @@ If you are working from the Command Prompt on a Windows computer, you need to ad
 
 You are asked to confirm that you want to move the specified resource. Type **Y** to confirm that you want to move the resources.
 
-[!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
+[!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## Next steps
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).

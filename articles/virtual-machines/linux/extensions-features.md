@@ -30,12 +30,12 @@ This document provides an overview of VM extensions, prerequisites for using Azu
 Several different Azure VM extensions are available, each with a specific use case. Some examples are:
 
 - Apply PowerShell Desired State configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](virtual-machines-linux-vm-monitoring.md).
+- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](vm-monitoring.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
-In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
+In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](virtual-machines-linux-dotnet-core-1-landing.md).
+To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](../windows/dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Each virtual machine extension might have its own set of prerequisites. Requirem
 
 The Azure VM agent manages interactions between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed manually on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](virtual-machines-linux-classic-agents-and-extensions.md).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](../windows/classic/agents-and-extensions.md).
 
 ## Discover VM extensions
 
@@ -86,7 +86,7 @@ VM extensions can be applied to an existing virtual machine through the Azure po
 
 The following image shows the installation of the Linux Custom Script extension from the Azure portal preview.
 
-![Install custom script extension](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
+![Install custom script extension](./media/extensions-features/installscriptextensionlinux.png)
 
 ### Azure Resource Manager templates
 
@@ -123,7 +123,7 @@ For more information, see the full [Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](virtual-machines-linux-extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](../windows/extensions-authoring-templates.md).
 
 ## Secure VM extension data
 
@@ -234,7 +234,7 @@ You can remove an extension by using the following steps in the Azure portal pre
 ## Common VM extension reference
 | Extension name | Description | More information |
 | --- | --- | --- |
-| Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM Access extension |Regain access to an Azure virtual machine |[VM Access extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

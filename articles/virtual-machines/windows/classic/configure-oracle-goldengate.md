@@ -29,9 +29,9 @@ This tutorial assumes that you already have theoretical and practical knowledge 
 
 In addition, the tutorial assumes that you have already implemented the following prerequisites:
 
-* You've already reviewed the High Availability and Disaster Recovery Considerations section in the [Oracle Virtual Machine images - Miscellaneous Considerations](virtual-machines-windows-classic-oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) topic. Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.
+* You've already reviewed the High Availability and Disaster Recovery Considerations section in the [Oracle Virtual Machine images - Miscellaneous Considerations](oracle-considerations.md) topic. Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.
 * You've downloaded the Oracle GoldenGate software from the [Oracle Downloads](http://www.oracle.com/us/downloads/index.html) web site. You've selected the Product Pack Oracle Fusion Middleware - Data Integration. Then, you've selected Oracle GoldenGate on Oracle v11.2.1 Media Pack for Microsoft Windows x64 (64-bit) for an Oracle 11g database. Next, download Oracle GoldenGate V11.2.1.0.3 for Oracle 11g 64bit on Windows 2008 (64bit).
-* You have created two Virtual Machines (VMs) in Azure using Oracle Enterprise Edition on Windows Server. Make sure that the Virtual Machines are in the [same cloud service](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and in the same [Virtual Network](/azure/virtual-network/) to ensure they can access each other over the persistent private IP address.
+* You have created two Virtual Machines (VMs) in Azure using Oracle Enterprise Edition on Windows Server. Make sure that the Virtual Machines are in the [same cloud service](../../virtual-machines-linux-load-balance.md) and in the same [Virtual Network](/azure/virtual-network/) to ensure they can access each other over the persistent private IP address.
 * You've set the Virtual Machine names as "MachineGG1" for Site A and "MachineGG2" for Site B at the Azure Classic Management Portal.
 * You've created test databases "TestGG1" on Site A and "TestGG2" on Site B.
 * You log on to your Windows server as a member of the Administrators group or a member of the **ORA_DBA** group.
@@ -582,3 +582,4 @@ Remote desktop to Site A and check if the replication has taken place:
     100 TV 100 22-MAR-13
     101 DVD 10 22-MAR-13
 
+## Additional Resources

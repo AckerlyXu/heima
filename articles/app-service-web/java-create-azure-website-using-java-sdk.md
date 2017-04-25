@@ -62,7 +62,7 @@ The code in this procedure uses a self-signed certificate to authenticate with A
 
 When you complete this procedure, the CER certificate will reside in your Azure subscription and the JKS certificate will reside on your local drive. For more information on management certificates, see [Create and Upload a Management Certificate for Azure][Create and Upload a Management Certificate for Azure].
 
-#### <a name="create-a-certificate"></a> Create a certificate
+#### Create a certificate
 To create your own self-signed certificate, open a command console on your operating system and run the following commands.
 
 > **Note:**  The computer on which you run this command must have the JDK installed. Also, the path to the keytool depends on the location in which you install the JDK. For more information, see [Key and Certificate Management Tool (keytool)][Key and Certificate Management Tool (keytool)] in the Java online docs.

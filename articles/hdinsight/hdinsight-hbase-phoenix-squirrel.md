@@ -95,7 +95,7 @@ There are 3 steps involved configuring a point-to-site VPN connection:
 
 See [Configure a Point-to-Site VPN connection to an Azure Virtual Network](../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
 
-#### <a name="Configure-a-virtual-network-and-a-dynamic-routing-gateway"></a> Configure a virtual network and a dynamic routing gateway
+#### Configure a virtual network and a dynamic routing gateway
 Assure you have provisioned an HBase cluster in an Azure virtual network (see the prerequisites for this section). The next step is to configure a point-to-site connection.
 
 **To configure the point-to-site connectivity**
@@ -121,7 +121,7 @@ Assure you have provisioned an HBase cluster in an Azure virtual network (see th
 
     The diagram shows 0 client connections. After you make a connection to the virtual network, the number will be updated to one.
 
-#### <a name="Create-your-certificates"></a> Create your certificates
+#### Create your certificates
 One way to create an X.509 certificate is by using the Certificate Creation Tool (makecert.exe) that comes with [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 **To create a self-signed root certificate**
@@ -163,7 +163,7 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 4. Click **UPLOAD** from the bottom, and specify the root certificate file you have created in the procedure before last. Wait until the certificate got imported.
 5. Click **DASHBOARD** on the top.  The virtual diagram shows the status.
 
-#### <a name="Configure-your-VPN-client"></a> Configure your VPN client
+#### Configure your VPN client
 **To download and install the client VPN package**
 
 1. From the DASHBOARD page of the virtual network, in the quick glance section, click either **Download the 64-bit Client VPN Package** or **Download the 32-bit Client VPN Package** based on your workstation OS version.

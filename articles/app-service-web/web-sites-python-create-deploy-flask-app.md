@@ -60,7 +60,7 @@ The first step in creating your app is to create the web app via the [Azure Port
 5. Configure the new Flask app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
 6. Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
-## <a name="application-overview"></a> Application Overview
+## Application Overview
 ### Git repository contents
 Here's an overview of the files you'll find in the initial Git repository, which we'll clone in the next section.
 
@@ -324,7 +324,7 @@ You will see the output of the deployment script, including virtual environment 
 
 Browse to the Azure URL to view your changes.
 
-## <a name="troubleshooting-package-installation"></a> Troubleshooting - Package Installation
+## Troubleshooting - Package Installation
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 ## Troubleshooting - Virtual Environment

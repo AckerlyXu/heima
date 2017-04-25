@@ -48,7 +48,7 @@ This article focuses on how to enable and configure the extension by using Azure
 ## Prerequisites
 * **Azure Linux Agent version 2.0.6 or later**.
   Note that most Azure VM Linux gallery images include version 2.0.6 or later. You can run **WAAgent -version** to confirm which version is installed on the VM. If the VM is running a version that's earlier than 2.0.6, you can follow [these instructions on GitHub](https://github.com/Azure/WALinuxAgent "instructions") to update it.
-* **Azure CLI**. Follow [this guidance for installing CLI](../cli-install-nodejs.md) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
+* **Azure CLI**. Follow [this guidance for installing CLI](../../../cli-install-nodejs.md) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
 
     * Run **azure vm extension set --help** for detailed help information.
     * Run **azure login -e AzureChinaCloud** to sign in to Azure.
@@ -129,14 +129,14 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 ## Review your data
-The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../storage/storage-ruby-how-to-use-table-storage.md) to learn how to access the data in the storage table by using Azure CLI scripts.
+The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) to learn how to access the data in the storage table by using Azure CLI scripts.
 
 In addition, you can use following UI tools to access the data:
 
 1. Visual Studio Server Explorer. Go to your storage account. After the VM runs for about five minutes, you'll see the four default tables: "LinuxCpu", "LinuxDisk", "LinuxMemory", and "Linuxsyslog". Double-click the table names to view the data.
 2. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-![image](./media/virtual-machines-linux-classic-diagnostic-extension/no1.png)
+![image](./media/diagnostic-extension/no1.png)
 
 If you've enabled fileCfg or perfCfg (as described in Scenarios 2 and 3), you can use Visual Studio Server Explorer and Azure Storage Explorer to view non-default data.
 

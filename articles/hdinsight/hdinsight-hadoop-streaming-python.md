@@ -225,7 +225,7 @@ This copies the files from the local system to the head node.
 
 3. Repeat the command, replacing `mapper.py` with `reducer.py`. This will upload both mapper and reducer files to the default storage for the cluster.
 
-## <a name="run-mapreduce"></a> Run MapReduce (SSH)
+## Run MapReduce (SSH)
 
 Use the following steps to connect to the cluster and run the streaming MapReduce job from an SSH session.
 

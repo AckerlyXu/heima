@@ -50,10 +50,10 @@ The R scripts you create and run can use any of the 8000+ open source R packages
 
 In those cases, the function runs in a distributed fashion across those data (task) nodes of the cluster that are associated with the referenced data. For more information about the different compute context options, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a> Operationalize a model
+## Operationalize a model
 When your data modeling is complete, you can operationalize the model to make predictions for new data both in Azure and on-premises. This process is known as scoring. Here are a few examples.
 
-### <a name="scoring-in-hdinsight"></a> Score in HDInsight
+### Score in HDInsight
 To score in HDInsight, write an R function that calls your model to make predictions for a new data file that you've loaded to your storage account. Then save the predictions back to the storage account. You can run the routine on-demand on the edge node of your cluster or by using a scheduled job.  
 
 ### Score on-premises

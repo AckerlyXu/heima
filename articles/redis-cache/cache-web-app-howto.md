@@ -47,12 +47,12 @@ To complete the tutorial, you must have the following prerequisites.
 * [Azure account](#azure-account)
 * [Visual Studio 2017 with the Azure SDK for .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
-### <a name="azure-account"></a> Azure account
+### Azure account
 You need an Azure account to complete the tutorial. You can:
 
 * [Open an Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a> Visual Studio 2017 with the Azure SDK for .NET
+### Visual Studio 2017 with the Azure SDK for .NET
 The tutorial is written for Visual Studio 2017 with the [Azure SDK for .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). The Azure SDK 2.9.5 is included with the Visual Studio installer.
 
 If you have Visual Studio 2015, you can follow the tutorial with the [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it. Some screens may look different from the illustrations shown in this tutorial.
@@ -92,7 +92,7 @@ In this section of the tutorial, you'll create the basic application that reads 
 
 For more information about this package, see the [EntityFramework](https://www.nuget.org/packages/EntityFramework/) NuGet page.
 
-### <a name="add-the-model"></a> Add the model
+### Add the model
 1. Right-click **Models** in **Solution Explorer**, and choose **Add**, **Class**. 
 
     ![Add model][cache-model-add-class]
@@ -204,7 +204,7 @@ For more information about this package, see the [EntityFramework](https://www.n
       ...
       ```
 
-### <a name="add-the-controller"></a> Add the controller
+### Add the controller
 1. Press **F6** to build the project. 
 2. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
 
@@ -244,7 +244,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     );
     ```
 
-### <a name="configure-the-views"></a> Configure the views
+### Configure the views
 1. In **Solution Explorer**, expand the **Views** folder and then the **Shared** folder, and double-click **_Layout.cshtml**. 
 
     ![_Layout.cshtml][cache-layout-cshtml]
@@ -264,7 +264,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 ![Starter application][cache-starter-application]
 
-## <a name="configure-the-application-to-use-redis-cache"></a> Configure the application to use Redis Cache
+## Configure the application to use Redis Cache
 In this section of the tutorial, you'll configure the sample application to store and retrieve Contoso team statistics from an Azure Redis Cache instance by using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
 * [Configure the application to use StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
@@ -272,7 +272,7 @@ In this section of the tutorial, you'll configure the sample application to stor
 * [Update the Create, Edit, and Delete methods to work with the cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [Update the Teams Index view to work with the cache](#update-the-teams-index-view-to-work-with-the-cache)
 
-### <a name="configure-the-application-to-use-stackexchangeredis"></a> Configure the application to use StackExchange.Redis
+### Configure the application to use StackExchange.Redis
 1. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
 2. Run the following command from the `Package Manager Console` window.
 
@@ -330,7 +330,7 @@ In this section of the tutorial, you'll configure the sample application to stor
 
     The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you [provision the Azure resources](#provision-the-azure-resources) in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
-### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a> Update the TeamsController class to return results from the cache or the database
+### Update the TeamsController class to return results from the cache or the database
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample you'll query the sorted set for the top 5 teams ranked by number of wins.
 
 > [!NOTE]
@@ -560,7 +560,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a> Update the Create, Edit, and Delete methods to work with the cache
+### Update the Create, Edit, and Delete methods to work with the cache
 The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section you'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
 
 1. Browse to the `Create(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
@@ -628,7 +628,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     }
     ```
 
-### <a name="update-the-teams-index-view-to-work-with-the-cache"></a> Update the Teams Index view to work with the cache
+### Update the Teams Index view to work with the cache
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
 
     ![Index.cshtml][cache-views-teams-index-cshtml]
@@ -680,7 +680,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     ![Status message][cache-status-message]
 2. Press **F6** to build the project.
 
-## <a name="provision-the-azure-resources"></a> Provision the Azure resources
+## Provision the Azure resources
 To host your application in Azure, you must first provision the Azure services that your application requires. The sample application in this tutorial uses the following Azure services.
 
 * Azure Redis Cache
@@ -728,7 +728,7 @@ When provisioning is complete, you can publish your application to Azure from Vi
 > 
 > 
 
-## <a name="publish-the-application-to-azure"></a> Publish the application to Azure
+## Publish the application to Azure
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 In this step of the tutorial, you'll publish the application to Azure and run it in the cloud.

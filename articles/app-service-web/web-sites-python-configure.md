@@ -24,24 +24,24 @@ This tutorial describes options for authoring and configuring a basic Web Server
 
 It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.
 
-## <a name="bottle-django-flask"></a> Bottle, Django or Flask?
+## Bottle, Django or Flask?
  If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
 
 * [Creating web apps with Bottle](web-sites-python-create-deploy-bottle-app.md)
 * [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)
 * [Creating web apps with Flask](web-sites-python-create-deploy-flask-app.md)
 
-## <a name="website-creation-on-portal"></a> Web app creation on Azure Portal Preview
+## Web app creation on Azure Portal Preview
 This tutorial assumes an existing Azure subscription and access to the Azure Portal Preview.
 
 If you do not have an existing web app, you can create one from the [Azure Portal Preview](https://portal.azure.cn).  Click the NEW button in the top left corner, then click **Web + Mobile** > **Web app**.
 
-## <a name="git-publishing"></a> Git Publishing
+## Git Publishing
 Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md). This tutorial uses Git to create, manage, and publish our Python web app to Azure App Service.
 
 Once Git publishing is set up, a Git repository will be created and associated with your web app. The repository's URL will be displayed and can henceforth be used to push data from the local development environment to the cloud. To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your web app content to Azure App Service.
 
-## <a name="application-overview"></a> Application Overview
+## Application Overview
 In the next sections, the following files are created. They should be placed in the root of the Git repository.
 
     app.py
@@ -50,7 +50,7 @@ In the next sections, the following files are created. They should be placed in 
     web.config
     ptvs_virtualenv_proxy.py
 
-## <a name="wsgi-handler"></a> WSGI Handler
+## WSGI Handler
 WSGI is a Python standard described by [PEP 3333](http://www.python.org/dev/peps/pep-3333/) defining an interface between the web server and Python. It provides a standardized interface for writing various web applications and frameworks using Python. Popular Python web frameworks today use WSGI. Azure App Service Web Apps gives you support for any such frameworks; in addition, advanced users can even author their own as long as the custom handler follows the WSGI specification guidelines.
 
 Here's an example of an `app.py` that defines a custom handler:

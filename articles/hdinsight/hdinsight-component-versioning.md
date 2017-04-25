@@ -96,7 +96,7 @@ The component versions associated with HDInsight cluster versions may change in 
 
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
-## <a name="supported-hdinsight-versions"></a> Supported HDInsight versions
+## Supported HDInsight versions
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Please note the following:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.

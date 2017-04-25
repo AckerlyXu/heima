@@ -40,7 +40,7 @@ pricing tier.
 > 
 > 
 
-## <a name="authenticate-your-users"></a> Authenticate your users
+## Authenticate your users
 Now, let's see how easy it is to add authentication to your app (further reading at
 [App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)).
 

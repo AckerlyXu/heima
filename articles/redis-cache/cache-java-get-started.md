@@ -42,7 +42,7 @@ This tutorial uses Jedis, but you can use any Java client listed at [http://redi
 ## Create a Redis cache on Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-the-host-name-and-access-keys"></a> Retrieve the host name and access keys
+## Retrieve the host name and access keys
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## Connect to the cache securely using SSL

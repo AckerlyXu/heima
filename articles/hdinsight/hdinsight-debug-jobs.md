@@ -26,7 +26,7 @@ ms.author: jgao
 
 Each Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
 
-## <a name="log-written-to-azure-tables"></a> Logs written to Azure Tables
+## Logs written to Azure Tables
 The logs written to Azure Tables provide one level of insight into what is happening with an HDInsight cluster.
 
 When you create an HDInsight cluster, 6 tables are automatically created for Linux-based clusters in the default Table storage:

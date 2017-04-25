@@ -75,7 +75,7 @@ Since the China East site 1 endpoint has higher priority than the China North en
 
 You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a> Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
+## Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
 
 Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
 
@@ -85,7 +85,7 @@ Instead of adding multiple endpoints in China North, those endpoints are enclose
 
 !['Performance' traffic routing with custom in-region traffic distribution][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a> Example 5: Per-endpoint monitoring settings
+## Example 5: Per-endpoint monitoring settings
 
 Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
 

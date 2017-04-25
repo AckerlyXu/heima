@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 # Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [Classic](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [Classic](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -42,14 +42,14 @@ When this feature is enabled, it automatically installs the SQL Server Connector
 Use PowerShell to configure Azure Key Vault Integration. The following sections provide an overview of the required parameters and then a sample PowerShell script.
 
 ### Install the SQL Server IaaS Extension
-First, [install the SQL Server IaaS Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+First, [install the SQL Server IaaS Extension](../classic/sql-server-agent-extension.md).
 
 ### Understand the input parameters
 The following table lists the parameters required to run the PowerShell script in the next section.
 
 | Parameter | Description | Example |
 | --- | --- | --- |
-| **$akvURL** |**The key vault URL** |"https://contosokeyvault.vault.chinacloudapi.cn/" |
+| **$akvURL** |**The key vault URL** |"https://contosokeyvault.vault.azure.cn/" |
 | **$spName** |**Service Principal name** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Service Principal secret** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. |"mycred1" |
@@ -61,7 +61,7 @@ The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configurat
 
 1. In Azure PowerShell, first configure the input parameters with your specific values as described in the previous sections of this topic. The following script is an example.
 
-        $akvURL = "https://contosokeyvault.vault.chinacloudapi.cn/"
+        $akvURL = "https://contosokeyvault.vault.azure.cn/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

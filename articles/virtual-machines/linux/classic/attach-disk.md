@@ -21,7 +21,7 @@ ms.author: iainfou
 ---
 # How to Attach a Data Disk to a Linux Virtual Machine
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See how to [attach a data disk using the Resource Manager deployment model](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can attach both empty disks and disks that contain data to your Azure VMs. Both types of disks are .vhd files that reside in an Azure storage account. As with adding any disk to a Linux machine, after you attach the disk you need to initialize and format it so it's ready for use. This article details attaching both empty disks and disks already containing data to your VMs, as well as how to then initialize and format a new disk.
 
@@ -31,7 +31,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 > 
 > 
 
-[!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
+[!INCLUDE [howto-attach-disk-windows-linux](../../../../includes/howto-attach-disk-linux.md)]
 
 ## <a name="how-to-initialize-a-new-data-disk-in-linux" id="initialize-a-new-data-disk-in-linux"></a> Initialize a new data disk in Linux
 1. SSH to your VM. For more information, see [How to log on to a virtual machine running Linux][Logon].
@@ -47,7 +47,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
     You can find the identifier of the last data disk that was added in the messages that are displayed.
 
-    ![Get the disk messages](./media/virtual-machines-linux-classic-attach-disk/scsidisklog.png)
+    ![Get the disk messages](./media/attach-disk/scsidisklog.png)
 
     OR
 
@@ -89,19 +89,19 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 4. When prompted, type **n** to create a partition.
 
-    ![Create device](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+    ![Create device](./media/attach-disk/fdisknewpartition.png)
 
 5. When prompted, type **p** to make the partition the primary partition. Type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
 
-    ![Create partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
+    ![Create partition](./media/attach-disk/fdisknewpartdetails.png)
 
 6. Type **p** to see the details about the disk that is being partitioned.
 
-    ![List disk information](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
+    ![List disk information](./media/attach-disk/fdiskpartitiondetails.png)
 
 7. Type **w** to write the settings for the disk.
 
-    ![Write the disk changes](./media/virtual-machines-linux-classic-attach-disk/fdiskwritedisk.png)
+    ![Write the disk changes](./media/attach-disk/fdiskwritedisk.png)
 
 8. Now you can create the file system on the new partition. Append the partition number to the device ID (in the following example `/dev/sdc1`). The following example creates an ext4 partition on /dev/sdc1:
 
@@ -109,7 +109,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
     sudo mkfs -t ext4 /dev/sdc1
     ```
 
-    ![Create file system](./media/virtual-machines-linux-classic-attach-disk/mkfsext4.png)
+    ![Create file system](./media/attach-disk/mkfsext4.png)
 
     > [!NOTE]
     > SuSE Linux Enterprise 11 systems only support read-only access for ext4 file systems. For these systems, it is recommended to format the new file system as ext3 rather than ext4.
@@ -128,7 +128,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
     The data disk is now ready to use as **/datadrive**.
 
-    ![Create the directory and mount the disk](./media/virtual-machines-linux-classic-attach-disk/mkdirandmount.png)
+    ![Create the directory and mount the disk](./media/attach-disk/mkdirandmount.png)
 
 11. Add the new drive to /etc/fstab:
 
@@ -216,17 +216,17 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```
 
 ## Troubleshooting
-[!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+[!INCLUDE [virtual-machines-linux-lunzero](../../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Next Steps
 You can read more about using your Linux VM in the following articles:
 
 * [How to log on to a virtual machine running Linux][Logon]
-* [How to detach a disk from a Linux virtual machine](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [How to detach a disk from a Linux virtual machine](detach-disk.md)
 * [Using the Azure CLI with the Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Configure RAID on a Linux VM in Azure](virtual-machines-linux-configure-raid.md)
-* [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md)
+* [Configure RAID on a Linux VM in Azure](../configure-raid.md)
+* [Configure LVM on a Linux VM in Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]: virtual-machines-linux-agent-user-guide.md
-[Logon]: virtual-machines-linux-mac-create-ssh-keys.md
+[Agent]:../agent-user-guide.md
+[Logon]:../mac-create-ssh-keys.md

@@ -26,7 +26,7 @@ This topic describes how to perform administration tasks such as [rebooting](#re
 > 
 > 
 
-## <a name="reboot"></a> Reboot
+## Reboot
 The **Reboot** blade allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
 
 ![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
@@ -53,17 +53,17 @@ The impact on client applications varies depending on which nodes that you reboo
 > 
 > 
 
-## <a name="reboot-faq"></a> Reboot FAQ
+## Reboot FAQ
 * [Which node should I reboot to test my application?](#which-node-should-i-reboot-to-test-my-application)
 * [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
 * [Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 * [What pricing tiers can use the reboot functionality?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
-### <a name="which-node-should-i-reboot-to-test-my-application"></a> Which node should I reboot to test my application?
+### Which node should I reboot to test my application?
 To test the resiliency of your application against failure of the primary node of your cache, reboot the **Master** node. To test the resiliency of your application against failure of the secondary node, reboot the **Slave** node. To test the resiliency of your application against total failure of the cache, reboot **Both** nodes.
 
-### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a> Can I reboot the cache to clear client connections?
+### Can I reboot the cache to clear client connections?
 Yes, if you reboot the cache all client connections are cleared. Rebooting can be useful in the case where all client connections are used up due to a logic error or a bug in the client application. Each pricing tier has different [client connection limits](cache-configure.md#default-redis-server-configuration) for the various sizes, and once these limits are reached, no more client connections are accepted. Rebooting the cache provides a way to clear all client connections.
 
 > [!IMPORTANT]
@@ -71,18 +71,18 @@ Yes, if you reboot the cache all client connections are cleared. Rebooting can b
 > 
 > 
 
-### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a> Will I lose data from my cache if I do a reboot?
+### Will I lose data from my cache if I do a reboot?
 If you reboot both the **Master** and **Slave** nodes, all data in the cache (or in that shard if you are using a premium cache with clustering enabled) is lost. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup will be restored when the cache comes back online, but any cache writes that have occurred after the backup was made are lost.
 
 If you reboot just one of the nodes, data is not typically lost, but it still may be. For example if the master node is rebooted and a cache write is in progress, the data from the cache write is lost. Another scenario for data loss would be if you reboot one node and the other node happens to go down due to a failure at the same time. For more information about possible causes for data loss, see [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
-### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a> Can I reboot my cache using PowerShell, CLI, or other management tools?
+### Can I reboot my cache using PowerShell, CLI, or other management tools?
 Yes, for PowerShell instructions see [To reboot a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
-### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a> What pricing tiers can use the reboot functionality?
+### What pricing tiers can use the reboot functionality?
 Reboot is available only in the premium pricing tier.
 
-## <a name="schedule-updates"></a> Schedule updates
+## Schedule updates
 The **Schedule updates** blade allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. 
 
 > [!NOTE] 
@@ -99,19 +99,19 @@ To specify a maintenance window, check the desired days and specify the maintena
 > 
 > 
 
-## <a name="schedule-updates-faq"></a> Schedule updates FAQ
+## Schedule updates FAQ
 * [When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 * [What type of updates are made during the scheduled maintenance window?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
 * [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 * [What pricing tiers can use the schedule updates functionality?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
-### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a> When do updates occur if I don't use the schedule updates feature?
+### When do updates occur if I don't use the schedule updates feature?
 If you don't specify a maintenance window, updates can be made at any time.
 
-### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window"></a> What type of updates are made during the scheduled maintenance window?
+### What type of updates are made during the scheduled maintenance window?
 Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
 
-### <a name="can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools"></a> Can I manage scheduled updates using PowerShell, CLI, or other management tools?
+### Can I manage scheduled updates using PowerShell, CLI, or other management tools?
 Yes, you can manage your scheduled updates using the following PowerShell cmdlets:
 
 * [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/get-azurermrediscachepatchschedule)
@@ -119,7 +119,7 @@ Yes, you can manage your scheduled updates using the following PowerShell cmdlet
 * [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry)
 * [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/remove-azurermrediscachepatchschedule)
 
-### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a> What pricing tiers can use the schedule updates functionality?
+### What pricing tiers can use the schedule updates functionality?
 The **Schedule updates** feature is only available in the premium pricing tier.
 
 ## Next steps

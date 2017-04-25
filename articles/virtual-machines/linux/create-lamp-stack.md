@@ -12,7 +12,7 @@ ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: NA
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 2/21/2017
 wacn.date: ''
@@ -20,7 +20,7 @@ ms.author: juluk
 
 ---
 # Deploy LAMP stack on Azure
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-create-lamp-stack-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can also perform these steps with the [Azure CLI 1.0](create-lamp-stack-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick command summary
 
@@ -88,7 +88,7 @@ You have now created a Linux VM with LAMP already installed on it. If you wish, 
 
 ## Deploy LAMP on existing VM walkthrough
 If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](/azure/virtual-machines/virtual-machines-linux-quick-create-cli). 
-Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh azureuser@mypublicdns.chinanorth.chinacloudapp.cn`.
 
 Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
@@ -167,6 +167,6 @@ Check out the Ubuntu documentation on the LAMP stack:
 
 * [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-[1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
-[2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
-[3]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
+[1]: ./media/deploy-lamp-stack/configmysqlpassword-small.png
+[2]: ./media/deploy-lamp-stack/phpsuccesspage.png
+[3]: ./media/deploy-lamp-stack/apachesuccesspage.png

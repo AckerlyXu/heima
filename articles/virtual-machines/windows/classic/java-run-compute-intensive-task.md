@@ -21,7 +21,7 @@ ms.author: robmcm
 ---
 # How to run a compute-intensive task in Java on a virtual machine
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
 With Azure, you can use a virtual machine to handle compute-intensive tasks. For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications. After reading this article, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 
@@ -45,7 +45,7 @@ The following is an example of the Java application monitoring the compute-inten
 
 ![Traveling Salesman Problem client][client_output]
 
-[!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
+[!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
 1. Log in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
@@ -523,12 +523,12 @@ Run the compute-intensive application, first to create the queue, then to solve 
 ## How to stop the Java applications
 For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prior to normal completion.
 
-[solver_output]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/WA_JavaTSPSolver.png
-[client_output]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/WA_JavaTSPClient.png
-[svc_bus_node]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
-[create_namespace]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[avail_namespaces]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[namespace_list]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
-[properties_pane]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
-[default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-[add_ca_cert]: ../java-add-certificate-ca-store.md
+[solver_output]: ./media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
+[client_output]: ./media/java-run-compute-intensive-task/WA_JavaTSPClient.png
+[svc_bus_node]: ./media/java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
+[create_namespace]: ./media/java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+[avail_namespaces]: ./media/java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+[namespace_list]: ./media/java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
+[properties_pane]: ./media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
+[default_key]: ./media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
+[add_ca_cert]: ../../../java-add-certificate-ca-store.md

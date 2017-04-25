@@ -27,50 +27,50 @@ With a correctly configured VNet, we can continue to deploy new servers into tha
 
 ## Create the Resource group
 
-First we deploy a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+First we deploy a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-![createResourceGroup](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createResourceGroup.png)
+![createResourceGroup](./media/deploy-linux-vm-into-existing-vnet-using-portal/createResourceGroup.png)
 
 ## Create the VNet
 
 The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet and we associate the NSG with this subnet in a later step.
 
-![createVNet](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createVNet.png)
+![createVNet](./media/deploy-linux-vm-into-existing-vnet-using-portal/createVNet.png)
 
 ## Add a VNic to the subnet
 
 Virtual network cards (VNics) are important as you can connect them to different VMs, which keeps the VNic as a static resource while the VMs can be temporary. Create a VNic and associate it with the Subnet created in the previous step.
 
-![createVNic](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createVNic.png)
+![createVNic](./media/deploy-linux-vm-into-existing-vnet-using-portal/createVNic.png)
 
 ## Create the NSG
 
-Azure NSGs are equivalent to a firewall at the network layer. For more information on Azure NSGs, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure NSGs are equivalent to a firewall at the network layer. For more information on Azure NSGs, see [What is a Network Security Group](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-![createNSG](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createNSG.png)
+![createNSG](./media/deploy-linux-vm-into-existing-vnet-using-portal/createNSG.png)
 
 ## Add an inbound SSH allow rule
 
 The Linux VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the Linux VM is created.
 
-![createInboundSSH](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createInboundSSH.png)
+![createInboundSSH](./media/deploy-linux-vm-into-existing-vnet-using-portal/createInboundSSH.png)
 
 ## Associate the NSG with the subnet
 
 With the VNet, and the subnet created, we associate the NSG with the subnet.  NSGs can be associated with either an entire subnet or an individual VNic.  With the firewall filtering traffic at the subnet level, all VNics and the VMs within the subnet are protected by the NSG versus the NSG being associated with just a single VNic and protecting just one VM.
 
-![associateNSG](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/associateNSG.png)
+![associateNSG](./media/deploy-linux-vm-into-existing-vnet-using-portal/associateNSG.png)
 
 ## Deploy the VM into the VNet and NSG
 
 Using the Azure portal preview, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.
 
-![createVM](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createVM.png)
+![createVM](./media/deploy-linux-vm-into-existing-vnet-using-portal/createVM.png)
 
 By using the portal to choose existing resources, we instruct Azure to deploy the VM inside the existing network.  To reiterate, once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.  
 
 ## Next steps
 
-* [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Use an Azure Resource Manager template to create a specific deployment](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

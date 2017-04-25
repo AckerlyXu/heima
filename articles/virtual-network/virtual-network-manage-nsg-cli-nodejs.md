@@ -92,7 +92,7 @@ Expected output:
 > You can also use `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd` to list the rules from the **NSG-FrontEnd** NSG.
 >
 
-### <a name="View-NSGs-associations"></a> View NSG associations
+### View NSG associations
 
 To view what resources the **NSG-FrontEnd** NSG is associate with, run the `azure network nsg show` command as shown below. Notice that the only difference is the use of the **--json** parameter.
 
@@ -246,7 +246,7 @@ Expected output:
     data:
     info:    network nic set command OK
 
-### <a name="Dissociate-an-NSG-from-a-NIC"></a> Dissociate an NSG from a NIC
+### Dissociate an NSG from a NIC
 
 To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, run the following command:
 
@@ -283,7 +283,7 @@ Expected result:
     data:
     info:    network nic set command OK
 
-### <a name="Dissociate-an-NSG-from-a-subnet"></a> Dissociate an NSG from a subnet
+### Dissociate an NSG from a subnet
 To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, run the following command:
 
 ```azurecli

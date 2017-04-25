@@ -43,7 +43,7 @@ The following sections provide direct links to the Azure portal preview for the 
 
 Find step-by-step guidance for this process in the tutorial, [Provision a SQL Server virtual machine in the Azure portal preview](virtual-machines-windows-portal-sql-server-provision.md). Also, review the [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md), which explains how to select the appropriate machine size and other features available during provisioning.
 
-## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a> Option 1: Create a SQL VM with per-minute licensing
+## Option 1: Create a SQL VM with per-minute licensing
 The following table provides a matrix of the latest SQL Server images in the virtual machine gallery. Click on any link to begin creating a new SQL VM with your specified version, edition, and operating system. 
 
 | Version | Operating System | Edition |
@@ -55,7 +55,7 @@ The following table provides a matrix of the latest SQL Server images in the vir
 
 In addition to this list, other combinations of SQL Server versions and operating systems are available. Find other images through a marketplace search in the Azure portal preview. 
 
-## <a name="manage-your-sql-vm"></a> Manage your SQL VM
+## Manage your SQL VM
 After provisioning your SQL Server VM, there are several optional management tasks. In many aspects, you configure and manage SQL Server exactly like you would manage an on-premises SQL Server instance. However, some tasks are specific to Azure. The following sections highlight some of these areas with links to more information.
 
 ### Connect to the VM

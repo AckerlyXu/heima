@@ -47,7 +47,7 @@ You can complete the task using one of the following CLI versions:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="create-a-virtual-network"></a> Create a virtual network
+## Create a virtual network
 
 To create a virtual network using the Azure CLI 2.0, complete the following steps:
 
