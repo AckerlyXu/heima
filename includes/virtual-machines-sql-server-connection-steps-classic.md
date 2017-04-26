@@ -1,4 +1,4 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a> Determine the DNS name of the virtual machine
+### Determine the DNS name of the virtual machine
 To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
 
 1. In the Azure Portal Preview (or from the previous step), select **Virtual machines (classic)**.
@@ -7,7 +7,7 @@ To connect to the SQL Server Database Engine from another computer, you must kno
 
     ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a> Connect to the Database Engine from another computer
+### Connect to the Database Engine from another computer
 1. On a computer connected to the internet, open SQL Server Management Studio.
 2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.chinacloudapp.cn,57500**.
 

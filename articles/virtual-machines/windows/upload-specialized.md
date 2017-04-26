@@ -46,7 +46,6 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 ## Prepare the VM
 
 If you intend to use the specialized VHD as-is to create a new VM, ensure the following steps are completed. 
-
 * If you are going to use Managed Disks, review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
 * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
@@ -234,7 +233,6 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 The specialised OS could be a VHD that you [uploaded to Azure](upload-image.md) or a [copy the VHD from an existing Azure VM](vhd-copy.md). 
 
 You can choose one of two options:
-
 - **Option 1**: Create a specialized managed disk from a specialied VHD in an existing storage account to use as the OS disk.
 
 or 

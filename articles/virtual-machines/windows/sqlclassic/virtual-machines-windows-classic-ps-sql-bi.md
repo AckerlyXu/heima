@@ -149,6 +149,8 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 
             Myservice.chinacloudapp.cn:63133
 
+        For more information, see [What is a cloud service?](/azure/cloud-services/cloud-services-choose-me).
+
 **Start Reporting Services Configuration Manager.**
 
 1. In **Windows Server 2012/2016**:

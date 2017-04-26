@@ -80,8 +80,8 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 
 <!--nameing convention not available in Azure.cn -->
 > [!TIP]
-><p> * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
-><p> * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
+> * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
+> * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
 > 
 > 
 

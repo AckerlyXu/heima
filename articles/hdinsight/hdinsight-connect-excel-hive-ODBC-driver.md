@@ -105,7 +105,7 @@ The steps below describe the way to import data from a hive table into an Excel 
 13. Click **OK** to close the **Import Data** dialog.  
 14. Re-enter the password, and then click **OK**. It takes a few seconds before data gets imported to Excel.
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 In this article you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service. To learn more, see:
 
 * [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]

@@ -38,11 +38,10 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 
     > [!IMPORTANT]
     > You do not need an existing HDInsight cluster. The steps in this document create the following resources:
-    > <p> 
-    > <p> * A Azure Virtual Network
-    > <p> * A Storm on HDInsight cluster (Linux-based, two worker nodes)
-    > <p> * An HBase on HDInsight cluster (Linux-based, two worker nodes)
-    > <p> * An Azure Web App that hosts the web dashboard
+    > * A Azure Virtual Network
+    > * A Storm on HDInsight cluster (Linux-based, two worker nodes)
+    > * An HBase on HDInsight cluster (Linux-based, two worker nodes)
+    > * An Azure Web App that hosts the web dashboard
 
 * [Node.js](http://nodejs.org/):Used to preview the web dashboard locally on your development environment.
 * [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
@@ -88,9 +87,8 @@ The following diagram explains the layout of the topology:
 
 > [!NOTE]
 > This is a simplified view of the topology. At run time, an instance of each component is created for each partition for the Event Hub that is being read. These instances are distributed across the nodes in the cluster, and data is routed between them as follows:
-> <p> 
-> <p> * Data from the spout to the parser is load balanced.
-> <p> * Data from the parser to the Dashboard and HBase is grouped by Device ID, so that messages from the same device always flow to the same component.
+> * Data from the spout to the parser is load balanced.
+> * Data from the parser to the Dashboard and HBase is grouped by Device ID, so that messages from the same device always flow to the same component.
 
 ### Topology components
 

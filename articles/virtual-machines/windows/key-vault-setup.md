@@ -27,7 +27,7 @@ In Azure Resource Manager stack, secrets/certificates are modeled as resources t
 
 > [!NOTE]
 > 1. In order for Key Vault to be used with Azure Resource Manager virtual machines, the **EnabledForDeployment** property on Key Vault must be set to true. You can do this in various clients.
-><p> 2. The Key Vault needs to be created in the same subscription and location as the Virtual Machine.
+> 2. The Key Vault needs to be created in the same subscription and location as the Virtual Machine.
 > 
 > 
 

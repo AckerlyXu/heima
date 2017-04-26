@@ -1,4 +1,4 @@
-### <a name="configure-a-network-security-group-inbound-rule-for-the-vm"></a> Configure a Network Security Group inbound rule for the VM
+### Configure a Network Security Group inbound rule for the VM
 If you want to be able to connect to SQL Server over the internet, you have to configure an inbound rule on the Network Security Group for the port that your SQL Server instance is listening. By default, this is TCP port 1433.
 
 1. In the portal, select **Virtual machines**, and then select your SQL Server VM.

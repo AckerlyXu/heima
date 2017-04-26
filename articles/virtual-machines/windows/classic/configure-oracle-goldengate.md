@@ -581,5 +581,3 @@ Remote desktop to Site A and check if the replication has taken place:
     ------- ------------- -------- ------
     100 TV 100 22-MAR-13
     101 DVD 10 22-MAR-13
-
-## Additional Resources

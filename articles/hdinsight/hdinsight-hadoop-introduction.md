@@ -91,7 +91,7 @@ See [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md) 
 The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It uses <a target="_blank" href="http://www.json.org/">JavaScript Object Notation (JSON)</a> to define a language-agnostic schema that underwrites language interoperability, meaning data serialized in one language can be read in another. Detailed information on the format can be found in the <a target="_blank" href="http://avro.apache.org/docs/current/spec.html">Apache Avro Specification</a>.
 The format of Avro files supports the distributed MapReduce programming model. Files are "splittable", meaning you can seek any point in a file and start reading from a particular block. To find out how, see [Serialize data with the Microsoft .NET Library for Avro](hdinsight-dotnet-avro-serialization.md).
 
-### <a name="hdfs" id="HDFS"></a>HDFS
+### <a name="hdfs"></a>HDFS
 Hadoop Distributed File System (HDFS) is a distributed file system that, with MapReduce and YARN, is the core of the Hadoop ecosystem. HDFS is the standard file system for Hadoop clusters on HDInsight.
 
 ### <a name="hive"></a>Hive & HCatalog

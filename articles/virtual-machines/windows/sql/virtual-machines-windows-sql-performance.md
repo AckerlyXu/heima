@@ -58,7 +58,7 @@ DS-series (along with DSv2-series) VMs support [Premium Storage](../../../storag
 
 In addition, we recommend that you create your Azure storage account in the same data center as your SQL Server virtual machines to reduce transfer delays. When creating a storage account, disable geo-replication as consistent write order across multiple disks is not guaranteed. Instead, consider configuring a SQL Server disaster recovery technology between two Azure data centers. For more information, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-## <a name="disks-guidance" id="disks-and-performance-considerations"></a> Disks guidance
+## Disks guidance
 There are three main disk types on an Azure VM:
 
 * **OS disk**: When you create an Azure Virtual Machine, the platform will attach at least one disk (labeled as the **C** drive) to the VM for your operating system disk. This disk is a VHD stored as a page blob in storage.

@@ -1,4 +1,4 @@
-## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a> How to create a classic VNet in the Azure portal preview
+## How to create a classic VNet in the Azure portal preview
 To create a classic VNet based on the scenario above, follow the steps below.
 
 1. From a browser, navigate to http://portal.azure.cn and, if necessary, sign in with your Azure account.

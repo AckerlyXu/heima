@@ -47,7 +47,7 @@ App Service passes on the JSON web token (JWT) in the Authorization header of an
 
 In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims because claims information is populated for you in .NET classes.
 
-## <a name="multiple-protection-options"></a> Multiple protection options
+## Multiple protection options
 App Service can prevent anonymous HTTP requests from reaching your API app, it can pass on all requests and validate tokens for requests that include them, or it can let through all requests without taking any action on them:
 
 1. Allow only authenticated requests to reach your API app.

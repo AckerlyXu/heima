@@ -1,4 +1,4 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a> Create a TCP endpoint for the virtual machine
+### Create a TCP endpoint for the virtual machine
 In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
 > [!NOTE]

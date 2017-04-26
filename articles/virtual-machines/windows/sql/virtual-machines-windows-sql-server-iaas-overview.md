@@ -65,7 +65,7 @@ One of the most basic management steps is to connect to your SQL Server VM throu
 If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
 ### Configure high availability
-If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple Azure VMs in a virtual network. If you want to manually configure your Availability Group and associated listener, see [Configure AlwaysOn Availability Groups in Azure VM](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/).
+If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple Azure VMs in a virtual network. If you want to manually configure your Availability Group and associated listener, see [Configure AlwaysOn Availability Groups in Azure VM](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 

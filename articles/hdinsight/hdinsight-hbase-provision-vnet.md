@@ -40,16 +40,15 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 
 > [!NOTE]
 > Some properties are hard-coded into the template. For example:
-><p>
-><p> * **Location**: China East
-><p> * __Cluster version: 3.5
-><p> * **Cluster worker node count**: 4
-><p> * **Default storage account**: a unique string
-><p> * **Virtual network name**: &lt;Cluster Name>-vnet
-><p> * **Virtual network address space**: 10.0.0.0/16
-><p> * **Subnet name**: subnet1
-><p> * **Subnet address range**: 10.0.0.0/24
-><p>
+> * **Location**: China East
+> * __Cluster version: 3.5
+> * **Cluster worker node count**: 4
+> * **Default storage account**: a unique string
+> * **Virtual network name**: &lt;Cluster Name>-vnet
+> * **Virtual network address space**: 10.0.0.0/16
+> * **Subnet name**: subnet1
+> * **Subnet address range**: 10.0.0.0/24
+> <p>
 > &lt;Cluster Name> is replaced with the cluster name you provide when using the template.
 >
 >

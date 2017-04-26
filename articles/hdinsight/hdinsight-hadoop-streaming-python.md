@@ -149,9 +149,8 @@ Both **mapper.py** and **reducer.py** must be on the head node of the cluster be
 
 > [!IMPORTANT]
 > There is an important difference between using `scp` and PowerShell to upload the files:
-> <p>
-> <p> * Using `scp` places the files on the primary head node of the cluster. This assumes that you will later connect to the head node and run the job from an SSH session.
-> <p> * Using the PowerShell script places the files into the default storage for the cluster. This assumes that you will later use a PowerShell script to run the job from a remote client.
+> * Using `scp` places the files on the primary head node of the cluster. This assumes that you will later connect to the head node and run the job from an SSH session.
+> * Using the PowerShell script places the files into the default storage for the cluster. This assumes that you will later use a PowerShell script to run the job from a remote client.
 
 ### Upload using scp
 

@@ -188,7 +188,7 @@ Full deallocation means that you stopped (deallocated) all VMs in an availabilit
 
 Select a new VM size to allocate. If this does not work, please try again later.
 
-## <a name="Error string lookup"></a> Error string lookup
+## Error string lookup
 **New_VMSizeNotSupported***
 
 "The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."

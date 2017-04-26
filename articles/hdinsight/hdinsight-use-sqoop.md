@@ -101,14 +101,14 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
     - **_artifacts Location Sas Token**: Leave it blank.
     - **Bacpac File Name**: Use the default value unless you want to use your own backpac file.
 
-        The following values are hardcoded in the variables section:
+    The following values are hardcoded in the variables section:
 
-        | Default storage account name | <CluterName>store |
-        | --- | --- |
-        | Azure SQL database server name |<ClusterName>dbserver |
-        | Azure SQL database name |<ClusterName>db |
+    | Default storage account name | <CluterName>store |
+    | --- | --- |
+    | Azure SQL database server name |<ClusterName>dbserver |
+    | Azure SQL database name |<ClusterName>db |
 
-        Please write down these values.  You will need them later in the tutorial.
+    Please write down these values.  You will need them later in the tutorial.
 
 3.Click **OK** to save the parameters.
 
@@ -222,10 +222,9 @@ The PowerShell sample performs the following steps:
 
     > [!NOTE]
     > Other than connection string information, the steps in this section should work for an Azure SQL database or for SQL Server. These steps were tested by using the following configuration:
-    > <p> 
-    > <p> * **Azure virtual network point-to-site configuration**: A virtual network connected the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
-    > <p> * **Azure HDInsight 3.1**: See [Create Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md) for information about creating a cluster on a virtual network.
-    > <p> * **SQL Server 2014**: Configured to allow authentication and running the VPN client configuration package to connect securely to the virtual network.
+    > * **Azure virtual network point-to-site configuration**: A virtual network connected the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
+    > * **Azure HDInsight 3.1**: See [Create Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md) for information about creating a cluster on a virtual network.
+    > * **SQL Server 2014**: Configured to allow authentication and running the VPN client configuration package to connect securely to the virtual network.
     > 
     > 
 7. Export a Hive table to the Azure SQL database.

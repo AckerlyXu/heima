@@ -51,7 +51,7 @@ credentials for installing the cluster.
 * The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
 * The script can optionally run custom pre- and post-configuration scripts on the head node if you want to install additional software or configure other settings.
 
-## <a name="Configuration-file"></a> Configuration file
+## Configuration file
 The configuration file for the deployment script is an XML
 file. The schema file HPCIaaSClusterConfig.xsd is in the HPC Pack IaaS
 deployment script folder. **IaaSClusterConfig** is the root element of

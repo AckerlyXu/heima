@@ -15,7 +15,7 @@ To connect virtual machines in a virtual network:
 
 ![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
 
-## <a name="connect-vms-in-a-standalone-cloud-service"></a> Connect VMs in a standalone cloud service
+## Connect VMs in a standalone cloud service
 To connect virtual machines in a standalone cloud service:
 
 1. Create the cloud service in the [Azure Classic Management Portal](http://manage.windowsazure.cn). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.

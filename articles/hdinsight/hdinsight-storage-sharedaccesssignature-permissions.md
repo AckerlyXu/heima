@@ -149,11 +149,10 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     > [!IMPORTANT]
     > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
-    > <p>
-    > <p> * Must be at least 10 characters in length
-    > <p> * Must contain at least one digit
-    > <p> * Must contain at least one non-alphanumeric character
-    > <p> * Must contain at least one upper or lower case letter
+    > * Must be at least 10 characters in length
+    > * Must contain at least one digit
+    > * Must contain at least one non-alphanumeric character
+    > * Must contain at least one upper or lower case letter
     > 
     > 
 

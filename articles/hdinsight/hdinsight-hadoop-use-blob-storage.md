@@ -94,7 +94,7 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 > 
 > 
 
-## <a id="preparingblobstorage"></a> Create Blob containers
+### <a id="preparingblobstorage"></a> Create Blob containers
 To use blobs, you first create an [Azure Storage account][azure-storage-create]. As part of this, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same region.
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.

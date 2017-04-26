@@ -59,7 +59,7 @@ If you do not want to set up a provider SDK, you can allow the Mobile Apps featu
 
 Code to start this flow is included in the authentication tutorial for each platform. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the application backend.
 
-### <a name="service-to-service-authentication"></a> Service-to-service authentication
+### Service-to-service authentication
 Although you can give users access to your application, you can also trust another application to call your own API. For example, you could have one web app call an API in another web app. In this scenario, you use credentials for a service account instead of user credentials to get a token. A service account is also known as a *service principal* in Azure Active Directory parlance, and authentication that uses such an account is also known as a service-to-service scenario.
 
 > [!IMPORTANT]

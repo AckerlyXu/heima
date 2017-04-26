@@ -102,7 +102,7 @@ plan.
 This way you can allocate a new set of resources for your app and gain greater 
 control of your apps.
 
-## <a name="create-an-app-service-plan"></a> Create an App Service plan
+## Create an App Service plan
 
 You can create an empty App Service plan from the App Service plan browse 
 experience or as part of app creation.

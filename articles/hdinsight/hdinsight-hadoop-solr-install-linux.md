@@ -205,63 +205,63 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
     * In the **q** text box, enter **\*:**\*. This query returns all the documents that are indexed in Solr. If you want to search for a specific string within the documents, you can enter that string here.
     * In the **wt** text box, select the output format. Default is **json**.
 
-        Finally, select the **Execute Query** button at the bottom of the search pate.
+    Finally, select the **Execute Query** button at the bottom of the search pate.
 
-        ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
-     The output returns the two documents that you added to the index earlier. The output is similar to the following JSON document:
+    The output returns the two documents that you added to the index earlier. The output is similar to the following JSON document:
 
-            "response": {
-              "numFound": 2,
-              "start": 0,
-              "maxScore": 1,
-              "docs": [
-                {
-                  "id": "SOLR1000",
-                  "name": "Solr, the Enterprise Search Server",
-                  "manu": "Apache Software Foundation",
-                  "cat": [
-                    "software",
-                    "search"
-                  ],
-                  "features": [
-                    "Advanced Full-Text Search Capabilities using Lucene",
-                    "Optimized for High Volume Web Traffic",
-                    "Standards Based Open Interfaces - XML and HTTP",
-                    "Comprehensive HTML Administration Interfaces",
-                    "Scalability - Efficient Replication to other Solr Search Servers",
-                    "Flexible and Adaptable with XML configuration and Schema",
-                    "Good unicode support: héllo (hello with an accent over the e)"
-                  ],
-                  "price": 0,
-                  "price_c": "0,USD",
-                  "popularity": 10,
-                  "inStock": true,
-                  "incubationdate_dt": "2006-01-17T00:00:00Z",
-                  "_version_": 1486960636996878300
-                },
-                {
-                  "id": "3007WFP",
-                  "name": "Dell Widescreen UltraSharp 3007WFP",
-                  "manu": "Dell, Inc.",
-                  "manu_id_s": "dell",
-                  "cat": [
-                    "electronics and computer1"
-                  ],
-                  "features": [
-                    "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-                  ],
-                  "includes": "USB cable",
-                  "weight": 401.6,
-                  "price": 2199,
-                  "price_c": "2199,USD",
-                  "popularity": 6,
-                  "inStock": true,
-                  "store": "43.17614,-90.57341",
-                  "_version_": 1486960637584081000
-                }
-              ]
-            }
+           "response": {
+               "numFound": 2,
+               "start": 0,
+               "maxScore": 1,
+               "docs": [
+                 {
+                   "id": "SOLR1000",
+                   "name": "Solr, the Enterprise Search Server",
+                   "manu": "Apache Software Foundation",
+                   "cat": [
+                     "software",
+                     "search"
+                   ],
+                   "features": [
+                     "Advanced Full-Text Search Capabilities using Lucene",
+                     "Optimized for High Volume Web Traffic",
+                     "Standards Based Open Interfaces - XML and HTTP",
+                     "Comprehensive HTML Administration Interfaces",
+                     "Scalability - Efficient Replication to other Solr Search Servers",
+                     "Flexible and Adaptable with XML configuration and Schema",
+                     "Good unicode support: héllo (hello with an accent over the e)"
+                   ],
+                   "price": 0,
+                   "price_c": "0,USD",
+                   "popularity": 10,
+                   "inStock": true,
+                   "incubationdate_dt": "2006-01-17T00:00:00Z",
+                   "_version_": 1486960636996878300
+                 },
+                 {
+                   "id": "3007WFP",
+                   "name": "Dell Widescreen UltraSharp 3007WFP",
+                   "manu": "Dell, Inc.",
+                   "manu_id_s": "dell",
+                   "cat": [
+                     "electronics and computer1"
+                   ],
+                   "features": [
+                     "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+                   ],
+                   "includes": "USB cable",
+                   "weight": 401.6,
+                   "price": 2199,
+                   "price_c": "2199,USD",
+                   "popularity": 6,
+                   "inStock": true,
+                   "store": "43.17614,-90.57341",
+                   "_version_": 1486960637584081000
+                 }
+               ]
+             }
 
 ### Starting and stopping Solr
 

@@ -70,7 +70,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:
-><p> 
+> <p> 
 > * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 > 
 > 
@@ -164,10 +164,9 @@ Now that you have a complex application running in production in Azure, you will
 
 > [!NOTE]
 > When you have multiple developers working on the new update, each of them can easily create a branch and dedicated dev environment by doing the following:
-><p> 
-><p> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)).
-><p> 2. Clone the fork on their local machine
-><p> 3. Run the same commands to create their own dev branch and environment.
+> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)).
+> 2. Clone the fork on their local machine
+> 3. Run the same commands to create their own dev branch and environment.
 > 
 > 
 
@@ -196,9 +195,8 @@ The template files ProdAndStage.json and Dev.json already specify the source con
 
     > [!NOTE]
     > If you can't read the image above: 
-    ><p> 
-    ><p> * In line 18, change `check-list` to `list-group`.
-    ><p> * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
+    > * In line 18, change `check-list` to `list-group`.
+    > * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
     > 
     > 
 3. Save the change. Back in Git Shell, run the following commands:

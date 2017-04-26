@@ -54,11 +54,10 @@ When using an SSH tunnel for web traffic, you must have the following:
 
     > [!WARNING]
     > The SOCKS proxy support built into Windows does not support SOCKS5, and will not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
-    > <p> 
-    > <p> * Microsoft Edge
-    > <p> * Microsoft Internet Explorer
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
     > <p>
-    > <p> Google Chrome also relies on the Windows proxy settings. However, you can install extensions that support SOCKS5. We recommend [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
+    > Google Chrome also relies on the Windows proxy settings. However, you can install extensions that support SOCKS5. We recommend [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
 ## <a name="usessh"></a>Create a tunnel using the SSH command
 

@@ -191,7 +191,7 @@ info:    vm image list command OK
 
 Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
-## <a name="powershell"></a> PowerShell
+## PowerShell
 > [!NOTE]
 > Install and configure the [latest Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
 > 

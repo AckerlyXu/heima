@@ -475,9 +475,9 @@ The complete landscape with two high-availability SAP systems would look like th
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
-> <p> - The SAP ASCS/SCS instances must share the same WSFC cluster.
-> <p> - Each DBMS SID must have its own dedicated WSFC cluster.
-> <p> - SAP application servers that belong to one SAP system SID must have their own dedicated VMs.
+> - The SAP ASCS/SCS instances must share the same WSFC cluster.
+> - Each DBMS SID must have its own dedicated WSFC cluster.
+> - SAP application servers that belong to one SAP system SID must have their own dedicated VMs.
 
 ## Prepare the infrastructure
 To prepare your infrastructure, you can install an additional SAP ASCS/SCS instance with the following parameters:

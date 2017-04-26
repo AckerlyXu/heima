@@ -510,9 +510,8 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 
 > [!IMPORTANT]
 > If your project was created with an earlier version of SCP.NET that did not use NuGet, you must perform the following steps to update to a newer version:
-> <p>
-> <p> 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
-> <p> 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
+> 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
+> 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
 
 ## Troubleshooting
 

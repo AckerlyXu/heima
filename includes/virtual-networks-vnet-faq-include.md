@@ -44,7 +44,7 @@ Yes. For more information about public IP address ranges, see [Public IP address
 ### Is there a limit to the number of subnets in my virtual network?
 There is no limit on the number of subnets you use within a VNet. All the subnets must be fully contained in the virtual network address space and should not overlap with one another.
 
-### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a> Are there any restrictions on using IP addresses within these subnets?
+### Are there any restrictions on using IP addresses within these subnets?
 Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services.
 
 ### How small and how large can VNets and subnets be?

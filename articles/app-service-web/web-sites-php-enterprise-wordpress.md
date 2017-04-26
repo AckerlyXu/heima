@@ -98,14 +98,14 @@ There are two methods to migrate an existing WordPress site to Azure App Service
 * **Manual migration**: [Back up your site][wordpressbackup] and [database][wordpressdbbackup], and then manually restore it to a web app in Azure App Service and associated MySQL database. This method is useful to migrate highly customized sites because it avoids the tedium of manually installing plugins, themes, and other customizations.
 
 ## Step-by-step instructions
-### <a name="Create-a-new-WordPress-site"></a> Create a WordPress site
+### Create a WordPress site
 Follow the steps in [Create a PHP-MySQL web app in Azure and deploy using Git](web-sites-php-mysql-deploy-use-git.md), to create a new PHP web app.
 
 Configure your PHP web app into a WordPress site locally, and push it to Azure.
 
 If you are migrating an existing WordPress site, see [Migrate an existing WordPress site to Azure](#Migrate-an-existing-WordPress-site-to-Azure) after you create a new web app.
 
-### <a name="Migrate-an-existing-WordPress-site-to-Azure"></a> Migrate an existing WordPress site to Azure
+### Migrate an existing WordPress site to Azure
 As mentioned in the [Architecture and planning](#planning) section, there are two ways to migrate a WordPress site:
 
 * **Use export and import** for sites that don't have much customization or where you just want to move the content.

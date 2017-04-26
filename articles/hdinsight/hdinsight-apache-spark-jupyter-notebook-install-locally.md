@@ -130,7 +130,7 @@ In this section you configure the Spark magic that you installed earlier to conn
     >[!TIP]
     >If you want to update the notebook configuration to connect to a different cluster, update the config.json with the new set of values, as shown in Step 3 above.
 
-## <a name="why-should-i-install-jupyter-on-my-computer"></a> Why should I install Jupyter on my computer?
+## Why should I install Jupyter on my computer?
 There can be a number of reasons why you might want to install Jupyter on your computer and then connect it to a Spark cluster on HDInsight.
 
 * Even though Jupyter notebooks are already available on the Spark cluster in Azure HDInsight, installing Jupyter on your computer provides you the option to create your notebooks locally, test your application against a running cluster, and then upload the notebooks to the cluster. To upload the notebooks to the cluster, you can either upload them using the Jupyter notebook that is running or the cluster, or save them to the /HdiNotebooks folder in the storage account associated with the cluster. For more information on how notebooks are stored on the cluster, see [Where are Jupyter notebooks stored](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?

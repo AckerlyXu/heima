@@ -144,7 +144,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 > [!NOTE]
 > If Hive and HBase are on different clusters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
-><p>
+> <p>
 >`hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn --hiveconf zookeeper.znode.parent=/hbase-unsecure`  
 >
 >

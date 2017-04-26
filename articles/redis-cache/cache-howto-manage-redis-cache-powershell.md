@@ -269,13 +269,12 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 
 > [!NOTE]
 > Scaling a cache using PowerShell is subject to the same limits and guidelines as scaling a cache from the Azure portal preview. You can scale to a different pricing tier with the following restrictions.
-> <p> 
 > * You can't scale from a higher pricing tier to a lower pricing tier.
-> <p> * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
-> <p> * You can't scale from a **Standard** cache down to a **Basic** cache.
-> <p> * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
-> <p> * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
-> <p> * You can't scale from a larger size down to the **C0 (250 MB)** size.
+> * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+> * You can't scale from a **Standard** cache down to a **Basic** cache.
+> * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+> * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+> * You can't scale from a larger size down to the **C0 (250 MB)** size.
 > <p> 
 > For more information, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 > 

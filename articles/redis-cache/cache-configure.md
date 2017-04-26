@@ -152,7 +152,7 @@ Each pricing tier has different limits for client connections, memory, and bandw
 
 To upgrade your cache, click **Upgrade now** to change the [pricing tier](#pricing-tier) and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
-## <a name="scale-settings"></a> Scale settings
+## Scale settings
 The settings in the **Scale** section allow you to access and configure the following settings for your cache.
 
 ![Network](./media/cache-configure/redis-cache-scale.png)
@@ -314,9 +314,9 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 > [!NOTE]
 > The settings in this section cannot be changed using the `StackExchange.Redis.IServer.ConfigSet` method. If this method is called with one of the commands in this section, an exception similar to the following is thrown:  
-><p> 
+> <p> 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
-><p> 
+> <p> 
 > Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure portal preview or command-line management tools such as Azure CLI or PowerShell.
 > 
 > 
@@ -376,16 +376,15 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 ## Redis commands not supported in Azure Redis Cache
 > [!IMPORTANT]
 > Because configuration and management of Azure Redis Cache instances is managed by Microsoft, the following commands are disabled. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
-><p> 
-><p> * BGREWRITEAOF
-><p> * BGSAVE
-><p> * CONFIG
-><p> * DEBUG
-><p> * MIGRATE
-><p> * SAVE
-><p> * SHUTDOWN
-><p> * SLAVEOF
-><p> * CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
+> * BGREWRITEAOF
+> * BGSAVE
+> * CONFIG
+> * DEBUG
+> * MIGRATE
+> * SAVE
+> * SHUTDOWN
+> * SLAVEOF
+> * CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
 > 
 > 
 
@@ -396,10 +395,9 @@ You can securely issue commands to your Azure Redis Cache instances using the **
 
 > [!IMPORTANT]
 > The Redis Console does not work with VNET, clustering, and databases other than 0. 
-><p> 
-><p> * [VNET](cache-how-to-premium-vnet.md) - When your cache is part of a VNET, only clients in the VNET can access the cache. Because the Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
-><p> * [Clustering](cache-how-to-premium-clustering.md) - The Redis Console uses the redis-cli.exe client, which does not currently support clustering. The redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
-><p> * The Redis Console makes a new connection to database 0 each time you submit a command. You can't use the `SELECT` command to select a different database, because the database is reset to 0 with each command. For information on running Redis commands, including changing to a different database, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+> * [VNET](cache-how-to-premium-vnet.md) - When your cache is part of a VNET, only clients in the VNET can access the cache. Because the Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
+> * [Clustering](cache-how-to-premium-clustering.md) - The Redis Console uses the redis-cli.exe client, which does not currently support clustering. The redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+> * The Redis Console makes a new connection to database 0 each time you submit a command. You can't use the `SELECT` command to select a different database, because the database is reset to 0 with each command. For information on running Redis commands, including changing to a different database, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
 > 
 > 
 

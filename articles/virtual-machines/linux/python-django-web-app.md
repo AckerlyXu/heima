@@ -56,21 +56,21 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 1. Launch a new **Terminal** window.
 2. Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure Classic Management Portal.
 
-       $ ssh yourusername@yourVmUrl
+        $ ssh yourusername@yourVmUrl
 3. Enter the following commands to install django:
 
-       $ sudo apt-get install python-setuptools python-pip
-       $ sudo pip install django
+        $ sudo apt-get install python-setuptools python-pip
+        $ sudo pip install django
 4. Enter the following command to install Apache with mod-wsgi:
 
-       $ sudo apt-get install apache2 libapache2-mod-wsgi
+        $ sudo apt-get install apache2 libapache2-mod-wsgi
 
 ## Creating a new Django application
 1. Open the **Terminal** window you used in the previous section to ssh into your VM.
 2. Enter the following commands to create a new Django project:
 
-       $ cd /var/www
-       $ sudo django-admin.py startproject helloworld
+        $ cd /var/www
+        $ sudo django-admin.py startproject helloworld
 
     The **django-admin.py** script generates a basic structure for Django-based websites:
 
@@ -100,10 +100,10 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
         WSGIPythonPath /var/www/helloworld
 2. Enable the site with the following command:
 
-       $ sudo a2ensite helloworld
+        $ sudo a2ensite helloworld
 3. Restart Apache with the following command:
 
-       $ sudo service apache2 reload
+        $ sudo service apache2 reload
 4. Finally, load the web page in your browser:
 
     ![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)

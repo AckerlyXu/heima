@@ -1,4 +1,4 @@
-### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a> Open TCP ports in the Windows firewall for the default instance of the Database Engine
+### Open TCP ports in the Windows firewall for the default instance of the Database Engine
 1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 2. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER.
 
@@ -27,7 +27,7 @@
 
 Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
 
-### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a> Configure SQL Server to listen on the TCP protocol
+### Configure SQL Server to listen on the TCP protocol
 1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
 
     ![Open SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
@@ -42,7 +42,7 @@ Open additional ports for other components as needed. For more information, see 
 
 For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
 
-### <a name="configure-sql-server-for-mixed-mode-authentication"></a> Configure SQL Server for mixed mode authentication
+### Configure SQL Server for mixed mode authentication
 The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
 
 > [!NOTE]
@@ -68,7 +68,7 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
     ![Restart](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
 
-### <a name="create-sql-server-authentication-logins"></a> Create SQL Server authentication logins
+### Create SQL Server authentication logins
 To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.
 
 1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new login.

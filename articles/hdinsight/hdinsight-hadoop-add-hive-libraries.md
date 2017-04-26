@@ -31,9 +31,8 @@ During cluster creation, the script enumerates the files, copies them to the `/u
 
 > [!NOTE]
 > Using the script actions in this article makes the libraries available in the following scenarios:
-><p>
-><p> * **Linux-based HDInsight** - when using the a Hive client, **WebHCat**, and **HiveServer2**.
-><p> * **Windows-based HDInsight** - when using the Hive client and **WebHCat**.
+> * **Linux-based HDInsight** - when using the a Hive client, **WebHCat**, and **HiveServer2**.
+> * **Windows-based HDInsight** - when using the Hive client and **WebHCat**.
 
 ## The script
 
@@ -60,14 +59,14 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
     > [!NOTE]
     > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
-    ><p>
+    > <p>
     > If you have not created a storage account, you can do so through the [Azure portal preview](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
 
 ## Create a cluster using the script
 
 > [!NOTE]
 > The following steps create a Linux-based HDInsight cluster. To create a Windows-based cluster, select **Windows** as the cluster OS when creating the cluster, and use the Windows (PowerShell) script instead of the bash script.
-><p>
+> <p>
 > You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.

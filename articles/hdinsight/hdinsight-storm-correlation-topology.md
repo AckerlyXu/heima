@@ -74,10 +74,9 @@ When a session starts, a **START** event is received by the topology and logged 
 
 > [!IMPORTANT]
 > While this topology demonstrates the basic pattern, a production solution would need to take design for the following scenarios:
-> <p>
-> <p> * Events arriving out of order
-> <p> * Duplicate events
-> <p> * Dropped events
+> * Events arriving out of order
+> * Duplicate events
+> * Dropped events
 
 The sample topology is composed of the following components:
 
@@ -184,9 +183,8 @@ This download contains the following C# projects:
 
     > [!NOTE]
     > If the **Storm Topology View** does not open automatically, use the following steps to open it:
-    > <p>
-    > <p> 1. In **Solution Explorer**, expand **Azure**, and then expand **HDInsight**.
-    > <p> 2. Right-click the Storm cluster that the topology is running on, and then select **View Storm Topologies**
+    > 1. In **Solution Explorer**, expand **Azure**, and then expand **HDInsight**.
+    > 2. Right-click the Storm cluster that the topology is running on, and then select **View Storm Topologies**
 
 ## Query the data
 

@@ -42,7 +42,7 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 > [!WARNING]
 > The job in this section works by using Azure PowerShell. Many of the classes provided with Mahout do not currently work with Azure PowerShell. For a list of classes that do not work with Azure PowerShell, see the [Troubleshooting](#troubleshooting) section.
 > <p>
-> <p> For an example of using SSH to connect to HDInsight and run Mahout examples directly on the cluster, see [Generate movie recommendations using Mahout and HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
+> For an example of using SSH to connect to HDInsight and run Mahout examples directly on the cluster, see [Generate movie recommendations using Mahout and HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
 
 One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the users preference for the item). Mahout uses the data to determine users with like-item preferences, which can be used to make recommendations.
 

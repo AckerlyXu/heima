@@ -143,7 +143,6 @@ Use Ctrl+c to stop the topology.
 
 > [!NOTE]
 > Once started, a Storm topology runs until stopped. To stop the topology, use one of the following methods:
-> <p>
 > * The `storm kill TOPOLOGYNAME` command from the command-line
 > * The **Kill** button in the Storm UI.
 

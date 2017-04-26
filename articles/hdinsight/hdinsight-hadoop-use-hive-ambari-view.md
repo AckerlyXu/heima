@@ -87,8 +87,8 @@ Use the following steps from the Hive view to execute a Hive query.
 
     * **SELECT** - Selects a count of all rows where column t4 contains the value [ERROR].
 
-        > [!NOTE]
-        > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or by another MapReduce operation. Dropping an external table does *not* delete the data, only the table definition.
+    > [!NOTE]
+    > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or by another MapReduce operation. Dropping an external table does *not* delete the data, only the table definition.
 
 2. To start the query, use the **Execute** button at the bottom of the Query Editor. It turns orange and the text changes to **Stop execution**. A **Query Process Results** section should appear beneath the Query Editor and display information about the job.
 
@@ -114,13 +114,13 @@ Use the following steps from the Hive view to execute a Hive query.
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
 
-These statements perform the following actions:
+    These statements perform the following actions:
 
-* **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, an internal table is created. An internal table is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table deletes the underlying data as well.
+    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, an internal table is created. An internal table is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table deletes the underlying data as well.
 
-* **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
 
-* **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
+    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
 
     Use the **Execute** button to run this query. The **Results** tab does not contain any information when the query returns zero rows. The status should show as **SUCCEEDED** once the query completes.
 

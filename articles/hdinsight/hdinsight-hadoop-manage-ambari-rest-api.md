@@ -78,10 +78,9 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 
 > [!IMPORTANT]
 > The Bash examples in this document make the following assumptions:
-> <p>
-> <p> * The login name for the cluster is the default value of `admin`.
-> <p> * `$PASSWORD` contains the password for the HDInsight login command. You can set this value by using `PASSWORD='mypassword'`.
-> <p> * `$CLUSTERNAME` contains the name of the cluster. You can set this value by using `set CLUSTERNAME='clustername'`
+> * The login name for the cluster is the default value of `admin`.
+> * `$PASSWORD` contains the password for the HDInsight login command. You can set this value by using `PASSWORD='mypassword'`.
+> * `$CLUSTERNAME` contains the name of the cluster. You can set this value by using `set CLUSTERNAME='clustername'`
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName" `
@@ -91,9 +90,8 @@ $resp.Content
 
 > [!IMPORTANT]
 > The PowerShell examples in this document make the following assumptions:
-> <p>
-> <p> * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
-> <p> * `$clusterName` is a string that contains the name of the cluster. You can set this value by using `$clusterName="clustername"`.
+> * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
+> * `$clusterName` is a string that contains the name of the cluster. You can set this value by using `$clusterName="clustername"`.
 
 Both examples return a JSON document that begins with information similar to the following example:
 
