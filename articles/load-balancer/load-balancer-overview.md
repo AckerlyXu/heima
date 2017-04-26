@@ -24,8 +24,8 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 Azure Load Balancer can be configured to:
 
-* Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](./load-balancer-internet-overview.md).
-* Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](./load-balancer-internal-overview.md).
+* Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](load-balancer-internet-overview.md).
+* Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](load-balancer-internal-overview.md).
 * Forward external traffic to a specific virtual machine.
 
 All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Azure uses non-routable IP addresses for its resources. Azure uses network address translation (NAT) with public IP addresses to communicate to the Internet.
@@ -62,13 +62,13 @@ Figure 2 - Azure Load Balancer in Resource Manager
 
 The load balancer can be managed through Resource Manager-based templates, APIs, and tools. To learn more about Resource Manager, see the [Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-## <a name="load-balancer-features"></a> Load Balancer features
+## Load Balancer features
 
 * Hash-based distribution
 
     Azure Load Balancer uses a hash-based distribution algorithm. By default, it uses a 5-tuple hash composed of source IP, source port, destination IP, destination port, and protocol type to map traffic to available servers. It provides stickiness only *within* a transport session. Packets in the same TCP or UDP session will be directed to the same instance behind the load-balanced endpoint. When the client closes and reopens the connection or starts a new session from the same source IP, the source port changes. This may cause the traffic to go to a different endpoint in a different datacenter.
 
-    For more details, see [Load balancer distribution mode](./load-balancer-distribution-mode.md). The following graphic shows the hash-based distribution:
+    For more details, see [Load balancer distribution mode](load-balancer-distribution-mode.md). The following graphic shows the hash-based distribution:
 
     ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
@@ -96,7 +96,7 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
     + **HTTP custom probe:** This probe overrides the default (guest agent) probe. You can use it to create your own custom logic to determine the health of the role instance. The load balancer will regularly probe your endpoint (every 15 seconds, by default). The instance is considered to be in rotation if it responds with a TCP ACK or HTTP 200 within the timeout period (default of 31 seconds). This is useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is above 90% CPU. For web roles that use w3wp.exe, you also get automatic monitoring of your website, since failures in your website code return a non-200 status to the probe.
     + **TCP custom probe:** This probe relies on successful TCP session establishment to a defined probe port.
 
-    For more information, see the [LoadBalancerProbe schema](https://msdn.microsoft.com/zh-cn/library/azure/jj151530.aspx).
+    For more information, see the [LoadBalancerProbe schema](https://msdn.microsoft.com/library/azure/jj151530.aspx).
 
 * Source NAT
 
@@ -109,17 +109,17 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     For each new outbound connection that a virtual machine initiates, an outbound port is also allocated by the load balancer. The external host sees traffic with a virtual IP (VIP)-allocated port. For scenarios that require a large number of outbound connections, it is recommended to use [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) addresses so that the VMs have a dedicated outbound IP address for SNAT. This reduces the risk of port exhaustion.
 
-    The maximum number of ports that can be used by the VIP or an instance-level public IP (PIP) is 64,000. This is a TCP standard limitation.
+    Please see [outbound connections](load-balancer-outbound-connections.md) article for more details on this topic.
 
 ### Support for multiple load-balanced IP addresses for virtual machines
-You can assign more than one load-balanced public IP address to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. For more information, see [Multiple VIPs per cloud service](./load-balancer-multivip.md).
+You can assign more than one load-balanced public IP address to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. For more information, see [Multiple VIPs per cloud service](load-balancer-multivip.md).
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Next steps
 
-[Internet-facing load balancer overview](./load-balancer-internet-overview.md)
+[Internet-facing load balancer overview](load-balancer-internet-overview.md)
 
-[Internal load balancer overview](./load-balancer-internal-overview.md)
+[Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](./load-balancer-get-started-internet-arm-ps.md)
+[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)

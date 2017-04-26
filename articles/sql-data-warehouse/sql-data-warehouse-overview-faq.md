@@ -35,7 +35,7 @@ First choose by Compliance title, then expand Azure in the Microsoft in-scope cl
 
 Q. Can I connect PowerBI?
 
-A. Yes! Though PowerBI supports direct query with SQL DW, it’s not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
+A. Yes! Though PowerBI supports direct query with SQL DW, it's not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
 
 Q. What are SQL Data Warehouse Capacity Limits?
 
@@ -81,6 +81,7 @@ Q. Does SQL Data Warehouse support REST APIs?
 A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Data Warehouse. You can find API information within REST documentation pages or
 [MSDN].
 
+
 ## Loading
 
 Q. What client drivers do you support?
@@ -112,12 +113,12 @@ For more information on SQL Data Warehouse as a whole, see our [Overview] page.
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Security]: ./sql-data-warehouse-overview-manage-security.md
-[Microsoft Compliance]: https://www.microsoft.com/trustcenter/compliance/complianceofferings
+[Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [data types]: ./sql-data-warehouse-tables-data-types.md
 [Unsupported Table Features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
-[MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
+[MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
 [Overview]: ./sql-data-warehouse-overview-faq.md

@@ -20,16 +20,16 @@ ms.author: kumud
 
 # <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
 > [!div class="op_single_selector"]
->- [Portal](./load-balancer-get-started-internet-portal.md)
->- [PowerShell](./load-balancer-get-started-internet-arm-ps.md)
->- [Azure CLI](./load-balancer-get-started-internet-arm-cli.md)
->- [Template](./load-balancer-get-started-internet-arm-template.md)
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [learn how to create an Internet-facing load balancer by using the classic deployment model](./load-balancer-get-started-internet-classic-cli.md).
+This article covers the Resource Manager deployment model. You can also [learn how to create an Internet-facing load balancer by using the classic deployment model](load-balancer-get-started-internet-classic-cli.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -45,7 +45,7 @@ You must create and configure the following objects to deploy a load balancer:
 * Inbound NAT rules: contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes: contains health probes used to check availability of virtual machine instances in the back-end address pool.
 
-For more information, see [Azure Resource Manager support for Load Balancer](./load-balancer-arm.md).
+For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
 ## Set up PowerShell to use Resource Manager
 
@@ -57,7 +57,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
     Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     ```
 
-Enter your credentials when prompted.
+    Enter your credentials when prompted.
 
 2. Check the subscriptions for the account.
 
@@ -92,9 +92,9 @@ Enter your credentials when prompted.
     $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'China North' -AllocationMethod Static -DomainNameLabel loadbalancernrp
     ```
 
-> [!IMPORTANT]
-    > The load balancer uses the domain label of the public IP as a prefix for its FQDN. This is different from the classic deployment model, which uses the cloud service as the load balancer FQDN.
-    > In this example, the FQDN is **loadbalancernrp.chinanorth.chinacloudapp.cn**.
+   > [!IMPORTANT]
+   > The load balancer uses the domain label of the public IP as a prefix for its FQDN. This is different from the classic deployment model, which uses the cloud service as the load balancer FQDN.
+   > In this example, the FQDN is **loadbalancernrp.chinanorth.chinacloudapp.cn**.
 
 ## Create a front-end IP pool and a back-end address pool
 
@@ -138,11 +138,11 @@ Use these steps:
     $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-TCP probe
+    TCP probe
 
-```powershell
+    ```powershell
     $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-```
+    ```
 
 3. Create a load balancer rule.
 
@@ -181,60 +181,56 @@ Create network interfaces (or modify existing ones) and then associate them to N
 
 4. Check the NICs.
 
-    ```powershell
-    $backendnic1
-    ```
+        $backendnic1
 
     Expected output:
 
-    ```
-    Name                 : lb-nic1-be
-    ResourceGroupName    : NRP-RG
-    Location             : chinanorth
-    Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-    Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
-    ResourceGuid         : 896cac4f-152a-40b9-b079-3e2201a5906e
-    ProvisioningState    : Succeeded
-    Tags                 :
-    VirtualMachine       : null
-    IpConfigurations     : [
-                        {
-                        "Name": "ipconfig1",
-                        "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                        "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1",
-                        "PrivateIpAddress": "10.0.2.6",
-                        "PrivateIpAllocationMethod": "Static",
-                        "Subnet": {
-                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
-                        },
-                        "ProvisioningState": "Succeeded",
-                        "PrivateIpAddressVersion": "IPv4",
-                        "PublicIpAddress": {
-                            "Id": null
-                        },
-                        "LoadBalancerBackendAddressPools": [
+        Name                 : lb-nic1-be
+        ResourceGroupName    : NRP-RG
+        Location             : chinanorth
+        Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+        Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
+        ResourceGuid         : 896cac4f-152a-40b9-b079-3e2201a5906e
+        ProvisioningState    : Succeeded
+        Tags                 :
+        VirtualMachine       : null
+        IpConfigurations     : [
                             {
-                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
+                            "Name": "ipconfig1",
+                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
+                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1",
+                            "PrivateIpAddress": "10.0.2.6",
+                            "PrivateIpAllocationMethod": "Static",
+                            "Subnet": {
+                                "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                            },
+                            "ProvisioningState": "Succeeded",
+                            "PrivateIpAddressVersion": "IPv4",
+                            "PublicIpAddress": {
+                                "Id": null
+                            },
+                            "LoadBalancerBackendAddressPools": [
+                                {
+                                "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
+                                }
+                            ],
+                            "LoadBalancerInboundNatRules": [
+                                {
+                                "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                                }
+                            ],
+                            "Primary": true,
+                            "ApplicationGatewayBackendAddressPools": []
                             }
-                        ],
-                        "LoadBalancerInboundNatRules": [
-                            {
-                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
-                            }
-                        ],
-                        "Primary": true,
-                        "ApplicationGatewayBackendAddressPools": []
+                        ]
+        DnsSettings          : {
+                            "DnsServers": [],
+                            "AppliedDnsServers": [],
+                            "InternalDomainNameSuffix": "prcwibzcuvie5hnxav0yjks2cd.dx.internal.chinacloudapp.cn"
                         }
-                    ]
-    DnsSettings          : {
-                        "DnsServers": [],
-                        "AppliedDnsServers": [],
-                        "InternalDomainNameSuffix": "prcwibzcuvie5hnxav0yjks2cd.dx.internal.chinacloudapp.cn"
-                    }
-    EnableIPForwarding   : False
-    NetworkSecurityGroup : null
-    Primary              :
-    ```
+        EnableIPForwarding   : False
+        NetworkSecurityGroup : null
+        Primary              :
 
 5. Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
 
@@ -255,7 +251,7 @@ For guidance on creating a virtual machine and assigning a NIC, see [Create an A
 2. Load the back-end configuration to a variable.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Load the already created network interface into a variable. The variable name is **$nic**. The network interface name is the same one from the earlier example.
@@ -276,14 +272,14 @@ For guidance on creating a virtual machine and assigning a NIC, see [Create an A
     Set-AzureRmNetworkInterface -NetworkInterface $nic
     ```
 
-After a network interface is added to the load balancer back-end pool, it starts receiving network traffic based on the load-balancing rules for that load balancer resource.
+    After a network interface is added to the load balancer back-end pool, it starts receiving network traffic based on the load-balancing rules for that load balancer resource.
 
 ## Update an existing load balancer
 
 1. By using the load balancer from the earlier example, assign a load balancer object to the variable **$slb** by using `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. In the following example, you add an inbound NAT rule--by using port 81 in the front-end pool and port 8181 for the back-end pool--to an existing load balancer.
@@ -303,7 +299,7 @@ After a network interface is added to the load balancer back-end pool, it starts
 Use the command `Remove-AzureLoadBalancer` to delete a previously created load balancer named **NRP-LB** in a resource group called **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -311,8 +307,8 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ## Next steps
 
-[Get started configuring an internal load balancer](./load-balancer-get-started-ilb-arm-ps.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a load balancer distribution mode](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
