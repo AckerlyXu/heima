@@ -22,7 +22,7 @@
   "notification_subscribers": [
     "v-johch@microsoft.com"
   ],
-  "branches_to_filter": [],
+  "branches_to_filter": ["live"],
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "dependent_repositories": [
