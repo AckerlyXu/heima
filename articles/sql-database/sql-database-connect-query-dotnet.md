@@ -14,8 +14,8 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/16/2017
-ms.author: sstein
+ms.date: 04/05/2017
+ms.author: andrela;sstein;carlrab
 
 ---
 # Azure SQL Database: Use .NET (C#) to connect and query data

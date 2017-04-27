@@ -9,10 +9,9 @@ editor: ''
 
 ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: move data
 ms.devlang: NA
-ms.date: 02/07/2017
-wacn.date: ''
+ms.date: 04/05/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article

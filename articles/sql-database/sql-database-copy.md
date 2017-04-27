@@ -10,8 +10,8 @@ editor: ''
 ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
 ms.devlang: NA
-ms.date: 10/24/2016
-ms.author: sstein; sashan
+ms.date: 04/05/2017
+ms.author: sashan;carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA

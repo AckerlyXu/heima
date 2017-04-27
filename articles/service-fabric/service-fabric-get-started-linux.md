@@ -13,9 +13,9 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-wacn.date: ''
-ms.author: seanmck
+ms.date: 03/23/2017
+ms.author: subramar
+
 ---
 
 # Prepare your development environment on Linux

@@ -206,7 +206,7 @@ Name  : SourceVault
 Value : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
 
 Name  : CertificateURL
-Value : https://mychinaeastvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+Value : https://mychinaeastvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 
 ```
 

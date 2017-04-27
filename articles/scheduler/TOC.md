@@ -1,31 +1,31 @@
 
 
 # Overview
-## [What is Scheduler?](/documentation/articles/scheduler-intro/)
+## [What is Scheduler?](scheduler-intro.md)
 
 # Get started
-## [Create and manage jobs](/documentation/articles/scheduler-get-started-portal/)
-## [Concepts and terminology](/documentation/articles/scheduler-concepts-terms/)
+## [Create and manage jobs](scheduler-get-started-portal.md)
+## [Concepts and terminology](scheduler-concepts-terms.md)
 
 # How to
 ## Plan and design
-### [Plans and billing](/documentation/articles/scheduler-plans-billing/)
-### [Quotas and limits](/documentation/articles/scheduler-limits-defaults-errors/)
-### [High-availability and reliability](/documentation/articles/scheduler-high-availability-reliability/)
+### [Plans and billing](scheduler-plans-billing.md)
+### [Quotas and limits](scheduler-limits-defaults-errors.md)
+### [High-availability and reliability](scheduler-high-availability-reliability.md)
 
 ## Develop
-### [Complex schedules using REST API](/documentation/articles/scheduler-advanced-complexity/)
+### [Complex schedules using REST API](scheduler-advanced-complexity.md)
 
 
 ## Secure
-### [Outbound authentication](/documentation/articles/scheduler-outbound-authentication/)
+### [Outbound authentication](scheduler-outbound-authentication.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [REST](https://docs.microsoft.com/rest/api/scheduler)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [REST](/rest/api/scheduler)
 
 # Resources
-## [Pricing](/pricing/details/scheduler/)
+## [Pricing](https://www.azure.cn/pricing/details/scheduler/)
 
 
 

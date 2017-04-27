@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/12/2016
-wacn.date: ''
-ms.author: dkshir;chackdan
+ms.date: 03/24/2017
+ms.author: ryanwi;chackdan
+
 ---
 
 # Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server

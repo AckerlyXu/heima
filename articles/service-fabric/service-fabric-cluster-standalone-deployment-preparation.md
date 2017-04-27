@@ -12,9 +12,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2016
-wacn.date: ''
-ms.author: dkshir;chackdan;maburlik
+ms.date: 1/17/2017
+ms.author: maburlik;chackdan
+
 ---
 
 <a id="preparemachines"></a>

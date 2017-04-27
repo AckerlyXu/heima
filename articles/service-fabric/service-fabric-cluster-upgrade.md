@@ -24,10 +24,10 @@ ms.author: chackdan
 > 
 > 
 
-For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
+For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Azure. This article describes what is managed automatically and what you can configure yourself.
 
 ## Controlling the fabric version that runs on your Cluster
-You can set your cluster to receive automatic fabric upgrades, when Microsoft releases a new version or choose to select a supported fabric version you want your cluster to be on.
+You can set your cluster to receive automatic fabric upgrades, when Azure releases a new version or choose to select a supported fabric version you want your cluster to be on.
 
 You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
 
@@ -117,7 +117,7 @@ Output:
 ```
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
-Microsoft maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
+We maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
 
 ### Phase 1: An upgrade is performed by using all cluster health policies
 During this phase, the upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.

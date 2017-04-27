@@ -15,8 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 02/01/2017
-wacn.date: ''
+ms.date: 04/13/2017
 ms.author: carlrab
 ---
 

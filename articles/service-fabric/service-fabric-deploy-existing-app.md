@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/17/2016
-wacn.date: ''
-ms.author: msfussell;mikhegn
+ms.date: 04/07/2016
+ms.author: mfussell;mikhegn
+
 ---
 
 # Deploy a guest executable to Service Fabric

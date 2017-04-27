@@ -13,9 +13,9 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
-wacn.date: ''
-ms.author: seanmck
+ms.date: 04/06/2017
+ms.author: saysa
+
 ---
 
 # Set up your development environment on Mac OS X

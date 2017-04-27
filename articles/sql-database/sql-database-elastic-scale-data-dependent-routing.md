@@ -8,8 +8,14 @@ authors: torsteng
 editor: ''
 
 ms.service: sql-database
-ms.date: 05/27/2016
-wacn.date: 06/01/2016
+ms.custom: multiple databases
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/27/2017
+ms.author: ddove
+
 ---
 
 #Data dependent routing
