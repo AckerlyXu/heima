@@ -154,12 +154,12 @@ For detailed pricing information, see [Event Hubs Pricing](https://www.azure.cn/
 
 ## Next steps
 
-* Get started with an [Event Hubs tutorial][Event Hubs tutorial]
+<!-- * Get started with an [Event Hubs tutorial][Event Hubs tutorial]-->
 * [Event Hubs programming guide](./event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](./event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](./event-hubs-faq.md)
 * [Sample applications that use Event Hubs]
 
-[Event Hubs tutorial]: /documentation/articles/event-hubs-csharp-ephcs-getstarted/
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Azure portal]: https://portal.azure.cn
