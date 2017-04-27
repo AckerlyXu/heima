@@ -1,5 +1,5 @@
 ---
-title: NoSQL tutorial: DocumentDB .NET Core SDK | Azure
+title: 'NoSQL tutorial: DocumentDB .NET Core SDK | Azure'
 description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET Core SDK. DocumentDB is a NoSQL database for JSON.
 services: documentdb
 documentationcenter: .net
