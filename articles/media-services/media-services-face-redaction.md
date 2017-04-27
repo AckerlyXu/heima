@@ -13,14 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
-wacn.date: ''
+ms.date: 04/16/2017
 ms.author: juliako;
----
 
+---
 # Redact faces with Azure Media Analytics
 ## Overview
-**Azure Media Redactor** is an [Azure Media Analytics](./media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For  more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For  more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 This topic gives details about **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
@@ -34,109 +33,104 @@ In addition to a fully automatic mode, there is a two-pass workflow which allows
 ### Combined mode
 This will produce a redacted mp4 automatically without any manual input.
 
-Stage|File Name|Notes
----|---|---
-Input asset|foo.bar|Video in WMV, MOV, or MP4 format
-Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'combined'}}
-Output asset|foo_redacted.mp4|Video with blurring applied
+| Stage | File Name | Notes |
+| --- | --- | --- |
+| Input asset |foo.bar |Video in WMV, MOV, or MP4 format |
+| Input config |Job configuration preset |{'version':'1.0', 'options': {'mode':'combined'}} |
+| Output asset |foo_redacted.mp4 |Video with blurring applied |
 
-####Input example:
-
+#### Input example:
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
-####Output example:
-
+#### Output example:
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
-###Analyze mode
-
+### Analyze mode
 The **analyze** pass of the two-pass workflow takes a video input and produces a JSON file of face locations, and jpg images of each detected face.
 
-Stage|File Name|Notes
----|---|----
-Input asset|foo.bar|Video in WMV, MPV, or MP4 format
-Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'analyze'}}
-Output asset|foo_annotations.json|Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below.
-Output asset|foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg]|A cropped jpg of each detected face, where the number indicates the labelId of the face
+| Stage | File Name | Notes |
+| --- | --- | --- |
+| Input asset |foo.bar |Video in WMV, MPV, or MP4 format |
+| Input config |Job configuration preset |{'version':'1.0', 'options': {'mode':'analyze'}} |
+| Output asset |foo_annotations.json |Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
+| Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
-####Output Example:
-
-```
-{
-  "version": 1,
-  "timescale": 50,
-  "offset": 0,
-  "framerate": 25.0,
-  "width": 1280,
-  "height": 720,
-  "fragments": [
+#### Output Example:
     {
-      "start": 0,
-      "duration": 2,
-      "interval": 2,
-      "events": [
-        [  
-          {
-            "id": 1,
-            "x": 0.306415737,
-            "y": 0.03199235,
-            "width": 0.15357475,
-            "height": 0.322126418
-          },
-          {
-            "id": 2,
-            "x": 0.5625317,
-            "y": 0.0868245438,
-            "width": 0.149155334,
-            "height": 0.355517566
-          }
-        ]
-      ]
-    },
-```
+      "version": 1,
+      "timescale": 50,
+      "offset": 0,
+      "framerate": 25.0,
+      "width": 1280,
+      "height": 720,
+      "fragments": [
+        {
+          "start": 0,
+          "duration": 2,
+          "interval": 2,
+          "events": [
+            [  
+              {
+                "id": 1,
+                "x": 0.306415737,
+                "y": 0.03199235,
+                "width": 0.15357475,
+                "height": 0.322126418
+              },
+              {
+                "id": 2,
+                "x": 0.5625317,
+                "y": 0.0868245438,
+                "width": 0.149155334,
+                "height": 0.355517566
+              }
+            ]
+          ]
+        },
 
-… truncated
+    … truncated
 
-###Redact Mode
-
+### Redact Mode
 The second pass of the workflow takes a larger number of inputs that must be combined into a single asset.
 
 This includes a list of IDs to blur, the original video, and the annotations JSON. This mode uses the annotations to apply blurring on the input video.
 
 The output from the Analyze pass does not include the original video. The video needs to be uploaded into the input asset for the Redact mode task and selected as the primary file.
 
-Stage|File Name|Notes
----|---|---
-Input asset|foo.bar|Video in WMV, MPV, or MP4 format. Same video as in step 1.
-Input asset|foo_annotations.json|annotations metadata file from phase one, with optional modifications.
-Input asset|foo_IDList.txt (Optional)|Optional new line separated list of face IDs to redact. If left blank, this blurs all faces.
-Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'redact'}}
-Output asset|foo_redacted.mp4|Video with blurring applied based on annotations
+| Stage | File Name | Notes |
+| --- | --- | --- |
+| Input asset |foo.bar |Video in WMV, MPV, or MP4 format. Same video as in step 1. |
+| Input asset |foo_annotations.json |annotations metadata file from phase one, with optional modifications. |
+| Input asset |foo_IDList.txt (Optional) |Optional new line separated list of face IDs to redact. If left blank, this blurs all faces. |
+| Input config |Job configuration preset |{'version':'1.0', 'options': {'mode':'redact'}} |
+| Output asset |foo_redacted.mp4 |Video with blurring applied based on annotations |
 
-####Example Output
-
+#### Example Output
 This is the output from an IDList with one ID selected.
 
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-##Attribute descriptions
-
+Example foo_IDList.txt
+ 
+     1
+     2
+     3
+ 
+## Attribute descriptions
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
 
 The detected and tracked faces are returned with coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
 
-For detailed explanations for the attributes, see [Detect Face and Emotion with Azure Media Analytics](./media-services-face-and-emotion-detection.md) topic.
+For detailed explanations for the attributes, see [Detect Face and Emotion with Azure Media Analytics](media-services-face-and-emotion-detection.md) topic.
 
 ## Sample code
-
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a face redaction task based on a configuration file that contains the following json preset. 
-
-    ```
-    {'version':'1.0', 'options': {'mode':'combined'}}
-    ```
+   
+        {'version':'1.0', 'options': {'mode':'combined'}}
+	
 3. Download the output JSON files. 
 
     ```
@@ -316,8 +310,8 @@ The following program shows how to:
     }
     ```
 
-##Related links
-
-[Azure Media Services Analytics Overview](./media-services-analytics-overview.md)
+## Related links
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+

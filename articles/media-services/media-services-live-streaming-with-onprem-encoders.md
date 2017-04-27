@@ -13,29 +13,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/23/2017
-wacn.date: ''
+ms.date: 04/12/2017
 ms.author: cenkd;juliako
----
 
+---
 # Live streaming with on-premises encoders that create multi-bitrate streams
 ## Overview
 In Azure Media Services, a *channel* represents a pipeline for processing live-streaming content. A channel receives live input streams in one of two ways:
 
 * An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the channel that is not enabled to perform live encoding with Media Services. The ingested streams pass through channels without any further processing. This method is called *pass-through*. You can use the following live encoders that have multi-bitrate Smooth Streaming as output: Media Excel, Ateme, Imagine Communications, Envivio, Cisco, and Elemental. The following live encoders have RTMP as output: Adobe Flash Media Live Encoder, Telestream Wirecast, Haivision, Teradek, and TriCaster. A live encoder can also send a single-bitrate stream to a channel that is not enabled for live encoding, but we don't recommend that. Media Services delivers the stream to customers who request it.
 
-    >[!NOTE]
-    > Using a pass-through method is the most economical way to do live streaming.
+  > [!NOTE]
+  > Using a pass-through method is the most economical way to do live streaming.
+
 
 * An on-premises live encoder sends a single-bitrate stream to the channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (fragmented MP4). The channel then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream. Media Services delivers the stream to customers who request it.
 
 Starting with the Media Services 2.10 release, when you create a channel, you can specify how you want your channel to receive the input stream. You can also specify whether you want the channel to perform live encoding of your stream. You have two options:
 
-* **None**: Specify this value if you plan to use an on-premises live encoder that will have a multi-bitrate stream (a pass-through stream) as output. In this case, the incoming stream passes through to the output without any encoding. This is the behavior of a channel before the 2.10 release. This topic gives details about working with channels of this type.
-* **Standard**: Choose this value if you plan to use Media Services to encode your single-bitrate live stream to a multi-bitrate stream. Be aware that leaving a live encoding channel in a **Running** state will incur billing charges. We recommend that you immediately stop your running channels after your live-streaming event is complete to avoid extra hourly charges. Media Services delivers the stream to customers who request it.
+* **Pass Through**: Specify this value if you plan to use an on-premises live encoder that will have a multi-bitrate stream (a pass-through stream) as output. In this case, the incoming stream passes through to the output without any encoding. This is the behavior of a channel before the 2.10 release. This topic gives details about working with channels of this type.
+* **Live Encoding**: Choose this value if you plan to use Media Services to encode your single-bitrate live stream to a multi-bitrate stream. Be aware that leaving a live encoding channel in a **Running** state will incur billing charges. We recommend that you immediately stop your running channels after your live-streaming event is complete to avoid extra hourly charges. Media Services delivers the stream to customers who request it.
 
->[!NOTE]
->This topic discusses attributes of channels that are not enabled to perform live encoding (**None** encoding type). For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](./media-services-manage-live-encoder-enabled-channels.md).
+> [!NOTE]
+> This topic discusses attributes of channels that are not enabled to perform live encoding. For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+>
+>
 
 The following diagram represents a live-streaming workflow that uses an on-premises live encoder to have multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) streams as output.
 
@@ -47,15 +49,14 @@ The following steps describe tasks involved in creating common live-streaming ap
 1. Connect a video camera to a computer. Start and configure an on-premises live encoder that has a multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) stream as output. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/zh-cn/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
     You can also perform this step after you create your channel.
+2. Create and start a channel.
 
-2. Create and start a Channel.
-3. Retrieve the Channel ingest URL.
+3. Retrieve the channel ingest URL.
 
     The live encoder uses the ingest URL to send the stream to the channel.
-4. Retrieve the Channel preview URL.
+4. Retrieve the channel preview URL.
 
     Use this URL to verify that your channel is properly receiving the live stream.
-
 5. Create a program.
 
     When you use the Azure portal, creating a program also creates an asset.
@@ -63,14 +64,16 @@ The following steps describe tasks involved in creating common live-streaming ap
     When you use the .NET SDK or REST, you need to create an asset and specify to use this asset when creating a program.
 6. Publish the asset that's associated with the program.   
 
-    >[!NOTE]
-    >When your Azure Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state.
+	>[!NOTE]
+	>When your Azure Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 7. Start the program when you're ready to start streaming and archiving.
 
 8. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
+
 9. Stop the program whenever you want to stop streaming and archiving the event.
-10. Delete the Program (and optionally delete the asset).     
+
+10. Delete the program (and optionally delete the asset).     
 
 ## <a id="channel"></a>Description of a channel and its related components
 ### <a id="channel_input"></a>Channel input (ingest) configurations
@@ -80,7 +83,7 @@ Media Services supports ingesting live feeds by using multi-bitrate fragmented M
 * **Primary URL**: Specifies the fully qualified URL of the channel's primary RTMP ingest endpoint.
 * **Secondary URL** (optional): Specifies the fully qualified URL of the channel's secondary RTMP ingest endpoint.
 
-    Use the secondary URL if you want to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance, especially for the following scenarios.
+Use the secondary URL if you want to improve the durability and fault tolerance of your ingest stream (as well as encoder failover and fault tolerance), especially for the following scenarios:
 
 - Single encoder double-pushing to both primary and secondary URLs:
 
@@ -129,10 +132,8 @@ You can define the IP addresses that are allowed to publish video to this channe
 
 If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
-###Channel preview 
-
-####Preview URLs
-
+### Channel preview
+#### Preview URLs
 Channels provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
 You can get the preview URL when you create the channel. For you to get the URL, the channel does not have to be in the **Running** state. After the channel starts ingesting data, you can preview your stream.
@@ -206,15 +207,14 @@ Here are other considerations related to working with channels and related compo
 
 * Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
 * A channel can be stopped only when it's in the **Running** state and all programs on the channel have been stopped.
-* By default, you can add only 5 channels to your Media Services account. For more information, see [Quotas and limitations](./media-services-quotas-and-limitations.md).
-* You are billed only when your channel is in the **Running** state. For more information, refer to the [Channel states and billing](./media-services-live-streaming-with-onprem-encoders.md#states) section.
+* By default, you can add only 5 channels to your Media Services account. For more information, see [Quotas and limitations](media-services-quotas-and-limitations.md).
+* You are billed only when your channel is in the **Running** state. For more information, refer to the [Channel states and billing](media-services-live-streaming-with-onprem-encoders.md#states) section.
 
-##Related topics
+## Related topics
+[Azure Media Services fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 
-[Azure Media Services Fragmented MP4 Live Ingest Specification](./media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services overview and common scenarios](media-services-overview.md)
 
-[Azure Media Services overview and common scenarios](./media-services-overview.md)
-
-[Media Services Concepts](./media-services-concepts.md)
+[Media Services concepts](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png

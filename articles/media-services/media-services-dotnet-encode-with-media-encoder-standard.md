@@ -1,5 +1,5 @@
 ---
-title: Encode an asset with Media Encoder Standard using .NET | Microsoft Docs
+title: Encode an asset with Media Encoder Standard using .NET | Azure
 description: This topic shows how to use .NET to encode an asset using Media Encoder Strandard.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/21/2017
 ms.author: juliako;anilmur
 
 ---
 # Encode an asset with Media Encoder Standard using .NET
 Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. 
 
-This topic shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoder presets described [here](https://msdn.microsoft.com/zh-cn/library/azure/mt269960.aspx).
+This topic shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoder presets described [here](media-services-mes-presets-overview.md).
 
 It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
 
@@ -31,13 +31,11 @@ If your output asset is storage encrypted, you must configure asset delivery pol
 > 
 > 
 
-###MES Formats
+### MES Formats
+[Formats and codecs](media-services-media-encoder-standard-formats.md)
 
-[Formats and codecs](./media-services-media-encoder-standard-formats.md)
-
-###MES Presets
-
-Media Encoder Standard is configured using one of the encoder presets described [here](https://msdn.microsoft.com/zh-cn/library/azure/mt269960.aspx).
+### MES Presets
+Media Encoder Standard is configured using one of the encoder presets described [here](media-services-mes-presets-overview.md).
 
 ### Input and output metadata
 When you encode an input asset (or assets) using MES, you get an output asset at the successful completion of that encode task. The output asset contains video, audio, thumbnails, manifest, etc. based on the encoding preset you use.
@@ -48,8 +46,7 @@ The output asset also contains a file with metadata about the output asset. The 
 
 If you want to examine either of the two metadata files, you can create a SAS locator and download the file to your local computer. You can find an example on how to create a SAS locator and download a file Using the Media Services .NET SDK Extensions.
 
-##Example
-
+## Example
 The following code example uses Media Services .NET SDK to perform the following tasks:
 
 * Create an encoding job.
@@ -60,81 +57,82 @@ The following code example uses Media Services .NET SDK to perform the following
 * Create an output asset that will contain the encoded asset.
 * Add an event handler to check the job progress.
 * Submit the job.
-
-    ```
-    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-    {
-        // Declare a new job.
-        IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-        // Get a media processor reference, and pass to it the name of the 
-        // processor to use for the specific task.
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-        // Create a task with the encoding details, using a string preset.
-        // In this case "Adaptive Streaming" preset is used.
-        ITask task = job.Tasks.AddNew("My encoding task",
-            processor,
-            "Adaptive Streaming",
-            TaskOptions.None);
-
-        // Specify the input asset to be encoded.
-        task.InputAssets.Add(asset);
-        // Add an output asset to contain the results of the job. 
-        // This output is specified as AssetCreationOptions.None, which 
-        // means the output asset is not encrypted. 
-        task.OutputAssets.AddNew("Output asset",
-            AssetCreationOptions.None);
-
-        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-        job.Submit();
-        job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-        return job.OutputMediaAssets[0];
-    }
-
-    private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-    {
-        Console.WriteLine("Job state changed event:");
-        Console.WriteLine("  Previous state: " + e.PreviousState);
-        Console.WriteLine("  Current state: " + e.CurrentState);
-        switch (e.CurrentState)
+  
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
         {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+            // Create a task with the encoding details, using a string preset.
+            // In this case "Adaptive Streaming" preset is used.
+            ITask task = job.Tasks.AddNew("My encoding task",
+                processor,
+                "Adaptive Streaming",
+                TaskOptions.None);
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+            // Add an output asset to contain the results of the job. 
+            // This output is specified as AssetCreationOptions.None, which 
+            // means the output asset is not encrypted. 
+            task.OutputAssets.AddNew("Output asset",
+                AssetCreationOptions.None);
+
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+            job.Submit();
+            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+            return job.OutputMediaAssets[0];
         }
-    }
 
-    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+            switch (e.CurrentState)
+            {
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-        if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-        return processor;
-    }
-    ```
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
+            }
+        }
 
-##See Also 
 
-[How to generate thumbnail using Media Encoder Standard with .NET](./media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services Encoding Overview](./media-services-encode-asset.md)
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+            if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+            return processor;
+        }
+
+
+
+## See Also
+[How to generate thumbnail using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+[Media Services Encoding Overview](media-services-encode-asset.md)
+
