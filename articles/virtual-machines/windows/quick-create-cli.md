@@ -35,7 +35,7 @@ Log in to your Azure subscription with the [az login](https://docs.microsoft.com
 az login
 ```
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Create a resource group
 

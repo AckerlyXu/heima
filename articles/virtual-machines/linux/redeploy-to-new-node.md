@@ -33,7 +33,7 @@ You can redeploy a VM using one of the following options. You only need to choos
 ## Azure CLI 2.0
 Install the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 Redeploy your VM with [az vm redeploy](https://docs.microsoft.com/cli/azure/vm#redeploy). The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
 

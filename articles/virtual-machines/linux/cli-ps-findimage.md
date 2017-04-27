@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 # How to find Linux VM images with the Azure CLI
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. 
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Use Azure CLI 2.0
 

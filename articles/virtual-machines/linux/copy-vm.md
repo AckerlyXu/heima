@@ -36,7 +36,7 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvi
 
 -   Have an Azure VM to use as the source for your copy.
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Step 1: Stop the source VM
 

@@ -39,7 +39,7 @@ In the following examples, replace example parameter names with your own values.
 
 To create this custom environment, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 First, create the resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
 

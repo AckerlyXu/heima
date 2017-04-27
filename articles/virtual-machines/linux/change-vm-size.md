@@ -32,7 +32,7 @@ You can complete the task using one of the following CLI versions:
 
 To resize a VM, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. View the list of available VM sizes on the hardware cluster where the VM is hosted with [az vm list-vm-resize-options](https://docs.microsoft.com/cli/azure/vm#list-vm-resize-options). The following example lists VM sizes for the VM named `myVM` in the resource group `myResourceGroup` region:
 

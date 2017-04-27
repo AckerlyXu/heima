@@ -20,6 +20,6 @@ ms.author: tarcher
 ---
 # Create and manage Linux virtual machines in Visual Studio
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../../../includes/azure-sdk-developer-differences.md)]
 
 [!INCLUDE [virtual-machines-common-classic-manage-visual-studio](../../../../includes/virtual-machines-common-classic-manage-visual-studio.md)]

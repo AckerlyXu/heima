@@ -32,7 +32,7 @@ There are two ways that you can use the VMAccess Extension on your Linux VMs:
 
 The following examples use [az vm access](https://docs.microsoft.com/cli/azure/vm/access) along with the appropriate parameters. To perform these steps, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Reset SSH key
 The following example resets the SSH key for the user `azureuser` on the VM named `myVM`:
