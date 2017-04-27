@@ -34,7 +34,7 @@ The article assumes that you have already created
 
 ### Configuration Server Minimum Requirements
 The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The following table lists out the minimum hardware, software, and network requirements for a configuration server.
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
 > HTTPS-based proxy servers are not supported by the Configuration Server.
