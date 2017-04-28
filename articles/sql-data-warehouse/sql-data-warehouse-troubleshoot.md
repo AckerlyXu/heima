@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
+title: Troubleshooting Azure SQL Data Warehouse | Azure
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -13,9 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/03/2017
+ms.custom: manage
+ms.date: 03/30/2017
+wacn.date: ''
 ms.author: barbkess
-
 ---
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -28,12 +29,13 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | The server principal "MyUserName" is not able to access the database "master" under the current security context. Cannot open user default database. Login failed. Login failed for user 'MyUserName'. (Microsoft SQL Server, Error: 916) |This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
 | CTAIP error |This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][Security overview] article.  This article explains how to create create a login and user on master and then how to create a user in the SQL Data Warehouse database. |
 | Blocked by Firewall |Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][Configure server firewall access for your client IP] in the [Provisioning instructions][Provisioning instructions]. |
-| Cannot connect with tool or driver |SQL Data Warehouse recommends using [SSMS][SSMS], [SSDT for Visual Studio 2015][SSDT for Visual Studio 2015], or [sqlcmd][sqlcmd] to query your data. For more details on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] and [Connect to Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] articles. |
+| Cannot connect with tool or driver |SQL Data Warehouse recommends using [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio], or [sqlcmd][sqlcmd] to query your data. For more details on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] and [Connect to Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] articles. |
 
 ## Tools
 | Issue | Resolution |
 |:--- |:--- |
 | Visual Studio object explorer is missing AAD users |This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
+|Manual scripting, using the scripting wizard, or connecting via SSMS is slow, hung, or producing errors| Please make sure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as "Azure SQL Data Warehouse Edition" and engine type is "Azure SQL Database".|
 
 ## Performance
 | Issue | Resolution |
@@ -51,6 +53,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. |Either reduce the [DWU][DWU] of the database you are trying to create or [request a quota increase][request a quota increase]. |
 | Investigating space utilization |See [Table sizes][Table sizes] to understand the space utilization of your system. |
 | Help with managing tables |See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary]. |
+|Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
 
 ## Polybase
 | Issue | Resolution |
@@ -81,7 +84,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
@@ -116,7 +119,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 <!--MSDN references-->
 [sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: /azure/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: dobett
----
 
+---
 # Send cloud-to-device messages with IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -97,7 +97,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.2.18</version>
     </dependency>
     ```
 
@@ -109,7 +109,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
 6. Add the following **import** statements to the file:
 
     ```
-    import com.microsoft.azure.sdk.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```

@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Automation - Azure CLI 2.0 | Azure
+title: DocumentDB Automation - Azure CLI 2.0 | Microsoft Docs
 description: Use Azure CLI 2.0 to manage DocumentDB database accounts. DocumentDB is a cloud-based NoSQL database for JSON data.
 services: documentdb
 author: dmakwana
@@ -12,21 +12,20 @@ ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/17/2017
-wacn.date: ''
+ms.date: 04/04/2017
 ms.author: dimakwan
----
 
+---
 # Automate Azure DocumentDB account management using Azure CLI 2.0
 > [!div class="op_single_selector"]
->- [Azure portal](./documentdb-create-account.md)
->- [Azure CLI 1.0](./documentdb-automation-resource-manager-cli-nodejs.md)
->- [Azure CLI 2.0](./documentdb-automation-resource-manager-cli.md)
->- [Azure Powershell](./documentdb-manage-account-with-powershell.md)
+> * [Azure portal](documentdb-create-account.md)
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
-The following guide describes commands to automate management of your DocumentDB database accounts using the DocumentDB preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure Powershell](./documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](./documentdb-create-account.md).
+The following guide describes commands to automate management of your DocumentDB database accounts using the DocumentDB preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
 
 ## Getting started
 
@@ -54,7 +53,7 @@ The `<resourcegrouplocation>` must be one of the regions in which DocumentDB is 
 
 ## <a id="create-documentdb-account-cli"></a> Create a DocumentDB database account
 
-This command enables you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](./documentdb-consistency-levels.md). 
+This command enables you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](documentdb-consistency-levels.md). 
 
 ```
 Arguments
@@ -95,6 +94,7 @@ az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=
 
 ### Notes
 - The locations must be regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+- To enable portal access, include the IP address for the Azure portal for your region in the ip-range-filter, as specified in [Configuring the IP access control policy](documentdb-firewall-support.md#configure-ip-policy).
 
 ## <a id="update-documentdb-account-cli"></a> Update a DocumentDB database account
 
@@ -188,9 +188,21 @@ Arguments
 
 Example:
 
+    az documentdb list-keys -g rg-test -n docdb-test
+
+## <a id="list-connection-strings-cli"></a> List connection strings
+
+For MongoDB accounts, the connection string to connect your MongoDB app to the database account can be retrieved using the following command.
+
 ```
-az documentdb list-keys -g rg-test -n docdb-test
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
 ```
+
+Example:
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
 
 ## <a id="regenerate-account-key-cli"></a> Regenerate account key
 
@@ -206,13 +218,11 @@ Arguments
 
 Example:
 
-```
-az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
-```
+    az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
 ## <a id="modify-failover-priority-cli"></a> Modify failover priority of a DocumentDB database account
 
-For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB][distribute-data-globally].
+For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md).
 
 ```
 Arguments
@@ -231,17 +241,19 @@ az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US
 ## Next steps
 Now that you have a DocumentDB account, the next step is to create a DocumentDB database. You can create a database by using one of the following:
 
-- The Azure portal, as described in [Create a DocumentDB collection and database using the Azure portal](./documentdb-create-collection.md).
+- The Azure portal, as described in [Create a DocumentDB collection and database using the Azure portal](documentdb-create-collection.md).
 - The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
-- The [DocumentDB SDKs](./documentdb-sdk-dotnet.md). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.
+- The [DocumentDB SDKs](documentdb-sdk-dotnet.md). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.
 
-After creating your database, you need to [add one or more collections](./documentdb-create-collection.md) to the database, then [add documents](./documentdb-view-json-document-explorer.md) to the collections.
+After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections.
 
-After you have documents in a collection, you can use [DocumentDB SQL](./documentdb-sql-query.md) to [execute queries](./documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](./documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx).
+
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 To learn more about DocumentDB, explore these resources:
 
-- [DocumentDB resource model and concepts](./documentdb-resources.md)
+- [DocumentDB resource model and concepts](documentdb-resources.md)
+
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
@@ -249,3 +261,4 @@ To learn more about DocumentDB, explore these resources:
 [az-documentdb-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb
 [az-documentdb-create-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb#create
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
+
