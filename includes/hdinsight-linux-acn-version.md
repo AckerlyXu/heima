@@ -1,0 +1,2 @@
+> [!NOTE]
+> In Azure China, HDInsight Linux only supports version 3.5 or newer. HDInsight Linux 3.2, 3.3, and 3.4 cannot be created in Azure China. However, you can use these versions with HDInsight emulator.
