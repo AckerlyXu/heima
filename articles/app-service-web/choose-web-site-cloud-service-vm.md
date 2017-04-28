@@ -50,7 +50,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](web-sites-configure-ssl-certificate.md). |
 | Visual Studio integration |X |X |X |X | |
 | Remote Debugging |X |X |X | | |
-| Network isolation with [Azure Virtual Network](https://www.azure.cn/home/features/networking/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](/azure/app-service-web/app-service-vnet-integration-powershell/) |
+| Network isolation with [Azure Virtual Network](https://www.azure.cn/home/features/networking/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](/azure/app-service-web/app-service-vnet-integration-powershell) |
 | Support for [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) |X |X |X |X | |
 | Integrated Endpoint Monitoring |X |X |X | | |
 | Remote desktop access to servers | |X |X |X | |
@@ -138,7 +138,7 @@ If your open source framework is supported on App Service, the languages and fra
 If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](https://www.azure.cn/home/features/networking/). On App Service you can use the [VNET integration feature](/azure/app-service-web/app-service-vnet-integration-powershell/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](https://www.azure.cn/home/features/networking/). On App Service you can use the [VNET integration feature](/azure/app-service-web/app-service-vnet-integration-powershell), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 HTTP-based web services enable you to support a wide variety of clients, including mobile clients. Frameworks like ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, App Service is a great choice for hosting REST APIs. With App Service, you can:
