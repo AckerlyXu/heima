@@ -1,0 +1,2 @@
+> [!NOTE]
+> The SDKs and tools involved in this article are used within the Microsoft Azure Service run by Microsoft Corporation, while, in China, Microsoft Azure is run by 21Vianet. If needed, see [Azure Application Development Notes](https://www.azure.cn/documentation/articles/developerdifferences/).
