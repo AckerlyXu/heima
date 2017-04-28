@@ -13,7 +13,9 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 03/02/2017
+wacn.date: ''
 ms.author: kevin
 
 ---
@@ -84,7 +86,7 @@ To clean the data, drop some columns that are not relevant for the model. To do 
    ![Remove unnecessary columns][5]
 
 ## 3. Build the model
-We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the “Two-Class” algorithms for this binary classification problem.
+We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the "Two-Class" algorithms for this binary classification problem.
 
 1. Drag the **Split** module into the canvas.
 2. Enter 0.8 for Fraction of rows in the first output dataset in the Properties pane.
@@ -118,7 +120,7 @@ The metrics provided are the ROC curve, precision-recall diagram and lift curve.
 You will see two more columns added to your test dataset.
 
 * Scored Probabilities: the likelihood that a customer is a bike buyer.
-* Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
+* Scored Labels: the classification done by the model - bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
 Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse.
 
@@ -126,7 +128,7 @@ Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
 [2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
 [3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
 [4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
@@ -142,6 +144,6 @@ To learn more about building predictive machine learning models, refer to [Intro
 
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
-[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Introduction to Machine Learning on Azure]:/azure/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md

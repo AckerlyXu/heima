@@ -13,7 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 01/25/2017
+wacn.date: ''
 ms.author: cakarst;barbkess
 
 ---
@@ -32,16 +34,16 @@ In this tutorial you will learn how to:
 ## Before you begin
 To run this tutorial, you need:
 
-* Azure Active Directory Application to use for Service-to-Service authentication. To create, follow [Active directory authentication](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
+* Azure Active Directory Application to use for Service-to-Service authentication. To create, follow [Active directory authentication](/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
 
 >[!NOTE] 
 > You need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.
 
-* SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect see [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
+* SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect see [Query SSMS](/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* An Azure SQL Data Warehouse, to create one follow: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* An Azure SQL Data Warehouse, to create one follow: /azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* An Azure Data Lake Store that does not have encryption enabled. To create one follow: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* An Azure Data Lake Store that does not have encryption enabled. To create one follow: /azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -53,13 +55,13 @@ PolyBase uses T-SQL external objects to define the location and attributes of th
 ###  Create a credential
 To access your Azure Data Lake Store, you will need to create a Database Master Key to encrypt your credential secret used in the next step.
 You then create a Database scoped credential, which stores the service principal credentials set up in AAD. For those of you who have used PolyBase to connect to Windows Azure Storage Blobs, note that the credential syntax is different.
-To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instrucitons to perform these steps are located [here](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instrucitons to perform these steps are located [here](/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
 -- Only necessary if one does not already exist.
 -- Required to encrypt the credential secret in the next step.
--- For more information on Master Key: https://msdn.microsoft.com/en-us/library/ms174382.aspx?f=255&MSPPError=-2147217396
+-- For more information on Master Key: https://msdn.microsoft.com/library/ms174382.aspx?f=255&MSPPError=-2147217396
 
 CREATE MASTER KEY;
 
@@ -67,7 +69,7 @@ CREATE MASTER KEY;
 -- B: Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
--- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/en-us/library/mt270260.aspx
+-- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
 CREATE DATABASE SCOPED CREDENTIAL ADLCredential
 WITH
@@ -205,8 +207,7 @@ The following example is a good starting point for creating statistics. It creat
 You have successfully loaded data into Azure SQL Data Warehouse. Great job!
 
 ##Next Steps
-Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
-
+Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 <!--Image references-->
 

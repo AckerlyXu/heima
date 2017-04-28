@@ -2,18 +2,21 @@
 title: Load sample data into SQL Data Warehouse | Azure
 description: Load sample data into SQL Data Warehouse
 services: sql-data-warehouse
-documentationCenter: NA
-authors: lodipalm
-manager: barbkess
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: e338ecf8-cfee-419b-b7b6-98108d381c62
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
-ms.author: lodipalm;barbkess;sonyama
+wacn.date: ''
+ms.author: barbkess
 ---
 
 # Load sample data into SQL Data Warehouse
@@ -76,13 +79,13 @@ Now that you've had a chance to try some queries with sample data, check out how
 <!--Image references-->
 
 <!--Article references-->
-[migrate]: ./sql-data-warehouse-overview-migrate.md
-[develop]: ./sql-data-warehouse-overview-develop.md
-[load]: ./sql-data-warehouse-overview-load.md
-[query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[migrate code]: ./sql-data-warehouse-migrate-code.md
-[install bcp]: ./sql-data-warehouse-load-with-bcp.md
-[install sqlcmd]: /documentation/articles/sql-data-warehouse-get-started-connect-query-sqlcmd/
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[query with Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[migrate code]: sql-data-warehouse-migrate-code.md
+[install bcp]: sql-data-warehouse-load-with-bcp.md
+[install sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip

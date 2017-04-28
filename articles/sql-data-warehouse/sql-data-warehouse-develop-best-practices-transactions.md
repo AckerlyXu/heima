@@ -2,18 +2,22 @@
 title: Optimizing transactions for SQL Data Warehouse | Azure
 description: Best Practice guidance on writing efficient transaction updates in Azure SQL Data Warehouse
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: 6f326f26-8a54-49df-a482-9c96a58db371
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 wacn.date: ''
+ms.author: jrj;barbkess
+
 ---
 
 # Optimizing transactions for SQL Data Warehouse
@@ -36,6 +40,8 @@ The transaction safety limits only apply to fully logged operations.
 
 >[!NOTE]
 > Minimally logged operations can participate in explicit transactions. As all changes in allocation structures are tracked, it is possible to roll back minimally logged operations. It is important to understand that the change is "minimally" logged it is not un-logged.
+> 
+> 
 
 ## Minimally logged operations
 The following operations are capable of being minimally logged:
@@ -57,6 +63,8 @@ The following operations are capable of being minimally logged:
 
 >[!NOTE]
 > Internal data movement operations (such as `BROADCAST` and `SHUFFLE`) are not affected by the transaction safety limit.
+> 
+> 
 
 ## Minimal logging with bulk load
 
@@ -75,6 +83,8 @@ It is worth noting that any writes to update secondary or non-clustered indexes 
 
 > [!IMPORTANT]
 > SQL Data Warehouse has 60 distributions. Therefore, assuming all rows are evenly distributed and landing in a single partition, your batch will need to contain 6,144,000 rows or larger to be minimally logged when writing to a Clustered Columnstore Index. If the table is partitioned and the rows being inserted span partition boundaries, then you will need 6,144,000 rows per partition boundary assuming even data distribution. Each partition in each distribution must independently exceed the 102,400 row threshold for the insert to be minimally logged into the distribution.
+> 
+> 
 
 Loading data into a non-empty table with a clustered index can often contain a mixture of fully logged and minimally logged rows. A clustered index is a balanced tree (b-tree) of pages. If the page being written to already contains rows from another transaction, then these writes will be fully logged. However, if the page is empty then the write to that page will be minimally logged.
 
@@ -87,20 +97,20 @@ Loading data into a non-empty table with a clustered index can often contain a m
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
 CREATE TABLE [dbo].[FactInternetSales_d]
 WITH
-(	CLUSTERED COLUMNSTORE INDEX
-,	DISTRIBUTION = HASH([ProductKey])
-, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES	(	20000101, 20010101, 20020101, 20030101, 20040101, 20050101
-                                                ,	20060101, 20070101, 20080101, 20090101, 20100101, 20110101
-                                                ,	20120101, 20130101, 20140101, 20150101, 20160101, 20170101
-                                                ,	20180101, 20190101, 20200101, 20210101, 20220101, 20230101
-                                                ,	20240101, 20250101, 20260101, 20270101, 20280101, 20290101
+(    CLUSTERED COLUMNSTORE INDEX
+,    DISTRIBUTION = HASH([ProductKey])
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
+                                                ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
+                                                ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
+                                                ,    20180101, 20190101, 20200101, 20210101, 20220101, 20230101
+                                                ,    20240101, 20250101, 20260101, 20270101, 20280101, 20290101
                                                 )
 )
 AS
-SELECT 	*
-FROM 	[dbo].[FactInternetSales]
-WHERE	[PromotionKey] = 2
+SELECT     *
+FROM     [dbo].[FactInternetSales]
+WHERE    [PromotionKey] = 2
 OPTION (LABEL = 'CTAS : Delete')
 ;
 
@@ -120,45 +130,45 @@ In this case we are retrospectively adding a discount amount to the sales in the
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
-(	CLUSTERED INDEX
-,	DISTRIBUTION = HASH([ProductKey])
-, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES	(	20000101, 20010101, 20020101, 20030101, 20040101, 20050101
-                                                ,	20060101, 20070101, 20080101, 20090101, 20100101, 20110101
-                                                ,	20120101, 20130101, 20140101, 20150101, 20160101, 20170101
-                                                ,	20180101, 20190101, 20200101, 20210101, 20220101, 20230101
-                                                ,	20240101, 20250101, 20260101, 20270101, 20280101, 20290101
+(    CLUSTERED INDEX
+,    DISTRIBUTION = HASH([ProductKey])
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
+                                                ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
+                                                ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
+                                                ,    20180101, 20190101, 20200101, 20210101, 20220101, 20230101
+                                                ,    20240101, 20250101, 20260101, 20270101, 20280101, 20290101
                                                 )
                 )
 )
 AS 
 SELECT
     [ProductKey]  
-,	[OrderDateKey] 
-,	[DueDateKey]  
-,	[ShipDateKey] 
-,	[CustomerKey] 
-,	[PromotionKey] 
-,	[CurrencyKey] 
-,	[SalesTerritoryKey]
-,	[SalesOrderNumber]
-,	[SalesOrderLineNumber]
-,	[RevisionNumber]
-,	[OrderQuantity]
-,	[UnitPrice]
-,	[ExtendedAmount]
-,	[UnitPriceDiscountPct]
-,	ISNULL(CAST(5 as float),0) AS [DiscountAmount]
-,	[ProductStandardCost]
-,	[TotalProductCost]
-,	ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
+,    [OrderDateKey] 
+,    [DueDateKey]  
+,    [ShipDateKey] 
+,    [CustomerKey] 
+,    [PromotionKey] 
+,    [CurrencyKey] 
+,    [SalesTerritoryKey]
+,    [SalesOrderNumber]
+,    [SalesOrderLineNumber]
+,    [RevisionNumber]
+,    [OrderQuantity]
+,    [UnitPrice]
+,    [ExtendedAmount]
+,    [UnitPriceDiscountPct]
+,    ISNULL(CAST(5 as float),0) AS [DiscountAmount]
+,    [ProductStandardCost]
+,    [TotalProductCost]
+,    ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
          ELSE [SalesAmount] - 5
          END AS MONEY),0) AS [SalesAmount]
-,	[TaxAmt]
-,	[Freight]
-,	[CarrierTrackingNumber] 
-,	[CustomerPONumber]
-FROM	[dbo].[FactInternetSales]
+,    [TaxAmt]
+,    [Freight]
+,    [CarrierTrackingNumber] 
+,    [CustomerPONumber]
+FROM    [dbo].[FactInternetSales]
 OPTION (LABEL = 'CTAS : Update')
 ;
 
@@ -171,7 +181,9 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using SQL Data Warehouse workload management features. For more details please refer to the workload management section in the [concurrency][] article.
+> Re-creating large tables can benefit from using SQL Data Warehouse workload management features. For more details please refer to the workload management section in the [concurrency][concurrency] article.
+> 
+> 
 
 ## Optimizing with partition switching
 When faced with large scale modifications inside a [table partition][table partition], then a partition switching pattern makes a lot of sense. If the data modification is significant and spans multiple partitions, then simply iterating over the partitions achieves the same result.
@@ -188,43 +200,43 @@ However, to help identify the partitions to switch we will first need to build a
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
-    @schema_name		   NVARCHAR(128)
-,	@table_name			   NVARCHAR(128)
-,	@boundary_value		   INT
+    @schema_name           NVARCHAR(128)
+,    @table_name               NVARCHAR(128)
+,    @boundary_value           INT
 AS
 IF OBJECT_ID('tempdb..#ptn_data') IS NOT NULL
 BEGIN
     DROP TABLE #ptn_data
 END
 CREATE TABLE #ptn_data
-WITH	(	DISTRIBUTION = ROUND_ROBIN
-        ,	HEAP
+WITH    (    DISTRIBUTION = ROUND_ROBIN
+        ,    HEAP
         )
 AS
 WITH CTE
 AS
 (
-SELECT 	s.name							AS [schema_name]
-,		t.name							AS [table_name]
-, 		p.partition_number				AS [ptn_nmbr]
-,		p.[rows]						AS [ptn_rows]
-,		CAST(r.[value] AS INT)			AS [boundary_value]
-FROM		sys.schemas					AS s
-JOIN		sys.tables					AS t	ON  s.[schema_id]		= t.[schema_id]
-JOIN		sys.indexes					AS i	ON 	t.[object_id]		= i.[object_id]
-JOIN		sys.partitions				AS p	ON 	i.[object_id]		= p.[object_id] 
-                                                AND i.[index_id]		= p.[index_id] 
-JOIN		sys.partition_schemes		AS h	ON 	i.[data_space_id]	= h.[data_space_id]
-JOIN		sys.partition_functions		AS f	ON 	h.[function_id]		= f.[function_id]
-LEFT JOIN	sys.partition_range_values	AS r 	ON 	f.[function_id]		= r.[function_id] 
-                                                AND r.[boundary_id]		= p.[partition_number]
+SELECT     s.name                            AS [schema_name]
+,        t.name                            AS [table_name]
+,         p.partition_number                AS [ptn_nmbr]
+,        p.[rows]                        AS [ptn_rows]
+,        CAST(r.[value] AS INT)            AS [boundary_value]
+FROM        sys.schemas                    AS s
+JOIN        sys.tables                    AS t    ON  s.[schema_id]        = t.[schema_id]
+JOIN        sys.indexes                    AS i    ON     t.[object_id]        = i.[object_id]
+JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id] 
+                                                AND i.[index_id]        = p.[index_id] 
+JOIN        sys.partition_schemes        AS h    ON     i.[data_space_id]    = h.[data_space_id]
+JOIN        sys.partition_functions        AS f    ON     h.[function_id]        = f.[function_id]
+LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id] 
+                                                AND r.[boundary_id]        = p.[partition_number]
 WHERE i.[index_id] <= 1
 )
-SELECT	*
-FROM	CTE
-WHERE	[schema_name]		= @schema_name
-AND		[table_name]		= @table_name
-AND		[boundary_value]	= @boundary_value
+SELECT    *
+FROM    CTE
+WHERE    [schema_name]        = @schema_name
+AND        [table_name]        = @table_name
+AND        [boundary_value]    = @boundary_value
 OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 ;
 GO
@@ -243,16 +255,16 @@ END
 
 CREATE TABLE [dbo].[FactInternetSales_out]
 WITH
-(	DISTRIBUTION = HASH([ProductKey])
-,	CLUSTERED COLUMNSTORE INDEX
-, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES	(	20020101, 20030101
+(    DISTRIBUTION = HASH([ProductKey])
+,    CLUSTERED COLUMNSTORE INDEX
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
 AS
 SELECT *
-FROM	[dbo].[FactInternetSales]
+FROM    [dbo].[FactInternetSales]
 WHERE 1=2
 OPTION (LABEL = 'CTAS : Partition Switch IN : UPDATE')
 ;
@@ -265,42 +277,42 @@ END
 
 CREATE TABLE [dbo].[FactInternetSales_in]
 WITH
-(	DISTRIBUTION = HASH([ProductKey])
-,	CLUSTERED COLUMNSTORE INDEX
-, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
-                                    FOR VALUES	(	20020101, 20030101
+(    DISTRIBUTION = HASH([ProductKey])
+,    CLUSTERED COLUMNSTORE INDEX
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+                                    FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
 AS 
 SELECT
     [ProductKey]  
-,	[OrderDateKey] 
-,	[DueDateKey]  
-,	[ShipDateKey] 
-,	[CustomerKey] 
-,	[PromotionKey] 
-,	[CurrencyKey] 
-,	[SalesTerritoryKey]
-,	[SalesOrderNumber]
-,	[SalesOrderLineNumber]
-,	[RevisionNumber]
-,	[OrderQuantity]
-,	[UnitPrice]
-,	[ExtendedAmount]
-,	[UnitPriceDiscountPct]
-,	ISNULL(CAST(5 as float),0) AS [DiscountAmount]
-,	[ProductStandardCost]
-,	[TotalProductCost]
-,	ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
+,    [OrderDateKey] 
+,    [DueDateKey]  
+,    [ShipDateKey] 
+,    [CustomerKey] 
+,    [PromotionKey] 
+,    [CurrencyKey] 
+,    [SalesTerritoryKey]
+,    [SalesOrderNumber]
+,    [SalesOrderLineNumber]
+,    [RevisionNumber]
+,    [OrderQuantity]
+,    [UnitPrice]
+,    [ExtendedAmount]
+,    [UnitPriceDiscountPct]
+,    ISNULL(CAST(5 as float),0) AS [DiscountAmount]
+,    [ProductStandardCost]
+,    [TotalProductCost]
+,    ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
          ELSE [SalesAmount] - 5
          END AS MONEY),0) AS [SalesAmount]
-,	[TaxAmt]
-,	[Freight]
-,	[CarrierTrackingNumber] 
-,	[CustomerPONumber]
-FROM	[dbo].[FactInternetSales]
-WHERE	OrderDateKey BETWEEN 20020101 AND 20021231
+,    [TaxAmt]
+,    [Freight]
+,    [CarrierTrackingNumber] 
+,    [CustomerPONumber]
+FROM    [dbo].[FactInternetSales]
+WHERE    OrderDateKey BETWEEN 20020101 AND 20021231
 OPTION (LABEL = 'CTAS : Partition Switch IN : UPDATE')
 ;
 
@@ -322,8 +334,8 @@ SELECT @ptn_nmbr_out
 
 --Switch the partitions over
 DECLARE @SQL NVARCHAR(4000) = '
-ALTER TABLE [dbo].[FactInternetSales]	SWITCH PARTITION '+CAST(@ptn_nmbr_src AS VARCHAR(20))	+' TO [dbo].[FactInternetSales_out] PARTITION '	+CAST(@ptn_nmbr_out AS VARCHAR(20))+';
-ALTER TABLE [dbo].[FactInternetSales_in] SWITCH PARTITION '+CAST(@ptn_nmbr_in AS VARCHAR(20))	+' TO [dbo].[FactInternetSales] PARTITION '		+CAST(@ptn_nmbr_src AS VARCHAR(20))+';'
+ALTER TABLE [dbo].[FactInternetSales]    SWITCH PARTITION '+CAST(@ptn_nmbr_src AS VARCHAR(20))    +' TO [dbo].[FactInternetSales_out] PARTITION '    +CAST(@ptn_nmbr_out AS VARCHAR(20))+';
+ALTER TABLE [dbo].[FactInternetSales_in] SWITCH PARTITION '+CAST(@ptn_nmbr_in AS VARCHAR(20))    +' TO [dbo].[FactInternetSales] PARTITION '        +CAST(@ptn_nmbr_src AS VARCHAR(20))+';'
 EXEC sp_executesql @SQL
 
 --Perform the clean-up
@@ -349,44 +361,44 @@ BEGIN
 END
 
 CREATE TABLE #t
-WITH	(	DISTRIBUTION = ROUND_ROBIN
-        ,	HEAP
+WITH    (    DISTRIBUTION = ROUND_ROBIN
+        ,    HEAP
         )
 AS
-SELECT	ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS seq_nmbr
-,		SalesOrderNumber
-,		SalesOrderLineNumber
-FROM	dbo.FactInternetSales
-WHERE	[OrderDateKey] BETWEEN 20010101 and 20011231
+SELECT    ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS seq_nmbr
+,        SalesOrderNumber
+,        SalesOrderLineNumber
+FROM    dbo.FactInternetSales
+WHERE    [OrderDateKey] BETWEEN 20010101 and 20011231
 ;
 
-DECLARE	@seq_start		INT = 1
-,		@batch_iterator	INT = 1
-,		@batch_size		INT = 50
-,		@max_seq_nmbr	INT = (SELECT MAX(seq_nmbr) FROM dbo.#t)
+DECLARE    @seq_start        INT = 1
+,        @batch_iterator    INT = 1
+,        @batch_size        INT = 50
+,        @max_seq_nmbr    INT = (SELECT MAX(seq_nmbr) FROM dbo.#t)
 ;
 
-DECLARE	@batch_count	INT = (SELECT CEILING((@max_seq_nmbr*1.0)/@batch_size))
-,		@seq_end		INT = @batch_size
+DECLARE    @batch_count    INT = (SELECT CEILING((@max_seq_nmbr*1.0)/@batch_size))
+,        @seq_end        INT = @batch_size
 ;
 
 SELECT COUNT(*)
-FROM	dbo.FactInternetSales f
+FROM    dbo.FactInternetSales f
 
 PRINT 'MAX_seq_nmbr '+CAST(@max_seq_nmbr AS VARCHAR(20))
 PRINT 'MAX_Batch_count '+CAST(@batch_count AS VARCHAR(20))
 
-WHILE	@batch_iterator <= @batch_count
+WHILE    @batch_iterator <= @batch_count
 BEGIN
     DELETE
-    FROM	dbo.FactInternetSales
+    FROM    dbo.FactInternetSales
     WHERE EXISTS
     (
-            SELECT	1
-            FROM	#t t
-            WHERE	seq_nmbr BETWEEN  @seq_start AND @seq_end
-            AND		FactInternetSales.SalesOrderNumber		= t.SalesOrderNumber
-            AND		FactInternetSales.SalesOrderLineNumber	= t.SalesOrderLineNumber
+            SELECT    1
+            FROM    #t t
+            WHERE    seq_nmbr BETWEEN  @seq_start AND @seq_end
+            AND        FactInternetSales.SalesOrderNumber        = t.SalesOrderNumber
+            AND        FactInternetSales.SalesOrderLineNumber    = t.SalesOrderLineNumber
     )
     ;
 
@@ -401,6 +413,8 @@ Azure SQL Data Warehouse lets you pause, resume and scale your data warehouse on
 
 > [!IMPORTANT]
 > Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations. 
+> 
+> 
 
 The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL Data Warehouse. However, this may not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
 
@@ -420,7 +434,7 @@ See [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse] to 
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/zh-cn/library/ms188388.aspx
-[RENAME]: https://msdn.microsoft.com/zh-cn/library/mt631611.aspx
+[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->

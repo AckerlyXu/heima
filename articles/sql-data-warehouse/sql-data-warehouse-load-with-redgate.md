@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: mausher;barbkess
@@ -21,11 +22,11 @@ ms.author: mausher;barbkess
 # Load data with Redgate Data Platform Studio
 
 > [!div class="op_single_selector"]
->- [Redgate](./sql-data-warehouse-load-with-redgate.md)
-- [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
-- [BCP](./sql-data-warehouse-load-with-bcp.md)
+> * [Redgate](sql-data-warehouse-load-with-redgate.md)
+> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+> * [BCP](sql-data-warehouse-load-with-bcp.md)
 <!-- Data Factory not supported on Azure.cn-->
-<!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
+<!-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)-->
 
 This tutorial shows you how to use [Redgate's Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) to move data from an on-premise SQL Server to Azure SQL Data Warehouse. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse.
 
@@ -129,19 +130,19 @@ To learn more about Redgate's Data Platform Studio:
 For an overview of other ways to migrate and load your data in SQL Data Warehouse see:
 
 * [Migrate your solution to SQL Data Warehouse][Migrate your solution to SQL Data Warehouse]
-* [Load data into Azure SQL Data Warehouse](./sql-data-warehouse-overview-load.md)
+* [Load data into Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md)
 
-For more development tips, see the [SQL Data Warehouse development overview](./sql-data-warehouse-overview-develop.md).
+For more development tips, see the [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-redgate/2016-10-05_15-59-56.png
-[2]: ./media/sql-data-warehouse-redgate/2016-10-05_11-16-07.png
-[3]: ./media/sql-data-warehouse-redgate/2016-10-05_11-17-46.png
-[4]: ./media/sql-data-warehouse-redgate/2016-10-05_11-20-41.png
-[5]: ./media/sql-data-warehouse-redgate/2016-10-05_11-31-24.png
-[6]: ./media/sql-data-warehouse-redgate/2016-10-05_11-32-20.png
-[7]: ./media/sql-data-warehouse-redgate/2016-10-05_11-49-53.png
-[8]: ./media/sql-data-warehouse-redgate/2016-10-05_12-57-10.png
+[2]: media/sql-data-warehouse-redgate/2016-10-05_11-16-07.png
+[3]: media/sql-data-warehouse-redgate/2016-10-05_11-17-46.png
+[4]: media/sql-data-warehouse-redgate/2016-10-05_11-20-41.png
+[5]: media/sql-data-warehouse-redgate/2016-10-05_11-31-24.png
+[6]: media/sql-data-warehouse-redgate/2016-10-05_11-32-20.png
+[7]: media/sql-data-warehouse-redgate/2016-10-05_11-49-53.png
+[8]: media/sql-data-warehouse-redgate/2016-10-05_12-57-10.png
 
 <!--Article references-->
 [Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md

@@ -19,11 +19,12 @@ ms.author: cakarst;barbkess
 ---
 
 # Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
-
 > [!div class="op_single_selector"]
+> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+> 
+> 
 <!-- Data Factory not supported on Azure.cn -->
 <!-- - [Data Factory](/documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/) -->
-- [PolyBase](./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
 Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse. 
 
@@ -354,20 +355,20 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: ./sql-data-warehouse-tables-index.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[label]: ./sql-data-warehouse-develop-label.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[manage columnstore indexes]: sql-data-warehouse-tables-index.md
+[Statistics]: sql-data-warehouse-tables-statistics.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/zh-cn/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/zh-cn/library/ms188388.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433

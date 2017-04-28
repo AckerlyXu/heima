@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 01/30/2017
 wacn.date: ''
 ms.author: jrj;barbkess
 ---
-
 # Create Table As Select (CTAS) in SQL Data Warehouse
 Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. This document provides both examples and best practices for `CTAS`.
 
@@ -43,7 +43,7 @@ CREATE TABLE [dbo].[FactInternetSales_new]
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,    CLUSTERED COLUMNSTORE INDEX
+,	CLUSTERED COLUMNSTORE INDEX
 )
 AS
 SELECT  *
@@ -139,8 +139,7 @@ DROP TABLE FactInternetSales_old;
 > 
 > 
 
-## <a id="ansi-join-replacement-for-update-statements"></a> ANSI join replacement for update statements
-
+## ANSI join replacement for update statements
 You may find you have a complex update that joins more than two tables together using ANSI joining syntax to perform the UPDATE or DELETE.
 
 Imagine you had to update this table:
@@ -219,7 +218,7 @@ DROP TABLE CTAS_acs
 ;
 ```
 
-## <a id="ansi-join-replacement-for-delete-statements"></a> ANSI join replacement for delete statements
+## ANSI join replacement for delete statements
 Sometimes the best approach for deleting data is to use `CTAS`. Rather than deleting the data simply select the data you want to keep. This especially true for `DELETE` statements that use ansi joining syntax since SQL Data Warehouse does not support ANSI joins in the `FROM` clause of a `DELETE` statement.
 
 An example of a converted DELETE statement is available below:
@@ -243,7 +242,7 @@ RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
 RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
-## <a id="replace-merge-statements"></a> Replace merge statements
+## Replace merge statements
 Merge statements can be replaced, at least in part, by using `CTAS`. You can consolidate the `INSERT` and the `UPDATE` into a single statement. Any deleted records would need to be closed off in a second statement.
 
 An example of an `UPSERT` is available below:
@@ -441,10 +440,10 @@ For more development tips, see [development overview][development overview].
 [1]: ./media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->

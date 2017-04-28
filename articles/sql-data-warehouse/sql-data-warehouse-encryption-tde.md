@@ -2,27 +2,33 @@
 title: Transparent Data Encryption in SQL Data Warehouse (Portal)| Azure
 description: Transparent Data Encryption (TDE) in SQL Data Warehouse
 services: sql-data-warehouse
-documentationCenter: ''
-authors: ronortloff
-manager: barbkess
+documentationcenter: ''
+author: ronortloff
+manager: jhubbard
 editor: ''
 
+ms.assetid: fabf75d3-9bbf-4e0d-9b31-8b5a8713f08d
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: security
 ms.date: 10/31/2016
-ms.author: rortloff;barbkess;sonyama
+wacn.date: ''
+ms.author: rortloff;barbkess
+
 ---
 
 # Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Security Overview](./sql-data-warehouse-overview-manage-security.md)
->- [Authentication](./sql-data-warehouse-authentication.md)
->- [Encryption (Portal)](./sql-data-warehouse-encryption-tde.md)
->- [Encryption (T-SQL)](./sql-data-warehouse-encryption-tde-tsql.md)
+> * [Security Overview](sql-data-warehouse-overview-manage-security.md)
+> * [Authentication](sql-data-warehouse-authentication.md)
+> * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> 
+> 
 
 ## Required Permssions
 To enable Transparent Data Encryption (TDE), you must be an administrator or a member of the dbmanager role.
@@ -58,9 +64,9 @@ Encryption can be confirmed with the following DMVs:
 * [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/zh-cn/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/zh-cn/library/ms178534.aspx
-[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/zh-cn/library/mt203922.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png

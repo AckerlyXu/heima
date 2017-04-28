@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: jrj;barbkess
 ---
-
 # Loops in SQL Data Warehouse
 SQL Data Warehouse supports the [WHILE][WHILE] loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.
 
@@ -74,9 +74,9 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[WHILE]: https://msdn.microsoft.com/zh-cn/library/ms178642.aspx
+[WHILE]: https://msdn.microsoft.com/library/ms178642.aspx
 
 <!--Other Web references-->
