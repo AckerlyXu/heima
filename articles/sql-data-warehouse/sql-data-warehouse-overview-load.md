@@ -13,9 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
 wacn.date: ''
+ms.author: barbkess
+
 ---
 
 # Load data into Azure SQL Data Warehouse
@@ -28,7 +30,7 @@ For tutorials that load sample databases, see [Load sample databases][Load sampl
 ## Load from Azure blob storage
 The fastest way to import data into SQL Data Warehouse is to use PolyBase to load data from Azure blob storage. PolyBase uses SQL Data Warehouse's massively parallel processing (MPP) design to load data in parallel from Azure blob storage. To use PolyBase, you can use T-SQL commands or an Azure Data Factory pipeline.
 
-### Use PolyBase and T-SQL
+### 1. Use PolyBase and T-SQL
 Summary of loading process:
 
 1. Move your data to Azure blob storage and store it in text files.    <!--Data Lake Store Not supported in ACN-->
@@ -38,7 +40,6 @@ Summary of loading process:
 <!-- 5. Schedule and run a loading job. --> 
 
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
-
 <!-- ADF Not supported in ACN-->
 
 ## Load from SQL Server
@@ -92,7 +93,7 @@ Summary of loading process
 SQL Data Warehouse supports loading data from HDInsight via PolyBase. The process is the same as 
 loading data from Azure Blob Storage - using PolyBase to connect to HDInsight to load data. 
 
-### Use PolyBase and T-SQL
+### 1. Use PolyBase and T-SQL
 Summary of loading process:
 
 1. Move your data to HDInsight and store it in text files, ORC or Parquet format.
@@ -115,7 +116,7 @@ For more development tips, see the [development overview][development overview].
 
 <!--Article references-->
 [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)]: /documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/
+[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
 [Load data from SQL Server to Azure SQL Data Warehouse (SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
 [Load data from SQL Server to Azure SQL Data Warehouse (bcp)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
 [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md
@@ -129,4 +130,4 @@ For more development tips, see the [development overview][development overview].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Import/Export]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
+[Import/Export]: /azure/storage-import-export-service/

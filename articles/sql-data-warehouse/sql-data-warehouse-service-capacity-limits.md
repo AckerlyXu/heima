@@ -13,7 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
+wacn.date: ''
 ms.author: barbkess;jrj
 
 ---

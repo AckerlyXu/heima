@@ -1,17 +1,19 @@
 ---
-title: Temporary tables in SQL Data Warehouse | Microsoft Azure
+title: Temporary tables in SQL Data Warehouse | Azure
 description: Getting started with temporary tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ---
@@ -19,13 +21,15 @@ ms.author: jrj;barbkess
 # Temporary tables in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Overview][]
->- [Data Types][]
->- [Distribute][]
->- [Index][]
->- [Partition][]
->- [Statistics][]
->- [Temporary][]
+> * [Overview][Overview]
+> * [Data Types][Data Types]
+> * [Distribute][Distribute]
+> * [Index][Index]
+> * [Partition][Partition]
+> * [Statistics][Statistics]
+> * [Temporary][Temporary]
+> 
+> 
 
 Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.  Temporary tables are slightly different in Azure SQL Data Warehouse than Azure SQL Database as they can be accessed from anywhere inside the session, including both inside and outside of a stored procedure.
 
@@ -107,6 +111,8 @@ FROM    t1
 
 >[!NOTE]
 > `CTAS` is a very powerful command and has the added advantage of being very efficient in its use of transaction log space. 
+> 
+> 
 
 ## Dropping temporary tables
 

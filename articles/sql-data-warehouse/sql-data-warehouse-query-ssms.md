@@ -13,7 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
+wacn.date: ''
 ms.author: elbutter;barbkess
 
 ---
@@ -84,8 +86,8 @@ To configure your environment for Azure Active Directory authentication, see [Au
 [visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 
 <!--Other-->
-[Azure portal]: https://portal.azure.com
-[Install SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
+[Azure portal]: https://portal.azure.cn
+[Install SSMS]: https://msdn.microsoft.com/library/hh213248.aspx
 
 <!--Image references-->
 

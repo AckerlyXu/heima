@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: barbkess
@@ -21,11 +22,13 @@ ms.author: barbkess
 # Manage compute power in Azure SQL Data Warehouse (Azure portal)
 
 > [!div class="op_single_selector"]
->- [Overview](./sql-data-warehouse-manage-compute-overview.md)
->- [Portal](./sql-data-warehouse-manage-compute-portal.md)
->- [PowerShell](./sql-data-warehouse-manage-compute-powershell.md)
->- [REST](./sql-data-warehouse-manage-compute-rest-api.md)
->- [TSQL](./sql-data-warehouse-manage-compute-tsql.md)
+> * [Overview](sql-data-warehouse-manage-compute-overview.md)
+> * [Portal](sql-data-warehouse-manage-compute-portal.md)
+> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
+> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
+>
+>
 
 ## Scale compute power
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]

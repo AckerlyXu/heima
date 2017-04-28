@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 01/30/2017
 wacn.date: ''
 ms.author: jrj;barbkess
@@ -33,7 +34,7 @@ The following list summarizes the most common feature which are not supported in
 * output clause
 * inline user-defined functions
 * multi-statement functions
-* [common table expressions](#common-table-expressions)
+* [common table expressions](#Common-table-expressions)
 * [recursive common table expressions (CTE)](#Recursive-common-table-expressions-(CTE)
 * CLR functions and procedures
 * $partition function
@@ -51,7 +52,7 @@ The following list summarizes the most common feature which are not supported in
 
 Fortunately most of these limitations can be worked around. Explanations are provided in the relevant development articles referenced above.
 
-## <a id="#common-table-expressions"></a> Supported CTE features
+## Supported CTE features
 Common table expressions (CTEs) are partially supported in SQL Data Warehouse.  The following CTE features are currently supported:
 
 * A CTE can be specified in a SELECT statement.

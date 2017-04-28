@@ -1,28 +1,34 @@
 ---
-title: Query Azure SQL Data Warehouse (Visual Studio) | Microsoft Azure
+title: Connect to Azure SQL Data Warehouse - VSTS | Azure
 description: Query SQL Data Warehouse with Visual Studio.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: sonyam
-manager: barbkess
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
-ms.author: sonyama;barbkess
+wacn.date: ''
+ms.author: barbkess
 ---
 
-# Query Azure SQL Data Warehouse (Visual Studio)
+# Connect to SQL Data Warehouse with Visual Studio and SSDT
 
 > [!div class="op_single_selector"]
->- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
->- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
->- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
->- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
+> 
+> 
 
 Use Visual Studio to query Azure SQL Data Warehouse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio. 
 
@@ -73,9 +79,9 @@ Now that a connection has been established to your database, let's write a query
     ![Query results][7]
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with PowerBI][].
+Now that you can connect and query, try [visualizing the data with PowerBI][visualizing the data with PowerBI].
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][].
+To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
 [Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
@@ -85,11 +91,11 @@ To configure your environment for Azure Active Directory authentication, see [Au
 [visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Azure portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.cn
 
 <!--Image references-->
 
-[1]: media/sql-data-warehouse-query-visual-studio/open-ssdt.png
+[1]: ./media/sql-data-warehouse-query-visual-studio/open-ssdt.png
 [2]: media/sql-data-warehouse-query-visual-studio/add-server.png
 [3]: media/sql-data-warehouse-query-visual-studio/connection-dialog.png
 [4]: media/sql-data-warehouse-query-visual-studio/explore-sample.png

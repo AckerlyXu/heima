@@ -3,26 +3,31 @@ title: Secure a database in SQL Data Warehouse | Azure
 description: Tips for securing a database in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationCenter: NA
-authors: ronortloff
-manager: barbkess
+author: ronortloff
+manager: jhubbard
 editor: ''
 
+ms.assetid: 8fa2f5ca-4cf5-4418-99a2-4dc745799850
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: security
 ms.date: 10/31/2016
-ms.author: rortloff;barbkess;sonyama
+wacn.date: ''
+ms.author: rortloff;barbkess
 ---
 
 # Secure a database in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Security Overview](./sql-data-warehouse-overview-manage-security.md)
->- [Authentication](./sql-data-warehouse-authentication.md)
->- [Encryption (Portal)](./sql-data-warehouse-encryption-tde.md)
->- [Encryption (T-SQL)](./sql-data-warehouse-encryption-tde-tsql.md)
+> * [Security Overview](sql-data-warehouse-overview-manage-security.md)
+> * [Authentication](sql-data-warehouse-authentication.md)
+> * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> 
+> 
 
 This article walks through the basics of securing your Azure SQL Data Warehouse database. In particular, this article will get you started with resources for limiting access, protecting data, and monitoring activities on a database.
 
@@ -38,7 +43,7 @@ Authentication refers to how you prove your identity when connecting to the data
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
-However, as a best practice, your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
+However, as a best practice, your organization's users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
 
 To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.  Additionally, it is a good idea to create a user in the master database for Azure SQL Data Warehouse users. Creating a user in master allows a user to login using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.
 
@@ -73,7 +78,7 @@ There are ways to further limit what a user can do with Azure SQL Database:
 * [Database roles][Database roles] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
 * [Stored procedures][Stored procedures] can be used to limit the actions that can be taken on the database.
 
-Managing databases and logical servers from the Azure Classic Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][Role-based access control in Azure Portal].
+Managing databases and logical servers from the Azure Classic Management Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][Role-based access control in Azure Portal].
 
 ## Encryption
 Azure SQL Data Warehouse Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of your data at rest.  When you encrypt your database, associated backups and transaction log files are encrypted without requiring any changes to your applications. TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. In SQL Database the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each SQL Database server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used by SQL Data Warehouse is AES-256. For a general description of TDE, see [Transparent Data Encryption][Transparent Data Encryption].
@@ -92,15 +97,15 @@ For details and examples on connecting to your SQL Data Warehouse with different
 [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
-[Azure SQL Database firewall]: https://msdn.microsoft.com/zh-cn/library/ee621782.aspx
-[sp_set_firewall_rule]: https://msdn.microsoft.com/zh-cn/library/dn270017.aspx
-[sp_set_database_firewall_rule]: https://msdn.microsoft.com/zh-cn/library/dn270010.aspx
-[Database roles]: https://msdn.microsoft.com/zh-cn/library/ms189121.aspx
-[Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/zh-cn/library/ee336235.aspx
-[Permissions]: https://msdn.microsoft.com/zh-cn/library/ms191291.aspx
-[Stored procedures]: https://msdn.microsoft.com/zh-cn/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Azure portal]: https://manage.windowsazure.cn/
+[Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
+[sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
+[Database roles]: https://msdn.microsoft.com/library/ms189121.aspx
+[Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
+[Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
+[Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
+[Transparent Data Encryption]: https://msdn.microsoft.com/library/bb934049.aspx
+[Azure portal]: https://portal.azure.cn/
 
 <!--Other Web references-->
-[Role-based access control in Azure Portal]: /documentation/articles/role-based-access-control-configure
+[Role-based access control in Azure Portal]: /azure/role-based-access-control-configure

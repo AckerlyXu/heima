@@ -1,31 +1,35 @@
 ---
-title: Managing statistics on tables in SQL Data Warehouse | Microsoft Azure
+title: Managing statistics on tables in SQL Data Warehouse | Azure
 description: Getting started with statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess;sonyama
+ms.author: jrj;barbkess
 ---
 
 # Managing statistics on tables in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Overview][]
->- [Data Types][]
->- [Distribute][]
->- [Index][]
->- [Partition][]
->- [Statistics][]
->- [Temporary][]
+> * [Overview][Overview]
+> * [Data Types][Data Types]
+> * [Distribute][Distribute]
+> * [Index][Index]
+> * [Partition][Partition]
+> * [Statistics][Statistics]
+> * [Temporary][Temporary]
+> 
+> 
 
 The more SQL Data Warehouse knows about your data, the faster it can execute queries against your data.  The way that you tell SQL Data Warehouse about your data, is by collecting statistics about your data.  Having statistics on your data is one of the most important things you can do to optimize your queries.  Statistics help SQL Data Warehouse create the most optimal plan for your queries.  This is because the SQL Data Warehouse query optimizer is a cost based optimizer.  That is, it compares the cost of various query plans and then chooses the plan with the lowest cost, which should also be the plan that will execute the fastest.
 
@@ -58,6 +62,8 @@ Since there is no DMV to determine if data within the table has changed since th
 
 > [!NOTE]
 > Remember if there is a material change in the distribution of values for a given column, you should update statistics regardless of the last time they were updated.  
+> 
+> 
 
 ```sql
 SELECT
@@ -103,6 +109,8 @@ Some guiding principles are provided below for updating your statistics during t
 
 > [!NOTE]
 > For more details on [ascending key] please refer to the SQL Server 2014 cardinality estimation model whitepaper.
+> 
+> 
 
 For further explanation, see  [Cardinality Estimation][Cardinality Estimation] on MSDN.
 
@@ -159,6 +167,8 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 
 > [!NOTE]
 > For the query optimizer to consider using filtered statistics when it chooses the distributed query plan, the query must fit inside the definition of the statistics object. Using the previous example, the query's where clause needs to specify col1 values between 2000101 and 20001231.
+> 
+> 
 
 ### E. Create single-column statistics with all the options
 You can, of course, combine the options together. The example below creates a filtered statistics object with a custom sample size:
@@ -174,6 +184,8 @@ To create a multi-column statistics, simply use the previous examples, but speci
 
 > [!NOTE]
 > The histogram, which is used to estimate number of rows in the query result, is only available for the first column listed in the statistics object definition.
+> 
+> 
 
 In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub_c\ategory*:
 
@@ -334,6 +346,8 @@ This statement is easy to use. Just remember this updates all statistics on the 
 
 > [!NOTE]
 > When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics. If the table is large, has many columns, and many statistics, it might be more efficient to update individual statistics based on need.
+> 
+> 
 
 For an implementation of an `UPDATE STATISTICS` procedure please see the [Temporary Tables][Temporary] article. The implementation method is slightly different to the `CREATE STATISTICS` procedure above but the end result is the same.
 

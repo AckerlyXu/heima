@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 11/29/2016
 wacn.date: ''
 ms.author: rortloff;barbkess
@@ -21,7 +22,7 @@ ms.author: rortloff;barbkess
 # Migrate your data warehouse to premium storage
 Azure SQL Data Warehouse recently introduced [premium storage for greater performance predictability][premium storage for greater performance predictability]. Existing data warehouses currently on standard storage can now be migrated to premium storage. You can take advantage of automatic migration, or if you prefer to control when to migrate (which does involve some downtime), you can do the migration yourself.
 
-If you have more than one Data Warehouse, use the [automatic migration schedule][] to determine when it will also be migrated.
+If you have more than one data warehouse, use the [automatic migration schedule][automatic migration schedule] to determine when it will also be migrated.
 
 ## Determine storage type
 If you created a data warehouse before the following dates, you are currently using standard storage.
@@ -36,14 +37,16 @@ By default, we will migrate your database for you between 6:00 PM and 6:00 AM in
 
 > [!NOTE]
 > When the migration is complete, your data warehouse will be back online and usable.
+>
+>
 
-Microsoft is taking the following steps to complete the migration (these do not require any involvement on your part). In this example, imagine that your existing data warehouse on standard storage is currently named “MyDW.”
+Microsoft is taking the following steps to complete the migration (these do not require any involvement on your part). In this example, imagine that your existing data warehouse on standard storage is currently named "MyDW."
 
-1. Microsoft renames “MyDW” to “MyDW_DO_NOT_USE_[Timestamp].”
-2. Microsoft pauses “MyDW_DO_NOT_USE_[Timestamp].” During this time, a backup is taken. You may see multiple pauses and resumes if we encounter any issues during this process.
-3. Microsoft creates a new data warehouse named “MyDW” on premium storage from the backup taken in step 2. “MyDW” will not appear until after the restore is complete.
-4. After the restore is complete, “MyDW” returns to the same data warehouse units and state (paused or active) that it was before the migration.
-5. After the migration is complete, Microsoft deletes “MyDW_DO_NOT_USE_[Timestamp]”.
+1. Microsoft renames "MyDW" to "MyDW_DO_NOT_USE_[Timestamp]."
+2. Microsoft pauses "MyDW_DO_NOT_USE_[Timestamp]." During this time, a backup is taken. You may see multiple pauses and resumes if we encounter any issues during this process.
+3. Microsoft creates a new data warehouse named "MyDW" on premium storage from the backup taken in step 2. "MyDW" will not appear until after the restore is complete.
+4. After the restore is complete, "MyDW" returns to the same data warehouse units and state (paused or active) that it was before the migration.
+5. After the migration is complete, Microsoft deletes "MyDW_DO_NOT_USE_[Timestamp]".
 
 > [!NOTE]
 > The following settings do not carry over as part of the migration:
@@ -82,7 +85,7 @@ To migrate your data warehouse yourself, use the backup and restore features. Th
 #### Rename data warehouse during migration (optional)
 Two databases on the same logical server cannot have the same name. SQL Data Warehouse now supports the ability to rename a data warehouse.
 
-In this example, imagine that your existing data warehouse on standard storage is currently named “MyDW.”
+In this example, imagine that your existing data warehouse on standard storage is currently named "MyDW."
 
 1. Rename "MyDW" by using the following ALTER DATABASE command. (In this example, we'll rename it "MyDW_BeforeMigration.")  This command stops all existing transactions, and must be done in the master database to succeed.
    ```
@@ -143,24 +146,24 @@ With the change to premium storage, you also have an increased number of databas
     go
 ```
 
-If you encounter any issues with your data warehouse, [create a support ticket][create a support ticket] and reference “migration to premium storage” as the possible cause.
+If you encounter any issues with your data warehouse, [create a support ticket][create a support ticket] and reference "migration to premium storage" as the possible cause.
 
 <!--Image references-->
 
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Azure paired region]: ../best-practices-availability-paired-regions.md
-[main documentation site]: /documentation/articles/services/sql-data-warehouse
-[Pause]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute
-[Restore]: /documentation/articles/sql-data-warehouse-manage-database-restore-portal
+[create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
+[Azure paired region]: best-practices-availability-paired-regions.md
+[main documentation site]: services/sql-data-warehouse.md
+[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
-[mediumrc role]: ./sql-data-warehouse-develop-concurrency.md#workload-management
+[scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Premium Storage for greater performance predictability]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.cn

@@ -1,31 +1,37 @@
 ---
-title: Overview of tables in SQL Data Warehouse | Microsoft Azure
+title: Overview of tables in SQL Data Warehouse | Azure
 description: Getting started with Azure SQL Data Warehouse Tables.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: sonyam
-manager: barbkess
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 wacn.date: ''
+ms.author: barbkess;jrj
+
 ---
 
 # Overview of tables in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Overview][]
->- [Data Types][]
->- [Distribute][]
->- [Index][]
->- [Partition][]
->- [Statistics][]
->- [Temporary][]
+> * [Overview][Overview]
+> * [Data Types][Data Types]
+> * [Distribute][Distribute]
+> * [Index][Index]
+> * [Partition][Partition]
+> * [Statistics][Statistics]
+> * [Temporary][Temporary]
+> 
+> 
 
 Getting started with creating tables in SQL Data Warehouse is simple.  The basic [CREATE TABLE][CREATE TABLE] syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table, you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
 
@@ -202,7 +208,7 @@ SELECT
 ,    schema_name
 ,    table_name
 ,    distribution_policy_name
-,	  distribution_column
+,      distribution_column
 ,    index_type_desc
 ,    COUNT(distinct partition_nmbr) as nbr_partitions
 ,    SUM(row_count)                 as table_row_count
@@ -217,7 +223,7 @@ GROUP BY
 ,    schema_name
 ,    table_name
 ,    distribution_policy_name
-,	  distribution_column
+,      distribution_column
 ,    index_type_desc
 ORDER BY
     table_reserved_space_GB desc

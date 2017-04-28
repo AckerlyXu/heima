@@ -2,18 +2,22 @@
 title: Monitor your workload using DMVs | Azure
 description: Learn how to monitor your workload using DMVs.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: sonyam
-manager: barbkess
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
-ms.author: sonyama;barbkess
+wacn.date: ''
+ms.author: barbkess
+
 ---
 
 # Monitor your workload using DMVs
@@ -37,8 +41,10 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ## Monitor query execution
 All queries executed on SQL Data Warehouse are logged to [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  This DMV contains the last 10,000 queries executed.  The request_id uniquely identifies each query and is the primary key for this DMV.  The request_id is assigned sequentially for each new query and is prefixed with QID, which stands for query ID.  Querying this DMV for a given session_id shows all queries for a given logon.
 
->[!NOTE]
+> [!NOTE]
 > Stored procedures use multiple Request IDs.  Request IDs are assigned in sequential order. 
+> 
+> 
 
 Here are steps to follow to investigate query execution plans and times for a particular query.
 
@@ -139,9 +145,7 @@ If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
-<a name="waiting"></a>
-
-## Monitor waiting queries
+## <a name="waiting"></a> Monitor waiting queries
 If you discover that your query is not making progress because it is waiting for a resource, here is a query that shows all the resources a query is waiting for.
 
 ```sql
@@ -181,11 +185,11 @@ See [SQL Data Warehouse best practices][SQL Data Warehouse best practices] for m
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
-[sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/zh-cn/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/zh-cn/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: http://msdn.microsoft.com/zh-cn/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/zh-cn/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/zh-cn/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/zh-cn/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
+[sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
+[sys.dm_pdw_request_steps]: http://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
+[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx

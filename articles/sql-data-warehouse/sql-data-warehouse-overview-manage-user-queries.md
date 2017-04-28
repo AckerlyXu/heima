@@ -2,18 +2,21 @@
 title: Monitor user queries in Azure SQL Data Warehouse | Azure
 description: Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: 1d0960db-5dcf-4a08-b1dc-6c5d3d5a616d
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
-ms.author: jrj;barbkess;sonyama
+wacn.date: ''
+ms.author: jrj;barbkess
 ---
 
 # Monitor user queries in Azure SQL Data Warehouse
@@ -30,9 +33,9 @@ For more management tips, head over to the [Management overview][Management over
 <!--Image references-->
 
 <!--Article references-->
-[Find long-running queries]: /documentation/articles/sql-data-warehouse-manage/
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
-[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Find long-running queries]: sql-data-warehouse-manage-monitor.md
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 

@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: backup-restore
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: lakshmir;barbkess
@@ -21,10 +22,12 @@ ms.author: lakshmir;barbkess
 # SQL Data Warehouse restore
 
 > [!div class="op_single_selector"]
->- [Overview][Overview]
->- [Portal][Portal]
->- [PowerShell][PowerShell]
->- [REST][REST]
+> * [Overview][Overview]
+> * [Portal][Portal]
+> * [PowerShell][PowerShell]
+> * [REST][REST]
+> 
+> 
 
 SQL Data Warehouse offers both local and geographical restores as part of its data warehouse disaster recovery capabilities. Use data warehouse backups to restore your data warehouse to a restore point in the primary region, or use geo-redundant backups to restore to a different geographical region. This article explains the specifics of restoring a data warehouse.
 
@@ -35,7 +38,7 @@ Database restore is an essential part of any business continuity and disaster re
 
 For more information, see:
 
-* [SQL Data Warehouse backups](./sql-data-warehouse-backups.md)
+* [SQL Data Warehouse backups](sql-data-warehouse-backups.md)
 * [Business continuity overview](../sql-database/sql-database-business-continuity.md)
 
 ## Data warehouse restore points
@@ -43,7 +46,7 @@ As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Stora
 
 SQL Data Warehouse always restores the backup to a new data warehouse. You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it.
 
-If you need to restore a deleted or paused data warehouse, you can [create a support ticket](./sql-data-warehouse-get-started-create-support-ticket.md). 
+If you need to restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). 
 
 <!-- 
 ### Can I restore a deleted data warehouse?

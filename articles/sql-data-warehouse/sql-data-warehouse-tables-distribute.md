@@ -2,30 +2,35 @@
 title: Distributing tables in SQL Data Warehouse | Azure
 description: Getting started with distributing tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
+documentationcenter: NA
+author: jrowlandjones
 manager: barbkess
 editor: ''
 
+ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess;sonyama
+wacn.date: ''
+ms.author: jrj;barbkess
 ---
 
 # Distributing tables in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [Overview][]
->- [Data Types][]
->- [Distribute][]
->- [Index][]
->- [Partition][]
->- [Statistics][]
->- [Temporary][]
+> * [Overview][Overview]
+> * [Data Types][Data Types]
+> * [Distribute][Distribute]
+> * [Index][Index]
+> * [Partition][Partition]
+> * [Statistics][Statistics]
+> * [Temporary][Temporary]
+>
+>
 
 SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
 
@@ -94,6 +99,8 @@ WITH
 
 > [!NOTE]
 > While round robin is the default table type being explicit in your DDL is considered a best practice so that the intentions of your table layout are clear to others.
+>
+>
 
 ### Hash Distributed Tables
 Using a **Hash distributed** algorithm to distribute your tables can improve performance for many scenarios by reducing data movement at query time.  Hash distributed tables are tables which are divided between the distributed databases using a hashing algorithm on a single column which you select.  The distribution column is what determines how the data is divided across your distributed databases.  The hash function uses the distribution column to assign rows to distributions.  The hashing algorithm and resulting distribution is deterministic.  That is the same value with the same data type will always has to the same distribution.    

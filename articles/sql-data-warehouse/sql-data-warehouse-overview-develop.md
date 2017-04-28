@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: develop
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: jrj;barbkess
@@ -72,6 +73,6 @@ Once you have been through the development articles take a look through the [Tra
 [Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[renaming objects]: https://msdn.microsoft.com/zh-cn/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->

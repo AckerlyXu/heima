@@ -4,25 +4,30 @@ description: PowerShell tasks for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationCenter: NA
 authors: Lakshmi1812
-manager: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: ac62f154-c8b0-4c33-9c42-f480808aa1d2
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: backup-restore
 ms.date: 10/31/2016
-ms.author: lakshmir;barbkess;sonyama
+wacn.date: ''
+ms.author: lakshmir;barbkess
 ---
 
 # Restore an Azure SQL Data Warehouse (PowerShell)
 
 > [!div class="op_single_selector"]
->- [Overview][]
->- [Portal][]
->- [PowerShell][]
->- [REST][]
+> * [Overview][Overview]
+> * [Portal][Portal]
+> * [PowerShell][PowerShell]
+> * [REST][REST]
+> 
+> 
 
 In this article you will learn how to restore an Azure SQL Data Warehouse using PowerShell.
 
@@ -47,11 +52,11 @@ To restore a database from a snapshot use the [Restore-AzureRmSqlDatabase][Resto
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
-$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.chinacloudapi.cn
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Login-AzureRmAccount
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
@@ -68,15 +73,17 @@ $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -Server
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
 
 ```
 
->[!NOTE]
-> After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
+> [!NOTE]
+> After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
+> 
+> 
 
 ## Restore a deleted database
 To restore a deleted database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.
@@ -88,27 +95,31 @@ To restore a deleted database, use the [Restore-AzureRmSqlDatabase][Restore-Azur
 5. Restore the deleted database.
 6. Verify that the restored database is online.
 
-    $SubscriptionName="<YourSubscriptionName>"
-    $ResourceGroupName="<YourResourceGroupName>"
-    $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-    $DatabaseName="<YourDatabaseName>"
-    $NewDatabaseName="<YourDatabaseName>"
+```Powershell
+$SubscriptionName="<YourSubscriptionName>"
+$ResourceGroupName="<YourResourceGroupName>"
+$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.chinacloudapi.cn
+$DatabaseName="<YourDatabaseName>"
+$NewDatabaseName="<YourDatabaseName>"
 
-    Login-AzureRmAccount
-    Get-AzureRmSubscription
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-    # Get the deleted database to restore
-    $DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupNam -ServerName $ServerName -DatabaseName $DatabaseName
+# Get the deleted database to restore
+$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupNam -ServerName $ServerName -DatabaseName $DatabaseName
 
-    # Restore deleted database
-    $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
+# Restore deleted database
+$RestoredDatabase = Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $DeletedDatabase.ResourceID
 
-    # Verify the status of restored database
-    $RestoredDatabase.status
+# Verify the status of restored database
+$RestoredDatabase.status
+```
 
->[!NOTE]
-> After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
+> [!NOTE]
+> After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
+> 
+> 
 
 ## Restore from an Azure geographical region
 To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.
@@ -120,7 +131,8 @@ To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDa
 5. Create the recovery request for the database.
 6. Verify the status of the geo-restored database.
 
-    Login-AzureRmAccount
+    ```Powershell
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     Get-AzureRmSubscription
     Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
@@ -128,13 +140,16 @@ To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDa
     $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
     # Recover database
-    $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
+    $GeoRestoredDatabase = Restore-AzureRmSqlDatabase -FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" -ResourceId $GeoBackup.ResourceID
 
     # Verify that the geo-restored database is online
     $GeoRestoredDatabase.status
+    ```
 
->[!NOTE]
-> To configure your database after the restore has completed, see [Configure your database after recovery][]. 
+> [!NOTE]
+> To configure your database after the restore has completed, see [Configure your database after recovery][Configure your database after recovery].
+> 
+> 
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
@@ -145,9 +160,9 @@ To learn about the business continuity features of Azure SQL Database editions, 
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+<!-- Not available for support ticket[Request a DTU quota change]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
+[How to install and configure Azure PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
@@ -155,7 +170,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt693390.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/
