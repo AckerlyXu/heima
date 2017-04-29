@@ -440,7 +440,7 @@ The steps in this section use the Azure command-line tools to create a new web a
 > [!NOTE]
 > These steps can also be performed by using the [Azure Portal Preview](https://portal.azure.cn/). See [Build and deploy a Node.js web app in Azure App Service].
 > <p> 
-> <p> If this is the first web app you have created, you must use the Azure Portal Preview to deploy this application.
+> If this is the first web app you have created, you must use the Azure Portal Preview to deploy this application.
 > 
 > 
 

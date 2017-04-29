@@ -767,8 +767,6 @@ Trident applications can be created by using Maven projects. You use the same ba
 
 For more information about Trident, see the [Trident API Overview](http://storm.apache.org/documentation/Trident-API-Overview.html).
 
-For an example of a Trident application, see [Twitter trending topics with Apache Storm on HDInsight](hdinsight-storm-twitter-trending.md).
-
 ## Next Steps
 
 You have learned how to create a Storm topology by using Java. Now learn how to:

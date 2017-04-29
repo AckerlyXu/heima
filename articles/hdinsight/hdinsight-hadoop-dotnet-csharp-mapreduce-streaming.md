@@ -270,36 +270,26 @@ Wait-AzureRmHDInsightJob `
 Write-Progress -Activity $activity -Completed
 
 # Download the output 
-if($storageType -eq 'azuredatalakestore') {
-    # Azure Data Lake Store
-    # Fie path is the root of the HDInsight storage + $outputPath
-    $filePath=$clusterInfo.DefaultStorageRootPath + $outputPath + "/part-00000"
-    Export-AzureRmDataLakeStoreItem `
-        -Account $storageAccountName `
-        -Path $filePath `
-        -Destination output.txt
-} else {
-    # Azure Storage account
-    # Get the container
-    $container=$clusterInfo.DefaultStorageContainer
-    #NOTE: This assumes that the storage account is in the same resource
-    #      group as HDInsight. If it is not, change the
-    #      --ResourceGroupName parameter to the group that contains storage.
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
+# Azure Storage account
+# Get the container
+$container=$clusterInfo.DefaultStorageContainer
+#NOTE: This assumes that the storage account is in the same resource
+#      group as HDInsight. If it is not, change the
+#      --ResourceGroupName parameter to the group that contains storage.
+$storageAccountKey=(Get-AzureRmStorageAccountKey `
+    -Name $storageAccountName `
     -ResourceGroupName $resourceGroup)[0].Value
 
-    #Create a storage context
-    $context = New-AzureStorageContext `
-        -StorageAccountName $storageAccountName `
-        -StorageAccountKey $storageAccountKey
-    # Download the file
-    Get-AzureStorageBlobContent `
-        -Blob 'example/data/WordCountOutput/part-r-00000' `
-        -Container $container `
-        -Destination output.txt `
-        -Context $context
-}
+#Create a storage context
+$context = New-AzureStorageContext `
+    -StorageAccountName $storageAccountName `
+    -StorageAccountKey $storageAccountKey
+# Download the file
+Get-AzureStorageBlobContent `
+    -Blob 'example/data/WordCountOutput/part-r-00000' `
+    -Container $container `
+    -Destination output.txt `
+    -Context $context
 ```
 
 This script prompts you for the cluster login account name and password, along with the HDInsight cluster name. Once the job completes, the output is downloaded to the `output.txt` file in the directory the script is ran from. The following text is an example of the data in the `output.txt` file:

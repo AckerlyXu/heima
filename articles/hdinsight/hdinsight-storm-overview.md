@@ -94,8 +94,6 @@ You can provision a new Storm cluster on HDInsight in minutes. For more informat
 
 ## Integration with other Azure services
 
-* __Azure Data Lake Store__: For an example of using Data Lake Store with Storm, see [Use Azure Data Lake Store with Apache Storm on HDInsight](hdinsight-storm-write-data-lake-store.md).
-
 * __Event Hubs__: For an example of using Event Hubs with Storm, see the following documents:
 
     * [Develop a Java-based topology for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)

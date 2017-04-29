@@ -217,9 +217,6 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
-    > [!NOTE]
-    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Store instead, change the `wasbs:///` value to `adl:///`.
-
 3. Use the UDF to convert values retrieved from a table to lower case strings.
 
     ```hiveql

@@ -20,7 +20,7 @@ ms.author: cephalin
 ---
 # Create an ASP.NET app in Azure with SQL Database
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 This tutorial shows you how to develop a data-driven ASP.NET web app in Azure. Connect your web app to Azure SQL Database in just a few minutes, and enable your data-driven functionality with minimal configuration. When you're finished, you'll have a data-driven ASP.NET web app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
@@ -73,7 +73,7 @@ This opens the **Create App Service** dialog, which helps you create all the Azu
 
 ### Sign in to Azure
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 In the **Create App Service** dialog, click **Add an account**, and then sign in to your Azure subscription. If you're already signed into an Azure account, make sure that account holds your Azure subscription. If the signed-in Azure account doesn't have your Azure subscription, click it to add the correct account.
 
@@ -100,13 +100,12 @@ Your Azure web app also needs an _App Service plan_.
 
 > [!NOTE]
 > An App Service plan represents the collection of physical resources used to host your apps. All apps assigned to an App Service plan share the resources defined by it, which enables you to save cost when hosting multiple apps. 
-> <p>
-> <p> App Service plans define:
-> <p>
-> <p> - Region (China North, China East)
-> <p> - Instance Size (Small, Medium, Large)
-> <p> - Scale Count (one, two or three instances, etc.) 
-> <p> - SKU (Free, Shared, Basic, Standard, Premium)
+> <br/>
+> App Service plans define:
+> - Region (China North, China East)
+> - Instance Size (Small, Medium, Large)
+> - Scale Count (one, two or three instances, etc.) 
+> - SKU (Free, Shared, Basic, Standard, Premium)
 >
 >
 
