@@ -109,9 +109,9 @@ You need the following to complete this tutorial:
 
     > [!IMPORTANT]
     > If you navigate away from this page now, you won't be able to access this client key ever again.
-1. use REST API to configure your App: GET from the following URL. 
+1. use REST API to configure your App: GET from the following URL.
 
-    ``` 
+    ```
     https://management.chinacloudapi.cn/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings/list?api-version=2015-08-01
     ```
 2. You will get something like this.

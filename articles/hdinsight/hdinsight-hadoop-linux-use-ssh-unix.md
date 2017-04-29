@@ -119,12 +119,6 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 
 For information on changing the SSH user account password, see the __Change passwords__ section of the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
 
-## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
-
-If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
-
-For more information, see [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md).
-
 ## Connect to worker and Zookeeper nodes
 
 The worker nodes and Zookeeper nodes are not directly accessible from the internet, but they can be accessed from the cluster head nodes or edge nodes. The following are the general steps to connect to other nodes:

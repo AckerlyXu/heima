@@ -100,11 +100,11 @@ Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This direc
 
 Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`
 
-## HDFS, Azure Storage, and Data Lake Store
+## HDFS and Azure Storage
 
 In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While using local storage is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
-HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the default store. These services provide the following benefits:
+HDInsight uses blobs in Azure Storage as the default store. These services provide the following benefits:
 
 * Cheap long-term storage
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers

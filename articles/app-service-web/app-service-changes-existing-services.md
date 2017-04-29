@@ -26,7 +26,7 @@ This article outlines the changes to existing Azure services as part of the chan
 ## Overview
 [Azure App Service](https://www.azure.cn/home/features/app-service/) is a new and unique cloud service that enables developers to create web and mobile apps for any platform and any device. App Service is an integrated solution designed to streamline repeated coding functions, integrate with enterprise and SaaS systems, and automate business processes while meeting your needs for security, reliability, and scalability.
 
-App Service brings together the following existing Azure services - [Websites](https://www.azure.cn/home/features/app-service/web-apps/) and [Mobile Services](https://www.azure.cn/home/features/mobile-services/) into a single combined service, while adding powerful new capabilities. App Service allows you to host the following app types:
+App Service brings together the following existing Azure services - [Websites](https://www.azure.cn/home/features/app-service/web-apps/) and [Mobile Services](https://www.azure.cn/home/features/mobile-services/) into a single combined service, while adding powerful new capabilities.  App Service allows you to host the following app types:
 
 * Web Apps
 * Mobile Apps

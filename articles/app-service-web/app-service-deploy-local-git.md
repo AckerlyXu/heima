@@ -28,7 +28,7 @@ To complete this tutorial, you need:
 * Git. You can download the installation binary [here](http://www.git-scm.com/downloads).  
 * Basic knowledge of Git.
 * A Azure account. If you don't have an account, you can 
-  [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial). 
+  [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial).
 
 ## <a name="Step1"></a>Step 1: Create a local repository
 Perform the following tasks to create a new Git repository.
