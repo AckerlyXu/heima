@@ -251,13 +251,6 @@ Spark clusters were available on Windows-clusters during preview. Spark GA is on
 
 ## Known issues
 
-### Azure Data Factory custom .NET activities
-
-Azure Data Factory custom .NET activities are not currently supported on Linux-based HDInsight clusters. Instead, you should use one of the following methods to implement custom activities as part of your ADF pipeline.
-
-* Execute .NET activities on Azure Batch pool. See the Use Azure Batch linked service section of [Use custom activities in an Azure Data Factory pipeline](../data-factory/data-factory-use-custom-activities.md)
-* Implement the activity as a MapReduce activity. For more information, see [Invoke MapReduce Programs from Data Factory](../data-factory/data-factory-map-reduce.md).
-
 ### Line endings
 
 In general, line endings on Windows-based systems use CRLF, while Linux-based systems use LF. If you produce, or expect, data with CRLF line endings, you may need to modify the producers or consumers to work with the LF line ending.
