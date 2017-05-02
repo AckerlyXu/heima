@@ -87,8 +87,6 @@ Azure portal preview has a quick way to visually inspect the metrics of your app
 > [!TIP]
 > Learn more about Azure Monitor with the following links:
 > - [Get started with Azure Monitor](..\monitoring-and-diagnostics\monitoring-overview.md)
-> - [Azure Metrics](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
-> - [Supported metrics with Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
 > - [Azure portal preview Dashboards](..\azure-portal\azure-portal-dashboards.md)
 
 ## <a name="alerts"></a> Step 3 - Configure Alerts
@@ -107,7 +105,6 @@ To create an alert:
 
 > [!TIP]
 > Learn more about Azure Alerts with the following links:
-> - [What are alerts in Azure](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
 > - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md)
 
 ## <a name="logging"></a> Step 4 - Logging

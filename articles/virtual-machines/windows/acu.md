@@ -28,6 +28,3 @@ Here are links to more information about the different sizes:
 - [General-purpose](sizes-general.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Compute optimized](sizes-compute.md)
-- [GPU optimized](sizes-gpu.md)
-- [High performance compute](sizes-hpc.md)
-- [Storage optimized](sizes-storage.md)
