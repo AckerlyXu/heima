@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-
+wacn.date:''
 ---
 # Overview of the features in Azure Backup
 Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Backup vault in Azure. See the [Azure Backup components table](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (later in this article) for information about which component to use to protect specific data, applications, or workloads.
@@ -84,15 +84,15 @@ The following table shows the Azure Backup components that have support for Linu
 | Component | Linux (Azure endorsed) Support |
 | --- | --- |
 | Azure Backup (MARS) agent |No (Only Windows based agent) |
-| System Center DPM |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
-| Azure Backup Server |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
-| Azure IaaS VM Backup |Yes |
+| System Center DPM |File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> (not available for Azure VM)<br/> VM restore of Hyper-V and VMWare Linux Guest VMs |
+| Azure Backup Server |File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> (not available for Azure VM)<br/> VM restore of Hyper-V and VMWare Linux Guest VMs |
+| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Restore all VM disks](https://docs.microsoft.com/azure/backup/backup-azure-restore-vms#restore-backed-up-disks)<br/> [VM restore](https://docs.microsoft.com/azure/backup/backup-azure-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## Using Premium Storage VMs with Azure Backup
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 ### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The staging location is equal to the size of the recovery point snapshot. Be sure there is free space in the storage account to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The staging location is equal to the size of the recovery point snapshot. Be sure there is free space in the storage account to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Do not modify or edit the staging location.
@@ -106,7 +106,7 @@ Premium Storage VMs can be restored to either Premium Storage or to normal stora
 Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning.
 
 ### Back up managed disk VMs
-Backing up VMs on managed disks is no different than backing up Resource Manager VMs.  You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
+Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
 
 ### Restore managed disk VMs
 Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process.
