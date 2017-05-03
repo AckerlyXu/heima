@@ -30,7 +30,7 @@ App Service plans define:
 - Instance size (Small, Medium, Large)
 - SKU (Free, Shared, Basic, Standard, Premium)
 
-Web Apps, Mobile Apps, API Apps, Function Apps (or Functions), in 
+Web Apps, Mobile Apps, API Apps, in 
 [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) 
 all run in an App Service plan.  Apps in the same subscription, region, and 
 resource group can share an App Service plan. 

@@ -20,8 +20,6 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 *The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
-**In some regions, accelerated networking is available for the Standard_DS15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
-
 ***Instance is isolated to hardware dedicated to a single customer.
 <br>
 Bps = 10^6 bytes per second, and GiB = 1024^3 bytes.
@@ -39,8 +37,6 @@ ACU: 21--250
 | Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / high                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremely high           |
 | Standard_D15_v2** | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 40 / 40x500                       | 8 / extremely high*          |
-
-*In some regions, accelerated networking is available for the Standard_D15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
 **Instance is isolated to hardware dedicated to a single customer.
 

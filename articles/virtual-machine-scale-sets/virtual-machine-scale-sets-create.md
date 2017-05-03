@@ -110,22 +110,22 @@ PowerShell is more complicated to use than Azure CLI. While Azure CLI provides d
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **China North 2** region with a publisher that has the name **microsoft** in it.
+The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **China North** region with a publisher that has the name **microsoft** in it.
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location ChinaNorth | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
 
 ```
-PublisherName              Offer                    Skus
--------------              -----                    ----
-microsoft-ads              linux-data-science-vm    linuxdsvm
-microsoft-ads              standard-data-science-vm standard-data-science-vm
-MicrosoftAzureSiteRecovery Process-Server           Windows-2012-R2-Datacenter
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Enterprise
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Standard
-MicrosoftBizTalkServer     BizTalk-Server           2016-Developer
-MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
+PublisherName              Offer          Skus
+-------------              -----          ----
+MicrosoftAzureSiteRecovery Process-Server Windows-2012-R2-Datacenter
+MicrosoftOSTC              FreeBSD        10.3
+MicrosoftOSTC              FreeBSD        11.0
+MicrosoftRServer           RServer-CentOS Enterprise
+MicrosoftRServer           RServer-RedHat Enterprise
+MicrosoftRServer           RServer-Ubuntu Enterprise
+MicrosoftRServer           RServer-WS2016 Enterprise
 ...
 ```
 

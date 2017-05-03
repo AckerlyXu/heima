@@ -29,9 +29,6 @@ ms.author: cynthn
 ## Other sizes
 - [General purpose](../windows/sizes-general.md)
 - [Compute optimized](../windows/sizes-compute.md)
-- [Storage optimized](sizes-storage.md)
-- [GPU](../windows/sizes-gpu.md)
-- [High performance compute](../windows/sizes-hpc.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.

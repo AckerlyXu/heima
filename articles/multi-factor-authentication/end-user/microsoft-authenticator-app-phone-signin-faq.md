@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Azure
-description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature.
+title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Microsoft Docs
+description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature. 
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
-wacn.date: ''
+ms.date: 04/02/2017
+wacn.date:''
 ms.author: kgremban
+ms.custom: end-user
 ---
-
 # Sign in with your phone, not your password
 
 The Microsoft Authenticator app helps you keep your accounts secure by performing two-step verification after you enter your password. But did you know that it can replace the password for your personal Microsoft account entirely? 
@@ -34,7 +34,7 @@ To sign in to your personal Microsoft account with your phone, follow these step
 
 1. Enable phone sign-in for your account. 
 
-  - If you don't have the Microsoft Authenticator app yet, install and add your personal Microsoft account according to the steps on the [Microsoft Authenticator page](./microsoft-authenticator-app-how-to.md). Newly added accounts are automatically enabled, so you're good to go.
+  - If you don't have the Microsoft Authenticator app yet, install and add your personal Microsoft account according to the steps on the [Microsoft Authenticator page](microsoft-authenticator-app-how-to.md). Newly added accounts are automatically enabled, so you're good to go.
 
   - If you already use Microsoft Authenticator for two-step verification, select your account from the app home page, and select **Enable phone sign-in from the drop-down menu".
 
@@ -87,4 +87,5 @@ At this time, we are not developing this functionality for the Microsoft Authent
 ## Next steps
 If you haven't downloaded the Microsoft Authenticator app, check it out. The app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), and phone sign-in is available on the Microsoft Authenticator app for [Android](http://go.microsoft.com/fwlink/?Linkid=825072) and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-If you have questions about the app in general, take a look at the [Microsoft Authenticator FAQs](./microsoft-authenticator-app-faq.md)
+If you have questions about the app in general, take a look at the [Microsoft Authenticator FAQs](microsoft-authenticator-app-faq.md)
+

@@ -33,7 +33,7 @@ Create custom routing and virtual appliances using the Azure CLI.
 
 You can complete the task using one of the following CLI versions: 
 
-- [Azure CLI 1.0](#Create-the-UDR-for-the-front-end-subnet) - our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 1.0](#create-the-udr-for-the-front-end-subnet) - our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md) - our next generation CLI for the resource management deployment model 
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]

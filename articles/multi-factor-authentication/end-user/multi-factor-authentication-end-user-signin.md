@@ -14,8 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/02/2017
 ms.author: kgremban
+ms.custom: end-user
+wacn.date:''
 
 ---
 # The sign-in experience with Azure Multi-Factor Authentication
