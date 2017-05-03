@@ -15,12 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/24/2017
 ms.author: msfussell
----
 
+---
 # Deploy a Docker container to Service Fabric
->[!div class="op_single_selector"]
->- [Deploy Windows Container](./service-fabric-deploy-container.md)
->- [Deploy Docker Container](./service-fabric-deploy-container-linux.md)
+> [!div class="op_single_selector"]
+> * [Deploy Windows Container](service-fabric-deploy-container.md)
+> * [Deploy Docker Container](service-fabric-deploy-container-linux.md)
+>
+>
 
 This article walks you through building containerized services in Docker containers on Linux.
 
@@ -38,10 +40,19 @@ The capabilities include;
 ## Packaging a docker container with yeoman
 When packaging a container on Linux, you can choose either to use a yeoman template or [create the application package manually](#manually).
 
-A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create a new application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
+A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
+
+## Install Docker on your development box
+
+Run the following commands to install docker on your Linux development box (if you are using the vagrant image on OSX, docker is already installed):
+
+```bash
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+```
 
 ## Create the application
-1. In a terminal, type **yo azuresfguest**.
+1. In a terminal, type `yo azuresfguest`.
 2. For the framework, choose **Container**.
 3. Name your application - for example, SimpleContainerApp
 4. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
@@ -70,7 +81,7 @@ Once the application is built, you can deploy it to the local cluster using the 
     ```bash
     ./uninstall.sh
     ```
-For an example application [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+For an example application, [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Adding more services to an existing application
 
@@ -89,7 +100,7 @@ The process of manually packaging a containerized service is based on the follow
 4. Edit the application manifest file.
 
 ## Deploy and activate a container image
-In the Service Fabric [application model](./service-fabric-application-model.md), a container represents an application host in which multiple service replicas are placed. To deploy and activate a container, put the name of the container image into a `ContainerHost` element in the service manifest.
+In the Service Fabric [application model](service-fabric-application-model.md), a container represents an application host in which multiple service replicas are placed. To deploy and activate a container, put the name of the container image into a `ContainerHost` element in the service manifest.
 
 In the service manifest, add a `ContainerHost` for the entry point. Then set the `ImageName` to be the name of the container repository and image. The following partial manifest shows an example of how to deploy the container called `myimage:v1` from a repository called `myrepo`:
 
@@ -146,7 +157,7 @@ To download a container, you might have to provide sign-in credentials to the co
 
 We recommend that you encrypt the password by using a certificate that's deployed to the machine.
 
-The following example shows an account called *TestUser*, where the password was encrypted by using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` PowerShell command to create the secret cipher text for the password. For more information, see the article [Managing secrets in Service Fabric applications](./service-fabric-application-secret-management.md).
+The following example shows an account called *TestUser*, where the password was encrypted by using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` PowerShell command to create the secret cipher text for the password. For more information, see the article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md).
 
 The private key of the certificate that's used to decrypt the password must be deployed to the local machine in an out-of-band method. (In Azure, this method is Azure Resource Manager.) Then, when Service Fabric deploys the service package to the machine, it can decrypt the secret. By using the secret along with the account name, it can then authenticate with the container repository.
 
@@ -176,7 +187,7 @@ You can configure a host port used to communicate with the container by specifyi
 ```
 
 ## Configure container-to-container discovery and communication
-By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
+By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
 
 If you specify an endpoint, using the `Endpoint` tag in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. Other services that are running in the cluster can thus discover this container using the REST queries for resolving.
 
@@ -191,7 +202,7 @@ If you specify an endpoint, using the `Endpoint` tag in the service manifest of 
     </ServiceManifestImport>
 ```
 
-By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](./service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
+By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
 
 ## Configure and set environment variables
 Environment variables can be specified for each code package in the service manifest, both for services that are deployed in containers or for services that are deployed as processes/guest executables. These environment variable values can be overridden specifically in the application manifest or specified during deployment as application parameters.
@@ -292,10 +303,10 @@ An example service manifest (specified in the preceding application manifest) fo
 ```
 
 ## Next steps
-Now that you have deployed a containerized service, learn how to manage its lifecycle by reading [Service Fabric application lifecycle](./service-fabric-application-lifecycle.md).
+Now that you have deployed a containerized service, learn how to manage its lifecycle by reading [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).
 
-* [Overview of Service Fabric and containers](./service-fabric-containers-overview.md)
-* [Interacting with Service Fabric clusters using the Azure CLI](./service-fabric-azure-cli.md)
+* [Overview of Service Fabric and containers](service-fabric-containers-overview.md)
+* [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
-[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman.png
+[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png

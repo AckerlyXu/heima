@@ -15,16 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: msfussell;mikhegn
----
 
+---
 # Deploy multiple guest executables
-This article shows how to package and deploy multiple guest executables to Azure Service Fabric. For building and deploying a single Service Fabric package read how to [deploy a guest executable to Service Fabric](./service-fabric-deploy-existing-app.md).
+This article shows how to package and deploy multiple guest executables to Azure Service Fabric. For building and deploying a single Service Fabric package read how to [deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md).
 
 While this walkthrough shows how to deploy an application with a Node.js front end that uses MongoDB as the data store, you can apply the steps to any application that has dependencies on another application.   
 
-You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](./service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
+You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
+
 ## Samples
-* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Manually package the multiple guest executable application
@@ -64,12 +65,12 @@ As a next step, you create an application package for the Node.js application. T
 
 Below is a description of the parameters that are being used:
 
-- **/source** points to the directory of the application that should be packaged.
-- **/target** defines the directory in which the package should be created. This directory has to be different from the source directory.
-- **/appname** defines the application name of the existing application. It's important to understand that this translates to the service name in the manifest, and not to the Service Fabric application name.
-- **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
-- **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
-- **/AppType** defines the Service Fabric application type name.
+* **/source** points to the directory of the application that should be packaged.
+* **/target** defines the directory in which the package should be created. This directory has to be different from the source directory.
+* **/appname** defines the application name of the existing application. It's important to understand that this translates to the service name in the manifest, and not to the Service Fabric application name.
+* **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
+* **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
+* **/AppType** defines the Service Fabric application type name.
 
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:
 
@@ -132,6 +133,8 @@ mongod.exe --dbpath [path to data]
 ```
 > [!NOTE]
 > The data is not being preserved in the case of a node failure if you put the MongoDB data directory on the local directory of the node. You should either use durable storage or implement a MongoDB replica set in order to prevent data loss.  
+>
+>
 
 In PowerShell or the command shell, we run the packaging tool with the following parameters:
 
@@ -201,6 +204,7 @@ Once the application is successfully published to the local cluster, you can acc
 
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
 
+
 ## Adding more guest executables to an existing application using Yeoman on Linux
 
 To add another service to an application already created using `yo`, perform the following steps: 
@@ -208,6 +212,6 @@ To add another service to an application already created using `yo`, perform the
 2. Run `yo azuresfguest:AddService` and provide the necessary details.
 
 ## Next steps
-* Learn about deploying containers with [Service Fabric and containers overview](./service-fabric-containers-overview.md)
-* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* Learn about deploying containers with [Service Fabric and containers overview](service-fabric-containers-overview.md)
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
