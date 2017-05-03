@@ -23,7 +23,7 @@ This topic provides a list of resource providers that support Azure Resource Man
 
 When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
 
-To see which services are supported in the Azure portal preview and Classic Management Portal, see [Azure portal preview availability chart](https://azure.microsoft.com/features/azure-portal/availability/). To see which services support moving resources, see [Move resources to new resource group or subscription](./resource-group-move-resources.md).
+To see which services are supported in the Azure portal preview and Classic Management Portal, see [Azure portal availability chart](/support/service-dashboard/). To see which services support moving resources, see [Move resources to new resource group or subscription](./resource-group-move-resources.md).
 
 The following tables list which Microsoft services support deployment and management through Resource Manager and which do not. There are also many third-party resource providers that support Resource Manager. You learn how to see all the resource providers in the [Resource providers and types](#resource-providers-and-types) section.
 
@@ -32,7 +32,7 @@ The following tables list which Microsoft services support deployment and manage
 | --- | --- | --- | --- |
 | Batch |Yes |[Batch REST](https://docs.microsoft.com/rest/api/batchservice) | |
 | Dynamics Lifecycle Services |Yes | | |
-| Scale Sets |Yes |[Scale Set REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets) |[Scale Set resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) |
+| Scale Sets |Yes |[Scale Set REST](https://docs.microsoft.com/rest/api/virtualmachinescalesets/) |[Scale Set resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) |
 | Service Fabric |Yes |[Service Fabric Rest](https://docs.microsoft.com/rest/api/servicefabric) | [Service Fabric Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json)  [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Virtual Machines |Yes |[VM REST](https://docs.microsoft.com/rest/api/compute/virtualmachines) |[VM resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%2Fvirtualmachines%22&type=Code) |
 | Virtual Machines (classic) |Limited |- |- |
@@ -55,12 +55,12 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 
 ## Storage
 | Service | Resource Manager Enabled | REST API | Template format |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Storage |Yes |[Storage REST](https://docs.microsoft.com/rest/api/storagerp) |[Storage resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
 
 ## Databases
 | Service | Resource Manager Enabled | REST API | Template format |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | DocumentDB |Yes |[DocumentDB REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider) |[DocumentDB resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DocumentDb%22&type=Code) |
 | Redis Cache |Yes | [Redis Cache REST](https://docs.microsoft.com/rest/api/redis) |[Redis resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cache%22&type=Code) |
 | SQL Database |Yes |[SQL Database REST](https://docs.microsoft.com/rest/api/sql) |[SQL Database resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
@@ -125,9 +125,10 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 
 ## Resource Manager
 | Feature | Resource Manager Enabled | REST API | Template format |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Authorization |Yes |[Authorization REST](https://docs.microsoft.com/rest/api/authorization) |[Resource lock](/documentation/articles/resource-manager-template-lock/)<br />[Role assignments](/documentation/articles/resource-manager-template-role/)<br/>[Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
 | Resources |Yes |[Resources REST](https://docs.microsoft.com/rest/api/resources) | [Resource links](/documentation/articles/resource-manager-template-links/) <br/> [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
+<!-- resource-manager-template-lock, resource-manager-template-role,resource-manager-template-links  Redirect with valid URI -->
 
 ## <a name="resource-providers-and-types"></a> Resource providers and types
 When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
@@ -180,10 +181,12 @@ To register a resource provider, provide the namespace:
     az provider register --namespace Microsoft.ServiceBus
     ```
 
+<!-- supported regions not available in Azure.cn-->
+<!--
 ## <a name="supported-regions"></a> Supported regions
 When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed by your subscription administrator to use only certain regions. 
-
 For a complete list of all supported regions for all Azure services, see [Services by region](https://azure.microsoft.com/regions/#services). However, this list may include regions that your subscription does not support. You can determine the regions for a particular resource type that your subscription supports through the portal, REST API, PowerShell, or Azure CLI.
+-->
 
 ### Portal
 You can see the supported regions for a resource type through the following steps:

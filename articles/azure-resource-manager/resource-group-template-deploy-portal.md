@@ -30,7 +30,7 @@ ms.author: tomfitz
 This topic shows how to use the [Azure portal](https://portal.azure.cn) with [Azure Resource Manager](./resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./resource-group-portal.md).
 
 Currently, not every service supports the portal or Resource Manager. For those services, you need to use
-the [classic portal](https://manage.windowsazure.cn).  For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+the [classic portal](https://manage.windowsazure.cn).  For the status of each service, see [Azure portal availability chart](/support/service-dashboard/).
 
 ## <a name="create-resource-group"></a>Create resource group
 1. To create an empty resource group, select **New** > **Management** > **Resource Group**.
@@ -79,7 +79,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
     In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](./resource-manager-template-walkthrough.md).
 
     ![edit template](./media/resource-group-template-deploy-portal/edit-template.png)
-4. Or, you can select a pre-existing template from the [Azure quickstart templates](https://azure.microsoft.com/zh-cn/documentation/templates/). These templates are contributed by the community. They cover many common scenarios, and someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.
+4. Or, you can select a pre-existing template from the [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/). These templates are contributed by the community. They cover many common scenarios, and someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.
 
     ![select quickstart template](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
 
