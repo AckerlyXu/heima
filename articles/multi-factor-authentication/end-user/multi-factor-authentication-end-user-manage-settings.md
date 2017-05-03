@@ -14,8 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/23/2017
 ms.author: kgremban
+ms.custom: end-user
+wacn.date:''
 
 ---
 # Manage your settings for two-step verification
@@ -47,7 +49,7 @@ If your IT admin sent out a specific URL or steps to manage two-step verificatio
         ![4](./media/multi-factor-authentication-end-user-manage/4.png) 
 
 
-## I want to change my phone number, or add a secondary number
+## I want to change my phone number
 
 If you want to change your phone number, you can take the following steps.
 
@@ -73,5 +75,4 @@ When you uninstall the app from your device or reset the device, it does not rem
 
 ## Next steps
 - Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
-- Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.
 
