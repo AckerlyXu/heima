@@ -38,7 +38,7 @@ You can start out creating and configuring resources using one configuration too
 ###Deployment model
 When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="diagrams"></a>Connection topology diagrams
+## <a name="diagrams" id="a-namediagramsaconnection-topology-diagrams"></a>Connection topology diagrams
 It's important to know that there are different configurations available for VPN gateway connections. You need to determine which configuration best fits your needs. In the sections below, you can view information and topology diagrams about the following VPN gateway connections:
 The following sections contain tables which list:
 

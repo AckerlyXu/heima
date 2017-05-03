@@ -28,9 +28,7 @@ This article shows you how to create a .NET line-of-business app in
 to use the [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 
 to query directory data in the application.
 
-The Azure Active Directory tenant that you use can be an Azure-only directory. Or, it can be 
-[synced with your on-premise Active Directory](../active-directory/active-directory-aadconnect.md) to create a single sign-on experience for 
-workers that are on-premises and remote. This article uses the default directory for your Azure account.
+The Azure Active Directory tenant that you use can be an Azure-only directory. This article uses the default directory for your Azure account.
 
 ## <a name="bkmk_build"></a> What you will build
 You will build a simple line-of-business Create-Read-Update-Delete (CRUD) application in App Service Web Apps that tracks 

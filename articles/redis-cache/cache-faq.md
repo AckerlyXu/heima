@@ -146,7 +146,7 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 ### <a name="cache-billing" id="how-am-i-billed-for-azure-redis-cache"></a> How am I billed for Azure Redis Cache?
 Azure Redis Cache pricing is [here](https://www.azure.cn/pricing/details/redis-cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
-### <a name="cache-configuration"></a> What do the StackExchange.Redis configuration options do?
+### <a name="cache-configuration" id="what-do-the-stackexchangeredis-configuration-options-do"></a> What do the StackExchange.Redis configuration options do?
 StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
 | ConfigurationOptions | Description | Recommendation |
@@ -337,7 +337,7 @@ Given this information, we strongly recommend that customers set the minimum con
 
 How to configure this setting:
 
-* In ASP.NET, use the ["minIoThreads" configuration setting]["minIoThreads" configuration setting] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to configure this setting programmatically (see below) from your Application_Start method in global.asax.cs.
+* In ASP.NET, use the "minIoThreads" configuration setting under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to configure this setting programmatically (see below) from your Application_Start method in global.asax.cs.
 
     > [!NOTE] 
     > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
@@ -410,5 +410,3 @@ For more information about getting started with Azure Redis Cache, see [How to U
 
 ### In-Role Cache
 [In-Role Cache has been retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
-
-["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

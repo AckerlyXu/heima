@@ -33,7 +33,7 @@ The tutorial also shows you how to map a [wildcard DNS](https://en.wikipedia.org
 
 ## Before you begin
 
-Since this tutorial shows you how to map a DNS name to Azure App Service, you must have administrative access to the DNS configuration page for your respective domain provider (e.g. GoDaddy). For example, to add a mapping for `contoso.com` and `www.contoso.com`, you need to be able to configure DNS entries for `contoso.com`.
+Since this tutorial shows you how to map a DNS name to Azure App Service, you must have administrative access to the DNS configuration page for your respective domain provider. For example, to add a mapping for `contoso.com` and `www.contoso.com`, you need to be able to configure DNS entries for `contoso.com`.
 
 ## Step 1 - Prepare your app
 To map a custom DNS name, your[App Service plan](https://www.azure.cn/pricing/details/app-service/) must be in the **Shared** tier or above. In this step, you make sure that your Azure app is in the supported pricing tier.

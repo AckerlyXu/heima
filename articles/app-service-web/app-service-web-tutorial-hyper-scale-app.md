@@ -62,6 +62,9 @@ And the `About()` and `Contact()` methods cache their output.
 In this step, you create an Azure web app and deploy your sample ASP.NET application to it.
 
 ### Create a resource group   
+
+[AZURE.INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 Use [az group create](https://docs.microsoft.com/cli/azure/group#create) to create a [resource group](../azure-resource-manager/resource-group-overview.md) in the China North region. A resource group is where you put all the Azure resources that you want to manage together, such as the web app and any SQL Database back end.
 
 ```azurecli
@@ -288,7 +291,7 @@ az appservice web create --name $appName-east --resource-group myResourceGroup -
 ### Configure the connection string for Redis
 Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) to add to the web app the connection string for the China East cache.
 
-az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
+    az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
 
 ### Configure Git deployment for the China East app.
 Use [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) to configure local Git deployment for the second web app.

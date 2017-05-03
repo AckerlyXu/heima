@@ -184,7 +184,7 @@ App Service apps hosted in basic, standard or premium App Service Plans
 support **autoscale**. This allows you to configure rules that monitor the
 App Service plan metrics and can increase or decrease the instance count
 providing additional resources as needed, or saving money when the application
-is over-provision. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+is over-provision.
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)

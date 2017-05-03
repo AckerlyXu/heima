@@ -36,7 +36,7 @@ For big data to provide actionable intelligence or insight, you must collect rel
 ## <a name="overview"></a>Overview of the Hadoop ecosystem in HDInsight
 HDInsight is a cloud distribution on Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes implementations of Apache Spark, HBase, Kafka, Storm, Pig, Hive, Interactive Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
 
-### Hadoop, HBase, Spark, Kafka, Interactive Hive, Storm, customized, and other clusters
+### Hadoop, HBase, Spark, Interactive Hive, Storm, customized, and other clusters
 HDInsight offers the following cluster types:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Provides reliable data storage with [HDFS](#hdfs), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
@@ -46,7 +46,6 @@ HDInsight offers the following cluster types:
 * **[Apache Storm](https://storm.incubator.apache.org/)**: A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 * **[Apache Interactive Hive preview (AKA: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: In-memory caching for interactive and faster Hive queries. See [Use Interactive Hive in HDInsight](/azure/hdinsight/hdinsight-hadoop-use-interactive-hive).
 * **[Apache Kafka preview](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](/azure/hdinsight/hdinsight-apache-kafka-introduction).
-* **[Domain-joined clusters preview](/azure/hdinsight/hdinsight-domain-joined-introduction)**: A cluster joined to an Active Directory domain so that you can control access and provide governance for data.
 * **[Custom clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md)**: Clusters with scripts that run during provisioning and install additional components.
 
 ### Example customization scripts

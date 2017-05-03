@@ -31,7 +31,7 @@ You can follow the steps below using a Mac, Windows or Linux machine. It should 
 Before running this sample, install the following prerequisites locally:
 
 1. [Download and install git](https://git-scm.com/)
-1. [Download and install Python](https://Python.net)
+1. [Download and install Python](http://Python.net)
 1. Download and install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Download the sample
@@ -184,7 +184,7 @@ We've now created an empty new Web App in Azure. Let's now configure our Web App
 
 ## Configure to use Python
 
-Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/app-service-web/config#update) command to configure the Web App to use Python version `7.0.x`.
+Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) command to configure the Web App to use Python version `7.0.x`.
 
 > [!TIP]
 > Setting the Python version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
@@ -287,13 +287,13 @@ To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn).
 
 From the left menu, click **App Service**, then click the name of your Azure web app.
 
-![Portal navigation to Azure web app](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Portal navigation to Azure web app](./media/app-service-web-get-started-python/python-docs-hello-world-app-service-list.png)
 
 You have landed in your web app's _blade_ (a portal page that opens horizontally).
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open.
 
-![App Service blade in Azure portal preview](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![App Service blade in Azure portal preview](./media/app-service-web-get-started-python/python-docs-hello-world-app-service-detail.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
