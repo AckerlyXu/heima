@@ -15,8 +15,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/24/2017
 ms.author: chackdan;maburlik
----
 
+---
 # Create a standalone cluster running on Windows Server
 You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
 
@@ -33,7 +33,7 @@ This article walks you through the steps for creating a Service Fabric standalon
 To create the cluster, use the Service Fabric Standalone Package for Windows Server (2012 R2 and newer) found here: <br>
 [Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
-Find details on contents of the package [here](./service-fabric-cluster-standalone-package-contents.md).
+Find details on contents of the package [here](service-fabric-cluster-standalone-package-contents.md).
 
 The Service Fabric runtime package is automatically downloaded at time of cluster creation. If deploying from a machine not connected to the internet, please download the runtime package out of band from here: <br>
 [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
@@ -48,18 +48,17 @@ Service Fabric can be deployed to a one-machine development cluster by using the
 
 Unpack the standalone package to your machine, copy the sample config file to the local machine, then run the *CreateServiceFabricCluster.ps1* script through an administrator PowerShell session, from the standalone package folder:
 ### Step 1A: Create an unsecured local development cluster
-
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 
-See Environment Setup section at [Plan and prepare your cluster deployment](./service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting details.
+See Environment Setup section at [Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting details.
 
 If you're finished running development scenarios, you can remove the Service Fabric cluster from the machine by referring to steps in section below "[Remove a cluster](#removecluster_anchor)". 
 
 ### Step 1B: Create a multi-machine cluster
 After you have gone through the planning and preparation steps detailed at the below link, you are ready to create your production cluster using your cluster configuration file. <br>
-[Plan and prepare your cluster deployment](./service-fabric-cluster-standalone-deployment-preparation.md)
+[Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. Validate the configuration file you have written by running the *TestConfiguration.ps1* script from the standalone package folder:  
 
@@ -73,6 +72,7 @@ You should see output like below. If the bottom field "Passed" is returned as "T
 Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
 Running Best Practices Analyzer...
 Best Practices Analyzer completed successfully.
+
 
 LocalAdminPrivilege        : True
 IsJsonValid                : True
@@ -98,7 +98,7 @@ Run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric clu
 > 
 
 ### Step 2: Connect to the cluster
-To connect to a secure cluster, see [Service fabric connect to secure cluster](./service-fabric-connect-to-secure-cluster.md).
+To connect to a secure cluster, see [Service fabric connect to secure cluster](service-fabric-connect-to-secure-cluster.md).
 
 To connect to an unsecure cluster, run the following PowerShell command:
 
@@ -107,13 +107,11 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
-
 ### Step 3: Bring up Service Fabric Explorer
 Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## Add and remove nodes
-
-You can add or remove nodes to your standalone Service Fabric cluster as your business needs change. See [Add or Remove nodes to a Service Fabric standalone cluster](./service-fabric-cluster-windows-server-add-remove-nodes.md) for detailed steps.
+You can add or remove nodes to your standalone Service Fabric cluster as your business needs change. See [Add or Remove nodes to a Service Fabric standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) for detailed steps.
 
 <a id="removecluster" name="removecluster_anchor"></a>
 ## Remove a cluster
@@ -167,19 +165,20 @@ To disable telemetry, add the following to *properties* in your cluster config: 
 ## Preview features included in this package
 None.
 
+
 > [!NOTE]
-> Starting with the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Refer to [Upgrade a standalone Service Fabric cluster version](./service-fabric-cluster-upgrade-windows-server.md) document for details.
+> Starting with the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Refer to [Upgrade a standalone Service Fabric cluster version](service-fabric-cluster-upgrade-windows-server.md) document for details.
 > 
 > 
 
 ## Next steps
-- [Deploy and remove applications using PowerShell](./service-fabric-deploy-remove-applications.md)
-- [Configuration settings for standalone Windows cluster](./service-fabric-cluster-manifest.md)
-- [Add or remove nodes to a standalone Service Fabric cluster](./service-fabric-cluster-windows-server-add-remove-nodes.md)
-- [Upgrade a standalone Service Fabric cluster version](./service-fabric-cluster-upgrade-windows-server.md)
-- [Create a standalone Service Fabric cluster with Azure VMs running Windows](./service-fabric-cluster-creation-with-windows-azure-vms.md)
-- [Secure a standalone cluster on Windows using Windows security](./service-fabric-windows-cluster-windows-security.md)
-- [Secure a standalone cluster on Windows using X509 certificates](./service-fabric-windows-cluster-x509-security.md)
+* [Deploy and remove applications using PowerShell](service-fabric-deploy-remove-applications.md)
+* [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
+* [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [Upgrade a standalone Service Fabric cluster version](service-fabric-cluster-upgrade-windows-server.md)
+* [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
+* [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric reverse proxy | Microsoft Docs
+title: Azure Service Fabric reverse proxy | Azure
 description: Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster.
 services: service-fabric
 documentationcenter: .net
@@ -293,7 +293,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
 > When you use certificates that are different from the cluster certificate to enable the reverse proxy on an existing cluster, install the reverse proxy certificate and update the ACL on the cluster before you enable the reverse proxy. Complete the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) deployment by using the settings mentioned previously before you start a deployment to enable the reverse proxy in steps 1-4.
 
 ## Next steps
-* See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+* See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)

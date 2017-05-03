@@ -1,5 +1,5 @@
 ---
-title: Service Fabric project creation next steps | Microsoft Docs
+title: Service Fabric project creation next steps | Azure
 description: This article contains links to a set of core development tasks for Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -44,17 +44,19 @@ When you add a new reliable actor, Visual Studio adds two projects to your solut
 The actor project provides methods for setting and getting the value of a counter that is reliably persisted within the actor's state. The interface project provides an interface that other services can use to invoke the actor.
 
 ### Stateless Web API
-The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-webapi.md).
+The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
+
 
 ### ASP.NET core
 The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
 
+### Guest executables and guest containers
+
+A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest either [directly in the application package](service-fabric-deploy-existing-app.md) or [through a container image](service-fabric-deploy-container.md). In both cases, Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
+
 ## Next steps
 ### Create an Azure cluster
 The Service Fabric SDK provides a local cluster for development and testing. To create a cluster in Azure, see [Setting up a Service Fabric cluster from the Azure portal][create-cluster-in-portal].
-
-### Try deploying to Azure for free with party clusters
-If you'd like to try deploying and managing applications in Azure without setting up your own clusters, you can use the free [party cluster service](http://aka.ms/tryservicefabric).
 
 ### Publish your application to Azure
 You can publish your application directly from Visual Studio to an Azure cluster. To learn how, see [Publishing your application to Azure][publish-app-to-azure].
@@ -69,12 +71,12 @@ Service Fabric enables independent versioning and upgrading of independent servi
 To learn how you can set up a continuous integration process for your Service Fabric application, see [Configure continuous integration with Visual Studio Team Services][ci-with-vso].
 
 <!-- Links -->
-[add-web-frontend]: ./service-fabric-add-a-web-frontend.md
-[create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
-[visualize-with-sfx]: ./service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: ./service-fabric-set-up-continuous-integration.md
-[reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
-[app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
+[add-web-frontend]: service-fabric-add-a-web-frontend.md
+[create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
+[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
+[visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
+[ci-with-vso]: service-fabric-set-up-continuous-integration.md
+[reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
+[app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
