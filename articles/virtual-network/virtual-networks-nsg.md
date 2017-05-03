@@ -31,7 +31,7 @@ NSGs contain the following properties:
 | Property | Description | Constraints | Considerations |
 | --- | --- | --- | --- |
 | Name |Name for the NSG |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |Since you may need to create several NSGs, make sure you have a naming convention that makes it easy to identify the function of your NSGs. |
-| Region |Azure [region](https://azure.microsoft.com/regions) where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. |To learn about how many NSGs you can have per region, read the [Azure limits](../azure-subscription-service-limits.md#virtual-networking-limits-classic) article.|
+| Region |Azure region where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. |To learn about how many NSGs you can have per region, read the [Azure limits](../azure-subscription-service-limits.md#virtual-networking-limits-classic) article.|
 | Resource group |The [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) the NSG exists in. |Although an NSG exists in a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG. |Resource groups are used to manage multiple resources together, as a deployment unit.<br/>You may consider grouping the NSG with resources it is associated to. |
 | Rules |Inbound or outbound rules that define what traffic is allowed or denied. | |See the [NSG rules](#Nsg-rules) section of this article. |
 
@@ -259,4 +259,4 @@ Since some of the NSGs are associated to individual NICs, the rules are for reso
 * [Deploy NSGs (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [Deploy NSGs (classic)](virtual-networks-create-nsg-classic-ps.md).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md).
-* [Troubleshoot NSGs] (virtual-network-nsg-troubleshoot-portal.md)
+* [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md)

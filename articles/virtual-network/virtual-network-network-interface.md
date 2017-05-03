@@ -38,7 +38,7 @@ If you're new to NICs and VMs in Azure, we recommend you complete the exercise i
 This article applies to VMs and NICs created through the Azure Resource Manager deployment model. Azure recommends creating resources through the Resource Manager deployment model, rather than the classic deployment model. Read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article if you're not familiar with the differences between the two models.
 
 The remaining sections of this article provide steps to complete all NIC-related tasks. Each section lists:
-- Steps to complete the task within the Azure portal preview. To complete the steps, you must be logged in to the [Azure portal preview](http://portal.azure.cn). Sign up for a [trial account](https://azure.microsoft.com/free) if you don't already have one.
+- Steps to complete the task within the Azure portal preview. To complete the steps, you must be logged in to the [Azure portal preview](http://portal.azure.cn). Sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/) if you don't already have one.
 - Commands to complete the task using Azure PowerShell with links to the command reference for the command. Install and configure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - Commands to complete the task using the Azure Command-line interface (CLI) with links to the command reference for the command. Install the Azure CLI by completing the steps in the [How to Install and Configure the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for CLI commands, type `az <command> -h`.
 
@@ -75,7 +75,7 @@ The Azure portal preview creates a primary IP configuration named **ipconfig1** 
 |**Tool**|**Command**|
 |:---|:---|
 |**CLI**|[az network nic create](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|**PowerShell**|[New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
 ### <a name="view-nics"></a>View and change network interfaces and settings
 
@@ -122,7 +122,7 @@ IP forwarding enables the VM a NIC is attached to:
 - Receive network traffic not destined for one of the IP addresses assigned to any of the IP configurations assigned to the NIC.
 - Send network traffic with a different source IP address than the one assigned to one of its IP configurations.
 
-The setting must be enabled for every NIC attached to the VM that receives traffic that the VM needs to forward. A VM can forward traffic whether it has multiple NICs or a single NIC attached to it. While IP forwarding is an Azure setting, the VM must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. When a VM is running network applications, the VM is often referred to as a network virtual appliance (NVA). You can view a list of ready to deploy NVAs in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article.
+The setting must be enabled for every NIC attached to the VM that receives traffic that the VM needs to forward. A VM can forward traffic whether it has multiple NICs or a single NIC attached to it. While IP forwarding is an Azure setting, the VM must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. When a VM is running network applications, the VM is often referred to as a network virtual appliance (NVA). You can view a list of ready to deploy NVAs in the Azure Marketplace. IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article.
 
 To change IP forwarding settings for a NIC, complete the following steps:
 

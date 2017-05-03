@@ -224,7 +224,7 @@ Your web app now has the custom domain name you want, and it also has a SSL cert
 
 In the command below, please substitute `<app_name>` with your unique app name and `<thumbprint-from-previous-output>` with the certificate thumbprint that you get from the previous command. 
 
-az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
+    az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
 
 When the certificate is bound to your web app, the Azure CLI shows information similar to the following example:
 

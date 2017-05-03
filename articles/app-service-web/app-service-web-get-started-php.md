@@ -186,7 +186,7 @@ We've now created an empty new Web App in Azure. Let's now configure our Web App
 
 ## Configure to use PHP
 
-Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/app-service-web/config#update) command to configure the Web App to use PHP version `7.0.x`.
+Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) command to configure the Web App to use PHP version `7.0.x`.
 
 > [!TIP]
 > Setting the PHP version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.

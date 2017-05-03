@@ -27,7 +27,7 @@ This tutorial walks you through the creation of a PowerShell Workflow runbook in
 To complete this tutorial, you will need the following:
 
 * Azure subscription. If you don't have one yet, you can [sign up for an account](https://www.azure.cn/pricing/1rmb-trial).
-* [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+* Automation account to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. We stop and start this machine so it should not be a production VM.
 
 ## Step 1 - Create new runbook
@@ -82,7 +82,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 2. We don't need the **Write-Output** line anymore, so go ahead and delete it.
 3. Position the cursor on a blank line between the braces.
 3. Click **Insert** > **Setting** > **Get Windows PowerShell Credential**, choose the credential you want.
-4. If you don't have a credential, you can add one by clicking **Manage** > **Add Credential** to create one. For more information, see [Azure Active Directory user and Automation Credential asset](/documentation/articles/automation-configuring/).
+4. If you don't have a credential, you can add one by clicking **Manage** > **Add Credential** to create one.
 5. In front of **Get-AutomationPSCredential**, type *$Credential =* to assign the credential to a variable. 
 3. On the next line, type *Add-AzureRmAccount -Credential $Credential -EnvironmentName AzureChinaCloud*.
 
@@ -105,13 +105,13 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 ## Step 6 - Add code to start a virtual machine
 Now that our runbook is authenticating to our Azure subscription, we can manage resources. We add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we will be hardcoding that name in the runbook.
 
-1. After *Add-AzureRmAccount -EnvironmentName AzureChinaCloud*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
+1. After *Add-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
 
     ```
     workflow MyFirstRunbook-Workflow
     {
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Add-AzureRMAccount -EnvironmentName AzureChinaCloud -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
     ```
@@ -130,7 +130,7 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
       [string]$ResourceGroupName
      )  
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Add-AzureRMAccount -EnvironmentName AzureChinaCloud -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
