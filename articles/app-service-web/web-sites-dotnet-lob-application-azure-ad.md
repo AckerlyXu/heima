@@ -109,9 +109,9 @@ You need the following to complete this tutorial:
 
     > [!IMPORTANT]
     > If you navigate away from this page now, you won't be able to access this client key ever again.
-1. use REST API to configure your App: GET from the following URL. 
+1. use REST API to configure your App: GET from the following URL.
 
-    ``` 
+    ```
     https://management.chinacloudapi.cn/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings/list?api-version=2015-08-01
     ```
 2. You will get something like this.
@@ -411,6 +411,6 @@ authorize users with the `[Authorize]` decoration.
 * [Create a line-of-business app in Azure with AD FS authentication](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
-* [Azure Active Directory Supported Token and Claim Types](/azure/active-directory/active-directory-token-and-claims/)
+* [Azure Active Directory Supported Token and Claim Types](/azure/active-directory/active-directory-token-and-claims)
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

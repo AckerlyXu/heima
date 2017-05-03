@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: barbkess
@@ -21,9 +22,11 @@ ms.author: barbkess
 # Load data from SQL Server into Azure SQL Data Warehouse (flat files)
 
 > [!div class="op_single_selector"]
->- [SSIS](./sql-data-warehouse-load-from-sql-server-with-integration-services.md)
->- [PolyBase](./sql-data-warehouse-load-from-sql-server-with-polybase.md)
->- [bcp](./sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> 
+> 
 
 For small data sets, you can use the bcp command-line utility to export data from SQL Server and then load it directly to Azure SQL Data Warehouse.
 
@@ -33,7 +36,9 @@ In this tutorial, you will use bcp to:
 * Import the table from a flat file to SQL Data Warehouse.
 * Create statistics on the loaded data.
 
-[video](https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player)
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> 
+> 
 
 ## Before you begin
 ### Prerequisites
@@ -185,8 +190,8 @@ See [Table Overview][Table Overview] or [CREATE TABLE syntax][CREATE TABLE synta
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

@@ -1,19 +1,23 @@
 ---
-title: Stored procedures in SQL Data Warehouse | Microsoft Azure
+title: Stored procedures in SQL Data Warehouse | Azure
 description: Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: 9b238789-6efe-4820-bf77-5a5da2afa0e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 wacn.date: ''
+ms.author: jrj;barbkess
+
 ---
 
 # Stored procedures in SQL Data Warehouse
@@ -39,8 +43,9 @@ The top level stored procedure call equates to nest level 1
 
 ```sql
 EXEC prc_nesting
-``` 
+```
 If the stored procedure also makes another EXEC call then this will increase the nest level to 2
+
 ```sql
 CREATE PROCEDURE prc_nesting
 AS
@@ -49,6 +54,7 @@ GO
 EXEC prc_nesting
 ```
 If the second procedure then executes some dynamic sql then this will increase the nest level to 3
+
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
@@ -87,10 +93,10 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[temporary tables]: sql-data-warehouse-develop-temporary-tables#modularizing-code
-[development overview]: sql-data-warehouse-overview-develop.md
+[temporary tables]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/en-us/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->

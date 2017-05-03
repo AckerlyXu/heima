@@ -2,18 +2,22 @@
 title: Group by options in SQL Data Warehouse | Azure
 description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 wacn.date: ''
+ms.author: jrj;barbkess
+
 ---
 
 # Group by options in SQL Data Warehouse
@@ -57,7 +61,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 UNION ALL
@@ -66,7 +70,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 UNION ALL
 SELECT NULL
@@ -87,7 +91,7 @@ The first step is to define the 'cube' that defines all the levels of aggregatio
 
 ```sql
 CREATE TABLE #Cube
-WITH 
+WITH
 (   DISTRIBUTION = ROUND_ROBIN
 ,   LOCATION = USER_DB
 )
@@ -106,9 +110,9 @@ CROSS JOIN ( SELECT 'SalesTerritoryRegion' as Region
            ) r
 )
 SELECT Cols
-,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ',' 
-            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1) 
-            ELSE GroupBy 
+,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ','
+            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1)
+            ELSE GroupBy
        END AS GroupBy  --Remove Trailing Comma
 ,Seq
 FROM GrpCube;
@@ -180,12 +184,12 @@ By breaking the code up into sections and generating a looping construct the cod
 For more development tips, see [development overview][development overview].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
+[1]: ./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/zh-cn/library/ms177673.aspx
+[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
 
 <!--Other Web references-->

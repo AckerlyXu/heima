@@ -232,7 +232,8 @@ Create an App Service plan with the [az appservice plan create](https://docs.mic
 
 > [!NOTE] 
 > An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-> <br/> App Service plans define: 
+> <br/> 
+> App Service plans define: 
 > * Region (China North, China East, China North) 
 > * Instance Size (Small, Medium, Large) 
 > * Scale Count (one, two or three instances, etc.) 
@@ -358,11 +359,10 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 
 > [!NOTE]
 > You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. Like some other Node.js applications, MEAN.js uses Gulp to automate deployment tasks. Specifically, it uses Gulp to minify and bundle scripts for production. App Service does not run Gulp or Grunt tasks during deployment by default, so this sample repository has two additional files in its root directory to enable this: 
+> - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
+> - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`. 
 > <p>
-> <p> - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
-> <p> - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`. 
-> <p>
-> <p> You can use this approach to add any step to your Git-based deployment.
+>You can use this approach to add any step to your Git-based deployment.
 >
 >
 

@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: cakarst;barbkess
@@ -21,9 +22,11 @@ ms.author: cakarst;barbkess
 # Load data with PolyBase in SQL Data Warehouse
 
 > [!div class="op_single_selector"]
->- [SSIS](./sql-data-warehouse-load-from-sql-server-with-integration-services.md)
->- [PolyBase](./sql-data-warehouse-load-from-sql-server-with-polybase.md)
->- [bcp](./sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> 
+> 
 
 This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
 
@@ -31,7 +34,9 @@ This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and
 * Create database objects to define the data
 * Run a T-SQL query to load the data
 
-[video](https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player)
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> 
+> 
 
 ## Prerequisites
 To step through this tutorial, you need
@@ -50,18 +55,20 @@ To prepare a sample text file:
 
 1. Open Notepad and copy the following lines of data into a new file. Save this to your local temp directory as %temp%\DimDate2.txt.
 
-    20150301,1,3
-    20150501,2,4
-    20151001,4,2
-    20150201,1,3
-    20151201,4,2
-    20150801,3,1
-    20150601,2,4
-    20151101,4,2
-    20150401,2,4
-    20150701,3,1
-    20150901,3,1
-    20150101,1,3
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 ### B. Find your blob service endpoint
 To find your blob service endpoint:
@@ -239,22 +246,22 @@ See the [PolyBase guide][PolyBase guide] for further information you should know
 [latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[supported source/sink]: https://msdn.microsoft.com/zh-cn/library/dn894007.aspx
-[copy activity]: https://msdn.microsoft.com/zh-cn/library/dn835035.aspx
-[SQL Server destination adapter]: https://msdn.microsoft.com/zh-cn/library/ms141095.aspx
-[SSIS]: https://msdn.microsoft.com/zh-cn/library/ms141026.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
+[SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
-[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935021.aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms174335.aspx
-[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms189522.aspx
-[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt270260.aspx
-[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms189450.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx

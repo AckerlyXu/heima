@@ -2,18 +2,22 @@
 title: Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Azure
 description: Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: lodipalm
+documentationcenter: NA
+author: ckarst
 manager: barbkess
 editor: ''
 
+ms.assetid: 4d42786a-fb28-43c9-9c3b-72d19c0ecc11
 ms.service: sql-data-warehouse
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 wacn.date: ''
+ms.author: cakarst;barbkess
+
 ---
 
 # Load data from SQL Server into Azure SQL Data Warehouse (AZCopy)
@@ -26,8 +30,10 @@ To step through this tutorial, you need:
 * The bcp command line utility installed
 * The SQLCMD command line utility installed
 
->[!NOTE]
-> You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
+> [!NOTE]
+> You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][Microsoft Download Center].
+> 
+> 
 
 ## Import data into SQL Data Warehouse
 In this tutorial, you will create a table in Azure SQL Data Warehouse and import data into the table.
@@ -51,8 +57,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[!NOTE]
-> See [Table Overview][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse and the  options available in the WITH clause.
+> [!NOTE]
+> See [Table Overview][Table Overview] or [CREATE TABLE syntax][CREATE TABLE syntax] for more information about creating a table on SQL Data Warehouse and the  options available in the WITH clause.
+> 
+> 
 
 ### Step 2: Create a source data file
 Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt.
@@ -74,6 +82,8 @@ Open Notepad and copy the following lines of data into a new text file and then 
 
 > [!NOTE]
 > It is important to remember that bcp.exe does not support the UTF-8 file encoding. Please use ASCII files or UTF-16 encoded files when using bcp.exe.
+> 
+> 
 
 ### Step 3: Connect and import the data
 Using bcp, you can connect and import the data using the following command replacing the values as appropriate:
@@ -145,8 +155,10 @@ You can verify the data was exported correctly by opening the new file. The data
 20150101,1,3
 ```
 
->[!NOTE]
+> [!NOTE]
 > Due to the nature of distributed systems, the data order may not be the same across SQL Data Warehouse databases. Another option is to use the **queryout** function of bcp to write a query extract rather than export the entire table.
+> 
+> 
 
 ## Next steps
 For an overview of loading, see [Load data into SQL Data Warehouse][Load data into SQL Data Warehouse].
@@ -158,12 +170,12 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 
 [Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Table Design]: /documentation/articles/sql-data-warehouse-develop-table-design
-[Statistics]: /documentation/articles/sql-data-warehouse-develop-statistics
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

@@ -282,5 +282,5 @@ Agile software development is a must-have for many companies who want to adopt A
 * [David Ebbo's Blog](http://blog.davidebbo.com/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 * [Azure Cross-Platform Command-Line Tools](../cli-install-nodejs.md)
-* [Create or edit users in Azure AD](/azure/active-directory/active-directory-create-users/)
+* [Create or edit users in Azure AD](/azure/active-directory/active-directory-create-users)
 * [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

@@ -43,7 +43,7 @@ App Service Web Apps is a good option for hosting such applications, offering sc
 
 An alternative approach is to make use of your existing investment on premises. In the example scenario, an employee expense system, you may wish to maintain your data store within your own internal infrastructure. This could be for integration with internal systems (reporting, payroll, billing etc.) or to satisfy an IT governance requirement. Web Apps provides one method of enabling you to connect to your on premises infrastructure in Azure China:
 
-* [Virtual Network Integration](/azure/app-service-web/app-service-vnet-integration-powershell/) - Web Apps integration with Azure Virtual Network allows you to connect your web app to an Azure Virtual Network which in turn can be connected to your on premises infrastructure through a site-to-site VPN.
+* [Virtual Network Integration](/azure/app-service-web/app-service-vnet-integration-powershell) - Web Apps integration with Azure Virtual Network allows you to connect your web app to an Azure Virtual Network which in turn can be connected to your on premises infrastructure through a site-to-site VPN.
 
 The following diagrams depict an example high-level solution with connectivity options for on premises resources.
 

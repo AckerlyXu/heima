@@ -98,6 +98,3 @@ If the new size for a VM in an availability set is not available on the hardware
         Start-AzureRmVM -ResourceGroupName $rg -Name $vmName
     }
     ```
-
-## Next steps
-* For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).

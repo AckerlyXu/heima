@@ -1,33 +1,35 @@
 ---
-title: Query Azure SQL Data Warehouse (sqlcmd)| Azure
-description: Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility.
+title: Connect to Azure SQL Data Warehouse sqlcmd | Azure
+description: Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: sonyam
-manager: barbkess
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
 editor: ''
 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess;sonyama
+wacn.date: ''
+ms.author: barbkess
+
 ---
-
-# Query Azure SQL Data Warehouse (sqlcmd)
-
+# Connect to SQL Data Warehouse with sqlcmd
 > [!div class="op_single_selector"]
->- [Visual Studio](./sql-data-warehouse-query-visual-studio.md)
->- [sqlcmd](./sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.  
 
 ## 1. Connect
 To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:
 
-* **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
+* **Server (-S):** Server in the form `<`Server Name`>`.database.chinacloudapi.cn
 * **Database (-d):** Database name.
 * **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.
 
@@ -39,7 +41,7 @@ To use SQL Server Authentication, you need to add the username/password paramete
 For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
+C:\>sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
 To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
@@ -49,17 +51,19 @@ To use Azure Active Directory Integrated authentication, you need to add the Azu
 For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+C:\>sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
 > You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+> 
+> 
 
 ## 2. Query
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
+C:\>sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
@@ -68,11 +72,11 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
 
 ```sql
-sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
 ```
 
 ```sql
-"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
 ## Next steps
@@ -83,7 +87,7 @@ See [sqlcmd documentation][sqlcmd] for more about details about the options avai
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/zh-cn/library/ms162773.aspx
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.cn
 
 <!--Other Web references-->

@@ -2,18 +2,22 @@
 title: Dynamic SQL in SQL Data Warehouse | Azure
 description: Tips for using dynamic SQL in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: a948c2c3-3cd1-4373-90a9-79e59414b778
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 wacn.date: ''
+ms.author: jrj;barbkess
+
 ---
 
 # Dynamic SQL in SQL Data Warehouse
@@ -33,6 +37,8 @@ If the string is short you can use [sp_executesql][sp_executesql] as normal.
 
 > [!NOTE]
 > Statements executed as dynamic SQL will still be subject to all TSQL validation rules.
+> 
+> 
 
 ## Next steps
 For more development tips, see [development overview][development overview].
@@ -40,9 +46,9 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/zh-cn/library/ms188001.aspx
+[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->

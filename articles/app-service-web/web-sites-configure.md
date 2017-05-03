@@ -136,7 +136,7 @@ To view your domain names, click **All Settings** > **Custom domains and SSL**.
 To view your deployment slots, click **All Settings** > **Deployment slots**.
 
 ### Monitoring
-In Basic or Standard mode, you can test the availability of HTTP or HTTPS endpoints, from up to two geo-distributed locations. A monitoring test fails if the HTTP response code is an error (4xx or 5xx) or the response takes more than 30 seconds. An endpoint is considered available if the monitoring tests succeed from all the specified locations. 
+In Basic or Standard mode, you can  test the availability of HTTP or HTTPS endpoints, from up to two geo-distributed locations. A monitoring test fails if the HTTP response code is an error (4xx or 5xx) or the response takes more than 30 seconds. An endpoint is considered available if the monitoring tests succeed from all the specified locations. 
 
 For more information, see [How to: Monitor web endpoint status].
 ## Next steps

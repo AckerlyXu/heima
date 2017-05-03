@@ -32,7 +32,7 @@ The sample application is an advertising bulletin board. Users can upload images
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-This sample application works with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). The tutorial shows how to deploy the application to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) and [Azure SQL Database](/azure/sql-database/sql-database-technical-overview/).
+This sample application works with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). The tutorial shows how to deploy the application to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) and [Azure SQL Database](/azure/sql-database/sql-database-technical-overview).
 
 ## <a id="prerequisites"></a>Prerequisites
 The tutorial assumes that you know how to work with [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) projects in Visual Studio.

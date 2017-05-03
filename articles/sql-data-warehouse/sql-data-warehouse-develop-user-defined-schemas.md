@@ -2,18 +2,22 @@
 title: User-defined schemas in SQL Data Warehouse | Azure
 description: Tips for using Transact-SQL schemas in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
 editor: ''
 
+ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 wacn.date: ''
+ms.author: jrj;barbkess
+
 ---
 
 # User-defined schemas in SQL Data Warehouse
@@ -23,6 +27,8 @@ By contrast, SQL Data Warehouse runs the entire data warehouse workload within o
 
 > [!NOTE]
 > SQL Data Warehouse does not support cross database queries of any kind. Consequently, data warehouse implementations that leverage this pattern will need to be revised.
+> 
+> 
 
 ## Recommendations
 These are recommendations for consolidating workloads, security, domain and functional boundaries by using user defined schemas
@@ -41,6 +47,8 @@ If schemas have already been used then you have a few options:
 
 > [!NOTE]
 > On first inspection option 3 may seem like the most appealing option. However, the devil is in the detail. Views are read only in SQL Data Warehouse. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are using views in your architecture already.
+> 
+> 
 
 ### Examples:
 Implement user-defined schemas based on database names
@@ -108,14 +116,16 @@ FROM	[edw].customer
 
 > [!NOTE]
 > Any change in schema strategy needs a review of the security model for the database. In many cases you might be able to simplify the security model by assigning permissions at the schema level. If more granular permissions are required then you can use database roles.
+> 
+> 
 
 ## Next steps
-For more development tips, see [development overview][].
+For more development tips, see [development overview][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

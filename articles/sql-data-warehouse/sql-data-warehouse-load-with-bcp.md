@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: mausher;barbkess
@@ -21,11 +22,13 @@ ms.author: mausher;barbkess
 # Load data with bcp
 
 > [!div class="op_single_selector"]
->- [Redgate](./sql-data-warehouse-load-with-redgate.md)
+> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
+> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
+> * [BCP](sql-data-warehouse-load-with-bcp.md)
+> 
+> 
 <!-- Data Factory not supported on Azure.cn -->
 <!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/) -->
-- [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
-- [BCP](./sql-data-warehouse-load-with-bcp.md)
 
 **[bcp][bcp]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
 
@@ -41,7 +44,9 @@ This tutorial will show you how to:
 * Import data into a table using the bcp in command
 * Export data from a table uisng the bcp out command
 
-[video](https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player)
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> 
+> 
 
 ## Prerequisites
 
@@ -198,8 +203,8 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
