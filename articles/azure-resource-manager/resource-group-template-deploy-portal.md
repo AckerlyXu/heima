@@ -76,7 +76,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     ![create template](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](./resource-manager-template-walkthrough.md).
+    In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](./resource-manager-create-first-template.md).
 
     ![edit template](./media/resource-group-template-deploy-portal/edit-template.png)
 4. Or, you can select a pre-existing template from the [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/). These templates are contributed by the community. They cover many common scenarios, and someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.

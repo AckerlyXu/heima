@@ -170,7 +170,7 @@ To get the current state of your resource group, export a template that shows a 
         ```
 3. You have a couple of options for continuing to work with this template. You can either download the template and work on it locally with a JSON editor. Or, you can save the template to your library and work on it through the portal.
 
-    If you are comfortable using a JSON editor like [VS Code](./resource-manager-vs-code.md) or [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal.
+    If you are comfortable using a JSON editor like [VS Code](./resource-manager-create-first-template.md) or [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal.
 
     To work locally, select **Download**.
 
