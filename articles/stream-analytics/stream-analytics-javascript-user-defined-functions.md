@@ -7,13 +7,13 @@ author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: ''
+ms.assetid:
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/28/2017
 wacn.date: ''
 ms.author: jeffstok
 ---
@@ -134,11 +134,11 @@ FROM
 ```
 
 ## Get help
-For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
-* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

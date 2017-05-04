@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/07/2017
+ms.date: 03/28/2017
 wacn.date: ''
 ms.author: jeffstok
 ---
@@ -26,7 +26,6 @@ Reference data (also known as a lookup table) is a finite data set that is stati
 Stream Analytics has a **limit of 100 MB per blob** but jobs can process multiple reference blobs by using the **path pattern** property.
 
 ## Configuring reference data
-
 To configure your reference data, you first need to create an input that is of type **Reference Data**. The table below explains each property that you will need to provide while creating the reference data input with its description:
 
 <table>
@@ -85,14 +84,13 @@ If your reference data is a slowly changing data set, then support for refreshin
 > 
 > Likewise if `sample/2015-04-16/17-30/products.csv` is only produced at 10:03 PM April 16th, 2015 but no blob with an earlier date is present in the container, the job will use this file starting at 10:03 PM April 16th, 2015 and use the previous reference data until then.
 > 
-> An exception to this is when the job needs to re-process data back in time or when the job is first started. At start time the job is looking for the most recent blob produced prior to the job start time specified. This is done to ensure that there is a **non-empty** reference data set when the job starts. If one cannot be found, the job will display the following diagnostic: `Initializing input without a valid reference data blob for UTC time <start time>`.
+> An exception to this is when the job needs to re-process data back in time or when the job is first started. At start time the job is looking for the most recent blob produced before the job start time specified. This is done to ensure that there is a **non-empty** reference data set when the job starts. If one cannot be found, the job displays the following diagnostic: `Initializing input without a valid reference data blob for UTC time <start time>`.
 > 
 > 
 <!-- Data Factory not supported by Azure.cn -->
 <!-- [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions . Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) and moving data easily on a regular schedule that you specify. For more information and step by step guidance on how to set up a Data Factory pipeline to generate reference data for Stream Analytics which refreshes on a pre-defined schedule, check out this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs). -->
 
 ## Tips on refreshing your reference data
-
 1. Overwriting reference data blobs will not cause Stream Analytics to reload the blob and in some cases it can cause the job to fail. The recommended way to change reference data is to add a new blob using the same container and path pattern defined in the job input and use a date/time **greater** than the one specified by the last blob in the sequence.
 2. Reference data blobs are **not** ordered by the blob's "Last Modified" time but only by the time and date specified in the blob name using the {date} and {time} substitutions.
 3. On a few occasions, a job must go back in time, therefore reference data blobs must not be altered or deleted.
@@ -103,15 +101,15 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:
 
-* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)
+* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
-[stream.analytics.developer.guide]: /documentation/articles/stream-analytics-developer-guide/
-[stream.analytics.scale.jobs]: ./stream-analytics-scale-jobs.md
-[stream.analytics.introduction]: ./stream-analytics-introduction.md
-[stream.analytics.get.started]: ./stream-analytics-get-started.md
+[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
+[stream.analytics.introduction]: stream-analytics-introduction.md
+[stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
