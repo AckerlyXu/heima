@@ -19,7 +19,9 @@ ms.author: darosa;sethm
 ---
 
 # Event Hubs Archive walkthrough: Python
-Event Hubs Archive is a new feature of Event Hubs that enables you to automatically deliver the streaming data in your Event Hub to an Azure Blob Storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](./event-hubs-archive-overview.md).
+Event Hubs Archive is a new feature of Event Hubs that enables you to automatically deliver the streaming data in your Event Hub to an Azure Blob Storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. 
+<!-- event-hubs-archive-overview only set the partition count on Azure.cn -->
+<!-- For more information about Event Hubs Archive, see the [overview article](./event-hubs-archive-overview.md). -->
 
 This sample uses the [Azure Python SDK](/develop/python/) to demonstrate the Archive feature. The sender.py program sends simulated environmental telemetry to Event Hubs in JSON format. The Event Hub is configured to use the Archive feature to write this data to blob storage in batches. The archivereader.py app then reads these blobs and creates an append file per device, then writes the data into .csv files.
 
