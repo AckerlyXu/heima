@@ -28,13 +28,9 @@ This release contains the following update.
 | Introducing tools for Visual Studio and Stream Analytics |[Tools for Visual Studio](./stream-analytics-tools-for-visual-studio.md) are now available for debugging and greater utility. |
 | Introducing Diagnostic Logging |[Diagnostic logging](/documentation/articles/stream-analytics-job-diagnostic-logs/) is now available for additional troubleshooting options. |
 | Introducing GeoSpatial Functions |[GeoSpatial Functions](http://msdn.microsoft.com/zh-cn/library/mt778980(Azure.100).aspx) are now generally available. |
-
+<!-- Not supported in Azure.cn
 ## Notes for 04/15/2016 release of Stream Analytics
-This release contains the following update.
-
-| Title | Description |
-| --- | --- |
-| General Availability for Power BI outputs |[Power BI outputs](./stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](./stream-analytics-power-bi-dashboard.md#renew-authorization) section of Creating a Power BI dashboard. |
+-->
 
 ## Notes for 03/03/2016 release of Stream Analytics
 This release contains the following update.
@@ -81,13 +77,14 @@ This release contains the following updates.
 | Support for IoT Hub input |Stream Analytics jobs can now ingest data from IoT Hubs. |
 | TIMESTAMP BY for heterogeneous events |When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/zh-cn/library/mt573293.aspx) with expressions to specify different timestamp fields for each case. |
 
+<!-- Not supported in Azure.cn -->
+<!--
 ## Notes for 09/10/2015 release of Stream Analytics
-
 This release contains the following updates.
-
 | Title | Description |
 | --- | --- |
 | Support for PowerBI groups |To enable sharing data with other Power BI users, Stream Analytics jobs can now write to [PowerBI groups](./stream-analytics-define-outputs.md#power-bi) inside your Power BI account. |
+-->
 
 ## Notes for 08/20/2015 release of Stream Analytics
 
@@ -104,9 +101,9 @@ This release contains the following updates.
 
 | Title | Description |
 | --- | --- |
-| Power BI Org Id decoupled from Azure Id |This feature enables [Power BI output](./stream-analytics-power-bi-dashboard.md) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output. |
+<!-- Not supported in Azure.cn | Power BI Org Id decoupled from Azure Id |This feature enables [Power BI output](./stream-analytics-power-bi-dashboard.md) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output. |-->
 | Support for Service Bus Queues output |[Service Bus Queues](./stream-analytics-define-outputs.md#service-bus-queues) outputs are now available in Stream Analytics jobs. |
-| Support for Service Bus Topics output |[Service Bus Topics](./stream-analytics-define-outputs.md#service-bus-topics) outputs are now available in Stream Analytics jobs. |
+<!-- Not supported in Azure.cn| Support for Service Bus Topics output |[Service Bus Topics](./stream-analytics-define-outputs.md#service-bus-topics) outputs are now available in Stream Analytics jobs. |-->
 
 ## Notes for 07/09/2015 release of Stream Analytics
 This release contains the following updates.

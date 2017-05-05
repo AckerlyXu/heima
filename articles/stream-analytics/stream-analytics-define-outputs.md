@@ -25,10 +25,12 @@ When authoring a Stream Analytics job, consider how the resulting data will be c
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
 <!-- Data Lake Not supported on Azure.cn-->
-<!--## Azure Data Lake Store
+<!--
+## Azure Data Lake Store
 Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store (if needed) are discussed in the [Data Lake output article](./stream-analytics-data-lake-output.md).
 -->
 
+<!--
 ### Authorize an Azure Data Lake Store
 When Data Lake Storage is selected as an output in the Azure Management portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
 
@@ -89,6 +91,8 @@ The table below lists the property names and their description needed for creati
 You will need to re-authenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
 
 ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+
+-->
 
 ## SQL Database
 [Azure SQL Database](https://www.azure.cn/home/features/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](/azure/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.

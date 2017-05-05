@@ -121,7 +121,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 * [Feature requests]
 * [Videos]
 * [Customer Advisory Team blogs]
-* [Create support ticket]
+<!-- Not supported in Azure.cn * [Create support ticket]-->
 * [MSDN forum]
 * [Stack Overflow forum]
 * [Twitter]
@@ -130,11 +130,11 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+<!-- Not supported in Azure.cn [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+<!-- Not supported in Azure.cn [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md-->
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
