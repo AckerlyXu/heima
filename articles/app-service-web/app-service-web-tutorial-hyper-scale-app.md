@@ -63,7 +63,7 @@ In this step, you create an Azure web app and deploy your sample ASP.NET applica
 
 ### Create a resource group   
 
-[AZURE.INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 Use [az group create](https://docs.microsoft.com/cli/azure/group#create) to create a [resource group](../azure-resource-manager/resource-group-overview.md) in the China North region. A resource group is where you put all the Azure resources that you want to manage together, such as the web app and any SQL Database back end.
 
