@@ -306,29 +306,29 @@ Here are our Open Source SDK repositories. We welcome feedback, issues, and pull
 
 ## Samples
 ### .NET
-* [Manage Azure resources and resource groups](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-* [Deploy an SSH enabled VM with a template](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-dotnet-template-deployment/)
+* [Manage Azure resources and resource groups](https://github.com/Azure-Samples/resource-manager-dotnet-resources-and-groups/)
+* [Deploy an SSH enabled VM with a template](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/)
 
 ### Java
-* [Manage Azure resources](https://azure.microsoft.com/zh-cn/documentation/samples/resources-java-manage-resource/)
-* [Manage Azure resource groups](https://azure.microsoft.com/zh-cn/documentation/samples/resources-java-manage-resource-group/)
-* [Deploy an SSH enabled VM with a template](https://azure.microsoft.com/zh-cn/documentation/samples/resources-java-deploy-using-arm-template/)
+* [Manage Azure resources](https://github.com/Azure-Samples/resources-java-manage-resource/)
+* [Manage Azure resource groups](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
+* [Deploy an SSH enabled VM with a template](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template)
 
 ### Node.js
-* [Manage Azure resources and resource groups](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-node-resources-and-groups/)
-* [Deploy an SSH enabled VM with a template](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-node-template-deployment/)
+* [Manage Azure resources and resource groups](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
+* [Deploy an SSH enabled VM with a template](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
 
 ### Python
-* [Manage Azure resources and resource groups](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-python-resources-and-groups/)
-* [Deploy an SSH enabled VM with a template](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-python-template-deployment/)
+* [Manage Azure resources and resource groups](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
+* [Deploy an SSH enabled VM with a template](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
 
 ### Ruby
-* [Manage Azure resources and resource groups](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-ruby-resources-and-groups/)
-* [Deploy an SSH enabled VM with a template](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-ruby-template-deployment/)
+* [Manage Azure resources and resource groups](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
+* [Deploy an SSH enabled VM with a template](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 
 In addition to these samples, you can search through the gallery samples.
 
-[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+[.NET](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=java) | [Node.js](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=python) | [Ruby](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=ruby)
 
 ## Next steps
 * For a simple introduction to working with templates, see [Export an Azure Resource Manager template from existing resources](./resource-manager-export-template.md).

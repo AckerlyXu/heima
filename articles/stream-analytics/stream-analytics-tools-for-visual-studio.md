@@ -4,9 +4,9 @@ description: Getting-started tutorial for the Azure Stream Analytics Tools for V
 keywords: visual studio
 documentationcenter: ''
 services: stream-analytics
-author: ''
-manager: ''
-editor: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/28/2017
 wacn.date: ''
-ms.author: ''
----
+ms.author: sujie
 
+---
 # Use Azure Stream Analytics Tool for Visual Studio
 Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics user to troubleshoot as well as write complex queries and even write queries locally. You will also have the ability to export a Stream Analytics job into a Visual Studio project.
 
@@ -34,7 +34,7 @@ After completing this tutorial, you will be able to:
 
 ## Prerequisites
 You will need the following prerequisites to complete this tutorial:
-* Finish the steps before **Create a Stream Analytics job** from the [Build an IoT solution by using Stream Analytics tutorial](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
+* Finish the steps before **Create a Stream Analytics job** from the [Build an IoT solution by using Stream Analytics tutorial](/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio 2017 is currently not supported. 
 * Azure SDK for .NET version 2.7.1 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * Installation of [Azure Stream Analytics Tools for Visual Studio](http://aka.ms/asatoolsvs).
@@ -112,15 +112,13 @@ Let's say that you need to count the number of vehicles that enter a toll booth.
 
 Let's look at the Azure Stream Analytics query that answers this question:
 
-```
-SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count 
-FROM EntryStream TIMESTAMP BY EntryTime 
-GROUP BY TUMBLINGWINDOW(minute, 3), TollId 
-```
+        SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count 
+        FROM EntryStream TIMESTAMP BY EntryTime 
+        GROUP BY TUMBLINGWINDOW(minute, 3), TollId 
 
 As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.
 
-For more details, read about [Time Management](https://msdn.microsoft.com/zh-cn/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/zh-cn/library/azure/dn835019.aspx) constructs used in the query from MSDN.
+For more details, read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructs used in the query from MSDN.
 
 Now that you have written your first Azure Stream Analytics query, it is time to test it by using sample data files located in your TollApp folder in the following path:
 
@@ -241,8 +239,8 @@ There are two ways you can export an existing job to a project.
 4. No support for Power BI output and ADLS output.
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/en-US/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://docs.microsoft.com/en-us/rest/api/streamanalytics/)
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

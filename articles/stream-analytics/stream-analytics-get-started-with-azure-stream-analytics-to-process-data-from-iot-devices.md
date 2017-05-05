@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 wacn.date: ''
 ms.author: jeffstok
----
 
+---
 # Get started with Azure Stream Analytics to process data from IoT devices
 In this tutorial, you will learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. We will use a real-world, Internet of Things (IoT) use case to demonstrate how to build your solution quickly and economically.
 
@@ -35,16 +35,14 @@ Here data is being generated from a Texas Instruments sensor tag device.
 
 The payload of the data is in JSON format and looks like the following:
 
-```
-{
-    "time": "2016-01-26T20:47:53.0000000",  
-    "dspl": "sensorE",  
-    "temp": 123,  
-    "hmdt": 34  
-}  
-```
+    {
+        "time": "2016-01-26T20:47:53.0000000",  
+        "dspl": "sensorE",  
+        "temp": 123,  
+        "hmdt": 34  
+    }  
 
-In a real-world scenario, you could have hundreds of these sensors generating events as a stream. Ideally, a gateway device would run code to push these events to [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) or [Azure IoT Hubs](https://www.azure.cn/home/features/iot-hub/). Your Stream Analytics job would ingest these events from Event Hubs and run real-time analytics queries against the streams. Then, you could send the results to one of the [supported outputs](./stream-analytics-define-outputs.md).
+In a real-world scenario, you could have hundreds of these sensors generating events as a stream. Ideally, a gateway device would run code to push these events to [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) or [Azure IoT Hubs](https://www.azure.cn/home/features/iot-hub/). Your Stream Analytics job would ingest these events from Event Hubs and run real-time analytics queries against the streams. Then, you could send the results to one of the [supported outputs](stream-analytics-define-outputs.md).
 
 For ease of use, this getting started guide provides a sample data file, which was captured from real sensor tag devices. You can run queries on the sample data and see results. In subsequent tutorials, you will learn how to connect your job to inputs and outputs and deploy them to the Azure service.
 
@@ -52,9 +50,7 @@ For ease of use, this getting started guide provides a sample data file, which w
 1. In the [Azure portal](http://portal.azure.cn), click the plus sign and then type **STREAM ANALYTICS** in the text window to the right. Then select **Stream Analytics job** in the results list.
 
     ![Create a new Stream Analytics job](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
-
 2. Enter a unique job name and verify the subscription is the correct one for your job. Then either create a new resource group or select an existing one on your subscription.
-
 3. Then select a location for your job. For speed of processing and reduction of cost in data transfer selecting the same location as the resource group and intended storage account is recommended.
 
     ![Create a new Stream Analytics job details](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
@@ -63,11 +59,9 @@ For ease of use, this getting started guide provides a sample data file, which w
     > You should create this storage account only once per region. This storage will be shared across all Stream Analytics jobs that are created in that region.
     > 
     > 
-
 4. Check the box to place your job on your dashboard and then click **CREATE**.
 
     ![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-
 5. You should see a 'Deployment started...' displayed in the top right of your browser window. Soon it will change to a completed window as shown below.
 
     ![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
@@ -118,7 +112,7 @@ How can we write a query to find a lack of input events? Let's find the last tim
 
 ![Detect absence of events](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found.  For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is very useful to find an absence of events. See our MSDN documentation for more information about [JOIN](https://msdn.microsoft.com/en-us/library/azure/dn835026.aspx).
+Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found.  For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is very useful to find an absence of events. See our MSDN documentation for more information about [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx).
 
 ## Conclusion
-The purpose of this tutorial is to demonstrate how to write different Stream Analytics Query Language queries and see results in the browser. However, this is just getting started. You can do so much more with Stream Analytics. Stream Analytics supports a variety of inputs and outputs and can even use functions in Azure Machine Learning to make it a robust tool for analyzing data streams. You can start to explore more about Stream Analytics by using our [learning map](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). For more information about how to write queries, read the article about [common query patterns](./stream-analytics-stream-analytics-query-patterns.md).
+The purpose of this tutorial is to demonstrate how to write different Stream Analytics Query Language queries and see results in the browser. However, this is just getting started. You can do so much more with Stream Analytics. Stream Analytics supports a variety of inputs and outputs and can even use functions in Azure Machine Learning to make it a robust tool for analyzing data streams. You can start to explore more about Stream Analytics by using our [learning map](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). For more information about how to write queries, read the article about [common query patterns](stream-analytics-stream-analytics-query-patterns.md).

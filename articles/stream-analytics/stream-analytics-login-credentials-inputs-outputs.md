@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 wacn.date: ''
 ms.author: jeffstok
----
 
+---
 # Rotate login credentials for inputs and outputs in Stream Analytics Jobs
 ## Abstract
 Azure Stream Analytics today doesn't allow replacing the credentials on an input/output while the job is running.
@@ -189,19 +189,17 @@ Repeat Part 1 for the Key that was previously used by your job to renew the now 
 
 You should get the following confirmation: 
 
-```
-Command(s) completed successfully.
-```
+    Command(s) completed successfully.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
 [graphic2]: ./media/stream-analytics-login-credentials-inputs-outputs/2-stream-analytics-login-credentials-inputs-outputs.png

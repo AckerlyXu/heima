@@ -103,8 +103,7 @@ Summary of loading process:
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
 
 ## Recommendations
-Many of our partners have loading solutions. To find out more, see a list of our [solution partners][solution partners]. 
-
+<!-- Not supported in Azure.cn Many of our partners have loading solutions. To find out more, see a list of our [solution partners][solution partners]. -->
 If your data is coming from a non-relational source and you want to load it into SQL Data Warehouse you will need to transform it into rows and columns before you load it. The transformed data doesn't need to be stored in a database, it can be stored in text files.
 
 Create statistics on newly loaded data. Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important to create statistics on all columns of all tables after the first load or any substantial changes occur in the data.  For details, see [Statistics][Statistics].

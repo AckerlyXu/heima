@@ -32,7 +32,7 @@ ms.author: sdanie
 
 This tutorial shows how to create and deploy an ASP.NET web application to a web app in Azure App Service using Visual Studio 2017. The sample application displays a list of team statistics from a database and shows different ways to use Azure Redis Cache to store and retrieve data from the cache. When you complete the tutorial you'll have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
-[AZURE.INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 You'll learn:
 

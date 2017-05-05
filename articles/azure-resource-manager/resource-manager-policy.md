@@ -26,7 +26,7 @@ There are two concepts to understand about policies:
 * policy definition - you describe when the policy is enforced and what action to take
 * policy assignment - you apply the policy definition to a scope (subscription or resource group)
 
-This topic focuses on policy definition. For information about policy assignment, see [Assign and manage policies](./resource-manager-policy-create-assign.md).
+<!-- Not suitfor Azure.cn This topic focuses on policy definition. For information about policy assignment, see [Assign and manage policies](./resource-manager-policy-create-assign.md).-->
 
 Azure provides some built-in policy definitions that may reduce the number of policies you have to define. If a built-in policy definition works for your scenario, use that definition when assigning to a scope.
 
@@ -234,7 +234,7 @@ The value can be either a string or a JSON format object.
 
 The following topics contain policy examples:
 
-* For examples of tag polices, see [Apply resource policies for tags](./resource-manager-policy-tags.md).
+<!-- Not suitfor Azure.cn * For examples of tag polices, see [Apply resource policies for tags](./resource-manager-policy-tags.md).-->
 * For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### Allowed resource locations

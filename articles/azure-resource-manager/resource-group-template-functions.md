@@ -429,8 +429,6 @@ The following example skips the specified number of characters in the string.
 ### <a id="split"></a>split
 `split(inputString, delimiterString)`
 
-`split(inputString, delimiterArray)`
-
 Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
 
 | Parameter | Required | Type | Description |
