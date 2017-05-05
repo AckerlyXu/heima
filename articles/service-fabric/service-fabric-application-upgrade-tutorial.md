@@ -1,5 +1,5 @@
 ---
-title: Service Fabric app upgrade tutorial| Microsoft Docs
+title: Service Fabric app upgrade tutorial| Azure
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade by using Visual Studio.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 04/07/2017
 ms.author: subramar
 
 ---
@@ -29,7 +29,7 @@ ms.author: subramar
 Azure Service Fabric simplifies the process of upgrading cloud applications by ensuring that only changed services are upgraded, and that application health is monitored throughout the upgrade process. It also automatically rolls back the application to the previous version upon encountering issues. Service Fabric application upgrades are *Zero Downtime*, since the application can be upgraded with no downtime. This tutorial covers how to complete a rolling upgrade from Visual Studio.
 
 ## Step 1: Build and publish the Visual Objects sample
-First, download the [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) application from GitHub. Then, build and publish the application by right-clicking on the application project, **VisualObjects**, and selecting the **Publish** command in the Service Fabric menu item.
+First, download the [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) application from GitHub. Then, build and publish the application by right-clicking on the application project, **VisualObjects**, and selecting the **Publish** command in the Service Fabric menu item.
 
 ![Context menu for a Service Fabric application][image1]
 
@@ -78,7 +78,7 @@ Learn how to use advanced functionality while upgrading your application by refe
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting application upgrades](service-fabric-application-upgrade-troubleshooting.md).
 
-[image1]: ./media/service-fabric-application-upgrade-tutorial/upgrade7.png
-[image2]: ./media/service-fabric-application-upgrade-tutorial/upgrade1.png
-[image3]: ./media/service-fabric-application-upgrade-tutorial/upgrade5.png
-[image4]: ./media/service-fabric-application-upgrade-tutorial/upgrade6.png
+[image1]: media/service-fabric-application-upgrade-tutorial/upgrade7.png
+[image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
+[image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
+[image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
