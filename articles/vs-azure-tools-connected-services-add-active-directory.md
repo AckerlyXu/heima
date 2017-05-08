@@ -1,5 +1,5 @@
 ---
-title: Adding an Azure Active Directory by using Connected Services in Visual Studio | Azure
+title: Adding an Azure Active Directory by using Connected Services in Visual Studio | Microsoft Docs
 description: Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box
 services: visual-studio-online
 documentationcenter: na
@@ -13,9 +13,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 03/01/2017
 wacn.date: ''
 ms.author: tarcher
+
 ---
 
 # Adding an Azure Active Directory by using Connected Services in Visual Studio
@@ -41,7 +42,7 @@ You can use the Connected Services dialog to connect to Azure AD in the followin
     ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
 5. On the second page, select a domain from the **Domain** drop-down list. The list of domains contains all domains accessible by the accounts listed in the Account Settings dialog. As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as mydomain.partner.onmschina.cn. You can choose the option to create a new Azure AD app or use the settings from an existing Azure AD app. 
 
-   ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
+	![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 6. On the third page of the wizard, make sure that **Read directory data** is checked. The wizard will fill in the **Client secret**. 
 
     ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
@@ -62,8 +63,8 @@ You can use the Connected Services dialog to connect to Azure AD in the followin
 When you run the wizard, Visual Studio adds Azure AD and associated references to your project. Configuration files and code files in your project are also modified to add support for Azure AD. The specific modifications that Visual Studio makes depend on the project type. For detailed information about how ASP.NET MVC projects are modified, see [What happened- MVC Projects](http://go.microsoft.com/fwlink/p/?LinkID=513809). For Web API projects, see [What happened - Web API Projects](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ## Next steps
-Ask questions and get help.
+- [MSDN Forum for Azure Active Directory](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=WindowsAzureAD)
+- [Azure Active Directory Documentation](./active-directory/index.md)
+- [Blog Post: Intro to Azure Active Directory](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-- [MSDN Forum: Azure AD](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=WindowsAzureAD)
-- [Azure AD Documentation](./active-directory/index.md)
-- [Blog Post: Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
+
