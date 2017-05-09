@@ -106,7 +106,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## <a name="check-database-state-bk"></a>Check database state
+## <a name="check-database-state-bk"></a><a name="check-database-state"></a>Check database state
 
 As shown in the above examples, one can use [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] cmdlet to get information on a database, thereby checking the status, but also to use as an argument. 
 

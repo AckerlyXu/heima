@@ -79,7 +79,7 @@ Checking the database state through various endpoints will allow you to correctl
 | REST API     | Yes          | Yes   | Yes                  |
 | T-SQL        | **No**       | Yes   | Yes                  |
 
-## <a name="scale-compute-bk"></a>Scale compute
+## <a name="scale-compute-bk"></a><a name="scale-compute"></a>Scale compute
 
 Performance in SQL Data Warehouse is measured in [data warehouse units (DWUs)][data warehouse units (DWUs)] which is an abstracted measure of compute resources such as CPU, memory, and I/O bandwidth. A user who wishes to scale their system's performance can do so through various means, such as through the portal, T-SQL, and REST APIs. 
 

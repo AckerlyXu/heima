@@ -61,7 +61,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
 
-## <a name="check-database-state-bk"></a>Check database state and operation progress
+## <a name="check-database-state-bk"></a><a name="check-database-state-and-operation-progress"></a>Check database state and operation progress
 
 1. Connect to the master database associated with your logical SQL Database server.
 2. Submit query to check database state

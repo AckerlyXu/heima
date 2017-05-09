@@ -94,7 +94,7 @@ Configure the backend address pools on your load balancer for each website (Cont
 6. Add Target network IP configurations, for both VMs as follows (see Figure 2):  
     1. For **Target Virtual machine**, select the VM that you want to add to the backend pool (for example, VM1 or VM2).
     2. For **Network IP configuration**, select the secondary NICs IP configuration for that VM (for example, VM1NIC2-ipconfig2 or VM2NIC2-ipconfig2).
-    ![LB scenario image](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
+    ![LB scenario image](./media/load-balancer-multiple-ip/lb-backendpool.png)
 
         **Figure 2**: Configuring the load balancer with backend pools  
 7. Click **OK**.
@@ -120,7 +120,7 @@ Configure load balancing rules (*HTTPc* and *HTTPf*) for each website as follows
 8. When the load balancing rules configuration is complete, both rules ((*HTTPc* and *HTTPf*) are displayed in the **Load balancing rules** blade of your load balancer.
 
 ### STEP 7: Configure DNS records
-Finally, you must configure DNS resource records to point to the respective frontend IP address of the load balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+Finally, you must configure DNS resource records to point to the respective frontend IP address of the load balancer. <!-- Not supported in Azure.cn You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
