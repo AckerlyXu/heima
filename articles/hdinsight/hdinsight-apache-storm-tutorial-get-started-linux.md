@@ -20,7 +20,7 @@ ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
-#Get started with the Storm Starter samples for big data analytics on Linux-based HDInsight
+# Get started with the Storm Starter samples for big data analytics on Linux-based HDInsight
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
@@ -206,5 +206,5 @@ For example topologies that can be used with Storm on HDInsight, see the followi
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.cn/
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.cn/

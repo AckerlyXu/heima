@@ -134,11 +134,11 @@ The below steps show how you would exclude these files from the backup.
     > The last line shows that you can exclude individuals files as well as folders.
 2. Create a file called `_backup.filter` and put the list above in the file, but remove `D:\home`. List one directory or file per line. So the content of the file should be:
 
-    \site\wwwroot\Logs
-    \LogFiles
-    \site\wwwroot\Images\2013
-    \site\wwwroot\Images\2014
-    \site\wwwroot\Images\brand.png
+        \site\wwwroot\Logs
+        \LogFiles
+        \site\wwwroot\Images\2013
+        \site\wwwroot\Images\2014
+        \site\wwwroot\Images\brand.png
 3. Upload this file to the `D:\home\site\wwwroot\` directory of your site using [ftp](web-sites-deploy.md#ftp) or any other method. If you wish, you can create the file directly in `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` and insert the content there.
 4. Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups).
 

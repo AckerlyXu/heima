@@ -52,7 +52,7 @@ In this article, to create a streaming solution, you do the following steps:
 
 ## Create Azure Event Hub
 
-1. Log on to the [Azure Portal Preview](https://manage.windowsazure.cn), and click **New** at the top left of the screen.
+1. Log on to the [Azure Portal Preview](https://portal.azure.cn), and click **New** at the top left of the screen.
 
 2. Click **Internet of Things**, then click **Event Hubs**.
 

@@ -63,7 +63,6 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 ## <a name="see-also"></a>See also
 * [Apache HBase](https://hbase.apache.org/)
-* [Bigtable: A Distributed Storage System for Structured Data](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
@@ -73,7 +72,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
-[hbase-get-started]: /azure/hdinsight-hbase-get-started/
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

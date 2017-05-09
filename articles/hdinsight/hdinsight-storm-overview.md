@@ -159,7 +159,7 @@ For more information, see [Guarantees on data processing](https://storm.apache.o
 
 ### IBasicBolt
 
-The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](https://storm.apache.org/apidocs/backtype/storm/topology/IBasicBolt.html) interface to automate this pattern.
+The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](http://storm.apache.org/releases/0.10.1/javadocs/backtype/storm/topology/IBasicBolt.html) interface to automate this pattern.
 
 ### Joins
 

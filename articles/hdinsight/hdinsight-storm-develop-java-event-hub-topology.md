@@ -34,7 +34,7 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
     > [!IMPORTANT]
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-* An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* An [Azure Event Hub](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 * [Oracle Java Developer Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or equivalent, such as [OpenJDK](http://openjdk.java.net/).
 

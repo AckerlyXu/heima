@@ -86,7 +86,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
     * **Cluster AAD Identity**: 
-    * **New support request**: Allows you to create a support ticket with Microsoft support.
+    * **New support request**: Allows you to create a support ticket with Azure.cn support.
 
 6. Click **Properties**:
 
@@ -95,7 +95,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
     * **Hostname**: Cluster name.
     * **Cluster URL**. The URL for the Ambari web interface.
     * **Status**: Include Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
-    * **Region**: Azure location. For a list of supported Azure locations, see the **Region** dropdown list box on [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
+    * **Region**: Azure location. For a list of supported Azure locations, see the **listed area** on [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
     * **Date created**.
     * **Operating system**: Either **Windows** or **Linux**.
     * **Type**: Hadoop, HBase, Storm, Spark. 
@@ -138,7 +138,6 @@ The impact of changing the number of data nodes for each type of cluster support
         >hbase shell
         >balancer
 
-    For more information on using the HBase shell, see []
 * Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -195,7 +194,7 @@ You can use the Ambari Web UI to change the Cluster user password. To log into A
 > 
 > 
 
-1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>azurehdinsight.cn**.
+1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>.azurehdinsight.cn**.
 2. Click **Admin** from the top menu, and then click "Manage Ambari". 
 3. From the left menu, click **Users**.
 4. Click **Admin**.
@@ -304,7 +303,7 @@ In this article, you have learned how to create an HDInsight cluster by using th
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
-* [Create HDInsight clusters](hdinsight-provision-clusters.md)
+* [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Use Hive in HDInsight](hdinsight-use-hive.md)
 * [Use Pig in HDInsight](hdinsight-use-pig.md)
 * [Use Sqoop in HDInsight](hdinsight-use-sqoop.md)
