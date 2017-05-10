@@ -61,6 +61,7 @@ Start Visual Studio. From the **File** menu, click **New**, and then click **Pro
 ## Add the Event Hubs NuGet package
 
 Add the following NuGet packages to the project:
+
 * [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
 * [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
 
