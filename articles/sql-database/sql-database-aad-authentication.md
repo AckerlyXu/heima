@@ -64,7 +64,7 @@ To create new users, you must have the `ALTER ANY USER` permission in the databa
 
 To create a contained database user in Azure SQL Database or SQL Data Warehouse, you must connect to the database using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). This is demonstrated in steps 4 and 5 below. Any Azure AD authentication is only possible if the Azure AD admin was created for Azure SQL Database or SQL Data Warehouse server. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside SQL Server can no longer connect to the database using their Azure Active Directory credentials.
 
-## Azure AD features and limitations
+##<a name="azure-ad-features-and-limitations"></a> Azure AD features and limitations
 The following members of Azure AD can be provisioned in Azure SQL server or SQL Data Warehouse:
 
 * Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md).
