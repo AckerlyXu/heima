@@ -146,7 +146,7 @@ For more information about the HDInsight tools for Visual Studio:
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
+[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query/
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

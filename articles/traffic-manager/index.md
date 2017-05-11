@@ -20,7 +20,7 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/traffic-manager/traffic-manager-overview">
+        <a href="/traffic-manager/traffic-manager-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
         </a>
     </li>
     <li>
-        <a href="/azure/traffic-manager/traffic-manager-create-profile">
+        <a href="/traffic-manager/traffic-manager-create-profile">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
         </a>
     </li>
     <li>
-        <a href="/azure/traffic-manager/traffic-manager-manage-endpoints">
+        <a href="/traffic-manager/traffic-manager-manage-endpoints">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -106,7 +106,7 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
                         <h3>Languages</h3>
                         <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
                         <p><a href="https://docs.microsoft.com/cli/azure/network/traffic-manager">Azure CLI</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html">Python</a></p>

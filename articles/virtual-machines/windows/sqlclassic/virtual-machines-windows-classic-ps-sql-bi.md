@@ -149,7 +149,7 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 
             Myservice.chinacloudapp.cn:63133
 
-        For more information, see [What is a cloud service?](/azure/cloud-services/cloud-services-choose-me).
+        For more information, see [What is a cloud service?](/cloud-services/cloud-services-choose-me).
 
 **Start Reporting Services Configuration Manager.**
 
@@ -329,13 +329,13 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 ## Resources
 * Review the support policy for Microsoft server software used in the Azure Virtual Machine environment. The following topic summarizes support for features such as BitLocker, Failover Clustering, and Network Load Balancing. [Microsoft server software support for Azure Virtual Machines](http://support.microsoft.com/kb/2721672).
 * [SQL Server on Azure Virtual Machines Overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-* [Virtual Machines](/azure/virtual-machines/)
+* [Virtual Machines](/virtual-machines/)
 * [Provisioning a SQL Server Virtual Machine on Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
 * [How to Attach a Data Disk to a Virtual Machine](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrating a Database to SQL Server on an Azure VM](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determine the Server Mode of an Analysis Services Instance](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Multidimensional Modeling (Adventure Works Tutorial)](https://technet.microsoft.com/library/ms170208.aspx)
-* [Azure Documentation Center](/azure/)
+* [Azure Documentation Center](/)
 * [Using Power BI in a Hybrid Environment](https://msdn.microsoft.com/library/dn798994.aspx)
 
 > [!NOTE]

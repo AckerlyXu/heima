@@ -20,7 +20,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/application-gateway/application-gateway-introduction">
+        <a href="/application-gateway/application-gateway-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -38,25 +38,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Application Gateway Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-        <li>
-        <a href="/azure/application-gateway/application-gateway-create-gateway-portal">
+        <a href="/application-gateway/application-gateway-create-gateway-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +56,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
         </a>
     </li>
     <li>
-        <a href="/azure/application-gateway/application-gateway-create-gateway-arm">
+        <a href="/application-gateway/application-gateway-create-gateway-arm">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +74,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
         </a>
     </li>
     <li>
-        <a href="/azure/application-gateway/application-gateway-create-gateway-arm-template">
+        <a href="/application-gateway/application-gateway-create-gateway-arm-template">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -134,8 +116,8 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.network">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node​.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>

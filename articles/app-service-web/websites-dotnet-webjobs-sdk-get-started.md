@@ -32,7 +32,7 @@ The sample application is an advertising bulletin board. Users can upload images
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-This sample application works with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). The tutorial shows how to deploy the application to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) and [Azure SQL Database](/azure/sql-database/sql-database-technical-overview).
+This sample application works with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). The tutorial shows how to deploy the application to [Azure App Service](/app-service-web/app-service-changes-existing-services) and [Azure SQL Database](/sql-database/sql-database-technical-overview/).
 
 ## <a id="prerequisites"></a>Prerequisites
 The tutorial assumes that you know how to work with [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) projects in Visual Studio.
@@ -275,7 +275,7 @@ In this section you use **Server Explorer** to set connection string values in A
 5. In **Server Explorer**, right-click the web app, and then click **Stop**.
 6. After the web app stops, right-click the web app again, and then click **Start**.
 
-    The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the web app or restart the WebJob in the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal). It's generally recommended to restart the web app after a configuration change.
+    The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the web app or restart the WebJob in the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal). It's generally recommended to restart the web app after a configuration change.
 7. Refresh the browser window that has the web app URL in its address bar.
 
     The home page appears.
@@ -722,4 +722,4 @@ https://{webappname}.scm.chinacloudsites.cn/azurejobs/#/functions
 For more information, see [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), but note that it shows an old connection string name.
 
 ### More WebJobs documentation
-For more information, see [Azure WebJobs documentation resources](/azure/app-service-web/websites-webjobs-resources).
+For more information, see [Azure WebJobs documentation resources](/app-service-web/websites-webjobs-resources).

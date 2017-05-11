@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/traffic-manager/traffic-manager-overview
+redirect_url: /traffic-manager/traffic-manager-overview
 ---

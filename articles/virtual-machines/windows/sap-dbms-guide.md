@@ -547,7 +547,7 @@ It needs to be configured by purpose when rolling out VMs as seen here:
 
 If we want to create highly available configurations of DBMS deployments (independent of the individual DBMS HA functionality used), the DBMS VMs would need to:
 
-* Add the VMs to the same Azure Virtual Network (</azure/virtual-network/>)
+* Add the VMs to the same Azure Virtual Network (</virtual-network/>)
 * The VMs of the HA configuration should also be in the same subnet. Name resolution between the different subnets is not possible in Cloud-Only deployments, only IP resolution will work. Using site-to-site or ExpressRoute connectivity for Cross-Premises deployments, a network with at least one subnet will be already established. Name resolution will be done according to the on-premises AD policies and network infrastructure.
 
 

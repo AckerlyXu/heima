@@ -19,7 +19,7 @@ ms.author: jaime-espinosa
 
 ---
 # Reference for navigating the Azure portal preview
-Azure Websites are now called [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services). We're updating all of our documentation to reflect this name change and to provide instructions for the Azure Portal Preview. Until that process is done, you can use this document as a guide for working with Web Apps in the Azure portal preview.
+Azure Websites are now called [App Service Web Apps](/app-service-web/app-service-changes-existing-services). We're updating all of our documentation to reflect this name change and to provide instructions for the Azure Portal Preview. Until that process is done, you can use this document as a guide for working with Web Apps in the Azure portal preview.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -76,4 +76,4 @@ Other than the brand name, a few things in the portal have been renamed or group
 [Azure Marketplace]: /marketplace/
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)

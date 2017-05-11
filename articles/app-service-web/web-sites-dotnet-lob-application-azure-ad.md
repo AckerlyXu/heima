@@ -23,7 +23,7 @@ ms.author: cephalin
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 This article shows you how to create a .NET line-of-business app in 
-[Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services) using the 
+[Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services) using the 
 [Authentication / Authorization](../app-service/app-service-authentication-overview.md) feature. It also shows how 
 to use the [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 
 to query directory data in the application.
@@ -48,7 +48,7 @@ You need the following to complete this tutorial:
 * An Azure Active Directory tenant with users in various groups
 * Permissions to create applications on the Azure Active Directory tenant
 * Visual Studio 2013 Update 4 or later
-* [Azure SDK 2.8.1 or later](https://www.azure.cn/downloads/)
+* [Azure SDK 2.8.1 or later](/downloads/)
 
 ## <a name="bkmk_deploy"></a> Create and deploy a web app to Azure
 1. From Visual Studio, click **File** > **New** > **Project**.
@@ -409,6 +409,6 @@ authorize users with the `[Authorize]` decoration.
 * [Create a line-of-business app in Azure with AD FS authentication](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
-* [Azure Active Directory Supported Token and Claim Types](/azure/active-directory/active-directory-token-and-claims)
+* [Azure Active Directory Supported Token and Claim Types](/active-directory/active-directory-token-and-claims/)
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

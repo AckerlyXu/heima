@@ -110,7 +110,7 @@ If you are enabling Automated Backup for the first time, Azure configures the SQ
 After provisioning your SQL VM, use PowerShell to configure Automated Backup. Before you begin, you must:
 
 - [Download and install the latest Azure PowerShell](http://aka.ms/webpi-azps).
-- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
+- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
 
 In the following PowerShell example, Automated Backup is configured for an existing SQL Server 2014 VM. The **AzureRM.Compute\New-AzureVMSqlServerAutoBackupConfig** command configures the Automated Backup settings to store backups in the Azure storage account associated with the virtual machine. These backups will be retained for 10 days. The **Set-AzureRmVMSqlServerExtension** command updates the specified Azure VM with these settings.
 

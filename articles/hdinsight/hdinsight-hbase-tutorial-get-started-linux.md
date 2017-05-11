@@ -276,7 +276,7 @@ To learn more, see:
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: /azure/storage-create-storage-account/
+[azure-create-storageaccount]: /storage/storage-create-storage-account/
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hive-editor.png

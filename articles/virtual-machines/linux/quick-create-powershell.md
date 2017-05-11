@@ -125,7 +125,7 @@ Run the following commands to return the public IP address of the virtual machin
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/azure/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
 
 ```bash 
 ssh <Public IP Address>

@@ -100,7 +100,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         -Clustername $clusterName `
         -JobId $hiveJob.JobId `
         -HttpCredential $creds
-    ````
+    ```
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **hivejob.ps1** file, then use the following command to run the script:
 
@@ -140,7 +140,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     Invoke-AzureRmHDInsightHiveJob `
         -StatusFolder "statusout" `
         -Query $queryString
-    ````
+    ```
 
     The output looks like the following text:
 

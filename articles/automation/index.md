@@ -20,7 +20,7 @@ Learn how to use Automation to save time and increase the reliability of regular
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/automation/automation-intro">
+        <a href="/automation/automation-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use Automation to save time and increase the reliability of regular
         </a>
     </li>
     <li>
-        <a href="/azure/automation/automation-first-runbook-graphical">
+        <a href="/automation/automation-first-runbook-graphical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use Automation to save time and increase the reliability of regular
         </a>
     </li>
     <li>
-        <a href="/azure/automation/automation-first-runbook-textual-powershell">
+        <a href="/automation/automation-first-runbook-textual-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,7 @@ Learn how to use Automation to save time and increase the reliability of regular
         </a>
     </li>
     <li>
-        <a href="/azure/automation/automation-first-runbook-textual">
+        <a href="/automation/automation-first-runbook-textual">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -110,7 +110,7 @@ Learn how to use Automation to save time and increase the reliability of regular
         </a>
     </li>
     <li>
-        <a href="/azure/automation/automation-role-based-access-control">
+        <a href="/automation/automation-role-based-access-control">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -153,7 +153,7 @@ Learn how to use Automation to save time and increase the reliability of regular
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
                      </div>
                 </div>
             </div>

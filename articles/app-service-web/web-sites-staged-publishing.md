@@ -22,7 +22,7 @@ ms.author: cephalin
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, mobile back end, and API app to [App Service](/azure/app-service-web/app-service-changes-existing-services), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app, mobile back end, and API app to [App Service](/app-service-web/app-service-changes-existing-services), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
@@ -32,7 +32,7 @@ Each App Service plan mode supports a different number of deployment slots. To f
 
 * When your app has multiple slots, you cannot change the mode.
 * Scaling is not available for non-production slots.
-* Linked resource management is not supported for non-production slots. In the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+* Linked resource management is not supported for non-production slots. In the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 ## <a name="Add"></a> Add a deployment slot
 The app must be running in the **Standard** or **Premium** mode in order for you to enable multiple deployment slots.

@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/app-service-api/
+redirect_url: /app-service-api/
 ROBOTS: NOINDEX, NOFOLLOW
 ---

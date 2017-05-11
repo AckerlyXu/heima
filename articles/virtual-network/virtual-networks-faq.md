@@ -38,7 +38,7 @@ VNets give you the flexibility to support a range of hybrid cloud scenarios. You
 The [Virtual network overview](virtual-networks-overview.md) article provides a decision table that will help you decide the best network design option for you.
 
 ### How do I get started?
-Visit the [Virtual network documentation](/azure/virtual-network/) to get started. This content provides overview and deployment information for all the VNet features.
+Visit the [Virtual network documentation](/virtual-network/) to get started. This content provides overview and deployment information for all the VNet features.
 
 ### Can I use VNets without cross-premises connectivity?
 Yes. You can use a VNet without using hybrid connectivity. This is particularly useful if you want to run Microsoft Windows Server Active Directory domain controllers and SharePoint farms in Azure.

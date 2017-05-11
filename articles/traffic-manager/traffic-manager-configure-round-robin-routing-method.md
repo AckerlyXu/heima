@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/traffic-manager/traffic-manager-configure-weighted-routing-method
+redirect_url: /traffic-manager/traffic-manager-configure-weighted-routing-method
 ---

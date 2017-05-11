@@ -26,16 +26,16 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager)
-## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Related
-## [Application Gateway](/azure/application-gateway/)
-## [Load Balancer](/azure/load-balancer/)
-## [Azure DNS](/azure/dns/)
+## [Application Gateway](/application-gateway/)
+## [Load Balancer](/load-balancer/)
+## [Azure DNS](/dns/)
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/traffic-manager/)

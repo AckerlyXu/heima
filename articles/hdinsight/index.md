@@ -21,7 +21,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/hdinsight/hdinsight-hadoop-introduction">
+        <a href="/hdinsight/hdinsight-hadoop-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +57,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
         </a>
     </li>
     <li>
-        <a href="/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started">
+        <a href="/hdinsight/hdinsight-hadoop-linux-tutorial-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -75,7 +75,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
         </a>
     </li>
     <li>
-        <a href="/azure/hdinsight/hdinsight-hadoop-r-server-get-started">
+        <a href="/hdinsight/hdinsight-hadoop-r-server-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -93,7 +93,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
         </a>
     </li>
      <li>
-        <a href="/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux">
+        <a href="/hdinsight/hdinsight-hbase-tutorial-get-started-linux">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -111,7 +111,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
         </a>
     </li>
     <li>
-        <a href="/azure/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux">
+        <a href="/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

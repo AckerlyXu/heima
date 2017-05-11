@@ -33,7 +33,7 @@ To create a virtual machine when you create a web application, follow these step
     ![][5]
 
 ## Next steps
-If you want to customize the published scripts you created, read more in-depth information at [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](/azure/).
+If you want to customize the published scripts you created, read more in-depth information at [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](/).
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
 [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG

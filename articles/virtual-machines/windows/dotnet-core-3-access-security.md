@@ -135,7 +135,7 @@ Here is what the network security group looks like from the Azure portal preview
 
 ![Network Security Group](./media/dotnet-core-3-access-security/nsg-win.png)
 
-For in-depth information on Network Security Groups, see [What is a Network Security Group](/azure/virtual-networks-nsg).
+For in-depth information on Network Security Groups, see [What is a Network Security Group](/virtual-networks/virtual-networks-nsg/).
 
 ## Next step
 <hr>

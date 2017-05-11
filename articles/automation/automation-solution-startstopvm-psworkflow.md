@@ -18,7 +18,7 @@ wacn.date: ''
 ms.author: magoedte;bwren
 
 #Redirection
-redirect_url: /azure/automation/automation-solution-vm-management 
+redirect_url: /automation/automation-solution-vm-management 
 redirect_document_id: FALSE
 ---
 
@@ -42,7 +42,7 @@ This scenario consists of two PowerShell Workflow runbooks that you can download
 
 ## <a id="installing-and-configuring-the-scenario" name="installing-the-solution"></a> Installing and configuring the scenario
 ### 1. Install the runbooks
-After downloading the runbooks, you can import them using the procedure in [Importing a Runbook](/azure/automation/automation-creating-importing-runbook#ImportRunbook).
+After downloading the runbooks, you can import them using the procedure in [Importing a Runbook](/automation/automation-creating-importing-runbook#ImportRunbook).
 
 ### 2. Review the description and requirements
 The runbooks include commented help text that includes a description and required assets.  You can also get the same information from this article.

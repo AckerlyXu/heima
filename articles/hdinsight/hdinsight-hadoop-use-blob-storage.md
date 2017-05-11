@@ -65,7 +65,7 @@ Here are some considerations when using Azure Storage account with HDInsight clu
 * **Public containers or public blobs in storage accounts that are NOT connected to a cluster:** You have read-only permission to the blobs in the containers.
 
     > [!NOTE]
-    > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="/azure/storage/storage-manage-access-to-resources/">Restrict access to containers and blobs</a>.
+    > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="/storage/storage-manage-access-to-resources/">Restrict access to containers and blobs</a>.
     > 
     > 
 * **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.

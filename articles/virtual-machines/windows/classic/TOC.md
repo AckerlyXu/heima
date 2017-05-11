@@ -90,8 +90,8 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java](/java/api)
-## [.NET](/dotnet/api/microsoft.azure.management.compute)
+## [Java](https://docs.microsoft.com/java/api)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)
 ## [Author Resource Manager templates](../../../resource-group-authoring-templates.md)
 ## [Community templates](https://github.com/Azure/azure-quickstart-templates)
 ## [Compute REST](https://docs.microsoft.com/rest/api/compute)

@@ -21,7 +21,7 @@ ms.author: cephalin
 
 ---
 # Troubleshoot slow web app performance issues in Azure App Service
-This article helps you troubleshoot slow web app performance issues in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services).
+This article helps you troubleshoot slow web app performance issues in [Azure App Service](/app-service-web/app-service-changes-existing-services).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://www.azure.cn/support/contact/) and click on **Get Support**.
 

@@ -20,7 +20,7 @@ ms.author: guybo
 
 ---
 # Working with large virtual machine scale sets
-You can now create Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
+You can now create Azure [virtual machine scale sets](/virtual-machine-scale-sets/) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
 
 Certain aspects of large scale sets, such as load balancing and fault domains behave differently to a standard scale set. This document explains the characteristics of large scale sets, and describes what you need to know to successfully use them in your applications. 
 

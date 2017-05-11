@@ -20,7 +20,7 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-api/app-service-api-apps-why-best-platform">
+        <a href="/app-service-api/app-service-api-apps-why-best-platform">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-api/app-service-api-dotnet-get-started">
+        <a href="/app-service-api/app-service-api-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-api/app-service-api-java-api-app">
+        <a href="/app-service-api/app-service-api-java-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,7 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-api/app-service-api-nodejs-api-app">
+        <a href="/app-service-api/app-service-api-nodejs-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -110,7 +110,7 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-api/app-service-api-cors-consume-javascript">
+        <a href="/app-service-api/app-service-api-cors-consume-javascript">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

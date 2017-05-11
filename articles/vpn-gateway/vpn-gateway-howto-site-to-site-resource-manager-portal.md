@@ -108,5 +108,5 @@ In this step, you create the Site-to-Site VPN connection between your virtual ne
 [!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
 ## Next steps
-* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/).
+* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/virtual-machines/).
 *  For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).

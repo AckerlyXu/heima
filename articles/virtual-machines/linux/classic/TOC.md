@@ -67,7 +67,7 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java](/java/api)
+## [Java](https://docs.microsoft.com/java/api)
 ## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://github.com/Azure/azure-quickstart-templates)
 ## [Compute REST](https://docs.microsoft.com/rest/api/compute)

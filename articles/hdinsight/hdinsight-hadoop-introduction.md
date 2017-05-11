@@ -42,10 +42,10 @@ HDInsight offers the following cluster types:
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Provides reliable data storage with [HDFS](#hdfs), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 * **[Apache Spark](http://spark.apache.org/)**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [Overview: What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
 * **[Apache HBase](http://hbase.apache.org/)**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
-* **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: An enterprise-class server for hosting and managing parallel, distributed R processes. It provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. See [Overview of R Server on HDInsight](/azure/hdinsight/hdinsight-hadoop-r-server-overview).
+* **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: An enterprise-class server for hosting and managing parallel, distributed R processes. It provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. See [Overview of R Server on HDInsight](/hdinsight/hdinsight-hadoop-r-server-overview).
 * **[Apache Storm](https://storm.incubator.apache.org/)**: A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
-* **[Apache Interactive Hive preview (AKA: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: In-memory caching for interactive and faster Hive queries. See [Use Interactive Hive in HDInsight](/azure/hdinsight/hdinsight-hadoop-use-interactive-hive).
-* **[Apache Kafka preview](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](/azure/hdinsight/hdinsight-apache-kafka-introduction).
+* **[Apache Interactive Hive preview (AKA: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: In-memory caching for interactive and faster Hive queries. See [Use Interactive Hive in HDInsight](/hdinsight/hdinsight-hadoop-use-interactive-hive).
+* **[Apache Kafka preview](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](/hdinsight/hdinsight-apache-kafka-introduction).
 * **[Custom clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md)**: Clusters with scripts that run during provisioning and install additional components.
 
 ### Example customization scripts
@@ -164,7 +164,7 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 * State-of-the-art Hadoop components. For details, see [Hadoop components, versioning, and service offerings in HDInsight][component-versioning].
 * High availability and reliability of clusters. See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for details.
 * Efficient and economical data storage with Azure Storage, both Hadoop-compatible storage options. See [Use Azure Storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
-* Integration with other Azure services, including [Web apps](/azure/app-service-web/) and [SQL Database](/azure/sql-database/).
+* Integration with other Azure services, including [Web apps](/app-service-web/) and [SQL Database](/sql-database/).
 * Additional VM sizes and types for running HDInsight clusters. See [Hadoop components, versioning, and service offerings in HDInsight][component-versioning] for details.
 * Cluster scaling. Cluster scaling enables you to change the number of nodes of a running HDInsight cluster without having to delete or re-create it.
 * Virtual Network support. HDInsight clusters can be used with Azure Virtual Network to support isolation of cloud resources or hybrid scenarios that link cloud resources with those in your datacenter.
@@ -179,7 +179,7 @@ HDInsight provides big data cloud offerings in two categories, Standard and Prem
 Build on this introduction to Hadoop in the cloud and big data analysis with the resources below.
 
 ### Hadoop documentation for HDInsight
-* [HDInsight documentation](/azure/hdinsight/): The documentation page for Hadoop on Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight documentation](/hdinsight/): The documentation page for Hadoop on Azure HDInsight with links to articles, videos, and more resources.
 * [Get started with Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md): A quick-start tutorial for provisioning HDInsight Hadoop clusters and running sample Hive queries.
 * [Get started with Spark in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): A quick-start tutorial for creating a Spark cluster and running interactive Spark SQL queries.
 * [Use R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md): Start using R Server in HDInsight Premium.

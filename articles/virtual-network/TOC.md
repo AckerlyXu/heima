@@ -129,18 +129,18 @@
 ## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [PowerShell (Classic)](https://docs.microsoft.com/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
-## [Java](/java/api/)
+## [Java](https://docs.microsoft.com/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
 
 # Related
-## [Virtual Machines](/azure/virtual-machines/)
-## [Application Gateway](/azure/application-gateway/)
-## [Azure DNS](/azure/dns/)
-## [Traffic Manager](/azure/traffic-manager/)
-## [Load Balancer](/azure/load-balancer/)
-## [VPN Gateway](/azure/vpn-gateway/)
-## [ExpressRoute](/azure/expressroute/)
+## [Virtual Machines](/virtual-machines/)
+## [Application Gateway](/application-gateway/)
+## [Azure DNS](/dns/)
+## [Traffic Manager](/traffic-manager/)
+## [Load Balancer](/load-balancer/)
+## [VPN Gateway](/vpn-gateway/)
+## [ExpressRoute](/expressroute/)
 
 # Resources
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)

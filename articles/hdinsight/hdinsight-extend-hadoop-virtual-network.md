@@ -44,7 +44,7 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 ## <a id="whatis"></a>What is Azure Virtual Network
 
-[Azure Virtual Network](/azure/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution.
+[Azure Virtual Network](/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution.
 
 The following are a list of considerations when using HDInsight in a virtual network:
 
@@ -94,7 +94,7 @@ Using Virtual Network to link the cloud and your datacenter enables similar scen
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](/azure/virtual-network/).
+> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](/virtual-network/).
 
 ## Secured virtual networks
 

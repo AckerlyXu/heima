@@ -7,7 +7,7 @@
 ### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
 ### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
-## authentication and security
+## Authentication and security
 ### [Create standalone Automation account](automation-create-standalone-account.md)
 ### [Create Azure AD User account](automation-create-aduser-account.md)
 ### [Configure Authentication with AWS](automation-config-aws-account.md)
@@ -73,7 +73,7 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Classic)](https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
-## [.NET](/dotnet/api/microsoft.azure.management.automation)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://docs.microsoft.com/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources

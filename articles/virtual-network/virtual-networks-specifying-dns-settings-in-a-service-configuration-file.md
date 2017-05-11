@@ -40,4 +40,4 @@ A service configuration file may contain a DnsServers element with a list of IPv
 
 [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
 
-[Configure a Virtual Network Using Network Configuration Files](/azure/virtual-network/virtual-networks-create-vnet-classic-portal)
+[Configure a Virtual Network Using Network Configuration Files](/virtual-network/virtual-networks-create-vnet-classic-portal)

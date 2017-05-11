@@ -232,5 +232,5 @@ If you need to change the prefixes for your local network gateway, use the follo
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
-* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/).
+* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/virtual-machines/).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).

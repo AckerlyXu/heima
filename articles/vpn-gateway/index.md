@@ -20,7 +20,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-about-vpngateways">
+        <a href="/vpn-gateway/vpn-gateway-about-vpngateways">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
         </a>
     </li>
     <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-plan-design">
+        <a href="/vpn-gateway/vpn-gateway-plan-design">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
         </a>
     </li>
     <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal">
+        <a href="/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
         </a>
     </li>
      <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal">
+        <a href="/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -110,7 +110,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
         </a>
     </li>
      <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal">
+        <a href="/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

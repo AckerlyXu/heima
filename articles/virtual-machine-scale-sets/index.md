@@ -20,7 +20,7 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview">
+        <a href="/virtual-machine-scale-sets/virtual-machine-scale-sets-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
+        <a href="/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -99,9 +99,9 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://www.azure.cn/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api">Java</a></p>
+                        <p><a href="/develop/nodejs/#azure-sdk">Node​.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>

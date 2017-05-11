@@ -21,7 +21,7 @@ ms.author: negat
 ---
 # Azure VM scale sets and managed disks
 
-Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with managed disks. Using managed disks with scale sets has several benefits, including:
+Azure [virtual machine scale sets](/virtual-machine-scale-sets/) now support virtual machines with managed disks. Using managed disks with scale sets has several benefits, including:
 
 * You no longer need to pre-create and manage storage accounts to store the OS disks for the scale set VMs.
 

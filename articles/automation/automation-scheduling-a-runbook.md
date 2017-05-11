@@ -93,5 +93,5 @@ The following sample commands show how to disable a schedule using the Azure Ser
     -Name $scheduleName -IsEnabled $false
 
 ## Next steps
-* To learn more about working with schedules, see [Schedule Assets in Azure Automation](/azure/automation/automation-schedules)
+* To learn more about working with schedules, see [Schedule Assets in Azure Automation](/automation/automation-schedules)
 * To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)

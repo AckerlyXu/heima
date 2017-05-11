@@ -178,6 +178,6 @@ For more information, see the following topics:
 ## Additional Links
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Virtual Machines](/azure/virtual-machines/windows/)
+* [Azure Virtual Machines](/virtual-machines/windows/)
 * [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure Availability Sets](../manage-availability.md)

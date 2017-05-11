@@ -377,7 +377,7 @@
   - name: Java
     href: /java/api
   - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+    href: /develop/nodejs/#azure-sdk
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
   - name: Compute REST

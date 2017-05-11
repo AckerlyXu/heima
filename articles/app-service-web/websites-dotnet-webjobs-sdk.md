@@ -166,6 +166,6 @@ The WebJobs SDK provides several advantages even if you don't use WebJobs SDK tr
 For more information, see [How to manually invoke a function](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) and [How to write logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
 
 ## <a id="nextsteps"></a>Next steps
-For more information about the WebJobs SDK, see [Azure WebJobs Recommended Resources](/azure/app-service-web/websites-webjobs-resources).
+For more information about the WebJobs SDK, see [Azure WebJobs Recommended Resources](/app-service-web/websites-webjobs-resources).
 
 For information about the latest enhancements to the WebJobs SDK, see the [Release Notes](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).

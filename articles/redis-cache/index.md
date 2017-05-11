@@ -20,7 +20,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/redis-cache/cache-premium-tier-intro">
+        <a href="/redis-cache/cache-premium-tier-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +55,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
         </a>
     </li>   
    <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
+        <a href="/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +73,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-web-app-howto">
+        <a href="/redis-cache/cache-web-app-howto">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,7 +91,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-nodejs-get-started">
+        <a href="/redis-cache/cache-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -109,7 +109,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-java-get-started">
+        <a href="/redis-cache/cache-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -127,7 +127,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-python-get-started">
+        <a href="/redis-cache/cache-python-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -169,8 +169,8 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
                         <p><a href="http://redis.io/clients">Redis clients</a></p>
                         <p><a href="http://redis.io/commands#">Redis commands</a></p>
                    </div>

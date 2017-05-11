@@ -65,7 +65,7 @@ Instead of setting up a local MongoDB database, you'll create one in Azure.
 
 ## Step 2 - Create a MongoDB database
 
-In this step, you connect your application to a MongoDB database. For MongoDB, this tutorial uses [Azure DocumentDB](/azure/documentdb/), which can support MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a MongoDB database. The fact that the connection is backed by a DocumentDB database is completely transparent to the application.
+In this step, you connect your application to a MongoDB database. For MongoDB, this tutorial uses [Azure DocumentDB](/documentdb/), which can support MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a MongoDB database. The fact that the connection is backed by a DocumentDB database is completely transparent to the application.
 
 ### Log in to Azure
 

@@ -21,7 +21,7 @@ ms.author: robmcm
 ---
 # Node.js web app using the Azure Table Service
 ## Overview
-This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
+This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](/app-service-web/app-service-changes-existing-services) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
 
 You will learn:
 
@@ -544,12 +544,12 @@ While the steps in this article describe using the Table Service to store inform
 [Azure CLI]
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!-- URLs -->
 
 [Build and deploy a Node.js web app in Azure App Service]: app-service-web-get-started-nodejs.md
-[Azure Developer Center]: https://www.azure.cn/develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com

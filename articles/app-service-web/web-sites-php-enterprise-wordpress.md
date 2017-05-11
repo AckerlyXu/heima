@@ -159,7 +159,7 @@ After the WordPress site has been created or migrated, use the following informa
 | --- | --- |
 | **Set App Service plan mode, size, and enable scaling** |[Scale a web app in Azure App Service][websitescale]. |
 | **Enable persistent database connections** |By default, WordPress does not use persistent database connections, which might cause your connection to the database to become throttled after multiple connections. To enable persistent connections, install the [persistent connections adapter plugin](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
-| **Improve performance** |<ul><li><p><a href="https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Disable the ARR cookie</a>, which can improve performance when WordPress runs on multiple Web Apps instances.</p></li><li><p>Enable caching. You can use <a href="/azure/redis-cache">Redis cache</a> (preview) with the <a href="https://wordpress.org/plugins/redis-object-cache/">Redis object cache WordPress plugin</a>, or you can use one of the other caching offerings from the <a href="/gallery/store/">Azure Store</a>.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Make WordPress faster with Wincache</a>. Wincache is enabled by default for web apps.</p></li><li><p>[Scale a web app in Azure App Service][websitescale] and use <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB High Availability Routing</a> or <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
+| **Improve performance** |<ul><li><p><a href="https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Disable the ARR cookie</a>, which can improve performance when WordPress runs on multiple Web Apps instances.</p></li><li><p>Enable caching. You can use <a href="/redis-cache">Redis cache</a> (preview) with the <a href="https://wordpress.org/plugins/redis-object-cache/">Redis object cache WordPress plugin</a>, or you can use one of the other caching offerings from the Azure Store.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Make WordPress faster with Wincache</a>. Wincache is enabled by default for web apps.</p></li><li><p>[Scale a web app in Azure App Service][websitescale] and use <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB High Availability Routing</a> or <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
 | **Use blobs for storage** |<ol><li><p>[Create an Azure storage account](../storage/storage-create-storage-account.md).</p></li><li><p>Learn how to [Use the Content Distribution Network (CDN)][cdn] to geo-distribute data stored in blobs.</p></li><li><p>Install and configure the <a href="https://wordpress.org/plugins/windows-azure-storage/">Azure Storage for WordPress plugin</a>.</p><p>For detailed setup and configuration information for the plugin, see the <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">user guide</a>.</p> </li></ol> |
 | **Enable email** | Install the <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">SendGrid plugin</a> for WordPress. |
 | **Configure a custom domain name** |[Configure a custom domain name in Azure App Service][customdomain]. |
@@ -187,7 +187,7 @@ After the WordPress site has been created or migrated, use the following informa
 * [Tips for WordPress on Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 ## What's changed
-For a guide to the change from websites to App Service, see [Azure App Service and its impact on existing Azure Services](/azure/app-service-web/app-service-changes-existing-services).
+For a guide to the change from websites to App Service, see [Azure App Service and its impact on existing Azure Services](/app-service-web/app-service-changes-existing-services).
 
 <!-- URL List -->
 
@@ -205,7 +205,7 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: /azure/redis-cache/
+[rediscache]: /redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx

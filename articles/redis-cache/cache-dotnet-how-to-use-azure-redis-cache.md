@@ -235,9 +235,9 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Develop in other languages for Azure Redis Cache]: /azure/redis-cache
+[Develop in other languages for Azure Redis Cache]: /redis-cache
 [How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Azure Redis Session State Provider]: /azure/redis-cache/cache-aspnet-session-state-provider
+[Azure Redis Session State Provider]: /redis-cache/cache-aspnet-session-state-provider
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/azure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -254,14 +254,14 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
 [StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
 
-[Work with .NET objects in the cache]: /azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache#working-with-caches
+[Work with .NET objects in the cache]: /redis-cache/cache-dotnet-how-to-use-azure-redis-cache#working-with-caches
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: https://www.azure.cn/pricing/details/redis-cache/
 [Azure portal preview]: https://portal.azure.cn/
 
-[Overview of Azure Redis Cache]: /azure/redis-cache/
-[Azure Redis Cache]: /azure/redis-cache/
+[Overview of Azure Redis Cache]: /redis-cache/
+[Azure Redis Cache]: /redis-cache/
 
 [Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840

@@ -20,7 +20,7 @@ Learn how to use App Service to develop and host web and mobile apps for any pla
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service/app-service-value-prop-what-is">
+        <a href="/app-service/app-service-value-prop-what-is">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use App Service to develop and host web and mobile apps for any pla
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-api/">
+        <a href="/app-service-api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,7 @@ Learn how to use App Service to develop and host web and mobile apps for any pla
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/">
+        <a href="/app-service-mobile/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -110,7 +110,7 @@ Learn how to use App Service to develop and host web and mobile apps for any pla
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/">
+        <a href="/app-service-web/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

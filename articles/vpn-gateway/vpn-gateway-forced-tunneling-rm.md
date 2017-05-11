@@ -52,7 +52,7 @@ Forced tunneling in Azure is configured via virtual network user defined routes.
     * **Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes will be dropped.
 * This procedure uses user defined routes (UDR) to create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
 * Forced tunneling must be associated with a VNet that has a route-based VPN gateway. You need to set a "default site" among the cross-premises local sites connected to the virtual network.
-* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. Please see the [ExpressRoute Documentation](/azure/expressroute/) for more information.
+* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. Please see the [ExpressRoute Documentation](/expressroute/) for more information.
 
 ## Configuration overview
 The following procedure helps you create a resource group and a VNet. You'll then create a VPN gateway and configure forced tunneling. In this procedure, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, *Midtier*, and *Backend*, with 4 cross-premises connections: *DefaultSiteHQ*, and 3 *Branches*.

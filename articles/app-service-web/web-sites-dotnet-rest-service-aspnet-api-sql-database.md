@@ -23,7 +23,7 @@ ms.author: riande
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 Community Edition. 
+This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](/app-service-web/app-service-changes-existing-services) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 Community Edition. 
 
 You can open an Azure account, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
@@ -677,7 +677,7 @@ This tutorial and the sample application was written by [Rick Anderson](http://b
 Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. We are especially interested in finding out how much interest there is in more automation for the process of configuring and deploying the membership database. 
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

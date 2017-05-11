@@ -152,7 +152,7 @@ For more information, see [How to: Monitor web endpoint status].
 [Configure a custom domain name in Azure App Service]: ./web-sites-custom-domain-name.md
 [Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [Enable HTTPS for an app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
-[How to: Monitor web endpoint status]: /azure/app-service-web/web-sites-monitor
+[How to: Monitor web endpoint status]: /app-service-web/web-sites-monitor
 [Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale a web app in Azure App Service]: ./web-sites-scale.md

@@ -23,7 +23,7 @@ ms.author: glenga
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## Overview
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](/azure/app-service-web/app-service-changes-existing-services) as an [Azure WebJob](/azure/app-service-web/websites-webjobs-resources). For information about how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](/app-service-web/app-service-changes-existing-services) as an [Azure WebJob](/app-service-web/websites-webjobs-resources). For information about how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -92,7 +92,7 @@ To create a new WebJobs-enabled project, you can use the Console Application pro
     Create a project that is configured to deploy automatically as a WebJob when a web project in the same solution is deployed. Use this option when you want to run your WebJob in the same web app in which you run the related web application.
 
 > [!NOTE]
-> The WebJobs new-project template automatically installs NuGet packages and includes code in *Program.cs* for the [WebJobs SDK](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started). If you don't want to use the WebJobs SDK, or want to use a scheduled rather than continuous WebJob, remove or change the `host.RunAndBlock` statement in *Program.cs*.
+> The WebJobs new-project template automatically installs NuGet packages and includes code in *Program.cs* for the [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk-get-started/). If you don't want to use the WebJobs SDK, or want to use a scheduled rather than continuous WebJob, remove or change the `host.RunAndBlock` statement in *Program.cs*.
 > 
 > 
 
@@ -178,4 +178,4 @@ To deploy a WebJobs project by itself, right-click the project in **Solution Exp
 For an independent WebJob, the same **Publish Web** wizard that is used for web projects appears, but with fewer settings available to change.
 
 ## <a id="nextsteps"></a>Next Steps
-This article has explained how to deploy WebJobs by using Visual Studio. For more information about how to deploy Azure WebJobs, see [Azure WebJobs - Recommended Resources - Deployment](/azure/app-service-web/websites-webjobs-resources#deploying).
+This article has explained how to deploy WebJobs by using Visual Studio. For more information about how to deploy Azure WebJobs, see [Azure WebJobs - Recommended Resources - Deployment](/app-service-web/websites-webjobs-resources#deploying).

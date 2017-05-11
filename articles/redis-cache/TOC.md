@@ -47,8 +47,8 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
 ## [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/redis)
-## [.NET](/dotnet/api/microsoft.azure.management.redis)
-## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis clients](http://redis.io/clients)
 ## [Redis commands](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)

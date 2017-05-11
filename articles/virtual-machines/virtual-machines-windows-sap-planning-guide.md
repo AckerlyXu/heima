@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/virtual-machines/workloads/sap/planning-guide
+redirect_url: /virtual-machines/workloads/sap/planning-guide
 ---

@@ -255,4 +255,4 @@ Follow these links to learn more about node.js applications on Azure App Service
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
-* [Exploring the Super Secret Kudu Debug Console](/azure/aog-web-app-diagnostics-kudu)
+* [Exploring the Super Secret Kudu Debug Console](/articles/aog-web-app-diagnostics-kudu/)

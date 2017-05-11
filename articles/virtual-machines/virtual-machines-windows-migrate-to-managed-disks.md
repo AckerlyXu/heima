@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/windows/migrate-to-managed-disks
+redirect_url: /virtual-machines/windows/migrate-to-managed-disks
 redirect_document_id: true
 ---

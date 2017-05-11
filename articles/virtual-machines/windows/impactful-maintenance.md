@@ -68,7 +68,7 @@ US at the same time. This will be scheduled at a separate time, enabling
 failover or load balancing between regions. However, other regions such
 as China North can be under maintenance at the same time as China East.
 Read more about [Azure region
-pairs](/azure/best-practices-availability-paired-regions).
+pairs](/best-practices-availability-paired-regions).
 
 ### Single Instance VMs vs. Availability Set or VM scale set
 

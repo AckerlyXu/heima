@@ -150,7 +150,7 @@ If you are enabling Automated Backup for the first time, Azure configures the SQ
 You can use PowerShell to configure Automated Backup v2. Before you begin, you must:
 
 - [Download and install the latest Azure PowerShell](http://aka.ms/webpi-azps).
-- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
+- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
 
 ### Install the SQL IaaS Extension
 If you provisioned a SQL Server virtual machine from the Azure portal preview, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.

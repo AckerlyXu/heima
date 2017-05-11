@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/linux/encrypt-disks
+redirect_url: /virtual-machines/linux/encrypt-disks
 redirect_document_id: true
 ---

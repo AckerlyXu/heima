@@ -666,7 +666,7 @@ To update monitoring settings, update the monitoring infrastructure by following
 This section has detailed steps for doing specific tasks in the configuration and deployment process.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
-1.  Go to [Azure Downloads](https://www.azure.cn/downloads/).
+1.  Go to [Azure Downloads](/downloads/).
 2.  Under **Command-line tools**, under **PowerShell**, select **Windows install**.
 3.  In the Microsoft Download Manager dialog box, for the downloaded file (for example, WindowsAzurePowershellGet.3f.3f.3fnew.exe), select **Run**.
 4.  To run Microsoft Web Platform Installer (Microsoft Web PI), select **Yes**.
@@ -693,7 +693,7 @@ If the Azure cmdlet version installed on your computer is the current version, t
 
 ![Installation page for Azure PowerShell cmdlets indicating that the most recent version of Azure PowerShell cmdlets are installed][deployment-guide-figure-700]
 ### <a name="figure-7"></a> <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Deploy Azure CLI
-1.  Go to [Azure Downloads](https://www.azure.cn/downloads/).
+1.  Go to [Azure Downloads](/downloads/).
 2.  Under **Command-line tools**, under **Azure command-line interface**, select the **Install** link for your operating system.
 3.  In the Microsoft Download Manager dialog box, for the downloaded file (for example, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), select **Run**.
 4.  To run Microsoft Web Platform Installer (Microsoft Web PI), select **Yes**.

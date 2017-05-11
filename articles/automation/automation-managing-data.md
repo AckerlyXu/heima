@@ -44,17 +44,17 @@ The retention policy applies to all users and currently cannot be customized.
 When you delete an automation account in Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 
 
 ### Runbooks
-You can export your runbooks to script files using either the Azure Classic Management Portal or the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet in Windows PowerShell. These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](/azure/automation/automation-creating-importing-runbook).
+You can export your runbooks to script files using either the Azure Classic Management Portal or the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet in Windows PowerShell. These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](/automation/automation-creating-importing-runbook).
 
 ### Integration modules
 You cannot export integration modules from Azure Automation.  You must ensure that they are available outside of the automation account.
 
 ### Assets
-You cannot export [assets](/azure/automation/) from Azure Automation.  Using the Azure Classic Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
+You cannot export [assets](/automation/) from Azure Automation.  Using the Azure Classic Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
 
 You can use [Azure cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.
 
-You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](/azure/automation/automation-variables) and [Get-AutomationPSCredential](/azure/automation/automation-credentials) activities.
+You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](/automation/automation-variables) and [Get-AutomationPSCredential](/automation/automation-credentials) activities.
 
 You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
 

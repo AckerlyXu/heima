@@ -48,4 +48,4 @@ You can submit Hadoop jobs using .NET SDK, Curl, and Azure PowerShell:
 
 ## See also
 
-- [Azure HDInsight Documentation](/azure/hdinsight/)
+- [Azure HDInsight Documentation](/hdinsight/)

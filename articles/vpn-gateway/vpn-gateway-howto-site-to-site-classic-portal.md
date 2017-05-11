@@ -229,4 +229,4 @@ When the connection is created, the result is: **Status: Successful**.
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/virtual-machines/).

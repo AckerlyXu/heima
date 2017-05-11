@@ -20,19 +20,19 @@ ms.author: carolz
 <p style="margin-top: 6px; margin-bottom: 6px;">Create a Windows VM using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+        <a href="/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <img src="media/index/portal.svg" alt="">
             <span>Azure Portal Preview</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+        <a href="/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
             <span>Azure PowerShell</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+        <a href="/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
             <span>Azure CLI</span>
         </a>
@@ -43,14 +43,14 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy Windows virtual machines.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage Windows VMs</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance highly available VMs</a></li>
+            <li><a href="/virtual-machines/virtual-machines-windows-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage Windows VMs</a></li>
+            <li><a href="/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance highly available VMs</a></li>
         </ul>
         <h2>Samples</h2>
         <p>Deploy your first application to Azure.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
+            <li><a href="/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
+            <li><a href="/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">
@@ -90,9 +90,9 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://www.azure.cn/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api">Java</a></p>
+                        <p><a href="/develop/nodejs/#azure-sdk">Node​.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>

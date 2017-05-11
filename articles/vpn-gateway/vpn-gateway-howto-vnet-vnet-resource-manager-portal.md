@@ -189,4 +189,4 @@ View the FAQ details for additional information about VNet-to-VNet connections.
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/azure/virtual-machines/) for more information.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/virtual-machines/) for more information.

@@ -172,7 +172,7 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 * [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): Script Action sample about installing Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: /azure/install-configure-powershell/
+[aps]: /install-configure-powershell/
 
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

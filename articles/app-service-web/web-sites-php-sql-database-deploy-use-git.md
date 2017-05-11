@@ -19,7 +19,7 @@ ms.author: robmcm
 
 ---
 # Create a PHP-SQL web app and deploy to Azure App Service using Git
-This tutorial shows you how to create a PHP web app in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) that connects to Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL web app running in Azure.
+This tutorial shows you how to create a PHP web app in [Azure App Service](/app-service-web/app-service-changes-existing-services) that connects to Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL web app running in Azure.
 
 > [!NOTE]
 > You can install and configure PHP, SQL Server Express, and the Microsoft Drivers for SQL Server for PHP using the [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -28,7 +28,7 @@ This tutorial shows you how to create a PHP web app in [Azure App Service](/azur
 
 You will learn:
 
-* How to create an Azure web app and a SQL Database using the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
+* How to create an Azure web app and a SQL Database using the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
 
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
@@ -257,7 +257,7 @@ To publish changes to application, follow these steps:
 3. Browse to **http://[web app name].chinacloudsites.cn/index.php** to see your changes.
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062

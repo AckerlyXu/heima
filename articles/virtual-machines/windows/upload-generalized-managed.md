@@ -278,7 +278,7 @@ $cred = Get-Credential
     $vmName = "myVM"
     $computerName = "myComputer"
     ```
-2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](/azure/virtual-machines-windows-sizes) documentation for more information.
+2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](/virtual-machines/virtual-machines-windows-sizes/) documentation for more information.
 
     ```powershell
     $vmSize = "Standard_DS1_v2"

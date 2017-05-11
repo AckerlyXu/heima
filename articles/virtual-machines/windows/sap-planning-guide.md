@@ -587,7 +587,7 @@ Also see the table on top of this article in regards to the different redundancy
 
 More information in regards to Azure Storage can be found here:
 
-* </azure/storage/>
+* </storage/>
 * <https://azure.microsoft.com/services/site-recovery>
 * <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
@@ -646,7 +646,7 @@ Azure will provide a network infrastructure which allows the mapping of all scen
 * Cross-Premises Connectivity between a customer's on-premises network and the Azure network
 * Cross Azure Region or data center connectivity between Azure sites
 
-More information can be found here: </azure/virtual-network/>
+More information can be found here: </virtual-network/>
 
 There are a lot of different possibilities to configure name and IP resolution in Azure. In this document, Cloud-Only scenarios rely on the default of using Azure DNS (in contrast to defining an own DNS service). There is also a new Azure DNS service which can be used instead of setting up your own
 DNS server. More information can be found in [this article][virtual-networks-manage-dns-in-vnet] and on [this page](https://www.azure.cn/home/features/dns/).
@@ -661,7 +661,7 @@ By building up an Azure Virtual Network you can define the address range of the 
 
 Every Virtual Machine in Azure needs to be connected to a Virtual Network.
 
-More details can be found in [this article][resource-groups-networking] and on [this page](/azure/virtual-network/).
+More details can be found in [this article][resource-groups-networking] and on [this page](/virtual-network/).
 
 
 > [!NOTE]
@@ -708,27 +708,27 @@ For more documentation please see [this article][vpn-gateway-create-site-to-site
 
 #### VNet to VNet Connection
 Using Multi-Site VPN, you need to configure a separate Azure Virtual Network in each of the regions. However very often you have the requirement that the software components in the different regions should communicate with each other. Ideally this communication should not be routed from one Azure Region to on-premises and from there to the other Azure Region. To shortcut, Azure offers the possibility to configure a connection from one Azure Virtual Network in one region to another Azure Virtual Network hosted in another region. This functionality is called VNet-to-VNet connection. More details on this functionality can be found here:
-</azure/vpn-gateway-vnet-vnet-rm-ps/>.
+</vpn-gateway/vpn-gateway-vnet-vnet-rm-ps/>.
 
 #### Private Connection to Azure - ExpressRoute
 Azure ExpressRoute allows the creation of private connections between Azure data centers and either the customer's on-premises infrastructure or in a co-location environment. ExpressRoute is offered by various MPLS (packet switched) VPN providers or other Network Service Providers. ExpressRoute connections do not go over the public Internet. ExpressRoute connections offer higher security, more reliability through multiple parallel circuits, faster speeds and lower latencies than typical connections over the Internet.
 
 Find more details on Azure ExpressRoute and offerings here:
 
-* </azure/expressroute/>
+* </expressroute/>
 * <https://www.azure.cn/pricing/details/expressroute/>
-* </azure/expressroute-faqs/>
+* </expressroute/expressroute-faqs/>
 
 Express Route enables multiple Azure subscriptions through one ExpressRoute circuit as documented here
 
-* </azure/expressroute-howto-linkvnet-arm/>
-* </azure/expressroute-howto-circuit-arm/>
+* </expressroute/expressroute-howto-linkvnet-arm/>
+* </expressroute/expressroute-howto-circuit-arm/>
 
 #### Forced tunneling in case of Cross-Premise
 For VMs joining on-premises domains through site-to-site, point-to-site or ExpressRoute, you need to make sure that the Internet proxy settings are getting deployed for all the users in those VMs as well. By default, software running in those VMs or users using a browser to access the internet would not go through the company proxy, but would connect straight through Azure to the internet. But even the proxy setting is not a 100% solution to direct the traffic through the company proxy since it is responsibility of software and services to check for the proxy. If software running in the VM is not doing that or an administrator manipulates the settings, traffic to the Internet can be detoured again directly through Azure to the Internet.
 
 In order to avoid this, you can configure Forced Tunneling with site-to-site connectivity between on-premises and Azure. The detailed description of the Forced Tunneling feature is published here
-</azure/vpn-gateway-forced-tunneling-rm/>
+</vpn-gateway/vpn-gateway-forced-tunneling-rm/>
 
 Forced Tunneling with ExpressRoute is enabled by customers advertising a default route via the ExpressRoute BGP peering sessions.
 
@@ -1745,14 +1745,14 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-More details can be found in this documentation: </azure/virtual-machines-manage-availability>
+More details can be found in this documentation: </virtual-machines/virtual-machines-manage-availability>
 
 #### Azure Storage Redundancy
 The data in your Azure Storage Account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures
 
 Since Azure Storage is keeping 3 images of the data by default, RAID5 or RAID1 across multiple Azure disks are not necessary.
 
-More details can be found in this article: </azure/storage-redundancy/>
+More details can be found in this article: </storage/storage-redundancy/>
 
 #### Utilizing Azure Infrastructure VM Restart to Achieve "Higher Availability" of SAP Applications
 If you decide not to use functionalities like Windows Server Failover Clustering (WSFC) or a Linux equivalent ( the latter one is not supported yet on Azure in combination with SAP software ), Azure VM Restart is utilized to protect a SAP System against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
@@ -1799,7 +1799,7 @@ Deploying a few SAP application server instances in their dedicated VMs and assu
 
 ![HA of SAP Application Servers in Azure][planning-guide-figure-3000]
 
-More details can be found in this documentation: </azure/virtual-machines-manage-availability>
+More details can be found in this documentation: </virtual-machines/virtual-machines-manage-availability>
 
 #### High Availability for the SAP (A)SCS instance on Windows
 Windows Server Failover Cluster (WSFC) is a frequently used solution to protect the SAP (A)SCS instance. It is also integrated into sapinst in form of a "HA installation". At this point in time the Azure infrastructure is not able to provide the functionality to set up the required Windows Server Failover Cluster the same way as it's done on-premises.
@@ -1827,7 +1827,7 @@ High Availability and Disaster recovery functionality for DBMS in general as wel
 
 #### End-to-End High Availability for the Complete SAP System
 Here are two examples of a complete SAP NetWeaver HA architecture in Azure - one for Windows and one for Linux.
-The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind ( </azure/storage-scalability-targets> )
+The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind ( </storage/storage-scalability-targets> )
 
 ##### ![Windows][Logo_Windows] HA on Windows
 ![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3200]
@@ -1884,7 +1884,7 @@ Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a ne
 
 The offline backup would basically require a shutdown of the VM through the Azure Portal Preview and a copy of the base VM disk plus all attached VHDs to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the 'backups' into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
 Besides the shutdown using the Azure Portal Preview one can also do it via Powershell or CLI as described here :
-</azure/virtual-machines-deploy-rmtemplates-powershell/>
+</virtual-machines/virtual-machines-deploy-rmtemplates-powershell/>
 
 A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted VHDs, copying back the saved VHDs to the original Storage Account and then redeploying the system.
 This article shows an example how to script this process in Powershell :
@@ -1911,11 +1911,11 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup
 >
 > To get familiar with Azure Virtual Machine Backup please start here:
-> </azure/backup-azure-vms/>.
+> </backup/backup-azure-vms/>.
 >
 > Other possibilities are to use a combination of Microsoft Data Protection Manager installed in an Azure VM and Azure Backup to
 > backup/restore databases. More information can be found here:
-> </azure/backup-azure-dpm-introduction/>.  
+> </backup/backup-azure-dpm-introduction/>.  
 >
 > ![Linux][Logo_Linux] Linux
 >

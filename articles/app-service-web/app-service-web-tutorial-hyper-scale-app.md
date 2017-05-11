@@ -221,7 +221,7 @@ az appservice plan update --name myAppServicePlan --resource-group myResourceGro
 ## Step 5 - Scale geographically
 When scaling geographically, you run your app in multiple regions of the Azure cloud. This setup load-balances your app further based on geography and lowers the response time by placing your app closer to client browsers.
 
-In this step, you scale your ASP.NET web app to a second region with [Azure Traffic Manager](/azure/traffic-manager/). At the end of the step, you will have a web app running in China North (already created) and a web app running in China East (not yet created). Both apps will be served from the same Traffic Manager URL.
+In this step, you scale your ASP.NET web app to a second region with [Azure Traffic Manager](/traffic-manager/). At the end of the step, you will have a web app running in China North (already created) and a web app running in China East (not yet created). Both apps will be served from the same Traffic Manager URL.
 
 ### Scale up the China North app to Standard tier
 In App Service, integration with Azure Traffic Manager requires the Standard pricing tier. Use [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) to scale up your App Service plan to S1. 

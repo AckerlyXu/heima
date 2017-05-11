@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/windows/extensions-customscript
+redirect_url: /virtual-machines/windows/extensions-customscript
 redirect_document_id: true
 ---

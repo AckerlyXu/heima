@@ -20,7 +20,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-network/virtual-networks-overview">
+        <a href="/virtual-network/virtual-networks-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-pportal">
+        <a href="/virtual-network/virtual-networks-create-vnet-arm-pportal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-ps">
+        <a href="/virtual-network/virtual-networks-create-vnet-arm-ps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-cli">
+        <a href="/virtual-network/virtual-networks-create-vnet-arm-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -135,7 +135,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
                      </div>
                 </div>
             </div>

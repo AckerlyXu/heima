@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/app-service-mobile/
+redirect_url: /app-service-mobile/
 ROBOTS: NOINDEX, NOFOLLOW
 ---

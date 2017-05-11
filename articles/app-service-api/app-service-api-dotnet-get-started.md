@@ -60,7 +60,7 @@ The next tutorial in the series deploys the SPA front end to the cloud.
 ## Prerequisites
 * ASP.NET Web API - The tutorial instructions assume you have a basic knowledge of how to work with ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) in Visual Studio.
 * Azure account - You can [Open an Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
-* Visual Studio 2015 with the [Azure SDK for .NET](https://www.azure.cn/downloads/) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
+* Visual Studio 2015 with the [Azure SDK for .NET](/downloads/) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
 
     * In Visual Studio, click Help -> About Microsoft Visual Studio and ensure that you have "Azure App Service Tools v2.9.1" or higher installed.
 

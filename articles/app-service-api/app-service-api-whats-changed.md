@@ -69,7 +69,7 @@ Selecting **New > Web + Mobile > API App** in the portal will create API apps th
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. Download the SDK from the [Azure downloads page](https://www.azure.cn/downloads/).
+Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. Download the SDK from the [Azure downloads page](/downloads/).
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -115,7 +115,7 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 4. At deployment time, populate the app settings of all the API apps (and clients) with the endpoints of the other API apps. This is viable in template deployments and since API Apps now give you control of the url.
 
 ## Next Steps
-To learn more, read the articles in the [API Apps Documentation section](/azure/app-service-api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
+To learn more, read the articles in the [API Apps Documentation section](/app-service-api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
 
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
 * [CSDN forum](http://azure.csdn.net/)

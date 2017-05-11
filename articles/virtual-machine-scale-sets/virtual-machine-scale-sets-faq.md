@@ -215,7 +215,7 @@ The CRP component does not persist customer secrets. If you run `stop deallocate
 
 You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
 
-### Why do I have to specify the exact location for the certificate URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>), as indicated in [Service Fabric cluster security scenarios](/azure/service-fabric-cluster-security)?
+### Why do I have to specify the exact location for the certificate URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>), as indicated in [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security/)?
 
 The Azure Key Vault documentation states that the Get Secret REST API should return the latest version of the secret if the version is not specified.
 
@@ -370,7 +370,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### I need to execute a custom script that's hosted in a private storage account. The script runs successfully when the storage is public, but when I try to use a Shared Access Signature (SAS), it fails. This message is displayed: "Missing mandatory parameters for valid Shared Access Signature". Link+SAS works fine from my local browser.
 
-To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](/azure/virtual-machines-windows-extensions-customscript/).
+To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](/virtual-machines/virtual-machines-windows-extensions-customscript/).
 
 ## Networking
 
@@ -420,7 +420,7 @@ Yes, you can move scale set resources to a new subscription or resource group.
 
 ### How to I update my virtual machine scale set to a new image? How do I manage patching?
 
-To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
 
 ### Can I use the reimage operation to reset a VM without changing the image? (That is, I want reset a VM to factory settings rather than to a new image.)
 

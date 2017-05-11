@@ -25,7 +25,7 @@ In both collection modes, additional data collection folders can be specified by
 
 ## Prerequisites
 * You need to have a storage account for extension to save generated zip files.
-* You must make sure that you are using Azure PowerShell Cmdlets V0.8.0 or above. For more information, see [Azure Downloads](https://www.azure.cn/downloads/).
+* You must make sure that you are using Azure PowerShell Cmdlets V0.8.0 or above. For more information, see [Azure Downloads](/downloads/).
 
 ## Add the extension
 You can use [Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets or [Service Management REST APIs](https://msdn.microsoft.com/library/ee460799.aspx) to add the AzureLogCollector extension.

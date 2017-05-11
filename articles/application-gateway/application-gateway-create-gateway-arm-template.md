@@ -82,7 +82,7 @@ You can download the existing Azure Resource Manager template to create a virtua
     * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
     > [!NOTE]
-    > For more information on templates visit: [Resource Manager templates reference](/templates/)
+    > For more information on templates visit: [Resource Manager templates reference](https://docs.microsoft.com/templates/)
 
 1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Click **azuredeploy-parameters.json**, and then click **RAW**.
@@ -245,5 +245,5 @@ If you want to configure an application gateway to use with an internal load bal
 
 If you want more information about load balancing options in general, visit:
 
-* [Azure Load Balancer](/azure/load-balancer/)
-* [Azure Traffic Manager](/azure/traffic-manager/)
+* [Azure Load Balancer](/load-balancer/)
+* [Azure Traffic Manager](/traffic-manager/)

@@ -43,4 +43,4 @@ For applications that need to scale Compute resources out and in, scale operatio
 
 Instead of correlating multiple resources such as NICs and VMs, a VM scale set has network, storage, virtual machine, and extension properties that you can configure centrally.
 
-For an introduction to VM scale sets, refer to the [Virtual machine scale sets product page](https://www.azure.cn/home/features/virtual-machine-scale-sets/). For more detailed information, go to the [Virtual machines scale sets documentation](/azure/virtual-machine-scale-sets/).
+For an introduction to VM scale sets, refer to the [Virtual machine scale sets product page](https://www.azure.cn/home/features/virtual-machine-scale-sets/). For more detailed information, go to the [Virtual machines scale sets documentation](/virtual-machine-scale-sets/).

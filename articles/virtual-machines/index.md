@@ -20,7 +20,7 @@ Learn how to create Azure virtual machines. Tutorials, API references, and other
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/windows">
+        <a href="/virtual-machines/windows">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -38,7 +38,7 @@ Learn how to create Azure virtual machines. Tutorials, API references, and other
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/linux">
+        <a href="/virtual-machines/linux">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

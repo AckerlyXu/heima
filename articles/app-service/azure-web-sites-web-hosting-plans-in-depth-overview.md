@@ -31,7 +31,7 @@ App Service plans define:
 - SKU (Free, Shared, Basic, Standard, Premium)
 
 Web Apps, Mobile Apps, API Apps, in 
-[Azure App Service](/azure/app-service-web/app-service-changes-existing-services) 
+[Azure App Service](/app-service-web/app-service-changes-existing-services) 
 all run in an App Service plan.  Apps in the same subscription, region, and 
 resource group can share an App Service plan. 
 
@@ -188,7 +188,7 @@ for your production environment by scaling it across multiple regions and plans.
 
 ## What's changed
 * For a guide to the change from Websites to App Service, 
-see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png

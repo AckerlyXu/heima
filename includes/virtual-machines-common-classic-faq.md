@@ -11,7 +11,7 @@ All subscribers can run server software on an Azure virtual machine. You can run
 
 • For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](/azure/virtual-machines/linux/endorsed-distros)
+• For Linux VMs -- [Linux on Azure-Endorsed Distributions](/virtual-machines/linux/endorsed-distros)
 
 ## Why are affinity groups being deprecated?
 Affinity groups are a legacy concept for a geographical grouping of a customer's cloud service deployments and storage accounts within Azure. They were originally provided to improve VM-to-VM network performance in the early Azure network designs. They also supported the initial release of virtual networks (VNets), which were limited to a small set of hardware in a region.
@@ -86,7 +86,7 @@ Additional details:
 ## Can Azure run anti-virus on my virtual machines?
 Azure offers several options for anti-virus solutions, but it's up to you to manage it. For example, you might need a separate subscription for antimalware software, and you'll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. For details, see:
 
-* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](/azure/virtual-machines/windows/classic/install-trend)
+* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](/virtual-machines/windows/classic/install-trend)
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## What are my options for backup and recovery?

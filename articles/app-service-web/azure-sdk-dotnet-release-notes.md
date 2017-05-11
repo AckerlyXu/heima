@@ -54,6 +54,6 @@ This topic contains links to Azure SDK for .NET Release Notes.
 [Azure SDK for .NET 2.0 Release Notes](https://msdn.microsoft.com/library/azure/dn169556.aspx)
 
 ## Related topics
-[Azure SDK for .NET](https://www.azure.cn/downloads/)
+[Azure SDK for .NET](/downloads/)
 
 [Azure SDK Release Notes on MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)

@@ -29,7 +29,7 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 ## Before you begin
 
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://www.azure.cn/downloads/).
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](/downloads/).
 2. You create a virtual network and a subnet for the application gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.
 3. The servers you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
@@ -257,5 +257,5 @@ If you want to configure an application gateway to use with an internal load bal
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](/azure/load-balancer/)
-* [Azure Traffic Manager](/azure/traffic-manager/)
+* [Azure Load Balancer](/load-balancer/)
+* [Azure Traffic Manager](/traffic-manager/)

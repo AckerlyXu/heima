@@ -707,5 +707,5 @@ Disconnecting your app from your virtual network does not take down the gateway 
 Although the script says delete, it does not delete the virtual network. It's just removing the integration. After you confirm that this is what you want to do, the command is processed quite quickly and tells you **True** when it is done.
 
 <!--Links-->
-[createvpngateway]: /azure/vpn-gateway-point-to-site-create/
+[createvpngateway]: /vpn-gateway/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.cn

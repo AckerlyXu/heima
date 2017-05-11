@@ -20,19 +20,19 @@ ms.author: carolz
 <p style="margin-top: 6px; margin-bottom: 6px;">Create a Linux VM using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <a href="/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
             <span>Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <a href="/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <img src="media/index/portal.svg" alt="">
             <span>Azure Portal Preview</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <a href="/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
             <span>Azure PowerShell</span>
         </a>
@@ -43,15 +43,15 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy Linux virtual machines.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a></li>
-            <li><a href="/azure/virtual-machines/linux/tutorial-load-balance-nodejs">Load balance highly available VMs</a></li>
-            <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM Scale Set</a></li>
+            <li><a href="/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a></li>
+            <li><a href="/virtual-machines/linux/tutorial-load-balance-nodejs">Load balance highly available VMs</a></li>
+            <li><a href="/virtual-machines/linux/tutorial-create-vmss">Create a VM Scale Set</a></li>
         </ul>
         <h2>Samples</h2>
         <p>Deploy your first application to Azure.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
+            <li><a href="/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a></li>
+            <li><a href="/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">
@@ -91,8 +91,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api">Java</a></p>
                         <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>

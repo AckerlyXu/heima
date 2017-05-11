@@ -20,7 +20,7 @@ ms.author: robmcm
 ---
 # Configure PHP in Azure App Service Web Apps
 ## <a name="WhatIs"></a> Introduction
-This guide will show you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [trial]. To get the most from this guide, you should first create a PHP web app in App Service.
+This guide will show you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](/app-service-web/app-service-changes-existing-services), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [trial]. To get the most from this guide, you should first create a PHP web app in App Service.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -180,7 +180,7 @@ processing during `git push` by enabling the Composer extension.
     ![Git deployment with Composer automation in Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
 ## Next steps
-For more information, see the [PHP Developer Center](https://www.azure.cn/develop/php/).
+For more information, see the [PHP Developer Center](/develop/php/).
 
 [trial]: https://www.azure.cn/pricing/1rmb-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php

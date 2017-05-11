@@ -54,12 +54,12 @@
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 
 # Related
-## [Virtual Network](/azure/virtual-network/)
-## [Application Gateway](/azure/application-gateway/)
-## [Azure DNS](/azure/dns/)
-## [Traffic Manager](/azure/traffic-manager/)
-## [Load Balancer](/azure/load-balancer/)
-## [ExpressRoute](/azure/expressroute/)
+## [Virtual Network](/virtual-network/)
+## [Application Gateway](/application-gateway/)
+## [Azure DNS](/dns/)
+## [Traffic Manager](/traffic-manager/)
+## [Load Balancer](/load-balancer/)
+## [ExpressRoute](/expressroute/)
 
 # Resources
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)

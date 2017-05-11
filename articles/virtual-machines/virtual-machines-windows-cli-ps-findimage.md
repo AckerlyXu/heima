@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/windows/cli-ps-findimage
+redirect_url: /virtual-machines/windows/cli-ps-findimage
 redirect_document_id: true
 ---

@@ -69,6 +69,6 @@ If you have configured Azure Site Recovery to work with your impacted Azure virt
 
 To learn how to back up VMs, see [Back up Azure virtual machines](../backup/backup-azure-vms.md).
 
-Learn how to use Azure Site Recovery to orchestrate and automate protection of your physical (and virtual) Windows and Linux machines that run on Hyper-V VMs, see [Azure Site Recovery](/azure/site-recovery/).
+Learn how to use Azure Site Recovery to orchestrate and automate protection of your physical (and virtual) Windows and Linux machines that run on Hyper-V VMs, see [Azure Site Recovery](/site-recovery/).
 
 If the instructions are not clear, or if you would like Azure.cn to do the operations on your behalf, contact [Customer Support](https://www.azure.cn/support/support-azure/).

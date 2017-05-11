@@ -83,9 +83,9 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [What is Traffic Manager](traffic-manager-overview.md)
 
-[Cloud Services](/azure/cloud-services/)
+[Cloud Services](/cloud-services/)
 
-[Azure Web Apps](/azure/app-service-web/)
+[Azure Web Apps](/app-service-web/)
 
 [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/library/hh758255.aspx)
 

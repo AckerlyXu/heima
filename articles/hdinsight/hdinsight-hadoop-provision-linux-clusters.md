@@ -122,7 +122,7 @@ You can create HDInsight clusters on one of the following two operating systems:
 * HDInsight on Windows (Windows Server 2012 R2 Datacenter).
 
 ### HDInsight version
-This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](/azure/hdinsight/hdinsight-component-versioning).
+This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](/hdinsight/hdinsight-component-versioning).
 
 ### Subscription name
 Each HDInsight cluster is tied to one Azure subscription.
@@ -255,7 +255,7 @@ Metastore configuration is not available for HBase cluster types.
 >
 
 ## Use Azure virtual networks
-With [Azure Virtual Network](/azure/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. With a virtual network, you can:
+With [Azure Virtual Network](/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. With a virtual network, you can:
 
 * Connect cloud resources together in a private network (cloud-only).
 

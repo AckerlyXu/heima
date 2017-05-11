@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/virtual-machines/workloads/sap/get-started
+redirect_url: /virtual-machines/workloads/sap/get-started
 ---

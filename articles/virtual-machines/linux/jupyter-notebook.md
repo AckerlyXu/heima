@@ -231,8 +231,8 @@ environment that includes an advanced editor with IntelliSense, debugging,
 profiling and parallel computing integration.
 
 ## Next steps
-For more information, see the [Python Developer Center](https://www.azure.cn/develop/python/).
+For more information, see the [Python Developer Center](/develop/python/).
 
-[portal-vm-linux]: /azure/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: /virtual-machines/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
