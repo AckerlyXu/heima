@@ -4,7 +4,7 @@
 ## [Internal Load Balancer](load-balancer-internal-overview.md)
 ## [Understand load balancer probes](load-balancer-custom-probe-overview.md)
 ## [Azure Resource Manager support](load-balancer-arm.md)
-## [IPv6 support](load-balancer-ipv6-overview.md)
+<!-- Not Available ## [IPv6 support](load-balancer-ipv6-overview.md)-->
 ## [Multiple VIPs](load-balancer-multivip-overview.md)
 ## [Understanding outbound connections](load-balancer-outbound-connections.md)
 
@@ -29,9 +29,9 @@
 ### [Configure Internet facing Load Balancer (Classic PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configure Internet facing Load Balancer (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
 
-## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)
-### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
-### [Create an Internet facing load balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md)
+<!-- Not Available ## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)-->
+<!-- Not Available ### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)-->
+<!-- Not Available ### [Create an Internet facing load balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md)-->
 
 # How to
 ## [Configure TCP idle timeout for Load Balancer](load-balancer-tcp-idle-timeout.md)
@@ -43,7 +43,7 @@
 ### [Using multiple IP configurations (CLI)](load-balancer-multiple-ip-cli.md)
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
-## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
+<!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)

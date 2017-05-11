@@ -71,11 +71,11 @@
 ## Integrate
 
 ### [Overview](sql-data-warehouse-overview-integrate.md)
-### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)
-### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
+<!-- Not Available ### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)-->
+<!-- Not Available ### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)-->
 ### [Machine Learning tutorial](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+<!-- Not Available ### [Power BI](sql-data-warehouse-integrate-power-bi.md)-->
+<!-- Not Available ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
 ## Load
@@ -85,7 +85,7 @@
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+<!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
 ### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -120,12 +120,12 @@
 ## Security
 
 ### [Overview](sql-data-warehouse-overview-manage-security.md)
-### [Auditing](sql-data-warehouse-auditing-overview.md)
-### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)
+<!-- Not Available ### [Auditing](sql-data-warehouse-auditing-overview.md)-->
+<!-- Not Available ### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)-->
 ### [Authentication](sql-data-warehouse-authentication.md)
 ### [Encryption](sql-data-warehouse-encryption-tde.md)
 ### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
-### [Threat detection](sql-data-warehouse-security-threat-detection.md)
+<!-- Not Available ### [Threat detection](sql-data-warehouse-security-threat-detection.md)-->
 
 # Reference
 
@@ -143,6 +143,6 @@
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners
-### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)
-### [Data integration](sql-data-warehouse-partner-data-integration.md)
+<!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
+<!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 ### [Data management](sql-data-warehouse-partner-data-management.md)

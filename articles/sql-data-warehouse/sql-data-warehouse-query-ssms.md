@@ -21,13 +21,13 @@ ms.author: elbutter;barbkess
 ---
 # Connect to SQL Data Warehouse with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
+<!-- Not Supported sql-data-warehouse-get-started-visualize-with-power-bi.md-->
+<!-- Not Supported sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md-->
 
 Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL Data Warehouse. 
 
@@ -75,7 +75,7 @@ Now that a connection has been established to your database, let's write a query
     ![Query results][6]
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with PowerBI][visualizing the data with PowerBI].
+<!-- Not Available Now that you can connect and query, try [visualizing the data with PowerBI][visualizing the data with PowerBI].-->
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
