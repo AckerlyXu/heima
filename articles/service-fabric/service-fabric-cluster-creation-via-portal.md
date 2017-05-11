@@ -200,7 +200,7 @@ These are all the Key Vault prerequisites for configuring a Service Fabric clust
 ### Search for the Service Fabric cluster resource
 ![search for Service Fabric cluster template on the Azure portal preview.][SearchforServiceFabricClusterTemplate]
 
- 1. Sign in to the [Azure portal preview][azure-portal].
+1. Sign in to the [Azure portal preview][azure-portal].
 2. Click **New** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
 3. Select **Service Fabric Cluster** from the list.
 4. Navigate to the **Service Fabric Cluster** blade, click **Create**,
