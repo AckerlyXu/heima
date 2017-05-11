@@ -88,7 +88,7 @@ The key vault _must be enabled for deployment_ to allow the compute resource pro
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'mychinaeastvault' -ResourceGroupName 'chinaeast-mykeyvault' -Location 'China East' -EnabledForDeployment
 
 ```
 

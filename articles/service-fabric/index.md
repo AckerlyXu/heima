@@ -37,24 +37,6 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-fabric">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Service Fabric Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio">
         <div class="cardSize">
             <div class="cardPadding">

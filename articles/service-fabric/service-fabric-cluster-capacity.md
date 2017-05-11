@@ -114,7 +114,7 @@ Read the following for Workloads using Service fabric reliable collections or re
 
 1. **Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This will mean that in steady state you will end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for system services is actually just a way to specify this setting for system services.
 
-So for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
+    So for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
 
 2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 

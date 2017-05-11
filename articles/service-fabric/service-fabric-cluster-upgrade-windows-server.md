@@ -28,7 +28,7 @@ For any modern system, designing for upgradability is key to achieving long-term
 
 ## Controlling the fabric version that runs on your Cluster
 
-You can set your cluster to download the service fabric updates, when Microsoft releases a new version or choose to select a supported fabric version you want your cluster to be on. 
+You can set your cluster to download the service fabric updates, when releases a new version or choose to select a supported fabric version you want your cluster to be on. 
 
 You do this by setting the "fabricClusterAutoupgradeEnabled" cluster configuration to true or false.
 
@@ -93,7 +93,7 @@ Once you see the cluster health warning, you need to do the following:
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
     ```
-You can monitor the progress of the upgrade on Service fabric explorer or by running the 	following power shell command
+    You can monitor the progress of the upgrade on Service fabric explorer or by running the 	following power shell command
 
     ```powershell
 
@@ -111,11 +111,11 @@ Use these steps to upgrade your cluster to a supported version, if your cluster 
 >[!NOTE]
 >If you are running a cluster that is not internet connected, you will have to monitor the service fabric team blog to get notified of a new release. The system **does not** place any cluster health warning to alert you of it.  
 
-1. Modify your cluster configuration to set the following property to false.
+Modify your cluster configuration to set the following property to false.
 
-    ```
-    "fabricClusterAutoupgradeEnabled": false,
-    ```
+```
+"fabricClusterAutoupgradeEnabled": false,
+```
 
 and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/zh-cn/library/mt788302.aspx) for usage details. Make sure to update the 'clusterConfigurationVersion' in your JSON before you kick off the configuration upgrade.
 
