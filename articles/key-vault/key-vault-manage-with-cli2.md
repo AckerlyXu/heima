@@ -177,33 +177,6 @@ If you want to authorize that same application to read secrets in your vault, ru
 ```
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
-## If you want to use a hardware security module (HSM)
-For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
-
-To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
-
-When you create the keyvault, add the 'sku' parameter:
-
-```
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'China East' --sku 'Premium'
-```
-You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the Destination parameter to 'HSM':
-
-```
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
-```
-
-You can use the following command to import a key from a .pem file on your computer. This command imports the key into HSMs in the Key Vault service:
-
-```
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
-```
-The next command imports a “bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
-
-```
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
-```
-
 ## Delete the key vault and associated keys and secrets
 If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the `az keyvault delete` command:
 
