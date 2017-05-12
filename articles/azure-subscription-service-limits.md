@@ -1,5 +1,5 @@
 ---
-title: Azure subscription limits and quotas | Azure
+title: Azure subscription limits and quotas | Microsoft Docs
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values.
 services: ''
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/20/2017
 wacn.date: ''
 ms.author: byvinyal
----
 
+---
 # Azure subscription and service limits, quotas, and constraints
 This document lists some of the most common Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more of the platform.
 
@@ -31,12 +31,12 @@ Please visit [Azure Pricing Overview](https://www.azure.cn/pricing/) to learn mo
 > 
 
 ## Limits and the Azure Resource Manager
-It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](./azure-resource-manager/resource-group-overview.md).
+It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md).
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
 > [!NOTE]
-> It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are. Let's use core quotas as an example. If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want. 
+> It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are. Let's use core quotas as an example. If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want. Therefore, if you need to use 30 cores in West Europe to run your application there; you should specifically request 30 cores in West Europe. But you will not have a core quota increase in any other region -- only West Europe will have the 30-core quota.
 > <!-- -->
 > As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./azure-resource-manager/resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 > 
@@ -69,7 +69,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Networking](#networking-limits)
 - [Notification Hub Service](#notification-hub-service-limits)
-
 - [Resource Group](#resource-group-limits)
 - [Scheduler](#scheduler-limits)
 - [Service Bus](#service-bus-limits)
@@ -125,7 +124,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Storage limits
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](./storage/storage-scalability-targets.md).
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -134,7 +133,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 #### Virtual machine disk limits 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-See [Virtual machine sizes](./virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) for additional details.
+See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
 #### Managed virtual machine disks
 
@@ -227,11 +226,13 @@ DocumentDB is a global scale database in which throughput and storage can be sca
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
 ### SQL Database limits
-For SQL Database limits, see [SQL Database Resource Limits](./sql-database/sql-database-resource-limits.md).
+For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
 
 ## See also
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Virtual Machine and Cloud Service Sizes for Azure](./virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
+[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Sizes for Cloud Services](./cloud-services/cloud-services-sizes-specs.md)
+[Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)
+
+
