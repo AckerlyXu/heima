@@ -19,37 +19,37 @@ ms.author: carolz
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
+        <a href="/app-service-web/app-service-web-get-started-dotnet">
             <img src="media/index/logo_NET.svg" alt="">
             <span>.NET</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
+        <a href="/app-service-web/app-service-web-get-started-nodejs">
             <img src="media/index/logo_nodejs.svg" alt="">
             <span>Node.js</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-php">
+        <a href="/app-service-web/app-service-web-get-started-php">
             <img src="media/index/logo_php.svg" alt="">
             <span>PHP</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-java">
+        <a href="/app-service-web/app-service-web-get-started-java">
             <img src="media/index/logo_java.svg" alt="">
             <span>Java</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-python">
+        <a href="/app-service-web/app-service-web-get-started-python">
             <img src="media/index/logo_python.svg" alt="">
             <span>Python</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-html">
+        <a href="/app-service-web/app-service-web-get-started-html">
             <img src="media/index/logo_html5.svg" alt="">
             <span>HTML</span>
         </a>
@@ -60,14 +60,14 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Create simple web apps in the cloud.</p>
         <ul class="spaced">
-            <li><a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">Create a .NET application with Azure SQL DB</a></li>
-            <li><a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Create a Node.js application with MongoDB</a></li>
+            <li><a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">Create a .NET application with Azure SQL DB</a></li>
+            <li><a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Create a Node.js application with MongoDB</a></li>
         </ul>
         <h2>Samples</h2>
         <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
-            <li><a href="/azure/app-service-web/app-service-cli-samples">Azure CLI</a></li>
-            <li><a href="/azure/app-service-web/app-service-powershell-samples">Azure PowerShell</a></li>
+            <li><a href="/app-service-web/app-service-cli-samples">Azure CLI</a></li>
+            <li><a href="/app-service-web/app-service-powershell-samples">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">
@@ -104,8 +104,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api">.NET</a></p>
-                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
                     </div>
                 </div>
             </div>

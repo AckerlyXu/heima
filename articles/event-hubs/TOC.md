@@ -13,7 +13,7 @@
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
-### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+<!-- Not Available ### [Apache Storm](event-hubs-storm-getstarted-receive.md)-->
 ## [Programming guide](event-hubs-programming-guide.md)
 
 # How to
@@ -31,7 +31,7 @@
 ## Manage
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### Archive
-#### [Event Hubs Archive](event-hubs-archive-overview.md)
+<!-- Not Available #### [Event Hubs Archive](event-hubs-archive-overview.md)-->
 #### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
