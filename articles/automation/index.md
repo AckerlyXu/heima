@@ -38,60 +38,6 @@ Learn how to use Automation to save time and increase the reliability of regular
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=automation">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Automation Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/automation/automation-first-runbook-graphical">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with Automation using Runbooks</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/automation/automation-first-runbook-textual-powershell">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with Automation using PowerShell</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/automation/automation-first-runbook-textual">
         <div class="cardSize">
             <div class="cardPadding">
@@ -109,25 +55,6 @@ Learn how to use Automation to save time and increase the reliability of regular
         </div>
         </a>
     </li>
-    <li>
-        <a href="/automation/automation-role-based-access-control">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with Automation using PowerShell Workflow</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
 </ul>
 
 ---

@@ -55,7 +55,7 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
     ![No Authentication](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
 
-    The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+    The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#next-steps) section at the end of this tutorial. 
 6. In the **New ASP.NET Project** dialog box, make sure the **Host in the Cloud** is checked and click **OK**.
 
 If you have not previously signed in to Azure, you will be prompted to sign in.
@@ -174,7 +174,7 @@ You begin by creating a simple data model in code.
             }
         }
 
-The **Contact** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#nextsteps) section at the end of this tutorial.
+The **Contact** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#next-steps) section at the end of this tutorial.
 
 ### Create web pages that enable app users to work with the contacts
 The ASP.NET MVC the scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
@@ -289,7 +289,7 @@ The application shows the seed data and provides edit, details and delete links.
 ![MVC view of data][rxz3]
 
 ## Edit the View
-1. Open the *Views\Home\Index.cshtml* file. In the next step, we will replace the generated markup with code that uses [jQuery](http://jquery.com/) and [Knockout.js](http://knockoutjs.com/). This new code retrieves the list of contacts from using web API and JSON and then binds the contact data to the UI using knockout.js. For more information, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+1. Open the *Views\Home\Index.cshtml* file. In the next step, we will replace the generated markup with code that uses [jQuery](http://jquery.com/) and [Knockout.js](http://knockoutjs.com/). This new code retrieves the list of contacts from using web API and JSON and then binds the contact data to the UI using knockout.js. For more information, see the [Next Steps](#next-steps) section at the end of this tutorial. 
 2. Replace the contents of the file with the following code.
 
         @model IEnumerable<ContactManager.Models.Contact>

@@ -28,7 +28,7 @@ This article explains how to create a virtual machine (VM) through the Azure Res
 
 ## Template description
 
-Deploying a template enables you to quickly and consistently create Azure resources with different configuration values. Read the [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article if you're not familiar with Azure Resource Manager templates. The [Deploy a VM with multiple IP addresses](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig) template is utilized in this article.
+Deploying a template enables you to quickly and consistently create Azure resources with different configuration values. Read the [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article if you're not familiar with Azure Resource Manager templates. The [Deploy a VM with multiple IP addresses](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig) template is utilized in this article.
 
 <a name="resources"></a>Deploying the template creates the following resources:
 

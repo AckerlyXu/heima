@@ -32,7 +32,7 @@ For customers with Software Assurance, Azure Hybrid Use Benefit allows you to us
 There are a couple of different ways to deploy Windows VMs with the Azure Hybrid Use Benefit:
 
 1. You can deploy VMs from [specific Marketplace images](#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit - Windows Server 2016, Windows Server 2012R2, Windows Server 2012 and Windows Server 2008SP1.
-2. You can [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
+2. You can [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-an-uploaded-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## Deploy a VM using the Azure Marketplace
 Following images are available in the Marketplace pre-configured with Azure Hybrid Use Benefit: Windows Server 2016, Windows Server 2012R2, Windows Server 2012 and Windows Server 2008SP1. These images can be deployed directly from the Azure portal preview, Resource Manager templates, or Azure PowerShell.
