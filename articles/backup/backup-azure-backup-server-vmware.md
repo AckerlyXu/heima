@@ -339,4 +339,3 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 If you use Azure Backup Server to protect VMware workloads, you may be interested in using Azure Backup Server to protect [Microsoft Exchange server](./backup-azure-exchange-mabs.md), a [Microsoft SharePoint farm](./backup-azure-backup-sharepoint-mabs.md), or a [SQL Server](./backup-azure-sql-mabs.md).
 
 See [Troubleshoot Azure Backup Server](./backup-azure-mabs-troubleshoot.md) for information on problems registering the agent, configuring the protection group, and problems with backup jobs.
-

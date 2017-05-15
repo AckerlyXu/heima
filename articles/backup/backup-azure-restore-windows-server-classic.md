@@ -19,8 +19,8 @@ ms.author: saurse;trinadhk;markgal;
 ---
 # Restore files to a Windows server or Windows client machine using the classic deployment model
 > [!div class="op_single_selector"]
-> * [Classic Management Portal](backup-azure-restore-windows-server-classic.md)
-> * [Azure portal](backup-azure-restore-windows-server.md)
+> * [Classic Management Portal](./backup-azure-restore-windows-server-classic.md)
+> * [Azure portal](./backup-azure-restore-windows-server.md)
 >
 >
 
@@ -223,11 +223,10 @@ The terminology used in these steps includes:
 
 
 ## Next steps
-- [Azure Backup FAQ](backup-azure-backup-faq.md)
+- [Azure Backup FAQ](./backup-azure-backup-faq.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 ## Learn more
 - [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Backup Azure virtual machines](backup-azure-vms-introduction.md)
+- [Backup Azure virtual machines](./backup-azure-vms-introduction.md)
 - [Backup up Microsoft workloads](./backup-azure-dpm-introduction-classic.md)
-

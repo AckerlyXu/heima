@@ -21,7 +21,7 @@ ms.author: markgal;
 # First look: back up files and folders in Resource Manager deployment
 This article explains how to back up your Windows Server (or Windows computer) files and folders to Azure using a Resource Manager deployment. It's a tutorial intended to walk you through the basics. If you want to get started using Azure Backup, you're in the right place.
 
-If you want to know more about Azure Backup, read this [overview](backup-introduction-to-azure-backup.md).
+If you want to know more about Azure Backup, read this [overview](./backup-introduction-to-azure-backup.md).
 
 Backing up files and folders to Azure requires these activities:
 
@@ -81,7 +81,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
 > [!NOTE]
 > Enabling backup through the Azure portal is not available, yet. Use the Azure Recovery Services Agent to back up your files and folders.
 
-You can see [here](./backup-configure-vault-classic.md/#download-install-register-backup-agent) to get details about how to download, install and register the agent.
+You can see [here](./backup-configure-vault-classic.md#download-install-register-backup-agent) to get details about how to download, install and register the agent.
 
 ## Back up your files and folders
 The initial backup includes two key tasks:
@@ -109,7 +109,7 @@ To complete the initial backup, use the Azure Recovery Services agent.
     ![Items for Windows Server Back up](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
+   > For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](./backup-azure-backup-cloud-as-tape.md).
    >
 
 8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
@@ -117,7 +117,7 @@ To complete the initial backup, use the Azure Recovery Services agent.
     The retention policy specifies how long the backup data is stored. Rather than specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
 9. On the Choose Initial Backup Type page, choose the initial backup type. Leave the option **Automatically over the network** selected, and then click **Next**.
 
-    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md) for additional information.
+    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](./backup-azure-backup-import-export.md) for additional information.
 10. On the Confirmation page, review the information, and then click **Finish**.
 11. After the wizard finishes creating the backup schedule, click **Close**.
 
@@ -136,7 +136,5 @@ After the initial backup is completed, the **Job completed** status appears in t
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
 ## Next steps
-- Get more details about [backing up Windows machines](backup-configure-vault.md).
-- Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
-- If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
-
+- Get more details about [backing up Windows machines](./backup-configure-vault.md).
+- If you need to restore a backup, use this article to [restore files to a Windows machine](./backup-azure-restore-windows-server.md).

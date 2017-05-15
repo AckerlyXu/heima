@@ -20,8 +20,8 @@ ms.author: masaran;trinadhk;pullabhk;markgal
 ---
 # Preparing to back up workloads using Azure Backup Server
 > [!div class="op_single_selector"]
-> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
+> * [Azure Backup Server (Classic)](./backup-azure-microsoft-azure-backup-classic.md)
+> * [SCDPM (Classic)](./backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -183,14 +183,13 @@ It is possible to take an Azure subscription from an *Expired* or *Deprovisioned
 
 ## Troubleshooting
 If Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/zh-cn/kb/3041338)  for more information.
-You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
+You can also refer to [Azure Backup related FAQs](./backup-azure-backup-faq.md)
 
 ## Next steps
 You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used.
 
 You can use these articles to gain a deeper understanding of workload protection using Azure Backup server.
 
-- [SQL Server backup](backup-azure-backup-sql.md)
-- [SharePoint server backup](backup-azure-backup-sharepoint.md)
-- [Alternate server backup](backup-azure-alternate-dpm-server.md)
-
+- [SQL Server backup](./backup-azure-backup-sql.md)
+- [SharePoint server backup](./backup-azure-backup-sharepoint.md)
+- [Alternate server backup](./backup-azure-alternate-dpm-server.md)

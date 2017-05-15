@@ -27,7 +27,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 3. Recover the database from Azure.
 
 ## Before you start
-Before you begin, ensure that you have [installed and prepared the Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md).
+Before you begin, ensure that you have [installed and prepared the Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md).
 
 ## Create a backup policy to protect SQL Server databases to Azure
 1. On the Azure Backup Server UI, click the **Protection** workspace.
@@ -92,7 +92,7 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
 
     **Best Practice**: Make sure that Azure Backups are scheduled after the completion of local disk backups using DPM. This enables the latest disk backup to be copied to Azure.
 
-13. Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](backup-azure-backup-cloud-as-tape.md).
+13. Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](./backup-azure-backup-cloud-as-tape.md).
 
     ![Retention Policy](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
@@ -105,7 +105,7 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
 14. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
 
     - **Automatically over the network** transfers the backup data to Azure as per the schedule chosen for backup.
-    - How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+    - How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](./backup-azure-backup-import-export.md).
 
     Choose the relevant transfer mechanism to send the initial backup copy to Azure and click **Next**.
 15. Once you review the policy details in the **Summary** screen, click on the **Create group** button to complete the workflow. You can click the **Close** button and monitor the job progress in Monitoring workspace.
@@ -152,5 +152,4 @@ The following steps are required to recover a protected entity (SQL Server datab
     Once the recovery is completed, the restored database is application consistent.
 
 ### Next Steps:
-•    [Azure Backup FAQ](backup-azure-backup-faq.md)
-
+•    [Azure Backup FAQ](./backup-azure-backup-faq.md)
