@@ -26,7 +26,7 @@ You've got one or more domain names that your organization uses to do business, 
 3. Verify the custom domain name in Azure AD
 
 > [!NOTE]
-> If you plan to configure your custom domain name to be used with Active Directory Federation Services (AD FS) or a different security token service (STS) on your corporate network, follow the instructions in [Add and configure a domain for federation with Azure Active Directory](./active-directory-add-domain-federated.md). This is useful if you plan to synchronize users from your corporate directory to Azure AD, and [password hash sync](./active-directory-aadconnectsync-implement-password-synchronization.md) does not meet your requirements.
+> If you plan to configure your custom domain name to be used with Active Directory Federation Services (AD FS) or a different security token service (STS) on your corporate network, follow the instructions in [Add and configure a domain for federation with Azure Active Directory](./active-directory-add-domain-federated.md). This is useful if you plan to synchronize users from your corporate directory to Azure AD, and [password hash sync](./connect/active-directory-aadconnectsync-implement-password-synchronization.md) does not meet your requirements.
 
 ## Add a custom domain name to your directory
 

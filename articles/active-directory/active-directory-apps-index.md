@@ -30,16 +30,16 @@ The articles below are good starting points for those who simply want a brief ex
 | An introduction to the application management problems that Azure AD solves |[Managing Applications with Azure Active Directory (AD)](./active-directory-enable-sso-scenario.md) |
 | An overview of the various features in Azure AD related to enabling single sign-on, defining who has access to apps, and how users launch apps |[Application Access and Single Sign-on in Azure Active Directory](./active-directory-appssoaccess-whatis.md) |
 | A look at the different steps involved when integrating apps into your Azure AD |[Integrating Azure Active Directory with Applications](./active-directory-integrating-applications-getting-started.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](./active-directory-sso-integrate-saas-apps.md)<br /><br />[Managing Access to Apps](./active-directory-managing-access-to-apps.md) |
-| A technical explanation of how apps are represented in Azure AD |[How and Why Applications are Added to Azure AD](./active-directory-how-applications-are-added.md) |
+| A technical explanation of how apps are represented in Azure AD |[How and Why Applications are Added to Azure AD](./develop/active-directory-how-applications-are-added.md) |
 
 ## Troubleshooting Articles
 This section provides quick access to relevant troubleshooting guides. More information about each feature area can be found on the rest of this page.
 
 | Feature Area |  |
 |:---:| --- |
-| Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](./active-directory-saml-debugging.md) |
+| Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md) |
 | Password-Based Single Sign-On | Troubleshooting the Access Panel Extension for Internet Explorer |
-| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Synchronization](./active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Troubleshooting Password Writeback](./active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Synchronization](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Troubleshooting Password Writeback](./active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 
 ## Single Sign-On (SSO)
 ### Federated Single Sign-On: Sign into many apps using one identity
@@ -50,8 +50,8 @@ Single sign-on allows users to access a variety of apps and services using only 
 | An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](./active-directory-appssoaccess-whatis.md) |
 | Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps)<br /><br />[How to Add Your App to the Azure AD App Gallery](./active-directory-app-gallery-listing.md) |
 | More than 150 app tutorials on how to configure single sign-on for apps, and many more |  |
-| How to manually set up and customize your single sign-on configuration |How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery <br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./active-directory-saml-claims-customization.md) |
-| Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](./active-directory-saml-debugging.md) |
+| How to manually set up and customize your single sign-on configuration |How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery <br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./develop/active-directory-saml-claims-customization.md) |
+| Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](./active-directory-sso-certs.md) |
 
 Federated single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) supports unlimited applications. If your organization has [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) or [Azure AD Premium](https://www.azure.cn/pricing/details/identity/), then you can [use groups to assign access to federated applications](#managing-access-to-applications).
@@ -73,9 +73,9 @@ If your organization maintains a Windows Server Active Directory on premises alo
 
 | Article Guide |  |
 |:---:| --- |
-| An overview on the single sign-on options offered in Azure AD Connect, as well as information on managing hybrid environments |[User Sign On Options in Azure AD Connect](./active-directory-aadconnect-user-signin.md) |
-| General guidance for managing environments with both on-premises Active Directory and Azure Active Directory | [Integrating your On-Premises Identities with Azure Active Directory](./active-directory-aadconnect.md) |
-| Guidance on using Password Sync to enable SSO |[Implement Password Synchronization with Azure AD Connect](./active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/zh-cn/kb/2855271) |
+| An overview on the single sign-on options offered in Azure AD Connect, as well as information on managing hybrid environments |[User Sign On Options in Azure AD Connect](./connect/active-directory-aadconnect-user-signin.md) |
+| General guidance for managing environments with both on-premises Active Directory and Azure Active Directory | [Integrating your On-Premises Identities with Azure Active Directory](./connect/active-directory-aadconnect.md) |
+| Guidance on using Password Sync to enable SSO |[Implement Password Synchronization with Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/zh-cn/kb/2855271) |
 | Guidance on using Password Writeback to enable SSO |[Getting Started with Password Management in Azure AD](./active-directory-passwords-getting-started.md)<br /><br />[Troubleshoot Password Writeback](./active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Guidance on using third party identity providers to enable SSO |[List of Compatible Third-Party Identity Providers That Can Be Used to Enable Single Sign-On](https://aka.ms/ssoproviders) |
 
@@ -101,7 +101,7 @@ If your organization is developing or maintaining line-of-business (LoB) applica
 
 | Article Guide |  |
 |:---:| --- |
-| Guidance for both IT professionals and application developers on integrating apps with Azure AD |[The IT Pro's Guide for Developing Applications for Azure AD](./active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](./active-directory-developers-guide.md) |
+| Guidance for both IT professionals and application developers on integrating apps with Azure AD |[The IT Pro's Guide for Developing Applications for Azure AD](./active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](./develop/active-directory-developers-guide.md) |
 | How to application vendors can add their apps to the Azure AD App Gallery |[Listing your Application in the Azure Active Directory Application Gallery](./active-directory-app-gallery-listing.md) |
 | How to manage access to developed applications using Azure Active Directory |[How to Enable User Assignment for Developed Applications](./active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Assigning Users to your App](./active-directory-applications-guiding-developers-assigning-users.md)<br /> |
 

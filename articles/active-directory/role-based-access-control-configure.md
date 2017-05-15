@@ -19,7 +19,7 @@ ms.author: kgremban
 ---
 # Use Role-Based Access Control to manage access to your Azure subscription resources
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](role-based-access-control-what-is.md).
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](./role-based-access-control-what-is.md).
 
 Within each subscription, you can grant up to 2000 role assignments. 
 
@@ -64,13 +64,12 @@ Inherited assignments cannot be removed. If you need to remove an inherited assi
 ## Other tools to manage access
 You can assign roles and manage access with Azure RBAC commands in tools other than the Azure portal.  Follow the links to learn more about the prerequisites and get started with the Azure RBAC commands.
 
-- [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure Command-Line Interface](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Azure PowerShell](./role-based-access-control-manage-access-powershell.md)
+- [Azure Command-Line Interface](./role-based-access-control-manage-access-azure-cli.md)
+- [REST API](./role-based-access-control-manage-access-rest.md)
 
 ## Next Steps
-- [Create an access change history report](role-based-access-control-access-change-history-report.md)
-- See the [RBAC built-in roles](role-based-access-built-in-roles.md)
-- Define your own [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
-
+- [Create an access change history report](./role-based-access-control-access-change-history-report.md)
+- See the [RBAC built-in roles](./role-based-access-built-in-roles.md)
+- Define your own [Custom roles in Azure RBAC](./role-based-access-control-custom-roles.md)
 

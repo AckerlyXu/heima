@@ -142,4 +142,3 @@ provides details for the different customizable elements.
 [6]: ./media/active-directory-add-company-branding/hide-kmsi.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-

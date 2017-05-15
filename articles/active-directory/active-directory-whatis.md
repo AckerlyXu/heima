@@ -67,14 +67,14 @@ Azure AD is a multi-customer public directory service, which means that within A
 
 **If you are a developer:**
 
-- Check out our [Developers Guide](./active-directory-developers-guide.md) to Azure Active Directory
+- Check out our [Developers Guide](./develop/active-directory-developers-guide.md) to Azure Active Directory
 
 - [Start a trial](https://www.azure.cn/pricing/1rmb-trial/) - sign up for a trial today and  start integrating your apps with Azure AD
 
 ## Where can I learn more?
 We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:
 
-- [Enabling your directory for hybrid management with Azure AD Connect](./active-directory-aadconnect.md)
+- [Enabling your directory for hybrid management with Azure AD Connect](./connect/active-directory-aadconnect.md)
 - [Additional security for an ever connected world](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Manage your passwords from anywhere](./active-directory-passwords.md)

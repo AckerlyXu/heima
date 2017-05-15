@@ -27,7 +27,7 @@ ms.author: curtand
 As a global administrator for a Microsoft cloud service, you can use the Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This article provides help for cloud services, such as Microsoft Intune and Office 365, which rely on Azure Active Directory for identity and directory services.
 
 > [!NOTE]
-> Only passwords for user accounts that are not synchronized through directory synchronization can be configured not to expire. For more information about directory synchronization, see the list of topics in [Directory synchronization roadmap](./active-directory-aadconnect.md).
+> Only passwords for user accounts that are not synchronized through directory synchronization can be configured not to expire. For more information about directory synchronization, see the list of topics in [Directory synchronization roadmap](./connect/active-directory-aadconnect.md).
 >
 >
 

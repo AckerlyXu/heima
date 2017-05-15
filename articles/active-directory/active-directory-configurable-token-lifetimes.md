@@ -92,7 +92,7 @@ Token Lifetime policies can be created and assigned to specific applications, or
 - If no policy is explicitly assigned to the service principal or the organization, the policy assigned to the application will be enforced. 
 - If no policy has been assigned to the service principal, the organization, or the application object, the default values will be enforced (see table above).
 
-For more information on the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](./active-directory-application-objects.md).
+For more information on the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](./develop/active-directory-application-objects.md).
 
 A token’s validity is evaluated at the time it is used. The policy with the highest priority on the application that is being accessed takes effect.
 
@@ -186,7 +186,7 @@ We'll walk through a few scenarios including:
 - Managing an Advanced Policy 
 
 ### Prerequisites
-In the sample scenarios we'll be creating, updating, linking, and deleting policies on apps, service principals, and your overall organization.  If you are new to Azure AD, checkout [this article](./active-directory-howto-tenant.md) to help you get started before proceeding with these samples.  
+In the sample scenarios we'll be creating, updating, linking, and deleting policies on apps, service principals, and your overall organization.  If you are new to Azure AD, checkout [this article](./develop/active-directory-howto-tenant.md) to help you get started before proceeding with these samples.  
 
 1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.

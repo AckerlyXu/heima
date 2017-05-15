@@ -43,7 +43,7 @@ Registering an application allows any user to do the following:
       - Delegated permissions (any user). For example: Azure AD, Sign-in, and Read Profile
 
 > [!NOTE]
-> By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, see [How applications are added to Azure AD](./active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, see [How applications are added to Azure AD](./develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 >
 >
 
@@ -67,7 +67,7 @@ By default, each user goes through a consent experience to sign in. The consent 
 
 For applications that you trust, you can simplify the user experience by consenting to the application on behalf of your organization.
 
-For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](./active-directory-integrating-applications.md).
+For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](./develop/active-directory-integrating-applications.md).
 
 ## Related Articles
 - [Managing access to apps with Azure AD](./active-directory-managing-access-to-apps.md)

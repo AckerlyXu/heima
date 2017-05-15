@@ -107,4 +107,3 @@ If you know your password already and need to change it, try the steps that foll
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png
-

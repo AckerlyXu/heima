@@ -77,4 +77,4 @@ The renewal steps shown below should ideally result in no significant downtime f
 
 - [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
 - [Application access and single sign-on with Azure Active Directory](./active-directory-appssoaccess-whatis.md)
-- [Troubleshooting SAML-Based Single Sign-On](./active-directory-saml-debugging.md)
+- [Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md)

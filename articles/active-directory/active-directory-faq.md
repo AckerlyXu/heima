@@ -73,7 +73,7 @@ Additionally, Azure AD paid services like Enterprise Mobility + Security complem
 
 **A:** You can connect your on-premises directory to Azure AD by using Azure AD Connect.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](./connect/active-directory-aadconnect.md).
 
 - - -
 **Q: How do I set up SSO between my on-premises directory and my cloud applications?**
@@ -82,7 +82,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](./connect/active-directory-aadconnect.md).
 
 - - -
 **Q: Does Azure AD provide a self-service portal for users in my organization?**
@@ -156,8 +156,8 @@ For more information, see [Deploying Azure AD integrated applications to users](
 
 For more information, see:
 
-- [Authentication Scenarios for Azure AD](./active-directory-authentication-scenarios.md)
-- [Active Directory authentication protocols](./active-directory-developers-guide.md)
+- [Authentication Scenarios for Azure AD](./develop/active-directory-authentication-scenarios.md)
+- [Active Directory authentication protocols](./develop/active-directory-developers-guide.md)
 - [How does single sign-on with Azure Active Directory work?](./active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -

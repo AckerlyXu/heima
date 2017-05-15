@@ -25,7 +25,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation) <br/>**Note**: If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.
+| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](./active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation) <br/>**Note**: If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.
 
 ### Extending your on-premises identity to the cloud 
 
@@ -37,7 +37,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | Scenario | Building Blocks| 
 | --- | --- |  
 | [SSO and Identity Lifecycle Events](#sso-and-identity-lifecycle-events) |  |
-| [Synchronize LDAP identities to Azure AD](#synchronize-ldap-identities-to-azure-ad) |  [Generic LDAP Connector configuration](active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
+| [Synchronize LDAP identities to Azure AD](#synchronize-ldap-identities-to-azure-ad) |  [Generic LDAP Connector configuration](./active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
 
 ### SSO and Identity Lifecycle Events
 
@@ -64,9 +64,9 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| [Secure administrator account access](#secure-administrator-account-access) | [Azure MFA with Phone Calls](active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
-| [Protect identities based on risk](#protect-identities-based-on-risk) | [Discovering risk events](active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[Deploying Sign-in risk policies](active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
-| [Authenticate without passwords using certificate based authentication](#authenticate-without-passwords-using-certificate-based-authentication) | [Configuring certificate based authentication](active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
+| [Secure administrator account access](#secure-administrator-account-access) | [Azure MFA with Phone Calls](./active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
+| [Protect identities based on risk](#protect-identities-based-on-risk) | [Discovering risk events](./active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[Deploying Sign-in risk policies](./active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
+| [Authenticate without passwords using certificate based authentication](#authenticate-without-passwords-using-certificate-based-authentication) | [Configuring certificate based authentication](./active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
 
 ### Secure administrator account access
 
@@ -82,4 +82,3 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 3. Susie while accessing application is prompted to authenticate using certificate
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
-

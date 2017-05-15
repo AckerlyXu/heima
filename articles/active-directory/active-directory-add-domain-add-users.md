@@ -23,7 +23,7 @@ After you have added your custom domain to Azure Active Directory, you must add 
 
 ## Users synced in from a directory on your corporate network
 
-If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](./connect/active-directory-aadconnect.md).
 
 ## Users added and managed in the cloud
 
