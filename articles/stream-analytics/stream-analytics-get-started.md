@@ -42,6 +42,7 @@ The sample application will generate events and push them to an Event Hub instan
 To create an Event Hub:
 
 1. In the [Azure portal](https://manage.windowsazure.cn/) click **New** > **App Services** > **Service Bus** > **Event Hub** > **Quick Create**. Provide a name, region, and new or existing namespace to create a new Event Hub.  
+<!-- https://msdn.microsoft.com/library/azure/dn836025.aspx redirect to event-hubs-what-is-event-hubs.md-->
 2. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group. We will walk you through the process of creating a Consumer Group below, and you can [learn more about Consumer Groups](https://msdn.microsoft.com/library/azure/dn836025.aspx). To create a Consumer Group, navigate to the newly created Event Hub and click the **Consumer Groups** tab, then click **Create** on the bottom of the page and provide a name for your Consumer Group.
 3. To grant access to the Event Hub, we will need to create a shared access policy.  Click the **Configure** tab of your Event Hub.
 4. Under **Shared Access Policies**, create a new policy with **Manage** permissions.
@@ -140,6 +141,7 @@ If you want to archive every event, you can use a passthrough query to read all 
     SELECT * FROM CallStream
     ```
 
+    > [!NOTE]ss
     > Make sure that the name of the input source matches the name of the input you specified earlier.
     > 
     > 

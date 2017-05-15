@@ -179,7 +179,7 @@ Prerequisites
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Overview of Event Hubs Archive][Overview of Event Hubs Archive]
+<!--Not Available * [Overview of Event Hubs Archive][Overview of Event Hubs Archive]-->
 * A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
 * The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
 * [Event Hubs overview][Event Hubs overview]

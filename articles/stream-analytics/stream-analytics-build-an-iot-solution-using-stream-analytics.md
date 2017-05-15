@@ -68,7 +68,7 @@ Here is a short description of the columns:
 | TollID |The toll booth ID that uniquely identifies a toll booth |
 | EntryTime |The date and time of entry of the vehicle to the toll booth in UTC |
 | LicensePlate |The license plate number of the vehicle |
-| State |A state in United States |
+| State |A specified city |
 | Make |The manufacturer of the automobile |
 | Model |The model number of the automobile |
 | VehicleType |Either 1 for passenger vehicles or 2 for commercial vehicles |
@@ -126,7 +126,7 @@ If you do not have an Azure account, you can [request a trial version](https://w
 > 
 > 
 
-Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your $200 free Azure credit.
+<!--Not avaliable in Azure.cn Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your $200 free Azure credit.-->
 
 ## Provision Azure resources required for the tutorial
 This tutorial requires two event hubs to receive *entry* and *exit* data streams. Azure SQL Database outputs the results of the Stream Analytics jobs. Azure Storage stores reference data about vehicle registrations.
@@ -151,7 +151,7 @@ Go to the directory that has the scripts and generator application.
 
 Type **.\\Setup.ps1** to set up your Azure account, create and configure all required resources, and start to generate events. The script randomly picks up a region to create your resources. To explicitly specify a region, you can pass the **-location** parameter as in the following example:
 
-**.\\Setup.ps1 -location "China North"**
+**.\\Setup.ps1 -location "China East"**
 
 ![Screenshot of the Azure sign-in page](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
 
@@ -253,14 +253,14 @@ However, if you are interested in implementation details, you can find the sourc
 6. Source is **Event hub**.
 7. **Service bus namespace** should be the TollData one in the drop down.
 8. **Event hub name** should be set to **entry**.
-9. **Event hub policy name*is **RootManageSharedAccessKey**  (the default value).
+9. **Event hub policy name** is **RootManageSharedAccessKey**  (the default value).
 10. Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.
 
     Your settings will look like:
 
     ![Event hub settings](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)
 
-10. Click **Create** at the bottom of the page to finish the wizard.
+11. Click **Create** at the bottom of the page to finish the wizard.
 
     Now that you've created the entry stream, you will follow the same steps to create the exit stream. Be sure to enter values as on the following screenshot.
 
@@ -271,12 +271,12 @@ However, if you are interested in implementation details, you can find the sourc
     ![Defined input streams in the Azure portal](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.png)
 
     Next, you will add reference data input for the blob file that contains car registration data.
-11. Click **ADD**, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of **Data Stream** and the **Input Alias** is **Registration**.
+12. Click **ADD**, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of **Data Stream** and the **Input Alias** is **Registration**.
 
-12. storage account that starts with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be **lowercase**.
+13. storage account that starts with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be **lowercase**.
 
     ![Blog storage settings](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
-13. Click **Create** to finish the wizard.
+14. Click **Create** to finish the wizard.
 
 Now all inputs are defined.
 
@@ -286,8 +286,8 @@ Now all inputs are defined.
     ![The Output tab and "Add an output" option](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
 2. Click **Add**.
 3. Set the **Output alias** to 'output' and then **Sink** to **SQL database**.
-3. Select the server name that was used in the "Connect to Database from Visual Studio" section of the article. The database name is **TollDataDB**.
-4. Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
+4. Select the server name that was used in the "Connect to Database from Visual Studio" section of the article. The database name is **TollDataDB**.
+5. Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
 
     ![SQL Database settings](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
 5. Click **Create**.
