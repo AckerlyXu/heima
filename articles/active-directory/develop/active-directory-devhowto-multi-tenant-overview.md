@@ -193,9 +193,9 @@ Please use the comments section below to provide feedback and help us refine and
 [AAD-App-Manifest]:./active-directory-application-manifest.md
 [AAD-App-SP-Objects]:./active-directory-application-objects.md
 [AAD-Auth-Scenarios]:./active-directory-authentication-scenarios.md
-[AAD-Consent-Overview]:./active-directory-integrating-applications.md#overview-of-the-consent-framework/
+[AAD-Consent-Overview]:./active-directory-integrating-applications.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]:./active-directory-developers-guide.md
-[AAD-Graph-Overview]: ./active-directory-graph-api.md
+[AAD-Graph-Overview]:./active-directory-graph-api.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
@@ -220,7 +220,7 @@ Please use the comments section below to provide feedback and help us refine and
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]:/documentation/articles/active-directory-how-to-integrate/
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
+[AAD-Security-Token-Claims]:./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:./active-directory-token-and-claims.md
 [AAD-V2-Dev-Guide]:./active-directory-appmodel-v2-overview.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn

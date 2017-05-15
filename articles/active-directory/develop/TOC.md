@@ -1,5 +1,5 @@
 # Overview
-## [Integrating with Azure AD](active-directory-how-to-integrate.md)
+## [Integrating with Azure AD](./active-directory-how-to-integrate.md)
 ## [Authentication scenarios](../active-directory-authentication-scenarios.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Graph API](../active-directory-graph-api.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Authentication libraries](../active-directory-authentication-libraries.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)

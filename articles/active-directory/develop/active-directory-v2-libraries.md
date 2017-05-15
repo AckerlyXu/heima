@@ -117,7 +117,7 @@ To help us refine and shape our content, please use the Disqus comments feature 
 [ServerLib-Net4-Owin-Oidc-Sample]:./active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: ./active-directory-v2-devquickstarts-dotnet-api.md
+[ServerLib-Net4-Owin-Oauth-Sample]:./active-directory-v2-devquickstarts-dotnet-api.md
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]:/
@@ -129,4 +129,4 @@ To help us refine and shape our content, please use the Disqus comments feature 
 [ServerLib-NetCore-Owin-Oauth-Sample]:/
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: ./active-directory-v2-devquickstarts-node-web.md
+[ServerLib-Node-Sample]:./active-directory-v2-devquickstarts-node-web.md

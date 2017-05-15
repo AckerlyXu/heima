@@ -322,7 +322,7 @@ To manually retrieve the latest key from the OpenID discovery document:
 
 To manually retrieve the latest key from the federation metadata document:
 
-1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/federationmetadata/2007-06/federationmetadata.xml`. You will see the contents of the Federation Metadata XML document. For more information about this document, see the [Federation Metadata](active-directory-federation-metadata.md) topic.
+1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/federationmetadata/2007-06/federationmetadata.xml`. You will see the contents of the Federation Metadata XML document. For more information about this document, see the [Federation Metadata](./active-directory-federation-metadata.md) topic.
 2. For the purposes of updating an application to use a new key, locate each **<RoleDescriptor>** block, and then copy the value of each block’s **<X509Certificate>** element. For example:
 
     <RoleDescriptor xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType">
