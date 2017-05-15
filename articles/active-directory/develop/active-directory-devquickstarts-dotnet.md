@@ -164,4 +164,4 @@ For reference, the completed sample (without your configuration values) is provi
 
 [Secure a .NET Web API with Azure AD >>](./active-directory-devquickstarts-webapi-dotnet.md)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources)]

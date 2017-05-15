@@ -19,9 +19,9 @@ ms.author: brandwe
 ---
 
 # Integrate Azure AD into an Android App
-[!INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
+[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users by using their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
@@ -453,4 +453,4 @@ Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttp
 ### Cross-app SSO
 Learn [How to enable cross-app SSO on Android using ADAL](./active-directory-sso-android.md)  
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

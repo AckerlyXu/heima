@@ -19,7 +19,7 @@ ms.author: dastrock
 ---
 
 # ASP.NET web app sign-in and sign-out with Azure AD
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (Azure AD) makes it simple for you to outsource web-app identity management. You can sign users in and out of ASP.NET web apps by using the Microsoft implementation of Open Web Interface for .NET (OWIN) middleware. Community-driven OWIN middleware is included in .NET Framework 4.5. This article shows how to use OWIN to:
 
@@ -180,4 +180,4 @@ For reference, see [the completed sample](https://github.com/AzureADQuickStarts/
 
 You can now move on to more advanced topics. For example, try [Secure a Web API with Azure AD](./active-directory-devquickstarts-webapi-dotnet.md).
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
