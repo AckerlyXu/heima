@@ -48,5 +48,5 @@ AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for
 ## Next steps
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

@@ -1068,6 +1068,6 @@ Returns "brown"
 Would return "has"
 
 ## Additional Resources
-- [Understanding Declarative Provisioning Expressions](./active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- [Azure AD Connect Sync: Customizing Synchronization options](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

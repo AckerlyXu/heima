@@ -31,6 +31,6 @@ You start the **Synchronization Service Manager** UI from the start menu. It is 
 Click the links at the top of this topic to learn more about the different tabs in the UI.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

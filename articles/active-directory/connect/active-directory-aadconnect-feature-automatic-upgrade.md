@@ -78,20 +78,20 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeAbortedServiceCanNotBeStarted |The NT Service **Azure AD Sync** failed to start. |
 | UpgradeAbortedServiceCanNotBeStopped |The NT Service **Azure AD Sync** failed to stop. |
 | UpgradeAbortedServiceIsNotRunning |The NT Service **Azure AD Sync** is not running. |
-| UpgradeAbortedSyncCycleDisabled |The SyncCycle option in the [scheduler](./active-directory-aadconnectsync-feature-scheduler.md) has been disabled. |
-| UpgradeAbortedSyncExeInUse |The [synchronization service manager UI](./active-directory-aadconnectsync-service-manager-ui.md) is open on the server. |
+| UpgradeAbortedSyncCycleDisabled |The SyncCycle option in the [scheduler](active-directory-aadconnectsync-feature-scheduler.md) has been disabled. |
+| UpgradeAbortedSyncExeInUse |The [synchronization service manager UI](active-directory-aadconnectsync-service-manager-ui.md) is open on the server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |The installation wizard is running or a sync was scheduled outside the scheduler. |
 | **UpgradeNotSupported** | |
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
 
-| UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](./active-directory-aadconnect-feature-preview.md#group-writeback) feature. |
+| UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) feature. |
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD Connector account](/documentation/articles/active-directory-aadconnect-accounts-permissions/#active-directory-account/) is not the default MSOL_ account anymore. |
-| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](./active-directory-aadconnectsync-operations.md#staging-mode). |
-| UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](./active-directory-aadconnect-feature-preview.md#user-writeback) feature. |
+| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). |
+| UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](active-directory-aadconnect-feature-preview.md#user-writeback) feature. |
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

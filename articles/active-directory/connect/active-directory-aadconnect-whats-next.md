@@ -54,7 +54,7 @@ If you need to run a synchronization task you can do this by running through the
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-For more information on the Azure AD Connect sync: Scheduler, see [Azure AD Connect Scheduler](./active-directory-aadconnectsync-feature-scheduler.md)
+For more information on the Azure AD Connect sync: Scheduler, see [Azure AD Connect Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 
 ## Additional tasks available in Azure AD Connect
 After your initial installation of Azure AD Connect, you can always start the wizard again from the Azure AD Connect start page or desktop shortcut.  You will notice that going through the wizard again provides some new options in the form of Additional tasks.  
@@ -70,4 +70,4 @@ The following table provides a summary of these tasks and a brief description on
 | Enable Staging Mode |This allows you to stage information that will later be synchronized but nothing will be exported to Azure AD or Active Directory.  This allows you to preview the synchronizations before they occur. |
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

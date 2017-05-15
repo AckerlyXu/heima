@@ -252,6 +252,6 @@ The sync engine stores export and import status information about each staging o
 For example, if sync engine exports attribute C, which has a value of 5, to a connected data source, it stores C=5 in its export status memory. Each additional export on this object results in an attempt to export C=5 to the connected data source again because sync engine assumes that this value has not been persistently applied to the object (that is, unless a different value was imported recently from the connected data source). The export memory is cleared when C=5 is received during an import operation on the object.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

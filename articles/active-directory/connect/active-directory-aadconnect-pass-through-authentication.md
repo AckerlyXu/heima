@@ -19,11 +19,11 @@ ms.author: billmath
 # What is Azure AD Pass-through Authentication
 Using the same credential (username and password) to access your corporate resources and cloud based services ensures that users don’t have to remember different credentials. It reduces the chances that they forget how to sign in and has the benefit of reducing the involvement of help desk for password reset events.
 
-While many organizations are comfortable with using Azure AD [Password synchronization](./active-directory-aadconnectsync-implement-password-synchronization.md) to provide users with a single credential to access on-premises and cloud services, other organizations require that passwords, even in a hashed form, do not leave their internal organizational boundary.
+While many organizations are comfortable with using Azure AD [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) to provide users with a single credential to access on-premises and cloud services, other organizations require that passwords, even in a hashed form, do not leave their internal organizational boundary.
 
 Azure AD pass-through authentication provides a simple solution for these customers. It ensures that password validation for Azure AD services is performed against their on-premises Active Directory. Passwords can be validated without the need for complex network infrastructure or for the on-premises passwords to exist in the cloud in any form.
 
-When combined with the [Single Sign on](./active-directory-aadconnect-sso.md) option, users do not need to type their password to sign in to Azure AD or other cloud services. This feature provides these customers with a truly integrated experience on their corporate machines.
+When combined with the [Single Sign on](active-directory-aadconnect-sso.md) option, users do not need to type their password to sign in to Azure AD or other cloud services. This feature provides these customers with a truly integrated experience on their corporate machines.
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

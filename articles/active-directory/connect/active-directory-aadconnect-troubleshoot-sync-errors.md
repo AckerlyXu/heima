@@ -21,11 +21,11 @@ ms.author: vakarand
 # Troubleshooting Errors during synchronization
 Errors could occur when identity data is synchronized from Windows Server Active Directory (AD DS) to Azure Active Directory (Azure AD). This article provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors. This article includes the common error types and may not cover all the possible errors.
 
- This article assumes the reader is familiar with the underlying [design concepts of Azure AD and Azure AD Connect](./active-directory-aadconnect-design-concepts.md).
+ This article assumes the reader is familiar with the underlying [design concepts of Azure AD and Azure AD Connect](active-directory-aadconnect-design-concepts.md).
 
 With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure Portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
 
-Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](./active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
+Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
 
 Azure AD Connect performs 3 types of operations from the directories it keeps in sync: Import, Synchronization and Export. Errors can take place in all the operations. This article mainly focuses on errors during Export to Azure AD.
 
@@ -52,7 +52,7 @@ Azure Active Directory schema does not allow two or more objects to have the sam
 - ObjectId
 
 > [!NOTE]
-> [Azure AD Attribute Duplicate Attribute Resiliency](./active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) feature is also being rolled out as the default behavior of Azure Active Directory.  This will reduce the number of synchronization errors seen by Azure AD Connect (as well as other sync clients) by making Azure AD more resilient in the way it handles duplicated ProxyAddresses and UserPrincipalName attributes present in on premises AD environments. This feature does not fix the duplication errors. So the data still needs to be fixed. But it allows provisioning of new objects which are otherwise blocked from being provisioned due to duplicated values in Azure AD. This will also reduce the number of synchronization errors returned to the synchronization client.
+> [Azure AD Attribute Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) feature is also being rolled out as the default behavior of Azure Active Directory.  This will reduce the number of synchronization errors seen by Azure AD Connect (as well as other sync clients) by making Azure AD more resilient in the way it handles duplicated ProxyAddresses and UserPrincipalName attributes present in on premises AD environments. This feature does not fix the duplication errors. So the data still needs to be fixed. But it allows provisioning of new objects which are otherwise blocked from being provisioned due to duplicated values in Azure AD. This will also reduce the number of synchronization errors returned to the synchronization client.
 > If this feature is enabled for your Tenant, you will not see the InvalidSoftMatch synchronization errors seen during provisioning of new objects.
 >
 >

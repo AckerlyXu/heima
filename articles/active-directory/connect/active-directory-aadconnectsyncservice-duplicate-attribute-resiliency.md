@@ -170,6 +170,6 @@ The link for *steps on how to resolve this issue* is incorrect:
 It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
 ## See also
-- [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 - [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

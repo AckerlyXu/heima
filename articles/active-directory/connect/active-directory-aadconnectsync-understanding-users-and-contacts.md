@@ -49,5 +49,5 @@ The assumption is that if a disabled user account is found, then we will not fin
 When an object has been exported to Azure AD then it is not allowed to change the sourceAnchor anymore. When the object has been exported the metaverse attribute **cloudSourceAnchor** is set with the **sourceAnchor** value accepted by Azure AD. If **sourceAnchor** is changed and not match **cloudSourceAnchor**, the rule **Out to AAD - User Join** will throw the error **sourceAnchor attribute has changed**. In this case, the configuration or data must be corrected so the same sourceAnchor is present in the metaverse again before the object can be synchronized again.
 
 ## Additional Resources
-- [Azure AD Connect Sync: Customizing Synchronization options](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

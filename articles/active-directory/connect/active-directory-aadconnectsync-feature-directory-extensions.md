@@ -31,7 +31,7 @@ The installation shows the following attributes, which are valid candidates:
 - Single-valued attributes: String, Boolean, Integer, Binary
 - Multi-valued attributes: String, Binary
 
-The list of attributes is read from the schema cache created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, then the [schema must be refreshed](./active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
+The list of attributes is read from the schema cache created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, then the [schema must be refreshed](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
 An object in Azure AD can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, then it is truncated by the sync engine.
 
@@ -44,6 +44,6 @@ These attributes are now available through Graph:
 The attributes are prefixed with extension\_{AppClientId}\_. The AppClientId has the same value for all attributes in your Azure AD tenant.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

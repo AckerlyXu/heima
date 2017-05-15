@@ -27,6 +27,6 @@ The metaverse search tab is useful for troubleshooting data-related problems. In
 In the search results, select an object and **Properties** to see the [metaverse object properties](/documentation/articles/active-directory-aadconnectsync-troubleshoot-object-not-syncing/#metaverse-object-properties/).
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

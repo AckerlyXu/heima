@@ -26,6 +26,6 @@ ms.custom: H1Hack27Feb2017
 For most customers, there is nothing to configure here.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

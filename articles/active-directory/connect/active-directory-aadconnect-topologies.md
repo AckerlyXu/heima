@@ -67,7 +67,7 @@ If your environment does not match these assumptions, the following things happe
 - If you have more than one active account or more than one mailbox, the sync engine picks one and ignores the other.
 - A linked mailbox with no other active account is not exported to Azure AD. The user account is not represented as a member in any group. A linked mailbox in DirSync is always represented as a normal mailbox. This change is intentionally a different behavior to better support multiple-forest scenarios.
 
-You can find more details in [Understanding the default configuration](./active-directory-aadconnectsync-understanding-default-configuration.md).
+You can find more details in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
 
 ### Multiple forests, multiple sync servers to one Azure AD tenant
 ![Unsupported topology for multiple forests and multiple sync servers](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
@@ -178,6 +178,6 @@ You can use FIM 2010 or MIM 2016 on-premises to sync users (via GALSync) between
 ## Next steps
 To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](/documentation/articles/active-directory-aadconnect-get-started-custom/).
 
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

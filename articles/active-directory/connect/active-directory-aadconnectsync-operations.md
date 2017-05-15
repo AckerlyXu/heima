@@ -115,5 +115,5 @@ If you are not using the SQL Server Express that comes with Azure AD Connect, th
 ## Next steps
 **Overview topics**  
 
-- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)  
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)  
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

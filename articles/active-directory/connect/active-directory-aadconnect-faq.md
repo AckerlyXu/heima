@@ -44,10 +44,10 @@ No, Azure AD Connect does not support on-premises forests/domains where the NetB
 
 ## Federation
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
-Use the guidance that is outlined in the [renew certificates](./active-directory-aadconnect-o365-certs.md) topic on how to renew the certificate.
+Use the guidance that is outlined in the [renew certificates](active-directory-aadconnect-o365-certs.md) topic on how to renew the certificate.
 
 **Q: I have "Automatically update relying party" set for O365 relying party. Do I have to take any action when my token signing certificate automatically rolls over?**  
-Use the guidance that is outlined in the article [renew certificates](./active-directory-aadconnect-o365-certs.md).
+Use the guidance that is outlined in the article [renew certificates](active-directory-aadconnect-o365-certs.md).
 
 ## Environment
 **Q: Is it supported to rename the server after Azure AD Connect has been installed?**  
@@ -60,7 +60,7 @@ See these articles:
 - [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/zh-cn/kb/2523192)
 - [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/zh-cn/kb/2669550)
 
-You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](./active-directory-aadconnectsyncservice-features.md).
+You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
 
 **Q: Is it supported to soft match on-premises AD Group/Contact objects with existing Azure AD Group/Contact objects?**  
 No, this is currently not supported.
@@ -83,7 +83,7 @@ We do have a gateway that filters requests and provides some protection from bot
 With the exception of the cmdlets documented on this site, other PowerShell cmdlets found in Azure AD Connect are not supported for customer use.
 
 **Q: Can I use "Server export/server import" found in *Synchronization Service Manager* to move configuration between servers?**  
-No. This option will not retrieve all configuration settings and should not be used. You should instead use the wizard to create the base configuration on the second server and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. See [Swing migration](./active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
+No. This option will not retrieve all configuration settings and should not be used. You should instead use the wizard to create the base configuration on the second server and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. See [Swing migration](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
 **Q: Can passwords be cached for the Azure sign-in page and can this be prevented since it contains a password input element with the autocomplete = "false" attribute?**</br>
 We currently do not support modifying the HTML attributes of the Password input field, including the autocomplete tag. We are currently working on a feature that will allow for custom Javascript which will allow you to add any attribute to the password field. This should be available later part of 2017.

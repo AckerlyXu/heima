@@ -21,7 +21,7 @@ ms.author: billmath
 # Azure AD Connect sync: Understanding the default configuration
 This article explains the out-of-box configuration rules. It documents the rules and how these rules impact the configuration. It also walks you through the default configuration of Azure AD Connect sync. The goal is that the reader understands how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Azure AD Connect sync using the installation wizard.
 
-To understand the details of the configuration model, read [Understanding Declarative Provisioning](./active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+To understand the details of the configuration model, read [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 ## Out-of-box rules from on-premises to Azure AD
 The following expressions can be found in the out-of-box configuration.
@@ -137,7 +137,7 @@ A Synchronization Rule is a configuration object with a set of attributes flowin
 
 As an example, look at the Synchronization Rule **In from AD - User AccountEnabled**. Mark this line in the SRE and select **Edit**.
 
-Since this rule is an out-of-box rule, you receive a warning when you open the rule. You should not make any [changes to out-of-box rules](./active-directory-aadconnectsync-best-practices-changing-default-configuration.md), so you are asked what your intentions are. In this case, you only want to view the rule. Select **No**.
+Since this rule is an out-of-box rule, you receive a warning when you open the rule. You should not make any [changes to out-of-box rules](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), so you are asked what your intentions are. In this case, you only want to view the rule. Select **No**.
 
 ![Synchronization Rules warning](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
 
@@ -203,7 +203,7 @@ NULL
 )
 ```
 
-See [Understanding Declarative Provisioning Expressions](./active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) for more information on the expression language for attribute flows.
+See [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) for more information on the expression language for attribute flows.
 
 ### Precedence
 You have now looked at some individual Synchronization Rules, but the rules work together in the configuration. In some cases, an attribute value is contributed from multiple synchronization rules to the same target attribute. In this case, attribute precedence is used to determine which attribute wins. As an example, look at the attribute sourceAnchor. This attribute is an important attribute to be able to sign in to Azure AD. You can find an attribute flow for this attribute in two different Synchronization Rules, **In from AD - User AccountEnabled** and **In from AD - User Common**. Due to Synchronization Rule precedence, the sourceAnchor attribute is contributed from the forest with an enabled account first when there are several objects joined to the metaverse object. If there are no enabled accounts, then the sync engine uses the catch-all Synchronization Rule **In from AD - User Common**. This configuration ensures that even for accounts that are disabled, there is still a sourceAnchor.
@@ -225,12 +225,12 @@ We now know enough about Synchronization Rules to be able to understand how the 
 | In from AD - User Lync |Only exists if Lync has been detected. It flows all infrastructure Lync attributes. |
 
 ## Next steps
-- Read more about the configuration model in [Understanding Declarative Provisioning](./active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- Read more about the expression language in [Understanding Declarative Provisioning Expressions](./active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Continue reading how the out-of-box configuration works in [Understanding Users and Contacts](./active-directory-aadconnectsync-understanding-users-and-contacts.md)
-- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](./active-directory-aadconnectsync-change-the-configuration.md).
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Continue reading how the out-of-box configuration works in [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)
+- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

@@ -42,7 +42,7 @@ At the bottom, you have buttons for acting on a selected sync rule. **Edit** and
 The most common change is changes to the attribute flows. The data in your source directory might not be as in Azure AD. In the example in this section, you want to make sure the given name of a user is always in **Proper case**.
 
 ### Disable the scheduler
-The [scheduler](./active-directory-aadconnectsync-feature-scheduler.md) runs every 30 minutes by default. You want to make sure it is not starting while you are making changes and troubleshoot your new rules. To temporarily disable the scheduler, start PowerShell, and run `Set-ADSyncScheduler -SyncCycleEnabled $false`
+The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every 30 minutes by default. You want to make sure it is not starting while you are making changes and troubleshoot your new rules. To temporarily disable the scheduler, start PowerShell, and run `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 ![Disable the scheduler](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
@@ -134,7 +134,7 @@ Some attributes in Active Directory are multi-valued in the schema even though t
 In this expression in case the attribute has a value, take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
 
 ### Do not flow an attribute
-For background on the scenario for this section, see [Control the attribute flow process](./active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
+For background on the scenario for this section, see [Control the attribute flow process](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
 
 There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](/documentation/articles/active-directory-aadconnect-get-started-custom/#azure-ad-app-and-attribute-filtering/). This option works if you have never synchronized the attribute before. However, if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
 
@@ -171,10 +171,10 @@ You can instruct the Sync Engine that you want additional rules inserted before 
 You can have many custom sync rules using the same **PrecedenceBefore** value when needed.
 
 ## Next steps
-- Read more about the configuration model in [Understanding Declarative Provisioning](./active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- Read more about the expression language in [Understanding Declarative Provisioning Expressions](./active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

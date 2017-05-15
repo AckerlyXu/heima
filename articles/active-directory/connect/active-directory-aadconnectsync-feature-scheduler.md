@@ -50,7 +50,7 @@ If you see **The sync command or cmdlet is not available** when you run this cmd
 - **PurgeRunHistoryInterval**. The time operation logs should be kept. These logs can be reviewed in the synchronization service manager. The default is to keep these logs for 7 days.
 - **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
 - **MaintenanceEnabled**. Shows if the maintenance process is enabled. It updates the certificates/keys and purges the operations log.
-- **StagingModeEnabled**. Shows if [staging mode](./active-directory-aadconnectsync-operations.md#staging-mode) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
+- **StagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
 - **SchedulerSuspended**. Set by Connect during an upgrade to temporarily block the scheduler from running.
 
 You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:
@@ -76,7 +76,7 @@ Example: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`
 Changes change the scheduler to run daily.
 
 ### Disable the scheduler  
-If you need to make configuration changes, then you want to disable the scheduler. For example, when you [configure filtering](./active-directory-aadconnectsync-configure-filtering.md) or [make changes to synchronization rules](./active-directory-aadconnectsync-change-the-configuration.md).
+If you need to make configuration changes, then you want to disable the scheduler. For example, when you [configure filtering](active-directory-aadconnectsync-configure-filtering.md) or [make changes to synchronization rules](active-directory-aadconnectsync-change-the-configuration.md).
 
 To disable the scheduler, run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
@@ -101,7 +101,7 @@ If you have made one of the following configuration changes, you need to run a f
 
 - Added more objects or attributes to be imported from a source directory
 - Made changes to the Synchronization rules
-- Changed [filtering](./active-directory-aadconnectsync-configure-filtering.md) so a different number of objects should be included
+- Changed [filtering](active-directory-aadconnectsync-configure-filtering.md) so a different number of objects should be included
 
 If you have made one of these changes, then you need to run a full sync cycle so the sync engine has the opportunity to reconsolidate the connector spaces. A full sync cycle includes the following steps:
 
@@ -126,7 +126,7 @@ When a sync cycle is running, you cannot make configuration changes. You could w
 The scheduler is still active and starts again on next opportunity.
 
 ## Custom scheduler
-The cmdlets documented in this section are only available in build [1.1.130.0](./active-directory-aadconnect-version-history.md#111300) and later.
+The cmdlets documented in this section are only available in build [1.1.130.0](active-directory-aadconnect-version-history.md#111300) and later.
 
 If the built-in scheduler does not satisfy your requirements, then you can schedule the Connectors using PowerShell.
 
@@ -137,7 +137,7 @@ You can start a profile for a Connector in this way:
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-The names to use for [Connector names](./active-directory-aadconnectsync-service-manager-ui-connectors.md) and [Run Profile Names](./active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) can be found in the [Synchronization Service Manager UI](./active-directory-aadconnectsync-service-manager-ui.md).
+The names to use for [Connector names](active-directory-aadconnectsync-service-manager-ui-connectors.md) and [Run Profile Names](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) can be found in the [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md).
 
 ![Invoke Run Profile](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
 
@@ -168,6 +168,6 @@ In the picture above, the first line is from a state where the sync engine is id
 If you start the installation wizard, then the scheduler is temporarily suspended. This behavior is because it is assumed you make configuration changes and these settings cannot be applied if the sync engine is actively running. For this reason, do not leave the installation wizard open since it stops the sync engine from performing any synchronization actions.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

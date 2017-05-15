@@ -160,4 +160,4 @@ Update Office 365 with the new token signing certificates to be used for the tru
 ## Repair Azure AD trust by using Azure AD Connect <a name="connectrenew"></a>
 If you configured your AD FS farm and Azure AD trust by using Azure AD Connect, you can use Azure AD Connect to detect if you need to take any action for your token signing certificates. If you need to renew the certificates, you can use Azure AD Connect to do so.
 
-For more information, see [Repairing the trust](./active-directory-aadconnect-federation-management.md).
+For more information, see [Repairing the trust](active-directory-aadconnect-federation-management.md).

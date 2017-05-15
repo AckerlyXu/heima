@@ -39,7 +39,7 @@ Declarative provisioning uses many functions to enable the possibility to transf
 
 `Function1(Function2(Function3()))`
 
-The complete list of functions can be found in the [function reference](./active-directory-aadconnectsync-functions-reference.md).
+The complete list of functions can be found in the [function reference](active-directory-aadconnectsync-functions-reference.md).
 
 ### Parameters
 A parameter is defined either by a Connector or by an administrator using PowerShell. Parameters usually contain values that are different from system to system, for example the name of the domain the user is located in. These parameters can be used in attribute flows.
@@ -81,15 +81,15 @@ For example:
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Look for the SIP-address and remove it from the values.
 
 ## Next steps
-- Read more about the configuration model in [Understanding Declarative Provisioning](./active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- See how declarative provisioning is used out-of-box in [Understanding the default configuration](./active-directory-aadconnectsync-understanding-default-configuration.md).
-- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](./active-directory-aadconnectsync-change-the-configuration.md).
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- See how declarative provisioning is used out-of-box in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
+- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 **Reference topics**
 
-- [Azure AD Connect sync: Functions Reference](./active-directory-aadconnectsync-functions-reference.md)
+- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)

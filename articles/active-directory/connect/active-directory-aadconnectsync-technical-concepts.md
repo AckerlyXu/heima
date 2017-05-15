@@ -19,7 +19,7 @@ ms.author: markvi;andkjell
 ---
 
 # Azure AD Connect sync: Technical Concepts
-This article is a summary of the topic [Understanding architecture](./active-directory-aadconnectsync-technical-concepts.md).
+This article is a summary of the topic [Understanding architecture](active-directory-aadconnectsync-technical-concepts.md).
 
 Azure AD Connect sync builds upon a solid metadirectory synchronization platform.
 The following sections introduce the concepts for metadirectory synchronization.
@@ -83,8 +83,8 @@ This inherently establishes a link, and attribute flow can proceed bi-directiona
 Whenever a rule determines that a new connector space object needs to be created, it is called provisioning. However, because this operation only takes place within the connector space, it does not carry over into the connected data source until an export is performed.
 
 ## Additional Resources
-- [Azure AD Connect Sync: Customizing Synchronization options](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png

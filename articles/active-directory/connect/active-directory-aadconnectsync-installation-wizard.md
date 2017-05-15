@@ -28,7 +28,7 @@ When you start the installation wizard, you see a page with these options:
 
 ![Page with a list of additional tasks](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-If you have installed ADFS with Azure AD Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](./active-directory-aadconnect-federation-management.md#ad-fs-management).
+If you have installed ADFS with Azure AD Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
 Select one of the tasks and click **Next** to continue.
 
@@ -47,7 +47,7 @@ Click **Previous** to go back. If you select **Exit**, you close the installatio
 ## Customize synchronization options
 This option is used to make changes to the sync configuration. You see a subset of options from the custom configuration installation path. You see this option even if you used express installation initially.
 
-- [Add more directories](/documentation/articles/active-directory-aadconnect-get-started-custom/#connect-your-directories/). For removing a directory, see [Delete a Connector](./active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+- [Add more directories](/documentation/articles/active-directory-aadconnect-get-started-custom/#connect-your-directories/). For removing a directory, see [Delete a Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
 - [Change Domain and OU filtering](/documentation/articles/active-directory-aadconnect-get-started-custom/#domain-and-ou-filtering/).
 - Remove Group filtering.
 - [Change optional features](/documentation/articles/active-directory-aadconnect-get-started-custom/#optional-features/).
@@ -66,7 +66,7 @@ When you select this option, all the directories in your configuration are liste
 ![Page with a list of all directories in the environment](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
 ## Configure staging mode
-This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](./active-directory-aadconnectsync-operations.md#staging-mode).
+This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](active-directory-aadconnectsync-operations.md#staging-mode).
 
 The option shows if staging is currently enabled or disabled:  
 ![Option that is also showing the current state of staging mode](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
@@ -77,12 +77,12 @@ To change the state, select this option and select or unselect the checkbox.
 ## Change user sign-in
 This option allows you to change from password sync to federation or the other way around. You cannot change to **do not configure**.
 
-For more information on this option, see [user sign-in](./active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
 ## Next steps
-- Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](./active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

@@ -26,7 +26,7 @@ When installing Azure AD Connect, prevent accidental deletes is enabled by defau
 ## What is prevent accidental deletes
 Common scenarios when you see many deletes include:
 
-- Changes to [filtering](./active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](./active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) or [domain](./active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is unselected.
+- Changes to [filtering](active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) or [domain](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is unselected.
 - All objects in an OU are deleted.
 - An OU is renamed so all objects in it are considered to be out of scope for synchronization.
 
@@ -63,5 +63,5 @@ If all the deletes are desired, then do the following:
 ## Next steps
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

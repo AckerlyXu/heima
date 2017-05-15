@@ -26,7 +26,7 @@ Azure AD Connect is using Modern Authentication (using the ADAL library) for aut
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
-First we need to make sure [**machine.config**](./active-directory-aadconnect-prerequisites.md#connectivity) is correctly configured.  
+First we need to make sure [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) is correctly configured.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -56,7 +56,7 @@ The following issues are the most common errors you encounter in the installatio
 This error appears when the wizard itself cannot reach the proxy.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
-- If you see this error, verify the [machine.config](./active-directory-aadconnect-prerequisites.md#connectivity) has been correctly configured.
+- If you see this error, verify the [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) has been correctly configured.
 - If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ### A Microsoft account is used
@@ -180,16 +180,16 @@ Shown as Unexpected error in the installation wizard. Can happen if you try to u
 ## Troubleshooting steps for previous releases.
 With releases starting with build number 1.1.105.0 (released February 2016), the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
-For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](./active-directory-aadconnect-prerequisites.md#connectivity).  
+For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### The Sign-in assistant has not been correctly configured
 This error appears when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-- If you see this error, look at the proxy configuration in [netsh](./active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
+- If you see this error, look at the proxy configuration in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 - If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
