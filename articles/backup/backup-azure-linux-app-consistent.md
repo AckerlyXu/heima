@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
-wacn.date:''
+wacn.date: ''
 ---
 # Application consistent backup of Azure Linux VMs (Preview)
 

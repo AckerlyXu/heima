@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/28/2017
 ms.author: markgal;
-wacn.date:''
+wacn.date: ''
 ---
 # Back up VMware server to Azure
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2017
 ms.author: kgremban
-wacn.date:''
+wacn.date: ''
 ms.custom: H1Hack27Feb2017, end-user
 ---
 # Get started with the Microsoft Authenticator app

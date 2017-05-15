@@ -13,7 +13,7 @@ caps.latest.revision: 7
 author: "tamram"
 ms.author: "tamram"
 manager: "timlt"
-wacn.date:""
+wacn.date: ""
 ---
 # Batch Analytics
 The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.

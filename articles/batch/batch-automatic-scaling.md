@@ -16,7 +16,7 @@ ms.workload: multiple
 ms.date: 04/03/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-wacn.date:''
+wacn.date: ''
 ---
 # Create an automatic scaling formula for scaling compute nodes in a Batch pool
 

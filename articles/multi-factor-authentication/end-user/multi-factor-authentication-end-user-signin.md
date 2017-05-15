@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 04/02/2017
 ms.author: kgremban
 ms.custom: end-user
-wacn.date:''
+wacn.date: ''
 
 ---
 # The sign-in experience with Azure Multi-Factor Authentication

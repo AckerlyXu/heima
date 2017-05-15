@@ -16,7 +16,7 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-wacn.date:''
+wacn.date: ''
 
 ---
 # Develop large-scale parallel compute solutions with Batch

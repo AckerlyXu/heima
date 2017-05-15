@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-wacn.date:''
+wacn.date: ''
 ---
 # Back up SQL Server to Azure With Azure Backup Server
 This article leads you through the configuration steps for backup of SQL Server databases using Azure Backup Server (MABS).

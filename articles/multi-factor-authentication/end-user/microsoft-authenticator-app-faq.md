@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: kgremban
 ms.custom: end-user
-wacn.date:''
+wacn.date: ''
 ---
 # Microsoft Authenticator app FAQ
 

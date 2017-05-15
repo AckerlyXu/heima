@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: kgremban
 ms.custom: end-user
-wacn.date:''
+wacn.date: ''
 
 ---
 # Manage your settings for two-step verification
