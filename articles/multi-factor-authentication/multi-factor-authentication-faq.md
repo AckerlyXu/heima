@@ -44,7 +44,7 @@ The optional fields can be configured in Multi-Factor Authentication Server.
 The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
 
 ## Billing
-Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](./multi-factor-authentication-versions-plans.md).
 
 **Q: Is my organization charged for sending the phone calls and text messages that are used for authentication?**
 
@@ -62,7 +62,7 @@ When you purchase Azure Multi-Factor Authentication as a standalone service (by 
 
 When you purchase a subscription for Azure Multi-Factor Authentication (as a per-user annual license, or as part of an Office 365, Azure AD Premium, or Enterprise Mobility + Security bundle), your organization only pays the annual license fee for each user.
 
-Learn more about your options in [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Learn more about your options in [How to get Azure Multi-Factor Authentication](./multi-factor-authentication-versions-plans.md).
 
 **Q: Is there a free version of Azure Multi-Factor Authentication?**
 
@@ -90,11 +90,11 @@ You can point your users to the [End-user troubleshooting guide](./end-user/mult
 
 **Q: What should I do if one of my users can't get in to their account?**
 
-You can reset the user's account by making them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
+You can reset the user's account by making them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](./multi-factor-authentication-manage-users-and-devices.md).
 
 **Q: What should I do if one of my users loses a phone that is using app passwords?**
 
-To prevent unauthorized access, delete all the user's app passwords. After the user has a replacement device, they can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
+To prevent unauthorized access, delete all the user's app passwords. After the user has a replacement device, they can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](./multi-factor-authentication-manage-users-and-devices.md).
 
 
 > [!NOTE]
@@ -177,5 +177,4 @@ If your question isn't answered here, please leave it in the comments at the bot
 - Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 - If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
 - Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/zh-cn/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
-
 

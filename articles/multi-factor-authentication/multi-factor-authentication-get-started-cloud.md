@@ -31,7 +31,7 @@ The following prerequisites are required before you can enable Azure Multi-Facto
 1. [Sign up for an Azure subscription](https://www.azure.cn/pricing/1rmb-trial/) - If you do not already have an Azure subscription, you need to sign-up for one. If you are just starting out and using Azure MFA you can use a trial subscription
 
 ## Turn on two-step verification for users
-To start requiring two-start verification on for a user, change the user's state from disabled to enabled.  For more information on user states, see [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+To start requiring two-start verification on for a user, change the user's state from disabled to enabled.  For more information on user states, see [User States in Azure Multi-Factor Authentication](./multi-factor-authentication-get-started-user-states.md)
 
 Use the following procedure to enable MFA for your users.
 
@@ -56,14 +56,14 @@ Use the following procedure to enable MFA for your users.
 After you have enabled your users, you should notify them via email. The next time they try to sign in, they'll be asked to enroll their account for two-step verification. Once they start using two-step verification, they'll also need to set up app passwords to avoid being locked out of non-browser apps.
 
 ## Use PowerShell to automate turning on two-step verification
-To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](../powershell-install-configure.md), you can use the following.  You can change `$st.State` to equal one of the following states:
+To change the [state](./multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](../powershell-install-configure.md), you can use the following.  You can change `$st.State` to equal one of the following states:
 
 - Enabled
 - Enforced
 - Disabled  
 
 > [!IMPORTANT]
-> We discourage against moving users directly from the Disable state to the Enforced state. Non-browser-based apps will stop working because the user has not gone through MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). If you have non-browser-based apps and require app passwords, we recommend that you go from a Disabled state to Enabled. This allows users to register and obtain their app passwords. After that, you can move them to Enforced.
+> We discourage against moving users directly from the Disable state to the Enforced state. Non-browser-based apps will stop working because the user has not gone through MFA registration and obtained an [app password](./multi-factor-authentication-whats-next.md#app-passwords). If you have non-browser-based apps and require app passwords, we recommend that you go from a Disabled state to Enabled. This allows users to register and obtain their app passwords. After that, you can move them to Enforced.
 
 Using PowerShell would be an option for bulk enabling users. Currently there is no bulk enable feature in the Azure portal and you need to select each user individually. This can be quite a task if you have many users. By creating a PowerShell script using the following, you can loop through a list of users and enable them.
 
@@ -89,9 +89,8 @@ foreach ($user in $users)
 }
 ```
 
-For more information, see [User states in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+For more information, see [User states in Azure Multi-Factor Authentication](./multi-factor-authentication-get-started-user-states.md)
 
 ## Next Steps
-Now that you have set up Azure Multi-Factor Authentication in the cloud, you can configure and set up your deployment. See [Configuring Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) for more details.
-
+Now that you have set up Azure Multi-Factor Authentication in the cloud, you can configure and set up your deployment. See [Configuring Azure Multi-Factor Authentication](./multi-factor-authentication-whats-next.md) for more details.
 

@@ -56,4 +56,3 @@ This deletes all of the app passwords that a user has created. Non-browser apps 
 10. Click close.
 
 
-

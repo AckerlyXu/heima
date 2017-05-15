@@ -20,7 +20,7 @@ wacn.date: ''
 ---
 # Microsoft Authenticator app FAQ
 
-This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
+This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](./microsoft-authenticator-app-phone-signin-faq.md).
 
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
@@ -105,7 +105,6 @@ If your question wasn't answered here, we want to hear from you. Go to the [Micr
 
 ### Related topics
 - [About two-step verification](https://support.microsoft.com/zh-cn/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-- [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
-- [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
-
+- [Having trouble with two-step verification](./multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
+- [Use the Microsoft Authenticator to sign in from your phone](./microsoft-authenticator-app-phone-signin-faq.md)
 
