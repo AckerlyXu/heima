@@ -201,11 +201,3 @@ Below are some of the cool features we're working on right now!
 Below are links to all of the Azure AD password reset documentation pages:
 
 - **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
-- [**How it works**](./active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-- [**Getting started**](./active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-- [**Customize**](./active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-- [**Best practices**](./active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-- [**Get insights**](./active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-- [**FAQ**](./active-directory-passwords-faq.md) - get answers to frequently asked questions
-- [**Troubleshooting**](./active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-- [**Learn more**](./active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works

@@ -53,11 +53,3 @@ The following table describes the available password policy settings that can be
 ## Next steps
 - **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 - [Manage your passwords from anywhere](./active-directory-passwords.md)
-- [How Password Management works](./active-directory-passwords-how-it-works.md)
-- [Getting started with Password Mangement](./active-directory-passwords-getting-started.md)
-- [Customize Password Management](./active-directory-passwords-customize.md)
-- [Password Management Best Practices](./active-directory-passwords-best-practices.md)
-- [How to get Operational Insights with Password Management Reports](./active-directory-passwords-get-insights.md)
-- [Password Management FAQ](./active-directory-passwords-faq.md)
-- [Troubleshoot Password Management](./active-directory-passwords-troubleshoot.md)
-- [Learn More](./active-directory-passwords-learn-more.md)
