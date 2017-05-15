@@ -39,8 +39,8 @@ If you plan to run production workloads in Batch, you may need to increase one o
 ## Other limits
 | **Resource** | **Maximum Limit** |
 | --- | --- |
-| [Concurrent tasks](batch-parallel-node-tasks.md) per compute node |4 x number of node cores |
-| [Applications](batch-application-packages.md) per Batch account |20 |
+| [Concurrent tasks](./batch-parallel-node-tasks.md) per compute node |4 x number of node cores |
+| [Applications](./batch-application-packages.md) per Batch account |20 |
 | Application packages per application |40 |
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
 
@@ -89,8 +89,8 @@ Follow these steps to request a quota increase using the [Azure portal][portal].
 Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
 
 ## Related topics
-- [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
-- [Azure Batch feature overview](batch-api-basics.md)
+- [Create an Azure Batch account using the Azure portal](./batch-account-create-portal.md)
+- [Azure Batch feature overview](./batch-api-basics.md)
 - [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.cn
@@ -98,4 +98,3 @@ Once you've submitted your support request, Azure support will contact you. Note
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-

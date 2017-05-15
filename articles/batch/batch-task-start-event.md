@@ -80,4 +80,3 @@ Task start event log body
 |Element name|Type|Notes|
 |------------------|----------|-----------|
 |retryCount|Int32|The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount|
-

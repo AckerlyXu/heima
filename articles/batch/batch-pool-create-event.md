@@ -95,4 +95,3 @@ Pool create event log body
 |Element name|Type|Notes|
 |------------------|--------------|----------|
 |subnetId|String|Specifies the resource identifier of the subnet in which the pool's compute nodes are created.|
-

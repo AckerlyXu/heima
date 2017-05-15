@@ -49,4 +49,3 @@ Pool resize complete event log body
 |endTime|DateTime|The time the pool resize completed.|
 |resultCode|String|The result of the resize.|
 |resultMessage|String|The resize error includes the details of the result.<br /><br /> If the resize completed successfully it states that the operation succeeded.|
-

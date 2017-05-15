@@ -23,7 +23,7 @@ This is a guide to technical resources to help you run your large-scale parallel
 ## Solutions options
 Learn about Big Compute options in Azure, and choose the right approach for your workload and business need.
 
-- [Batch and HPC solutions](batch-hpc-solutions.md)
+- [Batch and HPC solutions](./batch-hpc-solutions.md)
 
 ## Azure Batch
 [Batch](https://azure.microsoft.com/services/batch/) is a platform service that makes it easy to cloud-enable your Linux and Windows applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through various languages, stage data to Azure, and build job execution pipelines.
@@ -31,7 +31,7 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 - [Documentation](./index.md)
 - [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/), and [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API reference
 - [Batch management .NET library](https://msdn.microsoft.com/library/mt463120.aspx) reference
-- Tutorials: Get started with [Azure Batch library for .NET](batch-dotnet-get-started.md) and [Batch Python client](batch-python-tutorial.md)
+- Tutorials: Get started with [Azure Batch library for .NET](./batch-dotnet-get-started.md) and [Batch Python client](./batch-python-tutorial.md)
 - [Batch forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurebatch)
 
 ## HPC cluster solutions
@@ -108,5 +108,4 @@ For GPU-intensive workloads, check out [NC and NV sizes](https://azure.microsoft
 ## Next steps
 - For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
 - Also see [what's new in Batch](https://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
-
 
