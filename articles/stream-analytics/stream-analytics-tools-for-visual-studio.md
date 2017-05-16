@@ -26,6 +26,7 @@ Azure Stream Analytics tools for Visual Studio are now generally available. Thes
 In this tutorial, you will learn how to use Azure Stream Analytics Tools for Visual Studio to create, author, test locally, manage and debug your Azure Stream Analytics jobs. 
 
 After completing this tutorial, you will be able to:
+
 * Familiarize yourself with the Azure Stream Analytics Tools for Visual Studio.
 * Configure and deploy a Stream Analytics job.
 * Test your job locally with local sample data.
@@ -33,6 +34,7 @@ After completing this tutorial, you will be able to:
 * Export existing jobs to projects.
 
 ## Prerequisites
+
 You will need the following prerequisites to complete this tutorial:
 * Finish the steps before **Create a Stream Analytics job** from the [Build an IoT solution by using Stream Analytics tutorial](/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio 2017 is currently not supported. 
@@ -97,9 +99,9 @@ Now all inputs are defined.
 ## Define output
 1. In **Solution Explorer**, expand **Inputs** node and double-click **Output.json**.
 2. Set the Output alias to **output** and then Sink to SQL database.
-2. Enter the database name: **TollDataDB**.
-3. Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
-4. Click **Save**.
+3. Enter the database name: **TollDataDB**.
+4. Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
+5. Click **Save**.
 
 ![Define output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
 
