@@ -79,9 +79,9 @@ After the deployment has completed, create an SSH connection with the virtual ma
 
 2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal preview.
 
-```bash 
-ssh <replace with IP address>
-```
+    ```bash 
+    ssh <replace with IP address>
+    ```
 
 ## Install NGINX
 
@@ -110,4 +110,4 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 
 [Create highly available virtual machines tutorial](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Explore VM deployment CLI samples](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Explore VM deployment CLI samples](cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -38,8 +38,8 @@ Here are some examples that use the Azure PowerShell module.
 * **Save a generalized image**: `Save-AzureVMImage -ServiceName "myServiceName" -Name "MyVMtoCapture" -OSState "Generalized" -ImageName "MyVmImage" -ImageLabel "This is my generalized image"`
 * **Save a specialized image**: `Save-AzureVMImage -ServiceName "mySvc2" -Name "MyVMToCapture2" -ImageName "myFirstVMImageSP" -OSState "Specialized" -Verbose`
 
-  > [!TIP]
-  > The OSState parameter is required to create a VM image, which includes the operating system disk and attached data disks. If you don't use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
+    > [!TIP]
+    > The OSState parameter is required to create a VM image, which includes the operating system disk and attached data disks. If you don't use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
 
 * **Delete an image**: `Remove-AzureVMImage -ImageName "MyOldVmImage"`
 

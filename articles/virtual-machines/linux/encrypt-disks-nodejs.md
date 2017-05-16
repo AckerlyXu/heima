@@ -151,7 +151,7 @@ Supported scenarios and requirements for disk encryption:
 
 * The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
 * All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-* Standard A, D, DS, G, and GS series VMs.
+* Standard A, D, and DS series VMs.
 
 Disk encryption is not currently supported in the following scenarios:
 

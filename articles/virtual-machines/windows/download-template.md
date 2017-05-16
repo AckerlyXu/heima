@@ -47,4 +47,4 @@ You can also download the .json template file using the [Export-AzureRMResourceG
 ```
 
 ## Next steps
-To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-create-first-template.md).

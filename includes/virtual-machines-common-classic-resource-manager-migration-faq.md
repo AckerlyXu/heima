@@ -34,7 +34,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 ## What if I'm using Azure Site Recovery or Azure Backup today? 
 
-To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../articles/backup/backup-azure-backup-ibiza-faq.md)i have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
+To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../articles/backup/backup-azure-backup-ibiza-faq.md)
 
 ## Can I validate my subscription or resources to see if they're capable of migration? 
 

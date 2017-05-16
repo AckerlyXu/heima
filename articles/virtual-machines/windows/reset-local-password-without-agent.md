@@ -52,7 +52,7 @@ Always try to reset a password using the [Azure portal preview or Azure PowerShe
 
         Select *VHD File* and then select the storage account that contains your source VM:
 
-        ![Select storage account](./media/reset-local-password-without-agent/disks_select_storageaccount.PNG)
+        ![Select storage account](./media/reset-local-password-without-agent/disks_select_storageaccount.png)
 
         Select the source container. The source container is typically *vhds*:
 

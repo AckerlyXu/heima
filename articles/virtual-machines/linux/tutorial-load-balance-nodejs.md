@@ -29,6 +29,8 @@ To complete this tutorial, open a terminal window and make sure that you have in
 az login
 ```
 
+[AZURE.INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Before you can create any other Azure resources, you need to create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
 
 ```azurecli
@@ -52,7 +54,7 @@ az vm availability-set create \
 An Azure load balancer distributes traffic across a set of defined VMs using load balancer rules. A health probe monitors a given port on each VM and only distributes traffic to an operational VM.
 
 ### Create a public IP address
-To access your app on the Internet, assign a public IP address to the load balancer. Create a public IP address with [az network public-ip create](https://docs.microsoft.com/cli/azure/public-ip#create). The following example creates a public IP address named `myPublicIP`:
+To access your app on the Internet, assign a public IP address to the load balancer. Create a public IP address with [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create). The following example creates a public IP address named `myPublicIP`:
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
@@ -106,7 +108,7 @@ az network lb rule create \
 Each VM has one or more virtual network interface cards (NICs) that connect to a virtual network. This virtual network is secured to filter traffic based on defined access rules.
 
 ### Create a virtual network
-To provide network connectivity to your VMs, create a virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/vnet#create). The following example creates a virtual network named `myVnet` with a subnet named `mySubnet`:
+To provide network connectivity to your VMs, create a virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` with a subnet named `mySubnet`:
 
 ```azurecli
 az network vnet create --resource-group myResourceGroup --name myVnet --subnet-name mySubnet

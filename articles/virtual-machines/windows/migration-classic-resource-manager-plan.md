@@ -71,7 +71,7 @@ Successful customers have detailed plans where the above questions are discussed
 
 **Replicate your enviornment and do a test migration**
   > [!NOTE]
-  > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Microsoft Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
+  > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Azure.cn Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
   >
 
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
@@ -167,7 +167,7 @@ For the real migrations, you might want to consider:
 
 ### Patterns of success
 
-The technical guidance from the Lab Test section above should be considered and mitigated prior to a real migration.  With adequate testing, the migration is actually a non-event.  For production environments, it might be helpful to have additional support, such as a trusted Microsoft partner or Microsoft Premier services.
+The technical guidance from the Lab Test section above should be considered and mitigated prior to a real migration.  With adequate testing, the migration is actually a non-event.  For production environments, it might be helpful to have additional support, such as a trusted Azure.cn partner or Azure.cn Premier services.
 
 ### Pitfalls to avoid
 

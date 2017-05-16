@@ -164,4 +164,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [Create highly available virtual machines tutorial](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Explore VM deployment PowerShell samples](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Explore VM deployment PowerShell samples](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
