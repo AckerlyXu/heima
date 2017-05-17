@@ -21,8 +21,8 @@
 ### [Outbound authentication](scheduler-outbound-authentication.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [REST](/rest/api/scheduler)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.scheduler)
+## [REST](https://docs.microsoft.com/rest/api/scheduler)
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/scheduler/)
