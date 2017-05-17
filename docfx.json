@@ -63,7 +63,10 @@
     ],
     "overwrite": [],
     "externalReference": [],
-    "globalMetadata": {},
+    "globalMetadata": {
+      "brand": "mooncake",
+      "searchScope": ["mooncake"]
+    },
     "fileMetadata": {},
     "template": [
       "docs.html"
