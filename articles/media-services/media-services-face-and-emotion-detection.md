@@ -13,24 +13,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2017
-wacn.date: ''
+ms.date: 04/17/2017
 ms.author: milanga;juliako;
----
 
+---
 # Detect Face and Emotion with Azure Media Analytics
 ## Overview
 The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
 
-- **Face detection**
-
+* **Face detection**
+  
     Face detection finds and tracks human faces within a video. Multiple faces can be detected and subsequently be tracked as they move around, with the time and location metadata returned in a JSON file. During tracking, it will attempt to give a consistent ID to the same face while the person is moving around on screen, even if they are obstructed or briefly leave the frame.
-
-    >[!NOTE]
-    >This services does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
-
-- **Emotion detection**
-
+  
+  > [!NOTE]
+  > This services does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
+  > 
+  > 
+* **Emotion detection**
+  
     Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. 
 
 The **Azure Media Face Detector** MP is currently in Preview.
@@ -50,21 +50,21 @@ For the face detection and tracking operation, the output result contains the me
 
 The face detection and tracking JSON includes the following attributes:
 
-Element|Description
----|---
-Version|This refers to the version of the Video API.
-Timescale|"Ticks" per second of the video.
-Offset|This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change.
-Framerate|Frames per second of the video.
-Fragments|The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s).
-Start|The start time of the first event in ‘ticks’.
-Duration|The length of the fragment, in “ticks”.
-Interval|The interval of each event entry within the fragment, in “ticks”.
-Events|Each event contains the faces detected and tracked within that time duration. It is an array of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time. An empty bracket [] means no faces were detected.
-ID| The ID of the face that is being tracked. This number may inadvertently change if a face becomes undetected. A given individual should have the same ID throughout the overall video, but this cannot be guaranteed due to limitations in the detection algorithm (occlusion, etc.)
-X, Y|The upper left X and Y coordinates of the face bounding box in a normalized scale of 0.0 to 1.0. <br/>-X and Y coordinates are relative to landscape always, so if you have a portrait video (or upside-down, in the case of iOS), you'll have to transpose the coordinates accordingly.
-Width, Height|The width and height of the face bounding box in a normalized scale of 0.0 to 1.0.
-facesDetected|This is found at the end of the JSON results and summarizes the number of faces that the algorithm detected during the video. Because the IDs can be reset inadvertently if a face becomes undetected (e.g. face goes off screen, looks away), this number may not always equal the true number of faces in the video.
+| Element | Description |
+| --- | --- |
+| Version |This refers to the version of the Video API. |
+| Timescale |"Ticks" per second of the video. |
+| Offset |This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
+| Framerate |Frames per second of the video. |
+| Fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). |
+| Start |The start time of the first event in ‘ticks’. |
+| Duration |The length of the fragment, in “ticks”. |
+| Interval |The interval of each event entry within the fragment, in “ticks”. |
+| Events |Each event contains the faces detected and tracked within that time duration. It is an array of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time. An empty bracket [] means no faces were detected. |
+| ID |The ID of the face that is being tracked. This number may inadvertently change if a face becomes undetected. A given individual should have the same ID throughout the overall video, but this cannot be guaranteed due to limitations in the detection algorithm (occlusion, etc.) |
+| X, Y |The upper left X and Y coordinates of the face bounding box in a normalized scale of 0.0 to 1.0. <br/>-X and Y coordinates are relative to landscape always, so if you have a portrait video (or upside-down, in the case of iOS), you'll have to transpose the coordinates accordingly. |
+| Width, Height |The width and height of the face bounding box in a normalized scale of 0.0 to 1.0. |
+| facesDetected |This is found at the end of the JSON results and summarizes the number of faces that the algorithm detected during the video. Because the IDs can be reset inadvertently if a face becomes undetected (e.g. face goes off screen, looks away), this number may not always equal the true number of faces in the video. |
 
 Face Detector uses techniques of fragmentation (where the metadata can be broken up in time-based chunks and you can download only what you need), and segmentation (where the events are broken up in case they get too large). Some simple calculations can help you transform the data. For example, if an event started at 6300 (ticks), with a timescale of 2997 (ticks/sec) and framerate of 29.97 (frames/sec), then:
 
@@ -78,71 +78,68 @@ Face Detector uses techniques of fragmentation (where the metadata can be broken
 ### Task configuration (preset)
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset is just for face detection.
 
-```
-{
-  "version":"1.0"
-  "options":{
-      "TrackingMode": "Faster"
-  }
-}
-```
+    {
+      "version":"1.0",
+      "options":{
+          "TrackingMode": "Fast"
+      }
+    }
 
 #### Attribute descriptions
 | Attribute name | Description |
 | --- | --- |
-| Mode |Faster: faster processing speed, but less accurate (default). <br/>Quality: better accuracy tracking, but takes longer. |
+| Mode |Fast - fast processing speed, but less accurate (default).|
+
 
 ### JSON output
 The following example of JSON output was truncated.
 
-```
-{
-"version": 1,
-"timescale": 30000,
-"offset": 0,
-"framerate": 29.97,
-"width": 1280,
-"height": 720,
-"fragments": [
     {
-    "start": 0,
-    "duration": 60060
-    },
-    {
-    "start": 60060,
-    "duration": 60060,
-    "interval": 1001,
-    "events": [
-        [
+    "version": 1,
+    "timescale": 30000,
+    "offset": 0,
+    "framerate": 29.97,
+    "width": 1280,
+    "height": 720,
+    "fragments": [
         {
-            "id": 0,
-            "x": 0.519531,
-            "y": 0.180556,
-            "width": 0.0867188,
-            "height": 0.154167
-        }
-        ],
-        [
+        "start": 0,
+        "duration": 60060
+        },
         {
-            "id": 0,
-            "x": 0.517969,
-            "y": 0.181944,
-            "width": 0.0867188,
-            "height": 0.154167
-        }
-        ],
-        [
-        {
-            "id": 0,
-            "x": 0.517187,
-            "y": 0.183333,
-            "width": 0.0851562,
-            "height": 0.151389
-        }
-        ],
+        "start": 60060,
+        "duration": 60060,
+        "interval": 1001,
+        "events": [
+            [
+            {
+                "id": 0,
+                "x": 0.519531,
+                "y": 0.180556,
+                "width": 0.0867188,
+                "height": 0.154167
+            }
+            ],
+            [
+            {
+                "id": 0,
+                "x": 0.517969,
+                "y": 0.181944,
+                "width": 0.0867188,
+                "height": 0.154167
+            }
+            ],
+            [
+            {
+                "id": 0,
+                "x": 0.517187,
+                "y": 0.183333,
+                "width": 0.0851562,
+                "height": 0.151389
+            }
+            ],
 
-    . . . 
-```
+        . . . 
 
 ## Emotion detection input and output example
 ### Input video
@@ -151,16 +148,15 @@ The following example of JSON output was truncated.
 ### Task configuration (preset)
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset specifies to create JSON based on the emotion detection.
 
-```
-{
-  "version": "1.0",
-  "options": {
-    "aggregateEmotionWindowMs": "987",
-    "mode": "aggregateEmotion",
-    "aggregateEmotionIntervalMs": "342"
-  }
-}
-```
+    {
+      "version": "1.0",
+      "options": {
+        "aggregateEmotionWindowMs": "987",
+        "mode": "aggregateEmotion",
+        "aggregateEmotionIntervalMs": "342"
+      }
+    }
+
 
 #### Attribute descriptions
 | Attribute name | Description |
@@ -169,8 +165,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 | AggregateEmotionWindowMs |Use if AggregateEmotion mode selected. Specifies the length of video used to produce each aggregate result, in milliseconds. |
 | AggregateEmotionIntervalMs |Use if AggregateEmotion mode selected. Specifies with what frequency to produce aggregate results. |
 
-####Aggregate defaults
-
+#### Aggregate defaults
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
 || Defaults(s) | Min(s) | Max(s) |
@@ -178,162 +173,160 @@ Below are recommended values for the aggregate window and interval settings. Agg
 | AggregateEmotionWindowMs |0.5 |2 |0.25|
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
-###JSON output
-
+### JSON output
 JSON output for aggregate emotion (truncated):
 
-```
-{
- "version": 1,
- "timescale": 30000,
- "offset": 0,
- "framerate": 29.97,
- "width": 1280,
- "height": 720,
- "fragments": [
-   {
-     "start": 0,
-     "duration": 60060,
-     "interval": 15015,
-     "events": [
-       [
-         {
-           "windowFaceDistribution": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           },
-           "windowMeanScores": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           }
-         }
-       ],
-       [
-         {
-           "windowFaceDistribution": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           },
-           "windowMeanScores": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           }
-         }
-       ],
-       [
-         {
-           "windowFaceDistribution": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           },
-           "windowMeanScores": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           }
-         }
-       ],
-       [
-         {
-           "windowFaceDistribution": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           },
-           "windowMeanScores": {
-             "neutral": 0,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           }
-         }
-       ]
-     ]
-   },
-   {
-     "start": 60060,
-     "duration": 60060,
-     "interval": 15015,
-     "events": [
-       [
-         {
-           "windowFaceDistribution": {
-             "neutral": 1,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-             "contempt": 0
-           },
-           "windowMeanScores": {
-             "neutral": 0.688541,
-             "happiness": 0.0586323,
-             "surprise": 0.227184,
-             "sadness": 0.00945675,
-             "anger": 0.00592107,
-             "disgust": 0.00154993,
-             "fear": 0.00450447,
-             "contempt": 0.0042109
-           }
-         }
-       ],
-       [
-         {
-           "windowFaceDistribution": {
-             "neutral": 1,
-             "happiness": 0,
-             "surprise": 0,
-             "sadness": 0,
-             "anger": 0,
-             "disgust": 0,
-             "fear": 0,
-```
+    {
+     "version": 1,
+     "timescale": 30000,
+     "offset": 0,
+     "framerate": 29.97,
+     "width": 1280,
+     "height": 720,
+     "fragments": [
+       {
+         "start": 0,
+         "duration": 60060,
+         "interval": 15015,
+         "events": [
+           [
+             {
+               "windowFaceDistribution": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               },
+               "windowMeanScores": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               }
+             }
+           ],
+           [
+             {
+               "windowFaceDistribution": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               },
+               "windowMeanScores": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               }
+             }
+           ],
+           [
+             {
+               "windowFaceDistribution": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               },
+               "windowMeanScores": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               }
+             }
+           ],
+           [
+             {
+               "windowFaceDistribution": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               },
+               "windowMeanScores": {
+                 "neutral": 0,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               }
+             }
+           ]
+         ]
+       },
+       {
+         "start": 60060,
+         "duration": 60060,
+         "interval": 15015,
+         "events": [
+           [
+             {
+               "windowFaceDistribution": {
+                 "neutral": 1,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+                 "contempt": 0
+               },
+               "windowMeanScores": {
+                 "neutral": 0.688541,
+                 "happiness": 0.0586323,
+                 "surprise": 0.227184,
+                 "sadness": 0.00945675,
+                 "anger": 0.00592107,
+                 "disgust": 0.00154993,
+                 "fear": 0.00450447,
+                 "contempt": 0.0042109
+               }
+             }
+           ],
+           [
+             {
+               "windowFaceDistribution": {
+                 "neutral": 1,
+                 "happiness": 0,
+                 "surprise": 0,
+                 "sadness": 0,
+                 "anger": 0,
+                 "disgust": 0,
+                 "fear": 0,
+
 
 ## Limitations
 * The supported input video formats include MP4, MOV, and WMV.
@@ -347,11 +340,10 @@ The following program shows how to:
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a face detection task based on a configuration file that contains the following json preset. 
 
-    ```
-    {
-        "version": "1.0"
-    }
-    ```
+        {
+            "version": "1.0"
+        }
+	
 3. Download the output JSON files. 
 
     ```
