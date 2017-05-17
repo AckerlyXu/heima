@@ -29,7 +29,7 @@ To complete this tutorial, open a terminal window and make sure that you have in
 az login
 ```
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Before you can create any other Azure resources, you need to create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `chinanorth` location:
 
