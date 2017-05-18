@@ -187,7 +187,6 @@
 ## Integrate
 ### [Connect to Azure Storage in your Xamarin.Forms app](app-service-mobile-xamarin-forms-blob-storage.md)
 
-****
 
 ## Troubleshoot
 ### General troubleshooting for Mobile Apps
