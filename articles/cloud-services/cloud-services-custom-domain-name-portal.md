@@ -25,7 +25,7 @@ However, you can also expose your application on your own domain name, such as *
 Do you already undestand what CNAME and A records are? [Jump past the explaination](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](./web-sites-custom-domain-name.md). For storage accounts, see [this](./storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
 
 <p/>
 
@@ -64,7 +64,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
         **OR**
 
-    * Install and configure [Azure Powershell](./powershell-install-configure.md), and then use the following command:
+    * Install and configure [Azure Powershell](../powershell-install-configure.md), and then use the following command:
 
         ```powershell
         Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -105,7 +105,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
         **OR**
 
-    * Install and configure [Azure Powershell](./powershell-install-configure.md), and then use the following command:
+    * Install and configure [Azure Powershell](../powershell-install-configure.md), and then use the following command:
 
         ```powershell
         get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -132,12 +132,12 @@ For example, the following A record forwards all traffic from **contoso.com** to
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
 
 >[!WARNING]
->IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](./virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
+>IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
 
 ## Next steps
 
-* [How to Manage Cloud Services](./cloud-services-how-to-manage/)
-* [How to Map CDN Content to a Custom Domain](./cdn-map-content-to-custom-domain.md)
+* [How to Manage Cloud Services](./cloud-services-how-to-manage.md)
+
 * [General configuration of your cloud service](./cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](./cloud-services-how-to-create-deploy-portal.md).
 * Configure [ssl certificates](./cloud-services-configure-ssl-certificate-portal.md).

@@ -30,7 +30,7 @@ The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/
 
 ## Alternative architecture: Websites and WebJobs
 
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](../app-service-web/index.md) and use the [WebJobs](../app-service-web/websites-webjobs-resources.md) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](./websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](./choose-web-site-cloud-service-vm.md).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](../app-service-web/index.md) and use the [WebJobs](../app-service-web/websites-webjobs-resources.md) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## What you'll learn
 
@@ -197,7 +197,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 6. Set the **Replication** drop-down list to **Locally redundant**.
 
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](./storage-create-storage-account.md#replication-options).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](./storage-create-storage-account.md).
 
 5. Click **Create Storage Account**.
 

@@ -39,7 +39,6 @@
 ### [High-density hosting](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Using WebJobs in Azure App Service](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-#### [App Service Environment documentation](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Develop
 ### Android
@@ -122,7 +121,7 @@
 #### [Custom domains with Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Clone an existing app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [On-premises connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+
 
 ### [Advanced configuration](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Resource groups](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

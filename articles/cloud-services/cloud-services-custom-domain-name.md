@@ -30,7 +30,7 @@ Do you already undestand what CNAME and A records are? [Jump past the explanatio
 <p/>
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-web-service/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
 
 ## Understand CNAME and A records
 
@@ -139,7 +139,6 @@ This example demonstrates creating an A record for the root domain. If you wish 
 ## Next steps
 
 * [How to Manage Cloud Services](./cloud-services-how-to-manage.md)
-* [How to Map CDN Content to a Custom Domain](./cdn-map-content-to-custom-domain.md)
 * [General configuration of your cloud service](./cloud-services-how-to-configure.md).
 * Learn how to [deploy a cloud service](./cloud-services-how-to-create-deploy.md).
 * Configure [ssl certificates](./cloud-services-configure-ssl-certificate.md).
