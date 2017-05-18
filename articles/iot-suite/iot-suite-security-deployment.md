@@ -102,7 +102,7 @@ Azure IoT Hub and other services which may be part of the solution allow managem
 
 Data ingested by Azure IoT Hub can be consumed by a variety of services such as Azure Stream Analytics and Azure blob storage. These services allow management access. Read more about these services and available options below:
 
-* [Azure DocumentDB][lnk-docdb]: A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. DocumentDB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
+* [Azure Cosmos DB][lnk-docdb]: A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. Cosmos DB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
 * [Azure Stream Analytics][lnk-asa]: Real-time stream processing in the cloud that enables you to rapidly develop and deploy a low-cost analytics solution to uncover real-time insights from devices, sensors, infrastructure, and applications. The data from this fully-managed service can scale to any volume while still achieving high throughput, low latency, and resiliency.
 * [Azure App Services][lnk-appservices]: A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE (.NET, Node.js, PHP, Python, or Java) to build web apps and APIs faster than ever.
 * [Azure blob storage][lnk-blob]: Reliable, economical cloud storage for the data that your devices send to the cloud.
@@ -131,6 +131,7 @@ You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-
 [lnk-docdb]: ../documentdb/index.md
 [lnk-asa]: ../stream-analytics/index.md
 [lnk-appservices]: ../app-service/index.md
+
 [lnk-blob]: ../storage/index.md
 
 [lnk-predictive-overview]: ./iot-suite-predictive-overview.md

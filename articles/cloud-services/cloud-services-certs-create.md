@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 ---
 
@@ -38,6 +38,8 @@ Management certificates allow you to authenticate with the classic deployment mo
 
 >[!WARNING]
 > Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with. 
+> 
+> 
 
 ### Limitations
 There is a limit of 100 management certificates per subscription. There is also a limit of 100 management certificates for all subscriptions under a specific service administrator’s user ID. If the user ID for the account administrator has already been used to add 100 management certificates and there is a need for more certificates, you can add a co-administrator to add the additional certificates. 
@@ -62,8 +64,7 @@ There are two easy ways to create a certificate on Windows, with the `makecert.e
 This utility has been deprecated and is no longer documented here. For more information, see [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### PowerShell
-
-```
+```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
@@ -82,16 +83,14 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 There are many pages on the internet that cover how to do this with IIS. [Here](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) is a great one I found that I think explains it well. 
 
 ### Java
-You can use Java to [create a certificate](./java-create-azure-website-using-java-sdk.md#create-a-certificate).
+You can use Java to [create a certificate](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[This](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article describes how to create certificates with SSH.
+[This](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article describes how to create certificates with SSH.
 
 ## Next steps
 
 [Upload your service certificate to the Azure classic portal](./cloud-services-configure-ssl-certificate.md) (or the [Azure portal](./cloud-services-configure-ssl-certificate-portal.md)).
 
-Upload a [management API certificate](./azure-api-management-certs.md) to the Azure classic portal.
+Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal. The Azure portal does not use management certificates for authentication.
 
->[!NOTE]
-> The Azure portal does not use management certificates to access the API but instead uses user accounts.

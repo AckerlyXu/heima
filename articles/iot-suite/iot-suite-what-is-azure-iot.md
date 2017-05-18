@@ -3,21 +3,26 @@ title: Azure solutions for Internet of Things | Azure
 description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions
 services: ''
 suite: iot-suite
-documentationCenter: ''
-authors: dominicbetts
+documentationcenter: ''
+author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 437d2655-896f-4a9e-a4a8-b864790d3ef8
 ms.service: iot-suite
-ms.date: 11/16/2016
-wacn.date: 05/17/2016
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/15/2017
+ms.author: dobett
+
 ---
 
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
-
-The Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions that address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions] and [predictive maintenance][lnk-predictive-maintenance]. These solutions are implementations of the IoT solution architecture outlined in this article.
+The Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions. These solutions address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions], [predictive maintenance][lnk-predictive-maintenance], and [connected factory][lnk-connected-factory]. These solutions are implementations of the IoT solution architecture outlined in this article.
 
 The preconfigured solutions are complete, working, end-to-end solutions that include:
 
@@ -46,3 +51,4 @@ Explore these resources to continue learning about IoT Suite and the preconfigur
 [Azure Machine Learning]: https://www.azure.cn/home/features/machine-learning/
 [Azure storage]: https://www.azure.cn/home/features/storage/
 [lnk-predictive-maintenance]: ./iot-suite-predictive-overview.md
+[lnk-connected-factory]: ./iot-suite-connected-factory-overview.md

@@ -8,12 +8,13 @@ author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
 ms.service: iot-suite
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: corywink
 wacn.date: ''
 ---
@@ -24,8 +25,9 @@ The preconfigured solutions provided with the Azure IoT Suite demonstrate the se
 ## Find the source code
 The source code for the preconfigured solutions is available on GitHub in the following repositories:
 
-- Remote Monitoring: [https://github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
-- Predictive Maintenance: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
+* Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
+* Predictive Maintenance: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
+* Connected factory: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
 The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. You can find more information about how to build and deploy the solutions in the GitHub repositories.
 
@@ -134,7 +136,7 @@ The following code sample from the **SampleDeviceFactory** class in the Common p
 device.Commands.Add(new Command(
     "InitiateFirmwareUpdate",
     DeliveryType.Method,
-    "Updates device Firmware. Use parameter 'FwPackageUri' to specifiy the URI of the firmware file, e.g. https://iotrmassets.blob.core.windows.cn/firmwares/FW20.bin",
+    "Updates device Firmware. Use parameter 'FwPackageUri' to specifiy the URI of the firmware file, e.g. https://iotrmassets.blob.core.chinacloudapi.cn/firmwares/FW20.bin",
     new[] { new Parameter("FwPackageUri", "string") }
 ));
 ```
@@ -284,7 +286,7 @@ To learn more about the options for customizing the preconfigured solutions, see
 [lnk-dynamic]: ./iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
 
-[IoT Device SDK]: ./iot-hub-sdks-summary.md/
+[IoT Device SDK]: ./iot-hub-sdks-summary.md
 [lnk-permissions]: ./iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27

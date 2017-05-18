@@ -13,14 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
 wacn.date: ''
 ---
-
-# Tutorial: Get started with the preconfigured solutions
-
-## Introduction
+# Get started with the preconfigured solutions
 
 Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *remote monitoring* preconfigured solution connects to and monitors your devices. You can use the solution to analyze the stream of data from your devices and to improve business outcomes by making processes respond automatically to that stream of data.
 
@@ -348,7 +345,7 @@ You can also view the source code for the preconfigured solution. The remote mon
 When you are done, you can delete the preconfigured solution from your Azure subscription on the [azureiotsuite.com][lnk-azureiotsuite] site. This site enables you to easily delete all the resources that were provisioned when you created the preconfigured solution.
 
 > [!NOTE]
-> To ensure that you delete everything related to the preconfigured solution, delete it on the [azureiotsuite.com][lnk-azureiotsuite] site and do not simply delete the resource group in the portal.
+> To ensure that you delete everything related to the preconfigured solution, delete it on the [azureiotsuite.com][lnk-azureiotsuite] site and do not delete the resource group in the portal.
 
 ## Next Steps
 

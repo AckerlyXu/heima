@@ -1,6 +1,6 @@
 ---
 title: Use dynamic telemetry | Azure
-description: Follow this tutorial to learn how to use dynamic telemetry with the remote monitoring preconfigured solution.
+description: Follow this tutorial to learn how to use dynamic telemetry with the Azure IoT Suite remote monitoring preconfigured solution.
 services: ''
 suite: iot-suite
 documentationCenter: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 05/15/2017
 ms.author: dobett
 wacn.date: ''
 ---
 
 # Use dynamic telemetry with the remote monitoring preconfigured solution
-## Introduction
+
 Dynamic telemetry enables you to visualize any telemetry sent to the remote monitoring preconfigured solution. The simulated devices that deploy with the preconfigured solution send temperature and humidity telemetry, which you can visualize on the dashboard. If you customize existing simulated devices, create new simulated devices, or connect physical devices to the preconfigured solution you can send other telemetry values such as the external temperature, RPM, or windspeed. You can then visualize this additional telemetry on the dashboard.
 
 This tutorial uses a simple Node.js simulated device that you can easily modify to experiment with dynamic telemetry.
@@ -181,15 +181,14 @@ This change only affects the chart display. The **ExternalTemperature** data val
 
 ## Handle errors
 
-For a data stream to display on the chart, its **Type** in the **Device-Info** metadata must match the data type of the telemetry values. For example, if the metadata specifies that the **Type** of humidity data is **int** and a **double** is found in the telemetry stream then the humidity telemetry does not display on the chart. However, the **Humidity** values are still stored and made available for any backend processing.
+For a data stream to display on the chart, its **Type** in the **Device-Info** metadata must match the data type of the telemetry values. For example, if the metadata specifies that the **Type** of humidity data is **int** and a **double** is found in the telemetry stream then the humidity telemetry does not display on the chart. However, the **Humidity** values are still stored and made available for any back-end processing.
 
 ## Next steps
 
 Now that you've seen how to use dynamic telemetry, you can learn more about how the preconfigured solutions use device information: [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo].
 
 [lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
-[image1]: ./media/iot-suite-dynamic-telemetry/image1.png
-[image2]: ./media/iot-suite-dynamic-telemetry/image2.png
+
 [image3]: ./media/iot-suite-dynamic-telemetry/image3.png
 [image4]: ./media/iot-suite-dynamic-telemetry/image4.png
 [image5]: ./media/iot-suite-dynamic-telemetry/image5.png
