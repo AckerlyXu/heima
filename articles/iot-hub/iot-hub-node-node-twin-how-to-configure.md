@@ -263,7 +263,6 @@ In this tutorial, you set a desired configuration as *desired properties* from a
 Use the following resources to learn how to:
 
 - send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
-* schedule or perform operations on large sets of devices see the [Schedule and broadcast jobs][lnk-schedule-jobs] tutorial.
 - control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- links -->
@@ -276,7 +275,6 @@ Use the following resources to learn how to:
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: ./iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
-[lnk-schedule-jobs]: ./iot-hub-schedule-jobs.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: /develop/iot/
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md

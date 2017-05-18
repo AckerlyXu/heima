@@ -190,13 +190,13 @@ In this tutorial you learned how to create a basic chat application hosted in an
 
 For more information, see also the [Node.js Developer Center](/develop/nodejs/).
 
-  [chatwebsite]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md/
+  [chatwebsite]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
   [Azure SLA]: https://www.azure.cn/support/legal/sla/
   [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
   [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
   [Azure SDK for Node.js]: /develop/nodejs/
-  [Node.js Web Application]: ./cloud-services-nodejs-develop-deploy-app.md/
+  [Node.js Web Application]: ./cloud-services-nodejs-develop-deploy-app.md
   [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
   [Azure Considerations]: #windowsazureconsiderations
   [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole

@@ -378,8 +378,6 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Add push notifications to your app](./app-service-mobile-xamarin-forms-get-started-push.md)  
-  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
 + [Enable offline sync for your app](./app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Learn how to add offline support your app using a Mobile App backend. Offline sync allows end users to interact with a mobile app - viewing, adding,

@@ -108,5 +108,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ## Additional resources
 
-[How to Configure Cloud Services](./cloud-services-how-to-configure.md/)
+[How to Configure Cloud Services](./cloud-services-how-to-configure.md)
 [Cloud services FAQ - Remote Desktop](./cloud-services-faq.md#remote-desktop)
