@@ -36,7 +36,7 @@ To complete this tutorial you need the following:
 
 + Node.js version 0.10.x or later.
 
-+ An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
++ An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have an IoT hub and a device identity called **myDeviceId**; and you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
 
@@ -52,8 +52,8 @@ In this section, you create a Node.js console app that connects to your hub as *
     ```
     npm init
     ```
-2. At your command-prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
-
+2. At your command prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
+   
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
@@ -97,10 +97,11 @@ In this section, you create a Node.js console app that connects to your hub as *
     The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
 
     Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
-
-    > [!IMPORTANT]
-    > Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
-
+   
+   > [!IMPORTANT]
+   > Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
+   > 
+   > 
 5. Add the following methods before the `client.open()` invocation:
 
     ```
@@ -147,10 +148,11 @@ In this section, you create a Node.js console app that connects to your hub as *
     The **initConfigChange** method updates reported properties on the local device twin object with the configuration update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the device twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local device twin's reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the device twin on the service.
 
     Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
-
-    > [!NOTE]
-    > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
-
+   
+   > [!NOTE]
+   > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
+   > 
+   > 
 6. Run the device app:
 
     ```
@@ -213,7 +215,9 @@ In this section, you will create a Node.js console app that updates the *desired
     The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object. After that, it calls the **queryTwins** function event 10 seconds.
 
     > [!IMPORTANT]
-    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
+    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events, use [twin notifications][lnk-twin-notifications].
+    > 
+    >
 
 1. Add the following code right before the `registry.getDeviceTwin()` invocation to implement the **queryTwins** function:
 
@@ -254,26 +258,26 @@ In this section, you will create a Node.js console app that updates the *desired
    > 
 
 ## Next steps
-In this tutorial, you set a desired configuration as *desired properties* from a back-end application, and wrote a simulated device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the device twin.
+In this tutorial, you set a desired configuration as *desired properties* from a back-end app, and wrote a simulated device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the device twin.
 
 Use the following resources to learn how to:
 
 - send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
-- schedule or perform operations on large sets of devices see the [Use jobs to schedule and broadcast device operations][lnk-schedule-jobs] tutorial.
+* schedule or perform operations on large sets of devices see the [Schedule and broadcast jobs][lnk-schedule-jobs] tutorial.
 - control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- links -->
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-free-trial]: /pricing/1rmb-trial/
 
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
-[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: ./iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: ./iot-hub-device-management-overview.md/
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: ./iot-hub-schedule-jobs.md/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: /develop/iot/
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md

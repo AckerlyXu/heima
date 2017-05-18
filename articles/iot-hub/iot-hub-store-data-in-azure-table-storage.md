@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # Save IoT Hub messages that contain information like sensor data to Azure table storage
 
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/3.png)
+
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## What you will learn
@@ -34,7 +36,7 @@ You learn how to create an Azure storage account and an Azure Function App to st
 
 ## What you will need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](./iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Setup your device](./iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A running application that sends messages to your Azure IoT hub.
@@ -44,7 +46,7 @@ You learn how to create an Azure storage account and an Azure Function App to st
 1. In the Azure portal, click **New** > **Storage** > **Storage account**.
 1. Enter the necessary information for the storage acount:
 
-   ![Create an storage account in the Azure Portal](.\media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
+   ![Create an storage account in the Azure Portal](./media/iot-hub-store-data-in-azure-table-storage/1_azure-portal-create-storage-account.png)
 
    **Name**: The name of the storage account. The name must be globally unique.
 
@@ -69,7 +71,7 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
    - Event Hub-compatible endpoint
    - Event Hub-compatible name
 
-   ![Get the connection string of your IoT hub endpoint in the Azure portal](.\media\iot-hub-store-data-in-azure-table-storage\2_azure-portal-iot-hub-endpoint-connection-string.png)
+   ![Get the connection string of your IoT hub endpoint in the Azure portal](./media/iot-hub-store-data-in-azure-table-storage/2_azure-portal-iot-hub-endpoint-connection-string.png)
 
 1. On the **IoT Hub** pane, click **Shared access policies** under **SETTINGS**.
 1. Click **iothubowner**.
@@ -94,7 +96,7 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
 1. In the [Azure portal](https://portal.azure.cn/), click **New** > **Compute** > **Function App**.
 1. Enter the necessary information for the Function App.
 
-   ![Create an Fuction App in the Azure portal](.\media\iot-hub-store-data-in-azure-table-storage\3_azure-portal-create-function-app.png)
+   ![Create an Fuction App in the Azure portal](./media/iot-hub-store-data-in-azure-table-storage/3_azure-portal-create-function-app.png)
 
    **App name**: The name of the Function App. The name must be globally unique.
 
@@ -111,7 +113,7 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
    1. Click the **EventHubTrigger-JavaScript** template.
    1. Enter the necessary information for the template.
 
-      **Name your function**: The name of the functio.
+      **Name your function**: The name of the function.
 
       **Event Hub name**: The Event Hub-compatible name you noted down.
 
@@ -120,32 +122,18 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
 1. Configure an output of the function.
    1. Click **Integrate** > **New Output** > **Azure Table Storage** > **Select**.
 
-      ![Add a table storage to your Fuction App in the Azure portal](.\media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
+      ![Add a table storage to your Fuction App in the Azure portal](./media/iot-hub-store-data-in-azure-table-storage/4_azure-portal-function-app-add-output-table-storage.png)
    1. Enter the necessary information.
 
+      **Table parameter name**: Use `outputTable` for the name, which will be used in the Azure Functions' code.
+      
       **Table name**: Use `deviceData` for the name.
 
-      **Storage account connection**: Click **new** and select your storage account.
+      **Storage account connection**: Click **new** and select or input your storage account.
    1. Click **Save**.
 1. Under **Triggers**, click **Azure Event Hub (myEventHubTrigger)**.
 1. Under **Event Hub consumer group**, enter the name of the consumer group that you created, and then click **Save**.
 1. Click **Develop**, and then click **View files**.
-1. Click **Add** to add a new file named `package.json`, paste in the following information, and then click **Save**.
-
-   ```json
-   {
-      "name": "iothub_save_message_to_table",
-      "version": "0.0.1",
-      "private": true,
-      "main": "index.js",
-      "author": "Microsoft Corp.",
-      "dependencies": {
-         "azure-iothub": "1.0.9",
-         "azure-iot-common": "1.0.7",
-         "moment": "2.14.1"
-      }
-   }
-   ```
 1. Replace the code in `index.js` with the following, and then click **Save**.
 
    ```javascript
@@ -153,34 +141,20 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
 
    // This function is triggered each time a message is revieved in the IoTHub.
    // The message payload is persisted in an Azure Storage Table
-   var moment = require('moment');
-
+ 
    module.exports = function (context, iotHubMessage) {
-      context.log('Message received: ' + JSON.stringify(iotHubMessage));
-      context.bindings.outputTable = {
-      "partitionKey": moment.utc().format('YYYYMMDD'),
-         "rowKey": moment.utc().format('hhmmss') + process.hrtime()[1] + '',
-         "message": JSON.stringify(iotHubMessage)
-      };
-      context.done();
+    context.log('Message received: ' + JSON.stringify(iotHubMessage));
+    var date = Date.now();
+    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
+    var rowKey = date + '';
+    context.bindings.outputTable = {
+     "partitionKey": partitionKey,
+     "rowKey": rowKey,
+     "message": JSON.stringify(iotHubMessage)
+    };
+    context.done();
    };
    ```
-1. Click **Function app settings** > **Open dev console**.
-
-   You should be at the `wwwroot` folder of the Function App.
-1. Go to the function folder by running the following command:
-
-   ```bash
-   cd <your function name>
-   ```
-1. Install the npm package by running the following command:
-
-   ```bash
-   npm install
-   ```
-
-   > [!Note]
-   > The installation may take some time to complete.
 
 By now, you have created the Function App. It stores messages that your IoT hub receives in your Azure table storage.
 

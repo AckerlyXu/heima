@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Gateway Starter Kit | Azure
+title: 'Simulated device & Azure IoT Gateway - Get started | Azure'
 description: Get started with IoT Gateway Starter Kit, create your Azure IoT hub, and connect Gateway to the IoT hub
 services: iot-hub
 documentationcenter: ''
@@ -14,8 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-wacn.date: ''
+ms.date: 3/21/2017
 ms.author: xshi
 ---
 
@@ -33,7 +32,7 @@ In this tutorial, you begin by learning the basics of working with [IoT Gateway 
 ## Lesson 1: Configure your NUC
 ![Lesson1 end-to-end diagram](./media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
-In this lesson, you set up Intel NUC (Next Unit of Computing) in the Kit as an Azure IoT gateway, install the Azure IoT Gateway SDK package on NUC, and run a sample app to verify the gateway functionality.
+In this lesson, you set up Intel NUC (Next Unit of Computing) in the Kit as an Azure IoT gateway, install the Azure IoT Edge package on NUC, and run a sample app to verify the gateway functionality.
 
 *Estimated time to complete: 15 minutes*
 
@@ -61,7 +60,7 @@ Create your resource group, provision your first Azure IoT hub, and add your fir
 Go to [Create an IoT hub and register your device](./iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
 ## Lesson 3: Receive messages from the simulated device and read messages from your IoT hub
-In this lesson, you will use scripts to automate the configuration and execution of a simulated device app in your gateway. The simulated device app generates sample temperature data and sends it to an IoT hub module. The IoT hub module packages the data received and sends it to your IoT hub through the gateway framework provided in the Azure IoT Gateway SDK.
+In this lesson, you will use scripts to automate the configuration and execution of a simulated device app in your gateway. The simulated device app generates sample temperature data and sends it to an IoT hub module. The IoT hub module packages the data received and sends it to your IoT hub through the gateway framework provided in Azure IoT Edge.
 
 ![Lesson 3 end-to-end diagram](./media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson3.png)
 

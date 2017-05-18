@@ -13,8 +13,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
-wacn.date: ''
+ms.date: 03/16/2017
 ms.author: dobett
 ---
 
@@ -40,12 +39,14 @@ At the end of this tutorial, you run two Node.js console apps:
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
+> 
+> 
 
 To complete this tutorial, you need the following:
 
 + Node.js version 0.10.x or later.
 
-+ An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
++ An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 ## Receive messages in the simulated device app
 In this section, you modify the simulated device app you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
@@ -65,9 +66,11 @@ In this section, you modify the simulated device app you created in [Get started
         });
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
-            var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
+            var temperature = 20 + (Math.random() * 15);
+            var humidity = 60 + (Math.random() * 20);            
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
             var message = new Message(data);
+            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
         }, 1000);
@@ -76,7 +79,9 @@ In this section, you modify the simulated device app you created in [Get started
     ```
 
    > [!NOTE]
-   >If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
+   > If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
+   > 
+   > 
 
 ## Send a cloud-to-device message
 In this section, you create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Get started with IoT Hub] tutorial. You also need the IoT Hub connection string for your hub that you can find in the [Azure portal].
@@ -164,14 +169,16 @@ You are now ready to run the applications.
     ```
 
     ![Run the app to send the cloud-to-device command][img-send-command]
-
-    > [!NOTE]
-    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
+   
+   > [!NOTE]
+   > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
+   > 
+   > 
 
 ## Next steps
 In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-<!-- To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite]. -->
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
@@ -186,7 +193,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md/
 [Azure IoT Developer Center]: /develop/iot/
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.cn
-[Azure IoT Suite]: ../iot-suite/index.md
+[Azure IoT Suite]: /documentation/services/iot-suite/

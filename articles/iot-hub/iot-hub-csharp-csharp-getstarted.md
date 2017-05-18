@@ -35,7 +35,7 @@ At the end of this tutorial, you have three .NET console apps:
 To complete this tutorial, you need the following:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -99,6 +99,7 @@ In this section, you create a .NET console app that creates a device identity in
 > 
 > 
 
+<a id="D2C_csharp"></a>
 ## Receive device-to-cloud messages
 In this section, you create a .NET console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Azure Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. To learn how to process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial. For more information about how to process messages from Event Hubs, see the [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial. (This tutorial is applicable to the IoT Hub Event Hub-compatible endpoints.)
 
@@ -189,34 +190,36 @@ In this section, you create a .NET console app that simulates a device that send
     static string deviceKey = "{device key}";
     ```
 6. Add the following method to the **Program** class:
-
-    ```
-    private static async void SendDeviceToCloudMessagesAsync()
-    {
-        double avgWindSpeed = 10; // m/s
-        Random rand = new Random();
-
-        while (true)
+   
+        private static async void SendDeviceToCloudMessagesAsync()
         {
-            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
-
-            var telemetryDataPoint = new
+            double minTemperature = 20;
+            double minHumidity = 60;
+            Random rand = new Random();
+   
+            while (true)
             {
-                deviceId = "myFirstDevice",
-                windSpeed = currentWindSpeed
-            };
-            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-            var message = new Message(Encoding.ASCII.GetBytes(messageString));
-
-            await deviceClient.SendEventAsync(message);
-            Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
-
-            Task.Delay(1000).Wait();
+                double currentTemperature = minTemperature + rand.NextDouble() * 15;
+                double currentHumidity = minHumidity + rand.NextDouble() * 20;
+   
+                var telemetryDataPoint = new
+                {
+                    deviceId = "myFirstDevice",
+                    temperature = currentTemperature,
+                    humidity = currentHumidity
+                };
+                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+                var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                message.Properties.Add("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
+   
+                await deviceClient.SendEventAsync(message);
+                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
+   
+                await Task.Delay(1000);
+            }
         }
-    }
-    ```
-
-    This method sends a new device-to-cloud message every second. The message contains a JSON-serialized object, with the device ID and a randomly generated number to simulate a wind speed sensor.
+   
+    This method sends a new device-to-cloud message every second. The message contains a JSON-serialized object, with the device ID and randomly generated numbers to simulate a temperature sensor, and a humidity sensor.
 7. Finally, add the following lines to the **Main** method:
 
     ```
@@ -256,7 +259,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with the IoT Gateway SDK][lnk-gateway-SDK]
+* [Getting started with IoT Edge][lnk-gateway-SDK]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
@@ -285,6 +288,6 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
-[lnk-device-management]: ./iot-hub-device-management-get-started.md/
+[lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: /develop/iot/

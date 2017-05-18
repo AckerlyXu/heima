@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 wacn.date: ''
 ms.author: dobett
 ---
@@ -52,41 +52,44 @@ In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToC
 
 ```
 private static async void SendDeviceToCloudMessagesAsync()
+{
+    double minTemperature = 20;
+    double minHumidity = 60;
+    Random rand = new Random();
+
+    while (true)
     {
-        double avgWindSpeed = 10; // m/s
-        Random rand = new Random();
+        double currentTemperature = minTemperature + rand.NextDouble() * 15;
+        double currentHumidity = minHumidity + rand.NextDouble() * 20;
 
-        while (true)
+        var telemetryDataPoint = new
         {
-            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+            deviceId = "myFirstDevice",
+            temperature = currentTemperature,
+            humidity = currentHumidity
+        };
+        var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+        string levelValue;
 
-            var telemetryDataPoint = new
-            {
-                deviceId = "myFirstDevice",
-                windSpeed = currentWindSpeed
-            };
-            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-            string levelValue;
-
-            if (rand.NextDouble() > 0.7)
-            {
-                messageString = "This is a critical message";
-                levelValue = "critical";
-            }
-            else
-            {
-                levelValue = "normal";
-            }
-
-            var message = new Message(Encoding.ASCII.GetBytes(messageString));
-            message.Properties.Add("level", levelValue);
-
-            await deviceClient.SendEventAsync(message);
-            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-            await Task.Delay(1000);
+        if (rand.NextDouble() > 0.7)
+        {
+            messageString = "This is a critical message";
+            levelValue = "critical";
         }
+        else
+        {
+            levelValue = "normal";
+        }
+        
+        var message = new Message(Encoding.ASCII.GetBytes(messageString));
+        message.Properties.Add("level", levelValue);
+        
+        await deviceClient.SendEventAsync(message);
+        Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
+
+        await Task.Delay(1000);
     }
+}
 ```
 
 This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
@@ -195,22 +198,22 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 <!-- Links -->
 
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: ../data-factory/index.md
-[HDInsight (Hadoop)]: ../hdinsight/index.md
+[Azure Data Factory]: /documentation/services/data-factory/
+[HDInsight (Hadoop)]: /documentation/services/hdinsight/
 [Service Bus Queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
-[Azure Storage]: ../storage/index.md
-[Azure Service Bus]: ../service-bus/index.md
+[Azure Storage]: /documentation/services/storage/
+[Azure Service Bus]: /documentation/services/service-bus/
 
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [Get started with IoT Hub]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [Azure IoT Developer Center]: /develop/iot
-[lnk-service-fabric]: ../service-fabric/index.md
-[lnk-stream-analytics]: ../stream-analytics/index.md
-[lnk-event-hubs]: ../event-hubs/index.md
+[lnk-service-fabric]: /documentation/services/service-fabric/
+[lnk-stream-analytics]: /documentation/services/stream-analytics/
+[lnk-event-hubs]: /documentation/services/event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
@@ -226,4 +229,4 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-csharp-csharp-process-d2c.md
-[lnk-suite]: ../iot-suite/index.md
+[lnk-suite]: /documentation/services/iot-suite/

@@ -3,8 +3,9 @@ Welcome to Microsoft Azure and the Internet of Things (IoT). This article introd
 
 Azure IoT Hub is a key building block when you implement this IoT solution architecture using Azure services. IoT Suite provides complete, end-to-end, implementations of this architecture for specific IoT scenarios. For example: 
 
-- The *remote monitoring* solution enables you to monitor the status of devices such as vending machines. 
-- The *predictive maintenance* solution helps you to anticipate maintenance needs of devices such as pumps in remote pumping stations and to avoid unscheduled downtime.
+* The *remote monitoring* solution enables you to monitor the status of devices such as vending machines.
+* The *predictive maintenance* solution helps you to anticipate maintenance needs of devices such as pumps in remote pumping stations and to avoid unscheduled downtime.
+* The *connected factory* solution helps you to connect and monitor your industrial devices.
 
 ## IoT solution architecture
 The following diagram shows a typical IoT solution architecture. The diagram does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. In this architecture, IoT devices collect data that they send to a cloud gateway. The cloud gateway makes the data available for processing by other back-end services from where data is delivered to other line-of-business applications or to human operators through a dashboard or other presentation device.
@@ -16,7 +17,7 @@ The following diagram shows a typical IoT solution architecture. The diagram doe
 
 ### Device connectivity
 
-In this IoT solution architecture, devices send telemetry, such as sensor readings from a pumping station, to a cloud endpoint for storage and processing. In a predictive maintenance scenario, the solution back end might use the stream of sensor data to determine when a specific pump requires maintenance. Devices can also receive and respond to cloud-to-device messages by reading messages from a cloud endpoint. For example, in the predictive maintenance scenario the solution back end might send messages to other pumps in the pumping station to begin rerouting flows just before maintenance is due to start to make sure the maintenance engineer can get started when she arrives.
+In this IoT solution architecture, devices send telemetry, such as sensor readings from a pumping station, to a cloud endpoint for storage and processing. In a predictive maintenance scenario, the solution back end might use the stream of sensor data to determine when a specific pump requires maintenance. Devices can also receive and respond to cloud-to-device messages by reading messages from a cloud endpoint. For example, in the predictive maintenance scenario the solution back end might send messages to other pumps in the pumping station to begin rerouting flows just before maintenance is due to start. This procedure would make sure the maintenance engineer could get started as soon as she arrives.
 
 One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
 
@@ -53,7 +54,7 @@ The presentation and business connectivity layer allows end users to interact wi
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
-[lnk-machinelearning]: /services/machine-learning/
+
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

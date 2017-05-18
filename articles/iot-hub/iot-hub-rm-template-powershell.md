@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 05/04/2017
 ms.author: dobett
 
 ---
@@ -40,13 +40,26 @@ To complete this tutorial, you need the following:
 
 In a PowerShell command prompt, enter the following command to sign in to your Azure subscription:
 
-```
+```powershell
 Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+```
+
+If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+
+```powershell
+Get-AzureRMSubscription
+```
+
+Use the following command to select subscription that you want to use to run the commands to create your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 You can use the following commands to discover where you can deploy an IoT hub and the currently supported API versions:
 
-```
+```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
@@ -122,6 +135,8 @@ Use a JSON template to create an IoT hub in your resource group. You can also us
 
 > [!NOTE]
 > This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [Azure portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> 
+> 
 
 ## Next steps
 Now you have deployed an IoT hub using an Azure Resource Manager template with PowerShell, you may want to explore further:
@@ -136,7 +151,7 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

@@ -13,8 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
-wacn.date: ''
+ms.date: 05/04/2017
 ms.author: dobett
 ---
 
@@ -155,6 +154,8 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 
 > [!NOTE]
 > This example application adds an S1 Standard IoT Hub for which you are billed. When you are finished, you can delete the IoT hub through the [Azure portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> 
+> 
 
 ## Next steps
 Now you have deployed an IoT hub using the resource provider REST API, you may want to explore further:
@@ -169,7 +170,7 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the IOT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

@@ -45,15 +45,15 @@ To learn more about planning your IoT Hub deployment, see [Scaling, HA, and DR][
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-gateway]
 
 [lnk-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [Security section of the IoT Hub developer guide]: ./iot-hub-devguide-security.md
-[Event Hub - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hub publisher policies]: ../event-hubs/event-hubs-what-is-event-hubs.md#event-publishers.md
+[Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
+[Event Hubs publisher policies]: ../event-hubs/event-hubs-features.md#event-publishers
 [Azure Service Bus quotas]:../service-bus-messaging/service-bus-quotas.md
 [Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md

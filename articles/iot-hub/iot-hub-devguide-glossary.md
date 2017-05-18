@@ -13,8 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-wacn.date: ''
+ms.date: 05/02/2017
 ms.author: dobett
 ---
 
@@ -25,16 +24,17 @@ This article lists some of the common terms used in the IoT Hub articles.
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](./iot-hub-devguide-messaging.md).
 
 ## Azure CLI
-The [Azure CLI](../xplat-cli-install.md/) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI is implemented using Node.js.
+The [Azure CLI](../cli-install-nodejs.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI is implemented using Node.js.
 
-## Azure CLI 2.0 (Preview)
-The [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This preview version of the CLI is implemented using Python.
+## Azure CLI 2.0
+The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This preview version of the CLI is implemented using Python.
+
 
 ## Azure IoT device SDKs
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
 
-## Azure IoT Gateway SDK
-This SDK enables you to write applications that enable gateway-connected devices to communicate with [IoT Hub](#iot-hub). The IoT Hub gateway tutorials show you how to use this SDK. You can find the source code and further information about the Azure IoT Gateway SDK in this GitHub [repository](https://github.com/Azure/azure-iot-gateway-sdk).
+## Azure IoT Edge
+TIoT Edge enables you to write applications that enable gateway-connected devices to communicate with [IoT Hub](#iot-hub). The IoT Edge tutorials show you how to use this service. You can find the source code and further information about Azure IoT Edge in this GitHub [repository](https://github.com/Azure/iot-edge).
 
 ## Azure IoT service SDKs
 There are _service SDKs_ available for multiple languages that enable you to create [back-end apps](#back-end-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these service SDKs. You can find the source code and further information about the service SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
@@ -58,7 +58,7 @@ The [Microsoft Azure portal](https://portal.azure.cn) is a central place where y
 In the context of [IoT Hub](#iot-hub), a back-end app is an app that connects to one of the service-facing endpoints on an IoT hub. For example, a back-end app might retrieve [device-to-cloud](#device-to-cloud)messages or manage the [identity registry](#identity-registry). Typically, a back-end app runs in the cloud, but in many of the tutorials the back-end apps are console apps running on your local development machine.
 
 ## Built-in endpoints
-Every IoT hub includes a built-in [endpoint](./iot-hub-devguide-endpoints.md) that is Event Hubs-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
+Every IoT hub includes a built-in [endpoint](./iot-hub-devguide-endpoints.md) that is Event Hub-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
 
 ## Cloud gateway
 A cloud gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). A cloud gateway is hosted in the cloud in contrast to a [field gateway](#field-gateway) that runs local to your devices. A typical use case for a cloud gateway is to implement protocol translation for your devices.
@@ -75,7 +75,7 @@ You use connection strings in your app code to encapsulate the information requi
 You can create custom [endpoints](./iot-hub-devguide-endpoints.md) on an IoT hub to deliver messages dispatched by a [routing rule](#routing-rules). Custom endpoints connect directly to an Event hub, a Service Bus queue, or a Service Bus topic.
 
 ## Custom gateway
-A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use the [Azure IoT Gateway SDK](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages and custom protocol conversions.
+A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use  [Azure IoT Edge](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages and custom protocol conversions.
 
 ## Data-point message
 A data-point message is a [device-to-cloud](#device-to-cloud) message that contains [telemetry](#telemetry) data such as wind speed or temperature.
@@ -186,7 +186,7 @@ Your solution back end can use [jobs](./iot-hub-devguide-jobs.md) to schedule an
 The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables you manage [jobs](#job) running in your IoT hub.
 
 ## Module
-In the [Azure IoT Gateway SDK](./iot-hub-linux-gateway-sdk-get-started.md), a [module](./iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. The Azure IoT Gateway SDK includes a set of sample modules. You can also create your own custom modules.
+In [Azure IoT Edge](./iot-hub-linux-gateway-sdk-get-started.md), a [module](./iot-hub-linux-gateway-sdk-get-started.md) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
 
 ## MQTT
 [MQTT](http://mqtt.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](./iot-hub-devguide-messaging.md).
@@ -207,7 +207,7 @@ A protocol gateway is typically deployed in the cloud and provides protocol tran
 There are various [quotas](./iot-hub-devguide-quotas-throttling.md) that apply to your use of [IoT Hub](#iot-hub), many of the quotas vary based on the tier of the IoT hub. [IoT Hub](#iot-hub) also applies [throttles](./iot-hub-devguide-quotas-throttling.md) to your use of the service at run time.
 
 ## Reported configuration
-In the context of a [device twin](./iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that the device reports to the solution back end.
+In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that should be reported to the solution back end.
 
 ## Reported properties
 In the context of a [device twin](./iot-hub-devguide-device-twins.md), reported properties is a subsection of the device twin used with [desired properties](#desired-properties) to synchronize device configuration or condition. Reported properties can only be set by the [device app](#device-app) and can be read and queried by a [back-end app](#back-end-app).

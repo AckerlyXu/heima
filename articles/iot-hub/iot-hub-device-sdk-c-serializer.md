@@ -28,7 +28,7 @@ Finally, the article revisits some topics covered in previous articles such as m
 
 Everything described in this article is based on the **serializer** SDK samples. If you want to follow along, see the **simplesample\_amqp** and **simplesample\_http** applications included in the Azure IoT device SDK for C.
 
-You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## The modeling language
 
@@ -58,6 +58,8 @@ What’s not demonstrated in this sample are additional data types that are supp
 
 > [!NOTE]
 > IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
+> 
+> 
 
 ### Supported data types
 
@@ -539,7 +541,6 @@ The two other actions **TurnFanOn** and **TurnFanOff** can be invoked by sending
 This section described everything you need to know when sending events and receiving messages with the **serializer** library. Before moving on, let's cover some parameters you can configure that control how large your model is.
 
 ## Macro configuration
-
 If you’re using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
 If you have cloned the Azure-iot-sdk-c repository from GitHub using the --recursive option, then you will find this shared utility library here:
 
@@ -685,7 +686,7 @@ To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-gateway]
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 

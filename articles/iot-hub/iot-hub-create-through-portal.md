@@ -13,8 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-wacn.date: ''
+ms.date: 05/02/2017
 ms.author: dobett
 ---
 
@@ -97,6 +96,8 @@ You can change the settings of an existing IoT hub after it is created from the 
 ## Endpoints
 Click **Endpoints** to display a list of endpoints for the IoT hub that you are modifying. There are two types of endpoints: endpoints that are built into the IoT hub, and endpoints that you add to the IoT hub after its creation.
 
+![][11]
+
 ### Built-in endpoints
 There are two built-in endpoints: **Cloud to device feedback** and **Events**.
 
@@ -111,12 +112,10 @@ There are two built-in endpoints: **Cloud to device feedback** and **Events**.
 
     * **Consumer Groups**: Consumer groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs using this setting.
 
-> [!NOTE]
-> The default consumer group cannot be edited or deleted.
-> 
-> 
-
-![][11]
+    > [!NOTE]
+    > The default consumer group cannot be edited or deleted.
+    > 
+    > 
 
 ### Custom endpoints
 You can add custom endpoints on your IoT hub using the portal. From the **Endpoints** blade, click **Add** at the top to open the **Add endpoint** blade. Enter the required information, then click **OK**. Your custom endpoint is now listed in the main **Endpoints** blade.
@@ -157,7 +156,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-gateway]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png

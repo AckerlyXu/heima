@@ -50,7 +50,7 @@ To complete this tutorial, you need the following:
 
 * Visual Studio 2015 or Visual Studio 2017.
 * Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
-* An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -237,7 +237,7 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
-To continue getting started with IoT Hub, see [Getting started with the IoT Gateway SDK][lnk-gateway-SDK].
+To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-gateway-SDK].
 
 <!-- images and links -->
 [img-output]: ./media/iot-hub-get-started-with-dm/image6.png
