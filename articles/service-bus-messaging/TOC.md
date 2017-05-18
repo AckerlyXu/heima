@@ -13,7 +13,7 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-brokered-tutorial-rest.md)
+### [REST](service-bus-dotnet-get-started-with-queues.md)
 ## Use topics and subscriptions
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
@@ -21,7 +21,7 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Generate Shared Access Signatures](service-bus-sas-overview.md)
+## [Generate Shared Access Signatures](service-bus-sas.md)
 
 # How To
 ## Plan and design
@@ -35,25 +35,24 @@
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
-### [Premium messaging](service-bus-premium-messaging.md)
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
 ### [Transaction processing](service-bus-transactions.md)
 ### [AMQP developer's guide]
 #### [.NET](service-bus-amqp-dotnet.md)
-#### [Java](service-bus-amqp-java.md)
-#### [PHP](service-bus-amqp-php.md)
-#### [Python](service-bus-amqp-python.md)
-#### [Apache](service-bus-amqp-apache.md)
-### [Use AMQP with the .NET API](service-bus-dotnet-advanced-message-queuing.md)
-### [Use AMQP with partitioned queues and topics](service-bus-partitioned-queues-and-topics-amqp-overview.md)
+#### [Java](service-bus-java-how-to-use-jms-api-amqp.md)
+#### [PHP](service-bus-php-how-to-use-queues.md)
+#### [Python](service-bus-python-how-to-use-queues.md)
+#### [Apache](service-bus-amqp-overview.md)
+### [Use AMQP with the .NET API](service-bus-amqp-dotnet.md)
+### [Use AMQP with partitioned queues and topics](service-bus-amqp-protocol-guide.md)
 ### [Paired namespaces](service-bus-paired-namespaces.md)
 ### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
 
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
 ### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
-### [Using PowerShell to provision entities](service-bus-powershell-how-to-provision.md)
+### [Using PowerShell to provision entities](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)

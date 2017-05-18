@@ -329,5 +329,5 @@ To learn more about AMQP, visit the following links:
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Service Bus AMQP overview]: ./service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx

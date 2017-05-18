@@ -39,7 +39,7 @@ For the complete template, see the [Service Bus auth rule template][] on GitHub.
 
 With this template, you will deploy a Service Bus authorization rule for a namespace and messaging entity (in this case, a queue).
 
-This template uses [Shared Access Signature (SAS)](./service-bus-sas-overview.md) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
+This template uses [Shared Access Signature (SAS)](./service-bus-sas.md) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
 
 To run the deployment automatically, click the following button:
 
@@ -166,7 +166,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-- [Manage Service Bus with PowerShell](./service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus with PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 - [Service Bus authentication and authorization](./service-bus-authentication-and-authorization.md)
 

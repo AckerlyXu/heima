@@ -24,7 +24,7 @@ Azure supports two types of queue mechanisms: **Storage queues** and **Service B
 
 **Storage Queues**, which are part of the [Azure storage](https://www.azure.cn/home/features/storage/) infrastructure, feature a simple REST-based Get/Put/Peek interface, providing reliable, persistent messaging within and between services.
 
-**Service Bus queues** are part of a broader [Azure messaging](https://www.azure.cn/home/features/messaging/) infrastructure that supports queuing as well as publish/subscribe, and more advanced integration patterns. For more information about Service Bus queues/topics/subscriptions, see the [overview of Service Bus](./service-bus-messaging-overview.md).
+**Service Bus queues** are part of a broader [Azure messaging](https://www.azure.cn/home/features/messaging/) infrastructure that supports queuing as well as publish/subscribe, and more advanced integration patterns. For more information about Service Bus queues/topics/subscriptions, see the [overview of Service Bus](./service-bus-messaging-overview.md).
 
 While both queuing technologies exist concurrently, Storage queues were introduced first, as a dedicated queue storage mechanism built on top of the Azure storage services. Service Bus queues are built on top of the broader "messaging" infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
 
@@ -47,7 +47,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 
 - Your solution requires the queue to provide a guaranteed first-in-first-out (FIFO) ordered delivery.
 
-- You want a symmetric experience in Azure and on Windows Server (private cloud). For more information, see [Service Bus for Windows Server](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx).
+- You want a symmetric experience in Azure and on Windows Server (private cloud). For more information, see [Service Bus for Windows Server](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx).
 
 - Your solution must be able to support automatic duplicate detection.
 
@@ -144,7 +144,7 @@ This section compares Storage Queues and Service Bus queues from the perspective
 | Comparison Criteria | Storage queues | Service Bus Queues |
 | --- | --- | --- |
 | Maximum queue size |**200 TB**<br/><br/>(limited to a single storage account capacity) |**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
-| Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item. |**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
+| Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item. |**256 KB** <br/><br/>(including both header and body, maximum header size: 64 KB). |
 | Maximum message TTL |**7 days** |**`TimeSpan.Max`** |
 | Maximum number of queues |**Unlimited** |**10,000**<br/><br/>(per service namespace, can be increased) |
 | Maximum number of concurrent clients |**Unlimited** |**Unlimited**<br/><br/>(100 concurrent connection limit only applies to TCP protocol-based communication) |
@@ -161,7 +161,7 @@ This section compares Storage Queues and Service Bus queues from the perspective
 
 - When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, subsequent requests for additional connections will be rejected and an exception will be received by the calling code. This limit is not imposed on clients connecting to the queues using REST-based API.
 
-- If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure classic portal][].
+- If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure classic portal][].
 
 ## Management and operations
 This section compares the management features provided by Storage queues and Service Bus queues.
@@ -203,9 +203,9 @@ This section discusses the authentication and authorization features supported b
 
 ### Additional information
 
-- Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using [SAS](./service-bus-sas-overview.md), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
+- Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using [SAS](./service-bus-sas.md), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
 
-- The authentication scheme provided by Storage queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
+- The authentication scheme provided by Storage queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-sas.md).
 
 ## Conclusion
 By gaining a deeper understanding of the two technologies, you will be able to make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on a number of factors. These factors may depend heavily on the individual needs of your application and its architecture. If your application already uses the core capabilities of Microsoft Azure, you may prefer to choose Storage queues, especially if you require basic communication and messaging between services or need queues that can be larger than 80 GB in size.

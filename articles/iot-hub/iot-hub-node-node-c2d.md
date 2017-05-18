@@ -188,9 +188,9 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 
 <!-- Links -->
 
-[Get started with IoT Hub]: ./iot-hub-node-node-getstarted.md/
+[Get started with IoT Hub]: ./iot-hub-node-node-getstarted.md
 [IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
-[IoT Hub Developer Guide]: ./iot-hub-devguide.md/
+[IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [Azure IoT Developer Center]: /develop/iot/
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md

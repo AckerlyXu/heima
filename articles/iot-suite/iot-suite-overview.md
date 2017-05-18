@@ -48,13 +48,13 @@ IoT Suite includes preconfigured solutions that enable you to quickly get starte
 ## Next steps
 Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite. For more information, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
 
-[lnk-sdks]: ../iot-hub/iot-hub-sdks-summary.md/
+[lnk-sdks]: ../iot-hub/iot-hub-sdks-summary.md
 [lnk-iot-hub]: ../iot-hub/index.md
 [lnk-asa]: ../stream-analytics/index.md
 [lnk-azure-storage]: ../storage/index.md
 [lnk-document-db]: ../documentdb/index.md
 [lnk-power-bi]: https://powerbi.microsoft.com/
 [lnk-web-apps]: ../app-service-web/index.md
-[iot-suite-what-is-azure-iot]:./iot-suite-what-is-azure-iot.md/
-[lnk-what-are-preconfig]:./iot-suite-what-are-preconfigured-solutions.md/
+[iot-suite-what-is-azure-iot]:./iot-suite-what-is-azure-iot.md
+[lnk-what-are-preconfig]:./iot-suite-what-are-preconfigured-solutions.md
 [lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md

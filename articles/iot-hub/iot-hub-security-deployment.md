@@ -25,4 +25,4 @@ To further explore the capabilities of IoT Hub, see:
 
 * [Simulating a device with Azure IoT Edge][lnk-gateway]
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md/
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md

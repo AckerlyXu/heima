@@ -29,11 +29,11 @@ Azure Resource Manager templates help you define the resources to deploy for a s
 ## Service Bus Resource Manager templates
 These Service Bus Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub:
 
-- [Create a Service Bus namespace](./service-bus-resource-manager-namespace.md/)
-- [Create a Service Bus namespace with queue](./service-bus-resource-manager-namespace-queue.md/)
-- [Create a Service Bus namespace with topic and subscription](./service-bus-resource-manager-namespace-topic.md/)
-- [Create a Service Bus namespace with queue and authorization rule](./service-bus-resource-manager-namespace-auth-rule.md/)
-- [Create a Service Bus namespace with topic, subscription, and rule](./service-bus-resource-manager-namespace-topic-with-rule.md/)
+- [Create a Service Bus namespace](./service-bus-resource-manager-namespace.md)
+- [Create a Service Bus namespace with queue](./service-bus-resource-manager-namespace-queue.md)
+- [Create a Service Bus namespace with topic and subscription](./service-bus-resource-manager-namespace-topic.md)
+- [Create a Service Bus namespace with queue and authorization rule](./service-bus-resource-manager-namespace-auth-rule.md)
+- [Create a Service Bus namespace with topic, subscription, and rule](./service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## Deploy with PowerShell
 

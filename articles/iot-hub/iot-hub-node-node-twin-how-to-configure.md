@@ -274,9 +274,9 @@ Use the following resources to learn how to:
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-twin-notifications]: ./iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
-[lnk-dm-overview]: ./iot-hub-device-management-overview.md/
+[lnk-dm-overview]: ./iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
-[lnk-schedule-jobs]: ./iot-hub-schedule-jobs.md/
+[lnk-schedule-jobs]: ./iot-hub-schedule-jobs.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: /develop/iot/
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
