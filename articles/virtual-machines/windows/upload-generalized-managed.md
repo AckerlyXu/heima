@@ -40,7 +40,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 ## Generalize the Windows VM using Sysprep
 
@@ -63,7 +63,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 6. When Sysprep completes, it shuts down the virtual machine. Do not restart the VM.
 
 ## Log in to Azure
-If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
 
@@ -108,7 +108,7 @@ If you need to create a storage account, follow these steps:
     New-AzureRmResourceGroup -Name myResourceGroup -Location "China North"
     ```
 
-2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
+2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
 
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "China North" `

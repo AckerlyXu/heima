@@ -34,11 +34,13 @@ Test the migration process by migrating a test virtual machine before performing
 You cannot convert an unmanaged VM created in the Resource Manager deployment model to Managed Disks if any of the attached unmanaged disks is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to convert unmanaged VM that are, or have been, in an encrypted storage account:
 
 **Data Disks**:
+
 1. Detach the Data Disk from the VM.
 2. Copy the VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 /Dest:https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
 3. Attach the copied disk to the VM and convert the VM.
 
 **OS Disk**:
+
 1. Stop deallocated the VM. Save the VM configuration if needed.
 2. Copy the OS VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 /Dest:https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3. Create a VM that uses managed disks and attach that VHD file as the OS disk during creation.
@@ -92,7 +94,7 @@ This section covers how to convert your existing Azure VMs from unmanaged disks 
 
 This section will show you how to convert your existing Azure VMs on Standard unmanaged disks to Premium managed disks. In order to use Premium Managed Disks, your VM must use a [VM size](sizes.md) that supports Premium storage.
 
-1. First, set the common parameters. Make sure the [VM size](sizes.md) you select supports Premium storage.
+1.  First, set the common parameters. Make sure the [VM size](sizes.md) you select supports Premium storage.
 
     ```powershell
     $resourceGroupName = 'YourResourceGroupName'

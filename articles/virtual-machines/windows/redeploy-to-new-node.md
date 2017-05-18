@@ -25,7 +25,7 @@ If you have been facing difficulties troubleshooting Remote Desktop (RDP) connec
 > After you redeploy a VM, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated. 
 
 ## Using Azure PowerShell
-Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 The following example deploys the VM named `myVM` in the resource group named `myResourceGroup`:
 

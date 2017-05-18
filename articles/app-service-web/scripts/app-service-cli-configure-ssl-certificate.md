@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 04/10/2017
 wacn.date: ''
 ms.author: cephalin
@@ -32,7 +32,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 ## Sample script
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 fqdn=<Replace with www.{yourdomain}>

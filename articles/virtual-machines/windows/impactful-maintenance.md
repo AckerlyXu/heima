@@ -63,7 +63,8 @@ Each Azure region is paired with another region within the same
 geography, together making a regional pair. When executing maintenance,
 Azure will only update the Virtual Machine instances in a single region
 of its pair. For example, when updating the Virtual Machines in
-China North, Azure will not update any Virtual Machines in China East at the same time. This will be scheduled at a separate time, enabling
+China North, Azure will not update any Virtual Machines in China East
+at the same time. This will be scheduled at a separate time, enabling
 failover or load balancing between regions.
 
 ### Single Instance VMs vs. Availability Set or VM scale set

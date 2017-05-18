@@ -1,6 +1,6 @@
 # Overview
 ## [What is SQL Server on Azure VMs?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/windows/)
+## [Pricing](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
 
 # Get Started
@@ -36,7 +36,7 @@
 ## [Application patterns](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server Drivers](https://msdn.microsoft.com/library/mt654049.aspx)

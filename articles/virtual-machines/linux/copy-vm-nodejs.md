@@ -45,6 +45,7 @@ Ensure that you meet the following prerequisites before you start the steps:
 | Source VM VHD file name |`azure storage blob list --container <containerName>` |
 
 * You will need to make some choices about your new VM: 
+
     - Container name
     - VM name 
     - VM size 

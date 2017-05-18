@@ -35,7 +35,7 @@ These steps show you how to customize a set of Azure PowerShell commands that cr
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
 
 ## Step 1: Add your account
 1. At the PowerShell prompt, type **Add-AzureAccount -Environment AzureChinaCloud** and click **Enter**. 
@@ -114,7 +114,7 @@ Optionally, to add the Windows computer to an existing Active Directory domain, 
     $domacctdomain="<domain of the account that has permission to add the machine to the domain>"
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
-For additional pre-configuration options for Windows-based virtual machines, see the syntax for the **Windows** and **WindowsDomain** parameter sets in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+For additional pre-configuration options for Windows-based virtual machines, see the syntax for the **Windows** and **WindowsDomain** parameter sets in [Add-AzureProvisioningConfig](https://docs.microsoft.com/powershell/module/azure/add-azureprovisioningconfig).
 
 Optionally, assign the virtual machine a specific IP address, known as a static DIP.
 

@@ -26,7 +26,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
 ## Overview
-[About virtual machines](windows/about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About virtual machines](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Frequently asked question about Azure Virtual Machines created with the classic deployment model](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -35,7 +35,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Environment setup
 [Trial account](https://www.azure.cn/pricing/1rmb-trial/)
 
-[Install Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+[Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 [Install Azure CLI](../cli-install-nodejs.md)
 
@@ -141,7 +141,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
-[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+[Azure Service Management PowerShell cmdlet reference documentation](https://docs.microsoft.com/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## Troubleshooting
 [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

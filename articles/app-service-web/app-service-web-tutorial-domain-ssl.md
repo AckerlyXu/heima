@@ -309,4 +309,4 @@ In your browser, navigate to HTTPS endpoint of your custom domain name. For exam
 https://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)  
+![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)

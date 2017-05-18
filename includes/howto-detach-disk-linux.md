@@ -100,7 +100,7 @@ After you find the LUN number of the disk and removed the operating system refer
 
     ```azurecli
     info:    Executing command vm disk list
-   
+
     * Fetching disk images
     * Getting virtual machines
     * Getting VM disks

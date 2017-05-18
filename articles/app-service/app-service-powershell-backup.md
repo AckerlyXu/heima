@@ -47,7 +47,7 @@ A SAS URL can be generated with PowerShell. Here is an example of how to generat
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## Install Azure PowerShell 1.3.2 or greater
-See [Using Azure PowerShell with Azure Resource Manager](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for instructions on installing and using Azure PowerShell.
+See [Using Azure PowerShell with Azure Resource Manager](https://docs.microsoft.com/powershell/azure/overview) for instructions on installing and using Azure PowerShell.
 
 ## Create a backup
 Use the New-AzureRmWebAppBackup cmdlet to create a backup of a web app.

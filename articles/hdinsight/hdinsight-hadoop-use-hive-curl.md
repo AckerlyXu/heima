@@ -96,7 +96,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
         > Notice that the spaces between HiveQL statements are replaced by the `+` character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by `+`.
 
     * **INPUT__FILE__NAME LIKE '%25.log'** - This statement limits the search to only use files ending in .log.
-    
+
         > [!NOTE]
         > The `%25` is the URL encoded form of %, so the actual condition is `like '%.log'`. The % has to be URL encoded, as it is treated as a special character in URLs.
 
@@ -115,7 +115,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
     If the job has finished, the state is **SUCCEEDED**.
 
     > [!NOTE]
-    > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job. jq is used to retrieve only the state value.
+    > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job. Jq is used to retrieve only the state value.
 
 4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/curl**. This address stores the output in the **example/curl** directory in the clusters default storage.
 
@@ -129,7 +129,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. this statement creates an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. This statement creates an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
 
         > [!NOTE]
         > Unlike external tables, dropping an internal table deletes the underlying data as well.

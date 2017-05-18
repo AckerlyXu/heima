@@ -71,8 +71,8 @@
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
 ### [Troubleshoot Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
-## [PowerShell (Classic)](https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation)
+## [PowerShell (Classic)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://docs.microsoft.com/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)

@@ -71,9 +71,7 @@ Other than the brand name, a few things in the portal have been renamed or group
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
-## More Resources
 [Azure Portal Preview]: https://portal.azure.cn
-[Azure Marketplace]: /marketplace/
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)

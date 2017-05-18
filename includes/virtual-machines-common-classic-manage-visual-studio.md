@@ -52,10 +52,10 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
 
     ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
-    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](/azure/virtual-machines-set-up-endpoints) for more information.
+    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](/virtual-machines/virtual-machines-set-up-endpoints/) for more information.
 
     > [!NOTE]
-    > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/virtual-machines/virtual-machines-set-up-endpoints) for more information.
+    > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/virtual-machines/virtual-machines-set-up-endpoints/) for more information.
     > 
     > 
 10. After you're done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.

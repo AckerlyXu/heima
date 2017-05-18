@@ -47,7 +47,7 @@ To use Automated Patching, consider the following prerequisites:
 
 **Azure PowerShell**:
 
-* [Install the latest Azure PowerShell commands](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+* [Install the latest Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/overview).
 
 **SQL Server IaaS Extension**:
 

@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -30,9 +30,9 @@ To increase the size of a managed data disk, use the following PowerShell cmdlet
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
-| [Get-AzureRMReseourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup?view=azurermps-3.8.0) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?view=azurermps-3.8.0)                  |
-| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-3.8.0)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-3.8.0) |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm?view=azurermps-3.8.0)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-3.8.0)             |
+| [Get-AzureRMReseourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm)                 |
+| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm)                        | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk) |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm)                    | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm)             |
 <br>
 
 The following script will walk you through getting the VM information, selecting the data disk and specifying the new size.
@@ -59,7 +59,7 @@ The following script will walk you through getting the VM information, selecting
         -Title "Select a data disk" `
         -PassThru
 
-# Specify a larger size for the data disk 
+# Specify a larger size for the data disk
 
     $size =  Read-Host `
         -Prompt "New size in GB"
@@ -92,9 +92,9 @@ To increase the size of unmanaged data disks in a storage account, use the follo
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
-| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-3.8.0) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?view=azurermps-3.8.0)                  |
-| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-3.8.0)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-3.8.0) |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm?view=azurermps-3.8.0)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-3.8.0)             |
+| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm)                 |
+| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk) |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm)             |
 
 <br>
 
@@ -125,7 +125,7 @@ The following script will walk you through getting the VM and storage account in
             -Title "Select a data disk to resize" `
             -PassThru
 
-# Specify a larger data disk size 
+# Specify a larger data disk size
 
     $size =  Read-Host `
         -Prompt "New size in GB"
@@ -149,9 +149,9 @@ The following script will walk you through getting the VM and storage account in
 
 ```
 
-## Allocate the unallocated disk space 
+## Allocate the unallocated disk space
 
-Once you have made the drive larger, you need to allocate the new unallocated space from within the VM. To allocate the space, you can connect to the VM use Disk Management (diskmgmt.msc). Or, if you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
+Once you have made the drive larger, you need to allocate the new unallocated space from within the VM. To allocate the space, you can connect to the VM use Disk Management (diskmgmt.msc). Or, if you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension:
 
 ```powershell
     $location = "location-name"

@@ -236,7 +236,7 @@ Before you deploy the template provided with this documentation, make sure you u
     ```
 
 ## Deploy the template by using PowerShell
-To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) article and then complete the following steps:
+To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article and then complete the following steps:
 
 Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 

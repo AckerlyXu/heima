@@ -31,7 +31,7 @@ This tutorial shows you how to create a virtual machine scale set **without** us
 
 If you're using Azure CLI 2.0 or Azure PowerShell to create a scale set, you first need to sign in to your subscription.
 
-For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/resourcemanager/).
+For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -57,7 +57,7 @@ New-AzureRmResourceGroup -Location chinanorth -Name vmss-test-1
 
 ## Create from Azure CLI
 
-With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, the are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
+With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, they are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
 - A load balancer
 - A virtual network
 - A public IP address

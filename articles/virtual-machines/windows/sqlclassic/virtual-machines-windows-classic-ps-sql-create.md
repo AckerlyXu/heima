@@ -30,7 +30,7 @@ For the Resource Manager version of this topic, see [Provision a SQL Server virt
 
 ### Install and configure PowerShell:
 1. If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-2. [Download and install the latest Azure PowerShell commands](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+2. [Download and install the latest Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/overview).
 3. Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount** command.
 
         Add-AzureAccount -Environment AzureChinaCloud

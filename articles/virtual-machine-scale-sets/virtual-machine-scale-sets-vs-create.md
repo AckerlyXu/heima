@@ -59,7 +59,7 @@ To get started deploying Virtual Machine Scale Sets in Visual Studio, you need t
     ![Solution Explorer][solution_explorer]
 
 ## Customize your project
-Now you can edit the Template to customize it for your application's needs, such as adding VM extension properties or editing load balancing rules. By default the Virtual Machine Scale Set Templates are configured to deploy the AzureDiagnostics extension. It also deploys a load balancer with a public IP address, configured with inbound NAT rules.
+Now you can edit the Template to customize it for your application's needs, such as adding VM extension properties or editing load balancing rules. By default the Virtual Machine Scale Set Templates are configured to deploy the AzureDiagnostics extension. It also deploys a load balancer with a public IP address, configured with inbound NAT rules. 
 
 The load balancer lets you connect to the VM instances with SSH (Linux) or RDP (Windows). The front-end port range starts at 50000. For linux this means that if you SSH to port 50000, you are routed to port 22 of the first VM in the Scale Set. Connecting to port 50001 is routed to port 22 of the second VM and so on.
 
@@ -93,7 +93,7 @@ Once the deployment completes, you can view the new Virtual Machine Scale Set in
 
 ![Cloud Explorer][cloud_explorer]
 
- The portal provides the best way to visually manage your Azure infrastructure with a web browser, while Azure Resource Explorer provides an easy way to explorer and debug Azure resources, giving a window into the "instance view" and also showing PowerShell commands for the resources you are looking at. While Virtual Machine Scale Sets are in preview, the Resource Explorer shows the most detail for your Virtual Machine Scale Sets.
+ The portal provides the best way to visually manage your Azure infrastructure with a web browser, while Azure Resource Explorer provides an easy way to explore and debug Azure resources, giving a window into the "instance view" and also showing PowerShell commands for the resources you are looking at. While Virtual Machine Scale Sets are in preview, the Resource Explorer shows the most detail for your Virtual Machine Scale Sets.
 
 ## Next steps
 Once you've successfully deployed Virtual Machine Scale Sets through Visual Studio, you can further customize your project to suit your application requirements. For example, configure adding infrastructure to your Template (like standalone VMs), or deploying applications using the custom script extension. Good example templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository (search for "vmss").

@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
@@ -29,7 +29,7 @@ In this scenario you will create a resource group, two app service plans, two we
 
 ## Sample script
 
-```azurecli
+```azurecli-interactive
 #/bin/bash
 
 # Variables

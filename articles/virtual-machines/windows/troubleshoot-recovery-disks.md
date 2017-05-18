@@ -31,7 +31,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-Make sure that you have [the latest Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) installed and logged in to your subscription:
+Make sure that you have [the latest Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed and logged in to your subscription:
 
 ```powershell
 Login-AzureRMAccount -EnvironmentName AzureChinaCloud

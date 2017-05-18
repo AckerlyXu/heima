@@ -73,7 +73,7 @@ You need the following prerequisites before trying to run the PowerShell command
 
 * An Azure subscription.
 * A configured virtual network. See [Virtual Network Overview](virtual-networks-overview.md) for more information about VNets.
-* The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+* The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 To create a VM with multiple NICs, complete the following steps by entering each command within a single PowerShell session:
 

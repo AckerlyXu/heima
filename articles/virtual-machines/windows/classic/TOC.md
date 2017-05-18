@@ -9,7 +9,7 @@
 # Get started
 ## [Create a VM using the portal](tutorial.md)
 ## [Log on to a VM](connect-logon.md)
-## [Install Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 
 # How to
@@ -88,7 +88,7 @@
 ## [Reset RDP password](reset-rdp.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)
