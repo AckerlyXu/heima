@@ -18,6 +18,8 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 wacn.date: ''
 ms.author: jroth
+experimental: true
+experimental_id: a641df96-f27d-40
 
 ---
 # Provision a SQL Server virtual machine in the Azure Portal Preview
@@ -43,8 +45,7 @@ In this tutorial, you will:
 
     > [!NOTE]
     > If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-    > 
-    > 
+
 2. On the Azure portal preview, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
 3. In the **New** blade, click **Compute** and then click **See all**.
 4. In the **Filter** text box type SQL Server, and press the ENTER key.
@@ -56,6 +57,10 @@ In this tutorial, you will:
 
    > [!TIP]
    > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM.
+
+   > [!NOTE]
+   > SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create (except for the Developer and Express editions). SQL Server Developer is free for development/testing (not production) and SQL Express is free for lightweight workloads (less than 1GB memory, less than 10 GB storage).
+   > There is another option to bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on these options, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 7. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. Click **Create**.
 
@@ -94,7 +99,7 @@ On the **Basics** blade, provide the following information:
 On the **Size** step, choose a virtual machine size in the **Choose a size** blade. The blade initially displays recommended machine sizes based on the image you selected.
 
 > [!IMPORTANT]
-> The estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone. For the Express and Developer editions of SQL Server, this is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://www.azure.cn/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. 
+> The estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone. For the Express and Developer editions of SQL Server, this is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://www.azure.cn/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 ![SQL VM Size Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -102,8 +107,6 @@ For production workloads, we recommend selecting a virtual machine size that sup
 
 > [!NOTE]
 > For more information about virtual machine sizes see, [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
-> 
-> 
 
 Choose your machine size, and then click **Select**.
 
@@ -120,7 +123,7 @@ On the **Settings** blade, configure Azure storage, networking, and monitoring f
 * Under **Storage account**, you can accept the automatically provisioned storage account name. You can also click on **Storage account** to choose an existing account and configure the storage account type. By default, Azure creates a new storage account with locally redundant storage. For more information about storage options, see [Azure Storage replication](../../../storage/storage-redundancy.md).
 * Under **Network**, you can accept the automatically populated values. You can also click on each feature to manually configure the **Virtual network**, **Subnet**, **Public IP address**, and **Network Security Group**. For the purposes of this tutorial, keep the default values.
 * Azure enables **Monitoring** by default with the same storage account designated for the VM. You can change these settings here.
-* Under **Availability set**, specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availability Groups, configure the availability to avoid recreating the virtual machine. For more information, see [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Under **Availability set**, specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availability Groups, configure the availability to avoid recreating the virtual machine.  For more information, see [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 When you are done configuring these settings, click **OK**.
 

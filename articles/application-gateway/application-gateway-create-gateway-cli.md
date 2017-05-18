@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/03/2017
 wacn.date: ''
 ms.author: gwallace
 
@@ -76,7 +76,7 @@ Open the **Azure Command Prompt**, and log in.
 az login -u "username"
 ```
 
->[NOTE]
+> [!NOTE]
 > You can also use `az login` without the switch for device login that will require entering a code at aka.ms/devicelogin.
 
 Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
@@ -131,8 +131,7 @@ az network application-gateway create \
 --cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
 --cert-password P@ssw0rd \
 --capacity 2 \
---sku-tier Standard \
---sku-name Standard_Small \
+--sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --frontend-port 443 \
@@ -146,6 +145,14 @@ az network application-gateway create \
 
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
 If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
+
+## Delete all resources
+
+To delete all resources created in this article, complete the following steps:
+
+```azurecli
+az group delete --name AdatumAppGatewayRG
+```
 
 ## Next steps
 
