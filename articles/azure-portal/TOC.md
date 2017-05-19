@@ -20,7 +20,6 @@
 
 
 ### [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md)
-### [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Related
 ## [Azure resource manager template functions](../azure-resource-manager/resource-group-template-functions.md)

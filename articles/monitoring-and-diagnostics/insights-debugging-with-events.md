@@ -68,6 +68,5 @@ Once you have finished choosing what you want to see, click the **Update** butto
 
 ## Next steps
 
-* [Receive alert notifications](./insights-receive-alert-notifications.md) whenever an event happens.
+
 * [Monitor service metrics](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
-* [Track service health](./insights-service-health.md) to find out when Azure has experienced performance degradation or service interruptions.

@@ -25,7 +25,6 @@ The Service Bus messaging samples demonstrate key features in [Service Bus](http
 >
 >Additionally, there is an updated set of Service Bus messaging samples [here](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (as of this writing, they are not described in this article). Relay samples are [here](https://github.com/Azure-Samples/azure-servicebus-relay-samples). 
 
-For relay samples, see [Service Bus relay samples](./service-bus-relay-samples.md).
 
 ## Service Bus messaging
 

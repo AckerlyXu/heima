@@ -57,7 +57,7 @@ You can edit these jobs directly to alter the logic, or add logic specific to yo
 In addition to changing the preconfigured Azure Stream Analytics jobs, you can use the Azure portal to add new jobs or add new queries to existing jobs.
 
 ## Customize devices
-One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the [IoT Device SDK][IoT Device SDK] to connect your physical device to the solution.
+One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the IoT Device SDK to connect your physical device to the solution.
 
 For a step-by-step guide to adding devices, see the [Iot Suite Connecting Devices](./iot-suite-connecting-devices.md) article and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). This sample is designed to work with the remote monitoring preconfigured solution.
 
@@ -278,15 +278,13 @@ Do you have a customization you'd like to see covered in this document? Add feat
 
 To learn more about the options for customizing the preconfigured solutions, see:
 
-- [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapp]
 - [Use dynamic telemetry with the remote monitoring preconfigured solution][lnk-dynamic]
 - [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo]
 
-[lnk-logicapp]: ./iot-suite-logic-apps-tutorial.md
 [lnk-dynamic]: ./iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
 
-[IoT Device SDK]: ./iot-hub-sdks-summary.md
+
 [lnk-permissions]: ./iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
