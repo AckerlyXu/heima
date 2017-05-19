@@ -333,5 +333,5 @@ Now that you've learned the basics of Service Bus topics and subscriptions, foll
   [Topic filters sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
   [SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
-  [Service Bus Brokered Messaging .NET Tutorial]: ./service-bus-brokered-tutorial-dotnet.md
+  [Service Bus Brokered Messaging .NET Tutorial]: ./service-bus-dotnet-get-started-with-queues.md
   [Azure Samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

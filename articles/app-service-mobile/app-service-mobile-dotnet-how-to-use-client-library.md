@@ -1216,7 +1216,7 @@ public async Task CallClientWithHandler()
 [4]: https://msdn.microsoft.com/zh-cn/library/azure/mt419521(v=azure.10).aspx
 [5]: https://github.com/Azure-Samples
 [6]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
-[7]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[7]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [8]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
 [10]: http://www.symbolsource.org/

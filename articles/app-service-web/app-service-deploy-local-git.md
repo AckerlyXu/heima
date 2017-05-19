@@ -151,7 +151,7 @@ The following are errors or problems commonly encountered when using Git to publ
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
-* [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
 [Azure App Service]: /app-service-web/app-service-changes-existing-services/

@@ -104,12 +104,12 @@ Use the following steps to run a Hive query that will execute using Tez.
     * **All Tasks** displays a list of the tasks for all vertices in this DAG.
     * **All TaskAttempts** displays information about the attempts to run tasks for this DAG.
 
-        > [!NOTE]
-        > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
-        >
-        >
+    > [!NOTE]
+    > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
+    >
+    >
 
-        If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
+    If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
 8. Select **Graphical View**. This displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
 
     ![Graphical view](./media/hdinsight-debug-tez-ui/dagdiagram.png)

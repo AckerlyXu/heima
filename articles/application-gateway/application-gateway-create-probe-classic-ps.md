@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 wacn.date: ''
 ms.author: gwallace
 
@@ -26,7 +26,7 @@ ms.author: gwallace
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+In this article, you add a custom probe to an existing application gateway with PowerShell. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](application-gateway-create-probe-ps.md).
@@ -41,7 +41,7 @@ To create an application gateway:
 2. Create a configuration XML file or a configuration object.
 3. Commit the configuration to the newly created application gateway resource.
 
-### Create an application gateway resource
+### Create an application gateway resource with a custom probe
 
 To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -64,15 +64,9 @@ Get-AzureApplicationGateway AppGwTest
 
 *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These values are created once the gateway is in the running state.
 
-## Configure an application gateway
-
-You can configure the application gateway by using XML or a configuration object.
-
-## Configure an application gateway by using XML
+### Configure an application gateway by using XML
 
 In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
-
-### Step 1
 
 Copy the following text to Notepad.
 
@@ -151,67 +145,63 @@ A new configuration item \<Probe\> is added to configure custom probes.
 
 The configuration parameters are:
 
-* **Name** - Reference name for custom probe.
-* **Protocol** - Protocol used (possible values are HTTP or HTTPS).
-* **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
-* **Interval** - Configures the probe interval checks in seconds.
-* **Timeout** - Defines the probe time-out for an HTTP response check.
-* **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
+|Parameter|Description|
+|---|---|
+|**Name** |Reference name for custom probe. |
+* **Protocol** | Protocol used (possible values are HTTP or HTTPS).|
+| **Host** and **Path** | Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.|
+| **Interval** | Configures the probe interval checks in seconds.|
+| **Timeout** | Defines the probe time-out for an HTTP response check.|
+| **UnhealthyThreshold** | The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.|
 
 The probe name is referenced in the \<BackendHttpSettings\> configuration to assign which back-end pool uses custom probe settings.
 
-## Add a custom probe configuration to an existing application gateway
+## Add a custom probe to an existing application gateway
 
 Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have a custom probe, and configure the application gateway with the new XML settings.
 
-### Step 1
+1. Get the XML file by using `Get-AzureApplicationGatewayConfig`. This cmdlet exports the configuration XML to be modified to add a probe setting.
 
-Get the XML file by using `Get-AzureApplicationGatewayConfig`. This cmdlet exports the configuration XML to be modified to add a probe setting.
+    ```powershell
+    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+    ```
 
-```powershell
-Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-```
+1. Open the XML file in a text editor. Add a `<probe>` section after `<frontendport>`.
 
-### Step 2
+    ```xml
+    <Probes>
+        <Probe>
+            <Name>Probe01</Name>
+            <Protocol>Http</Protocol>
+            <Host>contoso.com</Host>
+            <Path>/path/custompath.htm</Path>
+            <Interval>15</Interval>
+            <Timeout>15</Timeout>
+            <UnhealthyThreshold>5</UnhealthyThreshold>
+        </Probe>
+    </Probes>
+    ```
 
-Open the XML file in a text editor. Add a `<probe>` section after `<frontendport>`.
+    In the backendHttpSettings section of the XML, add the probe name as shown in the following example:
 
-```xml
-<Probes>
-    <Probe>
-        <Name>Probe01</Name>
-        <Protocol>Http</Protocol>
-        <Host>contoso.com</Host>
-        <Path>/path/custompath.htm</Path>
-        <Interval>15</Interval>
-        <Timeout>15</Timeout>
-        <UnhealthyThreshold>5</UnhealthyThreshold>
-    </Probe>
-</Probes>
-```
+    ```xml
+        <BackendHttpSettings>
+            <Name>setting1</Name>
+            <Port>80</Port>
+            <Protocol>Http</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+            <RequestTimeout>120</RequestTimeout>
+            <Probe>Probe01</Probe>
+        </BackendHttpSettings>
+    ```
 
-In the backendHttpSettings section of the XML, add the probe name as shown in the following example:
+    Save the XML file.
 
-```xml
-    <BackendHttpSettings>
-        <Name>setting1</Name>
-        <Port>80</Port>
-        <Protocol>Http</Protocol>
-        <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-        <RequestTimeout>120</RequestTimeout>
-        <Probe>Probe01</Probe>
-    </BackendHttpSettings>
-```
+1. Update the application gateway configuration with the new XML file by using `Set-AzureApplicationGatewayConfig`. This cmdlet updates your application gateway with the new configuration.
 
-Save the XML file.
-
-### Step 3
-
-Update the application gateway configuration with the new XML file by using `Set-AzureApplicationGatewayConfig`. This cmdlet updates your application gateway with the new configuration.
-
-```powershell
-Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
-```
+    ```powershell
+    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+    ```
 
 ## Next steps
 

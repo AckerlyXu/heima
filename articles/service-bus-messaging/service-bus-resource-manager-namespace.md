@@ -142,12 +142,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## Next steps
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by reading these articles:
 
-- [Manage Service Bus with PowerShell](./service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus with PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Authoring Azure Resource Manager Templates]: ../azure-resource-manager/resource-group-authoring-templates.md
   [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
-  [Service Bus pricing and billing]: ./service-bus-pricing-billing.md/
+  [Service Bus pricing and billing]: ./service-bus-pricing-billing.md
   [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

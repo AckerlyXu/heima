@@ -55,7 +55,7 @@ Before you begin, make sure that you have the latest version of the AzureRM.Comp
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 1. Create some variables. 
 

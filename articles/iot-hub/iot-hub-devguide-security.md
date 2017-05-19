@@ -191,7 +191,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > 
 > 
 
-### Use SAS tokens in a device app
+### <a name="use-sas-tokens-in-a-device-client"></a> Use SAS tokens in a device app
 There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access key](#use-a-shared-access-policy).
 
 Remember that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.

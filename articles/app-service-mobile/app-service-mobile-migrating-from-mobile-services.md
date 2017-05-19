@@ -34,7 +34,7 @@ continue to operate normally.  Migration restarts your service once it is transf
 Microsoft is recommending that you migrate your Azure Mobile Service to take advantage of the features of Azure App Service, including:
 
   *  New host features, including [WebJobs] and [custom domain names].
-  *  Connectivity to your on-premise resources using [VNet] in addition to [Hybrid Connections].
+  *  Connectivity to your on-premise resources using VNet in addition to [Hybrid Connections].
   *  Monitoring and troubleshooting with New Relic or [Application Insights].
   *  Built-in DevOps tooling, including [staging slots], roll-back, and in-production testing.
   *  [Auto-scale], load balancing, and [performance monitoring].
@@ -445,6 +445,6 @@ Now that your application is migrated to App Service, there are even more featur
 [Postman]: http://www.getpostman.com/
 [Back up your Mobile Service]: /documentation/articles/mobile-services-disaster-recovery/
 [staging slots]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
+
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: ''
 ms.author: rachelap;robmcm
 

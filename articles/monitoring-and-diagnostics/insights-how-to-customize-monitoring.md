@@ -72,6 +72,5 @@ Like with metrics, you can use the [REST API](https://msdn.microsoft.com/zh-cn/l
 
 ## Next steps
 
-* [Receive alert notifications](./insights-receive-alert-notifications.md) whenever a metric crosses a threshold.
 * [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
 * [Scale instance count automatically](./insights-how-to-scale.md) to make sure your service is available and responsive.

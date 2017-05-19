@@ -59,8 +59,6 @@ When you have connected your device to IoT Hub, you can explore additional scena
 | [Manage your IoT device][Mg_IoT_Dv]               | iothub-explorer tool               |
 | [Save IoT Hub messages to Azure storage][Sv_IoT_Msg_Stor]                      | Azure table storage               |
 | [Visualize sensor data][Vis_Data]             | Microsoft Power BI, Azure Web Apps |
-| [Forecast weather with sensor data][Weather_Forecast] | Azure Machine Learning             |
-| [Automatic anomaly detection and reaction][Anomaly_Detect]    | Azure Logic Apps                   |
 
 ## Next steps
 
@@ -85,7 +83,5 @@ When you have completed these tutorials, you can further explore the capabilitie
 [Mg_IoT_Dv]: ./iot-hub-device-management-iothub-explorer.md
 [Sv_IoT_Msg_Stor]: ./iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data]: ./iot-hub-live-data-visualization-in-power-bi.md
-[Weather_Forecast]: ./iot-hub-weather-forecast-machine-learning.md
-[Anomaly_Detect]: ./iot-hub-monitoring-notifications-with-azure-logic-apps.md
 [lnk-dev-guide]: ./iot-hub-devguide.md
 [lnk-how-to]: ./iot-hub-how-to.md

@@ -556,6 +556,6 @@ Now that you've built an application that uses the Service Bus relay service, se
 
 * [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure Relay overview](./relay-what-is-it.md)
-* [How to use the WCF relay service with .NET](./service-bus-dotnet-how-to-use-relay.md)
+
 
 [Azure portal]: https://portal.azure.cn

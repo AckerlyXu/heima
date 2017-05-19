@@ -20,7 +20,7 @@ ms.author: elioda
 
 # Upload files from your simulated device to the cloud with IoT Hub
 ## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. The ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Process Device-to-Cloud messages] tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example, large files that contain images, videos, vibration data sampled at high frequency, or some form of preprocessed data. These files are typically batch processed in the cloud using tools such as [Azure Data Factory] or the [Hadoop] stack. When file uploads from a device are preferred to sending events, you can still use IoT Hub security and reliability functionality.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. The ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Process Device-to-Cloud messages] tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example, large files that contain images, videos, vibration data sampled at high frequency, or some form of preprocessed data. These files are typically batch processed in the cloud using tools such as the [Hadoop] stack. When file uploads from a device are preferred to sending events, you can still use IoT Hub security and reliability functionality.
 
 This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub] tutorial to show you how to use the file upload capabilities of IoT Hub. It shows you how to:
 
@@ -177,7 +177,7 @@ To further explore the capabilities of IoT Hub, see:
 
 [Azure portal]: https://portal.azure.cn/
 
-[Azure Data Factory]: /documentation/services/data-factory/
+
 [Hadoop]: /documentation/services/hdinsight/
 
 [Send Cloud-to-Device messages with IoT Hub]: ./iot-hub-csharp-csharp-c2d.md

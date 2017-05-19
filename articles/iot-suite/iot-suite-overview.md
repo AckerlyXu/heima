@@ -29,7 +29,7 @@ The Azure internet of things (IoT) services offer a broad range of capabilities.
 - Integrate with back-office systems
 - Manage your devices
 
-To deliver these capabilities, Azure IoT Suite packages together multiple Azure services with custom extensions as *preconfigured solutions*. These preconfigured solutions are base implementations of common IoT solution patterns that help to reduce the time you take to deliver your IoT solutions. Using the [IoT software development kits][lnk-sdks], you can customize and extend these solutions to meet your own requirements. You can also use these solutions as examples or templates when you are developing new IoT solutions.
+To deliver these capabilities, Azure IoT Suite packages together multiple Azure services with custom extensions as *preconfigured solutions*. These preconfigured solutions are base implementations of common IoT solution patterns that help to reduce the time you take to deliver your IoT solutions. Using the IoT software development kits, you can customize and extend these solutions to meet your own requirements. You can also use these solutions as examples or templates when you are developing new IoT solutions.
 
 ## Azure IoT services in Azure IoT Suite
 The preconfigured solutions typically use the following services:
@@ -48,13 +48,13 @@ IoT Suite includes preconfigured solutions that enable you to quickly get starte
 ## Next steps
 Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite. For more information, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
 
-[lnk-sdks]: ../iot-hub/iot-hub-sdks-summary.md/
+
 [lnk-iot-hub]: ../iot-hub/index.md
 [lnk-asa]: ../stream-analytics/index.md
 [lnk-azure-storage]: ../storage/index.md
 [lnk-document-db]: ../documentdb/index.md
 [lnk-power-bi]: https://powerbi.microsoft.com/
 [lnk-web-apps]: ../app-service-web/index.md
-[iot-suite-what-is-azure-iot]:./iot-suite-what-is-azure-iot.md/
-[lnk-what-are-preconfig]:./iot-suite-what-are-preconfigured-solutions.md/
+[iot-suite-what-is-azure-iot]:./iot-suite-what-is-azure-iot.md
+[lnk-what-are-preconfig]:./iot-suite-what-are-preconfigured-solutions.md
 [lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md

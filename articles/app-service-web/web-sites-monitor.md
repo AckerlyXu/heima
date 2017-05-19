@@ -177,8 +177,7 @@ From here you can change the (3) **time range**, (4) **chart type**, and
 You can learn more about metrics here: [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## Alerts and Autoscale
-Metrics for an App or App Service plan can be hooked up to alerts, to learn
-more about this, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+Metrics for an App or App Service plan can be hooked up to alerts
 
 App Service apps hosted in basic, standard or premium App Service Plans
 support **autoscale**. This allows you to configure rules that monitor the

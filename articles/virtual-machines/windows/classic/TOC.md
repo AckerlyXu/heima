@@ -4,12 +4,11 @@
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
 ## [Compare VMs, websites, and cloud services](../../../app-service-web/choose-web-site-cloud-service-vm.md)
-## [Containers](../../virtual-machines-windows-containers.md)
 
 # Get started
 ## [Create a VM using the portal](tutorial.md)
 ## [Log on to a VM](connect-logon.md)
-## [Install Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 
 # How to
@@ -39,7 +38,6 @@
 
 ## Configure
 ### [Reset a password or the Remote Desktop service](../../virtual-machines-windows-reset-rdp.md)
-### [Install and configure Symantec Endpoint Protection](install-symantec.md)
 ### [Install and configure Trend Micro Deep Security as a Service](install-trend.md)
 ### [Configure an availability set](configure-availability.md)
 ### [Resize a Windows VM created in the classic deployment model](resize-vm.md)
@@ -55,7 +53,6 @@
 ## Plan
 ### [About images](about-images.md)
 ### [Sizes for VMs](../../virtual-machines-windows-sizes.md)
-#### [About H-series and compute-intensive A-series VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Planned maintenance for Azure VMs](../../virtual-machines-windows-planned-maintenance.md)
 ### [Azure infrastructure services implementation guidelines](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -64,8 +61,6 @@
 #### [Automatically scale resources](hpcpack-cluster-node-autogrowshrink.md)
 #### [Manage compute nodes](hpcpack-cluster-node-manage.md)
 #### [Create a cluster](hpcpack-cluster-powershell-script.md)
-#### [Set up a cluster to run MPI applications](hpcpack-rdma-cluster.md)
-#### [Run Excel and SOA workloads](../../virtual-machines-windows-excel-cluster-hpcpack.md)
 #### [Create the head node with a Marketplace image](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
 #### [Submit jobs from on-premises to Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
@@ -73,9 +68,6 @@
 ### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 ####[Configure Oracle Data Guard for Azure](configure-oracle-data-guard.md)
 ####[Configure Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
-####[Miscellaneous considerations for images](oracle-considerations.md)
-####[List of Oracle VM images](oracle-images.md)
-### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -88,7 +80,7 @@
 ## [Reset RDP password](reset-rdp.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)

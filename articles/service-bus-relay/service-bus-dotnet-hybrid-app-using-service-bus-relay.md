@@ -479,7 +479,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 To learn more about Azure Relay, see the following resources:  
 
 * [What is Azure Relay?](./relay-what-is-it.md)  
-* [How to use Relay](./service-bus-dotnet-how-to-use-relay.md)  
+
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

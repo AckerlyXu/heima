@@ -244,7 +244,7 @@ You can disable a device, and after it is disabled you can remove it:
 
 ![Disable and remove a device][img-disable]
 
-### Add a rule
+### <a name="add-a-rule-for-the-new-device"></a> Add a rule
 
 There are no rules for the new device you just added. In this section, you add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
 
@@ -278,8 +278,6 @@ There are no rules for the new device you just added. In this section, you add a
 
     ![List device actions][img-actions]
 
-> [!NOTE]
-> It is possible to define actions that can send an email message or SMS in response to a rule or integrate with a line-of-business system through a [Logic App][lnk-logic-apps]. For more information, see the [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapptutorial].
 
 ### Manage filters
 
@@ -401,7 +399,6 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.cn/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-logicapptutorial]: ./iot-suite-logic-apps-tutorial.md
 [lnk-rm-walkthrough]: ./iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-connect-rm]: ./iot-suite-connecting-devices.md
 [lnk-permissions]: ./iot-suite-permissions.md

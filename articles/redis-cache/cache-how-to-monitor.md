@@ -224,8 +224,6 @@ When an alert rule is activated, an email is sent depending on the configuration
 
 An alert rule is considered to be resolved when the alert condition no longer evaluates to true. Once the alert rule condition is resolved, the alert icon is replaced with a check mark. For details on alert activations and resolutions, click the **Events** part on the **Redis Cache** blade to view the events on the **Events** blade.
 
-For more information about alerts in Azure, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
 ## Metrics on the Redis Cache blade
 The **Redis Cache** blade displays the following categories of metrics.
 

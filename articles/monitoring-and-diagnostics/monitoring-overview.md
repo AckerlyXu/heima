@@ -51,7 +51,7 @@ Collectable metrics vary based on the resource type. For example, Virtual Machin
 
 For compute resources you can obtain metrics on the Guest OS and diagnostics modules like Azure Diagnostics. Azure Diagnostics helps gather and route diagnostic data to other locations, including Azure storage.
 
-A list of currently collectable metrics is available at [supported metrics](./monitoring-supported-metrics.md).
+
 
 ### Application - Diagnostics Logs, Application Logs, and Metrics
 **Compute Only**
@@ -135,6 +135,5 @@ Azure has offerings available for monitoring your services from bare-metal infra
 Learn more about
 
 * [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977)
-* [Getting Started with Azure Monitor](./monitoring-get-started.md)
 * [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, or Service Fabric application.
 * [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables, or Queues

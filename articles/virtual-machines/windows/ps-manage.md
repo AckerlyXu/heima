@@ -23,7 +23,7 @@ ms.author: davidmu
 
 This article shows you common management tasks you might perform on an Azure virtual machine.
 
-See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 > [!NOTE]
 > You may need to reinstall Azure PowerShell to use the functionality in this article. Managed Disks capabilities are in version 3.5 and higher.

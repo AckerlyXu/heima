@@ -55,7 +55,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 
 ## Manage reserved VIPs
 
-Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) article. 
+Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article. 
 
 Before you can use reserved IPs, you must add it to your subscription. To create a reserved IP from the pool of public IP addresses available in the *China North* location, run the following command:
 

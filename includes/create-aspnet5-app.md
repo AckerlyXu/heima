@@ -4,4 +4,3 @@
 4. Give your new application a name (or take the default) and select **OK**.
 5. Under **ASP.NET Core Templates**, select **Web Application** and select **OK**.
 6. Unselect **Host in the cloud**. You'll be using Docker as your deployment solution.
-

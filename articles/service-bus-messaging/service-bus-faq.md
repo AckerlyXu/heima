@@ -30,14 +30,14 @@ A [namespace](./service-bus-create-namespace-portal.md) provides a scoping conta
 
 ### What is an Azure Service Bus queue?
 
-A [Service Bus queue](./service-bus-queues-topics-subscriptions.md/) is an entity in which messages are stored. Queues are particularly useful when you have multiple applications, or multiple parts of a distributed application that need to communicate with each other. The queue is similar to a distribution center in that multiple products (messages) are received and then sent from that location.
+A [Service Bus queue](./service-bus-queues-topics-subscriptions.md) is an entity in which messages are stored. Queues are particularly useful when you have multiple applications, or multiple parts of a distributed application that need to communicate with each other. The queue is similar to a distribution center in that multiple products (messages) are received and then sent from that location.
 
 ### What are Azure Service Bus topics and subscriptions?
 A topic can be visualized as a queue and when using multiple subscriptions, it becomes a richer messaging model; essentially a one-to-many communication tool. This publish/subscribe model (or *pub/sub*) enables an application that sends a message to a topic with multiple subscriptions to have that message received by multiple applications.
 
 ### What is a partitioned entity?
 
-A conventional queue or topic is handled by a single message broker and stored in one messaging store. A [partitioned queue or topic](./service-bus-partitioning.md/) is handled by multiple message brokers and stored in multiple messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable.
+A conventional queue or topic is handled by a single message broker and stored in one messaging store. A [partitioned queue or topic](./service-bus-partitioning.md) is handled by multiple message brokers and stored in multiple messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable.
 
 Note that ordering is not ensured when using partitioning entities. In the event that a partition is unavailable, you can still send and receive messages from the other partitions.
 
@@ -58,7 +58,7 @@ The following properties of a queue and topic are immutable. Please take this in
 
 -   Express entity
 
-## Pricing
+## <a name="service-bus-pricing"></a> Pricing
 This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](https://www.azure.cn/pricing/details/service-bus/).
 
 ### How do you charge for Service Bus?

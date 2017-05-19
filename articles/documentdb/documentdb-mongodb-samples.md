@@ -1,39 +1,41 @@
 ---
-title: Use MongoDB APIs to build a DocumentDB app | Azure
-description: A NoSQL tutorial that creates an online database using the DocumentDB APIs for MongoDB.
+title: Use MongoDB APIs to build an Azure Cosmos DB app | Microsoft Docs
+description: A Ntutorial that creates an online database using the DocumentDB APIs for MongoDB.
 keywords: mongodb examples
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 wacn.date: ''
 ms.author: anhoh
+
 ---
-
-# Build a DocumentDB: API for MongoDB app using Node.js
+# Build an Azure Cosmos DB: API for MongoDB app using Node.js
 > [!div class="op_single_selector"]
->- [.NET](./documentdb-get-started.md)
->- [.NET Core](./documentdb-dotnetcore-get-started.md)
->- [Java](./documentdb-java-get-started.md)
->- [Node.js for MongoDB](./documentdb-mongodb-samples.md)
->- [Node.js](./documentdb-nodejs-get-started.md)
->- [C++](./documentdb-cpp-get-started.md)
+> * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
+> * [Node.js for MongoDB](documentdb-mongodb-samples.md)
+> * [Node.js](documentdb-nodejs-get-started.md)
+> * [C++](documentdb-cpp-get-started.md)
+>  
+>
 
-This example shows you how to build a DocumentDB: API for MongoDB console app using Node.js.
+This example shows you how to build an Azure Cosmos DB: API for MongoDB console app using Node.js.
 
 To use this example, you must:
 
-- [Create](./documentdb-create-mongodb-account.md) an Azure DocumentDB: API for MongoDB account.
-- Retrieve your MongoDB [connection string](./documentdb-connect-mongodb-account.md) information.
+- [Create](documentdb-create-mongodb-account.md) an Azure Cosmos DB: API for MongoDB account.
+- Retrieve your MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
 
 ## Create the app
 
@@ -43,7 +45,7 @@ To use this example, you must:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10250/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -66,7 +68,7 @@ To use this example, you must:
         callback();
     });
     };
-
+    
     var findFamilies = function(db, callback) {
     var cursor =db.collection('families').find( );
     cursor.each(function(err, doc) {
@@ -78,7 +80,7 @@ To use this example, you must:
         }
     });
     };
-
+    
     var updateFamilies = function(db, callback) {
     db.collection('families').updateOne(
         { "lastName" : "Andersen" },
@@ -93,7 +95,7 @@ To use this example, you must:
         callback();
     });
     };
-
+    
     var removeFamilies = function(db, callback) {
     db.collection('families').deleteMany(
         { "lastName": "Andersen" },
@@ -103,7 +105,7 @@ To use this example, you must:
         }
     );
     };
-
+    
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -118,13 +120,14 @@ To use this example, you must:
     });
     ```
 
-2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](./documentdb-connect-mongodb-account.md)):
-
+2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](documentdb-connect-mongodb-account.md)):
+   
     ```nodejs
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10250/?ssl=true';
     ```
-
+     
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
 ## Next steps
-- Learn how to [use MongoChef](./documentdb-mongodb-mongochef.md) with your DocumentDB: API for MongoDB account.
+- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with your Azure Cosmos DB: API for MongoDB account.
+

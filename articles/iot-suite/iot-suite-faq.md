@@ -86,8 +86,8 @@ You can also explore some of the other features and capabilities of the IoT Suit
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
 * [IoT security from the ground up][lnk-security-groundup]
 
-[lnk-predictive-overview]: ./iot-suite-predictive-overview.md/
-[lnk-security-groundup]: ./securing-iot-ground-up.md/
+[lnk-predictive-overview]: ./iot-suite-predictive-overview.md
+[lnk-security-groundup]: ./securing-iot-ground-up.md
 [link-azuresupportticket]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: ../azure-subscription-service-limits.md#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.cn

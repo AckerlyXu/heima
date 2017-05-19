@@ -11,8 +11,6 @@
 ## [Prerequisites](expressroute-prerequisites.md)
 ## [Routing requirements](expressroute-routing.md)
 ## [Optimize routing](expressroute-optimize-routing.md)
-## [NAT requirements](expressroute-nat.md)
-## [QoS requirements](expressroute-qos.md)
 ## [Moving circuits from classic to Resource Manager](expressroute-move.md)
 ## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
@@ -38,7 +36,6 @@
 ## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## Configure a router for ExpressRoute
 ### [Router configuration setup samples](expressroute-config-samples-routing.md)
-### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
 
 ## Best Practices
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)

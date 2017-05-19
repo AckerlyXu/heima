@@ -1,23 +1,9 @@
 ---
-title: Default quotas for DocumentDB | Azure
-description: Learn about the default quotas allocated by DocumentDB.
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: cgronlun
-documentationcenter: ''
+redirect_url: https://azure.cn/documentation/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 
-ms.assetid: a6d6e636-33d6-4617-8e97-d78a75696c39
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2016
-wacn.date: ''
-ms.author: arramac
 ---
+# Default quotas for Azure Cosmos DB
 
-# Default quotas for DocumentDB
+Azure Cosmos DB is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale Azure Cosmos DB provides, please send an email to askdocdb@microsoft.com.
 
-DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale DocumentDB provides, please send an email to askdocdb@microsoft.com.
