@@ -327,7 +327,6 @@ In addition to the generally available features of the Free, Basic, and Premium 
 
 **Available preview features:**
 
-- [Administrative Units](./active-directory-administrative-units-management.md)
 - [Certificate-based authentication on iOS](./active-directory-certificate-based-authentication-ios.md)
 - [Certificate-based authentication on Android](./active-directory-certificate-based-authentication-android.md)
 

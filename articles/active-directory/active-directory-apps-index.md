@@ -39,7 +39,7 @@ This section provides quick access to relevant troubleshooting guides. More info
 |:---:| --- |
 | Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md) |
 | Password-Based Single Sign-On | Troubleshooting the Access Panel Extension for Internet Explorer |
-| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Synchronization](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Troubleshooting Password Writeback](./active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Synchronization](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)|
 
 ## Single Sign-On (SSO)
 ### Federated Single Sign-On: Sign into many apps using one identity
@@ -48,7 +48,7 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Article Guide |  |
 |:---:| --- |
 | An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](./active-directory-appssoaccess-whatis.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps)<br /><br />[How to Add Your App to the Azure AD App Gallery](./active-directory-app-gallery-listing.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps)|
 | More than 150 app tutorials on how to configure single sign-on for apps, and many more |  |
 | How to manually set up and customize your single sign-on configuration |How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery <br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./develop/active-directory-saml-claims-customization.md) |
 | Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md) |
@@ -76,7 +76,6 @@ If your organization maintains a Windows Server Active Directory on premises alo
 | An overview on the single sign-on options offered in Azure AD Connect, as well as information on managing hybrid environments |[User Sign On Options in Azure AD Connect](./connect/active-directory-aadconnect-user-signin.md) |
 | General guidance for managing environments with both on-premises Active Directory and Azure Active Directory | [Integrating your On-Premises Identities with Azure Active Directory](./connect/active-directory-aadconnect.md) |
 | Guidance on using Password Sync to enable SSO |[Implement Password Synchronization with Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/zh-cn/kb/2855271) |
-| Guidance on using Password Writeback to enable SSO |[Getting Started with Password Management in Azure AD](./active-directory-passwords-getting-started.md)<br /><br />[Troubleshoot Password Writeback](./active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Guidance on using third party identity providers to enable SSO |[List of Compatible Third-Party Identity Providers That Can Be Used to Enable Single Sign-On](https://aka.ms/ssoproviders) |
 
 Azure AD Connect is available for [all editions of Azure Active Directory](https://www.azure.cn/pricing/details/identity/). Azure AD Self-Service Password Reset is available for [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) and [Azure AD Premium](https://www.azure.cn/pricing/details/identity/). Password Writeback to on-prem AD is an [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) feature.
@@ -102,7 +101,6 @@ If your organization is developing or maintaining line-of-business (LoB) applica
 | Article Guide |  |
 |:---:| --- |
 | Guidance for both IT professionals and application developers on integrating apps with Azure AD |[The IT Pro's Guide for Developing Applications for Azure AD](./active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](./develop/active-directory-developers-guide.md) |
-| How to application vendors can add their apps to the Azure AD App Gallery |[Listing your Application in the Azure Active Directory Application Gallery](./active-directory-app-gallery-listing.md) |
 | How to manage access to developed applications using Azure Active Directory |[How to Enable User Assignment for Developed Applications](./active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Assigning Users to your App](./active-directory-applications-guiding-developers-assigning-users.md)<br /> |
 
 ## Managing Access to Applications

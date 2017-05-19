@@ -93,8 +93,6 @@ For select applications, Azure AD enables automated user provisioning and de-pro
 
 When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application. This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications. In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.
 
-To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](./active-directory-saas-app-provisioning.md)
-
 ##Get started with the Azure AD application gallery
 
 Ready to get started? To deploy single sign-on between Azure AD and SaaS applications that your organization uses, follow these guidelines.
@@ -207,10 +205,7 @@ These links use the same access control mechanisms as the access panel and Offic
 ##Related Articles
 
 - [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./active-directory-saas-tutorial-list.md)
-- [Finding unsanctioned cloud applications with Cloud App Discovery](./active-directory-cloudappdiscovery-whatis.md)
 - [Introduction to Managing Access to Apps](./active-directory-managing-access-to-apps.md)
-- [Comparing Capabilities for Managing External Identities in Azure AD](/documentation/articles/active-directory-b2b-compare-external-identities/)
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
