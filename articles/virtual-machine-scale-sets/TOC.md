@@ -4,7 +4,6 @@
 # Get Started
 ## [Deploy a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
 ## [Deploy a scale set using PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
-## [Deploy an autoscaling app using a template](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # How To
 ## Plan and design
@@ -20,8 +19,6 @@
 ### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Create with PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
-### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
-### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
 ### [Use data disks with scale sets](virtual-machine-scale-sets-attached-disks.md)
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
@@ -29,10 +26,7 @@
 
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
 ### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)
 
