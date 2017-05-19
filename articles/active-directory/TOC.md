@@ -15,7 +15,6 @@
 #### [Classic portal](./active-directory-create-users.md)
 ### Add users from other directories
 #### [Classic portal](./active-directory-create-users-external.md)
-### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](./active-directory-sharing-accounts.md)
 
 
@@ -104,7 +103,6 @@
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
