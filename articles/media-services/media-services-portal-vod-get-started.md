@@ -38,7 +38,7 @@ This tutorial includes the following tasks:
 4. Publish the asset and get streaming and progressive download URLs.  
 5. Play your content.
 
-## Start streaming endpoints 
+##<a name="configure-streaming-endpoints"></a> Start streaming endpoints 
 
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 

@@ -113,7 +113,7 @@ Virtual machines need network connectivity. To support that requirement, Azure r
 
 Learn more:
 
-- [Azure Network Security Overview](../articles/security/security-network-overview.md)
+- [Azure Network Security Overview](security-network-overview.md)
 - [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
 ## Compliance

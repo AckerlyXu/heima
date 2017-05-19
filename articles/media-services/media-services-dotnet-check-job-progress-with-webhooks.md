@@ -26,7 +26,6 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure 1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
 This topic shows how to
 
@@ -34,10 +33,7 @@ This topic shows how to
 	
 	In this case, the webhook is triggered by Media Services when your encoding job changes status. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
 	
-	>[!NOTE]
-	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
-	>
-	
+
 * Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. In the example shown here, the code that creates the encoding task is a console app.
 
 ## Setting up "webhook notification" Azure functions

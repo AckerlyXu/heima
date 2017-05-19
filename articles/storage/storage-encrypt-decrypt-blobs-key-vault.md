@@ -164,7 +164,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-Following is a screenshot from the [Azure Management Portal](manage.windowsazure.cn) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
+Following is a screenshot from the [Azure Management Portal](https://manage.windowsazure.cn) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
 
 ![Screenshot showing Blob metadata that includes encryption metadata](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 

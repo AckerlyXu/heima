@@ -1010,7 +1010,7 @@ if ( clipListXML.indexOf("<trim>") == -1 )
 
 [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
-[Encoding On-Demand Content with Azure Media Service](./media-services-encode-asset.md#media_encoder_premium_workflow)
+[Encoding On-Demand Content with Azure Media Service](./media-services-encode-asset.md)
 
 [Media Encoder Premium Workflow Formats and Codecs](./media-services-premium-workflow-encoder-formats.md)
 
