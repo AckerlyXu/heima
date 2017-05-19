@@ -23,7 +23,7 @@ ms.author: huvalo
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial describes how to get started running Python in [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services).  Web Apps provides limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
+This tutorial describes how to get started running Python in [Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services).  Web Apps provides limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
 
 You will create an application using the Flask web framework (see alternate versions of this tutorial for [Django](web-sites-python-create-deploy-django-app.md) and [Bottle](web-sites-python-create-deploy-bottle-app.md)).  You will create the website, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
 
@@ -341,10 +341,10 @@ For information on using Azure Table Storage and MongoDB:
 * [Flask and MongoDB on Azure with Python Tools for Visual Studio]
 * [Flask and Azure Table Storage on Azure with Python Tools for Visual Studio]
 
-For more information, see also the [Python Developer Center](https://www.azure.cn/develop/python/).
+For more information, see also the [Python Developer Center](/develop/python/).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
 [Flask and MongoDB on Azure with Python Tools for Visual Studio]: https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure

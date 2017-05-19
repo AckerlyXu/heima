@@ -3,7 +3,7 @@ title: How to use Azure Service Bus with the WebJobs SDK
 description: Learn how to use Azure Service Bus queues and topics with the WebJobs SDK.
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 
@@ -172,4 +172,4 @@ Topics covered in that article include the following:
 * Write logs
 
 ## <a id="nextsteps"></a> Next steps
-This guide has provided code samples that show how to handle common scenarios for working with Azure Service Bus. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](/azure/app-service-web/websites-webjobs-resources/).
+This guide has provided code samples that show how to handle common scenarios for working with Azure Service Bus. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](/app-service-web/websites-webjobs-resources).

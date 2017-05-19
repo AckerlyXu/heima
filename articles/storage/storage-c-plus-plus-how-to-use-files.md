@@ -1,10 +1,10 @@
 ---
-title: How to use File Storage from C++ | Microsoft Docs
+title: How to use File Storage from C++ | Azure
 description: Store file data in the cloud with Azure File storage.
 services: storage
 documentationcenter: .net
-author: seguler
-manager: jahogg
+author: renashahmsft
+manager: aungoo
 editor: tysonn
 
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: renashahmsft
 
 ---
 # How to use File Storage from C++
@@ -49,7 +49,7 @@ Add the following include statements to the top of the C++ file where you want t
 ```
 
 ## Set up an Azure storage connection string
-To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string, which we’ll use to connect to your storage account. Let’s define a static variable to do that.
+To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string, which we'll use to connect to your storage account. Let's define a static variable to do that.
 
 ```cpp
 // Define the connection-string with your values.

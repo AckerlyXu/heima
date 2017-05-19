@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/10/2017
+ms.date: 5/09/2017
 wacn.date: ''
 ms.author: negat
 ms.custom: na
@@ -65,7 +65,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
     This command gives you the input for the Azure Resource Manager template.
 
-    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/azure/service-fabric-cluster-security/).
+    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/azure/service-fabric-cluster-security).
 
 2.  Change the Resource Manager template.
 
@@ -117,7 +117,7 @@ Include **osProfile** in your template:
 ```
 
 This JSON block is used in 
-[the 101-vm-sshkey GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+ [the 101-vm-sshkey GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 The OS profile also is used in [the grelayhost.json GitHub quick start template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
@@ -155,7 +155,7 @@ For an example, see [the 101-vm-sshkey GitHub quick start template](https://gith
 
 ### When I run `Update-AzureRmVmss` after adding more than one certificate from the same key vault, I see the following message:
 
-  Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+    Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
 This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzureRmVmssSecret` command does not work correctly if you are adding additional secrets.
 
@@ -215,7 +215,7 @@ The CRP component does not persist customer secrets. If you run `stop deallocate
 
 You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
 
-### Why do I have to specify the exact location for the certificate URL (https://<name of the vault>.vault.azure.cn:443/secrets/<exact location>), as indicated in [Service Fabric cluster security scenarios](/azure/service-fabric-cluster-security/)?
+### Why do I have to specify the exact location for the certificate URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>), as indicated in [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security/)?
 
 The Azure Key Vault documentation states that the Get Secret REST API should return the latest version of the secret if the version is not specified.
 
@@ -328,7 +328,7 @@ To define an extension, use the JsonADDomainExtension property:
                                 "properties": {
                                     "publisher": "Microsoft.Compute",
                                     "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.0",
+                                    "typeHandlerVersion": "1.3",
                                     "settings": {
                                         "Name": "[parameters('domainName')]",
                                         "OUPath": "[variables('ouPath')]",
@@ -370,17 +370,53 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### I need to execute a custom script that's hosted in a private storage account. The script runs successfully when the storage is public, but when I try to use a Shared Access Signature (SAS), it fails. This message is displayed: "Missing mandatory parameters for valid Shared Access Signature". Link+SAS works fine from my local browser.
 
-To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](/azure/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](/virtual-machines/virtual-machines-windows-extensions-customscript/).
 
 ## Networking
+
+### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it will apply to all the VM NICs in the set?
+
+Yes. A Network Security Group can be applied directly to a scale set by referencing it in the networkInterfaceConfigurations section of the network profile. Example:
+
+```
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+            "name": "nic1",
+            "properties": {
+                "primary": "true",
+                "ipConfigurations": [
+                    {
+                        "name": "ip1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                            }
+                "loadBalancerInboundNatPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                                }
+                            ],
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                }
+            }
+        }
+    ]
+}
+```
 
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
 To do a VIP swap for virtual machine scale sets in the same subscription and same region, see [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
-
-### What is the resourceGuid property on a NIC used for?
-
-The resourceGuid property on a network interface card (NIC) is a unique ID. Lower layers will log this ID at some point in the future. 
 
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -420,7 +456,7 @@ Yes, you can move scale set resources to a new subscription or resource group.
 
 ### How to I update my virtual machine scale set to a new image? How do I manage patching?
 
-To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
 
 ### Can I use the reimage operation to reset a VM without changing the image? (That is, I want reset a VM to factory settings rather than to a new image.)
 
@@ -458,7 +494,7 @@ When a new VM is created, the InstanceView property of the VM shows the details 
 
 To get property information for each VM without making multiple calls, you can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
 
-/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+    /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
 ### Can I pass different extension arguments to different VMs in a virtual machine scale set?
 
