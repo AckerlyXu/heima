@@ -11,7 +11,7 @@
 ## Network security
 ### [Overview](security-network-overview.md)
 ### [Network security best practices](azure-security-network-security-best-practices.md)
-### [Boundary security](best-practices-network-security.md)
+### [Boundary security](../best-practices-network-security.md)
 
 ## Storage security
 ### [Overview](security-storage-overview.md)
