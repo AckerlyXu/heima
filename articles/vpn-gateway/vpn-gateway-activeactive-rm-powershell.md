@@ -51,7 +51,7 @@ The other properties are the same as the non-active-active gateways.
 
 ### Before you begin
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
-* You'll need to install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+* You'll need to install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - Create and configure VNet1
 #### 1. Declare your variables

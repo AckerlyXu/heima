@@ -206,7 +206,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
 [vm-size-tables]:../articles/virtual-machines/windows/sizes.md#size-tables
-[vm-sla]: https://www.azure.cn/support/sla/virtual-machines/
+[vm-sla]: https://www.azure.cn/support/sla/virtual-machines
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks

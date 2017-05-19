@@ -32,18 +32,18 @@ If you have a current subscription from Trend Micro for an on-premises solution,
 ## Install the Deep Security Agent on a new VM
 The [Azure Classic Management Portal](http://manage.windowsazure.cn) lets you install the VM Agent and the Trend Micro security extension when you use the **From Gallery** option to create the virtual machine. If you're creating a single virtual machine, using the portal is an easy way to add protection from Trend Micro.
 
-This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure Classic Management Portal](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). When you get to the last page of the wizard, do the following steps:
+This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure Classic Management Portal](tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). When you get to the last page of the wizard, do the following steps:
 
 1. Under **VM Agent**, check **Install VM Agent**.
 2. Under **Security Extensions**, check **Trend Micro Deep Security Agent**.
 
-    ![Install the VM Agent and the Deep Security Agent](./media/virtual-machines-windows-classic-install-trend/InstallVMAgentandTrend.png)
+    ![Install the VM Agent and the Deep Security Agent](./media/install-trend/InstallVMAgentandTrend.png)
 3. Click the check mark to create the virtual machine.
 
 ## Install the Deep Security Agent on an existing VM
 To install the agent on an existing VM, you need the following items:
 
-* The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). Log in to your Azure subscription using `Add-AzureAccount -Environment AzureChinaCloud`.
+* The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Log in to your Azure subscription using `Add-AzureAccount -Environment AzureChinaCloud`.
 * The VM Agent installed on the target virtual machine.
 
 First, verify that the VM Agent is already installed. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.

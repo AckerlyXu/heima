@@ -48,14 +48,14 @@ To use the portal to enable logging, login to the [portal](https://portal.azure.
 
 ### PowerShell
 
- Evaluate the following information before entering a command from the article:
+Evaluate the following information before entering a command from the article:
 
 - You can determine the value to use for the `-ResourceId` parameter by replacing the following [text], as appropriate, then entering the command `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. The ID output from the command looks similar to */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
 - If you only want to collect data from log category add `-Categories [category]` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you don't use the `-Categories` parameter, data collection is enabled for both log categories.
 
 ### Azure command-line interface (CLI)
 
- Evaluate the following information before entering a command from the article:
+Evaluate the following information before entering a command from the article:
 
 - You can determine the value to use for the `-ResourceId` parameter by replacing the following [text], as appropriate, then entering the command `azure network nsg show [resource-group-name] [nsg-name]`. The ID output from the command looks similar to */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
 - If you only want to collect data from log category add `-Categories [category]` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you don't use the `-Categories` parameter, data collection is enabled for both log categories.

@@ -20,7 +20,7 @@ ms.author: iainfou
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal preview or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](reset-rdp.md).
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal preview or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](https://docs.microsoft.com/powershell/azure/overview) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](reset-rdp.md).
 
 ## Ways to reset configuration or credentials
 You can reset Remote Desktop services and credentials in a few different ways, depending on your needs:
@@ -50,10 +50,10 @@ Select your Windows virtual machine then click **Support + Troubleshooting** > *
 Select **Reset configuration only** from the drop-down menu, then click **Update**. Try connecting to your VM again.
 
 ## VMAccess extension and PowerShell
-Make sure that you have the [latest PowerShell module installed and configured](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) and are signed in to your Azure subscription with the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` cmdlet.
+Make sure that you have the [latest PowerShell module installed and configured](https://docs.microsoft.com/powershell/azure/overview) and are signed in to your Azure subscription with the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` cmdlet.
 
 ### **Reset the local administrator account password**
-Reset the administrator password or user name with the [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) PowerShell cmdlet. Create your account credentials as follows:
+Reset the administrator password or user name with the [Set-AzureRmVMAccessExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. Create your account credentials as follows:
 
 ```powershell
 $cred=Get-Credential
@@ -71,7 +71,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### **Reset the Remote Desktop service configuration**
-Reset remote access to your VM with the [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) PowerShell cmdlet. The following example resets the access extension named `myVMAccess` on the VM named `myVM` in the `myResourceGroup` resource group:
+Reset remote access to your VM with the [Set-AzureRmVMAccessExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. The following example resets the access extension named `myVMAccess` on the VM named `myVM` in the `myResourceGroup` resource group:
 
 ```powershell
 Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" `

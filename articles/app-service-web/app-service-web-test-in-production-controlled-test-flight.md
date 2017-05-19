@@ -357,5 +357,5 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 * [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - The JSON Validator](http://jsonlint.com/)
 * [Git Branching - Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

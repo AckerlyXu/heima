@@ -11,7 +11,7 @@ tags:
 ms.assetid:
 ms.service: virtual-machines-Windows
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
@@ -31,7 +31,7 @@ This script sample creates everything needed to run several Ubuntu virtual machi
 
 ## Sample script
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 # Update for your admin password

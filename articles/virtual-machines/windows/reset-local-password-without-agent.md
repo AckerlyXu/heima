@@ -126,7 +126,7 @@ Always try to reset a password using the [Azure portal preview or Azure PowerShe
         ![Copy disk URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Create a VM from the source VM's OS disk:
 
-    * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal preview with the templated details populated for you.
+    * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal preview with the templated details populated for you.
     * If you want to retain all the previous settings for the VM, select *Edit template* to provide your existing VNet, subnet, network adapter, or public IP.
     * In the `OSDISKVHDURI` parameter text box, paste the URI of your source VHD obtain in the preceding step:
 

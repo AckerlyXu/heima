@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: ''
 ms.author: robmcm
 
@@ -47,7 +47,7 @@ Follow these steps to create a web app and a MySQL database:
 4. Click **Web + Mobile**, then **Web app**. Then, click **Create**.
 5. Enter a valid name for your resource group.
 6. Enter values for your new web app.
-6. Login to the [Azure Classic Management Portal](https://manage.windowsazure.cn), create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
+7. Login to the [Azure Classic Management Portal](https://manage.windowsazure.cn), create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
 8. When the web app has been created, you will see the new web app blade.
 9. In **Settings** click on **Continuous Deployment**, then click on *Configure required settings*.
 

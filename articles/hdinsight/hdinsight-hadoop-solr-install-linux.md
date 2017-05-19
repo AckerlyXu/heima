@@ -211,6 +211,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 
     The output returns the two documents that you added to the index earlier. The output is similar to the following JSON document:
 
+    ```
            "response": {
                "numFound": 2,
                "start": 0,
@@ -262,6 +263,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
                  }
                ]
              }
+    ```
 
 ### Starting and stopping Solr
 

@@ -35,7 +35,7 @@ This topic describes how to find VM image publishers, offers, skus, and versions
 
 ## Find Azure images with PowerShell
 > [!NOTE]
-> Install and configure the [latest Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
+> Install and configure the [latest Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 

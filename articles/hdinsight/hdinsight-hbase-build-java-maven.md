@@ -63,8 +63,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     > [!IMPORTANT]
     > The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
-    > 
-    > 
+    >
+    >
 
     | HDInsight cluster version | HBase version to use |
     | --- | --- |
@@ -130,8 +130,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     > [!NOTE]
     > You can also set configuration values via code. See the comments in the **CreateTable** example that follows for how to do this.
-    > 
-    > 
+    >
+    >
 
     This `<plugins>` section configures the [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 

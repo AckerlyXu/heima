@@ -72,12 +72,12 @@ You will also use the typical branching strategy, with code moving from the dev 
 > You need an Azure account to complete this tutorial:
 > <p> 
 > * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
-> 
+>
 > 
 
 ## Set up your production environment
-> [!NOTE]
-> Currently, in Azure China, you cannot enter GitHub Credential in the new portal; hence, only public GitHub repo is going to work for continuous publishing, and you have to configure it through Kudu.
+> [!NOTE] 
+> Currently, in Azure China, you cannot enter GitHub Credential in the new portal; hence, only public GitHub repo is going to work for continuous publishing, and you have to configure it through Kudu. 
 
 In a typical DevOps scenario, you have an application that's running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you have a template that you developed, tested, and used to deploy the production environment. You will set it up in this section.
 
@@ -164,7 +164,7 @@ Now that you have a complex application running in production in Azure, you will
 
 > [!NOTE]
 > When you have multiple developers working on the new update, each of them can easily create a branch and dedicated dev environment by doing the following:
-> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)).
+> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)). 
 > 2. Clone the fork on their local machine
 > 3. Run the same commands to create their own dev branch and environment.
 > 
@@ -280,7 +280,7 @@ Agile software development is a must-have for many companies who want to adopt A
 * [ARMClient - Set up GitHub publishing to site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Git Branching - Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [David Ebbo's Blog](http://blog.davidebbo.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure Cross-Platform Command-Line Tools](../cli-install-nodejs.md)
 * [Create or edit users in Azure AD](/active-directory/active-directory-create-users)
 * [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

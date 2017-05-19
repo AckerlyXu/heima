@@ -333,8 +333,6 @@ Summary: This quickstart guide will help to set up a single-instance SAP HANA pr
 
 Updated: September 2016
 
-[This guide can be found here](../virtual-machines-linux-sap-hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## Quickstart Guide for NetWeaver on SUSE Linux on Azure
 Title: Testing SAP NetWeaver on Azure SUSE Linux VMs 
 

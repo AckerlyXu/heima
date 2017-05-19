@@ -111,7 +111,7 @@ Finally, the network interface above is listed in the **networkProfile** propert
 
 To deploy the template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, complete the steps in the [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) article.
+1. If you have never used Azure PowerShell, complete the steps in the [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article.
 2. In a PowerShell console, run the `New-AzureRmResourceGroup` cmdlet to create a new resource group, if necessary. If you already have a resource group created, go to step 3.
 
     ```powershell

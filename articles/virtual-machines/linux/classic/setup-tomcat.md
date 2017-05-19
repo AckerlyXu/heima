@@ -89,7 +89,7 @@ TCP port 8080 is the default port number that Tomcat uses to listen. If this por
 
         If you set it to another value, such as 81, you need to add the port number to the URL to access Tomcat. For example,  http://tomcatdemo.chinacloudapp.cn:81/.
     2. Enter 8080 in **Private Port**. By default, Tomcat listens on TCP port 8080. If you changed the default listen port of Tomcat, you should update **Private Port** to be the same as the Tomcat listen port.  
-       ![Screenshot of UI that shows Add command, Public Port, and Private Port][7]
+        ![Screenshot of UI that shows Add command, Public Port, and Private Port][7]
 4. Click **OK** to add the endpoint to your virtual machine.
 
 ### Step 2: Connect to the image you created

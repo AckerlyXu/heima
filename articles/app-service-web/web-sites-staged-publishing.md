@@ -175,7 +175,7 @@ Azure PowerShell is a module that provides cmdlets to manage Azure through Windo
 
 [!INCLUDE [AzureRm PowerShell with Azure China Cloud](../../includes/azurerm-azurechinacloud-environment-parameter.md)]
 
-* For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).  
+* For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).  
 
 - - -
 ### Create a web app

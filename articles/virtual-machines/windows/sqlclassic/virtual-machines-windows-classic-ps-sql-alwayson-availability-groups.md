@@ -43,7 +43,7 @@ This scenario is a good choice for its simplicity on Azure, not for its cost-eff
 This tutorial is intended to show you the steps that are required to set up the described solution above, without elaborating on the details of each step. Therefore, instead of providing the GUI configuration steps, it uses PowerShell scripting to take you quickly through each step. This tutorial assumes the following:
 
 * You already have an Azure account with the virtual machine subscription.
-* You've installed the [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+* You've installed the [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview).
 * You already have a solid understanding of Always On availability groups for on-premises solutions. For more information, see [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Connect to your Azure subscription and create the virtual network
@@ -98,7 +98,7 @@ This tutorial is intended to show you the steps that are required to set up the 
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    The configuration file contains the following XML document. In brief, it specifies a virtual network called **ContosoNET** in the affinity group called **ContosoAG**. it has the address space **10.10.0.0/16** and has two subnets, **10.10.1.0/24** and **10.10.2.0/24**, which are the front subnet and back subnet, respectively. The front subnet is where you can place client applications such as Microsoft SharePoint. the back subnet is where you'll place the SQL Server VMs. If you change the **$affinityGroupName** and **$virtualNetworkName** variables earlier, you must also change the corresponding names below.
+    The configuration file contains the following XML document. In brief, it specifies a virtual network called **ContosoNET** in the affinity group called **ContosoAG**. It has the address space **10.10.0.0/16** and has two subnets, **10.10.1.0/24** and **10.10.2.0/24**, which are the front subnet and back subnet, respectively. The front subnet is where you can place client applications such as Microsoft SharePoint. The back subnet is where you'll place the SQL Server VMs. If you change the **$affinityGroupName** and **$virtualNetworkName** variables earlier, you must also change the corresponding names below.
 
         <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>

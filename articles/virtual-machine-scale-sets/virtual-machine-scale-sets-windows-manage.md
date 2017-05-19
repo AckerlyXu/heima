@@ -24,7 +24,7 @@ Use the tasks in this article to manage virtual machines in your virtual machine
 
 Most of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage.
 
-See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Display information about a scale set
 You can get general information about a scale set, which is also referred to as the instance view. Or, you can get more specific information, such as information about the resources in the scale set.

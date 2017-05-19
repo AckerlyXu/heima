@@ -255,7 +255,7 @@ The return value is similar to one of the following examples:
 * `wasbs://CONTAINER@ACCOUNTNAME.blob.core.chinacloudapi.cn` - This value indicates that the cluster is using an Azure Storage account for default storage. The `ACCOUNTNAME` value is the name of the storage account. The `CONTAINER` portion is the name of the blob container in the storage account. The container is the root of the HDFS compatible storage for the cluster.
 
 > [!NOTE]
-> The `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](https://docs.microsoft.com/powershell/) also returns the storage information for the cluster.
+> The `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) also returns the storage information for the cluster.
 
 ## Example: Get configuration
 

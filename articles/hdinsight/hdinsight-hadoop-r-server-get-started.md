@@ -32,13 +32,9 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 > [!NOTE]
 > The steps in this document assume that you are using a password.
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Automated cluster creation
 
-You can automate the creation of HDInsight R Servers using ARM templates, the SDK, and also PowerShell.
+You can automate the creation of HDInsight R Servers using Azure Resource Manager templates, the SDK, and also PowerShell.
 
 * To create an R Server using an Azure Resource Management template, see [Deploy an R server HDInsight cluster.](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * To create an R Server using the .NET SDK, see [create Linux-based clusters in HDInsight using the .NET SDK.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
@@ -123,7 +119,7 @@ You can automate the creation of HDInsight R Servers using ARM templates, the SD
     > [!NOTE]
     > If needed, you can re-size your cluster later through the Portal (Cluster -> Settings -> Scale Cluster) to increase or decrease the number of worker nodes.  This can be useful for idling down the cluster when not in use, or for adding capacity to meet the needs of larger tasks.
     >
-    > 
+    >
 
     Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
 
@@ -143,7 +139,7 @@ You can automate the creation of HDInsight R Servers using ARM templates, the SD
     > [!NOTE]
     > It will take some time for the cluster to be created, usually around 20 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
     >
-    > 
+    >
 
 ## Connect to RStudio Server
 
@@ -160,7 +156,7 @@ If you've chosen to include RStudio Server community edition in your installatio
     ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard2.png)
 
     > [!IMPORTANT]
-    > No matter the method, the first time you log in you will need to authenticate two times.  At the first authentication, provide the cluster Admin userid and password. At the second prompt provide the SSH userid and password. Subsequent logins will only require the SSH password and userid. 
+    > No matter the method, the first time you log in you will need to authenticate two times.  At the first authentication, provide the cluster Admin userid and password. At the second prompt provide the SSH userid and password. Subsequent logins will only require the SSH password and userid.
 
 ## Connect to the R Server edge node
 
@@ -570,7 +566,7 @@ remoteLogin(
 )
 ```
 
-## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes?
+## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes
 
 ### Decommission the worker node(s)
 
@@ -608,6 +604,10 @@ Once all decommissioned worker nodes have been configured to run compute node, c
 * Look for the "URIs" section, and add worker node's IP and port details.
 
 ![decommission worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 

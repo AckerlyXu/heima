@@ -30,7 +30,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 ## Create the subNet and vNet
 
@@ -120,7 +120,7 @@ or
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+    -AccountType StandardLRS  -Location $location -CreateOption Import `
     -SourceUri https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vh.vhd) `
     -ResourceGroupName $rgName
     ```

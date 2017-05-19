@@ -32,14 +32,14 @@ In this step, you make sure that Visual Studio is installed and you create a con
 
 1. If you haven't already, install [Visual Studio](https://www.visualstudio.com/).
 2. In Visual Studio, click **File** > **New** > **Project**.
-3. In **Templates** > **Visual C#**, select **Console Application**, enter the name and location of the project, and then click **OK**.
+3. In **Templates** > **Visual C#**, select **Console App (.NET Framework)**, enter the name and location of the project, and then click **OK**.
 
 ## Step 2: Install libraries
 
 NuGet packages are the easiest way to install the libraries that you need to finish these steps. You need the Azure Resource Manager Library and the Active Directory Authentication Library to create the resources. To get these libraries in Visual Studio, do these steps:
 
-1. Right-click the project name in the Solution Explorer, click **Manage NuGet Packages**, and then click **Browse**.
-2. Type *Microsoft.IdentityModel.Clients.ActiveDirectory* in the search box, click **Install**, and then follow the instructions to install the package.
+1. Right-click the project name in the Solution Explorer, click **Manage NuGet Packages for Solution...**, and then click **Browse**.
+2. Type *Microsoft.IdentityModel.Clients.ActiveDirectory* in the search box, select your project, click **Install**, and then follow the instructions to install the package.
 3. At the top of the page, select **Include Prerelease**. Type *Microsoft.Azure.Management.ResourceManager* in the search box, click **Install**, and then follow the instructions to install the package.
 
 Now you're ready to start using the libraries to create your application.
@@ -48,7 +48,7 @@ Now you're ready to start using the libraries to create your application.
 
 Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager.
 
-1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
+1. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
 
     ```
     using Microsoft.Azure;
@@ -64,8 +64,8 @@ Before you start this step, make sure that you have access to an [Active Directo
     ```
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.chinacloudapi.cn/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.chinacloudapi.cn/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.chinacloudapi.cn/", cc);
       if (token == null)
       {
@@ -77,9 +77,9 @@ Before you start this step, make sure that you have access to an [Active Directo
 
     Replace these values:
 
-    - *{client-id}* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal preview, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
-    - *{client-secret}* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal preview. It is labeled *Directory ID*.
+    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal preview, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
+    - *client-secret* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
+    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal preview. It is labeled *Directory ID*.
 
 3. To call the method that you just added, add this code to the Main method:
 
@@ -99,7 +99,7 @@ Although you can create a resource group from a template, the template that you 
     ```
     var groupName = "myResourceGroup";
     var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName;
+    var deploymentName = "deploymentName";
     var location = "location";
     ```
 

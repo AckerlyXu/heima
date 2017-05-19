@@ -68,7 +68,7 @@ Before you begin, make sure that you have the latest version of the AzureRM.Comp
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 If you are using managed disks for your VMs, type:
 
@@ -84,7 +84,7 @@ If you are using your own storage accounts for your VMs, type:
 	-Name "myAvailabilitySet" -Location "China North" 
 ```
 
-For more information, see [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset?view=azurermps-3.8.0).
+For more information, see [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset).
 
 ## Troubleshooting
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.

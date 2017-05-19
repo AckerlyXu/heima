@@ -72,7 +72,7 @@ To resize a VM, perform the following steps.
     > 
 
 ## Next steps
-For additional scalability, run multiple VM instances and scale out.
+For additional scalability, run multiple VM instances and scale out. 
 
 <!-- links -->
 

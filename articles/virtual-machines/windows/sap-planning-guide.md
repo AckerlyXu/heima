@@ -301,7 +301,7 @@ ms.custom: H1Hack27Feb2017
 [vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:.././azure/xplat-cli-azure-resource-manager
+[xplat-cli-azure-resource-manager]:/xplat-cli-azure-resource-manager
 
 Azure enables companies to acquire compute and storage resources in minimal time without lengthy procurement cycles. Azure Virtual Machines allow companies to deploy classical applications, like SAP NetWeaver based applications into Azure and extend their reliability and availability without having further resources available on-premises. Azure Virtual Machine Services also supports cross-premises connectivity, which enables companies to actively integrate Azure Virtual Machines into their on-premises domains, their Private Clouds and their SAP System Landscape.
 This white paper describes the fundamentals of Azure Virtual Machine and provides a walk-through of planning and implementation considerations for SAP NetWeaver installations in Azure and as such should be the document to read before starting actual deployments of SAP NetWeaver on Azure.

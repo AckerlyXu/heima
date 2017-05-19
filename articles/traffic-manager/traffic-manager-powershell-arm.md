@@ -33,7 +33,7 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 These instructions use Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 

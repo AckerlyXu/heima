@@ -22,7 +22,7 @@ ms.author: cephalin
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-[App Service](/app-service-web/app-service-changes-existing-services) can be integrated with [Azure CDN](https://www.azure.cn/home/features/cdn/), adding to the national scaling capabilities inherent in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services) by serving your web app content nationally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience nationwide. 
+[App Service](/app-service-web/app-service-changes-existing-services) can be integrated with [Azure CDN](https://www.azure.cn/home/features/cdn/), adding to the national scaling capabilities inherent in [App Service Web Apps](/app-service-web/app-service-changes-existing-services) by serving your web app content nationally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience nationwide. 
 
 Integrating Web Apps with Azure CDN gives you the following advantages:
 
@@ -538,5 +538,5 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 8. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
 ## More Information
-* [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md)
+* [Overview of the Azure Content Delivery Network (CDN)](/cdn/cdn-overview)
 * [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)

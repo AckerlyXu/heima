@@ -45,7 +45,7 @@
 ###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/redis)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis)
 ## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.redis._redis_cache)
