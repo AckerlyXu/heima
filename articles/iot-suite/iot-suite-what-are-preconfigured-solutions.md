@@ -116,7 +116,7 @@ In this preconfigured solution, the event processor forms part of the **IoT solu
 
 The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventProcessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses:
 - The **DeviceInfo** data to update the device data in the Cosmos DB database.
-- The **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
+
 
 ## Device identity registry, device twin, and Cosmos DB
 Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.

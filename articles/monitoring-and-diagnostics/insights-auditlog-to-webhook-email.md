@@ -115,6 +115,3 @@ The POST operation contains the following JSON payload and schema for all Activi
 ## Next steps
 - [Learn more about the Activity Log](./monitoring-overview-activity-logs.md)
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)
-- [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
-- [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
-- [Use Logic App to send a message to an Azure Queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
