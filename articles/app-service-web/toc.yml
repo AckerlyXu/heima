@@ -132,8 +132,6 @@
       href: app-service-web-get-started-2.md
   - name: Connect to DB/resources
     items:
-    - name: Connect to Azure VNet
-      href: web-sites-integrate-with-vnet.md
     - name: Connect to Azure VNet with PowerShell
       href: app-service-vnet-integration-powershell.md
     - name: Connect to MongoDB on Azure VM

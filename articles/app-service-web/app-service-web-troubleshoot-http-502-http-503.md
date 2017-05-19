@@ -46,7 +46,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ### <a name="observe"></a> 1. Observe and monitor application behavior
 #### Track Service health
-Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
+Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/).
 
 #### Monitor your web app
 This option enables you to find out if your application is having any issues. In your web app's blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
@@ -64,7 +64,6 @@ Some of the metrics that you might want to monitor for your web app are
 For more information, see:
 
 * [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 ### <a name="collect"></a> 2. Collect data
 #### Use the Azure App Service Support Portal

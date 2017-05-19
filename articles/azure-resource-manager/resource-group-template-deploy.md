@@ -29,6 +29,8 @@ ms.author: tomfitz
 
 This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
+<a id="deploy-local-template"></a>
+
 ## <a name="deploy"></a>Deploy
 * To quickly get started with deployment, use the following commands to deploy a local template with inline parameters:
 

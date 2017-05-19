@@ -294,8 +294,6 @@ A list of alerts is shown once a metric alert has been created and provides an o
 
 ![alert rule view][9]
 
-To learn more about alert notifications, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
-
 To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## Next steps

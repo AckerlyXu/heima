@@ -267,7 +267,7 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 **Q. Can I set alerts with Application Gateway?**
 
-Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert.
 
 **Q. Backend health returns unknown status, what could be causing this?**
 

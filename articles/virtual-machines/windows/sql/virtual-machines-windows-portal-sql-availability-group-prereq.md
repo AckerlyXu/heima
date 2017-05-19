@@ -459,7 +459,7 @@ To add Failover Clustering features, do the following on both SQL Server VMs:
 
 Repeat the steps on the other SQL Server VM.
 
-## <a name="endpoint-firewall" id="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server"></a> Configure the firewall on each SQL Server VM
+## <a name="endpoint-firewall"></a> Configure the firewall on each SQL Server VM
 
 The solution requires the following TCP ports to be open in the firewall:
 
