@@ -687,7 +687,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## Next steps
-This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 To learn more about Azure Relay, see the following topics.
 

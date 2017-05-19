@@ -101,9 +101,9 @@ This article provides overview of implementation level details for designing and
 [img-overview]: ./media/iot-secure-your-deployment/overview.png
 
 [lnk-security-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure
-[lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
+[lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
 [lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-protocols]: ../articles/iot-hub/iot-hub-devguide.md#security
+[lnk-protocols]: ../articles/iot-hub/iot-hub-devguide.md
 [lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
