@@ -33,7 +33,7 @@ If the following scenarios apply to you, we can help
 If you are here to unlock your account, follow the steps below. 
 When you see **Chose a new password** at step 6 below, you are able to unlock or change your password and be unlocked.
 
-## Reset my password
+## Reset my password <a name="how-to-reset-your-password"></a>
 
 To get back into your account, follow these steps below.
 
@@ -96,7 +96,6 @@ If you know your password already and need to change it, try the steps that foll
 
 ## Next Steps
 
-- [How to register to use self-service password reset](active-directory-passwords-reset-register.md)
 - [Password reset registration page](https://login.partner.microsoftonline.cn)
 - [Password reset portal](https://passwordreset.microsoftonline.com/)
 

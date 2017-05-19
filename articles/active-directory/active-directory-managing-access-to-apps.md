@@ -41,7 +41,6 @@ Azure AD features that enable account sharing include:
 - Adding applications to Azure AD
 - Getting started with assignment
 - Application assignment FAQ
-- [App usage dashboard/reports](./active-directory-passwords-get-insights.md)
 
 ## Where can I learn more?
 
