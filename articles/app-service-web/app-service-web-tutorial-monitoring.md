@@ -86,9 +86,8 @@ Now that the alert is created an email is sent every time the app goes over the 
 
 > [!TIP]
 > Learn more about Azure Alerts with the following links:
-> - [What are alerts in Azure](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
-> - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md)
-> - [Create metric alerts](..\monitoring-and-diagnostics\insights-alerts-portal.md)
+> - [Take Action On Metrics](../monitoring-and-diagnostics/monitoring-overview.md)
+> - [Create metric alerts](../monitoring-and-diagnostics/insights-alerts-portal.md)
 
 ## <a name="companion"></a> Step 3 - App Service Companion
 **App Service companion** offers a convenient way to monitor your app with a native experience in your mobile device (iOS or Android).
@@ -253,9 +252,3 @@ You can enable Application Insights for your Web App under **Monitoring** > **Ap
 ![Application Insights](./media/app-service-web-tutorial-monitoring/app-service-monitor-appinsights.png)
 
 Application Insights has a rich feature set, to learn more, follow the links included in the [Next Steps](#next) section.
-
-## <a name="next"></a> Next steps
-
- - [What is Application Insights](..\application-insights\app-insights-overview.md)
- - [Monitor Azure web app performance with Application Insights](..\application-insights\app-insights-azure-web-apps.md)
- - [Monitor availability and responsiveness of any web site with Application Insights](..\application-insights\app-insights-monitor-web-app-availability.md)

@@ -30,7 +30,7 @@ HDInsight makes Hadoop technologies easier to use, with:
 
 *	Less setup and configuration. See [Provision Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 *	High availability and reliability. See [HDInsight availability and reliability](hdinsight-high-availability-linux.md).
-*	Security and governance through integration with Active Directory. See [Domain-joined clusters](hdinsight-domain-joined-introduction.md).
+*	Security and governance through integration with Active Directory.
 *	Dynamic scaling without interrupting jobs
 *   Component updates and current versions. See [Hadoop components and versions on HDInsight][component-versioning].
 *   Integration with other Azure services, including [Web apps](/app-service-web/) and [SQL Database](/sql-database/)

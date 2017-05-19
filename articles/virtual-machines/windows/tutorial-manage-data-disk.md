@@ -47,9 +47,6 @@ When an Azure virtual machine is created, two disks are automatically attached t
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 6144 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 5630 |
-| [GPU](sizes-gpu.md) | N series | 1440 |
-| [High performance](sizes-hpc.md) | A and H series | 2000 |
 
 ## Azure data disks
 
@@ -62,9 +59,6 @@ Additional data disks can be added for installing applications and storing data.
 | [General purpose](sizes-general.md) | A and D series | 32 |
 | [Compute optimized](sizes-compute.md) | F series | 32 |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 64 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |
-| [GPU](sizes-gpu.md) | N series | 48 |
-| [High performance](sizes-hpc.md) | A and H series | 32 |
 
 ## VM disk types
 

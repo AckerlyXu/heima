@@ -31,12 +31,8 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
-  - name: 9 - Backup virtual machines
-    href: tutorial-backup-vms.md
   - name: 10 - Monitor virtual machines
     href: tutorial-monitoring.md
-  - name: 11 - Manage VM security
-    href: tutorial-azure-security.md
   - name: 12 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
 - name: Samples
@@ -55,10 +51,6 @@
     href: network-overview.md
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Instance Metadata Service 
-    href: ../virtual-machines-instancemetadataservice-overview.md
-  - name: Containers
-    href: containers.md
   - name: Resource Manager
     href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     items:
@@ -68,8 +60,6 @@
       href: template-description.md
   - name: Azure Windows agent
     href: agent-user-guide.md
-  - name: Azure Security Center
-    href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Disaster recovery
     href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Planned maintenance
@@ -90,15 +80,6 @@
       href: sizes-compute.md
     - name: Memory optimized
       href: sizes-memory.md
-    - name: Storage optimized
-      href: sizes-storage.md
-    - name: GPU optimized
-      href: sizes-gpu.md
-    - name: High performance compute
-      href: sizes-hpc.md
-      items:
-      - name: Compute-intensive sizes
-        href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
@@ -150,8 +131,6 @@
       items:
       - name: Tag a VM
         href: tag.md
-    - name: Backup using Recovery Services
-      href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Manage backups with PowerShell
       href: ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Download VM template
@@ -247,8 +226,6 @@
         href: nsg-quickstart-powershell.md
       - name: Azure portal
         href: nsg-quickstart-portal.md
-    - name: DNS name resolution options
-      href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Create an FDQN using the portal
       href: portal-create-fqdn.md
   - name: Scale and availability
@@ -268,8 +245,6 @@
       href: vmss-powershell-creating.md
     - name: Create multiple Azure virtual machines
       href: multiple-vms.md
-    - name: Vertically scale VMs with Azure Automation
-      href: vertical-scaling-automation.md
     - name: Create a VM with monitoring and diagnostics
       href: extensions-diagnostics-template.md
     - name: Azure Automation overview
@@ -280,8 +255,6 @@
       href: reset-local-password-without-agent.md
     - name: Create a work or school identity in Azure AD
       href: create-aad-work-id.md
-    - name: Manage access
-      href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Encrypt a disk
       href: encrypt-disks.md
     - name: Apply policies to VMs
@@ -296,8 +269,6 @@
       href: extensions-features.md
     - name: Custom Script extension
       href: extensions-customscript.md
-    - name: OMS agent extension
-      href: extensions-oms.md
     - name: PowerShell DSC extension
       href: extensions-dsc-overview.md
       items:
@@ -333,8 +304,6 @@
       href: hpcpack-cluster-options.md
     - name: MATLAB
       href: matlab-mdcs-cluster.md
-    - name: SAP on Azure
-      href: ../workloads/sap/get-started.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs to Azure overview

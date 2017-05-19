@@ -112,8 +112,6 @@ For other workflows, consider automatically shutting down and restarting Azure V
 
 ## Next steps
 
-For general Azure pricing guidance, see [Prevent unexpected costs with Azure billing and cost management](../../../billing/billing-getting-started.md).
-
 For the latest Virtual Machines pricing, including SQL Server, see the [Azure VM pricing page](https://www.azure.cn/pricing/details/virtual-machines/sql-server-standard).
 
 Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md).

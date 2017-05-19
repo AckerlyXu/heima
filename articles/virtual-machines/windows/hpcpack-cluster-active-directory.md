@@ -40,7 +40,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
     ![Azure Active Directory environment](./media/hpcpack-cluster-active-directory/aad.png)
 
 ## Prerequisites
-* **HPC Pack 2016 cluster deployed in Azure virtual machines** - For steps, see [Deploy an HPC Pack 2016 cluster in Azure](hpcpack-2016-cluster.md). You need the DNS
+* **HPC Pack 2016 cluster deployed in Azure virtual machines** - You need the DNS
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
 

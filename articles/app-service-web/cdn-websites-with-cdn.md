@@ -538,5 +538,5 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 8. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
 ## More Information
-* [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md)
+* [Overview of the Azure Content Delivery Network (CDN)](/cdn/cdn-overview)
 * [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)

@@ -13,7 +13,6 @@
 ## Configure High Availability
 ### [High availability options](virtual-machines-windows-sql-high-availability-dr.md) 
 ### [Always On availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [Automatic - with template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manual - prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manual - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Load balancer - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)

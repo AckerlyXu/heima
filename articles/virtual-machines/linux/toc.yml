@@ -31,14 +31,8 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
-  - name: 9 - Backup virtual machines
-    href: tutorial-backup-vms.md
   - name: 10 - Monitor virtual machines
     href: tutorial-monitoring.md
-  - name: 11 - Manage VM security
-    href: tutorial-azure-security.md
-  - name: 12 - Jenkins CI/CD
-    href: tutorial-jenkins-github-docker-cicd.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -57,10 +51,6 @@
     href: azure-vm-network-overview.md
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Instance Metadata Service 
-    href: ../virtual-machines-instancemetadataservice-overview.md
-  - name: Containers
-    href: containers.md
   - name: Resource Manager
     href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     items:
@@ -70,8 +60,6 @@
       href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Azure Linux agent
     href: agent-user-guide.md
-  - name: Azure Security Center
-    href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Disaster recovery
     href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Planned maintenance
@@ -92,15 +80,6 @@
         href: sizes-compute.md
       - name: Memory optimized
         href: sizes-memory.md
-      - name: Storage optimized
-        href: sizes-storage.md
-      - name: GPU
-        href: sizes-gpu.md
-      - name: High performance compute
-        href: sizes-hpc.md
-        items:
-        - name: Compute-intensive sizes
-          href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
@@ -168,10 +147,6 @@
       href: optimization.md
     - name: Update Azure Linux agent
       href: update-agent.md
-    - name: Backup using Recovery Services
-      href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Join a RedHat VM to an Azure Active Directory Domain Service
-      href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
   - name: Connect with SSH
     items:
     - name: Create SSH keys on Linux and Mac
@@ -270,8 +245,6 @@
       href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Create multiple VMs with Scale Sets
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Vertically scale VMs with Azure Automation
-      href: vertical-scaling-automation.md
     - name: VM Monitoring
       href: vm-monitoring.md
   - name: Manage VM security
@@ -294,14 +267,10 @@
       href: extensions-features.md
     - name: Custom Script Extension
       href: extensions-customscript.md
-    - name: OMS Agent Extension
-      href: extensions-oms.md
   - name: Run applications
     items:
     - name: Cloud Foundry
       href: cloudfoundry-get-started.md
-    - name: Data Science VM overview
-      href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
       href: install-mongodb.md
     - name: MySQL
@@ -320,21 +289,6 @@
       href: jupyter-notebook.md
     - name: Deploy application frameworks from a template
       href: app-frameworks.md
-    - name: High Performance Computing (HPC)
-      href: hpcpack-cluster-options.md
-      items:
-      - name: Run NAMD with Microsoft HPC Pack
-        href: classic/hpcpack-cluster-namd.md
-    - name: SAP on Azure
-      href: ../workloads/sap/get-started.md
-  - name: Docker on VMs
-    items:
-    - name: Create Docker hosts with the Azure Docker VM extension
-      href: dockerextension.md
-    - name: Use Docker Machine with Azure
-      href: docker-machine.md
-    - name: Use Docker Compose with Azure
-      href: docker-compose-quickstart.md
   - name: Migrate VMs
     items:
     - name: Overview of migration

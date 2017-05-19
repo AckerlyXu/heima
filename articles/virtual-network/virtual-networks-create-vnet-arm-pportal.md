@@ -53,39 +53,27 @@ The sections that follow include steps for deploying a VNet using the Azure [por
 ## CLI
 Though CLI commands are the same whether you execute the commands from Windows, Linux, or macOS, there are scripting differences across operating system shells. The following instructions are for executing a Bash script that contains CLI commands:
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you in to Azure using the credentials you authenticated to the portal with.
-3. In your browser, copy the following script:
-    ```azurecli
-    #!/bin/bash
+```azurecli
+#!/bin/bash
 
-    # Create a resource group.
-    az group create \
-      --name MyResourceGroup \
-      --location chinaeast
+# Create a resource group.
+az group create \
+  --name MyResourceGroup \
+  --location chinaeast
 
-    # Create a virtual network with one subnet.
-    az network vnet create \
-      --name MyVnet \
-      --resource-group MyResourceGroup \
-      --subnet-name Public
+# Create a virtual network with one subnet.
+az network vnet create \
+  --name MyVnet \
+  --resource-group MyResourceGroup \
+  --subnet-name Public
 
-    # Create an additional subnet within the VNet.
-    az network vnet subnet create \
-      --name Private \
-      --address-prefix 10.0.1.0/24 \
-      --vnet-name MyVnet \
-      --resource-group MyResourceGroup
-    ```
-4. Create a script file and save it. From the cloud shell prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor with an empty myscript.sh file. Place your mouse inside the editor window, right-click, then click **Paste**. **Note:** Cloud shell storage does not persist across sessions. If you prefer to persist the script across cloud shell sessions, setup [persistent storage](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for cloud shell. 
-5. On your keyboard, hold down the **Ctrl+X** keys, then enter **Y**, then press the **Enter** key to save the file as myscript.sh.
-6. From the cloud shell prompt, mark the file as executable with the `chmod +x myscript.sh` command.
-7. Execute the script by entering `./myscript.sh`.
-8. Once the script is complete, review the subnets for the VNet by copying and pasting the following command in your Bash cloud shell:
-    ```azurecli
-    az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
-    ```
-9. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-cli) section of this article.
+# Create an additional subnet within the VNet.
+az network vnet subnet create \
+  --name Private \
+  --address-prefix 10.0.1.0/24 \
+  --vnet-name MyVnet \
+  --resource-group MyResourceGroup
+```
 
 ## PowerShell
 1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) article.

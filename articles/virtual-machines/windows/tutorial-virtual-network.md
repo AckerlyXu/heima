@@ -271,7 +271,7 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Control network traffic with Network Security Groups
 > * View traffic rules in action
 
-Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup. .
+Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
-> [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
+> [Monitor virtual machines](tutorial-monitoring.md)

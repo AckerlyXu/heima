@@ -80,7 +80,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Create an alert
 > * Set up advanced monitoring
 
-Advance to the next tutorial to learn about Azure security center.
+Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](./tutorial-azure-security.md)
+> [Linux virtual machine script samples](./cli-samples.md)
