@@ -997,11 +997,11 @@ Add the **redirectUriScheme** to the `build.gradle` file for your application:
 android {
     buildTypes {
         release {
-            // ¡­ ¡­
+            // â€¦ â€¦
             manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
         }
         debug {
-            // ¡­ ¡­
+            // â€¦ â€¦
             manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
         }
     }
