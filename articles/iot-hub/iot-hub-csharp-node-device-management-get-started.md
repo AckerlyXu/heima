@@ -248,14 +248,14 @@ To continue getting started with IoT Hub, see [Getting started with IoT Edge][ln
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md/
+[lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.cn/
-[Using resource groups to manage your Azure resources]: ../resource-group-portal.md/
+[Using resource groups to manage your Azure resources]: ../resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md/
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md/
+[lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
+[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 
-[lnk-devtwin]: ./iot-hub-devguide-device-twins.md/
-[lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md/
+[lnk-devtwin]: ./iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

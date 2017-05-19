@@ -25,7 +25,7 @@ ms.author: xshi
 
 - Run sample code on your host computer to read messages from your IoT hub.
 
-If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-troubleshooting.md/).
+If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## What you will learn
 

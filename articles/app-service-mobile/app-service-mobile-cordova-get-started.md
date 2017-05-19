@@ -58,7 +58,6 @@ Now that you completed this quick start tutorial, move on to one of the followin
 
 * [Add Offline Data](./app-service-mobile-cordova-get-started-offline-data.md) to your Apache Cordova app.
 * [Add Authentication](./app-service-mobile-cordova-get-started-users.md) to your Apache Cordova app.
-* [Add Push Notifications](./app-service-mobile-cordova-get-started-push.md) to your Apache Cordova app.
 
 Learn more about key concepts with Azure App Service.
 

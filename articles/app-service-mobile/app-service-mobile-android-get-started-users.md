@@ -59,8 +59,6 @@ Next, you update the app to authenticate users before requesting resources from 
 ## Next steps
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Add push notifications to your Android app](./app-service-mobile-android-get-started-push.md)
-  Learn how to configure your Mobile Apps back end to use Azure notification hubs to send push notifications.
 
 + [Enable offline sync for your Android app](./app-service-mobile-android-get-started-offline-data.md)
   Learn how to add offline support to your app by using a Mobile Apps back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.

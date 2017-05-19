@@ -219,7 +219,6 @@ Changing the operator **>** is more complex and goes beyond the steps outlined i
 ## Next steps
 Now that you've seen how to create custom rules, you can learn more about the preconfigured solutions:
 
-- [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logic-app]
 - [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo].
 
 [lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
@@ -228,4 +227,3 @@ Now that you've seen how to create custom rules, you can learn more about the pr
 [lnk-node]: http://nodejs.org
 [lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
 [lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
-[lnk-logic-app]: ./iot-suite-logic-apps-tutorial.md

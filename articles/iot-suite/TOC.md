@@ -16,7 +16,7 @@
 ## [Connect your device to the remote monitoring solution (Linux)](iot-suite-connecting-devices-linux.md)
 ## [Connect your device to the remote monitoring solution (mbed)](iot-suite-connecting-devices-mbed.md)
 ## [Connect your device to the remote monitoring solution (Node)](iot-suite-connecting-devices-node.md)
-## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
+
 ## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
 ## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
@@ -32,7 +32,7 @@
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
 ## [IoT Hub](/azure/iot-hub/)
-## [Machine Learning](/azure/machine-learning/)
+
 
 # Resources
 ## [FAQ](iot-suite-faq.md)

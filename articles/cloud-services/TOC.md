@@ -21,8 +21,6 @@
 #### [Queue storage and connected services](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configure packages for continuous build and deploy
-#### [Visual Studio Team Services and Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
@@ -37,7 +35,6 @@
 
 ### Configure Remote Desktop
 #### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Deploy
@@ -88,7 +85,6 @@
 ### [Use performance counters in Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Trace Cloud Service with Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Send diagnostic data to App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Troubleshoot
 ### Debug 

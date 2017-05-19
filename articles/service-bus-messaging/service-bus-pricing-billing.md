@@ -18,7 +18,7 @@ ms.author: sethm
 
 # Service Bus pricing and billing
 
-Service Bus is offered in Basic, Standard, and [Premium](./service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
+Service Bus is offered in Basic, Standard tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
 
 >[!NOTE]
 > For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://www.azure.cn/pricing/details/service-bus/), and the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing).

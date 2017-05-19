@@ -89,12 +89,10 @@ The following platform features are generally useful for mobile production sites
 * **Virtual Networking** - App Service can connect to on-premises resources using virtual network, ExpressRoute or hybrid
   connections.
 
-  Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].
 * **Isolated / Dedicated Environments** - App Service can be run in a fully isolated and dedicated enviroment for securely
   running Azure App Service apps at high scale.  This is ideal for application workloads requiring very high scale, isolation
   or secure network access.
 
-  Discover more about [App Service Environments].
 
 ## Getting Started
 To get started with Mobile Apps, follow the [Get Started] tutorial.  This will cover the basics
@@ -129,8 +127,6 @@ For more information on the Azure App Service platform, see [Azure App Service].
 [auto scaling]: ../app-service-web/web-sites-scale.md
 [staging environments]: ../app-service-web/web-sites-staged-publishing.md
 [deployment options]: ../app-service-web/web-sites-deploy.md
-[hybrid connections]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-[virtual networks]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service Environments]: ../app-service-web/app-service-app-service-environment-intro.md
+
+
 [learning map]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

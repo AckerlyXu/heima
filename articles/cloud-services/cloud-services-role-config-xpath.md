@@ -169,8 +169,8 @@ Here is an example of a worker role that creates a startup task with an environm
 
 ## Next steps
 
-Learn more about the [ServiceConfiguration.cscfg](./cloud-services-model-and-package.md#serviceconfigurationcscfg.md) file.
+Learn more about the [ServiceConfiguration.cscfg](./cloud-services-model-and-package.md#cscfg) file.
 
-Create a [ServicePackage.cspkg](./cloud-services-model-and-package.md#servicepackagecspkg.md) package.
+Create a [ServicePackage.cspkg](./cloud-services-model-and-package.md#cspkg) package.
 
 Enable [remote desktop](./cloud-services-role-enable-remote-desktop.md) for a role.

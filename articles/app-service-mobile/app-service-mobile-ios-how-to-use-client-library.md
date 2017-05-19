@@ -605,32 +605,32 @@ and the Pod:
 #import <ADALiOS/ADAuthenticationSettings.h>
 // ...
 - (void) authenticate:(UIViewController*) parent
-           completion:(void (^) (MSUser*, NSError*))completionBlock;
+           completion:(void (^) (MSUser*, NSError*))completionBlock;
 {
-    NSString *authority = @"INSERT-AUTHORITY-HERE";
-    NSString *resourceId = @"INSERT-RESOURCE-ID-HERE";
-    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
-    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
-    ADAuthenticationError *error;
-    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-    authContext.parentController = parent;
-    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
-    [authContext acquireTokenWithResource:resourceId
-                                 clientId:clientId
-                              redirectUri:redirectUri
-                          completionBlock:^(ADAuthenticationResult *result) {
-                              if (result.status != AD_SUCCEEDED)
-                              {
-                                  completionBlock(nil, result.error);;
-                              }
-                              else
-                              {
-                                  NSDictionary *payload = @{
-                                                            @"access_token" : result.tokenCacheStoreItem.accessToken
-                                                            };
-                                  [client loginWithProvider:@"aad" token:payload completion:completionBlock];
-                              }
-                          }];
+    NSString *authority = @"INSERT-AUTHORITY-HERE";
+    NSString *resourceId = @"INSERT-RESOURCE-ID-HERE";
+    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
+    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
+    ADAuthenticationError *error;
+    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+    authContext.parentController = parent;
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
+    [authContext acquireTokenWithResource:resourceId
+                                 clientId:clientId
+                              redirectUri:redirectUri
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              if (result.status != AD_SUCCEEDED)
+                              {
+                                  completionBlock(nil, result.error);;
+                              }
+                              else
+                              {
+                                  NSDictionary *payload = @{
+                                                            @"access_token" : result.tokenCacheStoreItem.accessToken
+                                                            };
+                                  [client loginWithProvider:@"aad" token:payload completion:completionBlock];
+                              }
+                          }];
 }
 ```
 
@@ -722,6 +722,6 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
-[8]: ../active-directory/active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem
+[8]: ../active-directory/develop/active-directory-devquickstarts-ios.md
 
 [10]: https://developers.facebook.com/docs/ios/getting-started

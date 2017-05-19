@@ -15,8 +15,8 @@ wacn.date: 05/17/2016
 # Configuring a custom domain name for an Azure cloud service
 
 > [!div class="op_single_selector"]
->- [Azure portal](./cloud-services-custom-domain-name-portal.md/)
->- [Azure classic portal](./cloud-services-custom-domain-name.md/)
+>- [Azure portal](./cloud-services-custom-domain-name-portal.md)
+>- [Azure classic portal](./cloud-services-custom-domain-name.md)
 
 When you create a Cloud Service, Azure assigns it to a subdomain of chinacloudapp.cn. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.chinacloudapp.cn. Azure also assigns a virtual IP address.
 
@@ -30,7 +30,7 @@ Do you already undestand what CNAME and A records are? [Jump past the explanatio
 <p/>
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-web-service/web-sites-custom-domain-name.md/). For storage accounts, see [this](../storage/storage-custom-domain-name.md/).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
 
 ## Understand CNAME and A records
 
@@ -50,7 +50,7 @@ An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a
 > [!NOTE]
 > Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your Cloud Service. The IP address used by your Cloud Service is allocated the first time you deploy to an empty slot (either production or staging.) If you delete the deployment for the slot, the IP address is released by Azure and any future deployments to the slot may be given a new IP address.
 >
-> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](./cloud-services-how-to-manage.md/).
+> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](./cloud-services-how-to-manage.md).
 
 ## Add a CNAME record for your custom domain
 
@@ -134,15 +134,14 @@ For example, the following A record forwards all traffic from **contoso.com** to
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
 
 >[!WARNING]
->IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md/) to ensure that your IP address does not change.
+>IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
 
 ## Next steps
 
-* [How to Manage Cloud Services](./cloud-services-how-to-manage.md/)
-* [How to Map CDN Content to a Custom Domain](./cdn-map-content-to-custom-domain.md/)
-* [General configuration of your cloud service](./cloud-services-how-to-configure.md/).
-* Learn how to [deploy a cloud service](./cloud-services-how-to-create-deploy.md/).
-* Configure [ssl certificates](./cloud-services-configure-ssl-certificate.md/).
+* [How to Manage Cloud Services](./cloud-services-how-to-manage.md)
+* [General configuration of your cloud service](./cloud-services-how-to-configure.md).
+* Learn how to [deploy a cloud service](./cloud-services-how-to-create-deploy.md).
+* Configure [ssl certificates](./cloud-services-configure-ssl-certificate.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname

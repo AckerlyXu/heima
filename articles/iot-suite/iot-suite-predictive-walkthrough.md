@@ -78,4 +78,4 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-faq]: ./iot-suite-faq.md
-[lnk-security-groundup]: ../iot-hub/securing-iot-ground-up.md
+[lnk-security-groundup]: ./securing-iot-ground-up.md

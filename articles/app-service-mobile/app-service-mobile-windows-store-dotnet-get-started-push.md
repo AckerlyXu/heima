@@ -211,7 +211,7 @@ Next, your app must register for push notifications on start-up. When you have a
 
 Learn more about push notifications:
 
-* [How to use the managed client for Azure Mobile Apps](./app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications)  
+* [How to use the managed client for Azure Mobile Apps](./app-service-mobile-dotnet-how-to-use-client-library.md#register-xplat)  
 Templates give you flexibility to send cross-platform pushes and localized pushes. Learn how to register templates.
 
 * [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  

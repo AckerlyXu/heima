@@ -24,7 +24,7 @@ The **Azure Activity Log** is a log that provides insight into the operations th
 
 Figure 1: Activity Logs vs other types of logs
 
-The Activity Log differs from [Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource.
+Activity Logs provide data about the operations on a resource from the outside. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource.
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 

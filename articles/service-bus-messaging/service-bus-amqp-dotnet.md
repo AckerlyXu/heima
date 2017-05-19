@@ -128,5 +128,5 @@ Ready to learn more? Visit the following links:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.cn
 [Service Bus AMQP overview]: ./service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx

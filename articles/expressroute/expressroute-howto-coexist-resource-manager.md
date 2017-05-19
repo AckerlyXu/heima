@@ -20,8 +20,8 @@ ms.author: charwen,cherylmc
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections
 > [!div class="op_single_selector"]
->- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md/)
->- [PowerShell - Classic](./expressroute-howto-coexist-classic.md/)
+>- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md)
+>- [PowerShell - Classic](./expressroute-howto-coexist-classic.md)
 > 
 > 
 
@@ -90,7 +90,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
     $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
     ```
 
-3. Create a virtual network including Gateway Subnet. For more information about the virtual network configuration, see [Azure Virtual Network configuration](../virtual-network/virtual-networks-create-vnet-arm-ps.md/).
+3. Create a virtual network including Gateway Subnet. For more information about the virtual network configuration, see [Azure Virtual Network configuration](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
 
     >[!IMPORTANT]
     > The Gateway Subnet must be /27 or a shorter prefix (such as /26 or /25).
@@ -245,7 +245,7 @@ You can follow the steps below to add Point-to-Site configuration to your VPN ga
     Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
     ```
 
-For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md/).
+For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).

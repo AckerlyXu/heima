@@ -153,10 +153,6 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
-## Next steps
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
-
-* [Schedule and broadcast jobs][lnk-jobs-tutorial]
 
 <!-- links and images -->
 
@@ -165,7 +161,6 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
-[lnk-jobs-tutorial]: ./iot-hub-schedule-jobs.md/
 [lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: ./iot-hub-node-node-twin-getstarted.md

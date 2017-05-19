@@ -79,7 +79,6 @@ project for a simple "todo list" backend and publish it to Azure.
 
 * [Add Offline Sync to your app](./app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Add authentication to your app ](./app-service-mobile-xamarin-android-get-started-users.md)
-* [Add push notifications to your Xamarin.Android app](./app-service-mobile-xamarin-android-get-started-push.md/)
 * [How to use the managed client for Azure Mobile Apps](./app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->
