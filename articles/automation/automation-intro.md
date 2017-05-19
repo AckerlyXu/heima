@@ -37,7 +37,7 @@ The [Runbook Gallery](automation-runbook-gallery.md#runbooks-in-runbook-gallery)
 You can [create your own runbooks](automation-creating-importing-runbook.md) from scratch or modify runbooks from the [Runbook Gallery](automation-runbook-gallery.md) for your own requirements. There is only one runbook type in WindowsAzure.cn. You can use a PowerShell Workflow runbook that you edit offline or with the [textual editor](automation-edit-textual-runbook.md) in the Azure Classic Management Portal.
 
 ## Getting modules and configurations
-You can get [PowerShell modules](automation-runbook-gallery.md#modules-in-powershell-gallery) containing cmdlets that you can use in your runbooks from the [PowerShell Gallery](http://www.powershellgallery.com/). You can download and import them manually. You cannot install the modules directly from the Azure Classic Management Portal, but you can download them install them as you would any other module. 
+You can get [PowerShell modules](automation-runbook-gallery.md) containing cmdlets that you can use in your runbooks from the [PowerShell Gallery](http://www.powershellgallery.com/). You can download and import them manually. You cannot install the modules directly from the Azure Classic Management Portal, but you can download them install them as you would any other module. 
 
 ## Example practical applications of Azure Automation
 Following are just a few examples of what are the kinds of automation scenarios with Azure Automation. 
