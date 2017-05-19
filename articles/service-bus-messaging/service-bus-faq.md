@@ -58,7 +58,7 @@ The following properties of a queue and topic are immutable. Please take this in
 
 -   Express entity
 
-## Pricing
+## <a name="service-bus-pricing"></a> Pricing
 This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](https://www.azure.cn/pricing/details/service-bus/).
 
 ### How do you charge for Service Bus?

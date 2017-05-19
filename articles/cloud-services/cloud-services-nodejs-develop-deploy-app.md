@@ -201,7 +201,7 @@ For more information, see the [Node.js Developer Center].
 [using a lightweight web app]:../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Azure Powershell]:../powershell-install-configure.md
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connect PowerShell]:../powershell-install-configure.md#how-to-connect-to-your-subscription.md
+[Connect PowerShell]:../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: ./index.md
 [Node.js Developer Center]: /develop/nodejs/

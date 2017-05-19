@@ -244,7 +244,7 @@ You can disable a device, and after it is disabled you can remove it:
 
 ![Disable and remove a device][img-disable]
 
-### Add a rule
+### <a name="add-a-rule-for-the-new-device"></a> Add a rule
 
 There are no rules for the new device you just added. In this section, you add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
 
