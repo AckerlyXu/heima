@@ -252,7 +252,6 @@ Some DLP technologies also provide the ability to override the DLP configuration
 
 ## See also
 * [Azure Data Encryption Best Practices](azure-security-data-encryption-best-practices.md)
-* [Azure Identity Management and access control security best practices](azure-security-identity-management-best-practices.md)
 * [Azure Security Team Blog](http://blogs.msdn.com/b/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
