@@ -3,36 +3,32 @@ title: How to use Blob Storage from Xamarin | Azure
 description: The Azure Storage Client Library for Xamarin enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an application that uses Azure Blob storage.
 services: storage
 documentationcenter: xamarin
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 
 ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2017
-wacn.date: ''
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: michaelhauss
+
 ---
-
 # How to use Blob Storage from Xamarin
-
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
-
-Xamarin enables developers to use a shared C# codebase to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows you how to use Azure Blob storage with a Xamarin application. If you'd like to learn more about Azure Storage, before diving into the code, see [Introduction to Azure Storage](./storage-introduction.md).
+Xamarin enables developers to use a shared C# codebase to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows you how to use Azure Blob storage with a Xamarin application. If you'd like to learn more about Azure Storage, before diving into the code, see [Introduction to Azure Storage](storage-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Create a new Xamarin Application
-
-For this getting started, we'll be creating an app that targets Android, iOS, and Windows. This app will simply create a container and upload a blob into this container. We'll be using Visual Studio on Windows for this getting started, but the same learnings can be applied when creating an app using Xamarin Studio on Mac OS.
+For this tutorial, we'll be creating an app that targets Android, iOS, and Windows. This app will simply create a container and upload a blob into this container. We'll be using Visual Studio on Windows, but the same learnings can be applied when creating an app using Xamarin Studio on macOS.
 
 Follow these steps to create your application:
 
@@ -44,8 +40,7 @@ Follow these steps to create your application:
 You should now have an application that allows you to click a button which increments a counter.
 
 ## Create container and upload blob
-
-Next, you'll add some code to the shared class `MyClass.cs` that creates a container and uploads a blob into this container. `MyClass.cs` should look like the following:
+Next, under your `(Portable)` project, you'll add some code to `MyClass.cs`. This code creates a container and uploads a blob into this container. `MyClass.cs` should look like the following:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -117,7 +112,8 @@ namespace XamarinApp.Droid
                 button.Text = string.Format ("{0} clicks!", count++);
             };
 
-                    await MyClass.performBlobOperation();
+            await MyClass.performBlobOperation();
+            }
         }
     }
 }
@@ -140,30 +136,31 @@ namespace XamarinApp.iOS
         }
 
         public override async void ViewDidLoad ()
-    {
-        int count = 1;
-
-        public ViewController (IntPtr handle) : base (handle)
         {
-        }
+            int count = 1;
 
-        public override async void ViewDidLoad ()
-        {
-            base.ViewDidLoad ();
-            // Perform any additional setup after loading the view, typically from a nib.
-            Button.AccessibilityIdentifier = "myButton";
-            Button.TouchUpInside += delegate {
-                var title = string.Format ("{0} clicks!", count++);
-                Button.SetTitle (title, UIControlState.Normal);
-            };
+            public ViewController (IntPtr handle) : base (handle)
+            {
+            }
 
-                    await MyClass.performBlobOperation();
-                }
+            public override async void ViewDidLoad ()
+            {
+                base.ViewDidLoad ();
+                // Perform any additional setup after loading the view, typically from a nib.
+                Button.AccessibilityIdentifier = "myButton";
+                Button.TouchUpInside += delegate {
+                    var title = string.Format ("{0} clicks!", count++);
+                    Button.SetTitle (title, UIControlState.Normal);
+                };
 
-        public override void DidReceiveMemoryWarning ()
-        {
-            base.DidReceiveMemoryWarning ();
-            // Release any cached data, images, etc that aren't in use.
+                await MyClass.performBlobOperation();
+            }
+
+            public override void DidReceiveMemoryWarning ()
+            {
+                base.DidReceiveMemoryWarning ();
+                // Release any cached data, images, etc that aren't in use.
+            }
         }
     }
 }
@@ -199,52 +196,54 @@ namespace XamarinApp.WinPhone
         /// <param name="e">Event data that describes how this page was reached.
         /// This parameter is typically used to configure the page.</param>
         protected override async void OnNavigatedTo(NavigationEventArgs e)
-    {
-        int count = 1;
-
-        public MainPage()
         {
-            this.InitializeComponent();
+            int count = 1;
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;
-        }
+            public MainPage()
+            {
+                this.InitializeComponent();
 
-        /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
-        /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.
-        /// This parameter is typically used to configure the page.</param>
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            // TODO: Prepare page for display here.
+                this.NavigationCacheMode = NavigationCacheMode.Required;
+            }
 
-            // TODO: If your application contains multiple pages, ensure that you are
-            // handling the hardware Back button by registering for the
-            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-            // If you are using the NavigationHelper provided by some templates,
-            // this event is handled for you.
-            Button.Click += delegate {
-                var title = string.Format("{0} clicks!", count++);
-                Button.Content = title;
-            };
+            /// <summary>
+            /// Invoked when this page is about to be displayed in a Frame.
+            /// </summary>
+            /// <param name="e">Event data that describes how this page was reached.
+            /// This parameter is typically used to configure the page.</param>
+            protected override async void OnNavigatedTo(NavigationEventArgs e)
+            {
+                // TODO: Prepare page for display here.
+
+                // TODO: If your application contains multiple pages, ensure that you are
+                // handling the hardware Back button by registering for the
+                // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
+                // If you are using the NavigationHelper provided by some templates,
+                // this event is handled for you.
+                Button.Click += delegate {
+                    var title = string.Format("{0} clicks!", count++);
+                    Button.Content = title;
+                };
 
                 await MyClass.performBlobOperation();
+            }
         }
     }
-}
 }
 ```
 
 ## Run the application
-
 You can now run this application in an Android or Windows Phone emulator. You can also run this application in an iOS emulator, but this will require a Mac. For specific instructions on how to do this, please read the documentation for [connecting Visual Studio to a Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
 Once you run your app, it will create the container `mycontainer` in your Storage account. It should contain the blob, `myblob`, which has the text, `Hello, world!`. You can verify this by using the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 ## Next steps
+In this tutorial, you learned how to create a cross-platform application in Xamarin that uses Azure Storage, specifically focusing on one scenario in Blob Storage. However, you can do a lot more with not only Blob Storage, but also with Table, File, and Queue Storage. Please check out the following articles to learn more:
 
-In this getting started, you learned how to create a cross-platform application in Xamarin that uses Azure Storage. This getting started specifically focused on one scenario in Blob Storage. However, you can do a lot more with, not only Blob Storage, but also with Table, File, and Queue Storage. Please check out the following articles to learn more:
-- [Get started with Azure Blob Storage using .NET](./storage-dotnet-how-to-use-blobs.md)
-- [Get started with Azure Table Storage using .NET](./storage-dotnet-how-to-use-tables.md)
-- [Get started with Azure Queue Storage using .NET](./storage-dotnet-how-to-use-queues.md)
-- [Get started with Azure File Storage on Windows](./storage-dotnet-how-to-use-files.md)
+* [Get started with Azure Blob Storage using .NET](storage-dotnet-how-to-use-blobs.md)
+* [Get started with Azure Table Storage using .NET](storage-dotnet-how-to-use-tables.md)
+* [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
+* [Get started with Azure File Storage on Windows](storage-dotnet-how-to-use-files.md)
+
+[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+
