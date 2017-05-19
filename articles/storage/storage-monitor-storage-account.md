@@ -112,7 +112,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
-## Add metrics charts to the portal dashboard
+##<a name="how-to-add-metrics-to-the-metrics-table"></a> Add metrics charts to the portal dashboard
 
 You can add Azure Storage metrics charts for any of your storage accounts to your portal dashboard.
 

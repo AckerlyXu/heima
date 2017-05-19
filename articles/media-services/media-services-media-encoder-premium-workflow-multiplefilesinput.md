@@ -470,7 +470,7 @@ To encode, please follow these steps:
 
 - [How to use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
-- [Encoding on-demand content with Azure Media Services](./media-services-encode-asset.md#media_encoder_premium_workflow)
+- [Encoding on-demand content with Azure Media Services](./media-services-encode-asset.md)
 
 - [Media Encoder Premium Workflow formats and codecs](./media-services-premium-workflow-encoder-formats.md)
 

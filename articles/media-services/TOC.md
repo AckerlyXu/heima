@@ -173,7 +173,6 @@
 ### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
 #### [Create filters with .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Create filters with REST](media-services-rest-dynamic-manifest.md)
-### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publish content
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -191,9 +190,6 @@
 ### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
-## Integrate
-### [Use Azure Functions with Media Services](media-services-dotnet-how-to-use-azure-functions.md)
-### [Azure Functions with Media Services examples](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress

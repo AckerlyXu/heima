@@ -31,7 +31,7 @@ The following topics outline details related to **Media Encoder Premium Workflow
 
 - [Formats Supported by the Media Encoder Premium Workflow](./media-services-premium-workflow-encoder-formats.md) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
 
-- The [compare encoders](./media-services-encode-asset.md#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow** and **Media Encoder Standard**.
+- The [compare encoders](./media-services-encode-asset.md) section compares the encoding capabilities of **Media Encoder Premium Workflow** and **Media Encoder Standard**.
 
 This topic demonstrates how to encode with **Media Encoder Premium Workflow** using .NET.
 

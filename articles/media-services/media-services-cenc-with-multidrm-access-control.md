@@ -208,7 +208,7 @@ George has also written a blog on [JWT token Authentication in Azure Media Servi
 
 For information on Azure Active Directory:
 
-* You can find developer information in [Azure Active Directory Developer’s Guide](../active-directory/active-directory-developers-guide.md).
+* You can find developer information in [Azure Active Directory Developer’s Guide](../active-directory/develop/active-directory-developers-guide.md).
 * You can find administrator information in [Administer Your Azure AD Directory](../active-directory/active-directory-administer.md).
 
 ### Some gotchas in implementation
@@ -277,7 +277,7 @@ This is an important point to take into consideration of your implementation. If
 
 Azure AD uses industry standard to establish trust between itself and applications using Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, this token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s federation metadata document. This public key – and the signing key from which it derives – is the same one used for all tenants in Azure AD.
 
-Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](../active-directory/active-directory-signing-key-rollover.md).
+Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Between the [public-private key pair](https://login.chinacloudapi.cn/common/discovery/keys/), 
 
@@ -310,7 +310,7 @@ If you look at how a web app calls an API app under [Application Identity with O
 4. Azure AD authenticates the application and returns a JWT access token that is used to call the web API.
 5. Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API. The web API then validates the JWT token, and if validation is successful, returns the desired resource.
 
-In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](../active-directory/active-directory-protocols-oauth-code.md) describes how authorization code grant flow works.
+In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](../active-directory/develop/active-directory-protocols-oauth-code.md) describes how authorization code grant flow works.
 
 In license acquisition with token restriction, we are following the same trusted subsystem pattern. And the license delivery service in Azure Media Services is the web API resource, the “backend resource” a web application needs to access. So where is the access token?
 

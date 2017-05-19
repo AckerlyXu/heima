@@ -641,4 +641,4 @@ The following functionality was new in the November release of the SDK.
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Managing Media Services Assets across Multiple Storage Accounts]: ./meda-services-managing-multiple-storage-accounts.md
-[Handling Media Services Job Notifications]: ./media-services-check-job-progress.md#check_progress_with_queues
+[Handling Media Services Job Notifications]: ./media-services-check-job-progress.md

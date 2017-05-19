@@ -239,9 +239,7 @@ In most cases, it’s better to host your DNS name resolution services with a se
 
 Azure provides you a highly available and performant external DNS solution in the form of Azure DNS. This external name resolution solution takes advantage of the worldwide Azure DNS infrastructure. It allows you to host your domain in Azure using the same credentials, APIs, tools, and billing as your other Azure services. As part of Azure, it also inherits the strong security controls built into the platform.
 
-Learn more:
 
-- [Azure DNS Overview](../dns/dns-overview.md)
 
 ## DMZ Architecture
 Many enterprise organizations use DMZs to segment their networks to create a buffer-zone between the Internet and their services. The DMZ portion of the network is considered a low-security zone and no high-value assets are placed in that network segment. You’ll typically see network security devices that have a network interface on the DMZ segment and another network interface connected to a network that has virtual machines and services that accept inbound connections from the Internet.

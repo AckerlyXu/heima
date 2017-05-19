@@ -54,7 +54,7 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 * **None** (pass-through) – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  
 * **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. This method is more economical for scaling up quickly for infrequent events. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
 
-## Comparison of Channel Types
+##<a name="closed-captioning-and-ad-insertion"></a> Comparison of Channel Types
 Following table provides a guide to comparing the two Channel types supported in Media Services
 
 Feature|Pass-through Channel|Standard Channel
