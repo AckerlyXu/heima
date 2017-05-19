@@ -46,24 +46,18 @@ Azure AD features that enable account sharing include:
 
 - [Password single sign-on](./active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - Password single sign-on agent
-- [Group assignment](./active-directory-accessmanagement-self-service-group-management.md)
 - Custom Password apps
-- [App usage dashboard/reports](./active-directory-passwords-get-insights.md)
 - End user access portals
-- [App proxy](./active-directory-application-proxy-get-started.md)
 - [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account
 To use Azure AD to share an account you will need to:
 
 - Configure the application for password Single Sign-On (SSO)
-- Use [group based assignment](./active-directory-accessmanagement-group-saasapps.md) and select the option to enter a shared credential
 - Optional: in some applications, such as Facebook, Twitter, or LinkedIn, you can enable the option for [Azure AD automated password roll-over](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) and you can delegate the ability to manage who has access to the application using [Azure AD Self-service](./active-directory-accessmanagement-self-service-group-management.md) Group Management.
+You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)).
 
 ## Related articles
 
 - [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
-- [Protecting apps with conditional access](./active-directory-conditional-access.md)
-- [Self-service group management/SSAA](./active-directory-accessmanagement-self-service-group-management.md)
