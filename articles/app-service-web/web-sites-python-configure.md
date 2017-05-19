@@ -20,7 +20,7 @@ ms.author: huvalo
 
 ---
 # Configuring Python with Azure App Service Web Apps
-This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services).
+This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services).
 
 It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.
 
@@ -342,7 +342,7 @@ Contents of `ptvs_virtualenv_proxy.py`:
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## Next steps
-For more information, see the [Python Developer Center](https://www.azure.cn/develop/python/).
+For more information, see the [Python Developer Center](/develop/python/).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)

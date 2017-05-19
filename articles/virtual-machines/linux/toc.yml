@@ -1,10 +1,10 @@
 - name: Linux VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Azure CLI
@@ -13,20 +13,32 @@
     href: quick-create-portal.md
   - name: Create VM - PowerShell
     href: quick-create-powershell.md
+- name: Tutorials
+  items:
+  - name: 1 - Create / manage VMs
+    href: tutorial-manage-vm.md
+  - name: 2 - Create / manage disks
+    href: tutorial-manage-disks.md
+  - name: 3 - Automate configuration
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - Create VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
+    href: tutorial-load-balancer.md
+  - name: 8 - Manage networking
+    href: tutorial-virtual-network.md
+  - name: 10 - Monitor virtual machines
+    href: tutorial-monitoring.md
 - name: Samples
   items:
   - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
-- name: Tutorials
-  items:
-  - name: Create and manage a VM
-    href: tutorial-manage-vm.md
-  - name: Load balance highly available VMs
-    href: tutorial-load-balance-nodejs.md
-  - name: Create a VM Scale Set
-    href: tutorial-create-vmss.md
 - name: Concepts
   items:
   - name: Azure-endorsed distributions
@@ -39,10 +51,6 @@
     href: azure-vm-network-overview.md
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Instance Metadata Service 
-    href: ../virtual-machines-instancemetadataservice-overview.md
-  - name: Containers
-    href: containers.md
   - name: Resource Manager
     href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     items:
@@ -52,8 +60,6 @@
       href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Azure Linux agent
     href: agent-user-guide.md
-  - name: Azure Security Center
-    href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Disaster recovery
     href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Planned maintenance
@@ -74,15 +80,6 @@
         href: sizes-compute.md
       - name: Memory optimized
         href: sizes-memory.md
-      - name: Storage optimized
-        href: sizes-storage.md
-      - name: GPU
-        href: sizes-gpu.md
-      - name: High performance compute
-        href: sizes-hpc.md
-        items:
-        - name: Compute-intensive sizes
-          href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
@@ -150,10 +147,6 @@
       href: optimization.md
     - name: Update Azure Linux agent
       href: update-agent.md
-    - name: Backup using Recovery Services
-      href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Join a RedHat VM to an Azure Active Directory Domain Service
-      href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
   - name: Connect with SSH
     items:
     - name: Create SSH keys on Linux and Mac
@@ -204,7 +197,7 @@
       items:
       - name: Azure CLI
         href: add-disk.md
-      - name: Azure portal preview
+      - name: Azure portal
         href: attach-disk-portal.md
     - name: Detach a disk
       href: detach-disk.md
@@ -224,7 +217,7 @@
       items:
       - name: Azure CLI
         href: deploy-linux-vm-into-existing-vnet-using-cli.md
-      - name: Azure portal preview
+      - name: Azure portal
         href: deploy-linux-vm-into-existing-vnet-using-portal.md
     - name: Create a VM with multiple NICs
       href: multiple-nics.md
@@ -252,8 +245,6 @@
       href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Create multiple VMs with Scale Sets
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Vertically scale VMs with Azure Automation
-      href: vertical-scaling-automation.md
     - name: VM Monitoring
       href: vm-monitoring.md
   - name: Manage VM security
@@ -276,14 +267,10 @@
       href: extensions-features.md
     - name: Custom Script Extension
       href: extensions-customscript.md
-    - name: OMS Agent Extension
-      href: extensions-oms.md
   - name: Run applications
     items:
     - name: Cloud Foundry
       href: cloudfoundry-get-started.md
-    - name: Data Science VM overview
-      href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
       href: install-mongodb.md
     - name: MySQL
@@ -302,21 +289,6 @@
       href: jupyter-notebook.md
     - name: Deploy application frameworks from a template
       href: app-frameworks.md
-    - name: High Performance Computing (HPC)
-      href: hpcpack-cluster-options.md
-      items:
-      - name: Run NAMD with Microsoft HPC Pack
-        href: classic/hpcpack-cluster-namd.md
-    - name: SAP on Azure
-      href: ../workloads/sap/get-started.md
-  - name: Docker on VMs
-    items:
-    - name: Create Docker hosts with the Azure Docker VM extension
-      href: dockerextension.md
-    - name: Use Docker Machine with Azure
-      href: docker-machine.md
-    - name: Use Docker Compose with Azure
-      href: docker-compose-quickstart.md
   - name: Migrate VMs
     items:
     - name: Overview of migration
@@ -352,7 +324,7 @@
       items:
       - name: Azure CLI
         href: troubleshoot-recovery-disks.md
-      - name: Azure portal preview
+      - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
 - name: Reference
   items:
@@ -367,7 +339,7 @@
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: REST
     href: /rest/api/compute
 - name: Resources
@@ -377,7 +349,7 @@
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://www.azure.cn/pricing/details/#Linux
+    href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow

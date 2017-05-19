@@ -47,7 +47,7 @@ The following configuration steps will setup the BGP parameters of the Azure VPN
 
 ### Before you begin
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
-* You'll need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+* You'll need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - Create and configure VNet1
 #### 1. Declare your variables
@@ -109,7 +109,7 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subn
 ```
 
 #### 2. Create the VPN gateway with the AS number
-Create the virtual network gateway for TestVNet1. Note that BGP requires a Route-Based VPN gateway, and also the addition parameter, -Asn, to set the ASN (AS Number) for TestVNet1. Creating a gateway can take a while (30 minutes or more to complete).
+Create the virtual network gateway for TestVNet1. Note that BGP requires a Route-Based VPN gateway, and also the addition parameter, -Asn, to set the ASN (AS Number) for TestVNet1. If you do not set the ASN parameter, ASN 65515 will be assigned. Creating a gateway can take a while (30 minutes or more to complete).
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN

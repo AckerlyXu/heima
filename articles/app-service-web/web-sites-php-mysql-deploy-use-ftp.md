@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: ''
 ms.author: robmcm
 
@@ -234,7 +234,7 @@ After you have connected you will be able to upload and download files as needed
 After uploading both `index.php` and `createtable.php`, browse to **http://[site name].chinacloudsites.cn/createtable.php** to create the MySQL table for the application, then browse to **http://[site name].chinacloudsites.cn/index.php** to begin using the application.
 
 ## Next steps
-For more information, see the [PHP Developer Center](https://www.azure.cn/develop/php/).
+For more information, see the [PHP Developer Center](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
