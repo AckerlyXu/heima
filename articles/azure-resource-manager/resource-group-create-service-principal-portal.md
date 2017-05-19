@@ -82,7 +82,7 @@ To check your subscription permissions:
 
     ![show permissions](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
-## Create an Active Directory application
+## Create an Azure Active Directory application
 1. Log in to your Azure Account through the [Azure portal preview](https://portal.azure.cn).
 2. Select **Azure Active Directory**.
 
