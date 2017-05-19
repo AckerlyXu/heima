@@ -75,7 +75,7 @@ Azure Cosmos DB allows you to programmatically override and relax the default co
 ### <a id="DynamicallyConfigurableReadWriteRegions"></a>Dynamically configurable read and write regions
 Azure Cosmos DB enables you to configure the regions (associated with the database) for "read", "write" or "read/write" regions. 
 
-### <a id="ElasticallyScaleThroughput"></a>Elastically scaling throughput across Azure regions
+### <a id="ElasticallyScaleThroughput"></a><a name="scaling-across-the-planet"></a>Elastically scaling throughput across Azure regions
 You can elastically scale an Azure Cosmos DB collection by provisioning throughput programmatically. The throughput is applied to all the regions the collection is distributed in.
 
 ### <a id="GeoLocalReadsAndWrites"></a>Geo-local reads and writes
