@@ -79,4 +79,3 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 
 - [Manage your passwords from anywhere](./active-directory-passwords.md)
 - [What is application access and single sign-on with Azure Active Directory?](./active-directory-appssoaccess-whatis.md)
-- [What is Azure Active Directory licensing?](./active-directory-licensing-what-is.md)

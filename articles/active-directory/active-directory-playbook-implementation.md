@@ -65,7 +65,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | Scenario | Building Blocks| 
 | --- | --- |  
 | [Secure administrator account access](#secure-administrator-account-access) | [Azure MFA with Phone Calls](./active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
-| [Protect identities based on risk](#protect-identities-based-on-risk) | [Discovering risk events](./active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[Deploying Sign-in risk policies](./active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
+| [Protect identities based on risk](#protect-identities-based-on-risk) | |
 | [Authenticate without passwords using certificate based authentication](#authenticate-without-passwords-using-certificate-based-authentication) | [Configuring certificate based authentication](./active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
 
 ### Secure administrator account access

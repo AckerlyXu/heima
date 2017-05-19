@@ -717,12 +717,7 @@ The figure below shows the messages that Azure Active Directory will send to a S
 ##Related Articles
 
 - [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
-- [Automate User Provisioning/Deprovisioning to SaaS Apps](./active-directory-saas-app-provisioning.md)
-- [Customizing Attribute Mappings for User Provisioning](/documentation/articles/active-directory-saas-customizing-attribute-mappings/)
-- [Writing Expressions for Attribute Mappings](/documentation/articles/active-directory-saas-writing-expressions-for-attribute-mappings/)
-- [Scoping Filters for User Provisioning](/documentation/articles/active-directory-saas-scoping-filters/)
-- [Account Provisioning Notifications](/documentation/articles/active-directory-saas-account-provisioning-notifications/)
-- [List of Tutorials on How to Integrate SaaS Apps](./active-directory-saas-tutorial-list.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
