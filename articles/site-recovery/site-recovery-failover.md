@@ -24,7 +24,7 @@ This article describes how to failover virtual machines and physical servers pro
 1. Before you do a failover, do a [test failover](./site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected. 
 1. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
-##<a name="run-a-test-failover"></a><a name="run-an-unplanned-failover"></a> Run a failover
+##<a name="run-a-test-failover"></a><a name="run-an-unplanned-failover"></a><a name="run-a-failover"></a> Run a failover
 This procedure describes how to run a failover for a [recovery plan](./site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
 
 ![Failover](./media/site-recovery-failover/Failover.png)
