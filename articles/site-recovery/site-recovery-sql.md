@@ -166,7 +166,7 @@ In the example, the Sharepoint app consists of three virtual machines which use 
 
 ![Customize Recovery Plan](./media/site-recovery-sql/customize-rp.png)
 
-### Failover
+###<a name="steps-to-do-a-test-failover"></a> Failover
 
 After the Availability Group is added to a recovery plan, different failover options are available.
 
