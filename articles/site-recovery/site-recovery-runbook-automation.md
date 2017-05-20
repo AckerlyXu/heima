@@ -262,7 +262,6 @@ The CustomScript runbook assigns Public IP addresses to every VM within the Reco
 The NSGwithCustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan, install a custom script using extension and connect the virtual network adapters to a NSG allowing default inbound and outbound communication for remote access
 
 ## Additional Resources
-[Azure Automation Service Run as Account](../automation/automation-sec-configure-azure-runas-account.md)
 
 [Azure Automation Overview](http://msdn.microsoft.com/zh-CN/library/azure/dn643629.aspx "Azure Automation Overview")
 

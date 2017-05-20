@@ -62,7 +62,7 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-## Creating and managing firewall rules
+##<a name="creating-database-level-firewall-rules"></a> Creating and managing firewall rules
 The first server-level firewall setting can be created using the [Azure portal preview](https://portal.azure.cn/) or programmatically using [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create), or the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
 > [!IMPORTANT]
 > Database-level firewall rules can only be created and managed using Transact-SQL. 

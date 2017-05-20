@@ -160,7 +160,7 @@ You can access the Azure VMs over a secure Internet connection, over a site-to-s
 
 - [Connect to Azure VMs after failover of VMware VMs or physical servers](./site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 - [Connect to Azure VMs after failover of Hyper-V VMs in VMM clouds](./site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
-- [Connect to Azure VMs after failover of Hyper-V VMs without VMM](./site-recovery-hyper-v-site-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+- [Connect to Azure VMs after failover of Hyper-V VMs without VMM](./site-recovery-hyper-v-site-to-azure.md)
 
 ### If I fail over to Azure how does Azure make sure my data is resilient?
 

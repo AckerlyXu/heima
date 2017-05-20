@@ -23,7 +23,7 @@ This document introduces you to the developer experience by running the sample a
 
 To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). The library is installed with the sample app described below.
 
-## Prerequisites
+##<a name="Getting-started-with-elastic-database-tools"></a> Prerequisites
 1. Visual Studio 2012 or higher with C# is required. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. NuGet 2.7 or higher. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
 

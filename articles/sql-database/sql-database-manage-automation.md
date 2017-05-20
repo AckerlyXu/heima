@@ -49,5 +49,4 @@ The [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL databases, follow these links to learn more about Azure Automation.
 
 - [Azure Automation Overview](../automation/automation-intro.md)
-- [My first runbook](../automation/automation-first-runbook-graphical.md)
 - [Azure Automation: Your SQL Agent in the Cloud](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)

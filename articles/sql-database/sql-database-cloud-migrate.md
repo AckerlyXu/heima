@@ -29,7 +29,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 > To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
-## Method 1: Migration with downtime during the migration
+##<a name="migrate-a-compatible-sql-server-database-to-sql-database"></a> Method 1: Migration with downtime during the migration
 
  Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration.
 
@@ -48,7 +48,7 @@ The following list contains the general workflow for a SQL Server database migra
 
 The following list contains recommendations for best performance during the import process.
 
-* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. See [Change the service tier and performance level of a single database using the Azure portal](./sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using PowerShell](./sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using Transact-SQL](./sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database)
+* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. See [Change the service tier and performance level of a single database using the Azure portal](./sql-database-manage-single-databases-portal.md), [Change the service tier and performance level of a single database using PowerShell](./sql-database-manage-single-databases-powershell.md), [Change the service tier and performance level of a single database using Transact-SQL](./sql-database-manage-single-databases-tsql.md)
 * Minimize the distance between your .BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes
@@ -98,7 +98,7 @@ With transactional replication, all changes to your data or schema show up in yo
 3. Snapshot creation locks the associated tables until it is complete, so schedule your snapshot appropriately. 
 4. Only push subscriptions are supported in Azure SQL Database. You can only add subscribers from the source database.
 
-## Resolving database migration compatibility issues
+##<a name="fix-database-migration-compatibility-issues"></a> Resolving database migration compatibility issues
 There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you are migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
 
 * [SQL Server database features not supported in Azure SQL Database](./sql-database-transact-sql-information.md)

@@ -78,7 +78,7 @@ Here's what you need to do:
 2. Make sure the VM has access to the URLs listed in [prerequisites](#prerequisites).
 3. Install [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0).
 
-## Prepare for automatic discovery and push installation
+##<a name="install-the-mobility-service-manually"></a><a name="install-mobility-service-on-a-windows-server-using-the-command-prompt"></a><a name="install-the-mobility-service"></a><a name="prepare-for-automatic-discovery-and-push-installation"></a> Prepare for automatic discovery and push installation
 
 - **Prepare an account for auto-discovery**: The Site Recovery process server automatically discovers VMs. To do this, Site Recovery needs credentials that can access vCenter servers and vSphere ESXi hosts.
 
@@ -157,7 +157,7 @@ Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSph
 
 Site Recovery connects to VMware servers using the specified settings, and discovers VMs.
 
-## Set up the target
+##<a name="step-3-set-up-the-target-environment"></a> Set up the target
 
 Before you set up the target environment, check you have an [Azure storage account and network](#set-up-azure)
 
@@ -186,7 +186,7 @@ Before you set up the target environment, check you have an [Azure storage accou
 
    ![Capacity planning](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
 
-## Prepare VMs for replication
+##<a name="step-6-replicate-applications"></a><a name="prepare-vms-for-replication"></a> Prepare VMs for replication
 
 The Mobility service must be installed on all VMware VMs that you want to replicate. You can install the Mobility service in a number of ways:
 
@@ -209,7 +209,7 @@ Before you start:
 
 By default all disks on a machine are replicated. You can exclude disks from replication. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).
 
-### Replicate VMs
+###<a name="step-6-replicate-applications"></a> Replicate VMs
 
 1. Click **Step 2: Replicate application** > **Source**.
 2. In **Source**, select the configuration server.

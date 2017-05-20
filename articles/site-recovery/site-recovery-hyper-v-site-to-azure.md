@@ -211,7 +211,7 @@ Specify the Azure storage account for replication, and the Azure network to whic
 
 When you create a new policy, it's automatically associated with the Hyper-V site. You can associate a Hyper-V site (and the VMs in it) with multiple replication policies in **Replication** > policy-name > **Associate Hyper-V Site**.
 
-## Capacity planning
+##<a name="step-5-capacity-planning"></a> Capacity planning
 
 Now that you have your basic infrastructure set up, you can think about capacity planning, and figure out whether you need additional resources.
 
@@ -229,7 +229,7 @@ Learn more about [controlling network bandwidth](#network-bandwidth-consideratio
 
 
 
-## Enable replication
+##<a name="step-6-enable-replication"></a> Enable replication
 
 Enable replication for VMs as follows:          
 
