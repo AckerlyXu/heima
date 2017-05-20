@@ -63,7 +63,7 @@ New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $server
 ## Create an elastic pool and add multiple pooled databases
 Creation of many databases in an elastic pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into an elastic pool, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
-## Move a database into an elastic pool
+##<a name="Move-a-database-into-an-elastic-pool"></a> Move a database into an elastic pool
 You can move a database into or out of an elastic pool with the [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool).
 
 ```PowerShell

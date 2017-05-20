@@ -92,10 +92,7 @@ snapshots exist independent of the source disk and can be used to create new Man
 
 [Incremental snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
 
-To learn more about how to create snapshots with Managed Disks, please check out these resources:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://www.azure.cn/pricing/details/managed-disks/).
 

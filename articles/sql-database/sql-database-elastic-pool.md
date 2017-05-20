@@ -46,7 +46,7 @@ Within the pool, individual databases are given the flexibility to auto-scale wi
 
 You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API. 
 
-## When to consider a pool
+##<a name="elastic-database-pool-pricing-tier-recommendations"></a> When to consider a pool
 Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
 The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.  
@@ -122,7 +122,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 4. See the [SQL Database pricing page](https://www.azure.cn/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 
-## eDTU and storage limits for elastic pools
+##<a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a><a name="eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases"></a> eDTU and storage limits for elastic pools
 
 The following tables describe the resource limits of elastic pools.  Note that the resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
@@ -130,7 +130,7 @@ The following tables describe the resource limits of elastic pools.  Note that t
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
-## Database properties for pooled databases
+##<a name="elastic-pool-and-elastic-database-properties"></a> Database properties for pooled databases
 
 The following table describes the properties for pooled databases.
 

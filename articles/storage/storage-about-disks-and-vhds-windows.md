@@ -38,7 +38,7 @@ The temporary disk is automatically created for you. The temporary disk is label
 The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Windows virtual machines](../virtual-machines/virtual-machines-windows-sizes.md).
 
 > [!WARNING]
-> Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk to a different drive letter, see [Change the drive letter of the Windows temporary disk](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
+> Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files.
 > 
 
 For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
@@ -76,4 +76,3 @@ fsutil behavior set DisableDeleteNotify 0
 ## Next steps
 * [Attach a disk](../virtual-machines/virtual-machines-windows-attach-disk-portal.md) to add additional storage for your VM.
 * [Upload a Windows VM image to Azure](../virtual-machines/virtual-machines-windows-upload-image.md) to use when creating a new VM.
-* [Change the drive letter of the Windows temporary disk](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md) so your application can use the D: drive for data.
