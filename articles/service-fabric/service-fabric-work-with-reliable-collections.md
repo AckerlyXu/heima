@@ -3,7 +3,7 @@ title: Working with Reliable Collections | Azure
 description: Learn the best practices for working with Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: JeffreyRichter
+author: rajak
 manager: timlt
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-wacn.date: ''
-ms.author: jeffreyr
+ms.date: 04/19/2017
+ms.author: rajak
+
 ---
 
 # Working with Reliable Collections
@@ -31,7 +31,7 @@ try {
    using (ITransaction tx = base.StateManager.CreateTransaction()) {
       // AddAsync takes key's write lock; if >4 secs, TimeoutException
       // Key & value put in temp dictionary (read your own writes),
-      // serialized, redo/undo record is logged & sent to  
+      // serialized, redo/undo record is logged & sent to
       // secondary replicas
       await m_dic.AddAsync(tx, key, value, cancellationToken);
 
@@ -42,8 +42,8 @@ try {
    // If CommitAsync not called, Dispose sends Abort
    // record to log & all locks released
 }
-catch (TimeoutException) { 
-   await Task.Delay(100, cancellationToken); goto retry; 
+catch (TimeoutException) {
+   await Task.Delay(100, cancellationToken); goto retry;
 }
 ```
 
@@ -64,7 +64,7 @@ Now that you understand how the reliable collections work internally, let’s ta
 
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction()) {
-   // AddAsync serializes the name/user, logs the bytes, 
+   // AddAsync serializes the name/user, logs the bytes,
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
@@ -86,7 +86,7 @@ I cannot stress enough how easy it is to make the kind of mistake shown above. A
 using (ITransaction tx = StateManager.CreateTransaction()) {
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
-   await tx.CommitAsync(); 
+   await tx.CommitAsync();
 }
 ```
 
@@ -96,7 +96,7 @@ Here is another example showing a common mistake:
 
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
-   ConditionalValue<User> user = 
+   ConditionalValue<User> user =
       await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -104,12 +104,12 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       // The line below updates the property’s value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
-      await tx.CommitAsync(); 
+      await tx.CommitAsync();
    }
 }
 ```
 
-Again, with regular .NET dictionaries, the code above works fine and is a common pattern: the developer uses a key to look up a value. If the value exists, the developer changes a property’s value. However, with reliable collections, this code exhibits the same problem as already discussed: __you MUST not modify an object once you have given it to a reliable collection.__
+Again, with regular .NET dictionaries, the code above works fine and is a common pattern: the developer uses a key to look up a value. If the value exists, the developer changes a property’s value. However, with reliable collections, this code exhibits the same problem as already discussed: **you MUST not modify an object once you have given it to a reliable collection.**
 
 The correct way to update a value in a reliable collection, is to get a reference to the existing value and consider the object referred to by this reference immutable. Then, create a new object which is an exact copy of the original object. Now, you can modify the state of this new object and write the new object into the collection so that it gets serialized to byte arrays, appended to the local file and sent to the replicas. After committing the change(s), the in-memory objects, the local file, and all the replicas have the same exact state. All is good!
 
@@ -119,7 +119,7 @@ The code below shows the correct way to update a value in a reliable collection:
 
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
-   ConditionalValue<User> currentUser = 
+   ConditionalValue<User> currentUser =
       await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -129,20 +129,19 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       // immutable state can be shared by currentUser & updatedUser object graphs.
       User updatedUser = new User(currentUser);
 
-      // In the new object, modify any properties you desire 
+      // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
       // Update the key’s value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
 
-      await tx.CommitAsync(); 
+      await tx.CommitAsync();
    }
 }
 ```
 
 ## Define immutable data types to prevent programmer error
-
-Ideally, we’d like the compiler to report errors when you accidentally produce code that mutates state of an object that you are supposed to consider immutable. But, the C# compiler does not have the ability to do this. So, to avoid potential programmer bugs, we highly recommend that you define the types you use with reliable collections to be immutable types. Specifically, this means that you stick to core value types (such as numbers [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, and the like). And, of course, you can also use String. It is best to avoid collection properties as serializing and deserializing them can frequently can hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library (System.Collections.Immutable). This library is available for download from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
+Ideally, we’d like the compiler to report errors when you accidentally produce code that mutates state of an object that you are supposed to consider immutable. But, the C# compiler does not have the ability to do this. So, to avoid potential programmer bugs, we highly recommend that you define the types you use with reliable collections to be immutable types. Specifically, this means that you stick to core value types (such as numbers [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, and the like). And, of course, you can also use String. It is best to avoid collection properties as serializing and deserializing them can frequently can hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). This library is available for download from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
 
 The UserInfo type below demonstrates how to define an immutable type taking advantage of aforementioned recommendations.
 
@@ -167,7 +166,7 @@ public sealed class UserInfo {
    [DataMember]
    public readonly String Email;
 
-   // Ideally, this would be a readonly field but it can't be because OnDeserialized 
+   // Ideally, this would be a readonly field but it can't be because OnDeserialized
    // has to set it. So instead, the getter is public and the setter is private.
    [DataMember]
    public IEnumerable<ItemId> ItemsBidding { get; private set; }
@@ -204,14 +203,16 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 
 >[!WARNING]
 > While you can modify the schema of a key, you must ensure that your key’s hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
+>
+>
 
 Alternatively, you can perform what is typically referred to as a 2-phase upgrade. With a 2-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn’t execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a 2-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
 
 ## Next Steps
-To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](https://msdn.microsoft.com/zh-cn/library/ms731083.aspx).
+To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx).
 
-To learn best practices on versioning data contracts, see [Data Contract Versioning](https://msdn.microsoft.com/zh-cn/library/ms731138.aspx). 
+To learn best practices on versioning data contracts, see [Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx).
 
-To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/zh-cn/library/ms733734.aspx). 
+To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx).
 
-To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](https://msdn.microsoft.com/zh-cn/library/system.runtime.serialization.iextensibledataobject.aspx).
+To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
