@@ -24,7 +24,7 @@ This article describes how to failover virtual machines and physical servers pro
 1. Before you do a failover, do a [test failover](./site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected. 
 1. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
-## Run a failover
+##<a name="run-a-test-failover"></a><a name="run-an-unplanned-failover"></a> Run a failover
 This procedure describes how to run a failover for a [recovery plan](./site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
 
 ![Failover](./media/site-recovery-failover/Failover.png)
@@ -54,7 +54,7 @@ This procedure describes how to run a failover for a [recovery plan](./site-reco
 1. After the failover, validate the virtual machine by logging into it. If you want to go another recovery point for the virtual machine, then you can use **Change recovery point** option.
 1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. This deletes all the recovery points available with the service and **Change recovery point** option will no longer be available.
 
-## Planned failover
+##<a name="failover-and-failback"></a> Planned failover
 Apart from, Failover, Hyper-V virtual machines protected using Site Recovery also support **Planned failover**. This is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shutdown, the data yet to be synchronized is synchronized and then a failover is triggered. 
 
 > [!NOTE]

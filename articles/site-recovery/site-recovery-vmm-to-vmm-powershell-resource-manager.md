@@ -254,7 +254,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
     New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
     ```
 
-## Step 6: Configure storage mapping
+##<a name="step-7-configure-storage-mapping"></a> Step 6: Configure storage mapping
 1. The below command gets the list of storage classifications into $storageclassifications variable.
 
     ```

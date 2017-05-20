@@ -44,7 +44,7 @@ You can give any friendly name to your Service Fabric cluster by assigning it to
 
 <a id="clusternodes"></a>
 
-## Nodes on the cluster
+##<a name="nodes-on-the-cluster"></a> Nodes on the cluster
 You can configure the nodes on your Service Fabric cluster by using the **nodes** section, as the following snippet shows.
 
 ```
@@ -79,7 +79,7 @@ A Service Fabric cluster must contain at least 3 nodes. You can add more nodes t
 | faultDomain |Fault domains enable cluster administrators to define the physical nodes that might fail at the same time due to shared physical dependencies. |
 | upgradeDomain |Upgrade domains describe sets of nodes that are shut down for Service Fabric upgrades at about the same time. You can choose which nodes to assign to which Upgrade domains, as they are not limited by any physical requirements. |
 
-## Cluster properties
+##<a name="cluster-properties"></a> Cluster properties
 The **properties** section in the ClusterConfig.JSON is used to configure the cluster as follows.
 
 <a id="reliability"></a>

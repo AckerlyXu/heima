@@ -29,7 +29,7 @@ You can replicate the following to Azure:
 - **Hyper-V**: On-premises Hyper-V VMs running on [supported hosts](./site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Physical machines**: On-premises physical servers running Windows or Linux on [supported operating systems](./site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## VMware to Azure
+##<a name="replicate-vmware-vmsphysical-servers-to-azure"></a> VMware to Azure
 
 Here's what you need for replicating VMware VMs to Azure.
 

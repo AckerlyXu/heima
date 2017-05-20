@@ -27,7 +27,7 @@ Azure Site Recovery Mobility Service captures data writes on a computer, and the
 * [Install Mobility Service by push installation from Azure Site Recovery](./site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 >[!IMPORTANT]
-> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
+> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
 
 ## Prerequisites
 Complete these prerequisite steps before you manually install Mobility Service on your server:

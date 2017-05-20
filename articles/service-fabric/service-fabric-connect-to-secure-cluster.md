@@ -112,7 +112,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## Connect to a cluster using the FabricClient APIs
+##<a name="connect-to-a-cluster-using-the-fabricclient-apis"></a> Connect to a cluster using the FabricClient APIs
 The Service Fabric SDK provides the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
 
 ### Connect to an unsecure cluster

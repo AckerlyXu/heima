@@ -18,11 +18,7 @@ ms.author: msfussell
 
 ---
 # Deploy a Docker container to Service Fabric
-> [!div class="op_single_selector"]
-> * [Deploy Windows Container](service-fabric-deploy-container.md)
-> * [Deploy Docker Container](service-fabric-deploy-container-linux.md)
->
->
+
 
 This article walks you through building containerized services in Docker containers on Linux.
 

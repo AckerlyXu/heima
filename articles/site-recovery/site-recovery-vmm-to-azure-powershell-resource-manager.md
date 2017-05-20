@@ -96,7 +96,7 @@ Learn more about network mapping in
 
 - [How to configure logical networks in VMM](https://technet.microsoft.com/zh-cn/library/jj721568.aspx)
 - [How to configure VM networks and gateways in VMM](https://technet.microsoft.com/zh-cn/library/jj721575.aspx)
-- [How to configure and monitor virtual networks in Azure](home/features/virtual-network)
+- [How to configure and monitor virtual networks in Azure](https://www.azure.cn/home/features/virtual-network)
 
 ###PowerShell prerequisites
 Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](../powershell-install-configure.md). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/zh-cn/library/dn850420.aspx). 

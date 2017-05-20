@@ -118,7 +118,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
 ```
 
 For more information, see [SQL Database options and performance: Understand what's available in each service tier](./sql-database-service-tiers.md). 
-For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](./sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database).
+For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](./sql-database-manage-single-databases-powershell.md).
 
 ## How do I copy a SQL database to the same server?
 To copy a SQL database to the same server, use the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/zh-cn/library/azure/mt603644\(v=azure.300\).aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
@@ -138,7 +138,7 @@ New-AzureRmSqlDatabaseCopy -DatabaseName $databaseName `
  -CopyResourceGroupName $copyResourceGroupName
 ```
 
-For more information, see [Copy an Azure SQL Database](./sql-database-copy.md). For a sample script, see [Copy a SQL database PowerShell script](./sql-database-copy-powershell.md#example-powershell-script).
+For more information, see [Copy an Azure SQL Database](./sql-database-copy.md). For a sample script, see [Copy a SQL database PowerShell script](./sql-database-copy-powershell.md).
 
 ## How do I delete a SQL database?
 To delete a SQL database. use the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/zh-cn/library/azure/mt619368\(v=azure.300\).aspx) cmdlet. The resource group, server, and database must already exist in your subscription.
