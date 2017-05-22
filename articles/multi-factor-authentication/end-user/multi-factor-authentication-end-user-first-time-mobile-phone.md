@@ -28,11 +28,6 @@ If you want to use your mobile phone as your primary contact method you can use 
 <li>Click the Verify Now button. This will initiate a call or text to your mobile phone. Be sure to have it with you. Depending on the mode you selected, Text or Call, your response will be different.
         <ul><li>If you selected the text mode, a 6 digit code will be texted to you. Enter this code in the box that is displayed in the browser</li>
         <li>If you selected the call mode, you will receive a phone call. Respond to the call using the # sign on your phone.</li></ul>
-<li>Click Next</li>
-<li>At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click **Done**.  Otherwise continue to the next step.
-<li>If you are using these apps then copy the app password provided.</li>
+<li>Click Contact me</li>
+<li>Input the code you received, Click Done.</li>
 
-<li>Paste the password that was copied to the clipboard into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.</li>
-<li>Click Done.</li>
-
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
