@@ -7,10 +7,10 @@
 
 # Get Started
 
-## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
+<!-- ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md) -->
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
-## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
+<!-- ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
 ## [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 # How To
@@ -82,7 +82,7 @@
 
 ### [Overview](sql-data-warehouse-overview-load.md)
 ### [Sample data](sql-data-warehouse-load-sample-databases.md)
-### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+<!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md) -->
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
