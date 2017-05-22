@@ -83,7 +83,7 @@ SUSE|SUSE Linux Enterprise Server 12|Confidently run your production workloads o
 
 ## <a name="next"></a>Next steps
 
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="../azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
+The below resources should provide more information on deploying from the image gallery or creating your own VHD. 
 
 ###Other Resources: 
 
@@ -92,8 +92,6 @@ The below resources should provide more information on deploying from the image 
 - [Deploying a Linux Virtual Machine](/documentation/articles/virtual-machines/virtual-machines-linux-tutorial)
 
 - [Virtual Machine FAQ](http://msdn.microsoft.com/zh-cn/library/azure/dn683781.aspx)
-
-- [Create and upload your own VHD](../virtual-machines-create-upload-vhd-windows-server/)
 
 - [Capture Linux VM Image](/documentation/articles/virtual-machines/virtual-machines-linux-capture-image)
 
