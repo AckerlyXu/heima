@@ -27,7 +27,7 @@ Here is the general architecture of the solution (generalized with multiple mobi
 
 ![][1]
 
-The key piece in this architectural diagram is Azure Service Bus which provides a topics/subscriptions programming model (more on it at [Service Bus Pub/Sub programming]). The receiver, which in this case, is the Mobile backend (typically [Azure Mobile Service], which will initiate a push to the mobile apps) does not receive messages directly from the backend systems but instead we have an intermediate abstraction layer provided by [Azure Service Bus] which enables mobile backend to receive messages from one or more backend systems. A Service Bus Topic needs to be created for each of the backend systems e.g. Account, HR, Finance which are basically "topics" of interest which will initiate messages to be sent as push notification. The backend systems will send messages to these topics. A Mobile Backend can subscribe to one or more such topics by creating a Service Bus subscription. This will entitle the mobile backend to receive a notification from the corresponding backend system. Mobile backend continues to listen for messages on their subscriptions and as soon as a message arrives, it turns back and sends it as notification to its notification hub. Notification hubs then eventually delivers the message to the mobile app. So to summarize the key components, we have:
+The key piece in this architectural diagram is Azure Service Bus which provides a topics/subscriptions programming model (more on it at [Service Bus Pub/Sub programming]). The receiver, which in this case, is the Mobile backend (typically Azure Mobile Service, which will initiate a push to the mobile apps) does not receive messages directly from the backend systems but instead we have an intermediate abstraction layer provided by [Azure Service Bus] which enables mobile backend to receive messages from one or more backend systems. A Service Bus Topic needs to be created for each of the backend systems e.g. Account, HR, Finance which are basically "topics" of interest which will initiate messages to be sent as push notification. The backend systems will send messages to these topics. A Mobile Backend can subscribe to one or more such topics by creating a Service Bus subscription. This will entitle the mobile backend to receive a notification from the corresponding backend system. Mobile backend continues to listen for messages on their subscriptions and as soon as a message arrives, it turns back and sends it as notification to its notification hub. Notification hubs then eventually delivers the message to the mobile app. So to summarize the key components, we have:
 
 1. Backend systems (LoB/Legacy systems)
     - Creates Service Bus Topic
@@ -274,7 +274,6 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 <!-- Links -->
 [Notification Hub Samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Service]: ../mobile-services/index.md
 [Azure Service Bus]: /documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Service Bus Pub/Sub programming]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Azure WebJob]: ../app-service-web/web-sites-create-web-jobs.md
