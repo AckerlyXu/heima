@@ -27,11 +27,6 @@ If you want to use your office phone as your primary contact method you can use 
 <li>Select the mode you would prefer to use with your mobile phone - text or call.</li>
 <li>Click Next.</li>
 <li>Click the Verify Now button. This will initiate a call to your office phone.  Be sure you are near it. 
-<li>Click Next</li>
-<li>At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click **Done**.  Otherwise continue to the next step.
-<li>If you are using these apps then copy the app password provided.</li>
-
-<li>Paste the password that was copied to the clipboard into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.</li>
+<li>Click Contact me</li>
 <li>Click Done.</li>
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>

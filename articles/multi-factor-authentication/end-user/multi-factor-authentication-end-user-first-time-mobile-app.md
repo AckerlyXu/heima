@@ -55,12 +55,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 
 8. After PIN entry is complete, select **Close**.  At this point, your verification should be successful.
 9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
-10. At this point, you have set up your contact method. Now it's time to set up app passwords for non-browser apps, such as Outlook 2010 or older. If you don't use these apps, select **Done**.  Otherwise, continue to the next step.
-
-    ![Screen for creating an app password](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
-
-11. If you're using non-browser apps, copy the provided app password and paste the password into your apps. For steps on individual apps such as Outlook and Lync, see How to change the password in your email to the app password and How to change the password in your application to the app password.
-12. Select **Done**.
+10. Select **Done**.
 
 ## Add an account manually
 If you want to add an account manually:
