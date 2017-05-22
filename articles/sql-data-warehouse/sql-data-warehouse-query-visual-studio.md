@@ -88,7 +88,7 @@ To configure your environment for Azure Active Directory authentication, see [Au
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
 [Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+<!-- [visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  -->
 
 <!--Other-->
 [Azure portal]: https://portal.azure.cn

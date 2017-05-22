@@ -136,8 +136,8 @@ The table below lists the property names and their description for creating a ta
 | Batch Size |The number of records for a batch operation. Typically the default is sufficient for most jobs, refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
 
 ## Service Bus Queues
-<!--Notice: azure/hh367516.aspx redirect to service-bus-queues-topics-subscriptions-->
-[Service Bus Queues](./service-bus-queues-topics-subscriptions.md) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
+<!--Notice: azure/hh367516.aspx redirect to EN-US service-bus-queues-topics-subscriptions, we should correct to right URL-->
+[Service Bus Queues](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
 
 The table below lists the property names and their description for creating a Queue output.
 
@@ -155,7 +155,7 @@ The table below lists the property names and their description for creating a Qu
 
 ## Service Bus Topics
 <!--Notice: azure/hh367516.aspx redirect to service-bus-queues-topics-subscriptions-->
-While Service Bus Queues provide a one to one communication method from sender to receiver, [Service Bus Topics](.\service-bus-queues-topics-subscriptions.md) provide a one-to-many form of communication.
+While Service Bus Queues provide a one to one communication method from sender to receiver, [Service Bus Topics](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) provide a one-to-many form of communication.
 
 The table below lists the property names and their description for creating a table output.
 

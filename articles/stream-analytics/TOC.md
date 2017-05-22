@@ -24,7 +24,7 @@
 <!-- Not Available ### [Output to Azure Functions](stream-analytics-functions-redis.md)-->
 <!--Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)-->
 ### [Output to DocumentDB](stream-analytics-documentdb-output.md)
-### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md)
+<!--Not Available ### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
 ### [JavaScript UDF integration](stream-analytics-javascript-user-defined-functions.md)
 <!-- Not Available ### [REST API & Machine Learning integration](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)-->
 ### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)

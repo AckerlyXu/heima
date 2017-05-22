@@ -421,5 +421,5 @@ The following sample applications show how to log in as the service principal.
 
 ## Next Steps
 * For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](./resource-manager-api-authentication.md).
-* For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md). 
-* For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+* For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md). 
+* For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).

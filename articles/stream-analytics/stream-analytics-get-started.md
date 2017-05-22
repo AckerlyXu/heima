@@ -141,7 +141,7 @@ If you want to archive every event, you can use a passthrough query to read all 
     SELECT * FROM CallStream
     ```
 
-    > [!NOTE]ss
+    > [!NOTE]
     > Make sure that the name of the input source matches the name of the input you specified earlier.
     > 
     > 
