@@ -538,4 +538,4 @@ For more templates you can use, see [Azure Quickstart templates](https://azure.m
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [distribute-globally]:./documentdb-distribute-data-globally.md
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet

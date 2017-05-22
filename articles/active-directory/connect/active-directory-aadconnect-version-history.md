@@ -202,7 +202,7 @@ Released: 2015 November
 
 **New preview features:**
 
-- Support for [Azure AD Domain Services](./active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
+- Support for Azure AD Domain Services password synchronization.
 
 **New supported scenario:**
 

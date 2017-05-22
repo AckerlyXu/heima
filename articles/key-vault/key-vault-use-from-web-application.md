@@ -171,7 +171,7 @@ $x509.Thumbprint
 
 After you have run these commands, you can see the application in Azure AD. When searching, ensure you select "Applications my company owns" instead of "Applications my company uses" in the search dialog.
 
-To learn more about Azure AD Application Objects and ServicePrincipal Objects, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md)
+To learn more about Azure AD Application Objects and ServicePrincipal Objects, see [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md)
 
 **Add code to your Web App to use the Certificate**
 Now we will add code to your Web App to access the cert and use it for authentication.

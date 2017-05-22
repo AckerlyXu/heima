@@ -1,4 +1,4 @@
-﻿---
+---
 title: Restore a virtual machines from backup | Azure
 description: Learn how to restore an Azure virtual machine from a recovery point
 services: backup
@@ -24,7 +24,7 @@ ms.author: trinadhk; jimpark;
 Restore a virtual machine to a new VM from the backups stored in an Azure backup vault with the following steps.
 
 ## Restore workflow
-### Step 1: Choose an item to restore
+### Step 1: Choose an item to restore <a name="choosing-a-vm-restore-configuration"></a>
 1. Navigate to the **Protected Items** tab and select the virtual machine you want to restore to a new VM.
 
     ![Protected items](./media/backup-azure-restore-vms/protected-items.png)
@@ -42,7 +42,7 @@ Restore a virtual machine to a new VM from the backups stored in an Azure backup
 
     ![Select a date](./media/backup-azure-restore-vms/select-date.png)
 
-    Once you click a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the [consistency](./backup-azure-vms.md#consistency-of-recovery-points) of the recovery point. The table header shows the number of recovery points available on that day in parenthesis.
+    Once you click a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the [consistency](./backup-azure-vms.md) of the recovery point. The table header shows the number of recovery points available on that day in parenthesis.
 
     ![Recovery points](./media/backup-azure-restore-vms/recovery-points.png)
 3. Select the recovery point from the **Recovery Points** table and click the Next arrow to go to the next screen.

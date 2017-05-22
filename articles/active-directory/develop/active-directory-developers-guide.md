@@ -59,9 +59,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Authenticate a service/daemon application using a certificate](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 - Enable cross-app SSO using ADAL, on [Android](./active-directory-sso-android.md) and on [iOS](./active-directory-sso-ios.md) devices
 - [Make your application AppSource Certified for Azure AD](./active-directory-devhowto-appsource-certified.md)
-- [List your application in the Azure AD application gallery](./active-directory-app-gallery-listing.md)
 - [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- [Register an application with Azure Active Directory using the Azure portal](./active-directory-app-registration.md)
 - [Understand the Azure Active Directory application manifest](./active-directory-application-manifest.md)
 - [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](./active-directory-branding-guidelines.md)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](./active-directory-appmodel-v2-overview.md)

@@ -39,11 +39,8 @@
 ### [Android](./active-directory-sso-android.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ### [iOS](./active-directory-sso-ios.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Get AppSource certified](./active-directory-devhowto-appsource-certified.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
-## [List your app in the gallery](../active-directory-app-gallery-listing.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Understand the app manifest](./active-directory-application-manifest.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
-## [Authenticate web users](../active-directory-java-authenticate-users-access-control-eclipse.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## Work with SAML
-### [View SAML returned by Access Control](../active-directory-java-view-saml-returned-by-access-control.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ### [Azure AD and SAML](./active-directory-saml-protocol-reference.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ### [Customize claims](./active-directory-saml-claims-customization.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ### [Debug SAML-based SSO](./active-directory-saml-debugging.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
