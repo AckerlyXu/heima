@@ -143,7 +143,7 @@ Get-AzureRmContext
 Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 ```
 
-## <a name="how-to-connect-to-your-subscription"></a> Step 3: Connect
+## <a name="how-to-connect-to-your-subscription"></a> Step 3: Connect <a name="Connect"></a>
 The cmdlets need your subscription so they can manage your services. You can purchase an Azure subscription if you don't already have one. For instructions, see [How to buy Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
 1. Type **Login-AzureRmAccount**
