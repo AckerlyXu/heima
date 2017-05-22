@@ -138,7 +138,7 @@ Learn more about how to add applications to Azure AD and how to configure servic
 
 ## See also
 
-- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
+- [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 
 <!--Image references-->
 [apps_service_principals_directory]: ./media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
