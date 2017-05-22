@@ -38,7 +38,7 @@ This dialog can also be opened from an **Accounts** link on dialog boxes that us
 3. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally previously, and then click **Open**.
 4. Click **OK** to close the **Import Subscription Information** dialog.
 
-## To create a new storage account
+## To create a new storage account <a name="create_new"></a>
 1. Within the **Storage Accounts** dialog, click **Add**.
 2. Within the **Add Storage Account** dialog, click **New**.
 3. Within the **New Storage Account** dialog, specify values for the following:

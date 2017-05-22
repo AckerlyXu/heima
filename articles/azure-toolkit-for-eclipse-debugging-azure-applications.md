@@ -64,7 +64,7 @@ We'll use the application from the [Using the Azure Service Runtime Library in J
 >[!NOTE]
 > If you're attempting to start a remote debugging connection to a deployment that has multiple role instances running, you cannot currently control which instance the debugger will be initially connected to, as the Azure load balancer will pick an instance at random. Once you're connected with that instance, though, you will continue debugging the same instance. Note also, if there is a period of inactivity of more than 4 minutes (for example, when you're stopped at a breakpoint for too long), Azure may close the connection.
 
-## Debugging a specific role instance in a multi-instance deployment
+## Debugging a specific role instance in a multi-instance deployment <a name="debugging_specific_role_instance"></a>
 When your deployment is running in the cloud, you will most likely be running it in multiple compute, or role, instances. This enables you to take advantage of Azure 99.95% availability guarantee, and to scale out your application.
 
 In such scenarios, you may need to remotely debug your Java application in a specific role instance. However, if you enable only a regular input endpoint for debugging, the Azure load balancer will make it virtually impossible for you to connect the debugger to a specific role instance. Instead it will connect you to a role instance that it picks at random.

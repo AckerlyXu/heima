@@ -36,9 +36,9 @@ An example **SinksConfig** looks like this -
 ```
 
 For the **Sink** element the *name* attribute specifies a string value that will be used to uniquely refer to the sink.
-The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data will be sent. If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](app-insights-create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
+The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data will be sent. 
 
-If you are developing a Cloud Service project with Azure SDK 2.8 this instrumentation key is automatically populated in the public configuration based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the cloud service project. See [Use Application Insights with Azure Diagnostics to troubleshoot Cloud Service issues](cloud-services-dotnet-diagnostics-applicationinsights.md).
+If you are developing a Cloud Service project with Azure SDK 2.8 this instrumentation key is automatically populated in the public configuration based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the cloud service project. 
 
 The **Channels** element lets you define one or more **Channel** elements for the data that will be sent to the sink. The channel acts like a filter and allows you to select specific log levels that you would want to send to the sink. For example you could collect verbose logs and send them to storage but you could choose to define a channel with a log level of Error and when you send logs through that channel only error logs will be sent to that sink.
 For a **Channel** the *name* attribute is used to uniquely refer to that channel. 

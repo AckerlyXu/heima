@@ -24,8 +24,6 @@ In addition, Azure Government is designed to meet the higher level security and 
 
 Below is a summary view of the Azure Government Cloud infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  As some services below are only available in preview, please see the [regions page](http://www.windowsazure.cn/regions/#services) as the most up to date services that are generally available are listed.
 
-![][2]
-
 Azure Government includes the core components of Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS).  This includes infrastructure, network, storage, data management, identity management and many other services.  Azure Government supports the same great features that public Azure customers have leveraged like Geo-Synchronous data replication and auto scaling. Microsoft has been identified as the leader in both <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> and <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> by leading industry analysts.
 
 In addition to providing the robust services and features of public Azure, Azure Government provides a number of features to assure US government entities that their data is secure by providing:
@@ -83,7 +81,6 @@ If you are interested in learning more and about Azure Government please leverag
 <!-- Images. -->
 
 [1]: ./media/azure-government-developer-guide/publisherguide.png
-[2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
 [Link 1 to another www.windowsazure.cn documentation topic]: /documentation/articles/virtual-machines-windows-tutorial-classic-portal/
