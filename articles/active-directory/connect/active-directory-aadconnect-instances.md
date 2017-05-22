@@ -39,7 +39,7 @@ Features currently not present in the Microsoft Cloud Germany:
 - **Password writeback** is not available.
 - Other Azure AD Premium services are not available.
 
-## Azure Government cloud
+## Azure Government cloud <a name="microsoft-azure-government-cloud"></a>
 The [Azure Government cloud](https://azure.microsoft.com/features/gov/) is a cloud for US government.
 
 This cloud has been supported by earlier releases of DirSync. From build 1.1.180 of Azure AD Connect, the next generation of the cloud is supported. This generation is using US-only based endpoints and have a different list of URLs to open in your proxy server.

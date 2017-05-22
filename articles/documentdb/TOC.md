@@ -79,9 +79,7 @@
 ## Integrate
 ### [Deploy a website with Azure App Service](documentdb-create-documentdb-website.md)
 ### [Analyze data with Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrate with Azure Search](documentdb-search-indexer.md)
 ### [Analyze real-time data with Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Get notifications with Logic Apps](documentdb-change-notification.md)
 ### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
 

@@ -19,10 +19,6 @@ wacn.date: ''
 
 # Manage and monitor Azure virtual machine backups
 
-> [!div class="op_single_selector"]
->- [Manage Azure VM backups](./backup-azure-manage-vms.md)
->- [Manage Classic VM backups](./backup-azure-manage-vms-classic.md)
-
 This article provides information about common management and monitoring tasks for Classic-model virtual machines protected in Azure.  
 
 >[!NOTE]

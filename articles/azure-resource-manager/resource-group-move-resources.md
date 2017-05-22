@@ -35,7 +35,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 ## Checklist before moving resources
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The source and destination subscriptions must exist within the same [Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
+1. The source and destination subscriptions must exist within the same [Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
     For Azure PowerShell, use:
 

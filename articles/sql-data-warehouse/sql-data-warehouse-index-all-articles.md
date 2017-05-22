@@ -43,10 +43,10 @@ This section lists articles which were updated recently, where the update was bi
 | 5 |[Best practices for Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) |Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful. |
 | 6 |[Drivers for Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) |Connection strings and drivers for SQL Data Warehouse |
 | 7 |[Connect to Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md) |How to find the server name and connection string for your to Azure SQL Data Warehouse |
-| 8 |[Analyze data with Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) |Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. |
-| 9 |[Query Azure SQL Data Warehouse (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) |Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility. |
-| 10 |[Create a SQL Data Warehouse database by using Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md) |Learn how to create an Azure SQL Data Warehouse with TSQL |
-| 11 |[How to create a support ticket for SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) |How to create a support ticket in Azure SQL Data Warehouse. |
+| 8 |[Query Azure SQL Data Warehouse (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) |Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility. |
+| 9 |[Create a SQL Data Warehouse database by using Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md) |Learn how to create an Azure SQL Data Warehouse with TSQL |
+| 10 |[Load data with PolyBase in SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) |Learn what PolyBase is and how to use it for data warehousing scenarios. |
+| 11 |[Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) |Learn how to create an Azure SQL Data Warehouse in the Azure portal |
 | 12 |[Create SQL Data Warehouse using PowerShell](sql-data-warehouse-get-started-provision-powershell.md) |Create SQL Data Warehouse by using PowerShell |
 | 13 |[Query Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Query SQL Data Warehouse with Visual Studio. |
 

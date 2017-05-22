@@ -1,14 +1,11 @@
 # Overview
 ## [What is Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 # Get Started
-## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
-## [Chrome](notification-hubs-chrome-push-notifications-get-started.md)
 ## [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)
 ## [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)
 ## [Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 ## [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)
-## [Xamarin.Android](xamarin-notification-hubs-push-notifications-android-gcm.md)
 ## [Xamarin.iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
 ## [Frequently Asked Questions](notification-hubs-push-notification-faq.md)
 
@@ -17,10 +14,8 @@
 ### [Enterprise push architectural guidance](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Develop
-### [Send push notifications to Android using GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
 ### [Push geo-fenced notifications with Bing Spatial Data](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 ### Push to specific users
-#### [Android](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
@@ -34,7 +29,6 @@
 #### [Python](notification-hubs-python-push-notification-tutorial.md)
 ### [Rich Push](notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md)
 ### [Use tags for targeted push](notification-hubs-tags-segment-push-message.md)
-#### [Android](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 #### [iOS](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 #### [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
@@ -47,7 +41,6 @@
 
 ## [Secure](notification-hubs-push-notification-security.md)
 ### Secure push
-#### [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 

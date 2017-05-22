@@ -25,7 +25,7 @@
 ### [Prepare Azure virtual machines](./backup-azure-vms-prepare.md)
 ### [Prepare Resource Manager-deployed virtual machines](./backup-azure-arm-vms-prepare.md)
 ### [Plan VM backup infrastructure](./backup-azure-vms-introduction.md)
-### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
+### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-vms.md)
 ### [Back up and restore encrypted virtual machines](./backup-azure-vms-encryption.md)
 ### [Manage and monitor Azure VM backups in classic portal](./backup-azure-manage-vms-classic.md)
 ### [Restore virtual machines in Azure](./backup-azure-restore-vms.md)

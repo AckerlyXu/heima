@@ -7,10 +7,10 @@
 
 # Get Started
 
-## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
+<!-- ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md) -->
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
-## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
+<!-- ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
 ## [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 # How To
@@ -73,7 +73,7 @@
 ### [Overview](sql-data-warehouse-overview-integrate.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)-->
 <!-- Not Available ### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)-->
-### [Machine Learning tutorial](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+<!-- Not Available ### [Machine Learning tutorial](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
 <!-- Not Available ### [Power BI](sql-data-warehouse-integrate-power-bi.md)-->
 <!-- Not Available ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
@@ -82,7 +82,7 @@
 
 ### [Overview](sql-data-warehouse-overview-load.md)
 ### [Sample data](sql-data-warehouse-load-sample-databases.md)
-### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+<!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md) -->
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
@@ -142,7 +142,7 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
-## Partners
+<!-- Not Available ## Partners -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
-### [Data management](sql-data-warehouse-partner-data-management.md)
+<!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->

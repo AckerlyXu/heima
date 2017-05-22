@@ -52,7 +52,6 @@ The following settings are configured by Azure AD Connect and cannot be modified
 
 | DirSyncFeature | Comment |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: Enabling device writeback](./active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect sync: Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | PasswordSync |[Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | UnifiedGroupWriteback |[Preview: Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) |

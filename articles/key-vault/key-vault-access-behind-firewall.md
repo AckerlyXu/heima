@@ -40,7 +40,7 @@ Key vault client applications will need to access Azure Active Directory endpoin
 | User or service principal using a work or school account with Azure AD (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
-There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../active-directory/active-directory-authentication-scenarios.md), [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), and [Active Directory Authentication Protocols](../active-directory/active-directory-developers-guide.md) for additional information.  
+There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../active-directory/develop/active-directory-authentication-scenarios.md), [Integrating Applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), and [Active Directory Authentication Protocols](../active-directory/develop/active-directory-developers-guide.md) for additional information.  
 
 ## Key Vault management
 For Key Vault management (CRUD and setting access policy), the key vault client application needs to access an Azure Resource Manager endpoint.  
