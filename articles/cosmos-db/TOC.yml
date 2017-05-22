@@ -244,8 +244,6 @@
         href: ../documentdb/documentdb-manage-account-with-powershell.md
     - name: Security
       items:
-<!--      - name: Encryption at rest
-          href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md  --> 
       - name: Firewall support
         href: ../documentdb/documentdb-firewall-support.md
   - name: Integrate
@@ -254,20 +252,10 @@
       href: ../documentdb/documentdb-spark-connector.md
     - name: Deploy a website with Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
-<!--    - name: Application logging with Logic Apps
-      	href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md -->
-<!--    - name: Bind to Azure Functions
-        href: ../azure-functions/functions-bindings-documentdb.md  -->
     - name: Analyze data with Hadoop
       href: ../documentdb/documentdb-run-hadoop-with-hdinsight.md
-<!--    - name: Integrate with Azure Search
-        href: ../search/search-howto-index-documentdb.md -->
-<!--    - name: Move data with Azure Data Factory
-        href: ../data-factory/data-factory-azure-documentdb-connector.md -->
     - name: Analyze real-time data with Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
-<!--    - name: Get changed HL7 FHIR record using Logic Apps
-        href: ../documentdb/documentdb-change-feed-hl7-fhir-logic-apps.md -->
     - name: Process sensor data in real time
       href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
     - name: Visualize your data with Power BI
