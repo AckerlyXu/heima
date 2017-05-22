@@ -107,10 +107,6 @@ This enables you to work with Azure Websites:
 >[!NOTE]
 > You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
 
-##<a id="datalake"></a>Microsoft Azure Data Lake Tools for Visual Studio
-
-For more information, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
-
 ##<a id="notincluded"></a>What's not included when you install the Azure SDK for .NET
 
 There are a few things that you might want for Azure development that aren't included when you install the SDK. The most important of these are the following:
