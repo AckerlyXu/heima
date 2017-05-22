@@ -12,11 +12,9 @@
 ### [Developer quick start video](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
 ### [Key Vault developer's guide](key-vault-developers-guide.md)
 ### [Service limits](key-vault-service-limits.md)
-### [HSM-protected keys](key-vault-hsm-protected-keys.md)
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
 
 ## Manage
-### [Azure Key Vault Logging](key-vault-logging.md)
 ### [Access behind firewalls](key-vault-access-behind-firewall.md)
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
