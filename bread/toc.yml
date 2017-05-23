@@ -55,6 +55,9 @@
   - name: CDN
     tocHref: /cdn/
     topicHref: /cdn/
+  - name: Cognitive Services
+    tocHref: /cognitive-services/
+    topicHref: /cognitive-services/
   - name: Cloud Services
     tocHref: /cloud-services/
     topicHref: /cloud-services/
