@@ -63,7 +63,7 @@ To change the [state](./multi-factor-authentication-whats-next.md) using [Azure 
 - Disabled  
 
 > [!IMPORTANT]
-> We discourage against moving users directly from the Disable state to the Enforced state. Non-browser-based apps will stop working because the user has not gone through MFA registration and obtained an [app password](./multi-factor-authentication-whats-next.md#app-passwords). If you have non-browser-based apps and require app passwords, we recommend that you go from a Disabled state to Enabled. This allows users to register and obtain their app passwords. After that, you can move them to Enforced.
+> We discourage against moving users directly from the Disable state to the Enforced state.
 
 Using PowerShell would be an option for bulk enabling users. Currently there is no bulk enable feature in the Azure portal and you need to select each user individually. This can be quite a task if you have many users. By creating a PowerShell script using the following, you can loop through a list of users and enable them.
 

@@ -36,7 +36,7 @@ The latest version is 1.5, which shipped with Azure SDK 2.8. The version of Azur
 Various features and changes described below.
 
 ## Azure SDK 2.8
-Azure SDK 2.8 added the ability to send diagnostics data to [Application Insights](./application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
+Azure SDK 2.8 added the ability to send diagnostics data to Application Insights making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
 ## Azure 2.6 diagnostics changes
 

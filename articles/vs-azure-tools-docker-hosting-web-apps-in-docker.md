@@ -22,7 +22,7 @@ to deploy an ASP.NET Core app to a Docker host on Azure using PowerShell.
 ## Prerequisites
 The following is needed to complete this tutorial:
 
-- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-docker-machine.md)
+- Create an Azure Docker Host VM
 - Install [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
 - Install [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)
 

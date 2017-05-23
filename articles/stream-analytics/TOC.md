@@ -10,7 +10,7 @@
 
 ## Build streaming solutions
 ### [Internet of Things](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
+<!-- ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
 ### [Sensor data with Power BI](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 <!-- Not Available ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md) -->
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)

@@ -319,21 +319,21 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Azul Systems web page for the Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
-[Components properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#components_properties/
+[Components properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#components_properties
 [Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
 [Debugging Azure Applications in Eclipse]:./azure-toolkit-for-eclipse-debugging-azure-applications.md
 [Deploying Large Deployments]:./azure-toolkit-for-eclipse-deploying-large-deployments.md
-[Endpoints properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#endpoints_properties/
-[Environment variables properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#environment_variables_properties/
+[Endpoints properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#endpoints_properties
+[Environment variables properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#environment_variables_properties
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
 [How to Use SSL Offloading]:/develop/java/
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Local storage properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#local_storage_properties/
+[Local storage properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#local_storage_properties
 [Azure Client API]: http://go.microsoft.com/fwlink/?LinkId=280397
-[Server configuration properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties/
+[Server configuration properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties
 [Session Affinity]:./azure-toolkit-for-eclipse-enable-session-affinity.md
 [SSL Offloading]:/develop/java/
-[To create a new storage account]:./azure-toolkit-for-eclipse-azure-storage-account-list.md#create_new/
+[To create a new storage account]:./azure-toolkit-for-eclipse-azure-storage-account-list.md#create_new
 [Virtual Machine and Cloud Service Sizes for Azure]: http://go.microsoft.com/fwlink/?LinkId=466520
 
 <!-- IMG List -->
