@@ -23,7 +23,7 @@ ms.author: carlrab
 
 This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal preview.
 
-If you don't have an Azure subscription, create a [trial](https://www.azure.cn/1rmb-trial/) account before you begin.
+If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
 ## Log in to the Azure portal preview
 
