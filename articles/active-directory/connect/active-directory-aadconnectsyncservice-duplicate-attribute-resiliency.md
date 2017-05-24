@@ -1,5 +1,5 @@
 ---
-title: Identity synchronization and duplicate attribute resiliency | Azure
+title: Identity synchronization and duplicate attribute resiliency | Microsoft Docs
 description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 04/24/2017
 wacn.date: ''
 ms.author: markvi
----
 
+---
 # Identity synchronization and duplicate attribute resiliency
 Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
 
@@ -48,7 +48,8 @@ This is a multi-valued attribute that is used to store the conflicting attribute
 ### Enabling Duplicate Attribute Resiliency
 Duplicate Attribute Resiliency will be the new default behavior across all Azure Active Directory tenants. It will be on by default for all tenants that enabled synchronization for the first time on August 22nd, 2016 or later. Tenants that enabled sync prior to this date will have the feature enabled in batches. This rollout will begin in September 2016, and an email notification will be sent to each tenant's technical notification contact with the specific date when the feature will be enabled.
 
-Once Duplicate Attribute Resiliency has been turned on it cannot be disabled.
+> [!NOTE]
+> Once Duplicate Attribute Resiliency has been turned on it cannot be disabled.
 
 To check if the feature is enabled for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
 
@@ -56,11 +57,8 @@ To check if the feature is enabled for your tenant, you can do so by downloading
 
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
-If you would like to proactively enable the feature before it is turned on for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
-
-`Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
-
-`Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
+> [!NOTE]
+> You can no longer use Set-MsolDirSyncFeature cmdlet to proactively enable the Duplicate Attribute Resiliency feature before it is turned on for your tenant. To be able to test the feature, you will need to create a new Azure Active Directory tenant.
 
 ## Identifying Objects with DirSyncProvisioningErrors
 There are currently two methods to identify objects that have these errors due to duplicate property conflicts, Azure Active Directory PowerShell and the Office 365 Admin Portal. There are plans to extend to additional portal based reporting in the future.
@@ -141,11 +139,11 @@ None of these known issues causes data loss or service degradation. Several of t
 
 1. Objects with specific attribute configurations continue to receive export errors as opposed to the duplicate attribute(s) being quarantined.  
    For example:
-
+   
     a. New user is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
-
+   
     b. The properties of this object conflict with an existing Group, where ProxyAddress is **SMTP:Joe@contoso.com**.
-
+   
     c. Upon export, a **ProxyAddress conflict** error is thrown instead of having the conflict attributes quarantined. The operation is retried upon each subsequent sync cycle, as it would have been before the resiliency feature was enabled.
 2. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
 
@@ -153,13 +151,13 @@ None of these known issues causes data loss or service degradation. Several of t
 
 1. The detailed error message for two objects in a UPN conflict set is the same. This indicates that they have both had their UPN changed / quarantined, when in fact only a one of them had any data changed.
 2. The detailed error message for a UPN conflict shows the wrong displayName for a user who has had their UPN changed/quarantined. For example:
-
+   
     a. **User A** syncs up first with **UPN = User@contoso.com**.
-
+   
     b. **User B** is attempted to be synced up next with **UPN = User@contoso.com**.
-
+   
     c. **User B’s** UPN is changed to **User1234@contoso.partner.onmschina.cn** and **User@contoso.com** is added to **DirSyncProvisioningErrors**.
-
+   
     d. The error message for **User B** should indicate that **User A** already has **User@contoso.com** as a UPN, but it shows **User B’s** own displayName.
 
 **Identity synchronization error report**:
@@ -173,3 +171,5 @@ It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/
 - [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 - [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+
+

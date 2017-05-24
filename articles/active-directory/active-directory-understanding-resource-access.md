@@ -1,9 +1,9 @@
 ---
-title: Understanding resource access in Azure | Azure
-description: This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.
+title: Understanding resource access in Azure | Microsoft Docs
+description: This topic explains concepts about using subscription administrators to control resource access in the full Azure portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: curtand
 manager: femila
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/08/2017
 wacn.date: ''
-ms.author: markvi
----
+ms.author: curtand
 
+---
 # Understanding resource access in Azure
 > [!NOTE]
-> This topic explains concepts about using subscription administrators to control resource access in the full Azure portal. As an alternative, the Azure Management portal provides [role-based access control](./role-based-access-control-configure.md) so Azure resources can be managed more precisely.
+> This topic explains concepts about using subscription administrators to control resource access in the full Azure portal. As an alternative, the Azure Management portal provides [role-based access control](role-based-access-control-configure.md) so Azure resources can be managed more precisely.
 > 
 > 
 
@@ -62,3 +62,4 @@ Operations such as moving resources between subscriptions can be more difficult 
 [2]: ./media/active-directory-understanding-resource-access/IC707932.png
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
+

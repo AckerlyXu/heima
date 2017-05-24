@@ -1,12 +1,13 @@
 ---
-title: Scale instance count manually or automatically | Azure
+title: Scale instance count manually or with autoscale with Azure Portal | Azure
 description: Learn how to scale your services Azure.
-authors: rboucher
-manager: ''
+author: rboucher
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
+ms.assetid: 2397596a-071f-4d49-8893-bec5f735bd7b
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 ms.author: robb
-wacn.date: ''
+
 ---
 
 # Scale instance count manually or automatically
@@ -27,20 +28,21 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 
 > [!NOTE]
 > This article describes how to create an autoscale setting in the portal at [http://portal.azure.cn](http://portal.azure.cn). Autoscale settings created in this portal cannot be edited it the classic portal ([http://manage.windowsazure.cn](http://manage.windowsazure.cn)).
+> 
+> 
 
 ## Scaling manually
-
-1. In the [Azure Portal](https://portal.azure.cn/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
-
-2. The **Scale** tile in **Operations** will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
-    ![Scale tile](./media/insights-how-to-scale/Insights_UsageLens.png)
-
-3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
+1. In the [Azure Portal](https://portal.azure.cn/), click **Browse**, then navigate to the resource you want to scale, such as an **App Service plan**.
+2. Click **Settings > Scale out (App Service plan).**
+3. At the top of the **Scale** blade you can see a history of autoscale actions of the service.
+   
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-
->[!NOTE]
-> Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
-
+   
+   > [!NOTE]
+   > Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
+   > 
+   > 
+   
 4. You can manually adjust the number **Instances** with slider.
 5. Click the **Save** command and you'll be scaled to that number of instances almost immediately. 
 
@@ -126,10 +128,12 @@ However, you may want to have more agressive scaling during the day, or the week
 7. Then select **recurrence** again, and choose the instance count range you want during this time.
 
 8. As with the Default profile, choose the **Days** you want this profile to apply to, and the **Start time** during the day.
-
->[!NOTE]
-> Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset. 
-
+   
+   > [!NOTE]
+   > Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset.
+   > 
+   > 
+   
 9. Click **OK**.
 
 10. Now, you will need to add whatever rules you want to apply during your second profile. Click **Add Rule**, and then you could construct the same rule you have during the Default profile.
@@ -140,7 +144,6 @@ However, you may want to have more agressive scaling during the day, or the week
 12. Finally, click **Save**.
 
 ## Next steps
-
 * [Monitor service metrics](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
-* [View events and audit logs](./insights-debugging-with-events.md) to learn everything that has happened in your service.
+* [View events and activity log](./insights-debugging-with-events.md) to learn everything that has happened in your service.

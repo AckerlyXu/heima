@@ -1,19 +1,24 @@
 ---
-title: Sharing accounts using Azure AD | Azure
+title: Sharing accounts using Azure AD | Microsoft Docs
 description: Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services.
 services: active-directory
-documentationCenter: ''
-authors: msStevenPo
-manager: stevenpo
+documentationcenter: ''
+author: curtand
+manager: femila
 editor: ''
 
+ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
-ms.date: 02/09/2016
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/04/2017
+ms.author: curtand
 wacn.date: ''
+
 ---
-
 # Sharing accounts with Azure AD
-
 ## Overview
 Sometimes organizations need to use a single username and password for multiple people. This typically happens in two cases:
 
@@ -31,7 +36,6 @@ The traditional sharing model has several drawbacks:
 - When you need to remove access to an application, you have to update the credentials and re-distribute them to everyone that needs access to that application.
 
 ## Azure Active Directory account sharing
-
 Azure AD provides a new approach to using shared accounts that eliminates these drawbacks.
 
 The Azure AD administrator configures which applications a user can access by using the Access Panel and choosing the type of single sign-on best suited for that application. One of those types, *password-based single-sign on*, lets Azure AD act as a kind of "broker" during the sign-on process for that app.
@@ -40,7 +44,7 @@ Users log in once with their organizational account. This is the same account th
 
 Shared accounts not only increase oversight and improve usability, they also enhance your security. Users with permissions to use the credentials don't see the shared password, but rather get permissions to use the password as part of an orchestrated authentication flow. Further, with some password SSO applications, you have the option to have Azure AD periodically rollover (update) the password using large, complex passwords, increasing the account security. The administrator can easily grant or revoke access to an application and also know who has access to the account and who accessed it in the past.
 
-Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](/documentation/articles/active-directory-single-sign-on-newly-acquired-saas-apps/).
+Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](active-directory-sso-integrate-saas-apps.md).
 
 Azure AD features that enable account sharing include:
 
@@ -53,6 +57,7 @@ Azure AD features that enable account sharing include:
 ## Sharing an account
 To use Azure AD to share an account you will need to:
 
+- Add an application [app gallery](https://azure.microsoft.com/marketplace/active-directory/) or [custom application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
 - Configure the application for password Single Sign-On (SSO)
 - Optional: in some applications, such as Facebook, Twitter, or LinkedIn, you can enable the option for [Azure AD automated password roll-over](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 

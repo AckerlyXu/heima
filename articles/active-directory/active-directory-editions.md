@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory editions | Azure
+title: Azure Active Directory editions | Microsoft Docs
 description: This article explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 wacn.date: ''
 ms.author: curtand
----
 
+---
 # Azure Active Directory editions
 All Microsoft Online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. If you subscribe to any of Microsoft Online business services (for example, Office 365 or Azure), you get Azure AD with access to all of the Free features, described below.  
 
@@ -108,7 +108,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-- [Administer your Azure AD directory](./active-directory-administer.md)
+- [Administer your Azure AD directory](active-directory-administer.md)
+- Azure Active Directory Device Registration overview
 
 #### Single Sign-On (SSO)
 **Type:** Common Features
@@ -172,7 +173,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-- [Azure AD Password Reset for Users and Admins](./active-directory-passwords.md)
+- [Azure AD Password Reset for Users and Admins](active-directory-passwords.md)
 
 #### Company Branding (Logon Pages/Access Panel customization)
 **Type:** Basic Features
@@ -185,7 +186,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-- [Add company branding to your Sign In and Access Panel pages](./active-directory-add-company-branding.md)
+- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 
 #### Application Proxy
 **Type:** Basic Features
@@ -304,6 +305,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 |:---:|:---:|:---:|:---:|
 | ![Check][12] |![Check][12] |![Check][12] |![Check][12] |
 
+
 #### <a name="mdm-auto-enrollment"></a>MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join
 **Type:** Azure Active Directory Join - Windows 10 only  related features
 
@@ -322,16 +324,12 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
-## Azure AD preview features
-In addition to the generally available features of the Free, Basic, and Premium (P1 and P2) editions, Azure AD also provides you with a collection of preview features. You can use the preview features to get an impression of what is coming in the near future and to determine whether these features can help improving your environment.
 
-**Available preview features:**
+## Next steps
 
-- [Certificate-based authentication on iOS](./active-directory-certificate-based-authentication-ios.md)
-- [Certificate-based authentication on Android](./active-directory-certificate-based-authentication-android.md)
+- [Add company branding to your sign-in and Access Panel pages](active-directory-add-company-branding.md)
 
-## What's next
-- [Add company branding to your Sign In and Access Panel pages](./active-directory-add-company-branding.md)
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
+

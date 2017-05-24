@@ -1,5 +1,5 @@
 ---
-title: Manage the directory for your Office 365 subscription in Azure | Azure
+title: Manage the directory for your Office 365 subscription in Azure | Microsoft Docs
 description: Managing an Office 365 subscription directory using Azure Active Directory and the Azure Classic Management Portal
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 wacn.date: ''
 ms.author: curtand
----
 
+---
 # Manage the directory for your Office 365 subscription in Azure
 This article describes how to manage a directory that was created for an Office 365 subscription, using the Azure Classic Management Portal. You must be either the Service Administrator or a co-administrator of an Azure subscription to sign in to the Azure Classic Management Portal. If you don’t yet have an Azure subscription, you can sign up for a [free 30-day trial](./index.md) today and deploy your first cloud solution in under 5 minutes, using this link. Be sure to use the work or school account that you use to sign in to Office 365.
 
@@ -63,3 +63,4 @@ Now let’s suppose that Jane Doe needs administer websites and database resourc
 
 ## Next steps
 For more information about the relationship between subscriptions and directories, see [How a subscription is associated with a directory](./active-directory-how-subscriptions-associated-directory.md).
+

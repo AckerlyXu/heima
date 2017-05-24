@@ -1,34 +1,37 @@
 ---
-title: How to use Service Bus queues with Python | Azure
+title: How to use Azure Service Bus queues with Python | Azure
 description: Learn how to use Azure Service Bus queues from Python.
 services: service-bus
 documentationCenter: python
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/30/2017
 ms.author: sethm;lmazuel
+
 ---
-
 # How to use Service Bus queues
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
+This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][Python Azure Service Bus package]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 > [!NOTE]
-> To install Python or the [Python Azure Service Bus package][], see the [Python Installation Guide](../python-how-to-install.md).
+> To install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](../python-how-to-install.md).
+> 
+> 
 
 ## Create a queue
-
 The **ServiceBusService** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
 
 ```python
@@ -44,7 +47,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-The values for the SAS key name and value can be found in the [Azure classic portal][] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
+The values for the SAS key name and value can be found in the [Azure portal][Azure portal] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
 
 ```python
 bus_service.create_queue('taskqueue')
@@ -108,7 +111,7 @@ Now that you have learned the basics of Service Bus queues, see these articles t
 
 * [Queues, topics, and subscriptions][Queues, topics, and subscriptions]
 
-[Azure classic portal]: http://manage.windowsazure.cn
+[Azure portal]: https://portal.azure.cn
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, Topics, and Subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: ./service-bus-quotas.md

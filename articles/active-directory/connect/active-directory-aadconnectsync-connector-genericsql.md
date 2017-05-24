@@ -1,5 +1,5 @@
 ---
-title: Generic SQL Connector | Azure
+title: Generic SQL Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 05/11/2017
 wacn.date: ''
 ms.author: billmath
----
 
+---
 # Generic SQL Connector technical reference
 This article describes the Generic SQL Connector. The article applies to the following products:
 
@@ -119,7 +119,7 @@ This page allows you to configure anchor and DN attribute for each detected obje
 - Same attribute cannot use for DN and anchor, unless **DN is Anchor** is selected on the Connectivity page.
 - If **DN is Anchor** is selected on the Connectivity page, this page requires only the DN attribute. This attribute would also be used as the anchor attribute.
 
-    ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
+  ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### Schema 4 (Define attribute type, reference, and direction)
 This page allows you to configure the attribute type, such as integer, binary, or Boolean, and direction for each attribute. All attributes from page **schema 2** are listed including multi-valued attributes.
@@ -128,7 +128,8 @@ This page allows you to configure the attribute type, such as integer, binary, o
 
 - **DataType**: Used to map the attribute type to those types known by the sync engine. The default is to use the same type as detected in the SQL schema, but DateTime and Reference are not easily detectable. For those, you need to specify **DateTime** or **Reference**.
 - **Direction**: You can set the attribute direction to Import, Export, or ImportExport. ImportExport is default.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Notes:
 
@@ -148,26 +149,34 @@ Starting in the March 2017 update there is now an option for "*" When this optio
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ As of May 2017 the “*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> If "*" is selected then the name of the column with the object type must also be specified.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
+
 After import you will see something similar to the image below:
 
   ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
 
 ### Global Parameters
 The Global Parameters page is used to configure Delta Import, Date/Time format, and Password method.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- “*” aka **any option** cannot be used during export/delete operations.
+
 
 The Generic SQL Connector supports the following methods for Delta Import:
 
-- **Trigger**: See [Generating Delta Views Using Triggers](https://technet.microsoft.com/zh-cn/library/cc708665.aspx).
+- **Trigger**: See [Generating Delta Views Using Triggers](https://technet.microsoft.com/library/cc708665.aspx).
 - **Watermark**: A generic approach that can be used with any database. The watermark query is pre-populated based on the database vendor. A watermark column must be present on every table/view used. This column must track inserts and updates to the tables as and its dependent (multi-valued or child) tables. The clocks between Synchronization Service and the database server must be synchronized. If not, some entries in the delta import might be omitted.  
   Limitation:
   - Watermark strategy does not support deleted objects.
-- **Snapshot**: (Works only with Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/zh-cn/library/cc720640.aspx)
-- **Change Tracking**: (Works only with Microsoft SQL Server) [About Change Tracking](https://msdn.microsoft.com/zh-cn/library/bb933875.aspx)  
+- **Snapshot**: (Works only with Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/library/cc720640.aspx)
+- **Change Tracking**: (Works only with Microsoft SQL Server) [About Change Tracking](https://msdn.microsoft.com/library/bb933875.aspx)  
   Limitations:
   - Anchor & DN attribute must be part of primary key for the selected object in the table.
   - SQL query is unsupported during Import and Export with Change Tracking.
@@ -185,9 +194,12 @@ During export every date time attribute must be provided to the Connector in UTC
 The Connector provides two methods to support password synchronization:
 
 - **Stored Procedure**: This method requires two stored procedures to support Set & Change password. Type all parameters for add and change the password operation in **Set Password SP** and **Change Password SP** Parameters respectively as per below example.
-  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
-- **Password Extension**: This method requires Password extension DLL (you need to provide the Extension DLL Name that is implementing the [IMAExtensible2Password](https://msdn.microsoft.com/zh-cn/library/microsoft.metadirectoryservices.imaextensible2password.aspx) interface). Password extension assembly must be placed in extension folder so that the connector can load the DLL at runtime.
-  ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
+	
+	![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
+
+- **Password Extension**: This method requires Password extension DLL (you need to provide the Extension DLL Name that is implementing the [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) interface). Password extension assembly must be placed in extension folder so that the connector can load the DLL at runtime.
+
+	![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
 
 You also have to enable the Password Management on the **Configure Extension** page.
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
@@ -234,7 +246,7 @@ Do the following:
 ![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
 
 - If you have much data, it is recommended to implement pagination with your Stored Procedures.
-- For your Stored Procedure to support pagination, you need to provide Start Index and End Index. See: [Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/zh-cn/library/bb445504.aspx).
+- For your Stored Procedure to support pagination, you need to provide Start Index and End Index. See: [Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
 - @StartIndex and @EndIndex are replaced at execution time with respective page size value configured on **Configure Step** page. For example, when the connector retrieves first page and the page size is set 500, in such situation @StartIndex would be 1 and @EndIndex 500. These values increase when connector retrieves subsequent pages and change the @StartIndex & @EndIndex value.
 - To execute parameterized Stored Procedure, provide the parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
 - Generic SQL connector also supports Import operation from Linked Servers in Microsoft SQL Server. If information should be retrieved from a Table in Linked server, then Table should be provided in the format: `[ServerName].[Database].[Schema].[TableName]`
@@ -295,3 +307,4 @@ If you choose the SQL query option, Export requires three different queries to p
 
 ## Troubleshooting
 - For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+
