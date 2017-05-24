@@ -30,7 +30,6 @@ HDInsight makes Hadoop technologies easier to use, with:
 
 *	Less setup and configuration. See [Provision Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 *	High availability and reliability. See [HDInsight availability and reliability](hdinsight-high-availability-linux.md).
-*	Security and governance through integration with Active Directory.
 *	Dynamic scaling without interrupting jobs
 *   Component updates and current versions. See [Hadoop components and versions on HDInsight][component-versioning].
 *   Integration with other Azure services, including [Web apps](/app-service-web/) and [SQL Database](/sql-database/)
@@ -107,7 +106,7 @@ Apache Ambari is for provisioning, managing, and monitoring Apache Hadoop cluste
 See [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md) and <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API reference</a>.
 
 ### <a name="avro"></a>Avro (Microsoft .NET Library for Avro)
-The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It defines a language-agnostic schema so that data serialized in one language can be read in another. Detailed information on the format can be found in the <a target=_"blank" href="http://avro.apache.org/docs/current/spec.html">Apache Avro Specification</a>. The format of Avro files supports the distributed MapReduce programming model: Files are "splittable", meaning you can seek any point in a file and start reading from a particular block. To find out how, see [Serialize data with the Microsoft .NET Library for Avro](hdinsight-dotnet-avro-serialization.md). Linux-based cluster support to come.
+The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It defines a language-agnostic schema so that data serialized in one language can be read in another. Detailed information on the format can be found in the <a target="_blank" href="http://avro.apache.org/docs/current/spec.html">Apache Avro Specification</a>. The format of Avro files supports the distributed MapReduce programming model: Files are "splittable", meaning you can seek any point in a file and start reading from a particular block. To find out how, see [Serialize data with the Microsoft .NET Library for Avro](hdinsight-dotnet-avro-serialization.md). Linux-based cluster support to come.
 
 ### <a name="hdfs"></a>HDFS
 Hadoop Distributed File System (HDFS) is a file system that, with YARN and MapReduce, is the core of Hadoop technology. It's the standard file system for Hadoop clusters on HDInsight. See [Query data from HDFS-compatible storage](hdinsight-hadoop-use-blob-storage.md).

@@ -205,8 +205,8 @@ The steps in this section create the following configuration using [Azure PowerS
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
-  > This process takes around 20 minutes to complete.
+    > [!WARNING]
+    > This process takes around 20 minutes to complete.
 
 8. Use the following cmdlet to retrieve the URL for the Windows VPN client for the virtual network:
 
@@ -307,13 +307,13 @@ To connect to Kafka from the client machine, you must use the IP address of the 
 
 3. To send data to Kafka, use the following Python code:
 
-  ```python
-  from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  producer = KafkaProducer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'])
-  for _ in range(50):
-      producer.send('testtopic', b'test message')
-  ```
+    ```python
+    from kafka import KafkaProducer
+    # Replace the `ip_address` entries with the IP address of your worker nodes
+    producer = KafkaProducer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'])
+    for _ in range(50):
+        producer.send('testtopic', b'test message')
+    ```
 
     Replace the `'ip_address'` entries with the addresses returned from step 1 in this section.
 
@@ -322,16 +322,16 @@ To connect to Kafka from the client machine, you must use the IP address of the 
 
 4. To retrieve the messages from Kafka, use the following Python code:
 
-   ```python
-   from kafka import KafkaConsumer
-   # Replace the `ip_address` entries with the IP address of your worker nodes
-   # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
-   #       of the topic
-   consumer = KafkaConsumer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'],auto_offset_reset='earliest')
-   consumer.subscribe(['testtopic'])
-   for msg in consumer:
-     print (msg)
-   ```
+    ```python
+    from kafka import KafkaConsumer
+    # Replace the `ip_address` entries with the IP address of your worker nodes
+    # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
+    #       of the topic
+    consumer = KafkaConsumer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'],auto_offset_reset='earliest')
+    consumer.subscribe(['testtopic'])
+    for msg in consumer:
+      print (msg)
+    ```
 
     Replace the `'ip_address'` entries with the addresses returned from step 1 in this section. The output contains the test message sent to the producer in the previous step.
 

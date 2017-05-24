@@ -100,7 +100,7 @@ When prompted, enter the password you used for the SSH account.
 
 For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-##<a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
+## <a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
 When working with Kafka, you must know two host values; the *Zookeeper* hosts and the *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
 
