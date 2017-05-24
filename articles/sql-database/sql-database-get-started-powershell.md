@@ -25,7 +25,7 @@ PowerShell is used to create and manage Azure resources from the command line or
 
 To complete this tutorial, make sure you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
-If you don't have an Azure subscription, create a [trial](https://www.azure.cn/1rmb-trial/) account before you begin.
+If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
 ## Log in to Azure
 
