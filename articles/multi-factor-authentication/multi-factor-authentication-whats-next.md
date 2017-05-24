@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
+wacn.date: ''
 
 ---
 # Configure Azure Multi-Factor Authentication settings
