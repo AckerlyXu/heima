@@ -1,5 +1,5 @@
----
-title: Azure Active Directory FAQ | Azure
+﻿---
+title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 04/24/2017
 wacn.date: ''
 ms.author: markvi
----
 
+---
 # Azure Active Directory FAQ
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
-For more information, see [What is Azure Active Directory?](./active-directory-whatis.md).
+For more information, see [What is Azure Active Directory?](active-directory-whatis.md).
+
 
 ## Access Azure and Azure Active Directory
 **Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure Classic Management Portal (https://manage.windowsazure.cn)?**
@@ -30,8 +31,8 @@ For more information, see [What is Azure Active Directory?](./active-directory-w
 
 For more information, see:
 
-- [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md)
-- [Manage the directory for your Office 365 subscription in Azure](./active-directory-manage-o365-subscription.md)
+- [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Manage the directory for your Office 365 subscri  ption in Azure](active-directory-manage-o365-subscription.md)
 
 - - -
 **Q: What’s the relationship between Azure AD, Office 365, and Azure?**
@@ -52,7 +53,8 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 
 If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md).
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure Classic Management Portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](./active-directory-assign-admin-roles.md).
+
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure Classic Management Portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Office 365 and Azure, with comprehensive enterprise-scale management and security solutions.
 
@@ -64,6 +66,7 @@ Additionally, Azure AD paid services like Enterprise Mobility + Security complem
 - - -
 
 ## Get started with Hybrid Azure AD
+
 
 **Q: How do I leave a tenant when I am added as a collaborator?**
 
@@ -114,10 +117,18 @@ For Office 365 users, your admin can reset the password by using the steps outli
 
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
-- [Reset accounts in the Classic Management Portal](./active-directory-create-users-reset-password.md)
-- [Using PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+- [Reset accounts in the Classic Management Portal](active-directory-create-users-reset-password.md)
+- [Using PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0/)
+
 
 - - -
+## Security
+**Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**</br>
+We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
+
+**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**</br>
+This refers to passwords that are globally common, such as any variants of “Password” and “123456”.
+
 ## Application access
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
 
@@ -167,3 +178,4 @@ For more information, see:
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
 **A:**  No.  Azure AD does not support the LDAP protocol.
+
