@@ -1,5 +1,5 @@
 ---
-title: What is Self-Service Signup for Azure? | Azure
+title: What is Self-Service Signup for Azure? | Microsoft Docs
 description: An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 wacn.date: ''
 ms.author: curtand
----
 
+---
 # What is Self-Service Signup for Azure?
 This topic explains the self-service signup process and how to take over a DNS domain name.  
 
@@ -139,36 +139,34 @@ For example:
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
 
-    ```
-    import-module MSOnline
-    $msolcred = get-credential
-    connect-msolservice -credential $msolcred
-    ```
+        import-module MSOnline
+        $msolcred = get-credential
+        connect-msolservice -credential $msolcred
 2. Get a list of domains:
 
-    `Get-MsolDomain`
+    	Get-MsolDomain
 3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
 
-    `Get-MsolDomainVerificationDns -DomainName *your_domain_name* -Mode DnsTxtRecord`
+    	Get-MsolDomainVerificationDns -DomainName *your_domain_name* -Mode DnsTxtRecord
 
     For example:
 
-    `Get-MsolDomainVerificationDns -DomainName contoso.com -Mode DnsTxtRecord`
+    	Get-MsolDomainVerificationDns -DomainName contoso.com -Mode DnsTxtRecord
 4. Copy the value (the challenge) that is returned from this command.
 
     For example:
 
-    `MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9`
+    	MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
 
     The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
 
-    `Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*`
+    	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
 
     for example:
 
-    `Confirm-MsolEmailVerifiedDomain -DomainName contoso.com`
+    	Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
 A successful challenge returns you to the prompt without an error.
 
@@ -187,21 +185,20 @@ An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCo
 ### How do the controls work together?
 These two parameters can be used in conjunction to define more precise control over self-service sign up. For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):
 
-```
-Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-```
+    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 
 The following flowchart explains all the different combinations for these parameters and the resulting conditions for the directory and self-service sign up.
 
 ![][1]
 
-For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](https://msdn.microsoft.com/zh-cn/library/azure/dn194127.aspx).
+For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0/).
 
 ## See Also
-- [How to install and configure Azure PowerShell](../powershell-install-configure.md)
-- [Azure PowerShell](https://msdn.microsoft.com/zh-cn/library/azure/jj156055.aspx)
-- [Azure Cmdlet Reference](https://msdn.microsoft.com/zh-cn/library/azure/jj554330.aspx)
-- [Set-MsolCompanySettings](https://msdn.microsoft.com/zh-cn/library/azure/dn194127.aspx)
+- [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview/)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview/)
+- [Azure Cmdlet Reference](https://docs.microsoft.com/powershell/azure/get-started-azureps/)
+- [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0/)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
+

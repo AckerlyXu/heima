@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Understanding Users and Contacts | Azure'
+title: 'Azure AD Connect sync: Understanding Users and Contacts | Microsoft Docs'
 description: Explains users and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 04/24/2017
 wacn.date: ''
 ms.author: markvi;andkjell
----
 
+---
 # Azure AD Connect sync: Understanding Users and Contacts
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.
 
@@ -38,7 +38,7 @@ It is possible that an object is promoted from Contact to User when more source 
 
 For example, in a GALSync topology we will find contact objects for everyone in the second forest when we import the first forest. This will stage new contact objects in the AAD Connector. When we later import and synchronize the second forest, we will find the real users and join them to the existing metaverse objects. We will then delete the contact object in AAD and create a new user object instead.
 
-If you have a topology where users and represented as contacts, make sure you select to match users on the mail attribute in the installation guide. If you select another option, then you will have an order dependent configuration. Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide. You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object. During export to Azure AD, an error will be thrown. This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.
+If you have a topology where users are represented as contacts, make sure you select to match users on the mail attribute in the installation guide. If you select another option, then you will have an order dependent configuration. Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide. You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object. During export to Azure AD, an error will be thrown. This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.
 
 ## Disabled accounts
 Disabled accounts are synchronized as well to Azure AD. Disabled accounts are common to represent resources in Exchange, for example conference rooms. The exception is users with a linked mailbox; as previously mentioned, these will never provision an account to Azure AD.
@@ -51,3 +51,5 @@ When an object has been exported to Azure AD then it is not allowed to change th
 ## Additional Resources
 - [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+

@@ -1,11 +1,12 @@
 ---
-title: Azure Active Directory PoC Playbook Building Blocks| Microsoft Docs
+
+title: Azure Active Directory proof of concept playbook building blocks | Microsoft Docs
 description: Explore and quickly implement Identity and Access Management scenarios
 services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
 documentationcenter: ''
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 
 ms.assetid:
 ms.service: active-directory
@@ -13,15 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
+wacn.date: ''
 
 ---
-# Azure Active Directory Proof of Concept Playbook: Building Blocks
+# Azure Active Directory proof of concept playbook: Building blocks
 
-## Catalog of Actors
+## Catalog of roles
 
-| Actor | Description | PoC Responsibility |
+| Role | Description | Proof of concept (PoC) responsibility |
 | --- | --- | --- |
 | **Identity Architecture / development team** | This team is usually the one that designs the solution, implements prototypes, drives approvals, and finally hands off to operations | They provide the environments and are the ones evaluating the different scenarios from the manageability perspective |
 | **On-Premises Identity Operations team** | Manages the different identity sources on-premises: Active Directory Forests, LDAP directories, HR systems, and Federation Identity Providers. | Provide access to on-premises resources needed for the PoC scenarios.<br/>They should be involved as little as possible|
@@ -32,6 +34,8 @@ ms.author: dstefan
 | **Security team** | Defines the security strategy, analyzes security reports from various sources, and follows through on findings. | Provide target security evaluation scenarios |
 
 ## Common Prerequisites for all building blocks
+
+Following are some pre-requisites needed for any POC with Azure AD Premium.
 
 | Pre-requisite | Resources |
 | --- | --- |

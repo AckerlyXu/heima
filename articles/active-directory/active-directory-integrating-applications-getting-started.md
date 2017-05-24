@@ -1,9 +1,10 @@
 ---
-title: Get started integrating Azure AD with apps | Azure
+
+title: Get started integrating Azure AD with apps | Microsoft Docs
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
 services: active-directory
 documentationcenter: ''
-author: ihenkel
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 05/04/2017
 wacn.date: ''
-ms.author: inhenk
----
+ms.author: markvi
 
+---
 # Integrating Azure Active Directory with applications getting started guide
 ## Overview
 This topic is intended to give you a roadmap for integrating applications with Azure Active Directory (AD). Each of the sections below contain a brief summary of a more detailed topic so you can identify which parts of this getting started guide are relevant to you.  Follow the links for a deeper dive on each subject.
@@ -48,7 +49,7 @@ Before you jump in to integrating applications with Azure AD, it is important to
 - Will you need to clean up user/group databases before integrating?  (This is a pretty important question. Garbage in, garbage out.)
 
 ### Access management inventory
-- How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [RBAC](./role-based-access-control-configure.md) for example?
+- How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [RBAC](role-based-access-control-configure.md) for example?
 - Who needs access to what?
 
 Maybe you don't have the answers to all of these questions up front but that's okay.  This guide can help you answer some of those questions and make some informed decisions.
@@ -61,7 +62,7 @@ Maybe you don't have the answers to all of these questions up front but that's o
 As mentioned above, there may be applications that haven't been managed by your organization until now.  As part of the inventory process, it is possible to find unsanctioned cloud applications. See
 
 ### Authentication Types
-Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](./active-directory-sso-certs.md) and [Password based single sign on](./active-directory-appssoaccess-whatis.md).
+Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) and [Password based single sign on](active-directory-appssoaccess-whatis.md).
 
 ### Integrating applications with Azure AD
 The following articles discuss the different ways applications integrate with Azure AD, and provide some guidance.
@@ -77,9 +78,11 @@ The following articles describe ways you can manage access to applications once 
 - [Sharing accounts](./active-directory-sharing-accounts.md)
 
 ## Integrating custom applications
-If you are writing a new application and want to assist developers in leveraging the power Azure AD, see [Guiding developers](./active-directory-applications-guiding-developers-for-lob-applications.md).
+If you are writing a new application and want to assist developers in leveraging the power Azure AD, see [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md).
 
 If you want to add your custom application to the Azure Application Gallery, see [“Bring your own app” with Azure AD Self-Service SAML configuration](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 ## See also
-- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+
+

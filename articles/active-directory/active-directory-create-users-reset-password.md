@@ -1,5 +1,5 @@
 ---
-title: Reset the password for a user in Azure Active Directory | Azure
+title: Reset the password for a user in Azure Active Directory | Microsoft Docs
 description: Explains how an administrator should reset a users' password in an Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/08/2017
 wacn.date: ''
 ms.author: curtand
----
+ms.custom: H1Hack27Feb2017
 
+---
 # Reset a password for a user in the Azure Classic Management Portal
 
 Azure Active Directory (Azure AD) simplifies the process of resetting a user's password if they forget and are locked out, or while performing routine security maintenance. 
