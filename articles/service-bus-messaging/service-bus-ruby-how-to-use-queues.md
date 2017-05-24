@@ -1,23 +1,23 @@
 ---
-title: How to use Service Bus queues with Ruby | Azure
+title: How to use Azure Service Bus queues with Ruby | Azure
 description: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.
 services: service-bus
 documentationCenter: ruby
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
+
 ---
-
 # How to use Service Bus queues
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This guide describes how to use Service Bus queues. The samples are
@@ -27,44 +27,13 @@ covered include **creating queues, sending and receiving messages**, and
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Create a namespace
-
-To begin using Service Bus queues in Azure, you must first create a namespace. A namespace provides a scoping container for addressing Service Bus resources within your application. You must create the
-namespace through the command-line interface because the Azure portal does not create the namespace with an ACS connection.
-
-To create a namespace:
-
-1. Open an Azure Powershell console.
-
-2. Type the following command to create a Service Bus namespace. Provide your own namespace value and specify the same region as your application.
-
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-    ```
-
-## Obtain management credentials for the namespace
-
-In order to perform management operations, such as creating a queue on the new
-namespace, you must obtain the management credentials for the namespace.
-
-The PowerShell cmdlet you ran to create the Azure service bus namespace displays
-the key you can use to manage the namespace. Copy the **DefaultKey** value. You
-will use this value in your code later in this tutorial.
-
-![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
-
-> [!NOTE]
-> You can also find this key if you log on to the [Azure portal](https://portal.azure.cn/) and navigate to the connection information for your Service Bus namespace.
-
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+   
 ## Create a Ruby application
-
-Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configure your application to use Service Bus
-
-To use Azure Service Bus, download and use the Ruby Azure package, which includes a set of convenience libraries that communicate with the storage REST services.
+To use Azure Service Bus, download and use the Azure Ruby package, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
 

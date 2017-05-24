@@ -7,17 +7,18 @@ authors: jtaubensee
 manager: timlt
 editor: ''
 
+ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: jotaub
 ---
 
 # Create a Service Bus namespace using the Azure portal
-A namespace is a common container for all messaging components. Multiple queues and topics can reside in a single namespace, and namespaces often serve as application containers. There are currently two different ways to create a Service Bus namespace.
+A namespace is a common container for all messaging components. Multiple queues and topics can reside within a single namespace, and namespaces often serve as application containers. There are two different ways to create a Service Bus namespace:
 
 1. Azure portal (this article)
 
