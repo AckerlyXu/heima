@@ -186,20 +186,6 @@ switch ($defaultStoreageType)
             -Container $storageContainer `
             -Context $context `
     }
-    "azuredatalakestore" {
-        # Get the Data Lake Store name
-        # Get the root of the HDInsight cluster azuredatalakestore
-        $clusterRoot=$clusterInfo.DefaultStorageRootPath
-        # Upload the files. Prepend the destination with the cluster root
-        Import-AzureRmDataLakeStoreItem -AccountName $defaultStorageName `
-            -Path .\mapper.py `
-            -Destination "$clusterRoot/mapper.py" `
-            -Force
-        Import-AzureRmDataLakeStoreItem -AccountName $defaultStorageName `
-            -Path .\reducer.py `
-            -Destination "$clusterRoot/reducer.py" `
-            -Force
-    }
     default {
         Throw "Unknown storage type: $defaultStoreageType"
     }
@@ -253,16 +239,6 @@ switch ($defaultStoreageType)
             -Destination "./output.txt"
         # Display the output
         Get-Content "./output.txt"
-    }
-    "azuredatalakestore" {
-        # Get the Data Lake Store name
-        # Get the root of the HDInsight cluster azuredatalakestore
-        $clusterRoot=$clusterInfo.DefaultStorageRootPath
-        # Download the file. Prepend the destination with the cluster root
-        # NOTE: Unlike getting a blob, this just gets the content and no
-        #       file is created locally.
-        $sourcePath=$clusterRoot + "example/wordcountout/part-00000"
-        Get-AzureRmDataLakeStoreItemContent -Account $defaultStorageName -Path $sourcePath -Confirm
     }
     default {
         Throw "Unknown storage type: $defaultStoreageType"

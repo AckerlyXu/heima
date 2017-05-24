@@ -139,7 +139,7 @@ Linux-based HDInsight clusters provide two head nodes that are active within the
 
 ### <a name="bPS6"></a>Configure the custom components to use Azure Blob storage
 
-Components that you install on the cluster might have a default configuration that uses Hadoop Distributed File System (HDFS) storage. HDInsight uses either Azure Storage or Data Lake Store as the default storage. Both provide an HDFS compatible file system that persists data even if the cluster is deleted. You may need to configure components you install to use WASB or ADL instead of HDFS.
+Components that you install on the cluster might have a default configuration that uses Hadoop Distributed File System (HDFS) storage. HDInsight uses either Azure Storage as the default storage. Both provide an HDFS compatible file system that persists data even if the cluster is deleted. You may need to configure components you install to use WASB or ADL instead of HDFS.
 
 For most operations, you do not need to specify the file system. For example, the following copies the giraph-examples.jar file from the local file system to cluster storage:
 
@@ -147,7 +147,7 @@ For most operations, you do not need to specify the file system. For example, th
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Data Lake Store or `wasb:///example/jars` for Azure Storage.
+In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `wasb:///example/jars` for Azure Storage.
 
 ### <a name="bPS7"></a>Write information to STDOUT and STDERR
 
@@ -285,7 +285,7 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 Resources used by the script must also be publicly available.
 
-Storing the files in an Azure Storage account or Azure Data Lake Store provides fast access, as both within the Azure network.
+Storing the files in an Azure Storage account provides fast access, as both within the Azure network.
 
 > [!NOTE]
 > The URI format used to reference the script differs depending on the service being used. For storage accounts associated with the HDInsight cluster, use `wasb://` or `wasbs://`. For publicly readable URIs, use `http://` or `https://`.
