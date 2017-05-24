@@ -76,7 +76,7 @@ Open the SQL Database blade for the database you want to scale up or down:
 ## Additional resources
 
 - [Business Continuity Overview](./sql-database-business-continuity.md)
-- [SQL Database documentation](./index.md)
+- [SQL Database documentation](./index.yml)
 
 <!--Image references-->
 [1]: ./media/sql-database-scale-up/new-tier.png

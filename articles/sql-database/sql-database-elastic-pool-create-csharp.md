@@ -285,5 +285,5 @@ Write-Output "_applicationSecret:" $secret
 
 ## Additional Resources
 
-- [SQL Database](./index.md)
+- [SQL Database](./index.yml)
 - [Azure Resource Management APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn948464.aspx)

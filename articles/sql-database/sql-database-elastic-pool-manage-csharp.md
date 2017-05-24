@@ -107,7 +107,7 @@ newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "s
 ## Additional Resources
 
 - [SQL error codes for SQL Database client applications: Database connection error and other issues](./sql-database-develop-error-messages.md).
-- [SQL Database](./index.md)
+- [SQL Database](./index.yml)
 - [Azure Resource Management APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn948464.aspx)
 - [Create a new elastic database pool with C#](./sql-database-elastic-pool-create-csharp.md)
 - [When should an elastic database pool be used?](./sql-database-elastic-pool-guidance.md)

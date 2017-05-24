@@ -54,7 +54,7 @@ Basic, Standard, and Premium Azure SQL Databases are billed by the hour, and you
 
 ## See also
 
-[Azure SQL Database](./index.md)
+[Azure SQL Database](./index.yml)
 
 [Web and Business Pricing](https://www.azure.cn/pricing/details/sql-database//web-business)
 

@@ -257,7 +257,7 @@ Now that you've tried SQL Database and set up a database with C#, you're ready f
 
 ## Additional Resources
 
-- [SQL Database](./index.md)
+- [SQL Database](./index.yml)
 - [Database Class](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
 <!--Image references-->
