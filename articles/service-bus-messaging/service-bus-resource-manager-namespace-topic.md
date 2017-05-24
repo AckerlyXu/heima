@@ -1,24 +1,25 @@
 ---
-title: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template | Azure
+title: Create Azure Service Bus namespace topic subscription using Azure Resource Manager template | Azure
 description: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template
 services: service-bus
-documentationCenter: .net
-authors: sethmanheim
+documentationcenter: .net
+author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 04/18/2017
 ms.author: sethm;shvija
----
 
+---
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic and subscription. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
 
@@ -32,7 +33,9 @@ For the complete template, see the [Service Bus namespace with topic and subscri
 > -  [Create a Service Bus namespace with queue and authorization rule](./service-bus-resource-manager-namespace-auth-rule.md)
 > -  [Create a Service Bus namespace with topic, subscription, and rule](./service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
->To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Service Bus.
+> To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for "Service Bus."
+> 
+> 
 
 ## What will you deploy?
 
@@ -147,8 +150,8 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-- [Manage Service Bus with PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
-- [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Manage Service Bus with PowerShell](./service-bus-manage-with-ps.md)
+* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
   [Authoring Azure Resource Manager Templates]: ../azure-resource-manager/resource-group-authoring-templates.md
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

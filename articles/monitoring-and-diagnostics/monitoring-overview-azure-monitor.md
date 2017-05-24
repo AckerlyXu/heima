@@ -66,7 +66,7 @@ You can search the Activity Log (previously called Operational or Audit Logs) fo
 
 
 ### Resource - Metrics and Diagnostics Logs
-Collectable metrics and diagnostics logs vary based on the resource type. For example, Web Apps provides statistics on the Disk IO and Percent CPU. Those metrics don't exist for a Service Bus queue, which instead provides metrics like queue size and message throughput. A list of collectable metrics for each resource is available at [supported metrics](./monitoring-supported-metrics.md). 
+Collectable metrics and diagnostics logs vary based on the resource type. For example, Web Apps provides statistics on the Disk IO and Percent CPU. Those metrics don't exist for a Service Bus queue, which instead provides metrics like queue size and message throughput.
 
 ### Host and Guest VM metrics
 There is not necessarily a 1:1 mapping between your resource and a particular Host or Guest VM so metrics are not available.
@@ -137,6 +137,5 @@ In general, you can manipulate data tracking, routing, and retrieval using one o
 
 ## Next steps
 Learn more about
-- Run through the Azure Monitor interface in [Getting Started with Azure Monitor](./monitoring-get-started.md)
 - Set up the [Azure Diagnostics Extensions](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, Virtual machine scale sets, or Service Fabric application.
 - [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables, or Queues

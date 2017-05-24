@@ -31,11 +31,8 @@ You can also the configure who the alert should be sent to:
 - Select an existing Action Group
 - Create a new Action Group (that can be later used for future alerts)
 
-You can learn more about Action Groups [here](./monitoring-action-groups.md)
-
 You can configure and get information about service health notification alerts using
 - [Azure Portal](./monitoring-activity-log-alerts-on-service-notifications.md)
-- [Resource Manager templates](./monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 
 ## Create an alert on a service health notification for a new action group with the Azure Portal
 1.	In the [portal](https://portal.azure.cn), navigate to the **Monitor** service
@@ -76,7 +73,6 @@ You can configure and get information about service health notification alerts u
 
 Within a few minutes, the alert is active and triggers as previously described.
 
-For details on the webhook schema for activity log alerts [click here](./monitoring-activity-log-alerts-webhook.md)
 
 >[!NOTE]
 >The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
@@ -118,7 +114,5 @@ Once you have created an alert, it will be visible in the Alerts section of the 
 * **Disable** or **Enable** it if you want to temporarily stop of resume receiving notifications for the alert.
 
 ## Next Steps:
-Learn about [Service Health Notifications](./monitoring-service-notifications.md)  
-Review the [activity log alert webhook schema](./monitoring-activity-log-alerts-webhook.md)
-Get an [overview of activity log alerts](./monitoring-overview-alerts.md) and learn how to get alerted  
-Learn more about [action groups](./monitoring-action-groups.md)
+ - Learn about [Service Health Notifications](./monitoring-service-notifications.md)  
+

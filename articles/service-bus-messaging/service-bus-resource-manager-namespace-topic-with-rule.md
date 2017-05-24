@@ -1,18 +1,24 @@
 ---
-title: Create Azure Service Bus topic subscription and rule using template
+title: Create Azure Service Bus topic subscription and rule using Azure Resource Manager template | Azure Docs
 description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
-services:  service-bus-messaging
-documentationcenter:  .net
+services: service-bus
+documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
-ms.date: 01/18/2017
+ms.assetid: 9e0aaf58-0214-4bca-bd00-d29c08f9b1bc
 ms.service: service-bus
----
+ms.devlang: tbd
+ms.topic: article
+ms.tgt_pltfrm: dotnet
+ms.workload: na
+ms.date: 04/18/2017
+ms.author: sethm;shvija
 
 ---
 # Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template
+
 This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription, and rule (filter). You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
@@ -39,7 +45,7 @@ With this template, you deploy a Service Bus namespace with topic, subscription,
 [Service Bus topics and subscriptions](./service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, instead they exchange messages via topic that acts as an intermediary.A subscription to a topic resembles a virtual queue that receives copies of messages that were sent to the topic. A filter on subscription enables you to specify which messages sent to a topic should appear within a specific topic subscription.
 
 ## What are rules (filters)?
-In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this, you can configure subscriptions to find messages that have desired properties and then perform certain modifications to those properties. While Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This is accomplished using subscription filters. To learn more on rules(filters), see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
+In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this, you can configure subscriptions to find messages that have specific properties and then perform modifications to those properties. Although Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This is accomplished using subscription filters. To learn more about rules (filters), see [Rules and actions](./service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 To run the deployment automatically, click the following button:
 
@@ -162,8 +168,8 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## Next steps
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-* [Manage Azure Service Bus using Azure Automation](./service-bus-management-libraries.md)
-* [Manage Service Bus with PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
+* [Manage Azure Service Bus](./service-bus-management-libraries.md)
+* [Manage Service Bus with PowerShell](./service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
