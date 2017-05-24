@@ -128,7 +128,7 @@ Since choosing Azure as its cloud partner, Umbraco has been able to provide UaaS
 
 - To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).	
 
-- To learn more about virtual networking, see [virtual networking](../virtual-network/index.yml).	
+- To learn more about virtual networking, see [virtual networking](../virtual-network/index.md).	
 
 - To learn more about backup and recovery, see [business continuity](./sql-database-business-continuity.md).	
 
