@@ -146,7 +146,4 @@ However, you may want to have more agressive scaling during the day, or the week
 ## Next steps
 * [Monitor service metrics](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
-* [Receive alert notifications](./insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
 * [View events and activity log](./insights-debugging-with-events.md) to learn everything that has happened in your service.
-* [Monitor availability and responsiveness of any web page](../application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
-

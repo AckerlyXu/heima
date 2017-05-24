@@ -45,7 +45,7 @@ Here are the principal tools:
 
 
 ## Accessing monitoring in the Azure portal
-All Azure monitoring services are now available in a single UI pane. For more information on how to access this area, see [Get started with Azure Monitor](monitoring-get-started.md). 
+All Azure monitoring services are now available in a single UI pane. 
 
 You can also access monitoring functions for specific resources by highlighting those resources and drilling down into their monitoring options. 
 
@@ -59,7 +59,6 @@ The following sections show some basic scenarios and which tools should be used 
 
 Azure now provides the full power of the Visual Studio debugger in the cloud. Configure Azure Monitor to send telemetry to Application Insights. Enable Visual Studio to include the Application Insights SDK in your application. Once in Application Insights, you can use the Application Map to discover visually which parts of your running application are unhealthy or not. For those parts that are not healthy, errors and exceptions are already available for exploration. You can use the various analytics in Application Insights to go deeper. If you are not sure about the error, you can use the Visual Studio debugger to trace into code and pin point a problem further. 
 
-For more information, see [Monitoring Web Apps](../application-insights/app-insights-azure-web-apps.md) and refer to the table of contents on the left for instructions on various types of apps and languages.  
 
 ### Scenario 2 – Debug an Azure .NET web application for errors that only show in production 
 
@@ -70,7 +69,6 @@ For more information, see [Monitoring Web Apps](../application-insights/app-insi
 
 Use the Application Insights Snapshot Debugger to debug your app. When a certain error threshold occurs with production components, the system automatically captures telemetry in windows of time called “snapshots." The amount captured is safe for a production cloud because it’s small enough not to affect performance but significant enough to allow tracing.  The system can capture multiple snapshots. You can look at a point in time in the Azure portal or use Visual Studio for the full experience. With Visual Studio, developers can walk through that snapshot as if they were debugging in real-time. Local variables, parameters, memory, and frames are all available. Developers must be granted access to this production data via an RBAC role.  
 
-For more information, see [Snapshot debugging](../application-insights/app-insights-snapshot-debugger.md). 
 
 ### Scenario 3 – Debug an Azure application that uses containers or microservices 
 
@@ -78,14 +76,6 @@ For more information, see [Snapshot debugging](../application-insights/app-insig
 Application Insights also supports gathering telemetry from processes running inside containers and from microservices (Kubernetes, Docker, Azure Service Fabric). For more information, [see this video on debugging containers and microservices](https://go.microsoft.com/fwlink/?linkid=848184). 
 
 
-### Scenario 4 – Fix performance issues in your Azure application
-
-The [Application Insights profiler](../application-insights/app-insights-profiler.md) is designed to help troubleshoot these types of issues. You can identify and troubleshoot performance issues for applications running in App Services (Web Apps, Logic Apps, Mobile Apps, API Apps) and other compute resources such as Virtual Machines, Virtual machine scale sets (VMSS), Cloud Services, and Service Fabric. 
-
-> [!NOTE]
-> Ability to profile Virtual Machines, Virtual machine scale sets (VMSS), Cloud Services and Services Fabric is in preview.   
-
-In addition, you are proactively notified by email about certain types of errors, such as slow page load times, by the Smart Detection tool.  You don’t need to do any configuration on this tool. For more information, see [Smart Detection - Performance Anomalies](../application-insights/app-insights-proactive-performance-diagnostics.md) and [Smart Detection - Performance Anomalies](https://azure.microsoft.com/blog/Enhancments-ApplicationInsights-SmartDetection/preview).
 
 
 
@@ -93,5 +83,4 @@ In addition, you are proactively notified by email about certain types of errors
 Learn more about
 
 * [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977)
-* [Getting Started with Azure Monitor](./monitoring-get-started.md)
 * [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, Virtual machine scale set, or Service Fabric application.

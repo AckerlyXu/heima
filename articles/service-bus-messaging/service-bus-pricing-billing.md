@@ -19,7 +19,7 @@ ms.author: sethm
 ---
 # Service Bus pricing and billing
 
-Service Bus is offered in Basic, Standard tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
+Service Bus is offered in Basic, Standard tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
 
 >[!NOTE]
 > For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://www.azure.cn/pricing/details/service-bus/), and the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing).
@@ -101,6 +101,6 @@ Yes. There are no connection charges for sending events using HTTP, regardless o
 
 - For complete details about Service Bus pricing, see the [Service Bus pricing page](https://www.azure.cn/pricing/details/service-bus/).
 
-* See the [Service Bus FAQ](./service-bus-faq.md#pricing) for some common FAQs about Service bus pricing and billing.
+* See the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing) for some common FAQs about Service bus pricing and billing.
 
 [Azure portal]: https://portal.azure.cn
