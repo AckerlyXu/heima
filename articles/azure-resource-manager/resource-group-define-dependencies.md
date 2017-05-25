@@ -46,7 +46,7 @@ The following example shows a virtual machine scale set that depends on a load b
 }
 ```
 
-In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](./resource-group-create-multiple.md).
+In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 When defining dependencies, you can include the resource provider namespace and resource type to avoid ambiguity. For example, to clarify a load balancer and virtual network that may have the same names as other resources, use the following format:
 
@@ -105,7 +105,7 @@ The following example shows a SQL server and SQL database. Notice that an explic
 ```
 
 ## reference function
-The [reference function](./resource-group-template-functions.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. The general format is:
+The [reference function](resource-group-template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. The general format is:
 
 ```json
 reference('resourceName').propertyPath
@@ -130,7 +130,7 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
 
 You can use either this element or the dependsOn element to specify dependencies, but you do not need to use both for the same dependent resource. Whenever possible, use an implicit reference to avoid adding an unnecessary dependency.
 
-To learn more, see [reference function](./resource-group-template-functions.md#reference).
+To learn more, see [reference function](resource-group-template-functions-resource.md#reference).
 
 ## Recommendations for setting dependencies
 
@@ -150,9 +150,9 @@ Resource Manager identifies circular dependencies during template validation. If
 3. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
 4. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
 
-For information about assessing the deployment order and resolving dependency errors, see [Check deployment sequence](./resource-manager-common-deployment-errors.md#check-deployment-sequence).
+For information about assessing the deployment order and resolving dependency errors, see [Check deployment sequence](resource-manager-common-deployment-errors.md#check-deployment-sequence).
 
 ## Next steps
-* To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](./resource-manager-common-deployment-errors.md).
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](./resource-group-authoring-templates.md). 
-* For a list of the available functions in a template, see [Template functions](./resource-group-template-functions.md).
+* To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
+* For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
