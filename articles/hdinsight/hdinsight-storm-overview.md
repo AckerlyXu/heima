@@ -22,8 +22,9 @@ ms.author: larryfr
 
 ---
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 # What is Apache Storm on Azure HDInsight
+
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 [Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use a Storm cluster to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
