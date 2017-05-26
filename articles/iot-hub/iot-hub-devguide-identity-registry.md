@@ -111,7 +111,7 @@ $content-type | application/json |
 $iothub-enqueuedtime |  Time when the notification was sent |
 $iothub-message-source | deviceLifecycleEvents |
 $content-encoding | utf-8 |
-opType | °∞createDeviceIdentity°± or °∞deleteDeviceIdentity°± |
+opType | ‚ÄúcreateDeviceIdentity‚Äù or ‚ÄúdeleteDeviceIdentity‚Äù |
 hubName | Name of IoT Hub |
 deviceId | Id of the device |
 operationTimestamp | ISO8601 timestamp of operation |
