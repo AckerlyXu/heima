@@ -128,16 +128,4 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             </div>
         </div>
     </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Other</h3>
-                        <p><a href="service-bus-relay-port-settings.md">Port settings</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
 </ul>

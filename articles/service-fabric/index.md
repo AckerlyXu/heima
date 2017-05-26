@@ -19,7 +19,7 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/service-fabric/service-fabric-overview">
+        <a href="/service-fabric/service-fabric-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -37,7 +37,7 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
         </a>
     </li>
     <li>
-        <a href="/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio">
+        <a href="/service-fabric/service-fabric-create-your-first-application-in-visual-studio">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +55,7 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
         </a>
     </li>
     <li>
-        <a href="/azure/service-fabric/service-fabric-create-your-first-linux-application-with-csharp">
+        <a href="/service-fabric/service-fabric-create-your-first-linux-application-with-csharp">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +73,7 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
         </a>
     </li>
     <li>
-        <a href="/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java">
+        <a href="/service-fabric/service-fabric-create-your-first-linux-application-with-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -104,7 +104,8 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.servicefabric">PowerShell (Azure)</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/azure/overview?view=azureservicefabricps">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -116,8 +117,8 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/java/api/microsoft.servicefabric.services">Java API</a></p>
-                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api">Java API</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -129,7 +130,7 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicefabric">REST API Reference</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/servicefabric">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
