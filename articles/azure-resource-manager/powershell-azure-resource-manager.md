@@ -13,31 +13,34 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 04/19/2017
 wacn.date: ''
 ms.author: tomfitz
 ---
 
 # Manage resources with Azure PowerShell and Resource Manager
 > [!div class="op_single_selector"]
->- [Portal](./resource-group-portal.md)
->- [Azure CLI](./xplat-cli-azure-resource-manager.md)
->- [Azure PowerShell](./powershell-azure-resource-manager.md)
->- [REST API](./resource-manager-rest-api.md)
+> * [Portal](resource-group-portal.md)
+> * [Azure CLI](xplat-cli-azure-resource-manager.md)
+> * [Azure PowerShell](powershell-azure-resource-manager.md)
+> * [REST API](resource-manager-rest-api.md)
+>
+>
 
-In this topic, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](./resource-group-overview.md). This topic focuses on management tasks. You will:
+In this article, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
 
 1. Create a resource group
 2. Add a resource to the resource group
 3. Add a tag to the resource
 4. Query resources based on names or tag values
 5. Apply and remove a lock on the resource
-6. Create a Resource Manager template from your resource group
-7. Delete a resource group
+6. Delete a resource group
+
+This article does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
 
 ## Get started with Azure PowerShell
 
-If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 If you have installed Azure PowerShell in the past but have not updated it recently, consider installing the latest version. You can update the version through the same method you used to install it. For example, if you used the Web Platform Installer, launch it again and look for an update.
 
@@ -47,7 +50,7 @@ To check your version of the Azure Resources module, use the following cmdlet:
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources).
+This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](https://docs.microsoft.com/powershell/module/azurerm.resources).
 
 ## Log in to your Azure account
 Before working on your solution, you must log in to your account.
@@ -69,6 +72,7 @@ TenantId              : {guid}
 SubscriptionId        : {guid}
 SubscriptionName      : Example Subscription One
 CurrentStorageAccount :
+
 ```
 
 If you have more than one subscription, you can switch to a different subscription. First, let's see all the subscriptions for your account.
@@ -136,7 +140,7 @@ Get-AzureRmResourceGroup
 ## Add resources to a resource group
 To add a resource to the resource group, you can use the **New-AzureRmResource** cmdlet or a cmdlet that is specific to the type of resource you are creating (like **New-AzureRmStorageAccount**). You might find it easier to use a cmdlet that is specific to a resource type because it includes parameters for the properties that are needed for the new resource. To use **New-AzureRmResource**, you must know all the properties to set without being prompted for them.
 
-However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Azure recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. This topic does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy.md). For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
+However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Azure recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
 
 The following cmdlet creates a storage account. Instead of using the name shown in the example, provide a unique name for the storage account. The name must be between 3 and 24 characters in length, and use only numbers and lower-case letters. If you use the name shown in the example, you receive an error because that name is already in use.
 
@@ -214,26 +218,7 @@ The locked resource in the preceding example cannot be deleted until the lock is
 Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
 ```
 
-For more information about setting locks, see [Lock resources with Azure Resource Manager](./resource-group-lock-resources.md).
-
-## Export Resource Manager template
-For an existing resource group (deployed through PowerShell or one of the other methods like the portal), you can view the Resource Manager template for the resource group. Exporting the template offers two benefits:
-
-1. You can easily automate future deployments of the solution because all the infrastructure is defined in the template.
-2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
-
-> [!NOTE]
-> The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually define these resources in your template after downloading it.
->
->
-
-To view the template for a resource group, run the **Export-AzureRmResourceGroup** cmdlet.
-
-```powershell
-Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
-```
-
-There are many options and scenarios for exporting a Resource Manager template. For more information, see [Export an Azure Resource Manager template from existing resources](./resource-manager-export-template.md).
+For more information about setting locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 ## Remove resources or resource group
 You can remove a resource or resource group. When you remove a resource group, you also remove all the resources within that resource group.
@@ -258,13 +243,13 @@ This topic shows you how to perform basic operations on your resources with Azur
 
 The following topics show you how to use Azure Automation, Resource Manager, and PowerShell to effectively perform management tasks:
 
-- For information about creating a runbook, see [My first PowerShell runbook](/documentation/articles/automation-first-runbook-textual-powershell/).
+<!-- Not Available - For information about creating a runbook, see [My first PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md). -->
 - For information about working with galleries of scripts, see [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md).
-- For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](/documentation/articles/automation-scenario-start-stop-vm-wjson-tags/).
-- For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](/documentation/articles/automation-solution-vm-management/).
+<!-- Not Available - For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md). -->
+<!-- Not Available - For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md). -->
 
 ## Next Steps
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
-* To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
-* You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](./resource-group-move-resources.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
+* To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
+* You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).

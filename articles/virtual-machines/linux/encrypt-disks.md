@@ -41,7 +41,7 @@ Create an Azure Key Vault with [az keyvault create](https://docs.microsoft.com/c
 ```azurecli
 keyvault_name=myUniqueKeyVaultName
 az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location ChinaNorth --enabled-for-disk-encryption True
+  --location ChinaNorth --enabled-for-disk-encryption true
 ```
 
 Create a cryptographic key in your Key Vault with [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key#create). The following example creates a key named `myKey`:
@@ -66,10 +66,10 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
   --secret-permissions all
 ```
 
-Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **CentOS 7.2n** image:
+Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **Ubuntu 14.04** image:
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-LTS:latest \
   --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
   --data-disk-sizes-gb 5
 ```
@@ -162,7 +162,7 @@ The Azure Key Vault containing the cryptographic keys and associated compute res
 ```azurecli
 keyvault_name=myUniqueKeyVaultName
 az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location ChinaNorth --enabled-for-disk-encryption True
+  --location ChinaNorth --enabled-for-disk-encryption true
 ```
 
 You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault.
@@ -193,10 +193,10 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 ```
 
 ## Create virtual machine
-To actually encrypt some virtual disks, lets create a VM and add a data disk. Create a VM to encrypt with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **CentOS 7.2n** image:
+To actually encrypt some virtual disks, lets create a VM and add a data disk. Create a VM to encrypt with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **Ubuntu 14.04** image:
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-LTS:latest \
   --data-disk-sizes-gb 5
 ```
 

@@ -7,7 +7,7 @@ author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 02/16/2017
 wacn.date: ''
 ms.author: tomfitz
----
 
+---
 # Deploy resources to Azure
 
 This topic shows how to deploy resources to your Azure subscription. You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template that defines the infrastructure for your solution.
 
-For an introduction to concepts of Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
+For an introduction to concepts of Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
 
 ## Steps for deployment
 
@@ -40,7 +40,7 @@ The following sections show how to perform those steps with [PowerShell](#powers
 
 ## PowerShell
 
-1. To install Azure PowerShell, see [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+1. To install Azure PowerShell, see [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview).
 
 2. To quickly get started with deployment, use the following cmdlets:
 
@@ -180,5 +180,5 @@ Use the following example template to deploy a storage account to your subscript
 
 ## Next steps
 
-* For detailed information about using PowerShell to deploy templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](/azure/azure-resource-manager/resource-group-template-deploy).
-* For detailed information about using Azure CLI to deploy templates, see [Deploy resources with Resource Manager templates and Azure CLI](/azure/azure-resource-manager/resource-group-template-deploy-cli).
+* For detailed information about using PowerShell to deploy templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](/azure-resource-manager/resource-group-template-deploy).
+* For detailed information about using Azure CLI to deploy templates, see [Deploy resources with Resource Manager templates and Azure CLI](/azure-resource-manager/resource-group-template-deploy-cli).

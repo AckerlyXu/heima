@@ -12,7 +12,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/21/2017
+ms.date: 04/18/2017
+wacn.date: ''
 ms.topic: get-started-article
 ms.author: tomfitz
 ---
@@ -27,9 +28,9 @@ To create and revise templates, you need a JSON editor. [Visual Studio Code](htt
 
 2. Install the [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) extension by accessing Quick Open (Ctrl+P) and running: 
 
-        ```
-        ext install msazurermtools.azurerm-vscode-tools
-        ```
+    ```
+    ext install msazurermtools.azurerm-vscode-tools
+    ```
 
 3. Restart VS Code when prompted to enable the extension.
 
@@ -41,61 +42,62 @@ Let's start with a blank template that includes only the basic sections of a tem
 
 2. Copy and paste the following JSON syntax into your file:
 
-        ```json
-        {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {  },
-            "variables": {  },
-            "resources": [  ],
-            "outputs": {  }
-        }
-        ```
+    ```json
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {  },
+        "variables": {  },
+        "resources": [  ],
+        "outputs": {  }
+    }
+    ```
 
 3. Save this file as **azuredeploy.json**. 
 
 ## Add storage account
-1. To define a storage account for deployment, you add that storage account to the **resources** section of your template. To find the values that are available for the storage account, look at the [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts). Copy the JSON that is shown for the storage account. 
+<!-- Not Available /templates/microsoft.storage/storageaccounts/  -->
+1. To define a storage account for deployment, you add that storage account to the **resources** section of your template.
 
-3. Paste that JSON into the **resources** section of your template, as shown in the following example: 
+2. Paste that JSON into the **resources** section of your template, as shown in the following example: 
 
-        ```json
-        {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {  },
-            "variables": {  },
-            "resources": [
-                {
-                    "name": "string",
-                    "type": "Microsoft.Storage/storageAccounts",
-                    "apiVersion": "2016-05-01",
-                    "sku": {
-                        "name": "string"
+    ```json
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {  },
+        "variables": {  },
+        "resources": [
+            {
+                "name": "string",
+                "type": "Microsoft.Storage/storageAccounts",
+                "apiVersion": "2016-05-01",
+                "sku": {
+                    "name": "string"
+                },
+                "kind": "string",
+                "location": "string",
+                "tags": {},
+                "properties": {
+                    "customDomain": {
+                        "name": "string",
+                        "useSubDomain": boolean
                     },
-                    "kind": "string",
-                    "location": "string",
-                    "tags": {},
-                    "properties": {
-                        "customDomain": {
-                            "name": "string",
-                            "useSubDomain": boolean
+                    "encryption": {
+                        "services": {
+                            "blob": {
+                                "enabled": boolean
+                           }
                         },
-                        "encryption": {
-                            "services": {
-                                "blob": {
-                                    "enabled": boolean
-                               }
-                            },
-                            "keySource": "Microsoft.Storage"
-                        },
-                        "accessTier": "string"
-                    }
+                        "keySource": "Microsoft.Storage"
+                    },
+                    "accessTier": "string"
                 }
-            ],
-            "outputs": {  }
-        }
-        ```
+            }
+        ],
+        "outputs": {  }
+    }
+    ```
 
   The preceding example includes many placeholder values and some properties that you might not need in your storage account.
 
@@ -103,41 +105,42 @@ Let's start with a blank template that includes only the basic sections of a tem
 
 Now, you are ready to set values for your storage account. 
 
-1. Look again at the [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts) where you copied the JSON. There are several tables that describe the properties and provide available values. 
+<!-- Not Available /templates/microsoft.storage/storageaccounts-->
+1. Look again where you copied the JSON. There are several tables that describe the properties and provide available values. 
 
 2. Notice that within the **properties** element, **customDomain**, **encryption**, and **accessTier** are all listed as not required. These values may be important for your scenarios, but to keep this example simple, let's remove them.
 
-        ```json
-        "resources": [
-            {
-                "name": "string",
-                "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2016-05-01",
-                "sku": {
-                 "name": "string"
-                },
-                "kind": "string",
-                "location": "string",
-                "tags": {},
-                "properties": {
-                }
+    ```json
+    "resources": [
+        {
+            "name": "string",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2016-05-01",
+            "sku": {
+             "name": "string"
+            },
+            "kind": "string",
+            "location": "string",
+            "tags": {},
+            "properties": {
             }
-        ],
-        ```
+        }
+    ],
+    ```
 
 3. Currently, the **kind** element is set to a placeholder value ("string"). VS Code includes many features that help you understand the values to use in your template. Notice that VS Code indicates this value is not valid. If you hover over "string", VS Code suggests that the valid values for **kind** are `Storage` or `BlobStorage`. 
 
-   ![show VS Code suggested values](./media/resource-manager-create-first-template/vs-code-show-values.png)
+    ![show VS Code suggested values](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-   To see the available values, delete the characters between the double-quotes and select **Ctrl+Space**. Select **Storage** from the available options.
-  
-   ![show intellisense](./media/resource-manager-create-first-template/intellisense.png)
+    To see the available values, delete the characters between the double-quotes and select **Ctrl+Space**. Select **Storage** from the available options.
 
-   If you are not using VS Code, look at the storage accounts template reference page. Notice that the description lists the same valid values. Set the element to **Storage**.
+    ![show intellisense](./media/resource-manager-create-first-template/intellisense.png)
 
-        ```json
-        "kind": "Storage",
-        ```
+    If you are not using VS Code, look at the storage accounts template reference page. Notice that the description lists the same valid values. Set the element to **Storage**.
+
+    ```json
+    "kind": "Storage",
+    ```
 
 Your template now looks like:
 

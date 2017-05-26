@@ -25,7 +25,7 @@ With Azure HDInsight, Microsoft R Server is now available as an option when you 
 
 Clusters can be sized to the projects and tasks at hand and torn down when they're no longer needed. Since they're part of Azure HDInsight, these clusters come with enterprise-level 24/7 support, an SLA of 99.9% uptime, and the flexibility to integrate with other components in the Azure ecosystem.
 
-R Server on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size loaded to either Azure Blob. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages, as well as the routines in ScaleR, Microsoft's big data analytics package that's included with R Server.
+R Server on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size loaded to Azure Blob. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages, as well as the routines in ScaleR, Microsoft's big data analytics package that's included with R Server.
 
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running ScaleR's parallelized distributed functions across the cores of the edge node server. You also have the option to run them across the nodes of the cluster by using ScaleR's Hadoop Map Reduce or Spark compute contexts.
 
@@ -35,7 +35,7 @@ The models or predictions that result from analyses can be downloaded for use on
 To include R Server in an HDInsight cluster, you must select the R Server cluster type when creating an HDInsight cluster using the Azure portal preview. The R Server cluster type includes R Server on the data nodes of the cluster, and on an edge node as a landing zone for R Server-based analytics. See [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) for an in-depth walk-through on creating a cluster.
 
 ## Learn about data storage options
-Default storage for the HDFS file system of HDInsight clusters can be associated with either an Azure Storage account. This ensures that whatever data is uploaded to the cluster storage during analysis is made persistent. There are various tools for data transfer to the storage option you select including the storage account's portal-based upload facility and the [AzCopy](../storage/storage-use-azcopy.md) utility.
+Default storage for the HDFS file system of HDInsight clusters can be associated with an Azure Storage account. This ensures that whatever data is uploaded to the cluster storage during analysis is made persistent. There are various tools for data transfer to the storage option you select including the storage account's portal-based upload facility and the [AzCopy](../storage/storage-use-azcopy.md) utility.
 
 you have the option of adding access to additional Blob during the cluster provisioning process. See [Getting started with R Server on HDInsight](/hdinsight/hdinsight-hadoop-r-server-get-started) for information on adding access to additional accounts, and the supplementary [Azure Storage options for R Server on HDInsight](/hdinsight/hdinsight-hadoop-r-server-storage) article to learn about using multiple
 storage accounts.

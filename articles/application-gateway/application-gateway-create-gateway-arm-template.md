@@ -200,7 +200,7 @@ Click-to-deploy is another way to use Azure Resource Manager templates. It's an 
 
     ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
-1. Select **I agree to the terms and conditions stated above** and click **Purchase**.
+1. Click **Legal terms**, and then click **Create**.
 
 1. On the Custom deployment blade, click **Create**.
 

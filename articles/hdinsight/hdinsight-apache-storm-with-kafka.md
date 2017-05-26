@@ -59,8 +59,6 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
 
 2. Use the following guidance to populate the entries on the **Custom deployment** blade:
 
-    ![HDInsight custom deployment](./media/hdinsight-apache-storm-with-kafka/parameters.png)
-
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
@@ -77,9 +75,9 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
 
     * **Location**: The region that the clusters are created in.
 
-3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
+3. Click **Legal terms**, and then click **Create**.
 
-4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
+4. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
 
 Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
 

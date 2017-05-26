@@ -16,14 +16,16 @@ ms.workload: na
 ms.date: 01/13/2017
 wacn.date: ''
 ms.author: navale;tomfitz;
----
 
+---
 # Resource Manager REST APIs
 > [!div class="op_single_selector"]
->- [Azure PowerShell](./powershell-azure-resource-manager.md)
->- [Azure CLI](./xplat-cli-azure-resource-manager.md)
->- [Portal](./resource-group-portal.md)
->- [REST API](./resource-manager-rest-api.md)
+> * [Azure PowerShell](powershell-azure-resource-manager.md)
+> * [Azure CLI](xplat-cli-azure-resource-manager.md)
+> * [Portal](resource-group-portal.md) 
+> * [REST API](resource-manager-rest-api.md)
+> 
+> 
 
 Behind every call to Azure Resource Manager, behind every deployed template, behind every configured storage account there are one or 
 more calls to the Azure Resource Manager's RESTful API. 
@@ -38,7 +40,7 @@ Azure AD to receive an authentication token that you can pass on to every reques
 APIs, we assume that you don't want to authenticate by being prompted for a username and password. We also assume you are not using two factor authentication mechanisms. 
 Therefore, we create what is called an Azure AD Application and a service principal that are used to log in. 
 But remember that Azure AD support several authentication procedures and all of them could be used to retrieve that authentication token that we need for subsequent API requests.
-Follow [Create Azure AD Application and Service Principle](./resource-group-create-service-principal-portal.md) for step by step instructions.
+Follow [Create Azure AD Application and Service Principle](resource-group-create-service-principal-portal.md) for step by step instructions.
 
 ### Generating an Access Token
 Authentication against Azure AD is done by calling out to Azure AD, located at login.chinacloudapi.cn. 
@@ -73,13 +75,12 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.chinaclouda
   "access_token": "eyJ0eXAiOiJKV1QiLCJhb...86U3JI_0InPUk_lZqWvKiEWsayA"
 }
 ```
-
 (The access_token in the preceding response have been shortened to increase readability)
 
 **Generating access token using Bash:**
 
 ```console
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.chinacloudapi.cn&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.chinacloudapi.cn/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.chinacloudapi.cn/&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.chinacloudapi.cn/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
 **Generating access token using PowerShell:**
@@ -160,7 +161,7 @@ The response you get depends on whether you have any resource groups defined and
         {
             "id": "/subscriptions/3a8555...555995/resourceGroups/mysecondresourcegroup",
             "name": "mysecondresourcegroup",
-            "location": "chinanorth",
+            "location": "chinaeast",
             "tags": {
                 "tagname1": "My first tag"
             },
@@ -184,7 +185,7 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 
 {
-  "location": "chinanorth",
+  "location": "chinaeast",
   "tags": {
     "tagname1": "test-tag"
   }
@@ -197,7 +198,7 @@ If successful, you get a response that is similar to the following response:
 {
   "id": "/subscriptions/3a8555...555995/resourceGroups/RESOURCE_GROUP_NAME",
   "name": "RESOURCE_GROUP_NAME",
-  "location": "chinanorth",
+  "location": "chinaeast",
   "tags": {
     "tagname1": "test-tag"
   },
@@ -210,9 +211,9 @@ If successful, you get a response that is similar to the following response:
 You've successfully created a resource group in Azure. Congratulations!
 
 ### Deploy resources to a resource group using a Resource Manager Template
-With Resource Manager, you can deploy your resources using templates. A template defines several resources and their dependencies. For this section, we assume you are familiar with Resource Manager templates, and we just show you how to make the API call to start deployment. For more information about constructing templates, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
+With Resource Manager, you can deploy your resources using templates. A template defines several resources and their dependencies. For this section, we assume you are familiar with Resource Manager templates, and we just show you how to make the API call to start deployment. For more information about constructing templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-Deployment of a template doesn't differ much to how you call other APIs. One important aspect is that deployment of a template can take quite a long time. The API call just returns, and it's up to you as developer to query for status of the deployment to find out when the deployment is done. For more information, see [Track asynchronous Azure operations](./resource-manager-async-operations.md).
+Deployment of a template doesn't differ much to how you call other APIs. One important aspect is that deployment of a template can take quite a long time. The API call just returns, and it's up to you as developer to query for status of the deployment to find out when the deployment is done. For more information, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
 
 For this example, we use a publicly exposed template available on [GitHub](https://github.com/Azure/azure-quickstart-templates). The template we use deploys a Linux VM to the China North region. Even though this example uses a template available in a public repository like GitHub, you can instead pass the full template as part of the request. Note that we provide parameter values in the request that are used inside the deployed template.
 
@@ -256,4 +257,4 @@ The long JSON response for this request has been omitted to improve readability 
 
 ## Next steps
 
-- To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](./resource-manager-async-operations.md).
+- To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
