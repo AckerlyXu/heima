@@ -363,9 +363,6 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("",
                         ContentKeyDeliveryType.PlayReadyLicense,
@@ -399,8 +396,6 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
                         ContentKeyDeliveryType.PlayReadyLicense,

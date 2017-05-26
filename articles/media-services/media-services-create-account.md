@@ -42,7 +42,7 @@ Accessing Media Services requires two associated accounts:
 
 1. In the [Azure Classic Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
 
-![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
+    ![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
 
