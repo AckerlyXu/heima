@@ -18,6 +18,144 @@ description: Learn how to build and manage powerful applications using Microsoft
     <div class="container">
         <ul class="pivots">
             <li>
+                <a href="#get-started">Get Started</a>
+                <ul id="get-started">
+                    <li>
+                        <a href="#get-started1"></a>
+                        <ul id="get-started1" class="cardsL">
+                            <li>
+                                <div class="container intro">
+                                    <h2 class="likeAnH1">Get started with Azure</h2>
+                                    <p>Explore our most popular services with quickstarts, samples, and tutorials.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Deploy infrastructure</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/virtual-machines/linux/">Linux virtual machines</a></li>
+                                                    <li><a class="barLink" href="/virtual-machines/windows/">Windows virtual machines</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Develop apps</h3>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-dotnet">
+                                                        <img src="media/index/logo_NET.svg" alt="">
+                                                        <span>.NET</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-nodejs">
+                                                        <img src="media/index/logo_nodejs.svg" alt="">
+                                                        <span>Node.js</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-php">
+                                                        <img src="media/index/logo_PHP.svg" alt="">
+                                                        <span>PHP</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-java">
+                                                        <img src="media/index/logo_java.svg" alt="">
+                                                        <span>Java</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-python">
+                                                        <img src="media/index/logo_python.svg" alt="">
+                                                        <span>Python</span>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <h4>App Models</h4>
+                                                    <ul class="noBullet">
+                                                        <li><a class="barLink" href="/app-service-web/">Web Apps</a></li>
+                                                        <li><a class="barLink" href="/azure-functions/">Serverless Functions</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Manage data and AI</h3>
+                                                <h4>Relational Databases</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/sql-database/">SQL Database as a Service</a></li>
+                                                    <li><a class="barLink" href="/postgresql/">PostgreSQL Database as a Service</a></li>
+                                                    <li><a class="barLink" href="/mysql/">MySQL Database as a Service</a></li>
+                                                </ul>
+                                                <h4>NoSQL</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/cosmos-db/">Cosmos DB</a></li>
+                                                </ul>
+                                                <h4>AI and Cognitive Services</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/cognitive-services/computer-vision/">Computer Vision API</a></li>
+                                                    <li><a class="barLink" href="/cognitive-services/face/">Face API</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Command-line tools</h3>
+                                                <div class="ico48Link">
+                                                    <a href="https://docs.microsoft.com/cli/azure/overview">
+                                                        <img src="media/index/azure_dev-7.svg" alt="">
+                                                        <span>Azure<br />CLI</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="https://docs.microsoft.com/powershell/azure/overview">
+                                                        <img src="media/index/azure_dev-8.svg" alt="">
+                                                        <span>Azure<br />PowerShell</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li class="bottomRightItem">
+                                <a href="https://aka.ms/j3wr7y">
+                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                                </a>
+                            </li>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#services">Services</a>
                 <ul id="services">
                     <li>
@@ -46,21 +184,27 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/app-service-web/">
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Web Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/service-fabric/">
-                                                <img src="media/index/Fabric.svg" alt="" />
-                                                <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
                                             </a>
                                         </li>
                                         <li>
@@ -97,37 +241,30 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Redis Cache</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Security + Identity
-                                    </h3>
+                                    <h3>Enterprise Integration</h3>
                                     <ul>
                                         <li>
-                                            <a href="/key-vault/">
-                                                <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Key Vault</p>
+                                            <a href="/service-bus/">
+                                                <img src="media/index/ServiceBus.svg" alt="" />
+                                                <p>Service Bus</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/active-directory/">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory</p>
-                                            </a>
-                                        </li>                                       
-                                        <li>
-                                            <a href="/multi-factor-authentication/">
-                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                <p>Multi-Factor Authentication</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/security/">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Information</p>
+                                            <a href="/sql-server-stretch-database/">
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -178,7 +315,32 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Intelligence + Analytics</h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group">
+                                    <h3>Storage</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/storage/">
+                                                <img src="media/index/Storage.svg" alt="" />
+                                                <p>Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/backup/">
+                                                <img src="media/index/Backup.svg" alt="" />
+                                                <p>Backup</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/site-recovery/">
+                                                <img src="media/index/SiteRecovery.svg" alt="" />
+                                                <p>Site Recovery</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Data + Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/hdinsight/">
@@ -190,12 +352,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Cognitive Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -217,31 +373,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="https://support.hockeyapp.net/kb">
                                                 <img src="media/index/HockeyApp.svg" alt="" />
                                                 <p>HockeyApp</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>                             
-                             </li>
-                            <li>
-                                <div class="group">
-                                    <h3>Storage</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/storage/">
-                                                <img src="media/index/Storage.svg" alt="" />
-                                                <p>Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/backup/">
-                                                <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/site-recovery/">
-                                                <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -281,6 +412,74 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="group">
+                                    <h3>Web + Mobile</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/app-service-web/">
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Web Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>Mobile Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/app-service-api/">
+                                                <img src="media/index/app-service-api.svg" alt="" />
+                                                <p>API Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/cdn/">
+                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                <p>CDN</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/media-services/">
+                                                <img src="media/index/MediaServices.svg" alt="" />
+                                                <p>Media Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Notification Hubs</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Security + Identity</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/key-vault/">
+                                                <img src="media/index/KeyVault.svg" alt="" />
+                                                <p>Key Vault</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/active-directory/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/multi-factor-authentication/">
+                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
+                                                <p>Multi-Factor Authentication</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Security Information</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -326,69 +525,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Web + Mobile
-                                    </h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service-web">
-                                                <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Web Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service-mobile">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Mobile Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service-api">
-                                                <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/cdn/">
-                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/media-services/">
-                                                <img src="media/index/MediaServices.svg" alt="" />
-                                                <p>Media Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Notification Hubs</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Enterprise Integration</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/service-bus/">
-                                                <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>Service Bus</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -457,6 +593,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
+                                <a href="/app-service-web">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-web.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Web Apps</h3>
+                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -468,26 +623,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Create web and mobile apps for any platform and any device</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/service-fabric/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Build and operate always-on, scalable, distributed applications</p>
+                                                    <p>Deploy web apps on Linux using containers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -506,7 +642,26 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Run large-scale parallel and batch compute jobs</p>
+                                                    <p>Run compute jobs using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -740,25 +895,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#web">Web + Mobile</a>
                         <ul id="web" class="cardsA">
                             <li>
-                                <a href="/app-service/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>Learn about building scalable web and mobile apps</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -955,6 +1091,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
+                                <a href="/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>MySQL</h3>
+                                                    <p>Managed MySQL database service for app developers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/redis-cache/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -976,7 +1131,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Intelligence + Analytics</a>
+                        <a href="#analytics">Data + Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/hdinsight/">
@@ -1507,7 +1662,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api/">Get started</a>
+                                                    <a href="/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/dotnet/api">API reference</a>
@@ -1570,7 +1725,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>
@@ -1597,7 +1752,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://github.com/Azure/azure-sdk-for-java#download">Get the Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/java/api/">Get started</a>
+                                                    <a href="/develop/java/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/java/api/">API reference</a>
@@ -1909,8 +2064,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-1.svg" src="media/index/azure-arch-1.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_fundamentals.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1928,8 +2083,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-2.svg" src="media/index/azure-arch-2.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_reference-archictectures.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1947,8 +2102,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-3.svg" src="media/index/azure-arch-3.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_patterns.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1966,8 +2121,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-4.svg" src="media/index/azure-arch-4.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1986,8 +2141,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-5.svg" src="media/index/azure-arch-5.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_scenarios.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
