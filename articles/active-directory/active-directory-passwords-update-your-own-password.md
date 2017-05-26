@@ -1,8 +1,8 @@
 ---
 title: 'Azure AD: Reset Your Password | Microsoft Docs'
-description: Use self-service password reset to regain access to your account
+description: Use self-service password reset to regain access to your Work or School account
 services: active-directory
-keywords: Active directory password management, password management, Azure AD self service password reset, SSPR
+keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
@@ -13,8 +13,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.topic: article
+ms.date: 04/26/2017
 ms.author: joflore
 ms.custom: end-user
 
@@ -33,7 +33,7 @@ If the following scenarios apply to you, we can help
 If you are here to unlock your account, follow the steps below. 
 When you see **Chose a new password** at step 6 below, you are able to unlock or change your password and be unlocked.
 
-## Reset my password
+## Reset my password <a name="how-to-reset-your-password"></a>
 
 To get back into your account, follow these steps below.
 
@@ -96,7 +96,6 @@ If you know your password already and need to change it, try the steps that foll
 
 ## Next Steps
 
-- [How to register to use self-service password reset](active-directory-passwords-reset-register.md)
 - [Password reset registration page](https://login.partner.microsoftonline.cn)
 - [Password reset portal](https://passwordreset.microsoftonline.com/)
 
@@ -107,4 +106,3 @@ If you know your password already and need to change it, try the steps that foll
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png
-

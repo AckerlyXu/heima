@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
+wacn.date: ''
 
 ---
 # Configure Azure Multi-Factor Authentication settings
@@ -27,7 +28,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 ## Selectable Verification Methods
 You can choose which verification methods are available for your users. The table below provides a brief overview of each method.
 
-When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
+When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set up my account for two-step verification](./end-user/multi-factor-authentication-end-user-first-time.md)
 
 | Method | Description |
 |:--- |:--- |

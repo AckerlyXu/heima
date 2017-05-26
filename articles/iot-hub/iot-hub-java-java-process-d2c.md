@@ -14,7 +14,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
-wacn.date: ''
 ms.author: dobett
 ---
 
@@ -55,13 +54,14 @@ In this section, you modify the simulated device app you created in the [Get sta
 
 1. Use a text editor to open the simulated-device\src\main\java\com\mycompany\app\App.java file. This file contains the code for the **simulated-device** app you created in the [Get started with IoT Hub] tutorial.
 2. Replace the **MessageSender** class with the following code:
-
+   
     ```
     private static class MessageSender implements Runnable {
 
         public void run()  {
             try {
-                double avgWindSpeed = 10; // m/s
+                double minTemperature = 20;
+                double minHumidity = 60;
                 Random rand = new Random();
 
                 while (true) {
@@ -72,10 +72,12 @@ In this section, you modify the simulated device app you created in the [Get sta
                         msg = new Message(msgStr);
                         msg.setProperty("level", "critical");
                     } else {
-                        double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+                        double currentTemperature = minTemperature + rand.nextDouble() * 15;
+                        double currentHumidity = minHumidity + rand.nextDouble() * 20; 
                         TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
                         telemetryDataPoint.deviceId = deviceId;
-                        telemetryDataPoint.windSpeed = currentWindSpeed;
+                        telemetryDataPoint.temperature = currentTemperature;
+                        telemetryDataPoint.humidity = currentHumidity;
 
                         msgStr = telemetryDataPoint.serialize();
                         msg = new Message(msgStr);
@@ -199,7 +201,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Service Bus queue]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
 [Azure Storage]: ../storage/index.md
 [Azure Service Bus]: ../service-bus/index.md
@@ -224,6 +226,6 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-java-java-process-d2c.md
-[lnk-suite]: ../iot-suite/index.md
+[lnk-suite]: /documentation/services/iot-suite/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-create-an-iot-hub]: ./iot-hub-java-java-getstarted.md#create-an-iot-hub
