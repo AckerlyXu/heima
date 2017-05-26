@@ -143,9 +143,9 @@ After the stream has been running for 30 seconds, navigate back to the AMSE tool
 
 Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-```
+
 ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
-```
+
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS.
 
