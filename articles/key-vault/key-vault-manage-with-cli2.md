@@ -1,5 +1,5 @@
 ---
-title: Manage Key Vault using CLI | Microsoft Docs
+title: Manage Azure Key Vault using CLI | Microsoft Docs
 description: Use this tutorial to automate common tasks in Key Vault by using the CLI 2.0
 services: key-vault
 documentationcenter: ''
@@ -7,14 +7,15 @@ author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid:
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/08/2017
 ms.author: ambapat
+wacn.date: ''
 
 ---
 # Manage Key Vault using CLI 2.0
@@ -28,7 +29,7 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 > [!NOTE]
 > This tutorial does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
-> This tutorial uses the latest Azure CLI 2.0. For instructions using older (node.js based) CLI refer to [this equivalent tutorial](key-vault-manage-with-cli.md).
+> This tutorial uses the latest Azure CLI 2.0.
 >
 >
 
@@ -155,7 +156,11 @@ Applications that use a key vault must authenticate by using a token from Azure 
 To register the application in Azure Active Directory:
 
 1. Sign in to the Azure portal.
-2. On the left, click **Azure Active Directory**, and then select the directory in which you will register your application. <br> <br> Note: You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+2. On the left, click **Azure Active Directory**, and then select the directory in which you will register your application. <br> <br> 
+
+> [!Note] 
+> You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
 4. In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
 5. On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
@@ -177,33 +182,6 @@ If you want to authorize that same application to read secrets in your vault, ru
 ```
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
-## If you want to use a hardware security module (HSM)
-For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
-
-To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
-
-When you create the keyvault, add the 'sku' parameter:
-
-```
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'China East' --sku 'Premium'
-```
-You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the Destination parameter to 'HSM':
-
-```
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
-```
-
-You can use the following command to import a key from a .pem file on your computer. This command imports the key into HSMs in the Key Vault service:
-
-```
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
-```
-The next command imports a “bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
-
-```
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
-```
-
 ## Delete the key vault and associated keys and secrets
 If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the `az keyvault delete` command:
 

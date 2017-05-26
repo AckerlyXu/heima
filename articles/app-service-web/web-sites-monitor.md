@@ -19,7 +19,7 @@ ms.author: byvinyal
 
 ---
 # How to: Monitor Apps in Azure App Service
-[App Service](/azure/app-service-web/app-service-changes-existing-services) provides
+[App Service](/app-service-web/app-service-changes-existing-services) provides
 built in monitoring functionality in the [Azure Portal Preview](https://portal.azure.cn).
 This includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
@@ -177,20 +177,19 @@ From here you can change the (3) **time range**, (4) **chart type**, and
 You can learn more about metrics here: [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## Alerts and Autoscale
-Metrics for an App or App Service plan can be hooked up to alerts, to learn
-more about this, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+Metrics for an App or App Service plan can be hooked up to alerts
 
 App Service apps hosted in basic, standard or premium App Service Plans
 support **autoscale**. This allows you to configure rules that monitor the
 App Service plan metrics and can increase or decrease the instance count
 providing additional resources as needed, or saving money when the application
-is over-provision. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+is over-provision.
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:/azure/cloud-services/cloud-services-sizes-specs
+[vmsizes]:/cloud-services/cloud-services-sizes-specs
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

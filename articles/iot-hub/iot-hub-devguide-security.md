@@ -13,8 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
-wacn.date: ''
+ms.date: 05/04/2017
 ms.author: dobett
 ---
 
@@ -89,7 +88,8 @@ HTTP implements authentication by including a valid token in the **Authorization
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (Generate SAS token with the [device explorer][lnk-device-explorer] tool): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Password (Generate SAS token with the [device explorer][lnk-device-explorer] tool): 
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > The [Azure IoT SDKs][lnk-sdks] automatically generate tokens when connecting to the service. In some cases, the Azure IoT SDKs do not support all the protocols or all the authentication methods.
@@ -191,7 +191,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > 
 > 
 
-### Use SAS tokens in a device app
+### <a name="use-sas-tokens-in-a-device-client"></a> Use SAS tokens in a device app
 There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access key](#use-a-shared-access-policy).
 
 Remember that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
@@ -308,7 +308,7 @@ You can use any X.509 certificate to authenticate a device with IoT Hub. Certifi
 
 * **An existing X.509 certificate**. A device may already have an X.509 certificate associated with it. The device can use this certificate to authenticate with IoT Hub.
 * **A self-generated and self-signed X-509 certificate**. A device manufacturer or in-house deployer can generate these certificates and store the corresponding private key (and certificate) on the device. You can use tools such as [OpenSSL][lnk-openssl] and [Windows SelfSignedCertificate][lnk-selfsigned] utility for this purpose.
-* **CA-signed X.509 certificate**. You can also use an X.509 certificate generated and signed by a Certification Authority (CA) to identify a device and authenticate a device with IoT Hub.
+* **CA-signed X.509 certificate**. You can also use an X.509 certificate generated and signed by a Certification Authority (CA) to identify a device and authenticate a device with IoT Hub. IoTHub only verifies that the thumbprint presented matches the configured thumbprint. IotHub does not validate the certificate chain.
 
 A device may either use an X.509 certificate or a security token for authentication, but not both.
 
@@ -345,7 +345,7 @@ The [Azure IoT device SDK for .NET][lnk-client-sdk] (version 1.0.11+) supports t
 
 ### C\# Support
 The class **DeviceAuthenticationWithX509Certificate** supports the creation of 
- **DeviceClient** instances using an X.509 certificate. The X.509 certificate must be in the PFX (also called PKCS #12) format which includes the private key. 
+ **DeviceClient** instances using an X.509 certificate. The X.509 certificate must be in the PFX (also called PKCS #12) format that includes the private key.
 
 Here is a sample code snippet:
 
@@ -427,7 +427,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-openssl]: https://www.openssl.org/
 [lnk-selfsigned]: https://technet.microsoft.com/zh-cn/library/hh848633
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/zh-cn/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: ./iot-hub-devguide-security.md#security-tokens
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md

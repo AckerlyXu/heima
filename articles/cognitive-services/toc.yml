@@ -1,0 +1,24 @@
+- name: Cognitive Services
+  href: /
+- name: Face API
+  href: /
+  items:
+  - name: Overview
+    href: https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview
+  - name: API Reference
+    href: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d
+- name: Emotion API
+  href: /
+  items:
+  - name: Overview
+    href: https://www.microsoft.com/cognitive-services/en-us/emotion-api/documentation
+  - name: API Reference
+    href: https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89
+- name: Computer Vision API
+  href: /
+  items:
+  - name: Overview
+    href: https://www.microsoft.com/cognitive-services/en-us/computer-vision-api/documentation
+  - name: API Reference
+    href: https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739
+    

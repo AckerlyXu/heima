@@ -109,7 +109,7 @@ Within the **iothub\_client** folder in the [azure-iot-sdk-c](https://github.com
 
 The Windows version of the **iothub\_client\_sample\_mqtt** application includes the following Visual Studio solution:
 
-  ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
+  ![](./media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
 
 > [!NOTE]
 > If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.
@@ -321,7 +321,7 @@ Conceptually the **serializer** library sits on top of the **IoTHubClient** libr
 
 Inside the **serializer** folder in the [azure-iot-sdk-c repository](https://github.com/Azure/azure-iot-sdk-c), is a **samples** folder that contains an application called **simplesample\_mqtt**. The Windows version of this sample includes the following Visual Studio solution:
 
-  ![](media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
+  ![](./media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
 
 > [!NOTE]
 > If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.

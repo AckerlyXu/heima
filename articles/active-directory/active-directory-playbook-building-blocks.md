@@ -1,11 +1,12 @@
 ---
-title: Azure Active Directory PoC Playbook Building Blocks| Microsoft Docs
+
+title: Azure Active Directory proof of concept playbook building blocks | Microsoft Docs
 description: Explore and quickly implement Identity and Access Management scenarios
 services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
 documentationcenter: ''
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 
 ms.assetid:
 ms.service: active-directory
@@ -13,15 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
+wacn.date: ''
 
 ---
-# Azure Active Directory Proof of Concept Playbook: Building Blocks
+# Azure Active Directory proof of concept playbook: Building blocks
 
-## Catalog of Actors
+## Catalog of roles
 
-| Actor | Description | PoC Responsibility |
+| Role | Description | Proof of concept (PoC) responsibility |
 | --- | --- | --- |
 | **Identity Architecture / development team** | This team is usually the one that designs the solution, implements prototypes, drives approvals, and finally hands off to operations | They provide the environments and are the ones evaluating the different scenarios from the manageability perspective |
 | **On-Premises Identity Operations team** | Manages the different identity sources on-premises: Active Directory Forests, LDAP directories, HR systems, and Federation Identity Providers. | Provide access to on-premises resources needed for the PoC scenarios.<br/>They should be involved as little as possible|
@@ -33,9 +35,11 @@ ms.author: dstefan
 
 ## Common Prerequisites for all building blocks
 
+Following are some pre-requisites needed for any POC with Azure AD Premium.
+
 | Pre-requisite | Resources |
 | --- | --- |
-| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
+| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](./develop/active-directory-howto-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
 | Azure AD Global Admin credentials | Assigning administrator roles in Azure Active Directory |
 | Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
@@ -96,7 +100,7 @@ Approximate time to Complete: 60 minutes
 | Add Generic LDAP Connector | [Generic LDAP Connector technical reference: Create a new Connector](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | Create run profiles for created connector (full import, delta import, full synchronization, delta synchronization, export) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Using connectors with the Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Run full import profile and verify, that there are objects in connector space | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Using connectors with the Azure AD Connect Sync Service Manager: Search Connector Space](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Create synchronization rules, so that objects in Metaverse have necessary attributes for workloads | [Azure AD Connect sync: Best practices for changing the default configuration: Changes to Synchronization Rules](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules/)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning Expressions](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| Create synchronization rules, so that objects in Metaverse have necessary attributes for workloads | [Azure AD Connect sync: Best practices for changing the default configuration: Changes to Synchronization Rules](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning Expressions](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Start full synchronization cycle | [Azure AD Connect sync: Scheduler: Start the scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | In case of issues do troubleshooting | [Troubleshoot an object that is not synchronizing to Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Verify, that LDAP user can sign-in and access the application | https://login.partner.microsoftonline.cn |
@@ -150,7 +154,7 @@ Approximate time to complete: 20 minutes
 | Step | Resources |
 | --- | --- |
 | Enable "Certificate Authentication" on ADFS | [Configure Authentication Policies: To configure primary authentication globally in Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
+| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](./active-directory-certificate-based-authentication-get-started.md) |
 | Navigate to Access Panel and authenticate using User Certificate | https://login.partner.microsoftonline.cn |
 
 ### Considerations
@@ -163,4 +167,3 @@ To learn more about caveats of this deployment visit: [ADFS: Certificate Authent
 
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
-

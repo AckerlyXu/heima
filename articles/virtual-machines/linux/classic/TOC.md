@@ -19,9 +19,6 @@
 ### [Monitor VMs using the Diagnostic VM Extension](diagnostic-extension.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
-### [Create a Docker host using the CLI](cli-use-docker.md)
-### [Create a Docker host using the portal](portal-use-docker.md)
-### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Use Storage
 ### [Attach a data disk](attach-disk.md)
@@ -37,7 +34,6 @@
 ### [List of Oracle VM images](oracle-images.md)
 
 ## Manage workloads
-### [SAP](sap-get-started.md)
 ### MySQL and MariaDB
 #### [MariaDB cluster tutorial](mariadb-mysql-cluster.md)
 #### [Install MySQL on an OpenSUSE VM](mysql-on-opensuse.md)
@@ -50,22 +46,14 @@
 ### [LAMP stack](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
 ### [Web application with Visual Studio](web-app-visual-studio.md)
-### [RDMA cluster to run MPI applications](rdma-cluster.md)
 ### [How to use the Azure slave plug-in with Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-## HPC Pack
-### [Windows RDMA cluster to run MPI apps](hpcpack-cluster.md)
-### [Windows HPC cluster with the HPC Pack IaaS deployment script](hpcpack-cluster-starccm.md)
-### [Manage the number and availability of compute nodes](hpcpack-cluster-powershell-script.md)
-### [Add on-demand nodes](hpcpack-cluster-openfoam.md)
-### [Automatically scale resources](hpcpack-cluster-namd.md)
 
 ## Troubleshoot
 ### [VM deployments](troubleshoot-deployment-new-vm.md)
 ### [Restart or resize a VM](restart-resize-error-troubleshooting.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

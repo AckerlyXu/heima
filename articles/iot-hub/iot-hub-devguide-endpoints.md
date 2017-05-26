@@ -1,5 +1,5 @@
 ---
-title: Understand Azure IoT Hub IoT Hub endpoints | Azure
+title: Understand Azure IoT Hub endpoints | Azure
 description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
 services: iot-hub
 documentationcenter: .net
@@ -13,8 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-wacn.date: ''
+ms.date: 03/22/2017
 ms.author: dobett
 ---
 
@@ -71,7 +70,7 @@ For the limits on the number of endpoints you can add, see [Quotas and throttlin
 ## Field gateways
 In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low-power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
 
-You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field gateway. This SDK offers specific functionality such as the ability to multiplex the communication from multiple devices onto the same IoT Hub connection.
+You can use [Azure IoT Edge][lnk-gateway-sdk] to implement a field gateway. IoT Edge offers specific functionality such as the ability to multiplex the communication from multiple devices onto the same IoT Hub connection.
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:
@@ -80,14 +79,14 @@ Other reference topics in this IoT Hub developer guide include:
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../azure-resource-manager/resource-group-overview.md
-[lnk-event-hubs]: ../event-hubs/index.md
+[lnk-event-hubs]: /documentation/services/event-hubs/
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 

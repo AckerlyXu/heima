@@ -23,7 +23,7 @@ ms.author: riande
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 Community Edition. 
+This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](/app-service-web/app-service-changes-existing-services) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 Community Edition. 
 
 You can open an Azure account, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
@@ -55,7 +55,7 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
     ![No Authentication](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
 
-    The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+    The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#next-steps) section at the end of this tutorial. 
 6. In the **New ASP.NET Project** dialog box, make sure the **Host in the Cloud** is checked and click **OK**.
 
 If you have not previously signed in to Azure, you will be prompted to sign in.
@@ -174,7 +174,7 @@ You begin by creating a simple data model in code.
             }
         }
 
-The **Contact** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#nextsteps) section at the end of this tutorial.
+The **Contact** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#next-steps) section at the end of this tutorial.
 
 ### Create web pages that enable app users to work with the contacts
 The ASP.NET MVC the scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
@@ -289,7 +289,7 @@ The application shows the seed data and provides edit, details and delete links.
 ![MVC view of data][rxz3]
 
 ## Edit the View
-1. Open the *Views\Home\Index.cshtml* file. In the next step, we will replace the generated markup with code that uses [jQuery](http://jquery.com/) and [Knockout.js](http://knockoutjs.com/). This new code retrieves the list of contacts from using web API and JSON and then binds the contact data to the UI using knockout.js. For more information, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+1. Open the *Views\Home\Index.cshtml* file. In the next step, we will replace the generated markup with code that uses [jQuery](http://jquery.com/) and [Knockout.js](http://knockoutjs.com/). This new code retrieves the list of contacts from using web API and JSON and then binds the contact data to the UI using knockout.js. For more information, see the [Next Steps](#next-steps) section at the end of this tutorial. 
 2. Replace the contents of the file with the following code.
 
         @model IEnumerable<ContactManager.Models.Contact>
@@ -672,12 +672,12 @@ Another way to store data in an Azure application is to use Azure storage, which
 * [Your First ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Debugging WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
-This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) with assistance from Tom Dykstra and Barry Dorrans.
+This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) with assistance from Tom Dykstra and Barry Dorrans. 
 
 Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. We are especially interested in finding out how much interest there is in more automation for the process of configuring and deploying the membership database. 
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
