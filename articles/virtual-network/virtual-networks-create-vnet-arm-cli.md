@@ -29,10 +29,10 @@ Azure has two deployment models: Azure Resource Manager and classic. Azure recom
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 - [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) - our CLI for the classic and resource management deployment models
 - [Azure CLI 2.0](#create-a-virtual-network) - our next generation CLI for the resource management deployment model (this article)`
-
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
     You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 

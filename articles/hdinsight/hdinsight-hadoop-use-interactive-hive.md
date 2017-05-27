@@ -52,7 +52,7 @@ There are different options how you can execute Hive queries:
 
 **To find the JDBC connection string:**
 
-1. Sign on to Ambari using the following URL: https://<ClusterName>.AzureHDInsight.net.
+1. Sign on to Ambari using the following URL: https://\<ClusterName\>.azurehdinsight.cn.
 2. Click **Hive** from the left menu.
 3. Click the highlighted icon to copy the URL:
 

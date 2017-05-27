@@ -63,7 +63,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     This request returns a response similar to the following text:
 
-        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
+    {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Use the following to create a table named **log4jLogs**:
 

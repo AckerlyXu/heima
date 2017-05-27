@@ -25,9 +25,9 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 
 ## Requirements
 
-* An HDInsight cluster (Windows or Linux-based)
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* An HDInsight cluster (Windows or Linux-based)
 
     > [!IMPORTANT]
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
