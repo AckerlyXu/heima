@@ -24,9 +24,8 @@ When authoring a Stream Analytics job, consider how the resulting data will be c
 
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 <!-- Not Available ## Azure Data Lake Store-->
-
 ## SQL Database
-[Azure SQL Database](https://www.azure.cn/home/features/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](/azure/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.
+[Azure SQL Database](https://www.azure.cn/home/features/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.
 
 | Property Name | Description |
 | --- | --- |
@@ -154,7 +153,7 @@ The table below lists the property names and their description for creating a Qu
 | Format |Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
 
 ## Service Bus Topics
-<!--Notice: azure/hh367516.aspx redirect to service-bus-queues-topics-subscriptions-->
+<!--Notice: azure/hh367516.aspx redirect to service-bus-queues-topics-subscriptions, we should correct to right URL-->
 While Service Bus Queues provide a one to one communication method from sender to receiver, [Service Bus Topics](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) provide a one-to-many form of communication.
 
 The table below lists the property names and their description for creating a table output.
@@ -170,10 +169,9 @@ The table below lists the property names and their description for creating a ta
 | Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 
-<!-- Not Available ## DocumentDB -->
-
+<!-- Not Available ## Cosmos DB -->
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:

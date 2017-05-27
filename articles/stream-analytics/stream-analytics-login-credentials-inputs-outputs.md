@@ -138,18 +138,7 @@ For other inputs/outputs, proceed with Part 2.
 3. A connection test will automatically start when you save your changes, make sure that it has successfully passed.
 4. Proceed to Part 4.
 
-### Power BI
-1. Click the Renew authorization:  
-
-    ![graphic35][graphic35]
-2. You will get the following confirmation:  
-
-    ![graphic36][graphic36]
-3. Click the Save command and confirm saving your changes:  
-    ![graphic37][graphic37]
-4. A connection test will automatically start when you save your changes, make sure it has successfully passed.
-5. Proceed to Part 4.
-
+<!-- Not Available ### Power BI -->
 ### SQL Database
 1. Find the User Name and Password fields and paste your newly created set of credentials into them:  
     ![graphic38][graphic38]
@@ -192,7 +181,7 @@ You should get the following confirmation:
     Command(s) completed successfully.
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
