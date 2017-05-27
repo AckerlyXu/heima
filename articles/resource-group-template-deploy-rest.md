@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-group-template-deploy-rest
+redirect_url: /azure-resource-manager/resource-group-template-deploy-rest
 ---

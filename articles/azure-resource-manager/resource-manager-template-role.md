@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/active-directory/active-directory-users-assign-role-azure-portal
+redirect_url: /active-directory/active-directory-users-assign-role-azure-portal
 ---
 

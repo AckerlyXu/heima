@@ -33,10 +33,9 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 ## Prerequisites
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 * Azure CLI 2.0: For more information, see [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
-
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 * Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 > [!NOTE]

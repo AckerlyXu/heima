@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-deployment-model
+redirect_url: /azure-resource-manager/resource-manager-deployment-model
 ---

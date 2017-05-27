@@ -34,7 +34,7 @@ After completing this tutorial, you will be able to:
 ## Prerequisites
 You will need the following prerequisites to complete this tutorial:
 
-* The latest version of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* The latest version of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * Visual Studio 2017, 2015, or the free [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * An [Azure subscription](https://www.azure.cn/pricing/1rmb-trial/)
 * Administrative privileges on the computer
@@ -126,7 +126,7 @@ If you do not have an Azure account, you can [request a trial version](https://w
 > 
 > 
 
-<!--Not avaliable in Azure.cn Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your $200 free Azure credit.-->
+<!--Not Avaliable Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your $200 free Azure credit.-->
 
 ## Provision Azure resources required for the tutorial
 This tutorial requires two event hubs to receive *entry* and *exit* data streams. Azure SQL Database outputs the results of the Stream Analytics jobs. Azure Storage stores reference data about vehicle registrations.
@@ -135,7 +135,7 @@ You can use the Setup.ps1 script in the TollApp folder on GitHub to create all r
 
 Download and save the supporting [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) folder and files.
 
-Open a **Azure PowerShell** window *as an administrator*. If you do not yet have Azure PowerShell, follow the instructions in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install it.
+Open a **Azure PowerShell** window *as an administrator*. If you do not yet have Azure PowerShell, follow the instructions in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to install it.
 
 Because Windows automatically blocks .ps1, .dll, and .exe files, you need to set the execution policy before you run the script. Make sure the Azure PowerShell window is running *as an administrator*. Run **Set-ExecutionPolicy unrestricted**. When prompted, type **Y**.
 
@@ -427,7 +427,7 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 This tutorial introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the tutorial explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The tutorial described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
 
 Although this tutorial provides a good introduction, it is not complete by any means. You can find more query patterns using the SAQL language at [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md).
-Refer to the [online documentation](/azure/stream-analytics/) to learn more about Azure Stream Analytics.
+Refer to the [online documentation](/stream-analytics/) to learn more about Azure Stream Analytics.
 
 ## Clean up your Azure account
 1. Stop the Stream Analytics job in the Azure portal.

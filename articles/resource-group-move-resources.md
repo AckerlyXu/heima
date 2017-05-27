@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-group-move-resources
+redirect_url: /azure-resource-manager/resource-group-move-resources
 ---

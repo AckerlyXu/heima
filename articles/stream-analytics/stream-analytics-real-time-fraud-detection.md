@@ -37,7 +37,7 @@ Canonical Internet of Things (IoT) scenarios have a ton of telemetry or data fro
 * Optional: Source code of the event generator from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)
 
 ## Create Azure Event Hubs input and consumer group
-The sample application will generate events and push them to an Event Hubs instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics. You can learn more about Event Hubs in [Azure Service Bus documentation](/azure/service-bus/).
+The sample application will generate events and push them to an Event Hubs instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics. You can learn more about Event Hubs in [Azure Service Bus documentation](/service-bus/).
 
 To create an event hub:
 
@@ -186,7 +186,7 @@ To compare the number of incoming calls per region, we'll use a [TumblingWindow]
     ![Query results for Timestand By](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-query-editor-rerun.png)
 
 ### SIM fraud detection with a Self-Join
-To identify potentially fraudulent usage, we'll look for calls that originate from the same user but in different locations in less than 5 seconds.  We [join](https://msdn.microsoft.com/en-US/library/azure/dn835026.aspx) the stream of call events with itself to check for these cases.
+To identify potentially fraudulent usage, we'll look for calls that originate from the same user but in different locations in less than 5 seconds.  We [join](https://msdn.microsoft.com/library/azure/dn835026.aspx) the stream of call events with itself to check for these cases.
 
 1. Change the query in the code editor to:
 
@@ -241,7 +241,7 @@ Use a tool like [Azure Storage Explorer](http://storageexplorer.com/) or [Azure 
 ![Fraud detection: Fraudulent events viewed in real-time](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

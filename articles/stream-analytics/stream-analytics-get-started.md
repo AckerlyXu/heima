@@ -37,13 +37,13 @@ In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or s
 * Optional: Source code of the event generator from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
 
 ## Create an Azure Event Hubs input and Consumer Group
-The sample application will generate events and push them to an Event Hub instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics and you can learn more about Event Hubs in [Azure Service Bus documentation](/azure/service-bus/).
+The sample application will generate events and push them to an Event Hub instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics and you can learn more about Event Hubs in [Azure Service Bus documentation](https://docs.microsoft.com/service-bus/).
 
 To create an Event Hub:
 
 1. In the [Azure portal](https://manage.windowsazure.cn/) click **New** > **App Services** > **Service Bus** > **Event Hub** > **Quick Create**. Provide a name, region, and new or existing namespace to create a new Event Hub.  
-<!-- https://msdn.microsoft.com/library/azure/dn836025.aspx redirect to event-hubs-what-is-event-hubs.md-->
-2. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group. We will walk you through the process of creating a Consumer Group below, and you can [learn more about Consumer Groups](https://msdn.microsoft.com/library/azure/dn836025.aspx). To create a Consumer Group, navigate to the newly created Event Hub and click the **Consumer Groups** tab, then click **Create** on the bottom of the page and provide a name for your Consumer Group.
+<!-- Notice: https://msdn.microsoft.com/library/azure/dn836025.aspx redirect to ../event-hubs/event-hubs-what-is-event-hubs-->
+2. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group. We will walk you through the process of creating a Consumer Group below, and you can [learn more about Consumer Groups](../event-hubs/event-hubs-what-is-event-hubs.md). To create a Consumer Group, navigate to the newly created Event Hub and click the **Consumer Groups** tab, then click **Create** on the bottom of the page and provide a name for your Consumer Group.
 3. To grant access to the Event Hub, we will need to create a shared access policy.  Click the **Configure** tab of your Event Hub.
 4. Under **Shared Access Policies**, create a new policy with **Manage** permissions.
 
@@ -68,9 +68,7 @@ We have provided a client application that will generate sample incoming call me
 
 The following example will generate 1000 events with a 20 percent probability of fraud over the course of 2 hours.
 
-    ```
     telcodatagen.exe 1000 .2 2
-    ```
 
 You will see records being sent to your Event Hub. Some key fields that we will be using in this real-time fraud detection application are defined here:
 
@@ -239,7 +237,7 @@ Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.c
 ![Fraud detection: Fraudulent events viewed in real-time](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

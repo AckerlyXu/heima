@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-export-template
+redirect_url: /azure-resource-manager/resource-manager-export-template
 ---

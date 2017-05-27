@@ -27,10 +27,9 @@ This is the first in a series of tutorials that show how to use features of Azur
 
 You'll learn:
 
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+
 * How to create and deploy [API apps](app-service-api-apps-why-best-platform.md) in Azure App Service by using tools built into Visual Studio 2015.
-
-    [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
-
 * How to automate API discovery by using the Swashbuckle NuGet package to dynamically generate Swagger API metadata.
 * How to use Swagger API metadata to automatically generate client code for an API app.
 

@@ -35,9 +35,9 @@ Learn how to use Azure PowerShell to run Sqoop jobs in HDInsight to import and e
 ### Prerequisites
 Before you begin this tutorial, you must have the following:
 
-* **A workstation with Azure PowerShell**.
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+* **A workstation with Azure PowerShell**.
 * **A Hadoop cluster in HDInsight**. See [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## Run Sqoop using PowerShell
