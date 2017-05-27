@@ -66,50 +66,50 @@ The deployment may take a minute. After the deployment finishes, your subscripti
 
     Let's pay particular attention to the template. Your template should look similar to:
 
-        ```json
-        {
+    ```json
+    {
 
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "name": {
-              "type": "String"
-            },
-            "accountType": {
-              "type": "String"
-            },
-            "location": {
-              "type": "String"
-            },
-            "encryptionEnabled": {
-              "defaultValue": false,
-              "type": "Bool"
-            }
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "sku": {
-                "name": "[parameters('accountType')]"
-              },
-              "kind": "Storage",
-              "name": "[parameters('name')]",
-              "apiVersion": "2016-01-01",
-              "location": "[parameters('location')]",
-              "properties": {
-                "encryption": {
-                  "services": {
-                    "blob": {
-                      "enabled": "[parameters('encryptionEnabled')]"
-                    }
-                  },
-                  "keySource": "Microsoft.Storage"
-                }
-              }
-            }
-          ]
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "name": {
+          "type": "String"
+        },
+        "accountType": {
+          "type": "String"
+        },
+        "location": {
+          "type": "String"
+        },
+        "encryptionEnabled": {
+          "defaultValue": false,
+          "type": "Bool"
         }
-        ```
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Storage/storageAccounts",
+          "sku": {
+            "name": "[parameters('accountType')]"
+          },
+          "kind": "Storage",
+          "name": "[parameters('name')]",
+          "apiVersion": "2016-01-01",
+          "location": "[parameters('location')]",
+          "properties": {
+            "encryption": {
+              "services": {
+                "blob": {
+                  "enabled": "[parameters('encryptionEnabled')]"
+                }
+              },
+              "keySource": "Microsoft.Storage"
+            }
+          }
+        }
+      ]
+    }
+    ```
 
 This template is the actual template used to create your storage account. Notice it contains parameters that enable you to deploy different types of storage accounts. To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md). For the complete list of the functions you can use in a template, see [Azure Resource Manager template functions](./resource-group-template-functions.md).
 
@@ -146,28 +146,28 @@ To get the current state of your resource group, export a template that shows a 
      Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you do not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
 2. You again see the six files that you can use to redeploy the solution, but this time the template is a little different. This template has only two parameters: one for the storage account name, and one for the virtual network name.
 
-        ```json
-        "parameters": {
-          "virtualNetworks_VNET_name": {
-            "defaultValue": "VNET",
-            "type": "String"
-          },
-          "storageAccounts_storagetf05092016_name": {
-            "defaultValue": "storagetf05092016",
-            "type": "String"
-          }
-        },
-        ```
+    ```json
+    "parameters": {
+      "virtualNetworks_VNET_name": {
+        "defaultValue": "VNET",
+        "type": "String"
+      },
+      "storageAccounts_storagetf05092016_name": {
+        "defaultValue": "storagetf05092016",
+        "type": "String"
+      }
+    },
+    ```
 
     Resource Manager did not retrieve the templates that you used during deployment. Instead, it generated a new template that's based on the current configuration of the resources. For example, the template sets the storage account location and replication value to:
 
-        ```json 
-              "location": "chinaeast",
-              "tags": {},
-              "properties": {
-                  "accountType": "Standard_RAGRS"
-              },
-        ```
+    ```json 
+          "location": "chinaeast",
+          "tags": {},
+          "properties": {
+              "accountType": "Standard_RAGRS"
+          },
+    ```
 3. You have a couple of options for continuing to work with this template. You can either download the template and work on it locally with a JSON editor. Or, you can save the template to your library and work on it through the portal.
 
     If you are comfortable using a JSON editor like [VS Code](./resource-manager-create-first-template.md) or [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal.
@@ -203,86 +203,86 @@ In this section, you add parameters to the exported template so that you can reu
     ![edit template](./media/resource-manager-export-template/edit-template.png)
 3. To be able to pass the values that you might want to specify during deployment, replace the **parameters** section with new parameter definitions. Notice the values of **allowedValues** for **storageAccount_accountType**. If you accidentally provide an invalid value, that error is recognized before the deployment starts. Also, notice that you are providing only a prefix for the storage account name, and the prefix is limited to 11 characters. When you limit the prefix to 11 characters, you ensure that the complete name does not exceed the maximum number of characters for a storage account. The prefix enables you to apply a naming convention to your storage accounts. You will see how to create a unique name in the next step.
 
-        ```json
-        "parameters": {
-          "storageAccount_prefix": {
-            "type": "string",
-            "maxLength": 11
-          },
-          "storageAccount_accountType": {
-            "defaultValue": "Standard_RAGRS",
-            "type": "string",
-            "allowedValues": [
-              "Standard_LRS",
-              "Standard_ZRS",
-              "Standard_GRS",
-              "Standard_RAGRS",
-              "Premium_LRS"
-            ]
-          },
-          "virtualNetwork_name": {
-            "type": "string"
-          },
-          "addressPrefix": {
-            "defaultValue": "10.0.0.0/16",
-            "type": "string"
-          },
-          "subnetName": {
-            "defaultValue": "subnet-1",
-            "type": "string"
-          },
-          "subnetAddressPrefix": {
-            "defaultValue": "10.0.0.0/24",
-            "type": "string"
-          }
-        },
-        ```
+    ```json
+    "parameters": {
+      "storageAccount_prefix": {
+        "type": "string",
+        "maxLength": 11
+      },
+      "storageAccount_accountType": {
+        "defaultValue": "Standard_RAGRS",
+        "type": "string",
+        "allowedValues": [
+          "Standard_LRS",
+          "Standard_ZRS",
+          "Standard_GRS",
+          "Standard_RAGRS",
+          "Premium_LRS"
+        ]
+      },
+      "virtualNetwork_name": {
+        "type": "string"
+      },
+      "addressPrefix": {
+        "defaultValue": "10.0.0.0/16",
+        "type": "string"
+      },
+      "subnetName": {
+        "defaultValue": "subnet-1",
+        "type": "string"
+      },
+      "subnetAddressPrefix": {
+        "defaultValue": "10.0.0.0/24",
+        "type": "string"
+      }
+    },
+    ```
 4. The **variables** section of your template is currently empty. In the **variables** section, you create values that simplify the syntax for the rest of your template. Replace this section with a new variable definition. The **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group. You no longer have to guess a unique name when providing a parameter value.
 
-        ```json
-        "variables": {
-          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-        },
-        ```
+    ```json
+    "variables": {
+      "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+    },
+    ```
 5. To use the parameters and variable in the resource definitions, replace the **resources** section with new resource definitions. Notice that little has changed in the resource definitions other than the value that's assigned to the resource property. The properties are the same as the properties from the exported template. You are simply assigning properties to parameter values instead of hard-coded values. The location of the resources is set to use the same location as the resource group through the **resourceGroup().location** expression. The variable that you created for the storage account name is referenced through the **variables** expression.
 
-        ```json
-        "resources": [
-          {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetwork_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "properties": {
-              "addressSpace": {
-                "addressPrefixes": [
-                  "[parameters('addressPrefix')]"
-                ]
-              },
-              "subnets": [
-                {
-                  "name": "[parameters('subnetName')]",
-                  "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
-                  }
-                }
-              ]
-            },
-            "dependsOn": []
+    ```json
+    "resources": [
+      {
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[parameters('virtualNetwork_name')]",
+        "apiVersion": "2015-06-15",
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "[parameters('addressPrefix')]"
+            ]
           },
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccount_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "properties": {
-                "accountType": "[parameters('storageAccount_accountType')]"
-            },
-            "dependsOn": []
-          }
-        ]
-        ```
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "[parameters('subnetAddressPrefix')]"
+              }
+            }
+          ]
+        },
+        "dependsOn": []
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageAccount_name')]",
+        "apiVersion": "2015-06-15",
+        "location": "[resourceGroup().location]",
+        "tags": {},
+        "properties": {
+            "accountType": "[parameters('storageAccount_accountType')]"
+        },
+        "dependsOn": []
+      }
+    ]
+    ```
 6. Select **OK** when you are done editing the template.
 7. Select **Save** to save the changes to the template.
 
@@ -297,20 +297,20 @@ If you are working with the downloaded files (rather than the portal library), y
 
 Replace the contents of the parameters.json file with:
 
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageAccount_prefix": {
-          "value": "storage"
-        },
-        "virtualNetwork_name": {
-          "value": "VNET"
-        }
-      }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccount_prefix": {
+      "value": "storage"
+    },
+    "virtualNetwork_name": {
+      "value": "VNET"
     }
-    ```
+  }
+}
+```
 
 The updated parameter file provides values only for parameters that do not have a default value. You can provide values for the other parameters when you want a value that is different from the default value.
 
@@ -335,57 +335,57 @@ This topic shows common fixes.
 ### Connection string
 In the web sites resource, add a definition for the connection string to the database:
 
-    ```json
+```json
+{
+  "type": "Microsoft.Web/sites",
+  ...
+  "resources": [
     {
-      "type": "Microsoft.Web/sites",
-      ...
-      "resources": [
-        {
-          "apiVersion": "2015-08-01",
-          "type": "config",
-          "name": "connectionstrings",
-          "dependsOn": [
-              "[concat('Microsoft.Web/Sites/', parameters('<site-name>'))]"
-          ],
-          "properties": {
-              "DefaultConnection": {
-                "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('<database-server-name>'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('<database-name>'), ';User Id=', parameters('<admin-login>'), '@', parameters('<database-server-name>'), ';Password=', parameters('<admin-password>'), ';')]",
-                  "type": "SQLServer"
-              }
+      "apiVersion": "2015-08-01",
+      "type": "config",
+      "name": "connectionstrings",
+      "dependsOn": [
+          "[concat('Microsoft.Web/Sites/', parameters('<site-name>'))]"
+      ],
+      "properties": {
+          "DefaultConnection": {
+            "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('<database-server-name>'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('<database-name>'), ';User Id=', parameters('<admin-login>'), '@', parameters('<database-server-name>'), ';Password=', parameters('<admin-password>'), ';')]",
+              "type": "SQLServer"
           }
-        }
-      ]
+      }
     }
-    ```
+  ]
+}
+```
 
 ### Web site extension
 In the web site resource, add a definition for the code to install:
 
-    ```json
+```json
+{
+  "type": "Microsoft.Web/sites",
+  ...
+  "resources": [
     {
-      "type": "Microsoft.Web/sites",
-      ...
-      "resources": [
-        {
-          "name": "MSDeploy",
-          "type": "extensions",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-08-01",
-          "dependsOn": [
-            "[concat('Microsoft.Web/sites/', parameters('<site-name>'))]"
-          ],
-          "properties": {
-            "packageUri": "[concat(parameters('<artifacts-location>'), '/', parameters('<package-folder>'), '/', parameters('<package-file-name>'), parameters('<sas-token>'))]",
-            "dbType": "None",
-            "connectionString": "",
-            "setParameters": {
-              "IIS Web Application Name": "[parameters('<site-name>')]"
-            }
-          }
+      "name": "MSDeploy",
+      "type": "extensions",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[concat('Microsoft.Web/sites/', parameters('<site-name>'))]"
+      ],
+      "properties": {
+        "packageUri": "[concat(parameters('<artifacts-location>'), '/', parameters('<package-folder>'), '/', parameters('<package-file-name>'), parameters('<sas-token>'))]",
+        "dbType": "None",
+        "connectionString": "",
+        "setParameters": {
+          "IIS Web Application Name": "[parameters('<site-name>')]"
         }
-      ]
+      }
     }
-    ```
+  ]
+}
+```
 
 ### Virtual machine extension
 For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -393,77 +393,77 @@ For examples of virtual machine extensions, see [Azure Windows VM Extension Conf
 ### Virtual network gateway
 Add a virtual network gateway resource type.
 
-    ```json
-    {
-      "type": "Microsoft.Network/virtualNetworkGateways",
-      "name": "[parameters('<gateway-name>')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "gatewayType": "[parameters('<gateway-type>')]",
-        "ipConfigurations": [
-          {
-            "name": "default",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('<vnet-name>'), parameters('<new-subnet-name>'))]"
-              },
-              "publicIpAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('<new-public-ip-address-Name>'))]"
-              }
-            }
+```json
+{
+  "type": "Microsoft.Network/virtualNetworkGateways",
+  "name": "[parameters('<gateway-name>')]",
+  "apiVersion": "2015-06-15",
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "gatewayType": "[parameters('<gateway-type>')]",
+    "ipConfigurations": [
+      {
+        "name": "default",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "subnet": {
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('<vnet-name>'), parameters('<new-subnet-name>'))]"
+          },
+          "publicIpAddress": {
+            "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('<new-public-ip-address-Name>'))]"
           }
-        ],
-        "enableBgp": false,
-        "vpnType": "[parameters('<vpn-type>')]"
-      },
-      "dependsOn": [
-        "Microsoft.Network/virtualNetworks/codegroup4/subnets/GatewaySubnet",
-        "[concat('Microsoft.Network/publicIPAddresses/', parameters('<new-public-ip-address-Name>'))]"
-      ]
-    },
-    ```
+        }
+      }
+    ],
+    "enableBgp": false,
+    "vpnType": "[parameters('<vpn-type>')]"
+  },
+  "dependsOn": [
+    "Microsoft.Network/virtualNetworks/codegroup4/subnets/GatewaySubnet",
+    "[concat('Microsoft.Network/publicIPAddresses/', parameters('<new-public-ip-address-Name>'))]"
+  ]
+},
+```
 
 ### Local network gateway
 Add a local network gateway resource type.
 
-    ```json
-    {
-        "type": "Microsoft.Network/localNetworkGateways",
-        "name": "[parameters('<local-network-gateway-name>')]",
-        "apiVersion": "2015-06-15",
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "localNetworkAddressSpace": {
-            "addressPrefixes": "[parameters('<address-prefixes>')]"
-          }
-        }
+```json
+{
+    "type": "Microsoft.Network/localNetworkGateways",
+    "name": "[parameters('<local-network-gateway-name>')]",
+    "apiVersion": "2015-06-15",
+    "location": "[resourceGroup().location]",
+    "properties": {
+      "localNetworkAddressSpace": {
+        "addressPrefixes": "[parameters('<address-prefixes>')]"
+      }
     }
-    ```
+}
+```
 
 ### Connection
 Add a connection resource type.
 
-    ```json
-    {
-        "apiVersion": "2015-06-15",
-        "name": "[parameters('<connection-name>')]",
-        "type": "Microsoft.Network/connections",
-        "location": "[resourceGroup().location]",
-        "properties": {
-            "virtualNetworkGateway1": {
-            "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('<gateway-name>'))]"
-          },
-          "localNetworkGateway2": {
-            "id": "[resourceId('Microsoft.Network/localNetworkGateways', parameters('<local-gateway-name>'))]"
-          },
-          "connectionType": "IPsec",
-          "routingWeight": 10,
-          "sharedKey": "[parameters('<shared-key>')]"
-        }
-    },
-    ```
+```json
+{
+    "apiVersion": "2015-06-15",
+    "name": "[parameters('<connection-name>')]",
+    "type": "Microsoft.Network/connections",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "virtualNetworkGateway1": {
+        "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('<gateway-name>'))]"
+      },
+      "localNetworkGateway2": {
+        "id": "[resourceId('Microsoft.Network/localNetworkGateways', parameters('<local-gateway-name>'))]"
+      },
+      "connectionType": "IPsec",
+      "routingWeight": 10,
+      "sharedKey": "[parameters('<shared-key>')]"
+    }
+},
+```
 
 ## Next steps
 Congratulations! You have learned how to export a template from resources that you created in the portal.

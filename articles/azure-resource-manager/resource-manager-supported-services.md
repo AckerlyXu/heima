@@ -72,7 +72,6 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | --- | --- | --- | --- |
 | API Apps |Yes | [App Service REST](https://docs.microsoft.com/rest/api/appservice) |[Web resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
 | API Management |Yes |[API Management REST](https://docs.microsoft.com/rest/api/apimanagement) |[API Management resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) |
-
 | Function App |Yes | [Function App REST](https://docs.microsoft.com/rest/api/appservice) |[Function App resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22functionApp%22&type=Code) |
 | Logic Apps |Yes |[Logic Apps REST](https://docs.microsoft.com/rest/api/logic) |[Logic App resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
 | Mobile Apps |Yes | [App Service REST](https://docs.microsoft.com/rest/api/appservice) |[Mobile Apps resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22mobileApp%22&type=Code) |
