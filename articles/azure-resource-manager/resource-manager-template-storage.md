@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/templates/microsoft.storage/storageaccounts
+redirect_url: https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts
 ---

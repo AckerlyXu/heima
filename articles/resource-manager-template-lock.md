@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/templates/microsoft.authorization/locks
+redirect_url: https://docs.microsoft.com/en-us/azure/templates/microsoft.authorization/locks
 ---
