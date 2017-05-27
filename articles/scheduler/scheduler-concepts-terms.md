@@ -134,6 +134,7 @@ The action in the example above is an HTTP action. Below is an example of a stor
 
 Below is an example of a service bus topic action.
 
+```
   "action": {
     "type": "serviceBusTopic",
     "serviceBusTopicMessage": {
@@ -151,9 +152,11 @@ Below is an example of a service bus topic action.
       }
     },
   }
+```
 
 Below is an example of a service bus queue action:
 
+```
   "action": {
     "serviceBusQueueMessage": {
       "queueName": "q1",  
@@ -171,7 +174,7 @@ Below is an example of a service bus queue action:
     },
     "type": "serviceBusQueue"
   }
-
+```
 The “errorAction” is the error handler, the action invoked when the primary action fails. You can use this variable to call an error-handling endpoint or send a user notification. This can be used for reaching a secondary endpoint in the case that the primary is not available (e.g., in the case of a disaster at the endpoint’s site) or can be used for notifying an error handling endpoint. Just like the primary action, the error action can be simple or composite logic based on other actions. To learn how to create a SAS token, refer to [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
 ## recurrence
