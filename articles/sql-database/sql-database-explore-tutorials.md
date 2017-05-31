@@ -34,7 +34,7 @@ In the following tutorials, you create servers, databases, and server-level fire
 |  | |
 
 ## Backups, long-term retention, and database recovery
-In the following tutorials, you learn about using [database backups](./sql-database-automated-backups.md), [long-term backup retention](./sql-database-long-term-retention.md), and [database recovery using backups](./sql-database-recovery-using-backups.md).
+In the following tutorials, you learn about using [database backups](./sql-database-automated-backups.md), and [database recovery using backups](./sql-database-recovery-using-backups.md).
 
 | Tutorial | Description |
 | --- | --- | 
@@ -51,14 +51,6 @@ In the following tutorials, you learn how to [Scale out databases with the shard
 | [Deploy a split-merge service](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) |In this tutorial, you learn how to move data between sharded databases. |
 |  | |
 
-## Elastic database jobs
-
-In the following tutorials, you learn about using [elastic database jobs](./sql-database-elastic-jobs-overview.md).
-
-| Tutorial | Description |
-| --- | --- | 
-| [Get started with Azure SQL Database elastic jobs](./sql-database-elastic-jobs-getting-started.md) |In this tutorial, you learn how to create and manage jobs that manage a group of related databases. |
-|  | |
 
 ## Elastic queries
 
@@ -98,7 +90,6 @@ In the following tutorials, you learn about application and database development
 | [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) |In this tutorial, you learn how to build an application using SQL Server |
 | [Temporal tables](./sql-database-temporal-tables.md) | In this tutorial, you learn about temporal tables.
 | [Use entity framework with elastic tools](./sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) |In this tutorial, you learn the changes in an Entity Framework application that are needed to integrate with the Elastic Database tools. |
-| [Adopt in-memory OLTP](./sql-database-in-memory-oltp-migration.md) | In this tutorial, you learn how to use [in-memory OLTP](./sql-database-in-memory.md) to improve the performance of transaction processing. |
 | [Code First to a New Database](https://msdn.microsoft.com/zh-cn/data/jj193542.aspx) | In this tutorial, you learn about code first development.
 | [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) | IN this tutorial, you work with the Tailspon Surveys sample application. |
 | [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) | In this tutorial, you work with the Contoso Clinic demo application. |

@@ -36,8 +36,8 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 >
 
 ## Prerequisites
-* [Create an Azure Media Services account](media-services-portal-create-account.md)
-* Ensure there is a Streaming Endpoint running. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
+* [Create an Azure Media Services account](media-services-create-account.md)
+* Ensure there is a Streaming Endpoint running.
 * Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
 * Launch the tool and connect to your AMS account.
 

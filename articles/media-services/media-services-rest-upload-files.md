@@ -23,7 +23,6 @@ ms.author: juliako
  > [!div class="op_single_selector"]
  >- [.NET](./media-services-dotnet-upload-files.md)
  >- [REST](./media-services-rest-upload-files.md)
- >- [Portal](./media-services-portal-upload-files.md)
 
 In Media Services, you upload your digital files into an asset. The [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
@@ -550,6 +549,6 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
-You can now encode your uploaded assets. For more information, see [Encode assets](./media-services-portal-encode.md).
+You can now encode your uploaded assets.
 
 [How to Get a Media Processor]: ./media-services-get-media-processor.md

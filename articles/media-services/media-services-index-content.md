@@ -279,5 +279,3 @@ Currently, the English and Spanish languages are supported. For more information
 [Azure Media Services Analytics Overview](./media-services-analytics-overview.md)
 
 [Using AIB Files with Azure Media Indexer and SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
-
-[Indexing Media Files with Azure Media Indexer 2 Preview](./media-services-process-content-with-indexer2.md)

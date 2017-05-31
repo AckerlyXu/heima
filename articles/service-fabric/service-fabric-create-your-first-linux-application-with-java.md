@@ -28,7 +28,7 @@ ms.author: seanmck
 Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we create an application for Linux and build a service using Java.  
 
 > [!NOTE]
-> Java as a first class built-in programming language is supported for the Linux preview only (Windows support is planned). However, any applications including Java applications can be run as guest executables or inside containers on Windows or Linux. For more information, see [Deploy an existing executable to Azure Service Fabric](./service-fabric-deploy-existing-app.md) and [Deploy containers to Service Fabric](./service-fabric-deploy-container.md).
+> Java as a first class built-in programming language is supported for the Linux preview only (Windows support is planned). However, any applications including Java applications can be run as guest executables or inside containers on Windows or Linux. For more information, see [Deploy an existing executable to Azure Service Fabric](./service-fabric-deploy-existing-app.md).
 >
 
 ## Video tutorial

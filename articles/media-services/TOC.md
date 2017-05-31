@@ -2,7 +2,7 @@
 ## [Concepts ](media-services-concepts.md)
 
 # Get started
-## [Create and manage account](media-services-portal-create-account.md)
+## [Create and manage account](media-services-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
@@ -11,12 +11,10 @@
 ### [REST](media-services-rest-connect-programmatically.md)
 
 ## Deliver video on demand
-### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Perform live streaming
-### [Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # How To
@@ -27,9 +25,6 @@
 ### Entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Streaming endpoints](media-services-streaming-endpoints-overview.md)
-#### [Portal](media-services-portal-manage-streaming-endpoints.md)
-#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Storage
 #### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
 #### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
@@ -37,20 +32,16 @@
 
 ## Upload content
 ### Upload files into an account
-#### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
-### [Upload large files with Aspera](media-services-upload-files-with-aspera.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
 ## [Encode content](media-services-encode-asset.md)
-### [Compare encoders](media-services-compare-encoders.md)
 ### [Manage speed and concurrency of your encoding](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
 #### [Use MES to auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Encode with Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Advanced encoding with MES](media-services-advanced-encoding-with-mes.md)
@@ -87,13 +78,7 @@
 ##### [H264 Single Bitrate 720p for Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 Single Bitrate High Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-### Media Encoder Premium Workflow
-#### [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
 #### Encode with Media Encoder Premium Workflow
-##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
-##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
-##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [Create a task that generates fMP4 chunks](media-services-generate-fmp4-chunks.md)
 ### Media processors
 #### [.NET](media-services-get-media-processor.md)
@@ -119,18 +104,12 @@
 ### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 
 ## [Protect](media-services-content-protection-overview.md)
-### [Configure content protection in the portal](media-services-portal-protect-content.md)
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
 ### [Use REST to encrypt your content with storage encryption](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md)
-### [Widevine license template overview](media-services-widevine-license-template-overview.md)
 ### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
-### [Using partners to deliver Widevine licenses to Media Services](media-services-licenses-partner-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
 ### [Stream your HLS content protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
-### [CENC with Multi-DRM and Access Control](media-services-cenc-with-multidrm-access-control.md)
-### [Using Axinom to deliver Widevine licenses to Media Services  ](media-services-axinom-integration.md)
-### [Using castLabs to deliver Widevine licenses to Media Services](media-services-castlabs-integration.md)
 
 ### Asset delivery
 #### Configure asset delivery policies
@@ -145,8 +124,6 @@
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
 ## [Analyze](media-services-analytics-overview.md)
-### [Analyze media using the portal](media-services-portal-analyze.md)
-### [Process with Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Process with Indexer](media-services-index-content.md)
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
@@ -162,11 +139,9 @@
 
 ## Scale
 ### [Media Processing](media-services-scale-media-processing-overview.md)
-#### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
-### Streaming Endpoints
-#### [Portal](media-services-portal-scale-streaming-endpoints.md)
+
 
 ## [Deliver content](media-services-deliver-content-overview.md)
 ### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
@@ -174,7 +149,6 @@
 #### [Create filters with .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Create filters with REST](media-services-rest-dynamic-manifest.md)
 ### Publish content
-#### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Deliver by Download](media-services-deliver-asset-download.md)
@@ -197,7 +171,6 @@
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Monitor job notifications with queue storage](media-services-dotnet-check-job-progress-with-queues.md)
-### [Monitor job notifications with webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Troubleshoot
 ### [Frequently asked questions](media-services-frequently-asked-questions.md)
@@ -214,5 +187,4 @@
 # Resources
 ## [Release notes](media-services-release-notes.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
-## [Azure Media Services Community](media-services-community.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

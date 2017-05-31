@@ -83,6 +83,5 @@ As with the admin credentials, do not values in the form of "username@server". I
 
 [Securing your SQL Database](./sql-database-security.md)
 
-[Getting started with Elastic Database jobs](./sql-database-elastic-jobs-getting-started.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

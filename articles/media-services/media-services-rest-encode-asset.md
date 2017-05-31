@@ -23,7 +23,6 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 >- [.NET](./media-services-dotnet-encode-with-media-encoder-standard.md)
 >- [REST](./media-services-rest-encode-asset.md)
->- [Portal](./media-services-portal-encode.md)
 
 ##Overview
 In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.

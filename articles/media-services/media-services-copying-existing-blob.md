@@ -38,7 +38,7 @@ The topic shows two code samples:
 
 ### Prerequisites
 
-Two Media Services accounts. See the topic [How to Create a Media Services Account](./media-services-portal-create-account.md).
+Two Media Services accounts. See the topic [How to Create a Media Services Account](./media-services-create-account.md).
 
 ### Download sample
 You can follow the steps in this article or you can download a sample that contains the code described in this article from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).

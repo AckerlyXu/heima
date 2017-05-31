@@ -553,7 +553,3 @@ The following sample demonstrates functionality that was introduced in Azure Med
         }
     }
     ```
-
-##See also
-
-[CENC with Multi-DRM and Access Control](./media-services-cenc-with-multidrm-access-control.md)
