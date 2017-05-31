@@ -48,16 +48,14 @@ SQL Data Warehouse always restores the backup to a new data warehouse. You can e
 
 If you need to restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). 
 
-<!-- 
+<!-- Not Available on ### Can I restore a deleted data warehouse?
 ### Can I restore a deleted data warehouse?
 
 Yes, you can restore the last available restore point.
 
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
-## Geo-redundant restore
-If you are using the geo-redundant storage, you can restore the data warehouse to your [paired data center](../best-practices-availability-paired-regions.md) in a different geographical region. The data warehouse is restored from the last daily backup. 
-
+<!-- Not Available on ## Geo-redundant restore ../best-practices-availability-paired-regions.md-->
 ## Restore timeline
 You can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 
