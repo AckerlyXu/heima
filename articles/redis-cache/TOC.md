@@ -5,7 +5,6 @@
 ###[Access items in a cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
 ###[Configure high availability](https://www.azure.cn/pricing/details/redis-cache/)
 ###[Connect securely using SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
-###[Migrate from Managed Cache Service](cache-migrate-to-redis.md)
 ###[Patterns & Practices Caching guidance](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 # Get started

@@ -979,5 +979,4 @@ If you wish to install a sample application for this, and other DMZ Examples, on
 [18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "Firewall Rule Activation"
 
 <!--Link References-->
-[HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md

@@ -198,4 +198,3 @@ There is no script included in this sample application to set up the DNS server.
 * Browse to the Public IP on IIS01 to validate your build
 
 <!--Link References-->
-[HOME]: ../best-practices-network-security.md

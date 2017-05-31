@@ -281,8 +281,6 @@
       href: create-lamp-stack.md
     - name: Deploy a 3-node Deis cluster
       href: deis-cluster.md
-    - name: Deploy Node.js application
-      href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Django web app
       href: python-django-web-app.md
     - name: Jupyter Notebook

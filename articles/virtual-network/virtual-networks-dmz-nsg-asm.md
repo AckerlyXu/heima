@@ -76,7 +76,7 @@ Declaratively, the following rules are being built for inbound traffic:
 
 With these rules bound to each subnet, if an HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this rule-set protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend "protected" network (only to resources exposed on the AppVM01 server).
 
-There is a default outbound rule that allows traffic out to the internet. For this example, we're allowing outbound traffic and not modifying any outbound rules. To lock down traffic in both directions, User Defined Routing is required and is explored in "Example 3" on the [Security Boundary Best Practices Page][HOME].
+There is a default outbound rule that allows traffic out to the internet. For this example, we're allowing outbound traffic and not modifying any outbound rules.
 
 Each rule is discussed in more detail as follows (**Note**: any item in the following list beginning with a dollar sign (for example: $NSGName) is a user-defined variable from the script in the reference section of this document):
 
@@ -582,5 +582,4 @@ If you wish to install a sample application for this, and other DMZ Examples, on
 [1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Inbound DMZ with NSG"
 
 <!--Link References-->
-[HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md

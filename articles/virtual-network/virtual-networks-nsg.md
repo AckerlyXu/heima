@@ -133,8 +133,6 @@ Before implementing NSGs, you need to answer the following questions:
 1. What types of resources do you want to filter traffic to or from? You can connect resources such as NICs (Resource Manager), VMs (classic), Cloud Services, Application Service Environments, and VM Scale Sets. 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets?
 
-For more information on planning for network security in Azure, read the [Cloud services and network security](../best-practices-network-security.md) article. 
-
 ## Design considerations
 Once you know the answers to the questions in the [Planning](#Planning) section, review the following sections before defining your NSGs:
 

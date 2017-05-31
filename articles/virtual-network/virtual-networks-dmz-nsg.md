@@ -19,7 +19,6 @@ ms.author: jonor
 
 ---
 # Example 1 - Build a simple DMZ using NSGs with an Azure Resource Manager template
-[Return to the Security Boundary Best Practices Page][HOME]
 
 > [!div class="op_single_selector"]
 > * [Resource Manager Template](virtual-networks-dmz-nsg.md)
@@ -77,7 +76,7 @@ Declaratively, the following rules are being built for inbound traffic:
 
 With these rules bound to each subnet, if an HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this rule-set protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend "protected" network (only to resources exposed on the AppVM01 server).
 
-There is a default outbound rule that allows traffic out to the internet. For this example, we're allowing outbound traffic and not modifying any outbound rules. To apply security policy to traffic in both directions, User Defined Routing is required and is explored in "Example 3" on the [Security Boundary Best Practices Page][HOME].
+There is a default outbound rule that allows traffic out to the internet. For this example, we're allowing outbound traffic and not modifying any outbound rules.
 
 Each rule is discussed in more detail as follows:
 
@@ -320,8 +319,6 @@ Each rule is discussed in more detail as follows:
 ## Conclusion
 This example is a relatively simple and straight forward way of isolating the back-end subnet from inbound traffic.
 
-More examples and an overview of network security boundaries can be found [here][HOME].
-
 ## References
 ### Azure Resource Manager template
 This example uses a predefined Azure Resource Manager template in a GitHub repository maintained by Microsoft and open to the community. This template can be deployed straight out of GitHub, or downloaded and modified to fit your needs. 
@@ -359,6 +356,5 @@ Once the template runs successfully, you can set up the web server and app serve
 [1]: ./media/virtual-networks-dmz-nsg-arm/example1design.png "Inbound DMZ with NSG"
 
 <!--Link References-->
-[HOME]: ../best-practices-network-security.md
 [Template]: https://github.com/Azure/azure-quickstart-templates/tree/master/301-dmz-nsg
 [SampleApp]: ./virtual-networks-sample-app.md

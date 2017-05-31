@@ -92,7 +92,6 @@
 
 ### Security scenarios
 #### [Secure networks with virtual appliances](virtual-network-scenario-udr-gw-nva.md)
-#### [Cloud service and network security](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Simple DMZ with NSGs](virtual-networks-dmz-nsg-asm.md)
 ##### [DMZ with firewall and NSGs](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [DMZ with firewall, UDR, and NSGs](virtual-networks-dmz-nsg-fw-udr-asm.md)
