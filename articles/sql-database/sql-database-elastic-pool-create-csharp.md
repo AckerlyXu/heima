@@ -280,7 +280,6 @@ Write-Output "_applicationSecret:" $secret
 ## Next steps
 
 - [Manage your pool](./sql-database-elastic-pool-manage-csharp.md)
-- [Create elastic jobs](./sql-database-elastic-jobs-overview.md): Elastic jobs let you run T-SQL scripts against any number of databases in a pool.
 - [Scaling out with Azure SQL Database](./sql-database-elastic-scale-introduction.md): Use elastic database tools to scale-out.
 
 ## Additional Resources

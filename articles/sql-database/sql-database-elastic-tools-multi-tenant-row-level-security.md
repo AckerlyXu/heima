@@ -190,7 +190,7 @@ Now that the application is setting SESSION_CONTEXT with the current TenantId be
 
 RLS is implemented in T-SQL: a user-defined function defines the access logic, and a security policy binds this function to any number of tables. For this project, the function will simply verify that the application (rather than some other SQL user) is connected to the database, and that the 'TenantId' stored in the SESSION_CONTEXT matches the TenantId of a given row. A filter predicate will allow rows that meet these conditions to pass through the filter for SELECT, UPDATE, and DELETE queries; and a block predicate will prevent rows that violate these conditions from being INSERTed or UPDATEd. If SESSION_CONTEXT has not been set, it will return NULL and no rows will be visible or able to be inserted. 
 
-To enable RLS, execute the following T-SQL on all shards using either Visual Studio (SSDT), SSMS, or the PowerShell script included in the project (or if you are using [Elastic Database Jobs](./sql-database-elastic-jobs-overview.md), you can use it to automate execution of this T-SQL on all shards): 
+To enable RLS, execute the following T-SQL on all shards using either Visual Studio (SSDT), SSMS, or the PowerShell script included in the project: 
 
 ```
 CREATE SCHEMA rls -- separate schema to organize RLS objects 

@@ -158,7 +158,7 @@ In this section of the tutorial, you restore the database to a new database as o
     ![restore point time](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
     >[!NOTE]
-    >Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](./sql-database-disaster-recovery.md#recover-using-geo-restore). Finally, notice that you can restore into an [elastic pool](./sql-database-elastic-jobs-overview.md) or to a different pricing tier. 
+    >Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](./sql-database-disaster-recovery.md#recover-using-geo-restore).
     >
 
 4. Click **OK** to restore your database to an earlier point in time to the new database.

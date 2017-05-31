@@ -75,5 +75,4 @@ New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $server
 ## Next steps
 
 - [Manage your pool](./sql-database-elastic-pool-manage-powershell.md)
-- [Create elastic jobs](./sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
 - [Scale out with Azure SQL Database](./sql-database-elastic-scale-introduction.md): Use elastic database tools to scale-out.

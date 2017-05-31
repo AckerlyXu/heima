@@ -78,7 +78,7 @@ Click [here](./sql-database-develop-direct-route-ports-adonet-v12.md) for detail
 Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](./sql-database-elastic-pool.md). Elastic database pools is a solution designed for cloud SaaS vendors.  With elastic database pools, you can:
 
 - Share DTUs among databases to reduce costs for large numbers of databases.
-- Execute [elastic database jobs](./sql-database-elastic-jobs-overview.md) to manage databases at scale.
+
 
 ## Security enhancements
 Security is a primary concern for anyone who runs their business in the cloud. The latest security features released in V12 include:
