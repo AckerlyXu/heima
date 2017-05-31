@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Server Stretch Database Documentation - Tutorials | Microsoft Docs
+title: Azure SQL Server Stretch Database Documentation - Tutorials | Azure
 description: Learn how to use SQL Server Stretch Database to migrate cold data securely to Azure without changing queries or applications. Tutorials and other documentation.
 services: sql-server-stretch-database
 author: carolz
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 #SQL Server Stretch Database Documentation
 
 Learn how to use SQL Server Stretch Database to migrate cold data transparently and securely to the Azure cloud. Tutorials and other documentation help you set up cost-effective availability for databases with infrequently used data without requiring changes to existing queries or applications.
 
-
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-overview">
+        <a href="/sql-server-stretch-database/sql-server-stretch-database-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use SQL Server Stretch Database to migrate cold data transparently 
         </a>
     </li>
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
+        <a href="/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use SQL Server Stretch Database to migrate cold data transparently 
         </a>
     </li>
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-wizard">
+        <a href="/sql-server-stretch-database/sql-server-stretch-database-wizard">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
