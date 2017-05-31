@@ -90,7 +90,7 @@ The following are required to complete the tutorial.
 - To complete this tutorial, you need an Azure account. 
 
     If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
-- A Media Services account. To create a Media Services account, see [Create Account](./media-services-portal-create-account.md).
+- A Media Services account. To create a Media Services account, see [Create Account](./media-services-create-account.md).
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
 - You must use Media Services .NET SDK version 3.2.0.0 or newer.
 - A webcam and an encoder that can send a single bitrate live stream.

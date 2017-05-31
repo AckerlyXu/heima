@@ -30,9 +30,6 @@ This topic provides general limitations and guidelines for Azure SQL Database. F
 
   - The SQL Server 2008 SQL Server browser is not supported because Azure SQL Database does not have dynamic ports, only port 1433.
 
-## SQL Server Agent/Jobs
-
-Azure SQL Database does not support SQL Server Agent, however you can use Elastic jobs to run jobs across one to many databases. For more information about Elastic jobs, see [Elastic jobs](./sql-database-elastic-jobs-overview.md).
 
 ## SQL Server Collation Support
 

@@ -57,7 +57,7 @@ Cbcs-aapl is used when encrypting your content with FairPlay.
 Use this option if you want to protect your content with AES-128 clear key. If you want a more secure option, choose one of the DRMs listed in this topic. 
 
 ## Licenses and keys delivery service
-Media Services provides a service for delivering DRM (PlayReady, FairPlay) licenses and AES clear keys to authorized clients. You can use [the Azure portal](media-services-portal-protect-content.md), REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
+Media Services provides a service for delivering DRM (PlayReady, FairPlay) licenses and AES clear keys to authorized clients. You can use Azure portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
 
 ## Token restriction
 The content key authorization policy could have one or more authorization restrictions: open or token restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
@@ -86,7 +86,7 @@ The following topics demonstrate how to protect content in storage, deliver dyna
 
 ### Additional scenarios
 * [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
-* [Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
 
 >[!NOTE]
 >A scenario in which you use an external DRM server(technology) and stream from AMS is currently not supported.

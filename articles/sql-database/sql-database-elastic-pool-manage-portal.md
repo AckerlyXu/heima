@@ -277,7 +277,6 @@ To change the eDTUs or storage limits per pool, and eDTUs per database:
 
 - To understand what an elastic pool is, see [SQL Database elastic pool](sql-database-elastic-pool.md).
 - For guidance on using elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool.md).
-- To use elastic jobs to run Transact-SQL scripts against any number of databases in the pool, see [Elastic jobs overview](sql-database-elastic-jobs-overview.md).
 - To query across any number of databases in the pool, see [Elastic query overview](sql-database-elastic-query-overview.md).
 - For transactions any number of databases in the pool, see [Elastic transactions](sql-database-elastic-transactions-overview.md).
 

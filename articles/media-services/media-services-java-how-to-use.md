@@ -29,7 +29,7 @@ This tutorial walks you through the steps of implementing a basic Video-on-Deman
 The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
-* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-portal-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-create-account.md).
 * The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][Azure Java Developer Center].
 
 ##<a if="connect"></a>How to: Use Media Services with Java
@@ -39,7 +39,7 @@ The following are required to complete the tutorial:
 
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
-You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](./media-services-portal-create-account.md).
+You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](./media-services-create-account.md).
 
 Substitute your values for the 'clientId' and 'clientSecret' variables. The code also relies on a locally stored file. You'll need to provide your own file to use.
 

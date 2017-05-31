@@ -20,7 +20,7 @@ ms.author: jodebrui
 ---
 
 # Monitor In-Memory OLTP Storage
-When using [In-Memory OLTP](./sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in the [SQL Database Service Tiers article](./sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+When using In-Memory OLTP, data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in the [SQL Database Service Tiers article](./sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
 ## Determine whether data will fit within the in-memory storage cap
 Determine the storage cap: consult the [SQL Database Service Tiers article](./sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) for the storage caps of the different Premium service tiers.

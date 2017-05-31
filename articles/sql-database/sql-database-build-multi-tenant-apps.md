@@ -53,8 +53,7 @@ In addition to elastic pools, there are SQL Database features to help manage ope
 ** Run cross database transactions. **  
 [Elastic database transactions](./sql-database-elastic-transactions-overview.md) allow you to run transactions that span several databases in SQL Databases and perform operations (i.e. when processing financial transactions across databases, or when updating inventory in one database and orders).
 
-** Execute the same operations on several databases. **  
-[Elastic database jobs](./sql-database-elastic-jobs-overview.md) execute administrative operations such as rebuilding indexes or updating schemas across each database in your elastic pool.
+
 
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://www.azure.cn/home/features/sql-database/) 

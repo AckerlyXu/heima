@@ -21,7 +21,6 @@ ms.author: cenkdin;juliako
 #How to perform live streaming with on-premise encoders using .NET
 
 > [!div class="op_single_selector"]
->- [Portal](./media-services-portal-live-passthrough-get-started.md)
 >- [.NET](./media-services-dotnet-live-encode-with-onpremises-encoders.md)
 >- [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 

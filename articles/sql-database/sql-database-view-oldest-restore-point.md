@@ -43,5 +43,4 @@ In this How To topic, you learn how to view the oldest restore point from servic
 ## Next steps
 
 - To learn about service-generated automatic backups, see [automatic backups](./sql-database-automated-backups.md)
-- To learn about long-term backup retention, see [long-term backup retention](./sql-database-long-term-retention.md)
 - To learn about restoring from backups, see [restore from backup](./sql-database-recovery-using-backups.md)

@@ -20,7 +20,7 @@ ms.author: juliako
 #Manage Azure Media Services Accounts with PowerShell
 
 > [!div class="op_single_selector"]
->- [Portal](./media-services-portal-create-account.md)
+>- [Portal](./media-services-create-account.md)
 >- [PowerShell](./media-services-manage-with-powershell.md)
 >- [REST](http://msdn.microsoft.com/zh-cn/library/azure/dn194267.aspx)
 

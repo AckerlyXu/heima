@@ -47,7 +47,6 @@ You can use PowerShell to manage databases and elastic pools, and to automate Az
 ## Elastic Database tools
 Use the elastic database tools to perform actions such as 
 
-* Executing a T-SQL script against a set of databases using an [elastic job](sql-database-elastic-jobs-overview.md)
 * Moving multi-tenant model databases to a single-tenant model with the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md)
 * Managing databases in a single-tenant model or a multi-tenant model using the [elastic scale client library](sql-database-elastic-database-client-library.md).
 

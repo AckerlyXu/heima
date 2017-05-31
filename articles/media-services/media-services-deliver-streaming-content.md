@@ -21,7 +21,6 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [Portal](media-services-portal-publish.md)
 > 
 > 
 

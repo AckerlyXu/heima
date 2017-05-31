@@ -27,7 +27,7 @@ This tutorial walks you through the steps of implementing a basic Video-on-Deman
 The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure 1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/). 
-* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-portal-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-create-account.md).
 * .NET Framework 4.0 or later.
 * Visual Studio.
 

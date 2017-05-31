@@ -53,11 +53,11 @@ You can view the whole model [here](https://media.windows.net/API/$metadata?api-
 To start using Azure Media Services, you should have the following:
 
 1. An Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
-2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](./media-services-portal-create-account.md).
+2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](./media-services-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](./media-services-dotnet-how-to-use.md). 
 
     Also, learn how to [connect  programmatically](./media-services-dotnet-connect-programmatically.md).
-4. A standard or premium streaming endpoint in started state.  For more information, see [Managing streaming endpoints](./media-services-portal-manage-streaming-endpoints.md)
+4. A standard or premium streaming endpoint in started state.  
 
 ##Concepts and overview
 
@@ -104,7 +104,7 @@ Media Analytics is a collection of speech and vision components that make it eas
 1. Upload a high-quality mezzanine file into an asset.
 2. Use one of the following Media Analytics services to process your videos:
 
-    - **Indexer** – [Process videos with Azure Media Indexer 2](./media-services-process-content-with-indexer2.md)
+    - **Indexer** 
     - **Hyperlapse** – [Hyperlapse Media Files with Azure Media Hyperlapse](./media-services-hyperlapse-content.md)
     - **Motion detection** – [Motion Detection for Azure Media Analytics](./media-services-motion-detection.md).
     - **Face detection and Face emotions** – [Face and Emotion Detection for Azure Media Analytics](./media-services-face-and-emotion-detection.md).
@@ -171,7 +171,7 @@ Azure Media Services provides the tools you need to create rich, dynamic client 
 
 ##Enabling Azure CDN
 
-Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](./media-services-portal-manage-streaming-endpoints.md).
+Media Services supports integration with Azure CDN.
 
 ##Scaling a Media Services account
 
@@ -181,7 +181,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 Media Services customers choose either a **Standard** streaming endpoint or one or more **Premium** streaming endpoints, according to their needs. Standard Streaming Endpoint is suitable for most streaming workloads. It includes the same features as Premium Streaming Units. 
 Standard Streaming Endpoint is suitable for most streaming workloads. If you have an advanced workload or your streaming capacity requirements doesn't fit to standard streaming endpoint throughput targets or you want to control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as premium streaming units), then it is recommended to allocate scale units.
 
-[This](./media-services-portal-scale-streaming-endpoints.md) topic links to relevant topics.
+
 
 ##Support
 

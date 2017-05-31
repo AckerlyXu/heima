@@ -26,7 +26,7 @@ Azure Media Services supports many popular streaming formats, such as Smooth Str
 
 The **Azure** portal provides a content player that you can use to test your video.
 
-Click on the desired video (make sure it was [published](./media-services-portal-publish.md)) and click the **Play** button at the bottom of the portal.
+Click on the desired video and click the **Play** button at the bottom of the portal.
 
 Some considerations apply:
 

@@ -21,7 +21,6 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
-> * [Portal](media-services-portal-upload-files.md)
 > 
 > 
 
