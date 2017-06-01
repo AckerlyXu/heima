@@ -10,8 +10,8 @@ tags:
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
@@ -23,15 +23,15 @@ ms.author: rclaus
 
 This script creates two virtual machines and secures incoming traffic to both. One virtual machine is accessible on the internet and has a network security group (NSG) configured to allow traffic on port 3389 and port 80. The second virtual machine is not accessible on the internet, and has an NSG configured to only allow traffic from the first virtual machine. 
 
-If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This sample works in Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
-
 ## Sample script
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 # Update for your admin password
@@ -40,32 +40,43 @@ AdminPassword=ChangeYourAdminPassword1
 # Create a resource group.
 az group create --name myResourceGroup --location chinanorth
 
-# Create a virtual network and subnet (front end).
-az network vnet create --resource-group myResourceGroup --name myVnet --address-prefix 192.168.0.0/16 \
---subnet-name mySubnetFrontEnd --subnet-prefix 192.168.1.0/24
+# Create a virtual network and front-end subnet.
+az network vnet create --resource-group myResourceGroup --name myVnet --address-prefix 10.0.0.0/16 \
+--subnet-name mySubnetFrontEnd --subnet-prefix 10.0.1.0/24
 
-# Create a subnet (back end) and associate with virtual network. 
+# Create a back-end subnet and associate with virtual network. 
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVnet \
-  --name mySubnetBackEnd --address-prefix 192.168.2.0/24
+  --name mySubnetBackEnd --address-prefix 10.0.2.0/24
 
-# Create a virtual machine. 
+# Create a front-end virtual machine.
 az vm create --resource-group myResourceGroup --name myVMFrontEnd --image win2016datacenter \
   --admin-username azureuser --admin-password $AdminPassword --vnet-name myVnet --subnet mySubnetFrontEnd \
    --nsg myNetworkSecurityGroupFrontEnd --no-wait
 
-# Create a virtual machine without a public IP address.
+# Create a back-end virtual machine without a public IP address.
 az vm create --resource-group myResourceGroup --name myVMBackEnd --image win2016datacenter \
   --admin-username azureuser --admin-password $AdminPassword --public-ip-address "" --vnet-name myVnet \
   --subnet mySubnetBackEnd --nsg myNetworkSecurityGroupBackEnd
 
+# Create front-end NSG rule to allow traffic on port 80.
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupFrontEnd \
+  --name http --access allow --protocol Tcp --direction Inbound --priority 200 \
+  --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range 80
+
 # Get nsg rule name.
 nsgrule=$(az network nsg rule list --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd --query [0].name -o tsv)
 
-# Update backend network security group rule to limit source prefix.
+# Update back-end network security group rule to limit SSH to source prefix (priority 100).
 az network nsg rule update --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
-  --name $nsgrule --protocol tcp --direction inbound --priority 1000 \
-  --source-address-prefix 192.168.1.0/24 --source-port-range '*' --destination-address-prefix '*' \
-  --destination-port-range 3389 --access allow
+  --name $nsgrule --protocol tcp --direction inbound --priority 100 \
+  --source-address-prefix 10.0.2.0/24 --source-port-range '*' --destination-address-prefix '*' \
+  --destination-port-range 22 --access allow
+
+# Create backend NSG rule to block all incoming traffic (priority 200).
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
+  --name denyAll --access Deny --protocol Tcp --direction Inbound --priority 200 \
+  --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range "*"
+
 ```
 
 ## Clean up deployment 
@@ -94,4 +105,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric reverse proxy | Microsoft Docs
+title: Azure Service Fabric reverse proxy | Azure
 description: Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 02/23/2017
+ms.date: 04/07/2017
 ms.author: bharatn
 
 ---
@@ -59,7 +59,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. For HTTPS traffic, Secure Sockets Layer (SSL) termination occurs at the reverse proxy. The reverse proxy uses HTTP to forward requests to services in the cluster.
 
     Note that HTTPS services are not currently supported.
-* **Cluster fully qualified domain name (FQDN) | internal IP:** For external clients, you can configure the reverse proxy so that it is reachable through the cluster domain, such as mycluster.eastus.cloudapp.azure.com. By default, the reverse proxy runs on every node. For internal traffic, the reverse proxy can be reached on localhost or on any internal node IP, such as 10.0.0.1.
+* **Cluster fully qualified domain name (FQDN) | internal IP:** For external clients, you can configure the reverse proxy so that it is reachable through the cluster domain, such as mycluster.chinaeast.cloudapp.chinacloudapi.cn. By default, the reverse proxy runs on every node. For internal traffic, the reverse proxy can be reached on localhost or on any internal node IP, such as 10.0.0.1.
 * **Port:** This is the port, such as 19008, that has been specified for the reverse proxy.
 * **ServiceInstanceName:** This is the fully-qualified name of the deployed service instance that you are trying to reach without the "fabric:/" scheme. For example, to reach the *fabric:/myapp/myservice/* service, you would use *myapp/myservice*.
 * **Suffix path:** This is the actual URL path, such as *myapi/values/add/3*, for the service that you want to connect to.
@@ -95,7 +95,7 @@ If the service uses the Uniform Int64 partitioning scheme, the *PartitionKey* an
 
 To reach the resources that the service exposes, simply place the resource path after the service name in the URL:
 
-* Externally: `http://mycluster.chinaeast.cloudapp.chinacloudapp.cn:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Externally: `http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
 * Internally: `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 The gateway will then forward these requests to the service's URL:
@@ -293,7 +293,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
 > When you use certificates that are different from the cluster certificate to enable the reverse proxy on an existing cluster, install the reverse proxy certificate and update the ACL on the cluster before you enable the reverse proxy. Complete the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) deployment by using the settings mentioned previously before you start a deployment to enable the reverse proxy in steps 1-4.
 
 ## Next steps
-* See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+* See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)

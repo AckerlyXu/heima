@@ -57,7 +57,7 @@ Recovery Services vaults support both models.  You can back up a classic VM (cre
 ### I backed up my classic VMs in a Backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
 
-1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](./backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
 2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
 3. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. 
 
@@ -73,7 +73,7 @@ Yes, the vault credentials expire after 48 hours. If the file expires, log in to
 
 ### What happens if I rename a Windows server that is backing up data to Azure?<br/>
 When you rename a server, all currently configured backups are stopped.
-Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data backed up to the vault with the old server name, use the [**Another server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) option in the **Recover Data** wizard.
+Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data backed up to the vault with the old server name, use the [**Another server**](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) option in the **Recover Data** wizard.
 
 ### What types of drives can I back up files and folders from? <br/>
 You can't back up the following drives/volumes:
@@ -183,7 +183,7 @@ Yes. You can run backup jobs on Windows Server or Windows workstations up to thr
  All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
  ### Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
-  Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](backup-configure-vault.md#enable-network-throttling)**.
+  Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](./backup-configure-vault.md#enable-network-throttling)**.
 
 
 
@@ -269,7 +269,7 @@ There is no limit on the number of recoveries from Azure Backup.
 No. Your recoveries are free and you are not charged for the egress traffic.
 
 ### I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
-This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server-classic.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
+This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](./backup-azure-manage-windows-server-classic.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
 
 
 
@@ -286,4 +286,3 @@ The encryption key should be at least 16 characters.
 
 ### What happens if I misplace the encryption key? Can I recover the data (or) can Microsoft recover the data? <br/>
 The key used to encrypt the backup data is present only on the customer premises. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the customer misplaces the key, Microsoft cannot recover the backup data.
-

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 04/04/2017
 wacn.date: ''
 ms.author: cherylmc
 
@@ -38,7 +38,7 @@ You can start out creating and configuring resources using one configuration too
 ###Deployment model
 When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="diagrams"></a>Connection topology diagrams
+## <a name="diagrams" id="a-namediagramsaconnection-topology-diagrams"></a>Connection topology diagrams
 It's important to know that there are different configurations available for VPN gateway connections. You need to determine which configuration best fits your needs. In the sections below, you can view information and topology diagrams about the following VPN gateway connections:
 The following sections contain tables which list:
 
@@ -77,7 +77,7 @@ The VNets you connect can be:
 
 * in the same or different regions
 * in the same or different subscriptions 
-* in the same different deployment models
+* in the same or different deployment models
 
 ![Azure VPN Gateway VNet to VNet connection example](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
@@ -117,6 +117,10 @@ For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](vpn-
 
 ### Estimated aggregate throughput by SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## FAQ
+
+For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
 
 ## Next steps
 - Plan your VPN gateway configuration. See [VPN Gateway Planning and Design](vpn-gateway-plan-design.md).

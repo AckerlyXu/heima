@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: jrj;barbkess
@@ -22,7 +23,6 @@ ms.author: jrj;barbkess
 Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS, and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
 
 This article first discusses the simple migration scenarios of SSIS and bcp. It then look a little deeper into how the migration can be optimized.
-
 <!-- Azure Data Factory (ADF) Not supported in ACN-->
 
 ## Integration Services
@@ -165,23 +165,27 @@ For more about migration, see [Migrate your solution to SQL Data Warehouse][Migr
 For more development tips, see [development overview][development overview].
 
 <!--Image references-->
-
+<!--Azure Data Factory (ADF) Not supported in ACN-->
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-<!--Azure Data Factory (ADF) Not supported in ACN-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: ./sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+<!-- [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
+<!-- [ADF samples]: ../data-factory/data-factory-samples.md-->
+<!-- [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
+[development overview]: sql-data-warehouse-overview-develop.md
+[Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
+[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[ExpressRoute]: /documentation/services/expressroute/
-[ExpressRoute documentation]: /documentation/services/expressroute/
+<!--Azure Data Factory (ADF) Not supported in ACN-->
+<!--[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
+[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute documentation]: /azure/expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/
-[ADO.NET destination adapter]: https://msdn.microsoft.com/zh-cn/library/bb934041.aspx
-[SSIS documentation]: https://msdn.microsoft.com/zh-cn/library/ms141026.aspx
+[ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
+[SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx

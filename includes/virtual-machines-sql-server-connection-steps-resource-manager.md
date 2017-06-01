@@ -1,4 +1,4 @@
-### <a name="configure-a-dns-label-for-the-public-ip-address"></a> Configure a DNS Label for the public IP address
+### Configure a DNS Label for the public IP address
 To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
 
 > [!NOTE]
@@ -17,7 +17,7 @@ To create a DNS Label, first select **Virtual machines** in the portal. Select y
 
     ![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a> Connect to the Database Engine from another computer
+### Connect to the Database Engine from another computer
 1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
 2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
 3. In the **Authentication** box, select **SQL Server Authentication**.

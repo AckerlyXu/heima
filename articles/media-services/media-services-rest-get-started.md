@@ -1,5 +1,5 @@
 ---
-title: Get started with delivering content on demand using REST | Microsoft Docs
+title: Get started with delivering content on demand using REST | Azure
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API.
 services: media-services
 documentationcenter: ''
@@ -149,7 +149,7 @@ Content-Length: 670
 
 Make sure to monitor the "expires_in" value of the access token and update your REST API calls with new tokens as needed.
 
-###Connecting to the Media Services URI
+### Connecting to the Media Services URI
 
 
 The root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.chinacloudapi.cn/ where the storage account name is the same one you used during your Media Services account setup.
@@ -159,7 +159,7 @@ The following example demonstrates HTTP request to the Media Services in China E
 **HTTP Request**:
 
 ```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/ HTTP/1.1
+GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ HTTP/1.1
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
 x-ms-version: 2.11
 Accept: application/json
@@ -547,7 +547,7 @@ The following code requests the encoder's id.
 **HTTP Request**
 
 ```
-    GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
+    GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
@@ -612,7 +612,7 @@ Content-Length: 482
    "InputMediaAssets":[  
       {  
          "__metadata":{  
-            "uri":"https://wamsbayclus001rest-hs.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')"
+            "uri":"https://wamsshaclus001rest-hs.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')"
          }
       }
    ],
@@ -1008,7 +1008,7 @@ DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 x-ms-version: 2.11
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
-Host: wamsbayclus001rest-hs
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 182
 Expect: 100-continue
 

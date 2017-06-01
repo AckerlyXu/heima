@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository | Azure
 description: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
@@ -22,7 +22,7 @@ ms.author: cephalin
 
 This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. Also, your application code needs to be committed into a local Git repository.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview), and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. Also, your application code needs to be committed into a local Git repository.
 
 ## Sample script
 
@@ -60,6 +60,7 @@ $password = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@use
 #### This method saves your password in the git remote. You can use a Git credential manager to secure your password instead.
 git remote add azure "https://${username}:$password@$webappname.scm.chinacloudsites.cn"
 git push azure master
+
 ```
 
 ## Clean up deployment 
@@ -76,14 +77,14 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermappserviceplan) | Creates an App Service plan. |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermwebapp) | Creates a web app. |
-| [Set-AzureRmResource](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/set-azurermresource) | Modifies a resource in a resource group. |
-| [Get-AzureRmWebAppPublishingProfile](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/get-azurermwebapppublishingprofile) | Get a web app's publishing profile. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | Creates an App Service plan. |
+| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | Creates a web app. |
+| [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource in a resource group. |
+| [Get-AzureRmWebAppPublishingProfile](https://docs.microsoft.com/powershell/module/azurerm.websites/get-azurermwebapppublishingprofile) | Get a web app's publishing profile. |
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

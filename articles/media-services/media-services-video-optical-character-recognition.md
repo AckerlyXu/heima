@@ -193,8 +193,6 @@ The following program shows how to:
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 		
 		private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-		
-		
 		// Azure China uses a different API server and a different ACS Base Address from the Global.
 		private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
 		private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";

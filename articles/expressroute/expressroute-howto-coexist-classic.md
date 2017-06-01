@@ -19,8 +19,8 @@ ms.author: charwen
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections (classic)
 > [!div class="op_single_selector"]
->- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md/)
->- [PowerShell - Classic](./expressroute-howto-coexist-classic.md/)
+>- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md)
+>- [PowerShell - Classic](./expressroute-howto-coexist-classic.md)
 > 
 > 
 
@@ -42,7 +42,7 @@ Having the ability to configure Site-to-Site VPN and ExpressRoute has several ad
 - **Transit routing is not supported.** You cannot route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
 - **Point-to-site is not supported.** You can't enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-site VPN and ExpressRoute cannot coexist for the same VNet.
 - **Forced tunneling cannot be enabled on the Site-to-Site VPN gateway.** You can only "force" all Internet-bound traffic back to your on-premises network via ExpressRoute.
-- **Basic SKU gateway is not supported.** You must use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md/).
+- **Basic SKU gateway is not supported.** You must use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Only route-based VPN gateway is supported.** You must use a route-based [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Static route should be configured for your VPN gateway.** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
 - **ExpressRoute gateway must be configured first.** You must create the ExpressRoute gateway first before you add the Site-to-Site VPN gateway.
@@ -198,7 +198,7 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
         OperationStatus      : Succeeded
 
 
-8. Configure your local VPN device to connect to the new gateway. Use the information that you retrieved in step 6 when configuring your VPN device. For more information about VPN device configuration, see [VPN Device Configuration](../vpn-gateway/vpn-gateway-about-vpn-devices.md/).
+8. Configure your local VPN device to connect to the new gateway. Use the information that you retrieved in step 6 when configuring your VPN device. For more information about VPN device configuration, see [VPN Device Configuration](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 9. Link the site-to-site VPN gateway on Azure to the local gateway.
 
@@ -249,4 +249,4 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
 
 ## Next steps
 
-For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md/)
+For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md)

@@ -3,8 +3,8 @@ title: Monitor, diagnose, and troubleshoot Azure Storage | Microsoft Docs
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
 services: storage
 documentationcenter: ''
-author: jasonnewyork
-manager: tadb
+author: fhryo-msft
+manager: jahogg
 editor: tysonn
 
 ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
-ms.author: jahogg
+ms.date: 05/11/2017
+ms.author: fhryo-msft
 
 ---
 # Monitor, diagnose, and troubleshoot Azure Storage
@@ -99,7 +99,7 @@ The "[Appendices]" include information about using other tools such as Wireshark
 ## <a name="monitoring-your-storage-service"></a>Monitoring your storage service
 If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service. For a full list of the available metrics, see [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see [Enabling storage metrics and viewing metrics data](http://go.microsoft.com/fwlink/?LinkId=510865).
 
-You can choose which hourly metrics you want to display in the [Azure portal preview](https://portal.azure.cn) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. For more information, see [Receive Alert Notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+You can choose which hourly metrics you want to display in the [Azure portal preview](https://portal.azure.cn) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold.
 
 The storage service collects metrics using a best effort, but may not record every storage operation.
 
@@ -119,7 +119,6 @@ The charts in the following image illustrate how the averaging that occurs for h
 The remainder of this section describes what metrics you should monitor and why.
 
 ### <a name="monitoring-service-health"></a>Monitoring service health
-
 You can use the [Azure portal preview](https://portal.azure.cn) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application. 
 
 The [Azure portal preview](https://portal.azure.cn) can also provide notifications of incidents that affect the various Azure services.
@@ -140,7 +139,7 @@ For help estimating the size of various storage objects such as blobs, see the b
 ### <a name="monitoring-availability"></a>Monitoring availability
 You should monitor the availability of the storage services in your storage account by monitoring the value in the **Availability** column in the hourly or minute metrics tables — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. The **Availability** column contains a percentage value that indicates the availability of the service or the API operation represented by the row (the **RowKey** shows if the row contains metrics for the service as a whole or for a specific API operation).
 
-Any value less than 100% indicates that some storage requests are failing. You can see why they are failing by examining the other columns in the metrics data that show the numbers of requests with different error types such as **ServerTimeoutError**. You should expect to see **Availability** fall temporarily below 100% for reasons such as transient server timeouts while the service moves partitions to better load-balance request; the retry logic in your client application should handle such intermittent conditions. The article [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/zh-cn/library/azure/hh343260.aspx) lists the transaction types that Storage Metrics includes in its **Availability** calculation.
+Any value less than 100% indicates that some storage requests are failing. You can see why they are failing by examining the other columns in the metrics data that show the numbers of requests with different error types such as **ServerTimeoutError**. You should expect to see **Availability** fall temporarily below 100% for reasons such as transient server timeouts while the service moves partitions to better load-balance request; the retry logic in your client application should handle such intermittent conditions. The article [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx) lists the transaction types that Storage Metrics includes in its **Availability** calculation.
 
 In the [Azure portal preview](https://portal.azure.cn), you can add alert rules to notify you if **Availability** for a service falls below a threshold that you specify.
 
@@ -302,7 +301,7 @@ This section will help you with the diagnosis and troubleshooting of some of the
 
 **Troubleshooting Decision Tree**
 
-- - -
+---
 Does your issue relate to the performance of one of the storage services?
 
 * [Metrics show high AverageE2ELatency and low AverageServerLatency]
@@ -310,39 +309,39 @@ Does your issue relate to the performance of one of the storage services?
 * [Metrics show high AverageServerLatency]
 * [You are experiencing unexpected delays in message delivery on a queue]
 
-- - -
+---
 Does your issue relate to the availability of one of the storage services?
 
 * [Metrics show an increase in PercentThrottlingError]
 * [Metrics show an increase in PercentTimeoutError]
 * [Metrics show an increase in PercentNetworkError]
 
-- - -
-Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
+---
+ Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
 
 * [The client is receiving HTTP 403 (Forbidden) messages]
 * [The client is receiving HTTP 404 (Not found) messages]
 * [The client is receiving HTTP 409 (Conflict) messages]
 
-- - -
+---
 [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [Capacity metrics show an unexpected increase in storage capacity usage]
 
-- - -
+---
 [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [Your issue arises from using the storage emulator for development or test]
 
-- - -
+---
 [You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [You have a different issue with a storage service]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrics show high AverageE2ELatency and low AverageServerLatency
 The illustration below from the [Azure portal preview](https://portal.azure.cn) monitoring tool shows an example where the **AverageE2ELatency** is significantly higher than the **AverageServerLatency**.
 
@@ -358,7 +357,7 @@ Note that the storage service only calculates the metric **AverageE2ELatency** f
 #### Investigating client performance issues
 Possible reasons for the client responding slowly include having a limited number of available connections or threads, or being low on resources such as CPU, memory or network bandwidth. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
 
-For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information see the post [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
+For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information see the post [Nagle's Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -397,7 +396,7 @@ For more information about using Microsoft Message Analyzer to troubleshoot netw
 ### <a name="metrics-show-high-AverageServerLatency"></a>Metrics show high AverageServerLatency
 In the case of high **AverageServerLatency** for blob download requests, you should use the Storage Logging logs to see if there are repeated requests for the same blob (or set of blobs). For blob upload requests, you should investigate what block size the client is using (for example, blocks less than 64K in size can result in overheads unless the reads are also in less than 64K chunks), and if multiple clients are uploading blocks to the same blob in parallel. You should also check the per-minute metrics for spikes in the number of requests that result in exceeding the per second scalability targets: also see "[Metrics show an increase in PercentTimeoutError]."
 
-If you are seeing high **AverageServerLatency** for blob download requests when there are repeated requests the same blob or set of blobs, then you should consider caching these blobs using Azure Cache or the Azure Content Delivery Network (CDN). For upload requests, you can improve the throughput by using a larger block size. For queries to tables, it is also possible to implement client-side caching on clients that perform the same query operations and where the data doesn’t change frequently.
+If you are seeing high **AverageServerLatency** for blob download requests when there are repeated requests the same blob or set of blobs, then you should consider caching these blobs using Azure Cache or the Azure Content Delivery Network (CDN). For upload requests, you can improve the throughput by using a larger block size. For queries to tables, it is also possible to implement client-side caching on clients that perform the same query operations and where the data doesn't change frequently.
 
 High **AverageServerLatency** values can also be a symptom of poorly designed tables or queries that result in scan operations or that follow the append/prepend anti-pattern. See "[Metrics show an increase in PercentThrottlingError]" for more information.
 

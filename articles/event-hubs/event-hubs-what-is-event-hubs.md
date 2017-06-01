@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 wacn.date: ''
 ms.author: sethm; babanisa
 ---
@@ -31,7 +31,7 @@ Event Hubs event and telemetry handling capabilities make it especially useful f
 Event Hubs also enables behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines or connected vehicles.
 
 ## Azure Event Hubs overview
-The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events.
+The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. The following figure depicts this architecture:
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
@@ -54,9 +54,9 @@ Event Hubs ensures that all events sharing a partition key value are delivered i
 ### Publisher policy
 Event Hubs enables granular control over event publishers through *publisher policies*. Publisher policies are run-time features designed to facilitate large numbers of independent event publishers. With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:
 
-```
-//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
-```
+    ```
+    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
+    ```
 
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
 
@@ -97,10 +97,11 @@ In a stream processing architecture, each downstream application equates to a co
 
 The following are examples of the consumer group URI convention:
 
-```http
-//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #1]
-//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #2]
-```
+    ```http
+    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #1]
+    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #2]
+    ```
+The following figure shows the Event Hubs stream processing architecture:
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 
@@ -118,12 +119,13 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 All Event Hubs consumers connect via an AMQP 1.0 session and state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
 
 #### Connect to a partition
-When connecting to partitions, it is common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) class for .NET clients. The Event Processor Host is an intelligent consumer agent.
+When connecting to partitions, it is common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the [EventProcessorHost](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) class for .NET clients. The Event Processor Host is an intelligent consumer agent.
 
 #### Read events
 After an AMQP 1.0 session and link is opened for a specific partition, events are delivered to the AMQP 1.0 client by the Event Hubs service. This delivery mechanism enables higher throughput and lower latency than pull-based mechanisms such as HTTP GET. As events are sent to the client, each event data instance contains important metadata such as the offset and sequence number that are used to facilitate checkpointing on the event sequence.
 
 Event data:
+
 * Offset
 * Sequence number
 * Body
@@ -153,12 +155,12 @@ For detailed pricing information, see [Event Hubs Pricing](https://www.azure.cn/
 
 ## Next steps
 
-* Get started with an [Event Hubs tutorial][Event Hubs tutorial]
+<!-- * Get started with an [Event Hubs tutorial][Event Hubs tutorial]-->
 * [Event Hubs programming guide](./event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](./event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](./event-hubs-faq.md)
 * [Sample applications that use Event Hubs]
 
-[Event Hubs tutorial]: /documentation/articles/event-hubs-csharp-ephcs-getstarted/
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Azure portal]: https://portal.azure.cn

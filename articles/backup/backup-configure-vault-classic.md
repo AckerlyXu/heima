@@ -20,8 +20,8 @@ ms.author: markgal;trinadhk;
 ---
 # Back up a Windows server or workstation to Azure using the Classic Management Portal
 > [!div class="op_single_selector"]
-> * [Classic Management Portal](backup-configure-vault-classic.md)
-> * [Azure portal](backup-configure-vault.md)
+> * [Classic Management Portal](./backup-configure-vault-classic.md)
+> * [Azure portal](./backup-configure-vault.md)
 >
 >
 
@@ -46,7 +46,7 @@ To back up files and folders from a server or client, you need to create a backu
 ## Download the vault credential file
 The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the Classic Management Portal. The certificate private key does not persist in the portal or the service.
 
-Learn more about [using vault credentials to authenticate with the Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
+Learn more about [using vault credentials to authenticate with the Backup service](./backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### To download the vault credential file to a local machine
 1. In the left navigation pane, click **Recovery Services**, and then select the backup vault that you created.
@@ -120,7 +120,7 @@ After the backup policy completes the initial backup, it creates backup points t
     ![Items for Windows Server Backup](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 
 	> [!NOTE]
-	> For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
+	> For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](./backup-azure-backup-cloud-as-tape.md).
 	>
 	>
 
@@ -129,7 +129,7 @@ After the backup policy completes the initial backup, it creates backup points t
     The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
 9. On the Choose Initial Backup Type page, choose the initial backup type. Leave the option **Automatically over the network** selected, and then click **Next**.
 
-    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md) for additional information.
+    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](./backup-azure-backup-import-export.md) for additional information.
 10. On the Confirmation page, review the information, and then click **Finish**.
 11. After the wizard finishes creating the backup schedule, click **Close**.
 
@@ -165,6 +165,5 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 For additional information about backing up VMs or other workloads, see:
 
-- [Back up IaaS VMs](backup-azure-vms-prepare.md)
+- [Back up IaaS VMs](./backup-azure-vms-prepare.md)
 - [Back up workloads to Azure with DPM](./backup-azure-dpm-introduction-classic.md)
-

@@ -1,5 +1,5 @@
 ---
-title: What is Azure SQL Data Warehouse? | Microsoft Docs
+title: What is Azure SQL Data Warehouse? | Azure
 description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: overview
 ms.date: 2/28/2017
 wacn.date: ''
 ms.author: jrj;mausher;kevin;barbkess;elbutter
@@ -120,7 +121,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 * [Feature requests]
 * [Videos]
 * [Customer Advisory Team blogs]
-* [Create support ticket]
+<!-- Not supported in Azure.cn * [Create support ticket]-->
 * [MSDN forum]
 * [Stack Overflow forum]
 * [Twitter]
@@ -129,11 +130,11 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+<!-- Not supported in Azure.cn [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+<!-- Not supported in Azure.cn [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md-->
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
@@ -145,7 +146,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=AzureSQLDataWarehouse
+[MSDN forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

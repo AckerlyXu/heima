@@ -33,7 +33,7 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 These instructions use Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 
@@ -106,7 +106,7 @@ In all three cases, endpoints can be added in two ways:
 1. Using a 3-step process described previously. The advantage of this method is that several endpoint changes can be made in a single update.
 2. Using the New-AzureRmTrafficManagerEndpoint cmdlet. This cmdlet adds an endpoint to an existing Traffic Manager profile in a single operation.
 
-## <a name="adding-traffic-manager-endpoints"></a> Adding Azure Endpoints
+## Adding Azure Endpoints
 
 Azure endpoints reference services hosted in Azure. Two types of Azure endpoints are supported:
 
@@ -148,7 +148,7 @@ Traffic Manager uses external endpoints to direct traffic to services hosted out
 When specifying external endpoints:
 
 * The endpoint domain name must be specified using the 'Target' parameter
-* If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a [valid Azure region name](https://azure.microsoft.com/regions/).
+* If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a valid Azure region name.
 * The 'Weight' and 'Priority' are optional.
 
 ### Example 1: Adding external endpoints using `Add-AzureRmTrafficManagerEndpointConfig` and `Set-AzureRmTrafficManagerProfile`
@@ -177,7 +177,7 @@ Each Traffic Manager profile specifies a single traffic-routing method. However,
 Nested endpoints are configured at the parent profile, using a specific endpoint type, 'NestedEndpoints'. When specifying nested endpoints:
 
 * The endpoint must be specified using the 'targetResourceId' parameter
-* If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a [valid Azure region name](http://azure.microsoft.com/regions/).
+* If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a valid Azure region name.
 * The 'Weight' and 'Priority' are optional, as for Azure endpoints.
 * The 'MinChildEndpoints' parameter is optional. The default value is '1'. If the number of available endpoints falls below this threshold, the parent profile considers the child profile 'degraded' and diverts traffic to the other endpoints in the parent profile.
 
@@ -259,17 +259,17 @@ To enable a Traffic Manager endpoint, use `Enable-AzureRmTrafficManagerEndpoint`
 1. Using a TrafficManagerEndpoint object passed via the pipeline or using the '-TrafficManagerEndpoint' parameter
 2. Using the endpoint name, endpoint type, profile name, and resource group name:
 
-```powershell
-Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
-```
+    ```powershell
+    Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+    ```
 
-Similarly, to disable a Traffic Manager endpoint:
+    Similarly, to disable a Traffic Manager endpoint:
 
-```powershell
-Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
-```
+    ```powershell
+    Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+    ```
 
-As with `Disable-AzureRmTrafficManagerProfile`, the `Disable-AzureRmTrafficManagerEndpoint` cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
+    As with `Disable-AzureRmTrafficManagerProfile`, the `Disable-AzureRmTrafficManagerEndpoint` cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
 ## Delete a Traffic Manager Endpoint
 

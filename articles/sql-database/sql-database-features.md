@@ -82,7 +82,7 @@ The following tables list the major features of Azure SQL Database and SQL Serve
 | DML triggers | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) |
 | DMVs | [All](https://msdn.microsoft.com/library/ms188754.aspx) | [Some](https://msdn.microsoft.com/library/ms188754.aspx) |
 | elastic pools | Not supported | [Supported](sql-database-elastic-pool.md) |
-| Elastic jobs | Not supported - see [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Supported](sql-database-elastic-jobs-getting-started.md) | 
+| Elastic jobs | Not supported - see [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | Not Supported| 
 | Elastic queries | Not supported - see [Cross-database queries](https://msdn.microsoft.com/library/dn584627.aspx) | [Supported](sql-database-elastic-query-overview.md) |
 | Event notifications | [Supported](https://msdn.microsoft.com/library/ms186376.aspx) | [Supported](sql-database-insights-alerts-portal.md) |
 | Expressions | [Supported](https://msdn.microsoft.com/library/ms190286.aspx) | [Supported](https://msdn.microsoft.com/library/ms190286.aspx) |
@@ -93,7 +93,7 @@ The following tables list the major features of Azure SQL Database and SQL Serve
 | Full-text search | [Supported](https://msdn.microsoft.com/library/ms142571.aspx) | [Not supported third-party word breakers](https://msdn.microsoft.com/library/ms142571.aspx) |
 | Functions | [Supported](https://msdn.microsoft.com/library/ms174318.aspx) | [Most](https://msdn.microsoft.com/library/ms174318.aspx) |
 | In-memory optimization | [Supported](https://msdn.microsoft.com/library/dn133186.aspx) | [Premium edition only](https://msdn.microsoft.com/library/dn133186.aspx) |
-| Jobs | [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Supported](sql-database-elastic-jobs-getting-started.md) |
+| Jobs | [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | Not Supported |
 | JSON data support | [Supported](https://msdn.microsoft.com/library/dn921897.aspx) | [Supported](sql-database-json-features.md) |
 | Language elements | [Supported](https://msdn.microsoft.com/library/ff848807.aspx) | [Most](https://msdn.microsoft.com/library/ff848807.aspx) |  
 | Linked servers | [Supported](https://msdn.microsoft.com/library/ms188279.aspx) | Not supported - see [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |

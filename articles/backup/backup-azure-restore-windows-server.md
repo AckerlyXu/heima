@@ -19,8 +19,8 @@ ms.author: saurse;trinadhk;markgal;
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
 > [!div class="op_single_selector"]
-> * [Azure portal](backup-azure-restore-windows-server.md)
-> * [Classic Management Portal](backup-azure-restore-windows-server-classic.md)
+> * [Azure portal](./backup-azure-restore-windows-server.md)
+> * [Classic Management Portal](./backup-azure-restore-windows-server-classic.md)
 >
 >
 
@@ -225,5 +225,4 @@ The terminology used in these steps includes:
     >
 
 ## Next steps
-- Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server-classic.md).
-
+- Now that you've recovered your files and folders, you can [manage your backups](./backup-azure-manage-windows-server-classic.md).

@@ -26,4 +26,3 @@ ms.author: asteen
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

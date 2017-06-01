@@ -1,0 +1,5 @@
+Now that your app is up and running, you'll want to ensure ensure business continuity, and watch user access to ensure high-availability to your users. You can use the Azure portal preview to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://www.azure.cn/support/sla/cosmos-db/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal
+
+* In the Azure portal preview, in the left menu, under **Monitoring**, click **Metrics**.
+
+   ![Todo app with sample data](./media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)

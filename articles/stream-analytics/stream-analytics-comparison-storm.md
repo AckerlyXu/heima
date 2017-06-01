@@ -17,15 +17,15 @@ ms.workload: big-data
 ms.date: 01/24/2017
 wacn.date: ''
 ms.author: jeffstok
+
 ---
-
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics
-
 Get guidance choosing a cloud analytics platform by using this Apache Storm comparison to Azure Stream Analytics. Understand the value propositions of Stream Analytics versus Apache Storm as a managed service on Azure HDInsight, so you can choose the right solution for your business use cases.
 
 Both analytics platforms provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate them. Capabilities as well as the limitations of these services are listed below to help you land on the solution you need to achieve your goals.
 
 ## Storm comparison to Stream Analytics: General features
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -138,7 +138,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Authoring on each analytics platform ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,7 +264,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Data sources and outputs ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -328,7 +332,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="246" valign="top">
                 <p>
-                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL and HBase. Unsupported connectors may be implemented via custom code.
+                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL and HBase. Unsupported connectors may be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -351,7 +355,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Management and operations ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -513,7 +519,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Advanced Features ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -563,7 +571,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="246" valign="top">
                 <p>
-                    No limits on data size. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported connectors may be implemented via custom code.
+                    No limits on data size. Connectors available for HBase, Azure Cosmos DB, SQL Server and Azure. Unsupported connectors may be implemented via custom code.
                 </p>
                 <p>
                     Refreshing of reference data must be handled by custom code.

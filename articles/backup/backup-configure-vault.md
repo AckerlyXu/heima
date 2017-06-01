@@ -20,8 +20,8 @@ ms.author: markgal;trinadhk;
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
 > [!div class="op_single_selector"]
-> * [Azure portal](backup-configure-vault.md)
-> * [Classic Management Portal](backup-configure-vault-classic.md)
+> * [Azure portal](./backup-configure-vault.md)
+> * [Classic Management Portal](./backup-configure-vault-classic.md)
 >
 >
 

@@ -21,7 +21,7 @@ ms.author: cephalin
 
 ---
 # Troubleshoot slow web app performance issues in Azure App Service
-This article helps you troubleshoot slow web app performance issues in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/).
+This article helps you troubleshoot slow web app performance issues in [Azure App Service](/app-service-web/app-service-changes-existing-services).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://www.azure.cn/support/contact/) and click on **Get Support**.
 
@@ -46,7 +46,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ### <a name="observe"></a> 1. Observe and monitor application behavior
 #### Track Service health
-Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
+Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/).
 
 #### Monitor your web app
 This option enables you to find out if your application is having any issues. In your web app's blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
@@ -64,7 +64,7 @@ Some of the metrics that you might want to monitor for your web app are
 For more information, see:
 
 * [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+
 
 #### Monitor web endpoint status
 If you are running your web app in the **Standard** pricing tier, Web Apps lets you monitor 2 endpoints from 3 geographic locations.

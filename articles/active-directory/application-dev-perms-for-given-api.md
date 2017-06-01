@@ -28,4 +28,3 @@ ms.author: asteen
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-

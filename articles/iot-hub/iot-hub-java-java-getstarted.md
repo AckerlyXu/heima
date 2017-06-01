@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
-wacn.date: ''
 ms.author: dobett
----
+ms.custom: H1Hack27Feb2017
 
+---
 # Connect your simulated device to your IoT hub using Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -34,11 +34,9 @@ At the end of this tutorial, you have three Java console apps:
 
 To complete this tutorial, you need the following:
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Java for this tutorial on either Windows or Linux.
-
+* Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Java for this tutorial on either Windows or Linux.
 * Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] describes how to install [Maven][lnk-maven] for this tutorial on either Windows or Linux.
-
-+ An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -52,17 +50,18 @@ You have now created your IoT hub. You have the IoT Hub host name, IoT Hub conne
 In this section, you create a Java console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. Create an empty folder called iot-java-get-started. In the iot-java-get-started folder, create a Maven project called **create-device-identity** using the following command at your command prompt. Note this is a single, long command:
-
+   
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. At your command prompt, navigate to the create-device-identity folder.
 3. Using a text editor, open the pom.xml file in the create-device-identity folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app:
-
+   
     ```
-    <groupId>com.microsoft.azure.sdk.iot</groupId>
+    </dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.2.18</version>
     </dependency>
     ```
     
@@ -72,32 +71,32 @@ In this section, you create a Java console app that creates a device identity in
 4. Save and close the pom.xml file.
 5. Using a text editor, open the create-device-identity\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
-
+   
     ```
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.sdk.iot.service.sdk.Device;
-    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
-
+    import com.microsoft.azure.sdk.iot.service.Device;
+    import com.microsoft.azure.sdk.iot.service.RegistryManager;
+   
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
 7. Add the following class-level variables to the **App** class, replacing **{yourhubconnectionstring}** with the value your noted earlier:
-
+   
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
-
+   
     ```
 8. Modify the signature of the **main** method to include the exceptions as follows:
-
+   
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException, Exception
     ```
 9. Add the following code as the body of the **main** method. This code creates a device called *javadevice* in your IoT Hub identity registry if doesn't already exist. It then displays the device ID and key that you need later:
-
+   
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
-
+   
     Device device = Device.createFromId(deviceId, null, null);
     try {
       device = registryManager.addDevice(device);
@@ -113,12 +112,12 @@ In this section, you create a Java console app that creates a device identity in
     ```
 10. Save and close the App.java file.
 11. To build the **create-device-identity** app using Maven, execute the following command at the command prompt in the create-device-identity folder:
-
+    
     ```
     mvn clean package -DskipTests
     ```
 12. To run the **create-device-identity** app using Maven, execute the following command at the command prompt in the create-device-identity folder:
-
+    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
@@ -138,18 +137,18 @@ In this section, you create a Java console app that reads device-to-cloud messag
 > 
 
 1. In the iot-java-get-started folder you created in the *Create a device identity* section, create a Maven project called **read-d2c-messages** using the following command at your command prompt. Note this is a single, long command:
-
+   
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. At your command prompt, navigate to the read-d2c-messages folder.
 3. Using a text editor, open the pom.xml file in the read-d2c-messages folder and add the following dependency to the **dependencies** node. This dependency enables you to use the eventhubs-client package in your app to read from the Event Hub-compatible endpoint:
-
+   
     ```
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.11.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 
@@ -159,7 +158,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
 4. Save and close the pom.xml file.
 5. Using a text editor, open the read-d2c-messages\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
-
+   
     ```
     import java.io.IOException;
     import com.microsoft.azure.eventhubs.*;
@@ -170,12 +169,12 @@ In this section, you create a Java console app that reads device-to-cloud messag
     import java.util.function.*;
     ```
 7. Add the following class-level variable to the **App** class. Replace **{youriothubkey}**, **{youreventhubcompatibleendpoint}**, and **{youreventhubcompatiblename}** with the values you noted previously:
-
+   
     ```
     private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 8. Add the following **receiveMessages** method to the **App** class. This method creates an **EventHubClient** instance to connect to the Event Hub-compatible endpoint and then asynchronously creates a **PartitionReceiver** instance to read from an Event Hub partition. It loops continuously and prints the message details until the app terminates.
-
+   
     ```
     private static EventHubClient receiveMessages(final String partitionId)
     {
@@ -231,18 +230,18 @@ In this section, you create a Java console app that reads device-to-cloud messag
       return client;
     }
     ```
-
+   
    > [!NOTE]
    > This method uses a filter when it creates the receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This technique is useful in a test environment so you can see the current set of messages. In a production environment, your code should make sure that it processes all the messages - for more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
    > 
    > 
 9. Modify the signature of the **main** method to include the exception as follows:
-
+   
     ```
     public static void main( String[] args ) throws IOException
     ```
 10. Add the following code to the **main** method in the **App** class. This code creates the two **EventHubClient** and **PartitionReceiver** instances and enables you to close the app when you have finished processing messages:
-
+    
     ```
     EventHubClient client0 = receiveMessages("0");
     EventHubClient client1 = receiveMessages("1");
@@ -259,14 +258,14 @@ In this section, you create a Java console app that reads device-to-cloud messag
       System.exit(1);
     }
     ```
-
+    
     > [!NOTE]
     > This code assumes you created your IoT hub in the F1 (free) tier. A free IoT hub has two partitions named "0" and "1".
     > 
     > 
 11. Save and close the App.java file.
 12. To build the **read-d2c-messages** app using Maven, execute the following command at the command prompt in the read-d2c-messages folder:
-
+    
     ```
     mvn clean package -DskipTests
     ```
@@ -275,18 +274,18 @@ In this section, you create a Java console app that reads device-to-cloud messag
 In this section, you create a Java console app that simulates a device that sends device-to-cloud messages to an IoT hub.
 
 1. In the iot-java-get-started folder you created in the *Create a device identity* section, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
-
+   
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. At your command prompt, navigate to the simulated-device folder.
 3. Using a text editor, open the pom.xml file in the simulated-device folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the iothub-java-client package in your app to communicate with your IoT hub and to serialize Java objects to JSON:
-
+   
     ```
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.21</version>
+      <version>1.1.24</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -301,7 +300,7 @@ In this section, you create a Java console app that simulates a device that send
 4. Save and close the pom.xml file.
 5. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
-
+   
     ```
     import com.microsoft.azure.sdk.iot.device.DeviceClient;
     import com.microsoft.azure.sdk.iot.device.IotHubClientProtocol;
@@ -311,6 +310,7 @@ In this section, you create a Java console app that simulates a device that send
     import com.microsoft.azure.sdk.iot.device.MessageCallback;
     import com.microsoft.azure.sdk.iot.device.IotHubMessageResult;
     import com.google.gson.Gson;
+
     import java.io.IOException;
     import java.net.URISyntaxException;
     import java.util.Random;
@@ -318,22 +318,23 @@ In this section, you create a Java console app that simulates a device that send
     import java.util.concurrent.ExecutorService;
     ```
 7. Add the following class-level variables to the **App** class. Replacing **{youriothubname}** with your IoT hub name, and **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
-
+   
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
-
+   
     This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the MQTT, AMQP, or HTTP protocol to communicate with IoT Hub.
 8. Add the following nested **TelemetryDataPoint** class inside the **App** class to specify the telemetry data your device sends to your IoT hub:
-
+   
     ```
     private static class TelemetryDataPoint {
       public String deviceId;
-      public double windSpeed;
-
+      public double temperature;
+      public double humidity;
+   
       public String serialize() {
         Gson gson = new Gson();
         return gson.toJson(this);
@@ -341,13 +342,13 @@ In this section, you create a Java console app that simulates a device that send
     }
     ```
 9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
+   
     ```
     private static class EventCallback implements IotHubEventCallback
     {
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
-
+   
         if (context != null) {
           synchronized (context) {
             context.notify();
@@ -357,29 +358,34 @@ In this section, you create a Java console app that simulates a device that send
     }
     ```
 10. Add the following nested **MessageSender** class inside the **App** class. The **run** method in this class generates sample telemetry data to send to your IoT hub and waits for an acknowledgement before sending the next message:
-
+    
     ```
     private static class MessageSender implements Runnable {
-
+    
       public void run()  {
         try {
-          double avgWindSpeed = 10; // m/s
+          double minTemperature = 20;
+          double minHumidity = 60;
           Random rand = new Random();
-
+    
           while (true) {
-            double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+            double currentTemperature = minTemperature + rand.nextDouble() * 15;
+            double currentHumidity = minHumidity + rand.nextDouble() * 20;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
-            telemetryDataPoint.windSpeed = currentWindSpeed;
-
+            telemetryDataPoint.temperature = currentTemperature;
+            telemetryDataPoint.humidity = currentHumidity;
+    
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
+            msg.setProperty("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
+            msg.setMessageId(java.util.UUID.randomUUID().toString()); 
             System.out.println("Sending: " + msgStr);
-
+    
             Object lockobj = new Object();
             EventCallback callback = new EventCallback();
             client.sendEventAsync(msg, callback, lockobj);
-
+    
             synchronized (lockobj) {
               lockobj.wait();
             }
@@ -391,20 +397,20 @@ In this section, you create a Java console app that simulates a device that send
       }
     }
     ```
-
-    This method sends a new device-to-cloud message one second after the IoT hub acknowledges the previous message. The message contains a JSON-serialized object with the deviceId and a randomly generated number to simulate a wind speed sensor.
+    
+    This method sends a new device-to-cloud message one second after the IoT hub acknowledges the previous message. The message contains a JSON-serialized object with the deviceId and randomly generated numbers to simulate a temperature sensor, and a humidity sensor.
 11. Replace the **main** method with the following code that creates a thread to send device-to-cloud messages to your IoT hub:
-
+    
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
       client = new DeviceClient(connString, protocol);
       client.open();
-
+    
       MessageSender sender = new MessageSender();
-
+    
       ExecutorService executor = Executors.newFixedThreadPool(1);
       executor.execute(sender);
-
+    
       System.out.println("Press ENTER to exit.");
       System.in.read();
       executor.shutdownNow();
@@ -413,7 +419,7 @@ In this section, you create a Java console app that simulates a device that send
     ```
 12. Save and close the App.java file.
 13. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
-
+    
     ```
     mvn clean package -DskipTests
     ```
@@ -427,21 +433,21 @@ In this section, you create a Java console app that simulates a device that send
 You are now ready to run the apps.
 
 1. At a command prompt in the read-d2c folder, run the following command to begin monitoring the first partition in your IoT hub:
-
+   
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
-
+   
     ![Java IoT Hub service app to monitor device-to-cloud messages][7]
 2. At a command prompt in the simulated-device folder, run the following command to begin sending telemetry data to your IoT hub:
-
+   
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
-
+   
     ![Java IoT Hub device app to send device-to-cloud messages][8]
 3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the IoT hub:
-
+   
     ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
@@ -451,7 +457,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with the IoT Gateway SDK][lnk-gateway-SDK]
+* [Getting started with Azure IoT Edge][lnk-gateway-SDK]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
@@ -462,17 +468,17 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [43]: ./media/iot-hub-java-java-getstarted/usage.png
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md/
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs/event-hubs-overview.md/
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-free-trial]: /pricing/1rmb-trial/
 [lnk-portal]: https://portal.azure.cn/
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md

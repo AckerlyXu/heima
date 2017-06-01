@@ -28,7 +28,7 @@ To complete this tutorial, you need:
 * Git. You can download the installation binary [here](http://www.git-scm.com/downloads).  
 * Basic knowledge of Git.
 * A Azure account. If you don't have an account, you can 
-  [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial). 
+  [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial).
 
 ## <a name="Step1"></a>Step 1: Create a local repository
 Perform the following tasks to create a new Git repository.
@@ -151,15 +151,15 @@ The following are errors or problems commonly encountered when using Git to publ
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
-* [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
-[Azure App Service]: /azure/app-service-changes-existing-services/
-[Azure Developer Center]: https://www.azure.cn/develop/overview/
+[Azure App Service]: /app-service-web/app-service-changes-existing-services/
+[Azure Developer Center]: /develop/overview/
 [Azure Portal Preview]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure Command-Line Interface]: /azure/xplat-cli-azure-resource-manager/
+[Azure Command-Line Interface]: /xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

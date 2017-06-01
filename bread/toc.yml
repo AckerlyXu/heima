@@ -1,0 +1,188 @@
+- name: Azure in China
+  tocHref: /
+  topicHref: /index
+  items:
+  - name: Active Directory
+    tocHref: /active-directory/
+    topicHref: /active-directory/
+    items:
+      - name: Connect
+        tocHref: /active-directory/connect/
+        topicHref: /active-directory/connect/
+      - name: Connect Health
+        tocHref: /active-directory/connect-health/
+        topicHref: /active-directory/connect-health/
+      - name: Develop
+        tocHref: /active-directory/develop/
+        topicHref: /active-directory/develop/
+      - name: Privileged Identity Management
+        tocHref: /active-directory/privileged-identity-management/
+        topicHref: /active-directory/privileged-identity-management/
+  - name: App Service
+    tocHref: /app-service/
+    topicHref: /app-service/
+    items:
+    - name: Web Apps
+      tocHref: /app-service-web/
+      topicHref: /app-service-web/
+    - name: Mobile Apps
+      tocHref: /app-service-mobile/
+      topicHref: /app-service-mobile/
+    - name: API Apps
+      tocHref: /app-service-api/
+      topicHref: /app-service-api/
+  - name: Application Gateway
+    tocHref: /application-gateway/
+    topicHref: /application-gateway/
+  - name: Automation
+    tocHref: /automation/
+    topicHref: /automation/
+  - name: Portal
+    tocHref: /azure-portal/
+    topicHref: /azure-portal/
+  - name: Resource Manager
+    tocHref: /azure-resource-manager/
+    topicHref: /azure-resource-manager/
+  - name: Backup
+    tocHref: /backup/
+    topicHref: /backup/
+  - name: Batch
+    tocHref: /batch/
+    topicHref: /batch/
+  - name: Cache
+    tocHref: /cache/
+    topicHref: /cache/
+  - name: CDN
+    tocHref: /cdn/
+    topicHref: /cdn/
+  - name: Cognitive Services
+    tocHref: /cognitive-services/
+    topicHref: /cognitive-services/
+  - name: Cloud Services
+    tocHref: /cloud-services/
+    topicHref: /cloud-services/
+  - name: DocumentDB
+    tocHref: /documentdb/
+    topicHref: /documentdb/
+  - name: Event Hubs
+    tocHref: /event-hubs/
+    topicHref: /event-hubs/
+  - name: Expressroute
+    tocHref: /expressroute/
+    topicHref: /expressroute/
+  - name: HDInsight
+    tocHref: /hdinsight/
+    topicHref: /hdinsight/
+  - name: IoT Hub
+    tocHref: /iot-hub/
+    topicHref: /iot-hub/
+  - name: IoT Suite
+    tocHref: /iot-suite/
+    topicHref: /iot-suite/
+  - name: Key Vault
+    tocHref: /key-vault/
+    topicHref: /key-vault/
+  - name: Load Balancer
+    tocHref: /load-balancer/
+    topicHref: /load-balancer/
+  - name: Media Services
+    tocHref: /media-services/
+    topicHref: /media-services/
+  - name: Mobile Services
+    tocHref: /mobile-services/
+    topicHref: /mobile-services/
+  - name: Monitoring And Diagnostics
+    tocHref: /monitoring-and-diagnostics/
+    topicHref: /monitoring-and-diagnostics/
+  - name: Multi-Factor Authentication
+    tocHref: /multi-factor-authentication/
+    topicHref: /multi-factor-authentication/
+    items:
+      - name: User Guide
+        tocHref: /multi-factor-authentication/end-user/
+        topicHref: /multi-factor-authentication/end-user/
+  - name: Notification Hubs
+    tocHref: /notification-hubs/
+    topicHref: /notification-hubs/
+  - name: Power BI Embedded
+    tocHref: /power-bi-embedded/
+    topicHref: /power-bi-embedded/
+  - name: Redis Cache
+    tocHref: /redis-cache/
+    topicHref: /redis-cache/
+  - name: Resiliency
+    tocHref: /resiliency/
+    topicHref: /resiliency/
+  - name: Scheduler
+    tocHref: /scheduler/
+    topicHref: /scheduler/
+  - name: Security
+    tocHref: /security/
+    topicHref: /security/
+  - name: Service Bus
+    tocHref: /service-bus/
+    topicHref: /service-bus/
+  - name: Service Bus Messaging
+    tocHref: /service-bus-messaging/
+    topicHref: /service-bus-messaging/
+  - name: Service Bus Relay
+    tocHref: /service-bus-relay/
+    topicHref: /service-bus-relay/
+  - name: Service Fabric
+    tocHref: /service-fabric/
+    topicHref: /service-fabric/
+  - name: Site Recovery
+    tocHref: /site-recovery/
+    topicHref: /site-recovery/
+  - name: SQL Data Warehouse
+    tocHref: /sql-data-warehouse/
+    topicHref: /sql-data-warehouse/
+  - name: SQL Database
+    tocHref: /sql-database/
+    topicHref: /sql-database/
+  - name: SQL Server Stretch Database
+    tocHref: /sql-server-stretch-database/
+    topicHref: /sql-server-stretch-database/
+  - name: Storage
+    tocHref: /storage/
+    topicHref: /storage/
+  - name: Stream Analytics
+    tocHref: /stream-analytics/
+    topicHref: /stream-analytics/
+  - name: Traffic Manager
+    tocHref: /traffic-manager/
+    topicHref: /traffic-manager/
+  - name: Virtual Machine Scale Sets
+    tocHref: /virtual-machine-scale-sets/
+    topicHref: /virtual-machine-scale-sets/
+  - name: Virtual Machines
+    tocHref: /virtual-machines/
+    topicHref: /virtual-machines/
+    items:
+      - name: Workloads
+        tocHref: /virtual-machines/workloads/
+        topicHref: /virtual-machines/workloads/sap/get-started
+        items:
+          - name: SAP
+            tocHref: /virtual-machines/workloads/sap/
+            topicHref: /virtual-machines/workloads/sap/get-started
+      - name: Linux
+        tocHref: /virtual-machines/linux/
+        topicHref: /virtual-machines/linux/
+        items:
+          - name: Classic Deployment
+            tocHref: /virtual-machines/linux/classic/
+            topicHref: /virtual-machines/linux/classic/
+      - name: Windows
+        tocHref: /virtual-machines/windows/
+        topicHref: /virtual-machines/windows/
+        items:
+          - name: Classic Deployment
+            tocHref: /virtual-machines/windows/classic/
+            topicHref: /virtual-machines/windows/classic/
+  - name: Virtual Network
+    tocHref: /virtual-network/
+    topicHref: /virtual-network/
+  - name: VPN Gateway
+    tocHref: /vpn-gateway/
+    topicHref: /vpn-gateway/

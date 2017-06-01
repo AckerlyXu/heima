@@ -26,4 +26,3 @@ Here is a list of recommended topics to learn more about multi-tenant applicatio
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

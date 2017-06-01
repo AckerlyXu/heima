@@ -39,7 +39,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
 
 ### Windows Server 2016 virtual machines
 
-- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](/azure/cloud-services-guestos-update-matrix/).
+- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](/cloud-services/cloud-services-guestos-update-matrix/).
 
 #### Known issues
 
@@ -76,7 +76,7 @@ This updates includes the following:
 * **Azure Data Lake Tools** for Visual Studio is now merged into the Azure SDK for .NET release. The tool is automatically installed when you install Azure SDK. 
 
     The tool is updated frequently, go [here](http://aka.ms/datalaketool) to get the updates.
-* **Server Explorer** now enables you to view all and create some U-SQL metadata entities. 
+* **Server Explorer** now enables you to view all and create some U-SQL metadata entities.
 
 ## HDInsight Tools
 **HDInsight Tools** for Visual Studio now supports HDInsight version 3.3, including showing Tez graphs and other language fixes.

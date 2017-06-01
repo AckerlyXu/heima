@@ -20,8 +20,8 @@ ms.author: nkolli;giridham;markgal
 ---
 # Preparing to back up workloads to Azure with DPM
 > [!div class="op_single_selector"]
-> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
+> * [Azure Backup Server (Classic)](./backup-azure-microsoft-azure-backup-classic.md)
+> * [SCDPM (Classic)](./backup-azure-dpm-introduction-classic.md)
 
 This article provides an introduction to using Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
 
@@ -97,4 +97,3 @@ And these are unsupported:
 > From in System Center 2012 DPM with SP1 onwards, you can backup up workloads protected by DPM to Azure using Azure Backup.
 >
 >
-

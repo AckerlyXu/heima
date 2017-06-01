@@ -7,11 +7,13 @@ author: barbkess
 manager: jhubbard
 editor: ''
 
+ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: create
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: barbkess
@@ -20,16 +22,18 @@ ms.author: barbkess
 # Create SQL Data Warehouse using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](./sql-data-warehouse-get-started-provision.md)
-> * [TSQL](./sql-data-warehouse-get-started-create-database-tsql.md)
-> * [PowerShell](./sql-data-warehouse-get-started-provision-powershell.md)
+> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+> * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
+> * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+>
+>
 
 This article shows you how to create a SQL Data Warehouse using PowerShell.
 
 ## Prerequisites
 To get started, you need:
 
-* **Azure account**: Visit [Azure Free Trial][Azure Free Trial] to create an account.
+* **Azure account**: Visit [Azure Trial][Azure Trial] to create an account.
 * **Azure SQL server**:  See [Create an Azure SQL database in the Azure Portal][Create an Azure SQL database in the Azure Portal] or
   [Create an Azure SQL database with PowerShell][Create an Azure SQL database with PowerShell] for more details.
 * **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group](../azure-resource-manager/resource-group-portal.md).
@@ -38,6 +42,8 @@ To get started, you need:
 
 > [!NOTE]
 > Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][SQL Data Warehouse pricing] for more details on pricing.
+>
+>
 
 ## Create a SQL Data Warehouse
 1. Open Windows PowerShell.
@@ -46,18 +52,16 @@ To get started, you need:
     ```Powershell
     Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     ```
-
 3. Select the subscription you want to use for your current session.
 
     ```Powershell
     Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
+4. Create database. This example creates a database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1", which is in the resource group named "mychinanorthresgp1".
 
-4. Create database. This example creates a database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1", which is in the resource group named "mywesteuroperesgp1".
-
-    ```Powershell
-    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
-    ```
+   ```Powershell
+   New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mychinanorthresgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
+   ```
 
 Required Parameters are:
 
@@ -88,7 +92,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [load]: ./sql-data-warehouse-load-with-bcp.md
 [loading sample data]: ./sql-data-warehouse-load-sample-databases.md
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
+[firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
@@ -96,13 +100,13 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
-[MSDN]:https://msdn.microsoft.com/zh-cn/library/azure/dn546722.aspx
-[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619339.aspx
-[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/zh-cn/library/mt204021.aspx
+<!--MSDN references-->
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
+[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
+[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [SQL Data Warehouse pricing]: https://www.azure.cn/pricing/details/sql-data-warehouse/
-[Azure Free Trial]: https://www.azure.cn/pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure Credits]: https://www.azure.cn/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Azure Trial]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F

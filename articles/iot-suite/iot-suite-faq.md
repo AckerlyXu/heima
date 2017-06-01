@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: corywink
 
 ---
@@ -46,8 +46,9 @@ The list of devices in the solution dashboard uses a query to return the list of
 ### How many IoT Hub instances can I provision in a subscription?
 By default you can provision [10 IoT hubs per subscription][link-azuresublimits]. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription. 
 
-### How many DocumentDB instances can I provision in a subscription?
-Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 50 DocumentDB instances per subscription. 
+### How many Azure Cosmos DB instances can I provision in a subscription?
+
+Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 50 Cosmos DB instances per subscription. 
 
 ### How many Free Bing Maps APIs can I provision in a subscription?
 Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The remote monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
@@ -85,8 +86,8 @@ You can also explore some of the other features and capabilities of the IoT Suit
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
 * [IoT security from the ground up][lnk-security-groundup]
 
-[lnk-predictive-overview]: ./iot-suite-predictive-overview.md/
-[lnk-security-groundup]: ./securing-iot-ground-up.md/
+[lnk-predictive-overview]: ./iot-suite-predictive-overview.md
+[lnk-security-groundup]: ./securing-iot-ground-up.md
 [link-azuresupportticket]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: ../azure-subscription-service-limits.md#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.cn

@@ -14,12 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/23/2017
 ms.author: kgremban
+ms.custom: end-user
+wacn.date: ''
 
 ---
 # Manage your settings for two-step verification
-This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
+This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](./multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
 
 ## Where to find the settings page
 Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
@@ -47,7 +49,7 @@ If your IT admin sent out a specific URL or steps to manage two-step verificatio
         ![4](./media/multi-factor-authentication-end-user-manage/4.png) 
 
 
-## I want to change my phone number, or add a secondary number
+## I want to change my phone number
 
 If you want to change your phone number, you can take the following steps.
 
@@ -69,9 +71,7 @@ Now when you login [https://login.partner.microsoftonline.cn](https://login.part
 you will be able to choose new method of verification or phone number.
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](./microsoft-authenticator-app-how-to.md).
 
 ## Next steps
-- Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
-- Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.
-
+- Get troubleshooting tips and help on [Having trouble with two-step verification](./multi-factor-authentication-end-user-troubleshoot.md)

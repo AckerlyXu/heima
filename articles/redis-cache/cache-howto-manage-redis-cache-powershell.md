@@ -83,7 +83,7 @@ The following table contains properties and descriptions for commonly used param
 | VirtualNetwork |When hosting your cache in a VNET, specifies the resource ID of the VNET in which to deploy the cache. | |
 | KeyType |Specifies which access key to regenerate when renewing access keys. Valid values are: Primary, Secondary | |
 
-### <a name="redisconfiguration-properties"></a> RedisConfiguration properties
+### RedisConfiguration properties
 | Property | Description | Pricing tiers |
 | --- | --- | --- |
 | rdb-backup-enabled |Whether [Redis data persistence](cache-how-to-premium-persistence.md) is enabled |Premium only |
@@ -99,7 +99,7 @@ The following table contains properties and descriptions for commonly used param
 | zset-max-ziplist-value |Configures [memory optimization](http://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
 | databases |Configures the number of databases. This property can be configured only at cache creation. |Standard and Premium |
 
-## <a name="to-create-a-redis-cache"></a> To create a Redis Cache
+## To create a Redis Cache
 New Azure Redis Cache instances are created using the [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
 
 > [!IMPORTANT]
@@ -269,13 +269,12 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 
 > [!NOTE]
 > Scaling a cache using PowerShell is subject to the same limits and guidelines as scaling a cache from the Azure portal preview. You can scale to a different pricing tier with the following restrictions.
-> <p> 
 > * You can't scale from a higher pricing tier to a lower pricing tier.
-> <p> * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
-> <p> * You can't scale from a **Standard** cache down to a **Basic** cache.
-> <p> * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
-> <p> * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
-> <p> * You can't scale from a larger size down to the **C0 (250 MB)** size.
+> * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+> * You can't scale from a **Standard** cache down to a **Basic** cache.
+> * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+> * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+> * You can't scale from a larger size down to the **C0 (250 MB)** size.
 > <p> 
 > For more information, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 > 
@@ -481,7 +480,7 @@ To regenerate the primary or secondary key for your cache, call the `New-AzureRm
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
-## <a name="to-import-a-redis-cache"></a> To delete a Redis cache
+## To delete a Redis cache
 To delete a Redis cache, use the [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx) cmdlet.
 
 To see a list of available parameters and their descriptions for `Remove-AzureRmRedisCache`, run the following command.
@@ -528,7 +527,7 @@ In the following example, the cache named `myCache` is removed.
     Are you sure you want to remove redis cache 'myCache'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
-## <a name="to-import-a-redis-cache"></a> To import a Redis cache
+## To import a Redis cache
 You can import data into an Azure Redis Cache instance using the `Import-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]
@@ -584,7 +583,7 @@ The following command imports data from the blob specified by the SAS uri into A
 
     PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## <a name="to-export-a-redis-cache"></a> To export a Redis cache
+## To export a Redis cache
 You can export data from an Azure Redis Cache instance using the `Export-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]
@@ -641,7 +640,7 @@ The following command exports data from an Azure Redis Cache instance into the c
         -Container "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
-## <a name="to-reboot-a-redis-cache"></a> To reboot a Redis cache
+## To reboot a Redis cache
 You can reboot your Azure Redis Cache instance using the `Reset-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]

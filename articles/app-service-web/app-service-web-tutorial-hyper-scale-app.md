@@ -22,7 +22,7 @@ ms.author: cephalin
 
 This tutorial shows you how to scale out an ASP.NET web app in Azure to maximize user requests.
 
-Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/cli/azure/install-azure-cli) on your machine. In addition, you need [Visual Studio](https://www.visualstudio.com/vs/) on your local machine run the sample application.
+Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/cli/azure/install-azure-cli) on your machine. In addition, you need [Visual Studio](https://www.visualstudio.com/vs/) on your local machine to run the sample application.
 
 ## Step 1 - Get sample application
 In this step, you set up the local ASP.NET project.
@@ -62,6 +62,9 @@ And the `About()` and `Contact()` methods cache their output.
 In this step, you create an Azure web app and deploy your sample ASP.NET application to it.
 
 ### Create a resource group   
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 Use [az group create](https://docs.microsoft.com/cli/azure/group#create) to create a [resource group](../azure-resource-manager/resource-group-overview.md) in the China North region. A resource group is where you put all the Azure resources that you want to manage together, such as the web app and any SQL Database back end.
 
 ```azurecli
@@ -218,7 +221,7 @@ az appservice plan update --name myAppServicePlan --resource-group myResourceGro
 ## Step 5 - Scale geographically
 When scaling geographically, you run your app in multiple regions of the Azure cloud. This setup load-balances your app further based on geography and lowers the response time by placing your app closer to client browsers.
 
-In this step, you scale your ASP.NET web app to a second region with [Azure Traffic Manager](/azure/traffic-manager/). At the end of the step, you will have a web app running in China North (already created) and a web app running in China East (not yet created). Both apps will be served from the same Traffic Manager URL.
+In this step, you scale your ASP.NET web app to a second region with [Azure Traffic Manager](/traffic-manager/). At the end of the step, you will have a web app running in China North (already created) and a web app running in China East (not yet created). Both apps will be served from the same Traffic Manager URL.
 
 ### Scale up the China North app to Standard tier
 In App Service, integration with Azure Traffic Manager requires the Standard pricing tier. Use [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) to scale up your App Service plan to S1. 
@@ -288,7 +291,7 @@ az appservice web create --name $appName-east --resource-group myResourceGroup -
 ### Configure the connection string for Redis
 Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) to add to the web app the connection string for the China East cache.
 
-az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
+    az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
 
 ### Configure Git deployment for the China East app.
 Use [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) to configure local Git deployment for the second web app.

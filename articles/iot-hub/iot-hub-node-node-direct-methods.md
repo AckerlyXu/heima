@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
-wacn.date: ''
+ms.date: 04/05/2017
 ms.author: nberdy
----
+ms.custom: H1Hack27Feb2017
 
+---
 # Use direct methods on your IoT device with Node.js
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
@@ -43,13 +43,13 @@ To complete this tutorial, you need the following:
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a method called by the cloud.
 
-1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
-
+1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+   
     ```
     npm init
     ```
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
-
+2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+   
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
@@ -105,13 +105,13 @@ In this section, you create a Node.js console app that responds to a method call
 ## Call a method on a device
 In this section, you create a Node.js console app that calls a method in the simulated device app and then displays the response.
 
-1. Create a new empty folder called **callmethodondevice**. In the **callmethodondevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
-
+1. Create a new empty folder called **callmethodondevice**. In the **callmethodondevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+   
     ```
     npm init
     ```
-2. At your command-prompt in the **callmethodondevice** folder, run the following command to install the **azure-iothub** package:
-
+2. At your command prompt in the **callmethodondevice** folder, run the following command to install the **azure-iothub** package:
+   
     ```
     npm install azure-iothub --save
     ```
@@ -140,7 +140,7 @@ In this section, you create a Node.js console app that calls a method in the sim
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
 

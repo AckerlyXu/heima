@@ -81,8 +81,6 @@ The following code example uses Media Services .NET SDK to perform the following
 
 		                // Used the chached credentials to create CloudMediaContext.
 		                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
-
-
 			    // Get an uploaded asset.
 			    var asset = _context.Assets.FirstOrDefault();
 

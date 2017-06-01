@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script-Scale an elastic pool | Microsoft Docs
+title: Azure CLI Script-Scale an elastic pool | Azure
 description: Azure CLI Script Sample - Scale an elastic database pool
 services: sql-database
 documentationcenter: sql-database
@@ -11,11 +11,11 @@ tags: azure-service-management
 ms.assetid:
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: CLI
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: samples
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/16/2017
+ms.date: 04/24/2017
 ms.author: janeng
 ---
 
@@ -23,9 +23,7 @@ ms.author: janeng
 
 This sample CLI script creates elastic pools, moves pooled databases, and changes performance levels. 
 
-If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 

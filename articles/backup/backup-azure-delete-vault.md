@@ -74,4 +74,3 @@ The following instructions are for deleting a Backup vault in the Classic Manage
 
     The vault is deleted, and you return to the Classic Management Portal dashboard.
 
-

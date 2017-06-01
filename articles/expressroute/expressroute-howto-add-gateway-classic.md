@@ -40,4 +40,4 @@ Verify that you have installed the Azure PowerShell cmdlets needed for this conf
 
 ## Next steps
 
-After you have created the VNet gateway, you can link your VNet to an ExpressRoute circuit. See [Link a Virtual Network to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md/).
+After you have created the VNet gateway, you can link your VNet to an ExpressRoute circuit. See [Link a Virtual Network to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md).

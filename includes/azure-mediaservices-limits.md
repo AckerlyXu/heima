@@ -1,4 +1,4 @@
->[AZURE.NOTE]
+>[!NOTE]
 >For resources that are not fixed, you may ask for the quotas to be raised, by opening a support ticket. Do **not** create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
 | Resource | Default Limit | 
@@ -34,7 +34,7 @@ Starting April 1, 2017, any Job record in your account older than 90 days will b
 
 <sup>6</sup> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). 
 
->[AZURE.NOTE]
+>[!NOTE]
 > You should use the same policy ID if you are always using the same days / access permissions / etc. For information and an example, see [this](/documentation/articles/media-services-dotnet-manage-entities/#limit-access-policies/) section.
 
 <sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the following limits. 

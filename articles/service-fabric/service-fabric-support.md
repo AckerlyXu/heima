@@ -3,7 +3,7 @@ title: Learn about Azure Service Fabric Support options | Microsoft Docs
 description: Azure Service Fabric cluster versions supported and links to file support tickets.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
+ms.date: 05/05/2017
+ms.author: pkc
 
 ---
 # Azure Service Fabric support options
@@ -36,7 +36,8 @@ Here are the list of the Service Fabric versions that are supported and their su
 | All cluster versions prior to 5.3.121 |January 20, 2017 |
 | 5.3.* |February 24, 2017 |
 | 5.4.* |May 10,2017     |
-| 5.5.* |Current version and so no end date
+| 5.5.* |July 10,2017    |
+| 5.6.* |Current version and so no end date
 
 
 ## Next steps
