@@ -181,8 +181,6 @@
 #### [Use Azure Resource Manager with PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Manage apps using Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Integrate
-### [Connect to Azure Storage in your Xamarin.Forms app](app-service-mobile-xamarin-forms-blob-storage.md)
 
 
 ## Troubleshoot
