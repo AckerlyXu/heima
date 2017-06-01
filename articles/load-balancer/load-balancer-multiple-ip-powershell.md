@@ -133,7 +133,8 @@ Follow the steps below to achieve the scenario outlined in this article:
     $nic2 | Set-AzureRmNetworkInterface
     ```
 
-13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. <!--Not available in Azure.cn You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. 
+<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
