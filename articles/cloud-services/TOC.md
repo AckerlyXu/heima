@@ -25,8 +25,6 @@
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
-### [Use Twilio to make a phone call (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configure start up tasks
 #### [Create startup tasks](cloud-services-startup-tasks.md)
@@ -91,7 +89,6 @@
 #### [Enable remote debugging with cont. delivery](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Options for a Cloud Service](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Local Cloud Service with Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
-#### [Published Cloud Service with Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 ### [Cloud Service allocation failure](cloud-services-allocation-failures.md)
 ### [Common causes of Cloud Service roles recycling](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 ### [Default TEMP folder size too small for role](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
