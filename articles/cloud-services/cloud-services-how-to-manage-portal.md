@@ -80,7 +80,7 @@ Note that guest OS updates and service healing operations can also cause deploym
 
 **Does a swap incur downtime for my application? How should I handle it?**
 
-As described in the last section, a deployment swap is typically very fast since it is just a configuration change in the Azure load balancer. In some cases, however, it can take ten or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](../best-practices-retry-general.md).
+As described in the last section, a deployment swap is typically very fast since it is just a configuration change in the Azure load balancer. In some cases, however, it can take ten or more seconds and result in transient connection failures. 
 
 ## How to: Link a resource to a cloud service
 

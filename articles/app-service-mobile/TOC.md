@@ -74,7 +74,6 @@
 ### Xamarin.Forms
 #### [Enable offline sync](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Add authentication](app-service-mobile-xamarin-forms-get-started-users.md)
-#### [Connect to Azure Storage in your Xamarin.Forms app](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [Work with the client SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
