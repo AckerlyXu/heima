@@ -33,7 +33,7 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 
 ![Redis Cache Settings](./media/cache-configure/redis-cache-settings.png)
 
-* [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+* [Support & troubleshooting settings](#support--troubleshooting-settings)
 * [General settings](#general-settings)
     * [Properties](#properties)
     * [Access keys](#access-keys)
@@ -314,9 +314,9 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 > [!NOTE]
 > The settings in this section cannot be changed using the `StackExchange.Redis.IServer.ConfigSet` method. If this method is called with one of the commands in this section, an exception similar to the following is thrown:  
-> <p> 
+> 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
-> <p> 
+> 
 > Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure portal preview or command-line management tools such as Azure CLI or PowerShell.
 > 
 > 

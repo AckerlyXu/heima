@@ -154,12 +154,12 @@ The following are errors or problems commonly encountered when using Git to publ
 * [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
-[Azure App Service]: /app-service-web/app-service-changes-existing-services/
+[Azure App Service]: /app-service-web/app-service-changes-existing-services
 [Azure Developer Center]: /develop/overview/
 [Azure Portal Preview]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure Command-Line Interface]: /xplat-cli-azure-resource-manager/
+[Azure Command-Line Interface]: /xplat-cli-azure-resource-manager
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

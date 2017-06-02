@@ -26,7 +26,7 @@ A VPN gateway connection enables you to establish secure, cross-premises connect
 This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine. It also provides troubleshooting guidance.
 
 >[!NOTE]
->This article is intended to help diagnose and fix common issues. If you're unable to solve the issue by using the following information, [contact support](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+>This article is intended to help diagnose and fix common issues. If you're unable to solve the issue by using the following information, [contact support](https://www.azure.cn/support/contact/).
 >
 >
 
@@ -136,4 +136,4 @@ From the on-premises network, run *tracert* to the VIP of the Azure Gateway or V
 For more information or help, check out the following links:
 
 - [Optimize network throughput for Azure virtual machines](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Microsoft Support](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+- [Azure.cn Support](https://www.azure.cn/support/contact/)

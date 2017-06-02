@@ -36,15 +36,6 @@ Here, you will learn useful skills like:
 
 You should have working knowledge of Sails.js. This tutorial is not intended to help you with issues related to running Sail.js in general.
 
-## CLI versions to complete the task
-
-You can complete the task using one of the following CLI versions:
-
-- [Azure CLI 1.0](app-service-web-nodejs-sails-cli-nodejs.md) - our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0](app-service-web-nodejs-sails.md) - our next generation CLI for the resource management deployment model
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## Prerequisites
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
@@ -52,6 +43,8 @@ You can complete the task using one of the following CLI versions:
 * [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2)
 * A Azure account. If you don't have an account, you can
   [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Step 1: Create and configure a Sails.js app locally
 First, quickly create a default Sails.js app in your development environment by following these steps:

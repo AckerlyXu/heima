@@ -79,9 +79,9 @@ You can download the existing Azure Resource Manager template to create a virtua
     * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
     > [!NOTE]
-    > For more information on templates visit: [Resource Manager templates reference](https://docs.microsoft.com/templates/)
+    > For more information on templates visit: [Resource Manager templates reference](https://github.com/Azure/azure-quickstart-templates/)
 
-1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Click **azuredeploy-parameters.json**, and then click **RAW**.
 1. Save the file to a local folder on your computer.
 1. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.

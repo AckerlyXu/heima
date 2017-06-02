@@ -65,7 +65,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
     This command gives you the input for the Azure Resource Manager template.
 
-    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/azure/service-fabric-cluster-security).
+    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security).
 
 2.  Change the Resource Manager template.
 
@@ -215,7 +215,7 @@ The CRP component does not persist customer secrets. If you run `stop deallocate
 
 You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
 
-### Why do I have to specify the exact location for the certificate URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>), as indicated in [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security/)?
+### Why do I have to specify the exact location for the certificate URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>), as indicated in [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security)?
 
 The Azure Key Vault documentation states that the Get Secret REST API should return the latest version of the secret if the version is not specified.
 

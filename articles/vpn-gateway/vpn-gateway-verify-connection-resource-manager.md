@@ -58,6 +58,8 @@ To verify by using the Azure CLI, install the latest version of the CLI commands
 
 ### Log in to your Azure account
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
   ```azurecli

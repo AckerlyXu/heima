@@ -180,6 +180,4 @@ The Azure portal preview provides a convenient way to quickly create a scale set
 
 ## Next steps
 
-Learn more about [data disks](virtual-machine-scale-sets-attached-disks.md).
-
 Learn how to [manage your apps](virtual-machine-scale-sets-deploy-app.md).

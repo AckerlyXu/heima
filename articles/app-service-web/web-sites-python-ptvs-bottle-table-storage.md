@@ -20,8 +20,6 @@ ms.author: huvalo
 ---
 # Bottle and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates.
 
 The polls web app defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).

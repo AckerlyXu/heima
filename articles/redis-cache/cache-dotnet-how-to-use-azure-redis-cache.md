@@ -113,8 +113,6 @@ One approach to sharing a `ConnectionMultiplexer` instance in your application i
         }
     }
 
-For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][StackExchange.Redis configuration model].
-
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 Once the connection is established, return a reference to the redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.

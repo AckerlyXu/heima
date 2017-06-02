@@ -210,7 +210,7 @@ where:
 
 > **Note:** Each time you run this application, you need to change the value 
 > of `webAppName` and `appServicePlanName` (or delete the web app on the Azure 
-> Portal) before running the application again. Otherwise, execution will 
+> Portal Preview) before running the application again. Otherwise, execution will 
 > fail because the same resource already exists on Azure.
 > 
 > 

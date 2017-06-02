@@ -74,7 +74,6 @@ You have the option to install HDInsight applications when you create a cluster.
     * **Cluster Type**: If you don't know what to choose, select **Hadoop**. It is the most popular cluster type.
     * **Operating System**: Select **Linux**.
     * **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-    * **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
 6. Click **Applications**, click one of the published applications, and then click **Select**.
 7. Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
 8. Click **Data Source**, select one of the existing storage account or create a new storage account to be used as the default storage account for the cluster.

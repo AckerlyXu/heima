@@ -41,7 +41,7 @@ If you are experiencing problems connecting to Azure RHUI from your Azure RHEL P
     If you are using the new configuration and still cannot connect to Azure RHUI - file a support case with Microsoft or Red Hat.
 
     > [!NOTE]
-    > Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+    > Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
     > 
 
 2. If the old Azure RHUI is still available when you do this check and you would like to automatically update the configuration, execute the following command:
@@ -207,7 +207,7 @@ sudo rpm -U azureclient.rpm
 RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://www.azure.cn/support/service-dashboard/) page, Azure US Government and Azure Germany regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
 
 > [!NOTE]
-> Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+> Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
 > 
 > 
 

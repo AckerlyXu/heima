@@ -30,8 +30,6 @@ You'll need a bootable VHD.
 You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
 or use your own VHD. The script looks for `~/sample.vhd`.
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

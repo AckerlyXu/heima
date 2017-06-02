@@ -65,7 +65,7 @@ Default tags are system-provided identifiers to address a category of IP address
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (CIDR ranges defined in Azure), all connected on-premises address spaces, and connected Azure VNets (local networks).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to an Azure datacenter IP where Azure's health probes originate.
-* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653).
+* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=42064).
 
 ### Default rules
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 

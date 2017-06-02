@@ -28,7 +28,7 @@ In this article, two previously created Azure Web App endpoints are associated t
 1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn). If you don't already have an account, you can sign-up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial/). 
 2. On the **Hub** menu, click **New** > **Networking** > **See all**, click **Traffic Manager** profile to open the **Create Traffic Manager profile** blade, then click **Create**.
 3. On the **Create Traffic Manager profile** blade, complete as follows:
-    1. In **Name**, provide a name for your profile. This name needs to be unique within the trafficmanager.cn zone and results in the DNS name \<name\>,trafficmanager.cn which is used to access your Traffic Manager profile.
+    1. In **Name**, provide a name for your profile. This name needs to be unique within the trafficmanager.cn zone and results in the DNS name \<name\>.trafficmanager.cn which is used to access your Traffic Manager profile.
     2. In **Routing method**, select the **Priority** routing method.
     3. In **Subscription**, select the subscription you want to create this profile under
     4. In **Resource Group**, create a new resource group to place this profile under.

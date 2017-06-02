@@ -286,7 +286,7 @@ You cannot run Hive job directly from the Azure portal preview, but you can use 
 
 **To run Hive queries using Ambari Hive View**
 
-1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>azurehdinsight.cn**.
+1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>.azurehdinsight.cn**.
 2. Open Hive View as shown in the following screenshot:  
 
     ![HDInsight hive view](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)

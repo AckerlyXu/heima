@@ -30,6 +30,8 @@ The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more inform
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 The following file types are accepted:
 
@@ -64,7 +66,7 @@ The following file types are accepted:
 
 > [!NOTE]
 > If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Azure.
-> <p> 
+> 
 > For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
 > 
 > 

@@ -75,16 +75,14 @@ The following tables list the default VM sizes for HDInsight:
 
 <!-- need to be verified -->
 
-| Cluster type | Hadoop | HBase | Storm | Spark | R Server |
-| --- | --- | --- | --- | --- | --- |
-| Head: default VM size |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-| Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-| Worker: default VM size |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-| Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-| ZooKeeper: default VM size | |A3 |A2 | | |
-| ZooKeeper: recommended VM sizes | |A3, A4, A5 |A2, A3, A4 | | |
-| Edge: default VM size | | | | |Windows: D12 v2; Linux: D4 v2 |
-| Edge: recommended VM size | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+| Cluster type | Hadoop | HBase | Storm | Spark |
+| --- | --- | --- | --- | --- |
+| Head: default VM size |D3 v2 |D3 v2 |A3 |D12 v2 |
+| Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |
+| Worker: default VM size |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |
+| Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+| ZooKeeper: default VM size | |A3 |A2 | |
+| ZooKeeper: recommended VM sizes | |A3, A4, A5 |A2, A3, A4 | |
 
 > [!NOTE]
 > Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
@@ -112,14 +110,6 @@ You can create HDInsight clusters on either Linux or Windows.  For more informat
 
 ### Version
 This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Cluster tier
-
-Azure HDInsight provides the big data cloud offerings in two categories: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-The following screenshot shows the Azure portal preview information for choosing cluster types.
-
-![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 ### Credentials
 With HDInsight clusters, you can configure two user accounts during cluster creation:
@@ -262,9 +252,9 @@ You can install additional components or customize cluster configuration by usin
 Some native Java components, like Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
-> If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://www.azure.cn/support/contact/).
+> If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Azure.cn Support](https://www.azure.cn/support/contact/).
 >
-> Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
+> Cascading is not supported by HDInsight and is not eligible for Azure.cn Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
 >
 >
 
