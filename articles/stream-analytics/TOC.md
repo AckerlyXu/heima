@@ -10,7 +10,7 @@
 
 ## Build streaming solutions
 ### [Internet of Things](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-<!-- ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
+<!-- Not Available ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
 ### [Sensor data with Power BI](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 <!-- Not Available ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md) -->
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
@@ -23,15 +23,15 @@
 ### [Use reference data](stream-analytics-use-reference-data.md)
 <!-- Not Available ### [Output to Azure Functions](stream-analytics-functions-redis.md) -->
 <!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
-### [Output to DocumentDB](stream-analytics-documentdb-output.md)
-<!--Not Available ### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
+<!-- Not Available ### [Output to DocumentDB](stream-analytics-documentdb-output.md) -->
+<!-- Not Available ### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
 ### [JavaScript UDF integration](stream-analytics-javascript-user-defined-functions.md)
 <!-- Not Available ### [REST API & Machine Learning integration](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)-->
 ### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [Window functions](stream-analytics-window-functions.md)
 
 ## Manage
-### [Job reliability](stream-analytics-job-reliability.md)
+<!-- Not Available ### [Job reliability](stream-analytics-job-reliability.md) -->
 ### [Monitor jobs](stream-analytics-monitoring.md)
 <!-- Not Available ### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md) -->
 ### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)

@@ -269,13 +269,13 @@ The following information can be helpful when you work with resources:
 
 * Assign public IP addresses to a virtual machine only when an application requires it. To connect to a virtual machine (VM) for debugging, or for management or administrative purposes, use inbound NAT rules, a virtual network gateway, or a jumpbox.
    
-     For more information about connecting to virtual machines, see:
+    For more information about connecting to virtual machines, see:
    
-   <!-- Not Available guidance/guidance-compute-n-tier-vm.md-->
-   * [Set up WinRM access for VMs in Azure Resource Manager](../virtual-machines/windows/winrm.md)
-   * [Allow external access to your VM by using the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Allow external access to your VM by using PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Allow external access to your Linux VM by using Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+    <!-- Not Available guidance/guidance-compute-n-tier-vm.md-->
+    * [Set up WinRM access for VMs in Azure Resource Manager](../virtual-machines/windows/winrm.md)
+    * [Allow external access to your VM by using the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
+    * [Allow external access to your VM by using PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
+    * [Allow external access to your Linux VM by using Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 * The **domainNameLabel** property for public IP addresses must be unique. The **domainNameLabel** value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the **uniqueString** function generates a string that is 13 characters long, the **dnsPrefixString** parameter is limited to 50 characters:
 
     ```json
@@ -391,7 +391,7 @@ It's a good practice to pass your template through a JSON validator. A validator
 It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor. In Visual Studio, to format the document, press **Ctrl+K, Ctrl+D**. In Visual Studio Code, press **Alt+Shift+F**. If your local editor doesn't format the document, you can use an [online formatter](https://www.bing.com/search?q=json+formatter).
 
 ## Next steps
-<!-- Not Available on guidance directory-->
+<!-- Not Available on Guidance Directory-->
 * For guidance on setting up a storage account, see [Azure Storage Performance and Scalability Checklist](../storage/storage-performance-checklist.md).
 * For help with virtual networks, see the [networking infrastructure guidelines](../virtual-machines/windows/infrastructure-networking-guidelines.md).
 * To learn about how an enterprise can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](resource-manager-subscription-governance.md).

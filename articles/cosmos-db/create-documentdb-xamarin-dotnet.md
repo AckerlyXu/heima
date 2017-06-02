@@ -103,8 +103,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 3. Publish the ResourceTokenBroker solution to your created website.
 
 4. Open the Xamarin project, and navigate to TodoItemManager.cs. Fill in the values for accountURL, collectionId, databaseId, as well as resourceTokenBrokerURL as the base https url for the resource token broker website.
-<!-- 5. Complete the [How to configure your App Service application to use Facebook login](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) tutorial to setup Facebook authentication and configure the ResourceTokenBroker website.-->
-
+<!-- No Available # [How to configure your App Service application to use Facebook login](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) -->
     Run the Xamarin app.
 
 ## Review SLAs in the Azure portal preview
