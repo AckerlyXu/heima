@@ -1,11 +1,9 @@
 # Overview
 ## [About HDInsight and Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop components on HDInsight](hdinsight-component-versioning.md)
-## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
-## [Kafka (Preview)](hdinsight-apache-kafka-introduction.md)
 ## Release notes
 ### [Recent](hdinsight-release-notes.md)
 ### [Archive](hdinsight-release-notes-archive.md)
@@ -13,11 +11,9 @@
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
-## [Start with R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
 ## [Start with Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md)
-## [Start with Kafka (Preview)](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -49,11 +45,6 @@
 #### [Use Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md)
 ### [Use DataFu with Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Use R Server
-### [Storage options](hdinsight-hadoop-r-server-storage.md)
-### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use Spark for in-memory processing
 ### [With BI tools](hdinsight-apache-spark-use-bi-tools.md)
 ### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
@@ -89,11 +80,6 @@
 #### [Process vehicle sensor data](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
-## Use Kafka (Preview)
-### [Replicate Kafka data](hdinsight-apache-kafka-mirroring.md)
-### [Use with Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Use with Spark](hdinsight-apache-spark-with-kafka.md)
-### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
 ## Develop
 ### [Develop C# streaming MapReduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)

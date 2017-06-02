@@ -25,9 +25,6 @@
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
 
-## Troubleshoot
-### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
-
 ## FAQ
 ### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
 
