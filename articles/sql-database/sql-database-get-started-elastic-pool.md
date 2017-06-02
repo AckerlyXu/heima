@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-elastic-pool-manage-portal
+redirect_url: /sql-database/sql-database-elastic-pool-manage-portal
 --- 
