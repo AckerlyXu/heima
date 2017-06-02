@@ -8,7 +8,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-value-prop">
+        <a href="/app-service-mobile/app-service-mobile-value-prop">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,7 +44,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-android-get-started">
+        <a href="/app-service-mobile/app-service-mobile-android-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-cordova-get-started">
+        <a href="/app-service-mobile/app-service-mobile-cordova-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +80,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-ios-get-started">
+        <a href="/app-service-mobile/app-service-mobile-ios-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +98,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started">
+        <a href="/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -116,7 +116,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
      <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started">
+        <a href="/app-service-mobile/app-service-mobile-xamarin-android-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -134,7 +134,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
      <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started">
+        <a href="/app-service-mobile/app-service-mobile-xamarin-forms-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -152,7 +152,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
      <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started">
+        <a href="/app-service-mobile/app-service-mobile-xamarin-ios-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

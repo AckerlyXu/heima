@@ -9,7 +9,7 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/monitoring-and-diagnostics/monitoring-overview">
+        <a href="/monitoring-and-diagnostics/monitoring-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -27,7 +27,7 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
         </a>
     </li>    
     <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-portal">
+        <a href="/monitoring-and-diagnostics/insights-alerts-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -45,7 +45,7 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
         </a>
     </li>
     <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-command-line-interface">
+        <a href="/monitoring-and-diagnostics/insights-alerts-command-line-interface">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -63,7 +63,7 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
         </a>
     </li>
      <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-powershell">
+        <a href="/monitoring-and-diagnostics/insights-alerts-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -81,7 +81,7 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
         </a>
     </li>
     <li>
-        <a href="/azure/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
+        <a href="/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
