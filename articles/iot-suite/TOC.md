@@ -29,9 +29,9 @@
 ## [Security from the ground up](securing-iot-ground-up.md)
 
 # Related
-## [Stream Analytics](/azure/stream-analytics/)
-## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
+## [Stream Analytics](/stream-analytics/)
+## [Event Hubs](/event-hubs/)
+## [IoT Hub](/iot-hub/)
 
 
 # Resources

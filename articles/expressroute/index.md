@@ -8,7 +8,7 @@ Learn how to use ExpressRoute to set up a fast, private connection to Microsoft 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/expressroute-introduction">
+        <a href="/expressroute/expressroute-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,7 +44,7 @@ Learn how to use ExpressRoute to set up a fast, private connection to Microsoft 
         </a>
     </li>
     <li>
-        <a href="/azure/expressroute/expressroute-prerequisites">
+        <a href="/expressroute/expressroute-prerequisites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
