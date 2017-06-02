@@ -141,7 +141,7 @@ A virtual service account is a special type of account that does not have a pass
 
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
 
-The VSA is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend to use a [Group Managed Service Account](#managed-service-account) instead.
+The VSA is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend to use a [Group Managed Service Account](#group-managed-service-account) instead.
 
 This feature requires Windows Server 2008 R2 or later. If you install Azure AD Connect on Windows Server 2008, then the installation falls back to using a [user account](#user-account) instead.
 
