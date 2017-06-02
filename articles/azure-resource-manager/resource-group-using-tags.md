@@ -100,7 +100,7 @@ Tags enable you to group your billing data. For example, if you are running mult
 <!-- Not supported billing-usage-rate-card-overview on Azure.cn -->
 You can usage comma-separated values (CSV) file. You download the usage file from the [Azure accounts portal](https://account.windowsazure.cn/). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Azure](/documentation/articles/billing-understand-your-bill/).
+When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Azure](../billing-understand-your-bill.md).
 
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 
