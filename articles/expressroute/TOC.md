@@ -37,9 +37,6 @@
 ## Configure a router for ExpressRoute
 ### [Router configuration setup samples](expressroute-config-samples-routing.md)
 
-## Best Practices
-### [Best practices for network security and cloud services](../best-practices-network-security.md)
-### [Asymmetric routing](expressroute-asymmetric-routing.md)
 
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)

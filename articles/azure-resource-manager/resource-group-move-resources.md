@@ -79,7 +79,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Azure Cosmos DB
+* DocumentDB
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs

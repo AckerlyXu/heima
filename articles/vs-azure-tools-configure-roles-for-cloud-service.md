@@ -130,18 +130,18 @@ The following steps show how to programmatically access a connection string usin
 
 1. Add the following using directives to a C# file where you are going to use the setting:
 
-	```csharp
-	using Microsoft.WindowsAzure;
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.ServiceRuntime;
-	```
+    ```csharp
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.ServiceRuntime;
+    ```
 
 1. The following code illustrates an example of how to access a connection string. Replace the &lt;ConnectionStringName> placeholder with the appropriate value. 
 
-	```csharp
-	// Setup the connection to Azure Storage
-	var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("<ConnectionStringName>"));
-	```
+    ```csharp
+    // Setup the connection to Azure Storage
+    var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("<ConnectionStringName>"));
+    ```
 
 ## Add custom settings to use in your Azure cloud service
 Custom settings in the service configuration file let you add a name and value for a string for a specific service configuration. You might choose to use this setting to configure a feature in your cloud service by reading the value of the setting and using this value to control the logic in your code. You can change these service configuration values without having to rebuild your service package or when your cloud service is running. Your code can check for notifications of when a setting changes. See [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
@@ -186,17 +186,17 @@ The following steps show how to programmatically access a custom setting using C
 
 1. Add the following using directives to a C# file where you are going to use the setting:
 
-	```csharp
-	using Microsoft.WindowsAzure;
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.ServiceRuntime;
-	```
+    ```csharp
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.ServiceRuntime;
+    ```
 
 1. The following code illustrates an example of how to access a custom setting. Replace the &lt;SettingName> placeholder with the appropriate value. 
     
-	```csharp
-	var settingValue = RoleEnvironment.GetConfigurationSettingValue("<SettingName>");
-	```
+    ```csharp
+    var settingValue = RoleEnvironment.GetConfigurationSettingValue("<SettingName>");
+    ```
 
 ## Manage local storage for each role instance
 You can add local file system storage for each instance of a role. The data stored in that storage is not accessible by other instances of the role for which the data is stored, or by other roles.  
@@ -239,21 +239,21 @@ This section illustrates how to programmatically access local storage using C# b
 
 The following code shows an example of how to write a text file to local storage. Replace the &lt;LocalStorageName> placeholder with the appropriate value. 
 
-	```csharp
-	// Retrieve an object that points to the local storage resource
-	LocalResource localResource = RoleEnvironment.GetLocalResource("<LocalStorageName>");
-	
-	//Define the file name and path
-	string[] paths = { localResource.RootPath, "MyLocalStorageTest.txt" };
-	String filePath = Path.Combine(paths);
-	
-	using (FileStream writeStream = File.Create(filePath))
-	{
-		Byte[] textToWrite = new UTF8Encoding(true).GetBytes("Testing Web role storage");
-		writeStream.Write(textToWrite, 0, textToWrite.Length);
-	}
+    ```csharp
+    // Retrieve an object that points to the local storage resource
+    LocalResource localResource = RoleEnvironment.GetLocalResource("<LocalStorageName>");
+    
+    //Define the file name and path
+    string[] paths = { localResource.RootPath, "MyLocalStorageTest.txt" };
+    String filePath = Path.Combine(paths);
+    
+    using (FileStream writeStream = File.Create(filePath))
+    {
+        Byte[] textToWrite = new UTF8Encoding(true).GetBytes("Testing Web role storage");
+        writeStream.Write(textToWrite, 0, textToWrite.Length);
+    }
 
-	```
+    ```
 
 ### Find a file written to local storage
 
