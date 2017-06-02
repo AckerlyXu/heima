@@ -49,11 +49,11 @@
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Related
-## [Virtual Network](/azure/virtual-network/)
-## [VPN Gateway](/azure/vpn-gateway/)
-## [Virtual Machines](/azure/virtual-machines/)
-## [Load Balancer](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
+## [Virtual Network](/virtual-network/)
+## [VPN Gateway](/vpn-gateway/)
+## [Virtual Machines](/virtual-machines/)
+## [Load Balancer](/load-balancer/)
+## [Traffic Manager](/traffic-manager/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)
