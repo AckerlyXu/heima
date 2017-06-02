@@ -21,8 +21,6 @@ Azure AD Connect **Custom settings** is used when you want more options for the 
 
 Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md). Also make sure you have required accounts available as described in [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md).
 
-If customized settings does not match your topology, for example to upgrade DirSync, see [related documentation](#related-documentation) for other scenarios.
-
 ## Custom settings installation of Azure AD Connect
 ### Express Settings
 On this page, click **Customize** to start a customized settings installation.
@@ -178,8 +176,8 @@ For each forest that has been added in Azure AD Connect, you will need to supply
 
 ![Enable Single sign on](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
 
->[!NOTE]
->You can skip a particular forest if you do not wish to use Single sign on with that forest.
+> [!NOTE]
+> You can skip a particular forest if you do not wish to use Single sign on with that forest.
 
 #### Configure the Intranet Zone for client machines
 To ensure that the client sign-ins automatically in the intranet zone you need to ensure that two URLs are part of the intranet zone. This ensures that the domain joined computer automatically sends a Kerberos ticket to Azure AD when it is connected to the corporate network.
@@ -231,10 +229,11 @@ Enter the servers that you want to install AD FS on. You can add one or more ser
 Enter the servers that you want as your Web Application proxy servers. The web application proxy server is deployed in your DMZ (extranet facing) and supports authentication requests from the extranet. You can add one or more servers based on your capacity planning needs. Microsoft recommends installing a single Web application proxy server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration. We recommend having an equivalent number of proxy servers to satisfy authentication from the intranet.
 
 > [!NOTE]
+> <ul>
 > <li> If the account you use is not a local admin on the AD FS servers, then you are prompted for admin credentials.</li>
 > <li> Ensure that there is HTTP/HTTPS connectivity between the Azure AD Connect server and the Web Application Proxy server before you run this step.</li>
 > <li> Ensure that there is HTTP/HTTPS connectivity between the Web Application Server and the AD FS server to allow authentication requests to flow through.</li>
->
+> </ul>
 >
 
 ![Web App](./media/active-directory-aadconnect-get-started-custom/adfs3.png)

@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/active-directory/connect/active-directory-aadconnect
+redirect_url: /active-directory/connect/active-directory-aadconnect
 ---

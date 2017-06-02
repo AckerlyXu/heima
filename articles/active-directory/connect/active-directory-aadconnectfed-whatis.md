@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/9/2016
+ms.date: 04/09/2016
 ms.author: anandy
 
 ---

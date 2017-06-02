@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 01/31/2017
 wacn.date: ''
 ms.author: vakarand
 ---
