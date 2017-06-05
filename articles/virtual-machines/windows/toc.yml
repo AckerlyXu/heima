@@ -161,17 +161,12 @@
       href: prepare-for-upload-vhd-image.md
   - name: Manage VM storage
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: FAQs
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Attach data disk
       items:
       - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
-        href: attach-managed-disk-portal.md
+        href: attach-disk-portal.md
     - name: Detach data disk
       href: detach-disk.md
     - name: Expand OS disk
@@ -351,8 +346,6 @@
     href: https://azure.microsoft.com/develop/python/
   - name: Compute REST
     href: /rest/api/compute
-  - name: Managed Disks REST
-    href: /rest/api/manageddisks
 - name: Resources
   items:
   - name: Author templates
