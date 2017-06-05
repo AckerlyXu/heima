@@ -23,7 +23,7 @@ This document contains the release notes for the Azure SDK for .NET 2.7 release.
 
 The document also contain the release notes for the Azure SDK for .NET 2.7.1 release.
 
-Azure SDK 2.7 is only supported in Visual Studio 2015 and Visual Studio 2013. [Azure SDK 2.6](https://www.azure.cn/downloads/) is the last supported SDK for Visual Studio 2012.
+Azure SDK 2.7 is only supported in Visual Studio 2015 and Visual Studio 2013. [Azure SDK 2.6](/downloads/) is the last supported SDK for Visual Studio 2012.
 
 For detailed information about this release, see [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) and [Azure SDK 2.7.1 announcement post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-7-1-for-net/).
 
@@ -40,7 +40,7 @@ Updated **Mobile Apps** templates to reflect newest [NuGet package](https://www.
 General bug fixes and improvements. For detail on updates and features, please refer to the release notes of the latest [Service Bus NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### HDInsight Tools
-In this release the following updates were made. These updates are in preview. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
+In this release the following updates were made. These updates are in preview. For more information, see [this blog](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
 
 * Hive graphs for Hive on Tez jobs
 * Full Hive DML IntelliSense support
@@ -48,8 +48,8 @@ In this release the following updates were made. These updates are in preview. F
 * Storm templates for Azure services
 
 #### Breaking changes
-* Old **Storm** project must be upgraded when using this version of the tools. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
-* Visual Studio Web Express is no longer supported. For more information, see [this blog](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
+* Old **Storm** project must be upgraded when using this version of the tools. For more information, see [this blog](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
+* Visual Studio Web Express is no longer supported. For more information, see [this blog](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started).
 
 ### Azure App Service Tools
 In this release the following updates were made to Web Tools Extensions. For more information see [this](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)  blog. 

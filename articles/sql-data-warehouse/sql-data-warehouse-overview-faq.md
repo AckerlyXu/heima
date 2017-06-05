@@ -46,18 +46,12 @@ Q. Why is my Scale/Pause/Resume taking so long?
 A. A variety of factors can influence the time for compute management operations. A common case for  long running operations is transactional rollback. When a scale or pause operation is initiated, all incoming sessions are blocked and queries are drained. In order to leave the system in a stable state, transactions must be rolled back before an operation can commence. The greater the number and larger the log size of transactions, the longer the operation will be stalled restoring the system to a stable state.
 
 ## User support
-
-Q. I have a feature request, where do I submit it?
-
-A. If you have a feature request, submit it on our [UserVoice] page
+<!-- UserVoice not available in Azure.cn-->
 
 Q. How can I do x?
 
 A. For help in developing with SQL Data Warehouse, you can ask questions on our [Stack Overflow] page. 
-
-Q. How do I submit a support ticket?
-
-A. [Support Tickets] can be filed through Azure portal.
+<!--Support Tickets not available in Azure.cn-->
 
 ## SQL language/feature support 
 
@@ -91,10 +85,7 @@ A. Driver support for DW can be found on the [Connection Strings] page
 Q: What file formats are supported by PolyBase with SQL Data Warehouse?
 
 A: Orc, RC, Parquet, and flat delimited text
-
-Q: What can I connect to from SQL DW using PolyBase? 
-
-A: [Azure Data Lake Store] and [Azure Storage Blobs]
+<!--Azure Data Lake Store not available in Azure.cn-->
 
 Q: Is computation pushdown possible  when connecting to Azure Storage Blobs or ADLS? 
 

@@ -29,4 +29,3 @@ This article is to help you learn more about how the Azure AD consent framework 
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

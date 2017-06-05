@@ -76,7 +76,9 @@ The following features are not currently supported. You can optionally remove th
 | Compute |Unassociated virtual machine disks. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Compute |Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Network |Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
-| Network |ExpressRoute with authorization links (see FAQ), Application Gateway | Remove the Gateway before beginning migration and then recreate once migration is complete. |
+| Network |Virtual network with both ExpressRoute Gateway and VPN Gateway  | Remove the VPN Gateway before beginning migration and then recreate the VPN Gateway once migration is complete. Learn more about [ExpressRoute migration](../articles/expressroute/expressroute-migration-classic-resource-manager.md).|
+| Network |ExpressRoute with authorization links  | Remove the ExpressRoute circuit to virtaul network connection before beginning migration and then recreate the connection once migration is complete. Learn more about [ExpressRoute migration](../articles/expressroute/expressroute-migration-classic-resource-manager.md). |
+| Network |Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
 | Network |Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### Unsupported configurations
@@ -94,8 +96,4 @@ The following configurations are not currently supported.
 | Network |Virtual networks that contain virtual machines and web/worker roles |This is currently not supported. |
 | Azure App Service |Virtual networks that contain App Service environments |This is currently not supported. |
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
-| Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
-| Azure AD Domain Services |Virtual networks that contain Azure AD Domain services |This is currently not supported. |
-| Azure RemoteApp |Virtual networks that contain Azure RemoteApp deployments |This is currently not supported. |
-| Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, please change the VNET of the API Management deployment which is a no downtime operation. |
 | Compute |Azure Security Center extensions with a VNET that has a VPN gateway in transit connectivity or ExpressRoute gateway with on-prem DNS server |Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. ExpressRoute gateway migration is not supported currently, and VPN gateways with transit connectivity loses on-premises access. Deleting ExpressRoute gateway or migrating VPN gateway with transit connectivity causes internet access to VM storage account to be lost when proceeding with committing the migration. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration. |

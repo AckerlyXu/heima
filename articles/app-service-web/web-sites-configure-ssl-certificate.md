@@ -47,7 +47,7 @@ a custom certificate, you need to do the following:
 
 * **Configure the custom domain** - App Service only allows adding a certificate for a domain name that's already 
   configured in your app. For instructions, see [Map a custom domain name to an Azure app](web-sites-custom-domain-name.md). 
-* **Scale up to Basic tier or higher** App Service plans in lower pricing tiers don't support custom SSL 
+* **Scale up to Basic tier or higher** - App Service plans in lower pricing tiers don't support custom SSL 
   certificates. For instructions, see [Scale up an app in Azure](web-sites-scale.md). 
 * **Get an SSL certificate** - If you do not already have one, you need to get one from a trusted 
   [certificate authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). The certificate must meet all the
@@ -168,12 +168,12 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 
     > [!IMPORTANT]
     > In the **Certificate Export Wizard**, make sure that you select **Yes, export the private key**  
-    > <p> 
+    > 
     > ![Export the private key][certwiz1]  
-    > <p> 
+    > 
     > and also select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and 
     > **Export all extended properties**.
-    > <p> 
+    > 
     > ![include all certs and extended properties][certwiz2]
     > 
     > 
@@ -235,10 +235,10 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
     > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually 
     > come as a separate download from your CA, and in several formats for different 
     > web server types. Select the version with the `.pem` extension.
-    > <p> 
+    > 
     > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
     > intermediate certificates from the **intermediate-cets.pem** file:
-    > <p> 
+    > 
     > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
     > 
     > 
@@ -327,10 +327,10 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
     > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They 
     > usually come as a separate download from your CA, and in several formats for different 
     > web server types. Select the version with the `.pem` extension).
-    > <p> 
+    > 
     > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
     > intermediate certificates from the **intermediate-cets.pem** file:
-    > <p> 
+    > 
     > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
     > 
     > 
@@ -469,7 +469,7 @@ Before you move on, review the [What you need](#bkmk_domainname) section and ver
 
     > [!NOTE] 
     > **IP based SSL** associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional method of associating SSL certificates with a web server.  
-    > <p>
+    >
     > **SNI based SSL** is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern  browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
     > 
 
@@ -574,7 +574,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 
 ## More Resources
 * [Azure Trust Center](https://www.azure.cn/support/trust-center/security/)
-* [Configuration options unlocked in Azure Web Sites](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+* [Configuration options unlocked in Azure Web Sites](https://www.azure.cn/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
 * [Configure web apps in Azure App Service](web-sites-configure.md)
 * [Azure Management Portal](https://manage.windowsazure.cn)

@@ -1,15 +1,15 @@
 ---
-title: When to use NoSQL vs SQL | Azure
-description: Compare the benefits of using NoSQL non-relational solutions versus SQL solutions. Learn whether one of the Azure NoSQL services or SQL Server best fits your scenario.
+title: NoSQL vs SQL and Azure Cosmos DB | Microsoft Docs
+description: Compare the benefits of using NoSQL non-relational solutions versus SQL solutions and Azure Cosmos DB. Learn how Azure Cosmos DB provides the benefits of NoSQL and SQL.
 keywords: nosql vs sql, when to use NoSQL, sql vs nosql
-services: documentdb
+services: cosmosdb
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: overview
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -18,9 +18,10 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: mimig
+redirect_url: https://aka.ms/cosmosdb
+ROBOTS: NOINDEX, NOFOLLOW
 ---
-
-# NoSQL vs SQL
+# NoSQL vs SQL and Azure Cosmos DB
 SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes, velocities, and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. For most developers, relational databases are the default or go-to option because a table structure is easy to understand and is familiar, but there are many reasons to explore beyond relational databases.
 
 NoSQL is a category of databases distinctly different from SQL databases. NoSQL is often used to refer to data management systems that are “Not SQL” or an approach to data management that includes “Not only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, column family stores, and graph databases, which are popular with gaming, social, and IoT apps.
@@ -38,26 +39,24 @@ So how do you store this data? If you're familiar with SQL, you might start draw
 
 So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
 
-Now you could use a relational solution like SQL Server to store the data and query it using joins, as SQL supports dynamic data [formatted as JSON](https://msdn.microsoft.com/zh-cn/library/dn921897.aspx) - but there's another option, a NoSQL option that simplifies the approach for this specific scenario. By using a single document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
+Now you could use a relational solution like SQL Server to store the data and query it using joins, as SQL supports dynamic data [formatted as JSON](https://msdn.microsoft.com/library/dn921897.aspx) - but there's another option, a NoSQL option that simplifies the approach for this specific scenario. By using a single document like the following and storing it in Azure Cosmos DB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
 
-```
-{
-    "id":"ew12-res2-234e-544f",
-    "title":"post title",
-    "date":"2016-01-01",
-    "body":"this is an awesome post stored on NoSQL",
-    "createdBy":User,
-    "images":["http://myfirstimage.png","http://mysecondimage.png"],
-    "videos":[
-        {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-        {"url":"http://mysecondvideo.mp4", "title":"The second video"}
-    ],
-    "audios":[
-        {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-        {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
-    ]
-}
-```
+    {
+        "id":"ew12-res2-234e-544f",
+        "title":"post title",
+        "date":"2016-01-01",
+        "body":"this is an awesome post stored on NoSQL",
+        "createdBy":User,
+        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "videos":[
+            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+        ],
+        "audios":[
+            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+        ]
+    }
 
 In addition, this data can be partitioned by post id allowing the data to scale out naturally and take advantage of NoSQL scale characteristics. Also NoSQL systems allow developers to loosen consistency and offer highly available apps with low-latency.  Finally, this solution does not require developers to define, manage and maintain schema in the data tier allowing for rapid iteration.
 
@@ -67,7 +66,7 @@ You can then build on this solution using other Azure services:
 - [Azure Blob Storage](https://www.azure.cn/home/features/storage/) can be used to store full user profiles including images.
 - [Azure SQL Database](https://www.azure.cn/home/features/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
 
-This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](./documentdb-social-media-apps.md). 
+This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for Azure Cosmos DB in social media applications, see [Going social with Azure Cosmos DB](documentdb-social-media-apps.md). 
 
 ## NoSQL vs SQL comparison
 The following table compares the main differences between NoSQL and SQL. 
@@ -86,11 +85,11 @@ Azure has four fully-managed NoSQL services:
 
 The following comparison chart maps out the key differentiators for each service. Which one most accurately describes the needs of your application? 
 
-![NoSQL vs SQL diagram showing when to use NoSQL offerings from Azure, including DocumentDB, Table Storage, HBase as a part of HDInsight, and Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
+![NoSQL vs SQL diagram showing when to use NoSQL offerings from Azure, including Azure Cosmos DB, Table Storage, HBase as a part of HDInsight, and Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
 If one or more of these services might meet the needs of your application, learn more with the following resources: 
 
-- [DocumentDB use cases](./documentdb-use-cases.md)
+- [Azure Cosmos DB use cases](documentdb-use-cases.md)
 - [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
 - [What is HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
 
@@ -114,7 +113,7 @@ Then go to [Next steps](#next-steps) for trial and evaluation links.
 ## Next steps
 We invite you to learn more about our SQL and NoSQL products by trying them out for free. 
 
-- For all Azure services, you can sign up for a [free one-month trial](https://www.azure.cn/pricing/1rmb-trial/).
+- For all Azure services, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 
   - [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/)
   - [Azure HBase as a part of HDInsight](https://www.azure.cn/home/features/hdinsight/)

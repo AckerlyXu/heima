@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
@@ -29,7 +29,7 @@ on each virtual machine in the scale set.
 
 ## Sample script
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 # Create the resource group if it doesn't exist

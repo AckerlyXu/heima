@@ -156,7 +156,7 @@ For more information about possible filter values, see the documentation for the
 See the following advanced topics for more information and examples of using Service Bus messaging.
 
 - [Service Bus messaging overview](./service-bus-messaging-overview.md)
-- [Service Bus brokered messaging .NET tutorial](./service-bus-brokered-tutorial-dotnet.md)
-- [Service Bus brokered messaging REST tutorial](./service-bus-brokered-tutorial-rest.md)
+- [Service Bus brokered messaging .NET tutorial](./service-bus-dotnet-get-started-with-queues.md)
+- [Service Bus brokered messaging REST tutorial](./service-bus-dotnet-get-started-with-queues.md)
 - [Topic Filters sample ](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)

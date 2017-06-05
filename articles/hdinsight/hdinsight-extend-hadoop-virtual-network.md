@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/13/2017
+ms.date: 04/20/2017
 wacn.date: ''
 ms.author: larryfr
 
@@ -33,10 +33,9 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 ## Prerequisites
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 * Azure CLI 2.0: For more information, see [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
-
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 * Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 > [!NOTE]
@@ -44,7 +43,7 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 ## <a id="whatis"></a>What is Azure Virtual Network
 
-[Azure Virtual Network](/azure/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution.
+[Azure Virtual Network](/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution.
 
 The following are a list of considerations when using HDInsight in a virtual network:
 
@@ -94,7 +93,7 @@ Using Virtual Network to link the cloud and your datacenter enables similar scen
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](/azure/virtual-network/).
+> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](/virtual-network/).
 
 ## Secured virtual networks
 
@@ -108,21 +107,6 @@ The HDInsight service is a managed service, and requires access to Azure managem
 > [!NOTE]
 > These operations do not require full access to the internet. When restricting internet access, allow inbound access on port 443 for the following IP addresses. This allows Azure to manage HDInsight:
 
-The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
-
-| Country | Region | Allowed IP addresses | Allowed port |
-| ---- | ---- | ---- | ---- |
-| Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 |
-| Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
-| &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
-| India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
-| United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
-| &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
-| United States | West China North | 52.161.23.15</br>52.161.10.167 | 443 |
-| &nbsp; | China North 2 | 52.175.211.210</br>52.175.222.222 | 443 |
-
-__If your region is not listed in the table__, allow traffic to port __443__ on the following IP addresses:
-
 * 168.61.49.99
 * 23.99.5.239
 * 168.61.48.131
@@ -135,7 +119,7 @@ __If your region is not listed in the table__, allow traffic to port __443__ on 
 
 If you block internet access, you cannot use HDInsight services that are normally exposed through the public gateway for a cluster. These include Ambari and SSH. Instead, you must access services using the internal IP address of the cluster head nodes.
 
-To find the internal IP address of the head nodes, use the scripts in the [Internal IPs and FQDNs](#internal-ips-and-fqdns) section.
+To find the internal IP address of the head nodes, use the scripts in the [Internal IPs and FQDNs](#retrieve-internal-ips-and-fqdns) section.
 
 ### Example: Secured virtual network
 
@@ -158,9 +142,9 @@ These steps assume that you have already created a Virtual Network and subnet th
 
 **Example: Azure Resource Management template**
 
-Using the following Resource Management template from the [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
+Using the following Resource Management template from the [Azure QuickStart Templates](https://github.com/azure/azure-quickstart-templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
 
-[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://github.com/azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
 
 **Example: Azure PowerShell**
 

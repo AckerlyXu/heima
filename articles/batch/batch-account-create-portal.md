@@ -21,14 +21,14 @@ wacn.date: ''
 # Create a Batch account with the Azure portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal](batch-account-create-portal.md)
-> * [Batch Management .NET](batch-management-dotnet.md)
+> * [Azure portal](./batch-account-create-portal.md)
+> * [Batch Management .NET](./batch-management-dotnet.md)
 > 
 > 
 
 Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and choose the account properties that fit your compute scenario. Learn where to find important account properties like access keys and account URLs. 
 
-For background about Batch accounts and scenarios, see the [feature overview](batch-api-basics.md).
+For background about Batch accounts and scenarios, see the [feature overview](./batch-api-basics.md).
 
 ## Create a Batch account
 1. Sign in to the [Azure portal][azure_portal].
@@ -60,7 +60,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account blade in Azure portal][account_blade]
 
-- **Batch account URL**: When you develop an application with the [Batch APIs](batch-apis-tools.md#batch-development-apis), you'll need an account URL to access your Batch resources. A Batch account URL has the following format:
+- **Batch account URL**: When you develop an application with the [Batch APIs](./batch-apis-tools.md#batch-development-apis), you'll need an account URL to access your Batch resources. A Batch account URL has the following format:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -76,7 +76,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ## Linked Azure Storage account
 
-You can optionally link a general-purpose Azure Storage account to your Batch account. The [application packages](batch-application-packages.md) feature of Batch uses Azure Blob storage, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
+You can optionally link a general-purpose Azure Storage account to your Batch account. The [application packages](./batch-application-packages.md) feature of Batch uses Azure Blob storage, as does the [Batch File Conventions .NET](./batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
 
 We recommend that you create a new Storage account exclusively for use by your Batch account.
 
@@ -95,24 +95,24 @@ We recommend that you create a new Storage account exclusively for use by your B
 ![Regenerating storage account keys][4]
 
 ## Batch service quotas and limits
-Please be aware that as with your Azure subscription and other Azure services, certain [quotas and limits](batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in the portal in the account **Properties**.
+Please be aware that as with your Azure subscription and other Azure services, certain [quotas and limits](./batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in the portal in the account **Properties**.
 
 ![Batch account quotas in Azure portal][quotas]
 
 
 
-Additionally, many of these quotas can be increased simply with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on requesting quota increases.
+Additionally, many of these quotas can be increased simply with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](./batch-quota-limit.md) for details on requesting quota increases.
 
 ## Other Batch account management options
 In addition to using the Azure portal, you can also create and manage Batch accounts with the following:
 
-- [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-- [Azure CLI](batch-cli-get-started.md)
-- [Batch Management .NET](batch-management-dotnet.md)
+- [Batch PowerShell cmdlets](./batch-powershell-cmdlets-get-started.md)
+- [Azure CLI](./batch-cli-get-started.md)
+- [Batch Management .NET](./batch-management-dotnet.md)
 
 ## Next steps
-- See the [Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features that enable large-scale compute workload execution.
-- Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md) or [Python](batch-python-tutorial.md). These introductory articles guide you through a working application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+- See the [Batch feature overview](./batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features that enable large-scale compute workload execution.
+- Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](./batch-dotnet-get-started.md) or [Python](./batch-python-tutorial.md). These introductory articles guide you through a working application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -131,4 +131,3 @@ In addition to using the Azure portal, you can also create and manage Batch acco
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
 [account_portal_byos]: ./media/batch-account-create-portal/batch_acct_portal_byos.png
-

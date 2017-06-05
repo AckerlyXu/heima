@@ -205,7 +205,7 @@ The [TaskDependencies][github_taskdependencies] sample project is one of the [Az
 
 ## Next steps
 ### Application deployment
-The [application packages](batch-application-packages.md) feature of Batch provides an easy way to both deploy and version the applications that your tasks execute on compute nodes.
+The [application packages](./batch-application-packages.md) feature of Batch provides an easy way to both deploy and version the applications that your tasks execute on compute nodes.
 
 ### Installing applications and staging data
 See [Installing applications and staging data on Batch compute nodes][forum_post] in the Azure Batch forum for an overview of methods for preparing your nodes to run tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to copy applications, task input data, and other files to your compute nodes.
@@ -233,4 +233,3 @@ See [Installing applications and staging data on Batch compute nodes][forum_post
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagram: one-to-one dependency"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagram: one-to-many dependency"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
-

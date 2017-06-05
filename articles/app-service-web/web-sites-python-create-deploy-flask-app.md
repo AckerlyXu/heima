@@ -23,7 +23,7 @@ ms.author: huvalo
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial describes how to get started running Python in [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services).  Web Apps provides limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
+This tutorial describes how to get started running Python in [Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services).  Web Apps provides limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
 
 You will create an application using the Flask web framework (see alternate versions of this tutorial for [Django](web-sites-python-create-deploy-django-app.md) and [Bottle](web-sites-python-create-deploy-bottle-app.md)).  You will create the website, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
 
@@ -55,8 +55,7 @@ The first step in creating your app is to create the web app via the [Azure Port
 
 1. Log into the Azure Portal Preview and click the **NEW** button in the bottom left corner. 
 2. Click **Web + Mobile**.
-3. In the search box, type "python".
-4. In the search results, select **Flask**, then click **Create**.
+3. Click "Web App"
 5. Configure the new Flask app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
 6. Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
@@ -341,10 +340,10 @@ For information on using Azure Table Storage and MongoDB:
 * [Flask and MongoDB on Azure with Python Tools for Visual Studio]
 * [Flask and Azure Table Storage on Azure with Python Tools for Visual Studio]
 
-For more information, see also the [Python Developer Center](https://www.azure.cn/develop/python/).
+For more information, see also the [Python Developer Center](/develop/python/).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
 [Flask and MongoDB on Azure with Python Tools for Visual Studio]: https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure

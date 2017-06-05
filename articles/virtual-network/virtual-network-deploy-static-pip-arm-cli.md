@@ -60,7 +60,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     # Create a public IP address resource with a static IP address using the --allocation-method Static option.
     # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
     # resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653#
+    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=42064#
     # that lists the ranges for each region.
 
     PipName="PIPWEB1"
@@ -125,12 +125,13 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --size $VmSize \
     --nics $NicName \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue
+    --ssh-key-value $SshKeyValue \
     # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+    --use-unmanaged-disk
     ```
 
 In addition to creating a VM, the script creates:
-- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
+- Use unmanaged disk, and an Azure Storage Account will be created automatically. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
 - Virtual network, subnet, NIC, and public IP address resources. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
 ## <a name = "validate"></a>Validate VM creation and public IP address

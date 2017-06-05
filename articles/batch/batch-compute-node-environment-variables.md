@@ -60,4 +60,3 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 [multi_instance]: /documentation/articles/batch-mpi/
 [coord_cmd]:/documentation/articles/batch-mpi/#coordination-command/
 [app_cmd]:/documentation/articles/batch-mpi/#application-command/
-

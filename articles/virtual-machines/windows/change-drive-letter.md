@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/11/2017
 wacn.date: ''
 ms.author: cynthn
 
@@ -26,12 +26,10 @@ If you resize or **Stop (Deallocate)** a virtual machine, this may trigger place
 
 For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 ## Attach the data disk
 First, you'll need to attach the data disk to the virtual machine. 
 
-* To use the portal, see [How to attach a data disk in the Azure portal preview](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* To use the portal, see [How to attach a data disk in the Azure portal preview](attach-disk-portal.md)
 * To use the Classic Management Portal, see [How to attach a data disk to a Windows virtual machine](classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
 
 ## Temporarily move pagefile.sys to C drive
@@ -66,4 +64,4 @@ First, you'll need to attach the data disk to the virtual machine.
 9. Restart the virtual machine.
 
 ## Next steps
-* You can increase the storage available to your virtual machine by [attaching a additional data disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* You can increase the storage available to your virtual machine by [attaching a additional data disk](attach-disk-portal.md).

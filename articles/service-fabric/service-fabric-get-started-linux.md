@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: subramar
 
 ---
@@ -70,6 +70,13 @@ Once your sources are updated, you can install the SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    To automate the install you can skip the license agreement prompt by setting your debconf selections for the service fabric packages. The following two commands can be run
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Run the SDK setup script.
 
     ```bash
@@ -78,15 +85,15 @@ Once your sources are updated, you can install the SDK.
 
 Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
 
-    ```bash
-    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
-    ```
+```bash
+export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+```
 
 If you are using the environment as root, you may need to set the variable with the following command:
 
-    ```bash
-    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
-    ```
+```bash
+export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+```
 
 > [!TIP]
 > You may want to add these commands into your ~/.bashrc file so that you don't have to set the environment variable at every login.
@@ -142,7 +149,7 @@ At this point, you are able to deploy pre-built Service Fabric application packa
 > Stand alone clusters aren't supported in Linux - only one box and Azure Linux multi-machine clusters are supported in the preview.
 >
 
-## Install the Java SDK (optional, if you wish to use the Java programming models)
+##<a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a> Install the Java SDK (optional, if you wish to use the Java programming models)
 The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
 
 1. Install the Java SDK package.
@@ -199,6 +206,11 @@ To update to the latest version of the SDK and runtime, run the following steps 
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> Updating the packages above may result in your local development cluster being stopped. Please restart your local cluster after an upgrade by following instructions on this page
+>
+>
 
 For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  If additional steps are needed for updating, the release notes will specify those steps. 
 

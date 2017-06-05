@@ -41,5 +41,5 @@ As Reliable Actors itself is an application framework built on Reliable Services
 
 ## Next steps
 [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
-[Learn more about Containerizing your services in Windows or Linux](service-fabric-deploy-container.md)
+[Learn more about Containerizing your services in Linux](service-fabric-deploy-container-linux.md)
 

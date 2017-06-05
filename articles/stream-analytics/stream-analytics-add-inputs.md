@@ -23,7 +23,7 @@ ms.author: jeffstok
 Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.
 
 Azure Stream Analytics jobs can be connected to one data input or more, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription.
-<!-- Not find the learning-paths -->
+<!-- Not Available on  documentation/learning-paths/stream-analytics/ -->
 <!--This article is a step in the [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/).-->
 
 ## Data input: Streaming data and reference data
@@ -73,7 +73,7 @@ To add an input to your Stream Analytics job:
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## Get help with streaming data inputs
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

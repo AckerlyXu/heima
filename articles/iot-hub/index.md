@@ -8,7 +8,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/iot-hub/iot-hub-what-is-iot-hub">
+        <a href="/iot-hub/iot-hub-what-is-iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,7 +44,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/iot-hub/iot-hub-csharp-csharp-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/iot-hub/iot-hub-java-java-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +80,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/iot-hub/iot-hub-node-node-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -19,7 +19,7 @@ ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ---
 # Create custom roles for Azure Role-Based Access Control
-Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface](role-based-access-control-manage-access-azure-cli.md) (CLI), and the [REST API](role-based-access-control-manage-access-rest.md). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across all subscriptions that use that tenant as the Azure AD directory for the subscription.
+Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](./role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface](./role-based-access-control-manage-access-azure-cli.md) (CLI), and the [REST API](./role-based-access-control-manage-access-rest.md). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across all subscriptions that use that tenant as the Azure AD directory for the subscription.
 
 Each tenant can create up to 2000 custom roles. 
 
@@ -114,10 +114,9 @@ The **AssignableScopes** property of the custom role also controls who can view,
     All built-in roles in Azure RBAC allow viewing of roles that are available for assignment. Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope.
 
 ## See also
-- [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+- [Role Based Access Control](./role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
 - Learn how to manage access with:
-  - [PowerShell](role-based-access-control-manage-access-powershell.md)
-  - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-  - [REST API](role-based-access-control-manage-access-rest.md)
-- [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
-
+  - [PowerShell](./role-based-access-control-manage-access-powershell.md)
+  - [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
+  - [REST API](./role-based-access-control-manage-access-rest.md)
+- [Built-in roles](./role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.

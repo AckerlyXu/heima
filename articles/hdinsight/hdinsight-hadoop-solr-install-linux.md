@@ -37,7 +37,7 @@ Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a p
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported by Microsoft.
 >
-> Custom components, such as Solr, receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may not be able to resolve problems with custom components. You may need to engage the open source communities for assistance. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components, such as Solr, receive commercially reasonable support to help you to further troubleshoot the issue. Azure.cn support may not be able to resolve problems with custom components. You may need to engage the open source communities for assistance. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 
 ## What the script does
 
@@ -211,6 +211,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 
     The output returns the two documents that you added to the index earlier. The output is similar to the following JSON document:
 
+    ```
            "response": {
                "numFound": 2,
                "start": 0,
@@ -262,6 +263,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
                  }
                ]
              }
+    ```
 
 ### Starting and stopping Solr
 

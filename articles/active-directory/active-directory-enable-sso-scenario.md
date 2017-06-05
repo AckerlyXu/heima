@@ -105,9 +105,8 @@ Azure AD provides you with pre-integrated reporting and monitoring capabilities 
 With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/).
 
 ## Getting started
-To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md).
+To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](./active-directory-integrating-applications-getting-started.md).
 
 ## See also
 [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-
 

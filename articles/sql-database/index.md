@@ -5,7 +5,7 @@
     author="carolz"
     manager="carolz"
     layout="LandingPage"
-    ms.assetid="ms.service: sql-database"
+    ms.service: "sql-database"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="landing-page"
@@ -17,7 +17,7 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/sql-database/sql-database-technical-overview">
+        <a href="/sql-database/sql-database-technical-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -34,26 +34,8 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
         </div>
         </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=sql-database">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Database Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
     <li>
-        <a href="/azure/sql-database/sql-database-get-started">
+        <a href="/sql-database/sql-database-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -71,7 +53,7 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
         </a>
     </li>
     <li>
-        <a href="/azure/sql-database/sql-database-elastic-scale-get-started">
+        <a href="/sql-database/sql-database-elastic-scale-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +71,7 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
         </a>
     </li>
      <li>
-        <a href="/azure/sql-database/sql-database-get-started-security">
+        <a href="/sql-database/sql-database-get-started-security">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -118,8 +100,8 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
-                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastic DB)</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastic DB)</a></p>
                     </div>
                 </div>
             </div>
@@ -131,8 +113,8 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql">Java</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
@@ -149,7 +131,7 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/sql/">REST API Reference</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/sql/">REST API Reference</a></p>
                     </div>
                 </div>
             </div>

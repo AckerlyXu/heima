@@ -1,5 +1,5 @@
 ---
-title: Azure Load Balancer Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Load Balancer Documentation - Tutorials, API Reference | Azure
 description: Learn how to use Load Balancer for network performance of apps. Manage traffic for virtual machines and cloud resources, and in cross-premises virtual networks.
 services: load-balancer
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 
@@ -20,7 +21,7 @@ Learn how to configure Load Balancer to deliver high availability and network pe
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/load-balancer/load-balancer-overview">
+        <a href="/load-balancer/load-balancer-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -37,7 +38,7 @@ Learn how to configure Load Balancer to deliver high availability and network pe
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=load-balancer">
         <div class="cardSize">
             <div class="cardPadding">
@@ -56,7 +57,7 @@ Learn how to configure Load Balancer to deliver high availability and network pe
         </a>
     </li>
     <li>
-        <a href="/azure/load-balancer/load-balancer-internet-overview">
+        <a href="/load-balancer/load-balancer-internet-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,8 +74,8 @@ Learn how to configure Load Balancer to deliver high availability and network pe
         </div>
         </a>
     </li>
-       <li>
-        <a href="/azure/load-balancer/load-balancer-internal-overview">
+    <li>
+        <a href="/load-balancer/load-balancer-internal-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,8 +104,8 @@ Learn how to configure Load Balancer to deliver high availability and network pe
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">Azure CLI 2​.0 (Preview)</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/network/lb">Azure CLI 2​.0</a></p>
                     </div>
                 </div>
             </div>
@@ -116,8 +117,8 @@ Learn how to configure Load Balancer to deliver high availability and network pe
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.network">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node​.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>

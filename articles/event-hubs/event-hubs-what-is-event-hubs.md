@@ -125,6 +125,7 @@ When connecting to partitions, it is common practice to use a leasing mechanism 
 After an AMQP 1.0 session and link is opened for a specific partition, events are delivered to the AMQP 1.0 client by the Event Hubs service. This delivery mechanism enables higher throughput and lower latency than pull-based mechanisms such as HTTP GET. As events are sent to the client, each event data instance contains important metadata such as the offset and sequence number that are used to facilitate checkpointing on the event sequence.
 
 Event data:
+
 * Offset
 * Sequence number
 * Body

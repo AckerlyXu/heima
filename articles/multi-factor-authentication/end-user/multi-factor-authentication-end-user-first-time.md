@@ -87,6 +87,5 @@ If you want to add an account to the mobile app manually, instead of using the Q
 4. Click **Done**.
 
 ## Next steps
-- Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
-- Check out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.
-
+- Change your preferred options and [manage your settings for two-step verification](./multi-factor-authentication-end-user-manage-settings.md)
+- Check out the [Microsoft Authenticator app](./microsoft-authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.

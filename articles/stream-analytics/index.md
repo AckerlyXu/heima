@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Stream Analytics Documentation - Tutorials, API Reference | Azure
 description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
 services: stream-analytics
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 
@@ -20,7 +21,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/stream-analytics/stream-analytics-introduction">
+        <a href="/stream-analytics/stream-analytics-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +57,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </a>
     </li>
     <li>
-        <a href="/azure/Stream-Analytics/">
+        <a href="/stream-analytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +75,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
+        <a href="/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,8 +92,8 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </div>
         </a>
     </li>
-     <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
+    <li>
+        <a href="/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -109,8 +110,8 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </div>
         </a>
     </li>
-     <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-machine-learning-integration-tutorial">
+    <li>
+        <a href="/stream-analytics/stream-analytics-machine-learning-integration-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -135,39 +136,39 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn834998">Query language</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="https://docs.microsoft.com/rest/api/streamanalytics">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>

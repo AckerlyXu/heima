@@ -70,7 +70,7 @@ Successful customers have detailed plans where the above questions are discussed
 
 **Replicate your enviornment and do a test migration**
   > [!NOTE]
-  > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Microsoft Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
+  > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Azure.cn Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
   >
 
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
@@ -138,13 +138,13 @@ The following were issues discovered in many of the larger migrations. This is n
     az storage account show-usage
     ```
 
-- **Azure Resource Manager API throttling limits** - If you have a large enough environment (eg. > 400 VMs in a VNET), you might hit the default API throttling limits for writes (currently `1200 writes/hour`) in Azure Resource Manager. Before starting migration, you should raise a support ticket to increase this limit for your subscription.
+- **Azure Resource Manager API throttling limits** - If you have a large enough environment (eg. > 400 VMs in a VNET), you might hit the default API throttling limits for writes (currently **1200 writes/hour**) in Azure Resource Manager. Before starting migration, you should raise a support ticket to increase this limit for your subscription.
 
-- **Provisioning Timed Out VM Status** - If any VM has the status of `provisioning timed out`, this needs to be resolved pre-migration. The only way to do this is with downtime by deprovisioning/reprovisioning the VM (delete it, keep the disk, and recreate the VM). 
+- **Provisioning Timed Out VM Status** - If any VM has the status of **provisioning timed out**, this needs to be resolved pre-migration. The only way to do this is with downtime by deprovisioning/reprovisioning the VM (delete it, keep the disk, and recreate the VM). 
 
-- **RoleStateUnknown VM Status** - If migration halts due to a `role state unknown` error message, inspect the VM using the portal and ensure it is running. This error will typically go away on its own (no remediation required) after a few minutes and is often a transient type often seen during a Virtual Machine `start`, `stop`, `restart` operations. **Recommended practice:** re-try migration again after a few minutes. 
+- **RoleStateUnknown VM Status** - If migration halts due to a **role state unknown** error message, inspect the VM using the portal and ensure it is running. This error will typically go away on its own (no remediation required) after a few minutes and is often a transient type often seen during a Virtual Machine **start**, **stop**, **restart** operations. **Recommended practice:** re-try migration again after a few minutes. 
 
-- **Fabric Cluster does not exist** -  In some cases, certain VMs cannot be migrated for various odd reasons. One of these known cases is if the VM was recently created (within the last week or so) and happened to land an Azure cluster that is not yet equipped for Azure Resource Manager workloads.  You will get an error that says `fabric cluster does not exist` and the VM cannot be migrated. Waiting a couple of days will usually resolve this particular problem as the cluster will soon get Azure Resource Manager enabled. However, one immediate workaround is to `stop-deallocate` the VM, then continue forward with migration, and start the VM back up in Azure Resource Manager after migrating.
+- **Fabric Cluster does not exist** -  In some cases, certain VMs cannot be migrated for various odd reasons. One of these known cases is if the VM was recently created (within the last week or so) and happened to land an Azure cluster that is not yet equipped for Azure Resource Manager workloads.  You will get an error that says **fabric cluster does not exist** and the VM cannot be migrated. Waiting a couple of days will usually resolve this particular problem as the cluster will soon get Azure Resource Manager enabled. However, one immediate workaround is to `stop-deallocate` the VM, then continue forward with migration, and start the VM back up in Azure Resource Manager after migrating.
 
 ### Pitfalls to avoid
 
@@ -166,7 +166,7 @@ For the real migrations, you might want to consider:
 
 ### Patterns of success
 
-The technical guidance from the Lab Test section above should be considered and mitigated prior to a real migration.  With adequate testing, the migration is actually a non-event.  For production environments, it might be helpful to have additional support, such as a trusted Microsoft partner or Microsoft Premier services.
+The technical guidance from the Lab Test section above should be considered and mitigated prior to a real migration.  With adequate testing, the migration is actually a non-event.  For production environments, it might be helpful to have additional support, such as a trusted Azure.cn partner or Azure.cn Premier services.
 
 ### Pitfalls to avoid
 
@@ -180,7 +180,7 @@ Now that you are in Azure Resource Manager, maximize the platform.  Read the [ov
 
 Things to consider:
 
-- Bundling the migration with other activities.  Most customers opt for an application maintenance window.  If so, you might want to use this downtime to enable other Azure Resource Manager capabilities like encryption and migration to Managed Disks.
+- Bundling the migration with other activities.  Most customers opt for an application maintenance window.  If so, you might want to use this downtime to enable other Azure Resource Manager capabilities like encryption.
 - Revisit the technical and business reasons for Azure Resource Manager; enable the additional services available only on Azure Resource Manager that apply to your environment.
 - Modernize your environment with PaaS services.
 

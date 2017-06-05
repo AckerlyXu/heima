@@ -4,9 +4,9 @@ description: Getting-started tutorial for the Azure Stream Analytics Tools for V
 keywords: visual studio
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
+author: 
+manager: 
+editor: 
 
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -16,16 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: ''
-ms.author: sujie
+ms.author: 
 
 ---
 # Use Azure Stream Analytics Tool for Visual Studio
-Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics user to troubleshoot as well as write complex queries and even write queries locally. You will also have the ability to export a Stream Analytics job into a Visual Studio project.
-
 ## Introduction
 In this tutorial, you will learn how to use Azure Stream Analytics Tools for Visual Studio to create, author, test locally, manage and debug your Azure Stream Analytics jobs. 
 
 After completing this tutorial, you will be able to:
+
 * Familiarize yourself with the Azure Stream Analytics Tools for Visual Studio.
 * Configure and deploy a Stream Analytics job.
 * Test your job locally with local sample data.
@@ -33,8 +32,9 @@ After completing this tutorial, you will be able to:
 * Export existing jobs to projects.
 
 ## Prerequisites
+
 You will need the following prerequisites to complete this tutorial:
-* Finish the steps before **Create a Stream Analytics job** from the [Build an IoT solution by using Stream Analytics tutorial](/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
+* Finish the steps before **Create a Stream Analytics job** from the [Build an IoT solution by using Stream Analytics tutorial](/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio 2017 is currently not supported. 
 * Azure SDK for .NET version 2.7.1 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * Installation of [Azure Stream Analytics Tools for Visual Studio](http://aka.ms/asatoolsvs).
@@ -51,7 +51,7 @@ You will see a project **Toll** generated in **Solution Explorer**.
 
 ## Choose the correct Subscription
 1. Open **Server Explorer** in Visual Studio from **View** menu.
-2. Log in with your Azure Account. 
+2. Sign in with your Azure Account. 
 
 ## Define input sources
 1. In **Solution Explorer**, expand **Inputs** node and rename **Input.json** to **EntryStream.json**. Double-click **EntryStream.json**.
@@ -97,9 +97,9 @@ Now all inputs are defined.
 ## Define output
 1. In **Solution Explorer**, expand **Inputs** node and double-click **Output.json**.
 2. Set the Output alias to **output** and then Sink to SQL database.
-2. Enter the database name: **TollDataDB**.
-3. Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
-4. Click **Save**.
+3. Enter the database name: **TollDataDB**.
+4. Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
+5. Click **Save**.
 
 ![Define output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
 
@@ -136,7 +136,7 @@ In the project, double-click Script.asaql to open the script in editor and paste
 
 ### Testing Azure Stream Analytics queries locally
 
-1. You can first compile the query to see if there is any syntax error. [TBD]
+1. You can first right click on the project and choose **Build** to compile the query to see if there is any syntax error. 
 2. To validate this query against sample data, you can use local sample data by right-clicking the input and select **Add local input** from the context menu.
 
     ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
@@ -153,13 +153,15 @@ In the project, double-click Script.asaql to open the script in editor and paste
 
     ![Local run](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
 
-    You can find output path from console output and press any key to open the result folder.
-
     ![Local run](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
 
-4. Check result in local folder.
+    You can press any key to view the output in ASA Local Run Result window in Visual Studio. 
 
-    ![Local run](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-03.png)
+    ![Local run](./media/stream-analytics-tools-for-vs/local-testing-output.png)
+
+4.  You can open the result folder to check the output files both in CSV and JSON format.
+
+    ![Local run](./media/stream-analytics-tools-for-vs/local-testing-files.png)
 
 ### Sample input
 You can also sample input data from input sources to local file. Right-click the input config file and select **Sample Data**. 
@@ -209,7 +211,6 @@ Some basic job statistics can be found in **Job Metrics**.
 
 ## List job in Server Explorer
 Click **Stream Analytics Jobs** in **Server Explorer** and click **Refresh**. You should be able to see your job appeared under **Stream Analytics Jobs**.
-
 ![List jobs](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
 ## Open job view
@@ -233,10 +234,8 @@ There are two ways you can export an existing job to a project.
 
 ## Known Issues and Limitations
 
-1. Local testing does not work if your query has Geo-Spatial functions. 
+1. No support for Power BI output and ADLS output.
 2. No editor support for adding or changing JavaScript UDF.
-3. Local testing does not support saving output in JSON format. 
-4. No support for Power BI output and ADLS output.
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

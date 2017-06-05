@@ -1,9 +1,9 @@
 ## Tagging a Virtual Machine through Templates
 First, let's look at tagging through templates. [This template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) places tags on the following resources: Compute (Virtual Machine), Storage (Storage Account), and Network (Public IP Address, Virtual Network, and Network Interface). This template is for a Windows VM but can be adapted for Linux VMs.
 
-Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). This will navigate to the [Azure portal preview](https://portal.azure.cn/) where you can deploy this template.
+Click the **Deploy to Azure** button below. This will navigate to the [Azure portal preview](https://portal.azure.cn/) where you can deploy this template.
 
-![Simple deployment with Tags](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+[![Simple deployment with Tags](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-tags%2Fazuredeploy.json)
 
 This template includes the following tags: *Department*, *Application*, and *Created By*. You can add/edit these tags directly in the template if you would like different tag names.
 

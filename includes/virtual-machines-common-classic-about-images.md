@@ -1,7 +1,7 @@
 Images are used in Azure to provide a new virtual machine with an operating system. An image might also have one or more data disks. Images are available from several sources:
 
 * Azure offers images in the Marketplace and Gallery. There are recent versions of Windows Server and distributions of the Linux operating system. Some images also contain applications, such as SQL Server. MSDN Benefit and MSDN Pay-as-You-Go subscribers have access to additional images.
-* The open source community offers images through [VM Depot](http://vmdepot.msopentech.com/List/Index).
+* The open source community offers images through VM Depot.
 * You also can store and use your own images in Azure, by either capturing an existing Azure virtual machine for use as an image or uploading an image.
 
 ## About VM images and OS images

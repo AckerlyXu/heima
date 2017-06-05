@@ -36,13 +36,14 @@ This article describes the available sizes and options for the Azure virtual mac
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [General purpose](virtual-machines-windows-sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
 | [Compute optimized](virtual-machines-windows-sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
-| [Memory optimized](virtual-machines-windows-sizes-memory.md)         | GS, G, DSv2, DS   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [Memory optimized](virtual-machines-windows-sizes-memory.md)         | DSv2, DS   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 
 <br>
 
 Learn more about how [Azure compute units (ACU)](windows/acu.md) can help you compare compute performance across Azure SKUs.
 
 Learn more about the different VM sizes that are available:
+
 - [General purpose](virtual-machines-windows-sizes-general.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)

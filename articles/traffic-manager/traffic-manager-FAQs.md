@@ -73,9 +73,6 @@ Specifically, [RFC 7871 - Client Subnet in DNS Queries](https://tools.ietf.org/h
 ### What are some use cases where geographic routing is useful? 
 Geographic routing type can be used in any scenario where an Azure customer needs to distinguish their users based on geographic regions. For example, using the Geographic traffic routing method, you can give users from specific regions a different user experience than those from other regions. Another example is complying with local data sovereignty mandates that require that users from a specific region be served only by endpoints in that region.
 
-### What are the regions that are supported by Traffic Manager for geographic routing? 
-The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page will be kept up-to-date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
-
 ### How does traffic manager determine where a user is querying from? 
 Traffic Manager looks at the source IP of the query (this most likely will be a local DNS resolver doing the querying on behalf of the user) and uses an internal IP to region map to determine the location. This map is updated on an ongoing basis to account for changes in the internet. 
 

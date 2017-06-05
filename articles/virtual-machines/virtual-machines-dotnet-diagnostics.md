@@ -1,7 +1,7 @@
 ---
 title: How to use Azure diagnostics in Virtual Machines  | Azure
 description: Using Azure diagnostics to gather data from Azure Virtual Machines for debugging, measuring performance, monitoring, traffic analysis, and more.
-services: virtual-machines
+services: virtual-machines-windows
 documentationcenter: .net
 author: davidmu1
 manager:
@@ -25,6 +25,8 @@ This walk through describes how to remotely install Diagnostics to an Azure virt
 
 ### Pre-requisites
 This walk through assumes you have an Azure subscription and are using Visual Studio 2013 with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Trial][Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ### Step 1: Create a Virtual Machine
 1. On your development computer, launch Visual Studio 2013.
@@ -168,4 +170,4 @@ The Diagnostics configuration file defines values that are used to initialize di
 [Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Trial]: https://www.azure.cn/pricing/1rmb-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: /azure/install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /install-configure-powershell/

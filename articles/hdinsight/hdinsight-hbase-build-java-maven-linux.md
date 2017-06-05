@@ -29,6 +29,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 ## Requirements
 
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 or later.
 
     > [!NOTE]
@@ -38,14 +40,12 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [A Linux-based Azure HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
-
     > [!NOTE]
     > The steps in this document have been tested with HDInsight cluster versions 3.2, 3.3, 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
 
 * **Familiarity with SSH and SCP** or **Azure PowerShell**. This document provides steps for using both SSH/SCP and Azure PowerShell when running this example.
 
-    For information on installing Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+    For information on installing Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

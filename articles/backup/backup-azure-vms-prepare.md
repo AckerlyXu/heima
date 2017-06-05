@@ -20,8 +20,8 @@ ms.author: markgal;trinadhk;
 ---
 # Prepare your environment to back up Azure virtual machines
 > [!div class="op_single_selector"]
-> * [Resource Manager model](backup-azure-arm-vms-prepare.md)
-> * [Classic model](backup-azure-vms-prepare.md)
+> * [Resource Manager model](./backup-azure-arm-vms-prepare.md)
+> * [Classic model](./backup-azure-vms-prepare.md)
 >
 >
 
@@ -31,7 +31,7 @@ Before you can back up an Azure virtual machine (VM), there are three conditions
 - Establish network connectivity between the Azure public Internet addresses and the Azure storage endpoints.
 - Install the VM agent on the VM.
 
-If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). Otherwise, read on, this article will lead you through the steps to prepare your environment to back up an Azure VM.
+If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](./backup-azure-vms.md). Otherwise, read on, this article will lead you through the steps to prepare your environment to back up an Azure VM.
 
 ##Supported operating system for backup
  - **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) except Core OS Linux. _Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists. However, we do not endorse those distributions for backup._
@@ -51,8 +51,8 @@ If you know these conditions already exist in your environment then proceed to t
 - Cross-region backup and restore is not supported.
 - Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
-- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](./backup-azure-restore-vms.md#restoring-domain-controller-vms).
+- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](./backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
   - Virtual machines under load balancer configuration (internal and external)
   - Virtual machines with multiple reserved IP addresses
   - Virtual machines with multiple network adapters
@@ -72,7 +72,7 @@ This image shows the relationships between the various Azure Backup entities:
 ## Network connectivity
 In order to manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right Internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place (through a network security group (NSG), for example), then choose one of these options for providing a clear path for backup traffic:
 
-- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653) - see the article for instructions on how to whitelist the IP addresses.
+- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=42064) - see the article for instructions on how to whitelist the IP addresses.
 - Deploy an HTTP proxy server for routing traffic.
 
 When deciding which option to use, the trade-offs are between manageability, granular control, and cost.
@@ -83,7 +83,7 @@ When deciding which option to use, the trade-offs are between manageability, gra
 | HTTP proxy |Granular control in the proxy over the storage URLs allowed.<br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
 
 ### Whitelist the Azure datacenter IP ranges
-To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
+To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=42064) for details on the IP ranges, and instructions.
 
 ### Using an HTTP proxy for VM backups
 When backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage using an HTTPS API. Route the backup extension traffic through the HTTP proxy since it is the only component configured for access to the public Internet.
@@ -206,7 +206,6 @@ If you have questions, or if there is any feature that you would like to see inc
 ## Next steps
 Now that you have prepared your environment for backing up your VM, your next logical step is to create a backup. The planning article provides more detailed information about backing up VMs.
 
-- [Back up virtual machines](backup-azure-vms.md)
-- [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
+- [Back up virtual machines](./backup-azure-vms.md)
+- [Plan your VM backup infrastructure](./backup-azure-vms-introduction.md)
 - [Manage virtual machine backups](./backup-azure-manage-vms-classic.md)
-

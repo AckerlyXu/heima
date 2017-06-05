@@ -67,7 +67,7 @@ Azure will not update any Virtual Machines in China East
 at the same time. This will be scheduled at a separate time, enabling
 failover or load balancing between regions.
 
-### Single instance VMs vs. availability aet or VM scale set
+### Single instance VMs vs. availability set or VM scale set
 
 When deploying a workload using virtual machines in Azure, you can create the VMs within an availability set in order to provide
 high availability to your application. This configuration ensures that during

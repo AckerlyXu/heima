@@ -75,7 +75,9 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
     This command should return a job ID that can be used to check the status of the job:
 
-        {"id":"job_1415651640909_0026"}
+    ```
+    {"id":"job_1415651640909_0026"}
+    ```
 
 3. To check the status of the job, use the following command:
 
@@ -88,7 +90,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
     If the job is complete, the state returned is `SUCCEEDED`.
 
     > [!NOTE]
-    > This Curl request returns a JSON document with information about the job. jq is used to retrieve only the state value.
+    > This Curl request returns a JSON document with information about the job. Jq is used to retrieve only the state value.
 
 4. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 

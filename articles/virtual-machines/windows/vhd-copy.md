@@ -28,8 +28,8 @@ This article shows you how to use the AZCopy tool to create a copy of the VHD fr
 ## Before you begin
 Make sure that you:
 
-* Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet. 
-* Have Azure [PowerShell 1.0](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) (or later) installed.
+* Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
+* Have Azure [PowerShell 1.0](https://docs.microsoft.com/powershell/azure/overview) (or later) installed.
 * Have downloaded and installed the [AzCopy tool](../../storage/storage-use-azcopy.md). 
 
 ## Deallocate the VM
@@ -45,13 +45,13 @@ You need the URLs of the source and destination storage accounts. The URLs look 
 
 You can use the Azure portal preview or Azure Powershell to get the URL:
 
-* **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
+* **Portal**: Click **More services** > **Storage accounts** > \<storage account\> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 * **Powershell**: `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` gets the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
 ## Get the storage access keys
 Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/storage-create-storage-account.md).
 
-* **Portal**: Click **More services** > **Storage accounts** > <storage account> **All Settings** > **Access keys**. Copy the key labeled as **key1**.
+* **Portal**: Click **More services** > **Storage accounts** > \<storage account\> **All Settings** > **Access keys**. Copy the key labeled as **key1**.
 * **Powershell**: `Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup` gets the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled as **key1**.
 
 ## Copy the VHD

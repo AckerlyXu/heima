@@ -32,9 +32,9 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 
 **Prerequisites**
 
-* **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
 
     > [!IMPORTANT]
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
@@ -100,7 +100,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         -Clustername $clusterName `
         -JobId $hiveJob.JobId `
         -HttpCredential $creds
-    ````
+    ```
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **hivejob.ps1** file, then use the following command to run the script:
 
@@ -140,7 +140,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     Invoke-AzureRmHDInsightHiveJob `
         -StatusFolder "statusout" `
         -Query $queryString
-    ````
+    ```
 
     The output looks like the following text:
 

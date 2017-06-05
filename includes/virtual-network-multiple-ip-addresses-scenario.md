@@ -1,4 +1,4 @@
-## <a name="Scenario"></a> Scenario
+## Scenario
 A VM with a single NIC is created and connected to a virtual network. The VM requires three different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
 
 * **IPConfig-1:** Assigns a *static* private IP address and a *static* public IP address.

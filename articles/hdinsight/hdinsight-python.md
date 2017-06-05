@@ -26,9 +26,9 @@ Hive and Pig are great for working with data in HDInsight, but sometimes you nee
 
 ## Requirements
 
-* An HDInsight cluster
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* An HDInsight cluster
 
     > [!IMPORTANT]
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
@@ -270,7 +270,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 ### PowerShell
 
 These steps use Azure PowerShell. For more information on using
-Azure PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+Azure PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.
 2. Use  the following PowerShell script to upload the **streaming.py** and **pig\_python.py** files to the server. Substitute the name of your Azure HDInsight cluster, and the path to the **streaming.py** and **pig\_python.py** files on the first three lines of the script.

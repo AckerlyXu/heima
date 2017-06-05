@@ -264,7 +264,7 @@ Here's what happens when network mapping begins:
 
     ![Replication policy](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
-## Capacity planning
+##<a name="step-5-capacity-planning"></a> Capacity planning
 
 Now that you have your basic infrastructure set up, think about capacity planning, and figure out whether you need additional resources.
 
@@ -348,7 +348,7 @@ Note that:
      ![Enable replication](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. In **Disks** you can see the operating system and data disks on the VM that will be replicated.
 
-## Test the deployment
+##<a name="step-7-test-your-deployment"></a> Test the deployment
 
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 

@@ -63,7 +63,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     This request returns a response similar to the following text:
 
-        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
+    {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Use the following to create a table named **log4jLogs**:
 
@@ -96,7 +98,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
         > Notice that the spaces between HiveQL statements are replaced by the `+` character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by `+`.
 
     * **INPUT__FILE__NAME LIKE '%25.log'** - This statement limits the search to only use files ending in .log.
-    
+
         > [!NOTE]
         > The `%25` is the URL encoded form of %, so the actual condition is `like '%.log'`. The % has to be URL encoded, as it is treated as a special character in URLs.
 
@@ -115,11 +117,11 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
     If the job has finished, the state is **SUCCEEDED**.
 
     > [!NOTE]
-    > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job. jq is used to retrieve only the state value.
+    > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job. Jq is used to retrieve only the state value.
 
 4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/curl**. This address stores the output in the **example/curl** directory in the clusters default storage.
 
-    You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
+    You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](/storage/storage-azure-cli#create-and-manage-blobs) document.
 
 5. Use the following statements to create a new 'internal' table named **errorLogs**:
 
@@ -129,7 +131,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. this statement creates an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. This statement creates an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
 
         > [!NOTE]
         > Unlike external tables, dropping an internal table deletes the underlying data as well.
@@ -167,12 +169,12 @@ For more information on the REST API used in this document, see the [WebHCat ref
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
+[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query/
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 

@@ -19,8 +19,8 @@ ms.author: adigan;anuragm;trinadhk;markgal
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 > [!div class="op_single_selector"]
-> * [ARM](backup-dpm-automation.md)
-> * [Classic](backup-dpm-automation-classic.md)
+> * [ARM](./backup-dpm-automation.md)
+> * [Classic](./backup-dpm-automation-classic.md)
 >
 >
 
@@ -287,7 +287,7 @@ In the example below, the cmdlet sets the retention parameters for disk backups.
 PS C:\> Set-DPMPolicyObjective -ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
 ```
 
-For backups going to Azure (DPM refers to them as Online backups) the retention ranges can be configured for [long term retention using a Grandfather-Father-Son scheme (GFS)](backup-azure-backup-cloud-as-tape.md). That is, you can define a combined retention policy involving daily, weekly, monthly and yearly retention policies. In this example, we create an array representing the complex retention scheme that we want, and then configure the retention range using the [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet.
+For backups going to Azure (DPM refers to them as Online backups) the retention ranges can be configured for [long term retention using a Grandfather-Father-Son scheme (GFS)](./backup-azure-backup-cloud-as-tape.md). That is, you can define a combined retention policy involving daily, weekly, monthly and yearly retention policies. In this example, we create an array representing the complex retention scheme that we want, and then configure the retention range using the [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet.
 
 ```
 PS C:\> $RRlist = @()
@@ -371,5 +371,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 The commands can easily be extended for any datasource type.
 
 ## Next steps
-- For more information about DPM to Azure Backup see [Introduction to DPM Backup](backup-azure-dpm-introduction-classic.md)
-
+- For more information about DPM to Azure Backup see [Introduction to DPM Backup](./backup-azure-dpm-introduction-classic.md)

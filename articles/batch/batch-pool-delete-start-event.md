@@ -31,4 +31,3 @@ Pool delete start event log body
 |Element|Type|Notes|
 |-------------|----------|-----------|
 |id|String|The id of the pool.|
-

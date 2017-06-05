@@ -19,7 +19,7 @@ ms.author: cephalin;dariac
 
 ---
 # Deploy your app to Azure App Service
-This article helps you determine the best option to deploy the files for your web app, mobile app backend, or API app to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services), and then guides you to appropriate resources with instructions specific to your preferred option.
+This article helps you determine the best option to deploy the files for your web app, mobile app backend, or API app to [Azure App Service](/app-service-web/app-service-changes-existing-services), and then guides you to appropriate resources with instructions specific to your preferred option.
 
 ## <a name="overview"></a>Azure App Service deployment overview
 Azure App Service maintains the application framework for you (ASP.NET, PHP, Node.js, etc). Some frameworks are enabled by default while others, like Java and Python, may need a simple checkmark configuration to enable it. In addition, you can customize your application framework, such as the PHP version or the bitness of your runtime. For more information, see [Configure your app in Azure App Service](web-sites-configure.md).
@@ -30,7 +30,7 @@ following processes:
 * [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): Use your favorite FTP or FTPS enabled tool to move your files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
 * [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment): Kudu is the [deployment engine](https://github.com/projectkudu/kudu/wiki) in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) for continuous deployment and other automation tasks. The Kudu deployment engine supports 2 different types of deployment sources:   
 
-    * Repository-based continuous deployment with auto-sync from GitHub  
+    * Repository-based continuous deployment with auto-sync from GitHub 
     * Repository-based deployment with manual sync from local Git  
 * [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): Deploy code to App Service directly from your favorite Microsoft tools such as Visual Studio using the same tooling that automates deployment to IIS servers. This tool supports diff-only deployment, database creation, transforms of connection strings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. Similar to FTP, no additional services are provided by App Service.
 
@@ -105,7 +105,7 @@ In the [Azure Portal Preview](https://portal.azure.cn), you can configure local 
 * [Publishing to Web Apps from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
 
 ## Deploy using an IDE
-If you are already using [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) with an [Azure SDK](https://www.azure.cn/downloads/), or other IDE suites like [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org), and [IntelliJ IDEA](https://www.jetbrains.com/idea/), you can deploy to Azure directly from within your IDE. This option is ideal for an individual developer.
+If you are already using [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) with an [Azure SDK](/downloads/), or other IDE suites like [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org), and [IntelliJ IDEA](https://www.jetbrains.com/idea/), you can deploy to Azure directly from within your IDE. This option is ideal for an individual developer.
 
 Visual Studio supports all three deployment processes (FTP, Git, and Web Deploy), depending on your preference, while other IDEs can deploy to App Service if they have FTP or Git integration (see [Overview of deployment processes](#overview)).
 

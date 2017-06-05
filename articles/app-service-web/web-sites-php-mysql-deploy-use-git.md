@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: ''
 ms.author: robmcm
 
@@ -23,11 +23,11 @@ ms.author: robmcm
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](/azure/app-service-web/app-service-changes-existing-services) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
+This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](/app-service-web/app-service-changes-existing-services) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
 
 You will learn:
 
-* How to create a web app and a MySQL database using the [Azure Portal Preview][management-portal]. Because PHP is enabled in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services) by default, nothing special is required to run your PHP code.
+* How to create a web app and a MySQL database using the [Azure Portal Preview][management-portal]. Because PHP is enabled in [App Service Web Apps](/app-service-web/app-service-changes-existing-services) by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
 * How to enable the Composer extension to automate Composer tasks at every `git push`.
 
@@ -47,7 +47,7 @@ Follow these steps to create a web app and a MySQL database:
 4. Click **Web + Mobile**, then **Web app**. Then, click **Create**.
 5. Enter a valid name for your resource group.
 6. Enter values for your new web app.
-6. Login to the [Azure Classic Management Portal](https://manage.windowsazure.cn), create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
+7. Login to the [Azure Classic Management Portal](https://manage.windowsazure.cn), create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
 8. When the web app has been created, you will see the new web app blade.
 9. In **Settings** click on **Continuous Deployment**, then click on *Configure required settings*.
 
@@ -243,7 +243,7 @@ project. You can enable composer.json processing during `git push` by enabling t
     ![Composer Extension Success][composer-extension-success]
 
 ## Next steps
-For more information, see the [PHP Developer Center](https://www.azure.cn/develop/php/).
+For more information, see the [PHP Developer Center](/develop/php/).
 
 <!-- URL List -->
 

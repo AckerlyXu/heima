@@ -25,7 +25,7 @@ This topic discusses how to start developing Media Services applications using .
 The **Azure Media Services .NET SDK** library enables you to program against Media Services using .NET. To make it even easier to develop with .NET, the **Azure Media Services .NET SDK Extensions** library is provided. This library contains a set of extension methods and helper functions that simplify your .NET code. Both libraries are available through **NuGet** and **GitHub**.
 
 ## Prerequisites
-* A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md).
+* A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-create-account.md).
 * Operating Systems: Windows 10, Windows 7, Windows 2008 R2, or Windows 8.
 * .NET Framework 4.5.
 * Visual Studio.

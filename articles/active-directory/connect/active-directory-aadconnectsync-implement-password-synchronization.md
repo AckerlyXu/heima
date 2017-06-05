@@ -86,9 +86,6 @@ The following describes in-depth how password synchronization works between Acti
 >[!Note] 
 >The original MD4 hash is not transmitted to Azure AD. Instead, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained, it cannot be used in an on-premises pass-the-hash attack.
 
-### How password synchronization works with Azure Active Directory Domain Services
-You can also use the password synchronization feature to synchronize your on-premises passwords to [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). In this scenario, the Azure Active Directory Domain Services instance authenticates your users in the cloud with all the methods available in your on-premises Active Directory instance. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
-
 ### Security considerations
 When synchronizing passwords, the plain-text version of your password is not exposed to the password synchronization feature, to Azure AD, or any of the associated services.
 
@@ -173,7 +170,7 @@ For reference, this snippet is what it should look like:
 
 For information about security and FIPS, see [AAD Password Sync, encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
 
-## Troubleshoot password synchronization
+## Troubleshoot password synchronization <a name="troubleshoot-password-synchronization"></a>
 If you have problems with password synchronization, see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## Next steps

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/11/2017
 wacn.date: ''
 ms.author: sdanie
 
@@ -86,21 +86,51 @@ The following list contains answers to commonly asked questions about the Azure 
 * [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
 * [Do all cache features work when hosting a cache in a VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a> What are some common misconfiguration issues with Azure Redis Cache and VNets?
-When Azure Redis Cache is hosted in a VNet, the ports in the following table are used. If these ports are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
+## What are some common misconfiguration issues with Azure Redis Cache and VNets?
+When Azure Redis Cache is hosted in a VNet, the ports in the following tables are used. 
+
+>[!IMPORTANT]
+>If the ports in the following tables are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
+> 
+> 
+
+- [Outbound port requirements](#outbound-port-requirements)
+- [Inbound port requirements](#inbound-port-requirements)
+
+### Outbound port requirements
+
+There are seven outbound port requirements.
+
+- If desired, all outbound connections to the internet can be made through a client's on-premise auditing device.
+- Three of the ports route traffic to Azure endpoints servicing Azure Storage and Azure DNS.
+- The remaining port ranges and for internal Redis subnet communications. No subnet NSG rules are required for internal Redis subnet communications.
 
 | Port(s) | Direction | Transport Protocol | Purpose | Remote IP |
 | --- | --- | --- | --- | --- |
 | 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) |* |
 | 53 |Outbound |TCP/UDP |Redis dependencies on DNS (Internet/VNet) |* |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure Load Balancing |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 8443 |Inbound/Outbound |TCP |Implementation Detail for Redis |VIRTUAL_NETWORK |
-| 8500 |Inbound |TCP/UDP |Azure Load Balancing |AZURE_LOADBALANCER |
-| 10221-10231 |Inbound/Outbound |TCP |Implementation Detail for Redis (can restrict remote endpoint to VIRTUAL_NETWORK) |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure Load Balancing |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure Load Balancing |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 16001 |Inbound |TCP/UDP |Azure Load Balancing |AZURE_LOADBALANCER |
-| 20226 |Inbound+Outbound |TCP |Implementation Detail for Redis Clusters |VIRTUAL_NETWORK |
+| 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |
+| 10221-10231 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |
+| 20226 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
+| 13000-13999 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
+| 15000-15999 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
+
+### Inbound port requirements
+
+There are eight inbound port range requirements. Inbound requests in these ranges are either inbound from other services hosted in the same VNET or internal to the Redis subnet communications.
+
+| Port(s) | Direction | Transport Protocol | Purpose | Remote IP |
+| --- | --- | --- | --- | --- |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing |Virtual Network, Azure Load Balancer |
+| 8443 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
+| 8500 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
+| 10221-10231 |Inbound |TCP |Internal communications for Redis |(Redis subnet), Azure Load Balancer |
+| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing |Virtual Network, Azure Load Balancer |
+| 16001 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
+| 20226 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
+
+### Additional VNET network connectivity requirements
 
 There are network connectivity requirements for Azure Redis Cache that may not be initially met in a virtual network. Azure Redis Cache requires all the following items to function properly when used within a virtual network.
 
@@ -109,10 +139,10 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 * The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
 * Outbound network connectivity to the following Azure Monitoring endpoints, which resolve under the following DNS domains: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
-### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a> Can I use VNets with a standard or basic cache?
+### Can I use VNets with a standard or basic cache?
 VNets can only be used with premium caches.
 
-### <a name="why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others"></a> Why does creating a Redis cache fail in some subnets but not others?
+### Why does creating a Redis cache fail in some subnets but not others?
 If you are deploying an Azure Redis Cache to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Redis Cache to a Resource Manager VNet subnet that contains other resources, the deployment fails. You must delete the existing resources inside the subnet before you can create a new Redis cache.
 
 You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
@@ -122,7 +152,7 @@ Azure reserves some IP addresses within each subnet, and these addresses can't b
 
 In addition to the IP addresses used by the Azure VNET infrastructure, each Redis instance in the subnet uses two IP addresses per shard and one additional IP address for the load balancer. A non-clustered cache is considered to have one shard.
 
-### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet"></a> Do all cache features work when hosting a cache in a VNET?
+### Do all cache features work when hosting a cache in a VNET?
 When your cache is part of a VNET, only clients in the VNET can access the cache. As a result, the following cache management features don't work at this time.
 
 * Redis Console - Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.

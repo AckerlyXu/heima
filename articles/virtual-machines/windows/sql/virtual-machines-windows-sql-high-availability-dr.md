@@ -41,7 +41,7 @@ SQL Server HADR technologies that are supported in Azure include:
 
 It is possible to combine the technologies together to implement a SQL Server solution that has both high availability and disaster recovery capabilities. Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network. The sections below show you some of the example deployment architectures.
 
-## <a name="azure-only-high-availability-solutions"></a> Azure-only: High availability solutions
+## Azure-only: High availability solutions
 
 You can have a high availability solution for SQL Server at a database level with Always On Availability Groups, or at an instance level with Always On Failover Cluster Instances. You can also create redundancy at both levels by creating Always On Availability Groups on a SQL Server Failover Cluster Instance. 
 
@@ -73,7 +73,7 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a HADR SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
 
 ### High availability nodes in an availability set
-Availability sets in Azure enable you to place the high availability nodes into separate Fault Domains (FDs) and Update Domains (UDs). For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. For more information, see [Manage the Availability of Virtual Machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Availability sets in Azure enable you to place the high availability nodes into separate Fault Domains (FDs) and Update Domains (UDs). For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. For more information, see [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Failover cluster behavior in Azure networking
 The non-RFC-compliant DHCP service in Azure can cause the creation of certain failover cluster configurations to fail, due to the cluster network name being assigned a duplicate IP address, such as the same IP address as one of the cluster nodes. This is an issue when you implement Always On Availability Groups, which depends on the Windows failover cluster feature.
@@ -99,7 +99,7 @@ There are two main options for setting up your listener: external (public) or in
 If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "**MultisubnetFailover=True**". This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see
 
 * [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Configure an external listener for Always On Availability Groups in Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
+* [Configure an external listener for Always On Availability Groups in Azure](../classic/ps-sql-ext-listener.md).
 
 You can still connect to each availability replica separately by connecting directly to the service instance. Also, since Always On Availability Groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similar to database mirroring:
 
@@ -121,7 +121,7 @@ For more information on client connectivity, see:
 ### Network latency in hybrid IT
 You should deploy your HADR solution with the assumption that there may be periods of time with high network latency between your on-premises network and Azure. When deploying replicas to Azure, you should use asynchronous commit instead of synchronous commit for the synchronization mode. When deploying database mirroring servers both on-premises and in Azure, use the high-performance mode instead of the high-safety mode.
 
-### <a name="geo-replication-support"></a> Geo-replication support
+### Geo-replication support
 Geo-replication in Azure disks does not support the data file and log file of the same database to be stored on separate disks. GRS replicates changes on each disk independently and asynchronously. This mechanism guarantees the write order within a single disk on the geo-replicated copy, but not across geo-replicated copies of multiple disks. If you configure a database to store its data file and its log file on separate disks, the recovered disks after a disaster may contain a more up-to-date copy of the data file than the log file, which breaks the write-ahead log in SQL Server and the ACID properties of transactions. If you do not have the option to disable geo-replication on the storage account, you should keep all data and log files for a given database on the same disk. If you must use more than one disk due to the size of the database, you need to deploy one of the disaster recovery solutions listed above to ensure data redundancy.
 
 ## Next steps

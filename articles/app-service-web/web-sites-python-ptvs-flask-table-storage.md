@@ -21,13 +21,11 @@ ms.author: huvalo
 ---
 # Flask and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates.
 
 The polls web app defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
 
-We'll learn how to create an Azure Storage account, how to configure the web app to use Azure Table Storage, and how to publish the web app to [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services).
+We'll learn how to create an Azure Storage account, how to configure the web app to use Azure Table Storage, and how to publish the web app to [Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services).
 
 See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
@@ -39,6 +37,8 @@ See the [Python Developer Center] for more articles that cover development of Az
 * [Python 2.7 32-bit] or [Python 3.4 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## Create the Project
 In this section, we'll create a Visual Studio project using a sample template. We'll create a virtual environment and install required packages. Then we'll run the application locally using the default in-memory repository.
@@ -162,17 +162,17 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 * [How to Use the Table Storage Service from Python]
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
-[Python Developer Center]: https://www.azure.cn/develop/python/
+[Python Developer Center]: /develop/python/
 [Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 [documentation]: ../storage/storage-python-how-to-use-table-storage.md
 [How to Use the Table Storage Service from Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Portal Preview]: https://portal.azure.cn
-[Azure SDK for .NET]: https://www.azure.cn/downloads/
+[Azure SDK for .NET]: /downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -184,5 +184,5 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 [Remote Debugging on Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure Storage]: /azure/storage/
+[Azure Storage]: /storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python

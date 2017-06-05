@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/4/2016
+ms.date: 04/04/2016
 ms.author: anandy
 
 ---
@@ -35,7 +35,7 @@ This article describes how to manage and customize Active Directory Federation S
 | [Add a sign-in description](#addsignindescription) |How to add a sign-in page description. |
 | [Modify AD FS claim rules](#modclaims) |How to modify AD FS claims for various federation scenarios. |
 
-## Manage AD FS
+## Manage AD FS <a name="ad-fs-management"></a>
 You can perform various AD FS-related tasks in Azure AD Connect with minimal user intervention by using the Azure AD Connect wizard. After you've finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
 ## Repair the trust <a name=repairthetrust></a>

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/27/2017
 wacn.date: ''
 ms.author: jgao
 
@@ -38,10 +38,6 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 * **An Azure storage account**. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
-
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create clusters
 
@@ -97,7 +93,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";
 
-            // You can use eitehr password or public key.  See https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/ or https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/
+            // You can use eitehr password or public key.  See https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/
             private const string NewClusterSshPassword = "<Enter SSH User Password>";
             private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
                 Comment: ""rsa-key-20150731""
@@ -372,6 +368,10 @@ static void Main(string[] args)
     System.Console.ReadLine();
 }
 ```
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster. 

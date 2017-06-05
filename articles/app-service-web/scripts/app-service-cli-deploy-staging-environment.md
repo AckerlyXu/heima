@@ -2,17 +2,18 @@
 title: Azure CLI Script Sample - Create a web app and deploy code to a staging environment | Azure
 description: Azure CLI Script Sample - Create a web app and deploy code to a staging environment
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
+ms.topic: sample
 ms.date: 03/20/2017
 wacn.date: ''
 ms.author: cephalin
@@ -22,15 +23,11 @@ ms.author: cephalin
 
 This sample script creates a web app in App Service with an additional deployment slot called "staging", and then deploys a sample app to the "staging" slot.
 
-If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
@@ -63,6 +60,7 @@ az appservice web deployment slot swap --name $webappname --resource-group myRes
 
 # Browse to the production slot. 
 az appservice web browse --name $webappname --resource-group myResourceGroup
+
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

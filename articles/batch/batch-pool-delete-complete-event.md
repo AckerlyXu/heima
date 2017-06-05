@@ -38,4 +38,3 @@ Pool delete complete event log body
 
 ## Remarks
 For more information about states and error codes for pool resize operation, see [Delete a pool from an account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
-

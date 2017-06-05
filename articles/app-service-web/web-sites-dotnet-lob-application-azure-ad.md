@@ -23,14 +23,12 @@ ms.author: cephalin
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 This article shows you how to create a .NET line-of-business app in 
-[Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services) using the 
+[Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services) using the 
 [Authentication / Authorization](../app-service/app-service-authentication-overview.md) feature. It also shows how 
 to use the [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 
 to query directory data in the application.
 
-The Azure Active Directory tenant that you use can be an Azure-only directory. Or, it can be 
-[synced with your on-premise Active Directory](../active-directory/active-directory-aadconnect.md) to create a single sign-on experience for 
-workers that are on-premises and remote. This article uses the default directory for your Azure account.
+The Azure Active Directory tenant that you use can be an Azure-only directory. This article uses the default directory for your Azure account.
 
 ## <a name="bkmk_build"></a> What you will build
 You will build a simple line-of-business Create-Read-Update-Delete (CRUD) application in App Service Web Apps that tracks 
@@ -50,7 +48,9 @@ You need the following to complete this tutorial:
 * An Azure Active Directory tenant with users in various groups
 * Permissions to create applications on the Azure Active Directory tenant
 * Visual Studio 2013 Update 4 or later
-* [Azure SDK 2.8.1 or later](https://www.azure.cn/downloads/)
+* [Azure SDK 2.8.1 or later](/downloads/)
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="bkmk_deploy"></a> Create and deploy a web app to Azure
 1. From Visual Studio, click **File** > **New** > **Project**.
@@ -109,9 +109,9 @@ You need the following to complete this tutorial:
 
     > [!IMPORTANT]
     > If you navigate away from this page now, you won't be able to access this client key ever again.
-1. use REST API to configure your App: GET from the following URL. 
+1. use REST API to configure your App: GET from the following URL.
 
-    ``` 
+    ```
     https://management.chinacloudapi.cn/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings/list?api-version=2015-08-01
     ```
 2. You will get something like this.
@@ -371,7 +371,7 @@ Now, you create a simple CRUD work items tracker.
 
     > [!NOTE]
     > You need this line of code because the default MVC template uses <code>[ValidateAntiForgeryToken]</code> decoration 
-    > on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at 
+    > on some of the actions. Due to the behavior described by Brock Allen at 
     > [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail 
     > anti-forgery token validation because:
     > * Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
@@ -379,7 +379,7 @@ Now, you create a simple CRUD work items tracker.
     > * If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
     >   http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually 
     >   configure AD FS to send this claim.
-    > <p> 
+    > 
     > `ClaimTypes.NameIdentifies` specifies the claim `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, which Azure 
     > Active Directory does supply.  
     > 
@@ -411,6 +411,6 @@ authorize users with the `[Authorize]` decoration.
 * [Create a line-of-business app in Azure with AD FS authentication](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
-* [Azure Active Directory Supported Token and Claim Types](/azure/active-directory/active-directory-token-and-claims/)
+* [Azure Active Directory Supported Token and Claim Types](/active-directory/active-directory-token-and-claims/)
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

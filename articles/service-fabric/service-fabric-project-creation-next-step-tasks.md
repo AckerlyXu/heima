@@ -52,7 +52,7 @@ The Service Fabric SDK provides the same set of ASP.NET Core templates that are 
 
 ### Guest executables and guest containers
 
-A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest either [directly in the application package](service-fabric-deploy-existing-app.md) or [through a container image](service-fabric-deploy-container.md). In both cases, Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
+A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest  [directly in the application package](service-fabric-deploy-existing-app.md). Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
 
 ## Next steps
 ### Create an Azure cluster

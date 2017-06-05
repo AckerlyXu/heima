@@ -82,6 +82,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [!NOTE]
 > This `{property_bag}` element uses the same encoding as for query strings in the HTTP protocol.
+>
+>
 
 The device app can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
@@ -179,8 +181,9 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 
 As for property updates, `null` values means that the JSON object member is being deleted.
 
-> [!IMPORTANT]
-> IoT Hub generates change notifications only when devices are connected, make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
+
+> [!IMPORTANT] 
+> IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
 
 For more information, see [Device twins developer's guide][lnk-devguide-twin].
 
@@ -209,8 +212,8 @@ To learn more about planning your IoT Hub deployment, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-- [IoT Hub developer guide][lnk-devguide]
-- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [IoT Hub developer guide][lnk-devguide]
+* [Simulating a device with Azure IoT Edge][lnk-gateway]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/

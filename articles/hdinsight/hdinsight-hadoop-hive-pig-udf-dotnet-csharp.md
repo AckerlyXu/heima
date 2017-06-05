@@ -45,7 +45,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 
-* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
+* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -54,6 +54,8 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 * __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5.
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
+
+    To use a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
 
 * __Windows-based HDInsight__ clusters use the Microsoft .NET CLR to run .NET applications.
 

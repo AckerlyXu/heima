@@ -31,7 +31,7 @@ This tutorial shows you how to create a virtual machine scale set **without** us
 
 If you're using Azure CLI 2.0 or Azure PowerShell to create a scale set, you first need to sign in to your subscription.
 
-For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/resourcemanager/).
+For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -57,7 +57,7 @@ New-AzureRmResourceGroup -Location chinanorth -Name vmss-test-1
 
 ## Create from Azure CLI
 
-With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, the are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
+With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, they are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
 - A load balancer
 - A virtual network
 - A public IP address
@@ -110,22 +110,22 @@ PowerShell is more complicated to use than Azure CLI. While Azure CLI provides d
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **China North 2** region with a publisher that has the name **microsoft** in it.
+The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **China North** region with a publisher that has the name **microsoft** in it.
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location ChinaNorth | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
 
 ```
-PublisherName              Offer                    Skus
--------------              -----                    ----
-microsoft-ads              linux-data-science-vm    linuxdsvm
-microsoft-ads              standard-data-science-vm standard-data-science-vm
-MicrosoftAzureSiteRecovery Process-Server           Windows-2012-R2-Datacenter
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Enterprise
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Standard
-MicrosoftBizTalkServer     BizTalk-Server           2016-Developer
-MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
+PublisherName              Offer          Skus
+-------------              -----          ----
+MicrosoftAzureSiteRecovery Process-Server Windows-2012-R2-Datacenter
+MicrosoftOSTC              FreeBSD        10.3
+MicrosoftOSTC              FreeBSD        11.0
+MicrosoftRServer           RServer-CentOS Enterprise
+MicrosoftRServer           RServer-RedHat Enterprise
+MicrosoftRServer           RServer-Ubuntu Enterprise
+MicrosoftRServer           RServer-WS2016 Enterprise
 ...
 ```
 
@@ -179,7 +179,5 @@ With Visual Studio, you can create an Azure resource group project and add a vir
 The Azure portal preview provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure portal preview](virtual-machine-scale-sets-portal-create.md).
 
 ## Next steps
-
-Learn more about [data disks](virtual-machine-scale-sets-attached-disks.md).
 
 Learn how to [manage your apps](virtual-machine-scale-sets-deploy-app.md).

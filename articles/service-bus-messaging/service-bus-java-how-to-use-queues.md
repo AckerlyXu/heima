@@ -3,20 +3,20 @@ title: How to use Service Bus queues with Java | Azure
 description: Learn how to use Service Bus queues in Azure. Code samples written in Java.
 services: service-bus
 documentationCenter: java
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 
+ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
+
 ---
-
 # How to use Service Bus queues
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This article describes how to use Service Bus queues. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**.
@@ -111,7 +111,7 @@ catch (ServiceException e)
 }
 ```
 
-Messages sent to, and received from Service Bus queues are instances of the [BrokeredMessage][] class. [BrokeredMessage][] objects have a set of standard properties (such as [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) and [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), a dictionary
+Messages sent to, and received from Service Bus queues are instances of the [BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage] objects have a set of standard properties (such as [Label](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) and [TimeToLive](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), a dictionary
 that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the [BrokeredMessage][BrokeredMessage], and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
 
 The following example demonstrates how to send five test messages to the
@@ -129,7 +129,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the Standard tier. The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages
 held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
@@ -227,26 +227,26 @@ Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
 then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This will cause Service Bus
+(instead of the **deleteMessage** method). This causes Service Bus
 to unlock the message within the queue and make it available to be
 received again, either by the same consuming application or by another
 consuming application.
 
 There is also a timeout associated with a message locked within the
 queue, and if the application fails to process the message before the
-lock timeout expires (e.g., if the application crashes), then Service
-Bus will unlock the message automatically and make it available to be
+lock timeout expires (for example, if the application crashes), then Service
+Bus unlocks the message automatically and makes it available to be
 received again.
 
 In the event that the application crashes after processing the message
 but before the **deleteMessage** request is issued, then the message
-will be redelivered to the application when it restarts. This is often
-called **At Least Once Processing**, that is, each message will be
+is redelivered to the application when it restarts. This is often
+called *At Least Once Processing*; that is, each message is
 processed at least once but in certain situations the same message may
 be redelivered. If the scenario cannot tolerate duplicate processing,
 then application developers should add additional logic to their
 application to handle duplicate message delivery. This is often achieved
-using the **getMessageId** method of the message, which will remain
+using the **getMessageId** method of the message, which remains
 constant across delivery attempts.
 
 ## Next Steps

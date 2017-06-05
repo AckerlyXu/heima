@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/active-directory/develop/active-directory-developers-guide
+redirect_url: /active-directory/develop/active-directory-developers-guide
 ---

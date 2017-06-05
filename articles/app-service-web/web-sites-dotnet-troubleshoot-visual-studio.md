@@ -23,7 +23,9 @@ ms.author: rachelap
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## Overview
-This tutorial shows how to use Visual Studio tools that help debug a web app in [App Service](/azure/app-service-web/app-service-changes-existing-services), by running in [debug mode](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools that help debug a web app in [App Service](/app-service-web/app-service-changes-existing-services), by running in debug mode remotely or by viewing application logs and web server logs.
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -48,7 +50,7 @@ The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Vi
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
 ## <a name="sitemanagement"></a>Web app configuration and management
-Visual Studio provides access to a subset of the web app management functions and configuration settings available in the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal). In this section you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open both windows from the **View** menu.
+Visual Studio provides access to a subset of the web app management functions and configuration settings available in the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal). In this section you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open both windows from the **View** menu.
 
 1. If you aren't already signed in to Azure in Visual Studio, click the **Connect to Azure** button in **Server Explorer**.
 
@@ -59,7 +61,7 @@ Visual Studio provides access to a subset of the web app management functions an
     >
     >
 
-    For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](/azure/active-directory/role-based-access-control-configure#BKMK_AccountVCert).
+    For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](/active-directory/role-based-access-control-configure#BKMK_AccountVCert).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
 3. Expand the resource group that includes the web app that you created in [Getting started with Azure and ASP.NET][GetStarted], and then right-click the web app node and click **View Settings**.
 
@@ -130,7 +132,7 @@ This section shows how to debug remotely using the project you create in [Gettin
             ViewBag.Message = "The current time is " + currentTime;
             return View();
         }
-4. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
+4. Set a breakpoint on the `ViewBag.Message` line.
 5. In **Solution Explorer**, right-click the project, and click **Publish**.
 6. In the **Profile** drop-down list, select the same profile that you used in [Getting started with Azure and ASP.NET][GetStarted].
 7. Click the **Settings** tab, and change **Configuration** to **Debug**, and then click **Publish**.
@@ -168,7 +170,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 1. Open the web project that you created in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
 2. In the ContosoAdsWebJob project, open *Functions.cs*.
-3. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the first statement in the `GnerateThumbnail` method.
+3. Set a breakpoint on the first statement in the `GnerateThumbnail` method.
 
     ![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 4. In **Solution Explorer**, right-click the web project (not the WebJob project), and click **Publish**.
@@ -567,7 +569,7 @@ You've seen how Visual Studio makes it easy to view logs created by an Azure web
 ### Azure web app troubleshooting
 For more information about troubleshooting web apps in Azure App Service, see the following resources:
 
-* [How to monitor web apps](/azure/app-service-web/web-sites-monitor)
+* [How to monitor web apps](/app-service-web/web-sites-monitor)
 * [Investigating Memory Leaks in Azure Web Apps with Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blog post about Visual Studio features for analyzing managed memory issues.
 * [Azure web apps online tools you should know about](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
 

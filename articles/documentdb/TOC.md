@@ -78,13 +78,8 @@
 
 ## Integrate
 ### [Deploy a website with Azure App Service](documentdb-create-documentdb-website.md)
-### [Application logging with Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
-### [Bind to Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Analyze data with Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrate with Azure Search](documentdb-search-indexer.md)
-### [Move data with Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analyze real-time data with Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Get notifications with Logic Apps](documentdb-change-notification.md)
 ### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
 

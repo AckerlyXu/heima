@@ -21,8 +21,8 @@ ms.custom: H1Hack27Feb2017
 ---
 # Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines
 > [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Classic](backup-azure-vms-classic-automation.md)
+> * [Resource Manager](./backup-azure-vms-automation.md)
+> * [Classic](./backup-azure-vms-classic-automation.md)
 >
 >
 
@@ -36,7 +36,7 @@ This article shows you how to use Azure PowerShell cmdlets to back up and recove
 This article walks you through using PowerShell to protect a VM, and restore data from a recovery point.
 
 ## Concepts
-If you are not familiar with the Azure Backup service, for an overview of the service, check out [What is Azure Backup?](backup-introduction-to-azure-backup.md) Before you start, ensure that you cover the essentials about the prerequisites needed to work with Azure Backup, and the limitations of the current VM backup solution.
+If you are not familiar with the Azure Backup service, for an overview of the service, check out [What is Azure Backup?](./backup-introduction-to-azure-backup.md) Before you start, ensure that you cover the essentials about the prerequisites needed to work with Azure Backup, and the limitations of the current VM backup solution.
 
 To use PowerShell effectively, it is necessary to understand the hierarchy of objects and from where to start.
 
@@ -404,5 +404,4 @@ After you have restored the disks, use these steps to create and configure the v
     ```
 
 ## Next steps
-If you prefer using PowerShell to engage with your Azure resources, check out the PowerShell article for protecting Windows Server, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). There is also a PowerShell article for managing DPM backups, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
-
+If you prefer using PowerShell to engage with your Azure resources, check out the PowerShell article for protecting Windows Server, [Deploy and Manage Backup for Windows Server](./backup-client-automation.md). There is also a PowerShell article for managing DPM backups, [Deploy and Manage Backup for DPM](./backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  

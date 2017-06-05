@@ -56,27 +56,27 @@ For virtual machines, storage accounts, and virtual networks, if the resource wa
 
 In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative task such as moving a classic resource to another resource group. But, these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a virtual machine that was created with classic deployment. If you run the following Resource Manager PowerShell command:
 
-    ```powershell
-    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
-    ```
+```powershell
+Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```
 
 It returns the virtual machine:
 
-    ```powershell
-    Name              : ExampleClassicVM
-    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
-    ResourceName      : ExampleClassicVM
-    ResourceType      : Microsoft.ClassicCompute/virtualMachines
-    ResourceGroupName : ExampleGroup
-    Location          : chinanorth
-    SubscriptionId    : {guid}
-    ```
+```powershell
+Name              : ExampleClassicVM
+ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+ResourceName      : ExampleClassicVM
+ResourceType      : Microsoft.ClassicCompute/virtualMachines
+ResourceGroupName : ExampleGroup
+Location          : chinanorth
+SubscriptionId    : {guid}
+```
 
 However, the Resource Manager cmdlet **Get-AzureRmVM** only returns virtual machines deployed through Resource Manager. The following command does not return the virtual machine created through classic deployment.
 
-    ```powershell
-    Get-AzureRmVM -ResourceGroupName ExampleGroup
-    ```
+```powershell
+Get-AzureRmVM -ResourceGroupName ExampleGroup
+```
 
 Only resources created through Resource Manager support tags. You cannot apply tags to classic resources.
 
@@ -92,16 +92,16 @@ To help you understand the two models, let's review the characteristics of Resou
     ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 * Created with the Resource Manager version of the Azure PowerShell cmdlets. These commands have the format *Verb-AzureRmNoun*.
 
-        ```powershell
-        New-AzureRmResourceGroupDeployment
-        ```
+    ```powershell
+    New-AzureRmResourceGroupDeployment
+    ```
 * Created through the [Azure Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) for REST operations.
 * Created through Azure CLI commands run in the **arm** mode.
 
-        ```azurecli
-        azure config mode arm
-        azure group deployment create 
-        ```
+    ```azurecli
+    azure config mode arm
+    azure group deployment create 
+    ```
 * The resource type does not include **(classic)** in the name. The following image shows the type as **Storage account**.
 
     ![web app](./media/resource-manager-deployment-model/resource-manager-type.png)
@@ -120,16 +120,16 @@ Resources created in the classic deployment model share the following characteri
      ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 * Created through the Service Management version of the Azure PowerShell cmdlets. These command names have the format *Verb-AzureNoun*.
 
-        ```powershell
-        New-AzureVM 
-        ```
+    ```powershell
+    New-AzureVM 
+    ```
 * Created through the [Service Management REST API](https://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx) for REST operations.
 * Created through Azure CLI commands run in **asm** mode.
 
-        ```azurecli
-        azure config mode asm
-        azure vm create 
-        ```
+    ```azurecli
+    azure config mode asm
+    azure vm create 
+    ```
 * The resource type includes **(classic)** in the name. The following image shows the type as **Storage account (classic)**.
 
     ![classic type](./media/resource-manager-deployment-model/classic-type.png)

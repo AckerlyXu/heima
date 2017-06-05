@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 #Azure Resource Manager Documentation
@@ -18,8 +19,8 @@ ms.author: carolz
 Learn how to use Resource Manager to deploy, monitor, and manage solution resources as a group. Tutorials, API references, and other documentation show you how to set up resource groups and create templates for consistent and repeatable deployment.
 
 <ul class="panelContent cardsFTitle">
-	<li>
-        <a href="/azure/Azure-Resource-Manager/resource-group-overview">
+    <li>
+        <a href="/azure-resource-manager/resource-group-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -54,8 +55,8 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
         </div>
         </a>
     </li>
-	<li>
-        <a href="/azure/resource-manager-template-walkthrough">
+    <li>
+        <a href="/resource-manager-template-walkthrough">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -72,8 +73,8 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
         </div>
         </a>
     </li>
-	<li>
-        <a href="/azure/resource-group-define-dependencies">
+    <li>
+        <a href="/resource-group-define-dependencies">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,7 +92,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
         </a>
     </li>
     <li>
-        <a href="/azure/resource-group-create-multiple">
+        <a href="/resource-group-create-multiple">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -111,48 +112,48 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
 </ul>
 
 ---
- 
+
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
-                        <p><a href="/cli/azure/resource">Azure CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/resource">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
-                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Template schemas</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.resources">Java</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="/resource-group-template-functions">Template functions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/resources/">REST API</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/resources/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

@@ -58,4 +58,3 @@ The following table captures the Backup management actions and corresponding min
   - [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   - [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 - [Role-Based Access Control troubleshooting](../active-directory/role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
-

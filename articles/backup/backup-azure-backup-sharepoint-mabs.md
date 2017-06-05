@@ -31,7 +31,7 @@ Azure Backup for DPM supports the following scenarios:
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
 
 ### Prerequisites
-Before you proceed, make sure that you have [installed and prepared the Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md) to protect workloads.
+Before you proceed, make sure that you have [installed and prepared the Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) to protect workloads.
 
 ### Protection agent
 The Protection agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. DPM needs the agent on one WFE server only to serve as the entry point for protection.
@@ -232,4 +232,3 @@ A: Yes, the item can be recovered to the original SharePoint site.
 
 Q: Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?<br>
 A: Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, MABS cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
-

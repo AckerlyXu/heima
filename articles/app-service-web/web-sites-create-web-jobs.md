@@ -20,7 +20,7 @@ ms.author: glenga
 ---
 # Run Background tasks with WebJobs
 ## Overview
-You can run programs or scripts in WebJobs in your [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
+You can run programs or scripts in WebJobs in your [Azure App Service](/app-service-web/app-service-changes-existing-services) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
@@ -29,6 +29,8 @@ This article shows how to deploy WebJobs by using the [Azure Portal Preview](htt
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 The following file types are accepted:
@@ -64,7 +66,7 @@ The following file types are accepted:
 
 > [!NOTE]
 > If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Azure.
-> <p> 
+> 
 > For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
 > 
 > 
@@ -176,7 +178,7 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [Cl
 For more information, see [Azure WebJobs Recommended Resources][WebJobsRecommendedResources].
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
-[WebJobsRecommendedResources]:/azure/app-service-web/websites-webjobs-resources
+[WebJobsRecommendedResources]:/app-service-web/websites-webjobs-resources
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png
 [WebJobsList]: ./media/web-sites-create-web-jobs/02aWebJobsList.png

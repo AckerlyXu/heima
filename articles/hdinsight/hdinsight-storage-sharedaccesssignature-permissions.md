@@ -153,8 +153,8 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
     > * Must contain at least one digit
     > * Must contain at least one non-alphanumeric character
     > * Must contain at least one upper or lower case letter
-    > 
-    > 
+    >
+    >
 
 It takes a while for this script to complete, usually around 15 minutes. When the script completes without any errors, the cluster has been created.
 
@@ -177,8 +177,8 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
 
     > [!IMPORTANT]
     > You must restart several services before the change takes effect.
-    > 
-    > 
+    >
+    >
 6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All** from the **Service Actions** drop down list on the right. When prompted, select **Turn on maintenance mode** and then select __Conform Restart All".
 
     Repeat this process for MapReduce2 and YARN.

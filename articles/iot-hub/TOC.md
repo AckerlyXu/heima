@@ -227,7 +227,7 @@
 ## [Azure IoT Suite](../iot-suite/index.md)
 ## [Azure Event Hubs](../event-hubs/index.md)
 ## [Stream Analytics](../stream-analytics/index.md)
-## [Machine Learning](../machine-learning/index.md)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)

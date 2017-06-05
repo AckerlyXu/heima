@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: hero-article
-ms.date: 04/04/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 ---
 
@@ -25,14 +25,41 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-If you don't have an Azure subscription, create a [trial](https://www.azure.cn/1rmb-trial/) account before you begin.
+If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
 ## Log in to Azure
 
 Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli
-az login -e azurechinacloud
+az login
+```
+>[!NOTE]
+>Before you run `az login`, please open Azure CLI 2.0 configuration file located at C:\\Users\\<\%USERPROFILE\%\>\\.azure\\config, make sure the cloud name is set to AzureChinaCloud.
+>```
+>[cloud]
+>name = AzureChinaCloud
+>```
+
+
+## Define variables
+
+Define variables for use in the scripts in this quick start.
+
+```azurecli
+# The data center and resource name for your resources
+export resourcegroupname = myResourceGroup
+export location = "China East"
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+export servername = server-$RANDOM
+# Set an admin login and password for your database
+export adminlogin = ServerAdmin
+export password = ChangeYourAdminPassword1
+# The ip address range that you want to allow to access your DB
+export startip = "0.0.0.0"
+export endip = "0.0.0.1"
+# The database name
+export databasename = mySampleDatabase
 ```
 
 ## Create a resource group
@@ -40,16 +67,15 @@ az login -e azurechinacloud
 Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `chinaeast` location.
 
 ```azurecli
-az group create --name myResourceGroup --location chinaeast
+az group create --name $resourcegroupname --location $location
 ```
 ## Create a logical server
 
 Create an [Azure SQL Database logical server](sql-database-features.md) using the [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```azurecli
-servername=server-$RANDOM
-az sql server create --name $servername --resource-group myResourceGroup --location chinaeast \
-	--admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
+az sql server create --name $servername --resource-group $resourcegroupname --location $location \
+	--admin-user $adminlogin --admin-password $password
 ```
 
 ## Configure a server firewall rule
@@ -57,8 +83,8 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [az sql server firewall create](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.  
 
 ```azurecli
-az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
+	-n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
 
 > [!NOTE]
@@ -70,25 +96,32 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
 
 ```azurecli
-az sql db create --resource-group myResourceGroup --server $servername \
-	--name mySampleDatabase --sample-name AdventureWorksLT --service-objective S0
+az sql db create --resource-group $resourcegroupname --server $servername \
+	--name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+Other quick starts in this collection build upon this quick start. 
+
+> [!TIP]
+> If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+>
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourcegroupname
 ```
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
+
+- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
+- [.NET](sql-database-connect-query-dotnet.md)
+- [PHP](sql-database-connect-query-php.md)
+- [Node.js](sql-database-connect-query-nodejs.md)
+- [Java](sql-database-connect-query-java.md)
+- [Python](sql-database-connect-query-python.md)
+- [Ruby](sql-database-connect-query-ruby.md)
+

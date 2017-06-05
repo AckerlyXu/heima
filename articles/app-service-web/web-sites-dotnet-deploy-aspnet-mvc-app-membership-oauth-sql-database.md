@@ -23,7 +23,7 @@ ms.author: riande
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows how to build a secure ASP.NET MVC 5 web app that lets users log in with credentials from Facebook or Google. The app is a simple contact list that uses the ADO.NET Entity Framework for database access. You'll deploy the app to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services). 
+This tutorial shows how to build a secure ASP.NET MVC 5 web app that lets users log in with credentials from Facebook or Google. The app is a simple contact list that uses the ADO.NET Entity Framework for database access. You'll deploy the app to [Azure App Service](/app-service-web/app-service-changes-existing-services). 
 
 On completing the tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database. The following illustration shows the login page for the completed application.
 
@@ -37,12 +37,12 @@ You'll learn:
 * How to use the ADO.NET Entity Framework 6 Code First to read and write data in a SQL database.
 * How to use Entity Framework Code First Migrations to deploy a database.
 * How to store relational data in the cloud by using Azure SQL Database.
-* How to deploy a web project that uses a database to a [web app](/azure/app-service-web/app-service-changes-existing-services) in Azure App Service.
+* How to deploy a web project that uses a database to a [web app](/app-service-web/app-service-changes-existing-services) in Azure App Service.
 
 > [!NOTE]
 > This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](app-service-web-get-started-dotnet.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
 > 
-> 
+>
 
 ## Prerequisites
 To complete this tutorial, you need a Azure account. If you don't have an account, you can [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
@@ -602,7 +602,7 @@ This tutorial was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 
 ***Please leave feedback*** on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. You can also request and vote on new topics at [Show Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

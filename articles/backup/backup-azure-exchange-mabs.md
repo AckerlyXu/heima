@@ -21,7 +21,7 @@ wacn.date: ''
 This article describes how to configure Azure Backup Server (MABS) to back up a Microsoft Exchange server to Azure.  
 
 ## Prerequisites
-Before you continue, make sure that Azure Backup Server is [installed and prepared](backup-azure-microsoft-azure-backup-classic.md).
+Before you continue, make sure that Azure Backup Server is [installed and prepared](./backup-azure-microsoft-azure-backup-classic.md).
 
 ## MABS protection agent
 To install the MABS protection agent on the Exchange server, follow these steps:
@@ -107,5 +107,4 @@ For online recovery points, there are five recovery types:
     ![Choose online replication](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## Next steps
-- [Azure Backup FAQ](backup-azure-backup-faq.md)
-
+- [Azure Backup FAQ](./backup-azure-backup-faq.md)

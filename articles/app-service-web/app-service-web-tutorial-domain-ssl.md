@@ -57,17 +57,16 @@ Create an App Service plan with the [az appservice plan create](https://docs.mic
 
 > [!NOTE] 
 > An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-> <p> 
-> <p> App Service plans define: 
-> <p> * Region (China North, China East) 
-> <p> * Instance Size (Small, Medium, Large) 
-> <p> * Scale Count (one, two or three instances, etc.) 
-> <p> * SKU (Free, Shared, Basic, Standard, Premium) 
+> <br/> App Service plans define: 
+> * Region (China North, China East) 
+> * Instance Size (Small, Medium, Large) 
+> * Scale Count (one, two or three instances, etc.) 
+> * SKU (Free, Shared, Basic, Standard, Premium) 
 > 
 
 The following example creates an App Service plan named `myAppServicePlan` using the **Basic** pricing tier.
 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
+    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example. 
 
@@ -225,7 +224,7 @@ Your web app now has the custom domain name you want, and it also has a SSL cert
 
 In the command below, please substitute `<app_name>` with your unique app name and `<thumbprint-from-previous-output>` with the certificate thumbprint that you get from the previous command. 
 
-az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
+    az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
 
 When the certificate is bound to your web app, the Azure CLI shows information similar to the following example:
 
@@ -310,4 +309,4 @@ In your browser, navigate to HTTPS endpoint of your custom domain name. For exam
 https://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)  
+![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)

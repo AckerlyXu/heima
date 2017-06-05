@@ -2,10 +2,10 @@
 title: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture | Azure
 description: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: syntaxc4
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
 ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
@@ -23,11 +23,12 @@ ms.author: cfowler
 
 In this scenario you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides global availability of your web app based on the lowest network latency.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview), and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
 
 ## Sample script
 
 ```powershell
+
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 
@@ -71,14 +72,14 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRMTrafficManagerProfile](https://docs.microsoft.com/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/new-azurermtrafficmanagerprofile) | Creates a Traffic Manager profile. |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermappserviceplan) | Creates an App Service plan. |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermwebapp) | Creates a web app. |
-| [New-AzureRMTrafficManagerEndpoint](https://docs.microsoft.com/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/new-azurermtrafficmanagerendpoint) | Creates an endpoint in a Traffic Manager profile. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRMTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile) | Creates a Traffic Manager profile. |
+| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | Creates an App Service plan. |
+| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | Creates a web app. |
+| [New-AzureRMTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerendpoint) | Creates an endpoint in a Traffic Manager profile. |
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

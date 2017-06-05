@@ -85,7 +85,6 @@ await myCloudPool.CommitAsync();
 ```
 
 ### Remote direct memory access (RDMA)
-When you choose an [RDMA-capable size](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
 
 Look for the sizes specified as "RDMA capable" in the following articles:
 
@@ -94,11 +93,11 @@ Look for the sizes specified as "RDMA capable" in the following articles:
   - [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Windows only)
 - **VirtualMachineConfiguration** pools
 
-  - [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) (Linux)
-  - [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) (Windows)
+  - [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  - [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the Pool section of the [Batch feature overview](batch-api-basics.md).
+> To take advantage of RDMA on [Linux compute nodes](./batch-linux-nodes.md), you must use **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the Pool section of the [Batch feature overview](./batch-api-basics.md).
 >
 >
 
@@ -262,7 +261,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 1. Follow the first two steps in [How to compile and run a simple MS-MPI program][msmpi_howto]. This satisfies the prerequesites for the following step.
 2. Build a *Release* version of the [MPIHelloWorld][helloworld_proj] sample MPI program. This is the program that will be run on compute nodes by the multi-instance task.
 3. Create a zip file containing `MPIHelloWorld.exe` (which you built step 2) and `MSMpiSetup.exe` (which you downloaded step 1). You'll upload this zip file as an application package in the next step.
-4. Use the [Azure portal][portal] to create a Batch [application](batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
+4. Use the [Azure portal][portal] to create a Batch [application](./batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](./batch-application-packages.md#upload-and-manage-applications) for more information.
 
 > [!TIP]
 > Build a *Release* version of `MPIHelloWorld.exe` so that you don't have to include any additional dependencies (for example, `msvcp140d.dll` or `vcruntime140d.dll`) in your application package.
@@ -320,7 +319,7 @@ Sample complete, hit ENTER to exit...
 
 ## Next steps
 - The Microsoft HPC & Azure Batch Team blog discusses [MPI support for Linux on Azure Batch][blog_mpi_linux], and includes information on using [OpenFOAM][openfoam] with Batch. You can find Python code samples for the [OpenFOAM example on GitHub][github_mpi].
-- Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
+- Learn how to [create pools of Linux compute nodes](./batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 
@@ -365,4 +364,3 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Multi-instance overview"
-

@@ -363,9 +363,6 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("",
                         ContentKeyDeliveryType.PlayReadyLicense,
@@ -399,8 +396,6 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
                         ContentKeyDeliveryType.PlayReadyLicense,
@@ -558,7 +553,3 @@ The following sample demonstrates functionality that was introduced in Azure Med
         }
     }
     ```
-
-##See also
-
-[CENC with Multi-DRM and Access Control](./media-services-cenc-with-multidrm-access-control.md)

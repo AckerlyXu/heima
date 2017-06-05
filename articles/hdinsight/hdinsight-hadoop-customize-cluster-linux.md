@@ -38,8 +38,6 @@ If you are using a domain-joined HDInsight cluster, there are two Ambari permiss
 * **AMBARI.RUN\_CUSTOM\_COMMAND**: The Ambari Administrator role has this permission by default.
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**: Both the HDInsight Cluster Administrator and Ambari Administrator have this permission by default.
 
-For more information on working with permissions with domain-joined HDInsight, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
-
 ## Access control
 
 If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify that your Azure account has at least **Contributor** access to the Azure resource group that contains the HDInsight cluster.
@@ -157,7 +155,7 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a Script Action during cluster creation from the Azure portal preview
 
-1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. Under **Optional Configuration**, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:
 
     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
@@ -181,7 +179,7 @@ In this section, we use Azure Resource Manager templates to create an HDInsight 
 
 #### Before you begin
 
-* For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+* For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * For instructions on how to create templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
 
@@ -391,7 +389,7 @@ In this section, we use Azure Resource Manager templates to create an HDInsight 
 
 ### Use a Script Action during cluster creation from Azure PowerShell
 
-In this section, we use the [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+In this section, we use the [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 Perform the following steps:
 
@@ -499,7 +497,7 @@ This section provides examples on the different ways you can apply script action
 
 ### Apply a Script Action to a running cluster from Azure PowerShell
 
-Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 1. Open the Azure PowerShell console and use the following to log in to your Azure subscription and declare some PowerShell variables:
 

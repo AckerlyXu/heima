@@ -17,6 +17,7 @@ ms.workload: data-services
 ms.date: 03/06/2017
 wacn.date: ''
 ms.author: jeffstok
+
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
 Learn how to set up an run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
@@ -29,8 +30,8 @@ Azure Stream Analytics is a fully managed service providing low-latency, highly 
 Before you begin this article, you must have the following:
 
 * Install Visual Studio 2017 or 2015.
-* Download and install [Azure .NET SDK](https://www.azure.cn/downloads/).
-* Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs);  
+* Download and install [Azure .NET SDK](/downloads/).
+* Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview);  
 
         # Log in to your Azure account
         Add-AzureAccount -Environment AzureChinaCloud
@@ -289,7 +290,8 @@ The **Delete** method will delete the job as well as the underlying sub-resource
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+<!-- Update the referenc link with correct URL-->
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 You've learning the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
@@ -307,8 +309,8 @@ You've learning the basics of using a .NET SDK to create and run analytics jobs.
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 <!--Link references-->
-[azure.blob.storage]: /azure/storage/
-[azure.blob.storage.use]: /azure/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: /storage/
+[azure.blob.storage.use]: /storage-dotnet-how-to-use-blobs/
 
 [azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx

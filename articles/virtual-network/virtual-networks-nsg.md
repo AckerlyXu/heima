@@ -31,7 +31,7 @@ NSGs contain the following properties:
 | Property | Description | Constraints | Considerations |
 | --- | --- | --- | --- |
 | Name |Name for the NSG |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |Since you may need to create several NSGs, make sure you have a naming convention that makes it easy to identify the function of your NSGs. |
-| Region |Azure [region](https://azure.microsoft.com/regions) where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. |To learn about how many NSGs you can have per region, read the [Azure limits](../azure-subscription-service-limits.md#virtual-networking-limits-classic) article.|
+| Region |Azure region where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. |To learn about how many NSGs you can have per region, read the [Azure limits](../azure-subscription-service-limits.md#virtual-networking-limits-classic) article.|
 | Resource group |The [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) the NSG exists in. |Although an NSG exists in a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG. |Resource groups are used to manage multiple resources together, as a deployment unit.<br/>You may consider grouping the NSG with resources it is associated to. |
 | Rules |Inbound or outbound rules that define what traffic is allowed or denied. | |See the [NSG rules](#Nsg-rules) section of this article. |
 
@@ -39,7 +39,7 @@ NSGs contain the following properties:
 > Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. To learn how to remove an ACL, read the [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md) article.
 > 
 
-### <a name="Nsg-rules"></a> NSG rules
+### NSG rules
 NSG rules contain the following properties:
 
 | Property | Description | Constraints | Considerations |
@@ -60,14 +60,14 @@ NSGs contain two sets of rules: Inbound and outbound. The priority for a rule mu
 
 The previous picture shows how NSG rules are processed.
 
-### <a name="Default-Tags" id="default-tags"></a> Default Tags
+### Default Tags
 Default tags are system-provided identifiers to address a category of IP addresses. You can use default tags in the **source address prefix** and **destination address prefix** properties of any rule. There are three default tags you can use:
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (CIDR ranges defined in Azure), all connected on-premises address spaces, and connected Azure VNets (local networks).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to an Azure datacenter IP where Azure's health probes originate.
-* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653).
+* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=42064).
 
-### <a name="Default-Rules" id="default-rules"></a> Default rules
+### Default rules
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
 
 The default rules allow and disallow traffic as follows:
@@ -91,7 +91,7 @@ The default rules allow and disallow traffic as follows:
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | Allow |
 | DenyAllOutBound | 65500 | * | * | * | * | * | Deny |
 
-## <a name="associating-nsgs"></a> Associating NSGs
+## Associating NSGs
 You can associate an NSG to VMs, NICs, and subnets, depending on the deployment model you are using, as follows:
 
 * **VM (classic only):** Security rules are applied to all traffic to/from the VM. 
@@ -127,18 +127,16 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 | Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
 | Azure Resource Manager template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
 
-## <a name="Planning" id="planning"></a> Planning
+## Planning
 Before implementing NSGs, you need to answer the following questions:
 
 1. What types of resources do you want to filter traffic to or from? You can connect resources such as NICs (Resource Manager), VMs (classic), Cloud Services, Application Service Environments, and VM Scale Sets. 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets?
 
-For more information on planning for network security in Azure, read the [Cloud services and network security](../best-practices-network-security.md) article. 
-
 ## Design considerations
 Once you know the answers to the questions in the [Planning](#Planning) section, review the following sections before defining your NSGs:
 
-### <a name="Limits"></a> Limits
+### Limits
 There are limits to the number of NSGs you can have in a subscription and number of rules per NSG. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
 ### VNet and subnet design
@@ -153,7 +151,7 @@ If you block traffic allowed by the following rules, your infrastructure can't c
 ### ICMP traffic
 The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a specific tag for *ICMP*. However, ICMP traffic is allowed within a VNet by the AllowVNetInBound default rule, that allows traffic to and from any port and protocol within the VNet.
 
-### <a name="subnets"></a> Subnets
+### Subnets
 * Consider the number of tiers your workload requires. Each tier can be isolated by using a subnet, with an NSG applied to the subnet. 
 * If you need to implement a subnet for a VPN gateway, or ExpressRoute circuit, do **not** apply an NSG to that subnet. If you do so, cross-VNet or cross-premises connectivity may fail. 
 * If you need to implement a network virtual appliance (NVA), connect the NVA to its own subnet and create user-defined routes (UDR) to and from the NVA. You can implement a subnet level NSG to filter traffic in and out of this subnet. To learn more about UDRs, read the [User-defined routes](virtual-networks-udr-overview.md) article.
@@ -259,4 +257,4 @@ Since some of the NSGs are associated to individual NICs, the rules are for reso
 * [Deploy NSGs (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [Deploy NSGs (classic)](virtual-networks-create-nsg-classic-ps.md).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md).
-* [Troubleshoot NSGs] (virtual-network-nsg-troubleshoot-portal.md)
+* [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md)

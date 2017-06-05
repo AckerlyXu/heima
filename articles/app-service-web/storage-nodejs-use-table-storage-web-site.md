@@ -14,14 +14,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: ''
 ms.author: robmcm
 
 ---
 # Node.js web app using the Azure Table Service
 ## Overview
-This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
+This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](/app-service-web/app-service-changes-existing-services) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
 
 You will learn:
 
@@ -439,8 +439,8 @@ The steps in this section use the Azure command-line tools to create a new web a
 
 > [!NOTE]
 > These steps can also be performed by using the [Azure Portal Preview](https://portal.azure.cn/). See [Build and deploy a Node.js web app in Azure App Service].
-> <p> 
-> <p> If this is the first web app you have created, you must use the Azure Portal Preview to deploy this application.
+> 
+> If this is the first web app you have created, you must use the Azure Portal Preview to deploy this application.
 > 
 > 
 
@@ -544,12 +544,12 @@ While the steps in this article describe using the Table Service to store inform
 [Azure CLI]
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 <!-- URLs -->
 
 [Build and deploy a Node.js web app in Azure App Service]: app-service-web-get-started-nodejs.md
-[Azure Developer Center]: https://www.azure.cn/develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com

@@ -1,14 +1,14 @@
 ---
 title: Azure Service Bus Authentication and Authorization | Azure
 description: Overview of Shared Access Signature (SAS) authentication.
-services: service-bus-messaging
+services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
-ms.service: service-bus-messaing
+ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -25,9 +25,9 @@ Applications can authenticate to Azure Service Bus using either Shared Access Si
 
 ## Shared Access Signature authentication
 
-[SAS authentication](./service-bus-sas-overview.md) enables you to grant a user access to Service Bus resources with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token which consists of the resource URI being accessed and an expiry signed with the configured key.
+[SAS authentication](./service-bus-sas.md) enables you to grant a user access to Service Bus resources with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token which consists of the resource URI being accessed and an expiry signed with the configured key.
 
-You can configure keys for SAS on a Service Bus namespace. The key applies to all messaging entities in that namespace. You can also configure keys on Service Bus queues and topics. SAS is also supported on Service Bus relays.
+You can configure keys for SAS on a Service Bus namespace. The key applies to all messaging entities in that namespace. You can also configure keys on Service Bus queues and topics. SAS is also supported on [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
 
 To use SAS, you can configure a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a namespace, queue, or topic that consists of the following:
 
@@ -47,7 +47,7 @@ SAS authentication support for Service Bus is included in the Azure .NET SDK ver
 
 ## ACS authentication
 
-Service Bus authentication through ACS is managed through a companion "-sb" ACS namespace. If you want a companion ACS namespace to be created for a Service Bus namespace, you cannot create your Service Bus namespace using the Azure classic portal; you must create the namespace using the [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet. For example:
+Service Bus authentication through ACS is managed through a companion "-sb" ACS namespace. If you want a companion ACS namespace to be created for a Service Bus namespace, you cannot create your Service Bus namespace using the Azure classic portal; you must create the namespace using the [New-AzureSBNamespace](https://docs.microsoft.com/en-us/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0) PowerShell cmdlet. For example:
 
 ```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
@@ -69,3 +69,4 @@ ACS authentication support for Service Bus is included in the Azure .NET SDK ver
 
 ## Next steps
 Continue reading [Service Bus authentication with Shared Access Signatures](./service-bus-sas.md) for more details about SAS.
+For corresponding information about Azure Relay authentication and authorization, see [Azure Relay authentication and authorization](../service-bus-relay/relay-authentication-and-authorization.md). 
