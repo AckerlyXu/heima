@@ -4,5 +4,5 @@ After creating the root certificate, you export the public certificate data (not
 
 * **Enterprise certificate:** If you are using an enterprise solution, you can use your existing certificate chain. Obtain the .cer file for the root certificate that you want to use.
 * **Self-signed root certificate:** If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. The root certificate must contain specific values in order to work with a Point-to-Site connection. See the following articles for instructions:
-  * To create a self-signed root certificate, see [Create a self-signed root certificate for Point-to-Site connections](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert).
-  * To export the public key (.cer file), see [Create a self-signed root certificate for Point-to-Site connections](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer).
+    * To create a self-signed root certificate, see [Create a self-signed root certificate for Point-to-Site connections](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert).
+    * To export the public key (.cer file), see [Create a self-signed root certificate for Point-to-Site connections](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer).

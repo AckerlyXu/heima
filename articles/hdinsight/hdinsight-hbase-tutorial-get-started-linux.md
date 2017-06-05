@@ -199,15 +199,15 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 
 > [!NOTE]
 > Thrift is not supported by HBase in HDInsight.
-> <p>
+>
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
-> <p>
+>
 >```
 >curl -u <UserName>:<Password> \
 >-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
 >```
 > You should receive a response similar to the following response:
-> <p>
+>
 > `{"status":"ok","version":"v1"}`
 
 ## Check cluster status

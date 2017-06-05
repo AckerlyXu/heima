@@ -540,8 +540,6 @@ That's it! In this article, we've shown how it's possible to combine use of Spar
 
 - For general information on R Server see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
 
-- Other articles of interest are [R Server on Azure HDInsight](hdinsight-hadoop-r-server-get-started.md) and [R Server on Azure HDInsight overview](hdinsight-hadoop-r-server-overview.md).
-
 For more information on use of SparkR see the following:
 
 - [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html)

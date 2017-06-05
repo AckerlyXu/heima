@@ -73,7 +73,7 @@ You can perform similar filters on the **--publisher** and **--sku** option. You
 If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from the preceding example you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **chinanorth**:
 
 ```azurecli 
-az vm image show -l chinanorth -f debian -p credativ --skus 8 --version 8.0.201701180
+az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
 ```
 
 and the output is:

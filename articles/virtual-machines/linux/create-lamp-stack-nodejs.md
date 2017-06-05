@@ -37,13 +37,11 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 
 * Deploy LAMP on existing VM
 
-<br/>
-
-```
-# Two commands: one updates packages, the other installs Apache, MySQL, and PHP
-user@ubuntu$ sudo apt-get update
-user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
-```
+    ```
+    # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
+    user@ubuntu$ sudo apt-get update
+    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+    ```
 
 ## Deploy LAMP on new VM walkthrough
 You can start by creating a [resource group](../../azure-resource-manager/resource-group-overview.md) that will contain the new VM:

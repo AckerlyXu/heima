@@ -88,7 +88,7 @@ This opens the **Create App Service** dialog, which helps you create all the Azu
 
 ### Sign in to Azure
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 In the **Create App Service** dialog, click **Add an account**, and then sign in to your Azure subscription. If you're already signed into an Azure account, make sure that account holds your Azure subscription. If the signed-in Azure account doesn't have your Azure subscription, click it to add the correct account.
 

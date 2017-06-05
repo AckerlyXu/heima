@@ -96,7 +96,8 @@ az vm create \
     --size Standard_DS3_v2 \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --nics myNic1 myNic2
+    --nics myNic1 myNic2 \
+    --use-unmanaged-disk
 ```
 
 ## Add a NIC to a VM

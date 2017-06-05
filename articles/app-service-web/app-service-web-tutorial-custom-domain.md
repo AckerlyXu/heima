@@ -41,7 +41,7 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 
 ## Prerequisites
 
-To complete this tutorial, you need access to your DNS registry for your domain provider (such as GoDaddy), and the permissions to edit the configuration for your domain. 
+To complete this tutorial, you need access to your DNS registry for your domain provider, and the permissions to edit the configuration for your domain. 
 
 For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must have access to configure the DNS settings for the `contoso.com` root domain. 
 
@@ -102,7 +102,7 @@ The following screenshot is an example of a DNS records page:
 In the example screenshot, you click **Add** to create a record. Some providers have different links to add different record types. Again, consult your provider's documentation.
 
 > [!NOTE]
-> For certain providers, such as GoDaddy, changes to DNS records don't become effective until you click a separate **Save Changes** link. 
+> For certain providers, changes to DNS records don't become effective until you click a separate **Save Changes** link. 
 >
 >
 
@@ -179,7 +179,7 @@ The following screenshot is an example of a DNS records page:
 In the example screenshot, you click **Add** to create a record. Some providers have different links to add different record types. Again, consult your provider's documentation.
 
 > [!NOTE]
-> For certain providers, such as GoDaddy, changes to DNS records don't become effective until you click a separate **Save Changes** link. 
+> For certain providers, changes to DNS records don't become effective until you click a separate **Save Changes** link. 
 >
 >
 
@@ -250,7 +250,7 @@ The following screenshot is an example of a DNS records page:
 In the example screenshot, you click **Add** to create a record. Some providers have different links to add different record types. Again, consult your provider's documentation.
 
 > [!NOTE]
-> For certain providers, such as GoDaddy, changes to DNS records don't become effective until you click a separate **Save Changes** link. 
+> For certain providers, changes to DNS records don't become effective until you click a separate **Save Changes** link. 
 >
 >
 

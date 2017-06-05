@@ -66,7 +66,7 @@ Create an App Service plan with the [az appservice plan create](https://docs.mic
 
 The following example creates an App Service plan named `myAppServicePlan` using the **Basic** pricing tier.
 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
+    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example. 
 

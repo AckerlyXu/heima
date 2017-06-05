@@ -1,6 +1,6 @@
 --- 
 title: Copy a Linux VM by using Azure CLI 2.0 | Azure 
-description: Learn how to create a copy of your Azure Linux VM by using Azure CLI 2.0 and Managed Disks. 
+description: Learn how to create a copy of your Azure Linux VM by using Azure CLI 2.0 and Unmanaged Disks. 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---                    
 
-# Create a copy of a Linux VM by using Azure CLI 2.0 and Managed Disks
+# Create a copy of a Linux VM by using Azure CLI 2.0 and Unmanaged Disks
 
 This article shows you how to create a copy of your Azure virtual machine (VM)
 running Linux using the Azure CLI 2.0 and the Azure Resource Manager deployment
@@ -51,46 +51,48 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 ## Step 2: Copy the source VM
 
 To copy a VM, you create a copy of the underlying virtual hard disk. This
-process creates a specialized VHD as a Managed Disk that contains the same configuration and
+process creates a specialized VHD that contains the same configuration and
 settings as the source VM.
 
-For more information about Azure Managed Disks, see [Azure Managed Disks
-overview](../../storage/storage-managed-disks-overview.md). 
+- Managed disks - Not supported yet in Azure China
+- [Unmanaged disks](#unmanaged-disks) 
 
-1.  List each VM and the name of its OS disk with [az vm
-    list](https://docs.microsoft.com/cli/azure/vm#list). The following example lists all VMs in the
-    resource group named **myResourceGroup**:
+### Unmanaged disks
+To create a copy of a VHD, you need the storage account keys and the URI of the disk. Use [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) to view the storage account keys. The following example list the keys for the storage account named `mystorageaccount` in the resource group named `myResourceGroup`
 
-    ```azurecli
-    az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
-    ```
+```azurecli
+az storage account keys list --resource-group myResourceGroup \
+    --name mystorageaccount --output table
+```
 
-    The output is similar to the following example:
+The output is similar to the following example:
 
-    ```azurecli
-    Name    DiskName
-    ------  --------
-    myVM    myDisk
-    ```
+    KeyName    Permissions    Value
+    ---------  -------------  ----------------------------------------------------------------------------------------
+    key1       Full           gi7crXhD8PMs8DRWqAM7fAjQEFmENiGlOprNxZGbnpylsw/nq+lQQg0c4jiKoV3Nytr3dAiXZRpL8jflpAr2Ug==
+    key2       Full           UMoyQjWuKCBUAVDr1ANRe/IWTE2o0ZdmQH2JSZzXKNmDKq83368Fw9nyTBcTEkSKI9cm5tlTL8J15ArbPMo8eA==
 
-1.  Copy the disk by creating a new managed disk using [az disk
-    create](https://docs.microsoft.com/cli/azure/disk#create). The following example creates a disk named
-    **myCopiedDisk** from the managed disk named **myDisk**:
+Use [az vm list](https://docs.microsoft.com/cli/azure/vm#list) to see a list of VMs and their URIs. The following example lists the VMs in the resource group named `myResourceGroup`:
 
-    ```azurecli
-    az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
-    ``` 
+```azurecli
+az vm list -g myResourceGroup --query '[].{Name:name,URI:storageProfile.osDisk.vhd.uri}' --output table
+```
 
-1.  Verify the managed disks now in your resource group by using [az disk
-    list](https://docs.microsoft.com/cli/azure/disk#list). The following example lists the managed disks
-    in the resource group named **myResourceGroup**:
+The output is similar to the following example:
 
-    ```azurecli
-    az disk list --resource-group myResourceGroup --output table
-    ```
+    Name    URI
+    ------  -------------------------------------------------------------
+    myVM    https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVHD.vhd
 
-1.  Skip to ["Step 3: Set up a virtual
-    network"](#step-3-set-up-a-virtual-network).
+Copy the VHD with [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start). Use the information from **az storage account keys list** and **az vm list** to provide the required storage account keys and VHD URI.
+
+```azurecli
+az storage blob copy start \
+    --account-name mystorageaccount \
+    --account-key gi7crXhD8PMs8DRWqAM7fAjQEFmENiGlOprNxZGbnpylsw/nq+lQQg0c4jiKoV3Nytr3dAiXZRpL8jflpAr2Ug== \
+    --source-uri https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVHD.vhd \
+    --destination-container vhds --destination-blob myCopiedVHD.vhd
+```
 
 ## Step 3: Set up a virtual network
 
@@ -136,14 +138,14 @@ to [Step 4: Create a VM](#step-4-create-a-vm).
 
 You can now create a VM by using [az vm create](https://docs.microsoft.com/cli/azure/vm#create).
 
-Specify the copied managed disk to use as the OS disk (--attach-os-disk), as
-follows:
+Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Specify the storage account, container name, and VHD you used when creating the copied with **az storage blob copy start** (`--image`) as follows:
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myCopiedVM \
+az vm create --resource-group myResourceGroup --name myCopiedVM  \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --nics myNic --size Standard_DS1_v2 --os-type Linux \
-    --attach-os-disk myCopiedDisk
+    --image https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myCopiedVHD.vhd \
+    --use-unmanaged-disk
 ```
 
 ## Next steps

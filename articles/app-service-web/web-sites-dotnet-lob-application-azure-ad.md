@@ -50,6 +50,8 @@ You need the following to complete this tutorial:
 * Visual Studio 2013 Update 4 or later
 * [Azure SDK 2.8.1 or later](/downloads/)
 
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+
 ## <a name="bkmk_deploy"></a> Create and deploy a web app to Azure
 1. From Visual Studio, click **File** > **New** > **Project**.
 2. Select **ASP.NET Web Application**, name your project, and click **OK**.
@@ -369,7 +371,7 @@ Now, you create a simple CRUD work items tracker.
 
     > [!NOTE]
     > You need this line of code because the default MVC template uses <code>[ValidateAntiForgeryToken]</code> decoration 
-    > on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at 
+    > on some of the actions. Due to the behavior described by Brock Allen at 
     > [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail 
     > anti-forgery token validation because:
     > * Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
@@ -377,7 +379,7 @@ Now, you create a simple CRUD work items tracker.
     > * If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
     >   http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually 
     >   configure AD FS to send this claim.
-    > <p> 
+    > 
     > `ClaimTypes.NameIdentifies` specifies the claim `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, which Azure 
     > Active Directory does supply.  
     > 

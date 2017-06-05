@@ -3,7 +3,7 @@
 To run this sample, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run `az login` to create a connection with Azure.
 
 >[!NOTE]
->Before you run `az login`, please open Azure CLI 2.0 configuration file located at C:\\Users\\<\%USERPROFILE\%\>\\.azure\\config, make sure the cloud name is set to AzureChinaCloud.
+>Before you run `az login`, please open Azure CLI 2.0 configuration file located at `%USERPROFILE%\.azure\config` (Windows) or `~/.azure/config` (Linux), make sure the cloud name is set to AzureChinaCloud.
 >```
 >[cloud]
 >name = AzureChinaCloud

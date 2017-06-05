@@ -134,7 +134,7 @@ If the TCP 445 being blocked by a rule along the network path, you will see the 
 For more information on using Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/zh-cn/kb/310099).
 
 ### Solution for Cause 2
-Work with your IT organization to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+Work with your IT organization to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
 
 <a id="error87"></a>
 ### Cause 3

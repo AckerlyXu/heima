@@ -39,7 +39,6 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 ## Option 1: Attach and initialize a new disk
 1. On the **Disks** blade, click **+ Add data disk**.
-2. In the **Attach managed disk** blade, type a name for the disk in **Name** and then select **New (empty disk)** in **Source type**.
 3. Under **Storage container**, click the **Browse** button and browse to the storage account and container where you would like the new VHD to be stored and then click **Select**. 
 
    ![Review disk settings](./media/attach-disk-portal/attach-empty-unmanaged.png)

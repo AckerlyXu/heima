@@ -104,7 +104,7 @@ New Azure Redis Cache instances are created using the [New-AzureRmRedisCache](ht
 
 > [!IMPORTANT]
 > The first time you create a Redis cache in a subscription using the Azure portal preview, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` fail.
-> <p> 
+> 
 > `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 > 
 > 
@@ -275,7 +275,7 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 > * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
 > * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
 > * You can't scale from a larger size down to the **C0 (250 MB)** size.
-> <p> 
+> 
 > For more information, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 > 
 > 

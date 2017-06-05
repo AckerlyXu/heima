@@ -115,7 +115,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
         As part of project creation, the latest [SCP.NET package](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) is downloaded from NuGet.
 
-        [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
+[!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
 In the next sections, you modify the project into a basic WordCount application.
 

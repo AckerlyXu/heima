@@ -4,7 +4,7 @@ This article is for Azure App Service (Web Apps, API Apps, Mobile Apps); for Clo
 > [!NOTE]
 > If you app is load-balanced by [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/), 
 > click the selector at the top of this article to get specific steps.
-> <p> 
+> 
 > **Custom domain names are not enabled for Free tier**. You must 
 > [scale up to a higher pricing tier](../articles/app-service-web/web-sites-scale.md), which may change how much you are billed for your subscription. 
 > See [App Service Pricing](https://www.azure.cn/pricing/details/app-service/) for more information.

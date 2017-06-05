@@ -23,7 +23,9 @@ ms.author: rachelap
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## Overview
-This tutorial shows how to use Visual Studio tools that help debug a web app in [App Service](/app-service-web/app-service-changes-existing-services), by running in [debug mode](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools that help debug a web app in [App Service](/app-service-web/app-service-changes-existing-services), by running in debug mode remotely or by viewing application logs and web server logs.
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -130,7 +132,7 @@ This section shows how to debug remotely using the project you create in [Gettin
             ViewBag.Message = "The current time is " + currentTime;
             return View();
         }
-4. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
+4. Set a breakpoint on the `ViewBag.Message` line.
 5. In **Solution Explorer**, right-click the project, and click **Publish**.
 6. In the **Profile** drop-down list, select the same profile that you used in [Getting started with Azure and ASP.NET][GetStarted].
 7. Click the **Settings** tab, and change **Configuration** to **Debug**, and then click **Publish**.
@@ -168,7 +170,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 1. Open the web project that you created in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
 2. In the ContosoAdsWebJob project, open *Functions.cs*.
-3. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the first statement in the `GnerateThumbnail` method.
+3. Set a breakpoint on the first statement in the `GnerateThumbnail` method.
 
     ![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 4. In **Solution Explorer**, right-click the web project (not the WebJob project), and click **Publish**.

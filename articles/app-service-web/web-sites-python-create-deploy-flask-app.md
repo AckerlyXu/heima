@@ -55,8 +55,7 @@ The first step in creating your app is to create the web app via the [Azure Port
 
 1. Log into the Azure Portal Preview and click the **NEW** button in the bottom left corner. 
 2. Click **Web + Mobile**.
-3. In the search box, type "python".
-4. In the search results, select **Flask**, then click **Create**.
+3. Click "Web App"
 5. Configure the new Flask app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
 6. Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 

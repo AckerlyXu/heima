@@ -15,7 +15,8 @@ Now create your scale set using the `az vmss create` command. The following exam
 ```azurecli
 az vmss create --resource-group myResourceGroup --name myVmss \
     --image UbuntuLTS --admin-username azureuser \
-    --authentication-type password --admin-password P4$$w0rd
+    --authentication-type password --admin-password P4$$w0rd \
+    --use-unmanaged-disk
 ```
 
 The following example creates a Windows scale set with the same configuration:
@@ -23,7 +24,8 @@ The following example creates a Windows scale set with the same configuration:
 ```azurecli
 az vmss create --resource-group myResourceGroup --name myVmss \
     --image Win2016Datacenter --admin-username azureuser \
-    --authentication-type password --admin-password P4$$w0rd
+    --authentication-type password --admin-password P4$$w0rd \
+    --use-unmanaged-disk
 ```
 
 If you want to choose a different OS image, you can see available images with the command `az vm image list` or `az vm image list --all`. To see the connection information for the VMs in the scale set, use the command `az vmss list_instance_connection_info`:

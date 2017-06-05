@@ -51,7 +51,7 @@ Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. 
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
+az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --use-unmanaged-disk
 ```
 
 Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.. 
@@ -133,7 +133,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207     
 To deploy a VM using a specific image, take note of the value in the *Urn* column. When specifying the image, the image version number can be replaced with "latest", which selects the latest version of the distribution. In this example, the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
+az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys --use-unmanaged-disk
 ```
 
 ## Understand VM sizes
@@ -191,6 +191,7 @@ az vm create \
     --name myVM3 \
     --image UbuntuLTS \
     --size Standard_F4s \
+    --use-unmanaged-disk \
     --generate-ssh-keys
 ```
 

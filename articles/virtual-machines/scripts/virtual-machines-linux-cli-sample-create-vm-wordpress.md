@@ -27,8 +27,6 @@ This script creates a virtual machine, and then uses the Azure Virtual Machine c
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## Sample script
 
 ```azurecli-interactive

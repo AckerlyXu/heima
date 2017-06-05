@@ -53,7 +53,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
+    --use-unmanaged-disk
 ```
 
 ## Detailed walkthrough
@@ -104,7 +105,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
+    --use-unmanaged-disk
 ```
 
 ## Create a cloud-init script to set the hostname of a Linux VM
@@ -125,7 +127,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
+    --use-unmanaged-disk
 ```
 
 Login and verify the hostname of the new VM.
@@ -154,7 +157,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud_config_apt_upgrade.txt
+    --custom-data cloud_config_apt_upgrade.txt \
+    --use-unmanaged-disk
 ```
 
 Login and verify all packages are updated.
@@ -195,7 +199,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud_config_add_users.txt
+    --custom-data cloud_config_add_users.txt \
+    --use-unmanaged-disk
 ```
 
 Login and verify the newly created user.

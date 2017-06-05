@@ -23,11 +23,8 @@ This article shows you how to restore an app in [Azure App Service](../app-servi
 that you have previously backed up (see [Back up your app in Azure](web-sites-backup.md)). You can restore your app
 with its linked databases on-demand to a previous state, or create a new app based on one of
 your original app's backup. Azure App Service supports the following databases for backup and restore:
-- [SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure Database for MySQL (Preview)](https://azure.microsoft.com/services/mysql)
-- [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/services/postgres)
-- [ClearDB MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
-- [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+- [SQL Database](https://www.azure.cn/home/features/sql-database/)
+- [Azure Database for MySQL (Preview)](https://www.azure.cn/home/features/mysql/)
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
 up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tier allows a greater number of daily

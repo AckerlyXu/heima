@@ -341,8 +341,6 @@ SAP kernel versions and so on can be found in SAP Note 1928533 "SAP Applications
 
 Updated: September 2016
 
-[This guide can be found here](../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure
 Title: Quickstart guide for manual installation of SAP HANA on Azure VMs
 
@@ -378,13 +376,9 @@ Summary: This paper covers planning and implementation considerations for the DB
 
 Updated: August 2016
 
-[This guide can be found here][dbms-guide]
-
 ## <a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>High Availability Deployment Guide
 Title: SAP NetWeaver on Azure Virtual Machines (VMs) - High Availability Deployment Guide
 
 Summary: This document describes how SAP single point of failure components like the SAP ASCS/SCS and DBMS can be protected in Azure. Components of the SAP ASCS/SCS, DBMS and application servers are essential for the functionality of SAP NetWeaver systems, e.g. SAP NetWeaver ABAP, SAP NetWeaver Java, SAP NetWeaver ABAP+Java systems. Therefore, high-availability functionality needs to be put in place to make sure that those components can sustain a failure of a server or a VM as done with Windows Cluster configurations for bare-metal and Hyper-V environments.
 
 Updated: December 2016
-
-[This guide can be found here][ha-guide]

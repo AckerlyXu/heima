@@ -43,7 +43,7 @@ Log in to the Azure portal preview at http://portal.azure.cn.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
+5. On the settings blade, keep the defaults for the rest of the settings, and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 

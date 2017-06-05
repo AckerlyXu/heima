@@ -142,7 +142,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 2. Now detach the virtual hard disk from the VM. Exit the SSH session to your troubleshooting VM. List the attached data disks to your troubleshooting VM with [az vm unmanaged-disk list](https://docs.microsoft.com/cli/azure/vm/unmanaged-disk#list). The following example lists the data disks attached to the VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
     ```azurecli
-    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
+    az vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
         --query '[].{Disk:vhd.uri}' --output table
     ```
 

@@ -2,20 +2,20 @@
 
 - To add additional address prefixes:
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-```
+    ```powershell
+    $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+    Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+    -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+    ```
 
 - To remove address prefixes:<br>
   Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we update the local network gateway, excluding that prefix.
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-```
+    ```powershell
+    $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+    Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+    -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+    ```
 
 ### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection
 
@@ -48,7 +48,7 @@ If you have a gateway connection and want to add or remove the IP address prefix
     $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway    -ResourceGroupName MyRGName
     ```
 
-  Create the connection. This example uses the variable $local that you set in step 2.
+    Create the connection. This example uses the variable $local that you set in step 2.
 
     ```powershell
     New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `

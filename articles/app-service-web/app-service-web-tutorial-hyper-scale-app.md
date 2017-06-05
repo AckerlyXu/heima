@@ -357,5 +357,3 @@ Your application code already uses this application setting. Take a look at `Hig
 ### Complete!
 
 Now, try to access the URL of your Traffic Manager profile from browsers in different geographical regions. Client browsers from China North should show "ASP.NET China North", and client browser from China East should show "ASP.NET China East."
-
-## More resources

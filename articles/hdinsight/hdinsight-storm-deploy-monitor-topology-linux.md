@@ -87,10 +87,10 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
     This command starts the example WordCount topology on the cluster. This topology randomly generate sentences and count the occurrence of each word in the sentences.
 
-   > [!NOTE]
-   > When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. To copy the file to the cluster, you can use the `scp` command. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
-   >
-   > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+    > [!NOTE]
+    > When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. To copy the file to the cluster, you can use the `scp` command. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
+    >
+    > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 ## Submit a topology: programmatically
 

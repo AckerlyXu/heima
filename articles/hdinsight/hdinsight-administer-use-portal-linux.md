@@ -175,10 +175,12 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **To scale clusters**
 
@@ -286,7 +288,7 @@ You cannot run Hive job directly from the Azure portal preview, but you can use 
 
 **To run Hive queries using Ambari Hive View**
 
-1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>azurehdinsight.cn**.
+1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>.azurehdinsight.cn**.
 2. Open Hive View as shown in the following screenshot:  
 
     ![HDInsight hive view](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)

@@ -36,7 +36,7 @@ To function correctly, the backup extension requires connectivity to the Azure p
 To resolve the issue, try one of the methods listed here.
 #### Allow access to the Azure datacenter IP ranges
 
-1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/en-us/download/details.aspx?id=41653) to allow access to.
+1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/en-us/download/details.aspx?id=42064) to allow access to.
 2. Unblock the IPs by running the **New-NetRoute** cmdlet in the Azure VM in an elevated PowerShell window. Run the cmdlet as an administrator.
 3. To allow access to the IPs, add rules to the network security group, if you have one.
 
