@@ -73,7 +73,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
 
 8. Debug by using audit and diagnostic logs:
     - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
-    - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
+    <!-- Not Available [job diagnostic logs](stream-analytics-job-diagnostic-logs.md)-->
 
 9. Examine the outputs:
     - When the job status is *Running*, depending on the duration that's stipulated in the query, you can see the output in the sink data source.
