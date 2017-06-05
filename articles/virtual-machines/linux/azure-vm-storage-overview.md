@@ -26,7 +26,7 @@ Azure VMs can be built upon standard storage disks or premium storage disks. Whe
 
 When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
 
-## Creating a VM with a Managed Disk
+## Creating a VM with an Unmanaged Disk
 
 The following example requires the Azure CLI 2.0, which you can [install here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
