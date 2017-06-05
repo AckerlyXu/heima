@@ -93,7 +93,3 @@ $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.chinacloudapi.cn/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Attach
 Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 ```
-
-## Next steps
-
-Create a [snapshot](snapshot-copy-managed-disk.md).

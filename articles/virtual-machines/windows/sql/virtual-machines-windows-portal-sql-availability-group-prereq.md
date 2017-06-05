@@ -350,10 +350,6 @@ Create three additional virtual machines. The solution requires two virtual mach
 
 Before you proceed consider the following deisign decisions.
 
-* **Storage - Azure Managed Disks**
-
-   For the virtual machine storage, use Azure Managed Disks. Azure recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
-
 * **Network - Private IP addresses in production**
 
    For the virtual machines, this tutorial uses public IP addresses. This enables remote connection directly to the virtual machine over the internet - it makes configuration steps easier. In production environments, Azure recommends only private IP addresses in order to reduce the vulnerability footprint of the SQL Server instance VM resource.

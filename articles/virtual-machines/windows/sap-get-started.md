@@ -341,8 +341,6 @@ SAP kernel versions and so on can be found in SAP Note 1928533 "SAP Applications
 
 Updated: September 2016
 
-[This guide can be found here](../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure
 Title: Quickstart guide for manual installation of SAP HANA on Azure VMs
 
@@ -377,8 +375,6 @@ Title: SAP NetWeaver on Azure Virtual Machines (VMs) - DBMS Deployment Guide
 Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE and Oracle. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
 
 Updated: August 2016
-
-[This guide can be found here][dbms-guide]
 
 ## <a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>High Availability Deployment Guide
 Title: SAP NetWeaver on Azure Virtual Machines (VMs) - High Availability Deployment Guide
