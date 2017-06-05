@@ -21,30 +21,16 @@ ms.author: rasquill
 # Azure and Linux VM storage
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
 
-## Managed Disks
-
-Azure VMs are now available using [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../../storage/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
-
-- Automatic scalability support. Azure creates the disks and manages the underlying storage to support up to 10,000 disks per subscription.
-- Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
-- Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../../active-directory/role-based-access-control-what-is.md).
-
-Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
-
-You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](https://docs.microsoft.com/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
-
-- Copy the virtual hard disk (VHD) with [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
-- Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](https://docs.microsoft.com/cli/azure/vm#create), or
-- Attach the copied VHD with [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) to a running VM with managed disks.
-
 ## Azure Storage: Standard and Premium
-Azure VMs -- whether using Managed Disks or unmanaged -- can be built upon standard storage disks or premium storage disks. When using the portal to choose your VM you must toggle a dropdown on the **Basics** screen to view both standard and premium disks. When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard-storage-enabled VMs backed by spinning disk drives are shown, along with premium storage VMs backed by SSD.
+Azure VMs can be built upon standard storage disks or premium storage disks. When using the portal to choose your VM you must toggle a dropdown on the **Basics** screen to view both standard and premium disks. When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard-storage-enabled VMs backed by spinning disk drives are shown, along with premium storage VMs backed by SSD.
 
 When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
 
 ## Creating a VM with a Managed Disk
 
-The following example requires the Azure CLI 2.0, which you can [install here].
+The following example requires the Azure CLI 2.0, which you can [install here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 First, create a resource group to manage the resources:
 
@@ -52,20 +38,21 @@ First, create a resource group to manage the resources:
 az group create --location chinanorth --name myResourceGroup
 ```
 
-Then create the VM with the `az vm create` command, as in the following example; remember to specify a unique `--public-ip-address-dns-name` argument, as `manageddisks` is likely taken.
+Then create the VM with the `az vm create` command, as in the following example; remember to specify a unique `--public-ip-address-dns-name` argument, as `unmanageddisks` is likely taken.
 
 ```azurecli
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
 --ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
+--public-ip-address-dns-name unmanageddisks \
 --resource-group myResourceGroup \
 --location chinanorth \
---name myVM
+--name myVM \
+--use-unmanaged-disk
 ```
 
-The previous example creates a VM with a managed disk in a Standard storage account. To use a Premium storage account, add the `--storage-sku Premium_LRS` argument, like the following example:
+The previous example creates a VM with a unmanaged disk in a Standard storage account. To use a Premium storage account, add the `--storage-sku Premium_LRS` argument, like the following example:
 
 ```azurecli
 az vm create \
@@ -73,15 +60,16 @@ az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
 --ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
+--public-ip-address-dns-name unmanageddisks \
 --resource-group myResourceGroup \
 --location chinanorth \
---name myVM
+--name myVM \
+--use-unmanaged-disk
 ```
 
 ### Create a VM with an unmanaged, standard disk using the Azure CLI 1.0
 
-You can of course also use the Azure CLI 1.0 to create standard and premium disk VMs as well; at this time, you cannot use the Azure CLI 1.0 to create VMs backed by Managed Disks.
+You can of course also use the Azure CLI 1.0 to create standard and premium disk VMs as well.
 
 The `-z` option chooses Standard_A1, which is a standard-storage based Linux VM.
 

@@ -31,7 +31,7 @@ To create VMs using the image, set up network resources for each new VM, and use
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#before-you-begin) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- Azure CLI 2.0 - Currectly, Azure China does not support capturing image with CLI 2.0
 
 ## Before you begin
 Ensure that you meet the following prerequisites:

@@ -45,7 +45,8 @@ az vm create \
     --image CentOS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --public-ip-address-dns-name mypublicdns
+    --public-ip-address-dns-name mypublicdns \
+    --use-unmanaged-disk
 ```
 
 Log on to the VM using the public DNS address of your VM. You can view the public DNS address with [az vm show](https://docs.microsoft.com/cli/azure/vm#show):

@@ -182,7 +182,7 @@ In this example, you deploy a template from the Azure template gallery and suppl
       string subscriptionId)
     {
 
-      var resourceManagementClient = new ResourceManagementClient(credential)
+      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
         { SubscriptionId = subscriptionId };
 
       Console.WriteLine("Creating the template deployment...");

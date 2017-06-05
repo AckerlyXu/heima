@@ -105,7 +105,6 @@ The `azure vm quick-create` and `azure vm create` commands have aliases you can 
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 | Debian |credativ |Debian |8 |latest |
 | openSUSE |SUSE |openSUSE |13.2 |latest |
-| RHEL |Redhat |RHEL |7.2 |latest |
 | SLES |SLES |SLES |12-SP1 |latest |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |latest |
 

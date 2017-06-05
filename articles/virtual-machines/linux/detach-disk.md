@@ -33,7 +33,7 @@ If you want to use the existing data on the disk again, you can reattach it to t
 ## Detach a data disk using CLI 2.0
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm unmanaged-disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```
 
 The disk remains in storage but is no longer attached to a virtual machine.

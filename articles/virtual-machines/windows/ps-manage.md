@@ -26,7 +26,7 @@ This article shows you common management tasks you might perform on an Azure vir
 See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 > [!NOTE]
-> You may need to reinstall Azure PowerShell to use the functionality in this article. Managed Disks capabilities are in version 3.5 and higher.
+> You may need to reinstall Azure PowerShell to use the functionality in this article.
 > 
 > 
 
@@ -190,40 +190,7 @@ It returns something like this example:
 
 ### Managed data disk
 
-```powershell
-$diskConfig = New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Empty -DiskSizeGB 128
-$dataDisk = New-AzureRmDisk -DiskName "myDataDisk1" -Disk $diskConfig -ResourceGroupName $myResourceGroup
-$vm = Get-AzureRmVM -Name $myVM -ResourceGroupName $myResourceGroup
-Add-AzureRmVMDataDisk -VM $vm -Name "myDataDisk1" -VhdUri "https://mystore1.blob.core.chinacloudapi.cn/vhds/myDataDisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
-Update-AzureRmVM -ResourceGroupName $myResourceGroup -VM $vm
-```
-
-After running Add-AzureRmVMDataDisk, you should see something like this example:
-
-    ResourceGroupName        : myResourceGroup
-    Id                       : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
-                               Microsoft.Compute/virtualMachines/myVM
-    VmId                     : ########-####-####-####-############
-    Name                     : myVM
-    Type                     : Microsoft.Compute/virtualMachines
-    Location                 : chinaeast
-    Tags                     : {}
-    AvailabilitySetReference : {Id}
-    DiagnosticsProfile       : {BootDiagnostics}
-    HardwareProfile          : {VmSize}
-    NetworkProfile           : {NetworkInterfaces}
-    OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
-    ProvisioningState        : Succeeded
-    StorageProfile           : {ImageReference, OsDisk, DataDisks}
-    DataDiskNames            : {myDataDisk1}
-    NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
-                               Microsoft.Network/networkInterfaces/myNIC}
-
-After running Update-AzureRmVM, you should see something like this example:
-
-    RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-    --------- ------------------- ---------- ------------
-                             True         OK OK
+Azure China does not supporte managed disk yet.
 
 ### Unmanaged data disk
 
