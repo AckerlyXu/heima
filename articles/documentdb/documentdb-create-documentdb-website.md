@@ -132,7 +132,7 @@ Now let's deploy our second template.  This template is useful to show how you c
 Congratulations! You've deployed Azure Cosmos DB, App Service web app and a sample web application using Azure Resource Manager templates.
 
 - To learn more about DocumentDB, click [here](./index.md).
-- To learn more about Azure App Service Web apps, click [here](../app-service-web/index.md).
+- To learn more about Azure App Service Web apps, click [here](../app-service-web/index.yml).
 - To learn more about Azure Resource Manager templates, click [here](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## What's changed

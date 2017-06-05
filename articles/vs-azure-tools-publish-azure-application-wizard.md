@@ -87,7 +87,6 @@ The Azure storage account stores the package for the application deployment. Aft
 ![Deployment settings](./media/vs-azure-tools-publish-azure-application-wizard/deployment-settings.png)
 
 **Enable IntelliTrace** - Specify if you want to enable IntelliTrace. With IntelliTrace, you can log extensive debugging information for a role instance when it runs in Azure. If you need to find the cause of a problem, you can use the IntelliTrace logs to step through your code from Visual Studio as if it were running in Azure.
-<!-- Not Available [Debugging a published Azure cloud service with Visual Studio and IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md). -->
 
 **Enable profiling** - Specify if you want to enable performance profiling. The Visual Studio profiler enables you to get an in-depth analysis of the computational aspects of how your cloud service runs. For more information on using the Visual Studio profiler, see [Test the performance of an Azure cloud service](./vs-azure-tools-performance-profiling-cloud-services.md).
 
@@ -117,7 +116,5 @@ Once you configure all the settings for your project's deployment, select **Publ
 ## Next steps
 - [Migrate and publish a Web Application to an Azure cloud service from Visual Studio](./vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)
 - [Learn how to use Visual Studio to publish an Azure cloud service](./vs-azure-tools-publishing-a-cloud-service.md)
-- [Debugging a published Azure cloud service with Visual Studio and IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 - [Test the performance of an Azure cloud service](./vs-azure-tools-performance-profiling-cloud-services.md)
 - [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). 
-- [What is Application Insights?](./application-insights/app-insights-overview.md)

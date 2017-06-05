@@ -36,9 +36,6 @@ Azure Diagnostics can collect the following types of data:
 
 The Azure diagnostics extension can transfer this data to an Azure storage account or send it to services like [Application Insights](/documentation/articles/app-insights-cloudservices/). You can use the data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
-## Versioning
-See [Azure Diagnostics Versioning History](./azure-diagnostics-versioning-history.md).
-
 ## Next Steps
 Choose which service you are trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
 
@@ -58,7 +55,7 @@ For more advanced topics, see
 
 ## Virtual Machines using Azure Diagnostics
 - If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](./vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see
-- [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines-dotnet-diagnostics.md)
+- [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines/virtual-machines-dotnet-diagnostics.md)
 
 For more advanced topics, see
 
@@ -72,5 +69,4 @@ Get started at [Monitor a Service Fabric application](./service-fabric/service-f
 - [Azure Diagnostics Schema Configuration](https://msdn.microsoft.com/zh-cn/library/azure/mt634524.aspx) - Learn how to change the schema file to collect and route diagnostics data. Note that you can also use Visual Studio to change the schema file.
 - [How Azure Diagnostics data is stored in Azure Storage](./cloud-services/cloud-services-dotnet-diagnostics-storage.md) - Know the names of the tables and blobs where the diagnostic data is written.
 - Learn to [use Performance Counters in Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
-- Learn to [Route Azure diagnostics information to Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - If you have trouble with diagnostics starting or finding your data in Azure Storage tables, see [TroubleShooting Azure Diagnostics](./azure-diagnostics-troubleshooting.md)

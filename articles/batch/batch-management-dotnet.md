@@ -145,7 +145,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Use Azure AD with Batch Management .NET
 
-The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage account resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. For information about using Azure AD with the Batch Management .NET library, see [Use Azure Active Directory to authenticate Batch solutions](./batch-aad-auth.md). 
+The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage account resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. 
 
 ## Sample project on GitHub <a name="sample"></a>
 
@@ -168,9 +168,6 @@ To see Batch Management .NET in action, check out the [AccountManagment][acct_mg
 7. Delete the resource group.
 
 Before deleting the newly created Batch account and resource group, you can view them in the [Azure portal Preview][azure_portal]:
-
-To run the sample application successfully, you must first register it with your Azure AD tenant in the Azure portal and grant permissions to the Azure Resource Manager API. Follow the steps provided in [Authenticate Batch management applications with Azure AD](./batch-aad-auth.md#use-azure-ad-with-batch-service-solutions).
-
 
 [aad_about]:../active-directory/active-directory-whatis.md
 [aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md

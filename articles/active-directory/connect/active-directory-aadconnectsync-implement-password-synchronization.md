@@ -170,7 +170,7 @@ For reference, this snippet is what it should look like:
 
 For information about security and FIPS, see [AAD Password Sync, encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
 
-## Troubleshoot password synchronization <a name="troubleshooting-password-synchronization"></a>
+## Troubleshoot password synchronization <a name="troubleshoot-password-synchronization"></a>
 If you have problems with password synchronization, see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## Next steps
