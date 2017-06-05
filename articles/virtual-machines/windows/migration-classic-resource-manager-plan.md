@@ -181,7 +181,7 @@ Now that you are in Azure Resource Manager, maximize the platform.  Read the [ov
 
 Things to consider:
 
-- Bundling the migration with other activities.  Most customers opt for an application maintenance window.  If so, you might want to use this downtime to enable other Azure Resource Manager capabilities like encryption and migration to Managed Disks.
+- Bundling the migration with other activities.  Most customers opt for an application maintenance window.  If so, you might want to use this downtime to enable other Azure Resource Manager capabilities like encryption.
 - Revisit the technical and business reasons for Azure Resource Manager; enable the additional services available only on Azure Resource Manager that apply to your environment.
 - Modernize your environment with PaaS services.
 

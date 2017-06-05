@@ -334,7 +334,6 @@ The following guides are available for the topic of SAP deployments on Azure:
 * [SAP NetWeaver on Azure Virtual Machines (VMs) - Planning and Implementation Guide][planning-guide]
 * [SAP NetWeaver on Azure Virtual Machines (VMs) - Deployment Guide][deployment-guide]
 * [SAP NetWeaver on Azure Virtual Machines (VMs) - DBMS Deployment Guide (this document)][dbms-guide]
-* [SAP NetWeaver on Azure Virtual Machines (VMs) - High Availability Deployment Guide][ha-guide]
 
 The following SAP Notes are related to the topic of SAP on Azure:
 

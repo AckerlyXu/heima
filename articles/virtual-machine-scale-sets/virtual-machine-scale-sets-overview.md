@@ -119,10 +119,6 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 **A.** All regions support scale sets.
 
-**Q.** How do I create a scale set by using a custom image?
-
-**A.** Create a managed disk based on your custom image VHD and reference it in your scale set template. [Here's an example](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
-
 **Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
 
 **A.** Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
