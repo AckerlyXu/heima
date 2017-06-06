@@ -26,7 +26,7 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 
 > [!IMPORTANT]
 > The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
-> <p>
+>
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK.
@@ -82,7 +82,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
     > [!IMPORTANT]
     > Script actions used during cluster creation are automatically persisted.
-    > <p>
+    >
     > Scripts that fail are not persisted, even if you specifically indicate that they should be.
 
 * Can accept **parameters** that are used by the script during execution.
@@ -114,7 +114,7 @@ During cluster creation, you can specify multiple script actions that are invoke
 
 > [!IMPORTANT]
 > Script actions must complete within 60 minutes, or timeout. During cluster provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
-> <p>
+>
 > To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Storage so that it can quickly be downloaded to the cluster.
 
 ### Script action on a running cluster
@@ -123,7 +123,7 @@ Unlike script actions used during cluster creation, a failure in a script ran on
 
 > [!IMPORTANT]
 > This does not mean that your running cluster is immune to scripts that do bad things. For example, a script could delete files needed by the cluster, change configuration so that services fail, etc.
-> <p>
+>
 > Scripts actions run with root privileges, so you should make sure that you understand what a script does before applying it to your cluster.
 
 When applying a script to a cluster, the cluster state changes to from **Running** to **Accepted**, then **HDInsight configuration**, and finally back to **Running** for successful scripts. The script status is logged in the script action history, and you can use this to determine if the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet can be used to view the status of a script. It returns information similar to the following:
@@ -656,7 +656,7 @@ There are two types of open-source components that are available in the HDInsigh
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Azure Support helps to isolate and resolve issues related to these components.
-> <p>
+>
 > Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 
 The HDInsight service provides several ways to use custom components. Regardless of how a component is used or installed on the cluster, the same level of support applies. Below is a list of the most common ways that custom components can be used on HDInsight clusters:

@@ -67,21 +67,21 @@ This command returns a JSON document describing the service, and then jq pulls o
 
     > [!IMPORTANT]
     > Some of the web UIs available through Ambari access nodes using an internal domain name. Internal domain names are not publicly accessible over the internet. You may receive "server not found" errors when trying to access some features over the Internet.
-    > <p>
+    >
     > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.cn/ambari
 
     > [!NOTE]
     > Authenticate by using the cluster administrator user and password.
-    > <p>
+    >
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.cn/templeton
 
     > [!NOTE]
     > Authenticate by using the cluster administrator user and password.
-    > <p>
+    >
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
 * **SSH** - &lt;clustername>-ssh.azurehdinsight.cn on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
@@ -227,16 +227,16 @@ For example, if you want to use the latest version of [DataFu](http://datafu.inc
 
 > [!IMPORTANT]
 > Some components that are standalone jar files are provided with HDInsight, but are not in the path. If you are looking for a specific component, you can use the follow to search for it on your cluster:
-> <p>
+>
 > ```find / -name *componentname*.jar 2>/dev/null```
-> <p>
+>
 > This command returns the path of any matching jar files.
 
 To use a different version of a component, upload the version you need and use it in your jobs.
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Azure Support helps to isolate and resolve issues related to these components.
-> <p>
+>
 > Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## Next steps

@@ -55,7 +55,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster. You must also provide the account name for the cluster login (usually `admin`). If you run the command from outside the cluster, you must also provide the cluster login password. Use the following table to find the connection string format and parameters to use:
 
     | Where you run Beeline from | Parameters |
-    | --- | --- | --- |
+    | --- | --- |
     | An SSH connection to a headnode or edge node | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
     | Outside the cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
@@ -132,7 +132,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     > [!NOTE]
     > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
-    > <p>
+    >
     > Dropping an external table does **not** delete the data, only the table definition.
 
     The output of this command is similar to the following text:

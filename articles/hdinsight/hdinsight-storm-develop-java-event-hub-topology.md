@@ -350,7 +350,7 @@ The jar created by this project contains two topologies; **com.microsoft.example
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    > <p>
+    >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. Use the following command to start the topologies:

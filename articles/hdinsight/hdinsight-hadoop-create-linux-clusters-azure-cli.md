@@ -117,7 +117,7 @@ The following steps should be performed from a command-prompt, shell, or termina
 
     > [!IMPORTANT]
     > This example creates a cluster with two worker notes. If you plan on more than 32 worker nodes (during cluster creation or by scaling the cluster,) then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter.
-    > <p>
+    >
     > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
     It may take several minutes for the cluster creation process to finish. Usually around 15.

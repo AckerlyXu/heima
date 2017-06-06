@@ -210,7 +210,7 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 > [!WARNING]
 > If you want to run the command again, you must also delete the output directory. Use the following to delete this directory:
-> <p>
+>
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 ## Next steps

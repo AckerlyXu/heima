@@ -35,9 +35,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
 > [!NOTE]
 > When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator.
-> <p>
+>
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-> <p>
+>
 > The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). To help ensure that your credentials are securely sent to the server, always make requests by using Secure HTTP (HTTPS).
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
@@ -87,7 +87,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
         > [!NOTE]
         > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or another MapReduce operation.
-        > <p>
+        >
         > Dropping an external table does **not** delete the data, only the table definition.
 
     * **ROW FORMAT** - How the data is formatted. The fields in each log are separated by a space.

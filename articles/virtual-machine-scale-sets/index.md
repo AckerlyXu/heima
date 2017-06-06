@@ -16,7 +16,7 @@ ms.author: carolz
 ---
 #Virtual Machine Scale Sets Documentation
 
-Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identical, auto-scaling Windows or Linux VMs. Documentation shows you how to use Scale Sets to support services that target big compute, big data, and containerized solutions.
+Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identical, scaling Windows or Linux VMs. Documentation shows you how to use Scale Sets to support services that target big compute, big data, and containerized solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -31,24 +31,6 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
                     </div>
                     <div class="cardText">
                         <h3>Learn about Virtual Machine Scale Sets</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-       <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Virtual Machines Video Library</h3>
                     </div>
                 </div>
             </div>

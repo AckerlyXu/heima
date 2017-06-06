@@ -54,7 +54,7 @@ Storm on HDInsight provides the following key benefits:
 
     * Azure DocumentDb
 
-* Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Kafka, Spark, HBase, or Hadoop clusters.
+* Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Spark, HBase, or Hadoop clusters.
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -68,7 +68,7 @@ Storm runs topologies instead of the MapReduce jobs that you might be familiar w
 
 * Spout components bring data into a topology. They emit one or more streams into the topology.
 
-* Bolt components consume streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, Kafka, or HBase.
+* Bolt components consume streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, or HBase.
 
 ## Ease of creation
 

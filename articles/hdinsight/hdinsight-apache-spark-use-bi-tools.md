@@ -46,7 +46,7 @@ Once your data is saved as a table, in the next section we use BI tools to conne
 
     > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p>
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     >
     >

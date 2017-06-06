@@ -53,15 +53,15 @@ The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehd
 
 > [!IMPORTANT]
 > While the cluster name in the fully qualified domain name (FQDN) part of the URI (CLUSTERNAME.azurehdinsight.cn) is case-insensitive, other occurrences in the URI are case-sensitive. For example, if your cluster is named `MyCluster`, the following are valid URIs:
-> <p> 
+>
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
-> <p>
+>
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
-> <p> 
+>
 > The following URIs return an error because the second occurrence of the name is not the correct case.
-> <p> 
+>
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster`
-> <p>
+>
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/mycluster`
 
 ### Authentication
@@ -202,7 +202,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 > [!IMPORTANT]
 > The IP addresses returned by the examples in this section are not directly accessible over the internet. They are only accessible within the Azure Virtual Network that contains the HDInsight cluster.
-> <p>
+>
 > For more information on working with HDInsight and virtual networks, see [Extend HDInsight capabilities by using a custom Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 You must know the FQDN for the host before you can obtain the IP address. Once you have the FQDN, you can then get the IP address of the host. The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.

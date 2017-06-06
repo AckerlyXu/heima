@@ -50,7 +50,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
 
     > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p> 
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     > 
     > 

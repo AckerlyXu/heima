@@ -89,7 +89,7 @@ In this article, you use the **PySpark** kernel in the notebook from where you r
 
     > [!NOTE]
     > You may also access the Jupyter notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p>
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     >
     >

@@ -186,7 +186,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 
 > [!NOTE]
 > The cluster size limit varies among Azure subscriptions. Contact billing support to increase the limit.
-> <p>
+>
 > The nodes that your cluster uses do not count as virtual machines because the virtual machine images used for the nodes are an implementation detail of the HDInsight service. The compute cores used by the nodes do count against the total number of compute cores available to your subscription. When you create an HDInsight cluster, you can see the number of available cores and the cores that will be used by the cluster in the summary section of the **Cluster size** blade.
 >
 >

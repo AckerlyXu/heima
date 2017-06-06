@@ -48,7 +48,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 > * **Virtual network address space**: 10.0.0.0/16
 > * **Subnet name**: subnet1
 > * **Subnet address range**: 10.0.0.0/24
-> <p>
+>
 > &lt;Cluster Name> is replaced with the cluster name you provide when using the template.
 >
 >

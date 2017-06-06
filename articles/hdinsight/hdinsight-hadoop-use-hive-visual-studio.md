@@ -72,7 +72,7 @@ To complete the steps in this article, you need the following.
 
         > [!NOTE]
         > External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
-        > <p>
+        >
         > Dropping an external table does **not** delete the data, only the table definition.
 
     * `ROW FORMAT`: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.

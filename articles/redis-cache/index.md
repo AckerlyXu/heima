@@ -36,24 +36,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
             </div>
         </div>
         </a>
-    </li><li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=redis-cache">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Redis Cache Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
+    </li>
    <li>
         <a href="/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">

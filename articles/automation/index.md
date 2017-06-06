@@ -16,7 +16,7 @@ ms.author: carolz
 ---
 # Automation Documentation
 
-Learn how to use Automation to save time and increase the reliability of regular administrative tasks performed in a cloud environment. Tutorials, API references, and other documentation show you how to automate processes using runbooks or automate configuration management using Desired State Configuration.
+Learn how to use Automation to save time and increase the reliability of regular administrative tasks performed in a cloud environment. Tutorials, API references, and other documentation show you how to automate processes using runbooks.
 
 <ul class="panelContent cardsFTitle">
     <li>

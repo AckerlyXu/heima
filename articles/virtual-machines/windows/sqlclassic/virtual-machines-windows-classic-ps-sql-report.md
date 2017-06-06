@@ -27,7 +27,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 > [!NOTE]
 > If you do not require **HTTPS** on the report server, **skip step 2**.
-> <p> 
+>
 > After creating the VM in step 1, go to the section Use script to configure the report server and HTTP. After you run the script, the report server is ready to use.
 
 ## Prerequisites and Assumptions

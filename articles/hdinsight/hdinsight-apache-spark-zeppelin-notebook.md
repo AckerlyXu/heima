@@ -38,7 +38,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
 
     > [!NOTE]
     > You may also reach the Zeppelin Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p> 
+    > 
     > `https://CLUSTERNAME.azurehdinsight.cn/zeppelin`
     > 
     > 

@@ -32,7 +32,7 @@ The Storm Dashboard and the Storm features in the HDInsight Tools rely on the St
 
 > [!IMPORTANT]
 > The steps in this document require a Storm on HDInsight cluster that uses Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-> <p>
+>
 > For information on deploying and managing Storm topologies with an HDInsight cluster that uses Linux, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ## Prerequisites
