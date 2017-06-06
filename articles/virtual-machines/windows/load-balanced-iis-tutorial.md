@@ -328,4 +328,4 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## Next Steps
 
-Samples - [Azure Virtual Machine PowerShell sample scripts](./../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Samples - [Azure Virtual Machine PowerShell sample scripts](./../virtual-machines-windows-powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

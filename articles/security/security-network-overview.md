@@ -245,7 +245,3 @@ Azure provides you a highly available and performant external DNS solution in th
 Many enterprise organizations use DMZs to segment their networks to create a buffer-zone between the Internet and their services. The DMZ portion of the network is considered a low-security zone and no high-value assets are placed in that network segment. You’ll typically see network security devices that have a network interface on the DMZ segment and another network interface connected to a network that has virtual machines and services that accept inbound connections from the Internet.
 
 There are a number of variations of DMZ design and the decision to deploy a DMZ, and then what type of DMZ to use if you decide to use one, is based on your network security requirements.
-
-Learn more:
-
-- [Microsoft Azure Network Security](../best-practices-network-security.md)

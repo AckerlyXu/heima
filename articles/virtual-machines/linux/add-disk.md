@@ -44,7 +44,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 
 ## Connect to the Linux VM to mount the new disk
 > [!NOTE]
-> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
 > 
 
@@ -279,5 +279,5 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 ## Next Steps
 * Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
-* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) recommendations.
-* Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.
+* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) recommendations.
+* Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.

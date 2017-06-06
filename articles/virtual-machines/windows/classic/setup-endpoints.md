@@ -25,7 +25,7 @@ All Windows virtual machines that you create in Azure using the classic deployme
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
-In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Allow external access to your VM using the Azure Portal Preview](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Allow external access to your VM using the Azure Portal Preview](../nsg-quickstart-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 When you create a Windows virtual machine in the Azure Classic Management Portal, common endpoints like those for Remote Desktop and Windows PowerShell Remoting are typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
 

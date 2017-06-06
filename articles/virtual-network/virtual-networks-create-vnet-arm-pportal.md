@@ -28,7 +28,7 @@ The sections that follow include steps for deploying a VNet using the Azure [por
 
 ## <a name="portal"></a>Azure portal preview
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. In the portal, click **+ New** > **Networking** > **Virtual network**.
 3. In the **Virtual network** blade that appears, leave *Resource Manager* selected in under **Select a deployment model** and click **Create**.
 4. In the **Create virtual network** blade that appears, enter the following values and click the **Create** button:
@@ -42,7 +42,7 @@ The sections that follow include steps for deploying a VNet using the Azure [por
     |Resource group|Leave **Create new** selected and enter *MyResourceGroup*|
     |Subscription and Location|Select your subscription and location.
 
-    If you're new to Azure, learn more about [Resource groups](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), and [locations](https://azure.microsoft.com/regions) (which are also referred to as regions).
+    If you're new to Azure, learn more about [Resource groups](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription), and [locations](https://azure.microsoft.com/regions) (which are also referred to as regions).
 6. The portal only enables you to create one subnet when creating a VNet. For this tutorial, a second subnet is created after the VNet is created. You might later connect Internet-accessible resources to the *Public* subnet, and connect resources that aren't accessible from the Internet to a private subnet. To create the second subnet, enter *MyVnet* in the *Search resources* box at the top of the portal. When **MyVnet** appears in the search results, click it. **Note:** If you have multiple VNets in your subscription with the same name, you see resource group names listed under each VNet with the same name. Ensure you click the MyVnet result with *MyResourceGroup* under it.
 7. In the **MyVnet** blade that appears, click **Subnets** under **SETTINGS**.
 8. In the **MyVnet - Subnets** blade, click **+Subnet**.
@@ -76,9 +76,9 @@ az network vnet subnet create \
 ```
 
 ## PowerShell
-1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **Powershell**, then clicking **PowerShell** from the search results.
-3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. In your browser, copy the following script:
     ```powershell
     # Create a resource group
@@ -112,7 +112,7 @@ az network vnet subnet create \
 
 ## Template
 
-You can deploy a VNet with an Azure Resource Manager template. To learn more about templates, read the [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment) article. To access the template and learn about its parameters, view the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. You can deploy the template using the [portal](#template-portal), [CLI](#template-cli), or [PowerShell](#template-powershell).
+You can deploy a VNet with an Azure Resource Manager template. To learn more about templates, read the [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#template-deployment) article. To access the template and learn about its parameters, view the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. You can deploy the template using the [portal](#template-portal), [CLI](#template-cli), or [PowerShell](#template-powershell).
 
 **Optional:** To delete the resources created in this tutorial, complete the steps in any subsections of the [Delete resources](#delete) section of this article.
 
@@ -120,7 +120,7 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 
 1. In your browser, open the template [web page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
 2. Click the **Deploy to Azure** button, which opens the Azure portal preview sign-in page.
-3. Sign in to the portal with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+3. Sign in to the portal with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Enter the following values for the parameters:
 
     |Parameter|Value|
@@ -139,7 +139,7 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 
 ### <a name="template-cli"></a>CLI
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you in to Azure using the credentials you authenticated to the portal with.
 3. Create a resource group for the VNet by entering the following command:
     `az group create --name MyResourceGroup --location chinaeast`
@@ -152,9 +152,9 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 
 ### <a name="template-powershell"></a>PowerShell
 
-1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](/overview.md?toc=%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
-3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Create a resource group for the VNet by entering the following command:
     `New-AzureRmResourceGroup -Name MyResourceGroup -Location chinaeast`
 5. You can deploy the template with:
@@ -185,6 +185,6 @@ From the PowerShell prompt, enter the following command: `Remove-AzureRmResource
 
 - To understand all VNet and subnet settings, read the [Manage VNet](virtual-network-manage-network.md#view-vnet) and [Manage subnet](virtual-network-manage-subnet.md#create-subnet) articles. Various options exist that enable you to create production VNets and subnets to meet different requirements.
 - Filter inbound and outbound subnet traffic by creating and applying [network security groups](virtual-networks-nsg.md) (NSGs) to subnets.
-- Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM and connect it to the VNet.
+- Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) VM and connect it to the VNet.
 - Connect the VNet to another VNet in the same location with [VNet peering](virtual-network-peering-overview.md).
-- Connect the VNet to an on-premises network with a [site-to-site virtual private network](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (VPN) or [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.
+- Connect the VNet to an on-premises network with a [site-to-site virtual private network](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) (VPN) or [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json) circuit.

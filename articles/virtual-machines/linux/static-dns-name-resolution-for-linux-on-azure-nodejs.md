@@ -27,13 +27,13 @@ This article shows how to set static internal DNS names for Linux VMs using Virt
 The requirements are:
 
 * [an Azure account](https://www.azure.cn/pricing/1rmb-trial/)
-* [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](static-dns-name-resolution-for-linux-on-azure.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick commands
 
@@ -82,7 +82,7 @@ _Replace any examples with your own naming._
 
 ## Create the Resource group
 
-A Resource Group is needed to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+A Resource Group is needed to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure group create myResourceGroup \
@@ -91,7 +91,7 @@ azure group create myResourceGroup \
 
 ## Create the VNet
 
-The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -102,7 +102,7 @@ azure network vnet create myVNet \
 
 ## Create the NSG
 
-The Subnet is built behind an existing Network Security Group so we build the NSG before the Subnet.  Azure NSGs are equivalent to a firewall at the network layer.  For more information on Azure NSGs, see [How to create NSGs in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+The Subnet is built behind an existing Network Security Group so we build the NSG before the Subnet.  Azure NSGs are equivalent to a firewall at the network layer.  For more information on Azure NSGs, see [How to create NSGs in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure network nsg create myNSG \
@@ -159,7 +159,7 @@ azure network nic create jenkinsVNic \
 
 We now have a VNet, a subnet inside that VNet, and an NSG acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH.  The VM can now be deployed inside this existing network infrastructure.
 
-Using the Azure CLI, and the `azure vm create` command, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.  For more information on using the CLI to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Using the Azure CLI, and the `azure vm create` command, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.  For more information on using the CLI to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure vm create jenkins \
@@ -179,6 +179,6 @@ By using the CLI flags to call out existing resources, we instruct Azure to depl
 
 ## Next steps
 
-* [Use an Azure Resource Manager template to create a specific deployment](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Use an Azure Resource Manager template to create a specific deployment](../windows/cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

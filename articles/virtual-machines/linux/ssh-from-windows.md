@@ -21,8 +21,8 @@ ms.author: rasquill
 ---
 # How to Use SSH keys with Windows on Azure
 > [!div class="op_single_selector"]
-> * [Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-> * [Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Windows](ssh-from-windows.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Linux/Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 >
 >
 
@@ -175,8 +175,8 @@ Again, PuTTY is a common SSH client for Windows. You are free to use any SSH cli
 4. Click **Open** to connect to your virtual machine
 
 ## Next steps
-You can also generate the public and private keys [using OS X and Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also generate the public and private keys [using OS X and Linux](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 For more information about Bash for Windows and the benefits of having OSS tools readily available on your Windows computer, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
-If you have trouble using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you have trouble using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

@@ -37,7 +37,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) if you don't already have it installed.
-2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login`.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet) with two subnets, two NICs, and a VM with the two NICs attached to it. One of the NICs is connected to one subnet and is assigned a static public and private IP address. The other NIC is connected to the other subnet and is assigned a static private IP address and no public IP address. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
@@ -159,7 +159,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     ```
 
 In addition to creating a VM with two NICs, the script creates:
-- Use unmanaged disk, and an Azure Storage Account will be created automatically. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
+- Use unmanaged disk, and an Azure Storage Account will be created automatically. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) article for details.
 - A virtual network with two subnets and a single public IP address. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
 ## <a name = "validate"></a>Validate VM creation and NICs

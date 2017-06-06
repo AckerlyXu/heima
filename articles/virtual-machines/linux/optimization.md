@@ -21,10 +21,10 @@ ms.author: rclaus
 
 ---
 # Optimize your Linux VM on Azure
-Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## Prerequisites
-This topic assumes you already have a working Azure subscription ([trial signup](https://www.azure.cn/pricing/1rmb-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to your Azure subscription with [az login](https://docs.microsoft.com/cli/azure/#login) before you [create a VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+This topic assumes you already have a working Azure subscription ([trial signup](https://www.azure.cn/pricing/1rmb-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to your Azure subscription with [az login](https://docs.microsoft.com/cli/azure/#login) before you [create a VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -50,7 +50,7 @@ When dealing with high IOps workloads and you have chosen Standard Storage for y
 By default when you create a VM, Azure provides you with an OS disk (**/dev/sda**) and a temporary disk (**/dev/sdb**).  All additional disks you add show up as **/dev/sdc**, **/dev/sdd**, **/dev/sde** and so on. All data on your temporary disk (**/dev/sdb**) is not durable, and can be lost if specific events like VM Resizing, redeployment, or maintenance forces a restart of your VM.  The size and type of your temporary disk is related to the VM size you chose at deployment time. All of the premium size VMs (DS, G, and DS_V2 series) the temporary drive are backed by a local SSD for additional performance of up to 48k IOps. 
 
 ## Linux Swap File
-If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. If you [uploaded a custom Linux image](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that uses cloud-init, you also configure swap partitions using cloud-init.
+If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. If you [uploaded a custom Linux image](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) that uses cloud-init, you also configure swap partitions using cloud-init.
 
 On Ubuntu Cloud Images, you must use cloud-init to configure the swap partition. For more information, see [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
@@ -122,7 +122,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## Using Software RAID to achieve higher I/Ops
-If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
+If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)** document.
 
 ## Next Steps
 Remember, as with all optimization discussions, you need to perform tests before and after each change to measure the impact the change has.  Optimization is a step by step process that has different results across different machines in your environment.  What works for one configuration may not work for others.
@@ -130,6 +130,6 @@ Remember, as with all optimization discussions, you need to perform tests before
 Some useful links to additional resources: 
 
 * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md)
-* [Azure Linux Agent User Guide](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configure Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Linux Agent User Guide](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Configure Software RAID on Linux](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

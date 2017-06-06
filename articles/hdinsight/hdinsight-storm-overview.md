@@ -52,7 +52,7 @@ Storm on HDInsight provides the following key benefits:
 
     * Azure Storage
 
-    * Azure Cosmos DB
+    * Azure DocumentDb
 
 * Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Kafka, Spark, HBase, or Hadoop clusters.
 
@@ -98,7 +98,7 @@ You can provision a new Storm cluster on HDInsight in minutes. For more informat
 
     * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__, __Cosmos DB__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Database__, __DocumentDb__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ## Reliability
 

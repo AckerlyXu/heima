@@ -1,6 +1,6 @@
 ---
 title: Build a Node.js and MongoDB web app in Azure | Azure 
-description: Learn how to get a Node.js app working in Azure, with connection to a Cosmos DB database with a MongoDB connection string.
+description: Learn how to get a Node.js app working in Azure, with connection to a DocumentDb database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -113,7 +113,7 @@ To stop Node.js at anytime, type `Ctrl`+`C` in the terminal.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this database for its production workload.
 
-For MongoDB, this tutorial uses [Azure Cosmos DB](/documentdb/). Cosmos DB supports MongoDB client connections.
+For MongoDB, this tutorial uses [Azure DocumentDb](/documentdb/). DocumentDb supports MongoDB client connections.
 
 ### Log in to Azure
 
@@ -137,11 +137,11 @@ az group create --name myResourceGroup --location "China North"
 
 To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
-### Create a Cosmos DB account
+### Create a DocumentDb account
 
-Create a Cosmos DB account with the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) command.
+Create a DocumentDb account with the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) command.
 
-In the following command, substitute your own unique Cosmos DB name where you see the _&lt;cosmosdb_name>_ placeholder. This unique name is used as the part of your Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.cn/`, so the name needs to be unique across all Cosmos DB accounts in Azure. 
+In the following command, substitute your own unique DocumentDb name where you see the _&lt;cosmosdb_name>_ placeholder. This unique name is used as the part of your DocumentDb endpoint, `https://<cosmosdb_name>.documents.azure.cn/`, so the name needs to be unique across all DocumentDb accounts in Azure. 
 
 ```azurecli
 az cosmosdb create \
@@ -157,7 +157,7 @@ The `--kind MongoDB` parameter enables MongoDB client connections.
 >
 >
 
-When the Cosmos DB account is created, the Azure CLI shows information similar to the following example:
+When the DocumentDb account is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -177,11 +177,11 @@ When the Cosmos DB account is created, the Azure CLI shows information similar t
 
 ## Connect app to production MongoDB
 
-In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to the DocumentDb database you just created, using a MongoDB connection string. 
 
 ### Retrieve the database key
 
-To connect to the Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+To connect to the DocumentDb database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
 az cosmosdb list-keys \
@@ -206,7 +206,7 @@ Copy the value of `primaryMasterKey` to a text editor. You need this information
 
 In your MEAN.js repository, open _config/env/production.js_.
 
-In the `db` object, replace the value of `uri` as shown in the following example. Be sure to also replace the two _&lt;cosmosdb_name>_ placeholders with your Cosmos DB database name, and the _&lt;primary_master_key>_ placeholder with the key you copied in the previous step.
+In the `db` object, replace the value of `uri` as shown in the following example. Be sure to also replace the two _&lt;cosmosdb_name>_ placeholders with your DocumentDb database name, and the _&lt;primary_master_key>_ placeholder with the key you copied in the previous step.
 
 ```javascript
 db: {
@@ -216,7 +216,7 @@ db: {
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because [Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> The `ssl=true` option is important because [DocumentDb requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -253,7 +253,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and try to create a dummy user just like before. If you are successful, then your app is writing data to the Cosmos DB database in Azure. 
+Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and try to create a dummy user just like before. If you are successful, then your app is writing data to the DocumentDb database in Azure. 
 
 In the terminal, stop Node.js by typing `Ctrl`+`C`. 
 
@@ -452,7 +452,7 @@ http://<app_name>.chinacloudsites.cn
 
 Click **Sign Up** in the top menu and try to create a dummy user. 
 
-If you are successful and the app automatically signs into the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (Cosmos DB) database. 
+If you are successful and the app automatically signs into the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (DocumentDb) database. 
 
 ![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -592,7 +592,7 @@ Once the `git push` is complete, navigate to your Azure web app and try out the 
 ![Model and database changes published to Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 > [!NOTE]
-> If you added any articles earlier, you still can see them. Existing data in your Cosmos DB is not lost. Also, your updates to the data schema and leaves your existing data intact.
+> If you added any articles earlier, you still can see them. Existing data in your DocumentDb is not lost. Also, your updates to the data schema and leaves your existing data intact.
 >
 >
 

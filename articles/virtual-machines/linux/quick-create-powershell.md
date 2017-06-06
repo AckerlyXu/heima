@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://www.azu
 
 This quick start requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-Finally, a public SSH key with the name *id_rsa.pub* needs to be stored in the *.ssh* directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Finally, a public SSH key with the name *id_rsa.pub* needs to be stored in the *.ssh* directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Log in to Azure
 
@@ -125,7 +125,7 @@ Use the [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/modul
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
 
 ```bash 
 ssh <Public IP Address>

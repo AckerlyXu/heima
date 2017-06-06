@@ -24,9 +24,9 @@ ms.author: iainfou
 This article provides detailed troubleshooting steps to diagnose and fix complex Remote Desktop errors for Windows-based Azure virtual machines.
 
 > [!IMPORTANT]
-> To eliminate the more common Remote Desktop errors, make sure to read [the basic troubleshooting article for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before proceeding.
+> To eliminate the more common Remote Desktop errors, make sure to read [the basic troubleshooting article for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) before proceeding.
 
-You may encounter a Remote Desktop error message that does not resemble any of the specific error messages covered in [the basic Remote Desktop troubleshooting guide](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Follow these steps to determine why the Remote Desktop (RDP) client is unable to connect to the RDP service on the Azure VM.
+You may encounter a Remote Desktop error message that does not resemble any of the specific error messages covered in [the basic Remote Desktop troubleshooting guide](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). Follow these steps to determine why the Remote Desktop (RDP) client is unable to connect to the RDP service on the Azure VM.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -78,7 +78,7 @@ Verify that a computer directly connected to the Internet can make Remote Deskto
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can delete the virtual machine and the resource group or the cloud service, after the test.
+If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). You can delete the virtual machine and the resource group or the cloud service, after the test.
 
 If you can create a Remote Desktop connection with a computer directly attached to the Internet, check your organization intranet edge device for:
 
@@ -98,14 +98,14 @@ For VMs created using the Classic deployment model, verify that another Azure VM
 > 
 > 
 
-If you do not have another virtual machine in the same cloud service or virtual network, create one. Follow the steps in [Create a virtual machine running Windows in Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Delete the test virtual machine after the test is completed.
+If you do not have another virtual machine in the same cloud service or virtual network, create one. Follow the steps in [Create a virtual machine running Windows in Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). Delete the test virtual machine after the test is completed.
 
 If you can connect via Remote Desktop to a virtual machine in the same cloud service or virtual network, check for these settings:
 
 * The endpoint configuration for Remote Desktop traffic on the target VM: The private TCP port of the endpoint must match the TCP port on which the VM's Remote Desktop service is listening (default is 3389).
 * The ACL for the Remote Desktop traffic endpoint on the target VM: ACLs allow you to specify allowed or denied incoming traffic from the Internet based on its source IP address. Misconfigured ACLs can prevent incoming Remote Desktop traffic to the endpoint. Check your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server is allowed. For more information, see [What is a Network Access Control List (ACL)?](../../virtual-network/virtual-networks-acl.md)
 
-To check if the endpoint is the source of the problem, remove the current endpoint and create a new one, choosing a random port in the range 49152-65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+To check if the endpoint is the source of the problem, remove the current endpoint and create a new one, choosing a random port in the range 49152-65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Source 4: Network Security Groups
 Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network. Check your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed:
@@ -122,7 +122,7 @@ For more information, see [What is a Network Security Group (NSG)?](../../virtua
 ## Source 5: Windows-based Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Follow the instructions in [this article](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This article resets the Remote Desktop service on the virtual machine:
+Follow the instructions in [this article](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This article resets the Remote Desktop service on the virtual machine:
 
 * Enable the "Remote Desktop" Windows Firewall default rule (TCP port 3389).
 * Enable Remote Desktop connections by setting the HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections registry value to 0.
@@ -183,10 +183,10 @@ Exit the remote Azure PowerShell session by using this command.
 Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 3398 as its internal port. Restart the Azure VM and try the Remote Desktop connection again.
 
 ## Additional resources
-[How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Troubleshoot access to an application running on an Azure virtual machine](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Troubleshoot access to an application running on an Azure virtual machine](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

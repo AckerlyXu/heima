@@ -8,7 +8,7 @@
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End to end SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
+## [Service limits](../azure-subscription-service-limits.md?toc=%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
 ## Create an Application Gateway
 ### Public facing
@@ -41,7 +41,7 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
-## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fapplication-gateway%2ftoc.json)
 ## Troubleshoot
 ### [Troubleshoot errors in Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)

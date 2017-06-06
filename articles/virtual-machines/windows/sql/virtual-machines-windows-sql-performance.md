@@ -47,7 +47,7 @@ For more information on *how* and *why* to make these optimizations, please revi
 
 ## VM size guidance
 
-For performance sensitive applications, it's recommended that you use the following [virtual machines sizes](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json):
+For performance sensitive applications, it's recommended that you use the following [virtual machines sizes](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json):
 
 * **SQL Server Enterprise Edition**: DS3 or higher
 * **SQL Server Standard and Web Editions**: DS2 or higher
@@ -89,7 +89,7 @@ For VMs that support Premium Storage (DS-series and DSv2-series), we recommend s
 
 * **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the following article: [Using Premium Storage for Disks](../../../storage/storage-premium-storage.md).
 
-* **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS and bandwidth required for your log file(s), and for your data and TempDB file(s). Notice that different VM sizes have different limits on the number of IOPs and bandwidth supported, see the tables on IOPS per [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use the following guidelines:
+* **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS and bandwidth required for your log file(s), and for your data and TempDB file(s). Notice that different VM sizes have different limits on the number of IOPs and bandwidth supported, see the tables on IOPS per [VM size](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). Use the following guidelines:
 
     * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
 
@@ -107,9 +107,9 @@ For VMs that support Premium Storage (DS-series and DSv2-series), we recommend s
 
     * For Windows 2008 R2 or earlier, you can use dynamic disks (OS striped volumes) and the stripe size is always 64 KB. Note that this option is deprecated as of Windows 8/Windows Server 2012. For information, see the support statement at [Virtual Disk Service is transitioning to Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-    * If your workload is not log intensive and does not need dedicated IOPs, you can configure just one storage pool. Otherwise, create two storage pools, one for the log file(s) and another storage pool for the data file(s) and TempDB. Determine the number of disks associated with each storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    * If your workload is not log intensive and does not need dedicated IOPs, you can configure just one storage pool. Otherwise, create two storage pools, one for the log file(s) and another storage pool for the data file(s) and TempDB. Determine the number of disks associated with each storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-    * If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
+    * If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
 
 * **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 

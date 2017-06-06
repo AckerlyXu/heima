@@ -409,7 +409,7 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 The next thing to do is to configure an Availability Group listener on the failover cluster.
 
 > [!NOTE]
-> This tutorial shows how to create a single listener - with one ILB IP address. To create one or more listeners using one or more IP addresses, see [Create Availability Group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> This tutorial shows how to create a single listener - with one ILB IP address. To create one or more listeners using one or more IP addresses, see [Create Availability Group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

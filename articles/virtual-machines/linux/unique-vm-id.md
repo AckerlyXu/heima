@@ -31,10 +31,10 @@ Azure VM unique ID is a Read-only property. Azure Unique VM ID won't change upon
 To access Azure Unique VM ID from within the VM:
 
 ## Create a VM
-For more information, see [Create a Virtual Machine](../windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+For more information, see [Create a Virtual Machine](../windows/creation-choices.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Connect to the VM
-For more information, see [SSH from Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+For more information, see [SSH from Linux](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Query VM Unique ID
 Command (example uses **Ubuntu**):

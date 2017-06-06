@@ -21,14 +21,14 @@ ms.author: cynthn
 ---
 # Create a VM from a generalized VHD image in a storage account 
 
-This topic covers creating a VM from a generalized unmanaged disk that is in a storage account. A generalized VHD image has had all of your personal account information removed using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM and then [copying the VHD](vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This topic covers creating a VM from a generalized unmanaged disk that is in a storage account. A generalized VHD image has had all of your personal account information removed using [Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM and then [copying the VHD](vhd-copy.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-If you want to create a VM from a specialized VHD in a storage account, see [Create a VM from a specialized VHD](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you want to create a VM from a specialized VHD in a storage account, see [Create a VM from a specialized VHD](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Prerequisites
-If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## Set the URI of the VHD
 
@@ -78,7 +78,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 ## Create the network security group and an RDP rule
 To be able to log in to your VM using RDP, you need to have a security rule that allows RDP access on port 3389. 
 
-This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -166,4 +166,4 @@ When complete, you should see the newly created VM in the [Azure portal preview]
 ```
 
 ## Next steps
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

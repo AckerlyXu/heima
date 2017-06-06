@@ -55,6 +55,6 @@ VMs created using SSH keys are by default configured with passwords disabled, to
 
 You can create VMs that use your SSH key pair using the Azure portal preview, CLI, and templates:
 
-* [Create a secure Linux VM using the Azure portal preview](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a secure Linux VM using the Azure CLI 2.0)](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a secure Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure portal preview](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure CLI 2.0)](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

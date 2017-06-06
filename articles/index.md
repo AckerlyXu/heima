@@ -106,7 +106,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/cosmos-db/">DocumentDb</a></li>
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
@@ -1866,7 +1866,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h3>Azure CLI
                                                 </h3>
                                                 <p>
-                                                    <a href="/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>
+                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Download Azure CLI for Linux</a>

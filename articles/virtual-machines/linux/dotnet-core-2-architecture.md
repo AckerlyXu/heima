@@ -269,4 +269,4 @@ For more information on deploying Azure SQL Database, see [Azure SQL Database do
 ## Next step
 <hr>
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Step 2 - Access and Security in Azure Resource Manager Templates](dotnet-core-3-access-security.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

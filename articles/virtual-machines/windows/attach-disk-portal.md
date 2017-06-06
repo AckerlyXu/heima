@@ -24,7 +24,7 @@ ms.author: cynthn
 This article shows you how to attach both new and existing unmanaged disks to Windows virtual machines through the Azure portal preview. You can also [attach a data disk using PowerShell](./attach-disk-ps.md). Before you do this, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md).
-* To use Premium storage, you need a DS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you need a DS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 
 You can also [attach a data disk using Powershell](attach-disk-ps.md).
@@ -48,7 +48,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 ### Initialize a new data disk
 
-1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 1. Click the **Start** menu inside the VM and type **diskmgmt.msc** and hit **Enter**. This starts the Disk Management snap-in.
 2. Disk Management recognizes that you have a new, uninitialized disk and the Initialize Disk window will pop up.
 3. Make sure the new disk is selected and click **OK** to initialize it.
@@ -93,4 +93,4 @@ defrag.exe <volume:> -l
 ```
 
 ## Next steps
-If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

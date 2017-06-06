@@ -128,4 +128,4 @@ Windows-Server-Technical-Preview
 From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or for a resource group template.
 
 ## Next steps
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, or to use a template with that image information, see [Create a Windows VM using Resource Manager and PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, or to use a template with that image information, see [Create a Windows VM using Resource Manager and PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

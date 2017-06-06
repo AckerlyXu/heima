@@ -21,7 +21,7 @@ ms.author: iainfou
 
 ---
 # Troubleshooting specific RDP error messages to a Windows VM in Azure
-You may receive a specific error message when using Remote Desktop connection to a Windows virtual machine (VM) in Azure. This article details some of the more common error messages encountered, along with troubleshooting steps to resolve them. If you are having issues connecting to your VM using RDP but do not encounter a specific error message, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You may receive a specific error message when using Remote Desktop connection to a Windows virtual machine (VM) in Azure. This article details some of the more common error messages encountered, along with troubleshooting steps to resolve them. If you are having issues connecting to your VM using RDP but do not encounter a specific error message, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For information on specific error messages, see the following:
 
@@ -83,7 +83,7 @@ For example, if you signed in with the local account DC1\DCAdmin, and then promo
 
 Make sure that the account name is a name that the virtual machine can verify as a valid account, and that the password is correct.
 
-If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a id="rdpconnect"></a> This computer can't connect to the remote computer.
 Cause: The account that's used to connect does not have Remote Desktop sign-in rights.
@@ -93,7 +93,7 @@ Every Windows computer has a Remote Desktop users local group, which contains th
 Make sure that the account you're using to connect with has Remote Desktop sign-in rights. As a workaround, use a domain or local administrator account to connect over Remote Desktop. To add the desired account to the Remote Desktop users local group, use the Microsoft Management Console snap-in (**System Tools > Local Users and Groups > Groups > Remote Desktop Users**).
 
 ## Next steps
-If none of these errors occurred and you have an unknown issue with connecting using RDP, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If none of these errors occurred and you have an unknown issue with connecting using RDP, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

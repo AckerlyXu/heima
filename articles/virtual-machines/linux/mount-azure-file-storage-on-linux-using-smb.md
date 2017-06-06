@@ -21,7 +21,7 @@ ms.author: v-livech
 
 # Mount Azure File Storage on Linux VMs using SMB
 
-This article shows you how to utilize the Azure File Storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. You can also perform these steps with the [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The requirements are:
+This article shows you how to utilize the Azure File Storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. You can also perform these steps with the [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). The requirements are:
 
 - [an Azure account](https://www.azure.cn/pricing/1rmb-trial/)
 - [SSH public and private key files](mac-create-ssh-keys.md)
@@ -141,6 +141,6 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 ## Next steps
 
-- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Add a disk to a Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Add a disk to a Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

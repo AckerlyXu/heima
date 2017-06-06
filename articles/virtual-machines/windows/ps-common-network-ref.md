@@ -71,5 +71,5 @@ Some variables might be useful for you if running more than one of the commands 
 | Delete a public IP address |[Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermpublicipaddress)-Name "myIPAddress" -ResourceGroupName $myResourceGroup<BR><BR>Removes the specified public IP address from the resource group. |
 
 ## Next Steps
-* Use the network interface that you just created when you [create a VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Use the network interface that you just created when you [create a VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * Learn about how you can [create a VM with multiple network interfaces](../../virtual-network/virtual-networks-multiple-nics.md).

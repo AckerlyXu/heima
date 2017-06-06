@@ -28,7 +28,7 @@ This article explains how to create a virtual machine (VM) through the Azure Res
 
 ## Template description
 
-Deploying a template enables you to quickly and consistently create Azure resources with different configuration values. Read the [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article if you're not familiar with Azure Resource Manager templates. The [Deploy a VM with multiple IP addresses](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig) template is utilized in this article.
+Deploying a template enables you to quickly and consistently create Azure resources with different configuration values. Read the [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fvirtual-network%2ftoc.json) article if you're not familiar with Azure Resource Manager templates. The [Deploy a VM with multiple IP addresses](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig) template is utilized in this article.
 
 <a name="resources"></a>Deploying the template creates the following resources:
 
@@ -44,8 +44,8 @@ Deploying a template enables you to quickly and consistently create Azure resour
 
 |Name|Description|
 |---|---|
-|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json).|
+|adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS name for PublicIPAddressName1. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |dnsLabelPrefix1|DNS name for PublicIPAddressName2. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |OSVersion|The Windows/Linux version for the VM. The operating system is a fully patched image of the given Windows/Linux version selected.|
@@ -63,9 +63,9 @@ You can use the Azure portal preview, PowerShell, or the Azure command-line inte
 
 To deploy the template using the Azure portal preview, complete the following steps:
 
-1. Modify the template, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json)article.
+1. Modify the template, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-network%2ftoc.json)article.
 2. Deploy the template with one of the following methods:
-    - **Select the template in the portal:** Complete the steps in the [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template) article. Choose the pre-existing template named *101-vm-multiple-ipconfig*.
+    - **Select the template in the portal:** Complete the steps in the [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template) article. Choose the pre-existing template named *101-vm-multiple-ipconfig*.
     - **Directly:** Click the following button to open the template directly in the portal:
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 

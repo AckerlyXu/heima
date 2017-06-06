@@ -22,12 +22,12 @@ ms.custom: H1Hack27Feb2017
 ---
 # Resize a Linux virtual machine using CLI 2.0
 
-After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our CLI for the classic and resource management deployment models
+- [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our CLI for the classic and resource management deployment models
 - Azure CLI 2.0 - our next generation CLI for the resource management deployment model (this article)
 
 To resize a VM, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).

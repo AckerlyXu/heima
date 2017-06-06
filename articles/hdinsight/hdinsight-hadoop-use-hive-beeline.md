@@ -28,7 +28,7 @@ Learn how to use [Beeline](https://cwiki.apache.org/confluence/display/Hive/Hive
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following table provides connection strings for use with Beeline:
 
 | Where you run Beeline from | Parameters |
-| --- | --- | --- |
+| --- | --- |
 | An SSH connection to a headnode or edge node | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
 | Outside the cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 

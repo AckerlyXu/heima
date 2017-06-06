@@ -20,7 +20,7 @@ ms.author: juluk
 
 ---
 # Deploy LAMP stack on Azure
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can also perform these steps with the [Azure CLI 1.0](create-lamp-stack-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can also perform these steps with the [Azure CLI 1.0](create-lamp-stack-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick command summary
 
@@ -89,7 +89,7 @@ You have now created a Linux VM with LAMP already installed on it. If you wish, 
 
 ## Deploy LAMP on existing VM walkthrough
 If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](/virtual-machines/virtual-machines-linux-quick-create-cli). 
-Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh azureuser@mypublicdns.chinanorth.chinacloudapp.cn`.
 
 Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.

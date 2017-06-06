@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 A specialized VHD maintains the user accounts, applications and other state data from your original VM. You can upload a specialized VHD to Azure and use it to create a VM that uses an unmanaged storage account.
 
 > [!IMPORTANT]
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
@@ -47,7 +47,7 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 
 If you intend to use the specialized VHD as-is to create a new VM, ensure the following steps are completed. 
 
-* [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
+* [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
 * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
 * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
 * Shut down to VM before proceeding.
@@ -211,7 +211,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Set the VM name and size
 
@@ -292,4 +292,4 @@ $vmList.Name
 ```
 
 ## Next steps
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.cn), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.cn), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
