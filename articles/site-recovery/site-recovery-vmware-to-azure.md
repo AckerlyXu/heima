@@ -20,7 +20,6 @@ ms.author: raynew
 # Replicate VMware virtual machines to Azure with  Site Recovery
 >[!div class="op_single_selector"]
 >- [Azure portal](./site-recovery-vmware-to-azure.md)
->- [Azure classic](./site-recovery-vmware-to-azure-classic.md)
 
 This article describes how to replicate on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](./site-recovery-overview.md) service in the Azure portal.
 
@@ -45,7 +44,7 @@ Here's what you need to do:
 **Support requirement** | **Details**
 --- | ---
 **Azure** | Learn about [Azure requirements](./site-recovery-prereq.md#azure-requirements)
-**On-premises configuration server** | You need a VMware VM running Windows Server 2012 R2 or later. You set up this server during Site Recovery deployment.<br/><br/> By default the process server and master target server are also installed on this VM. When you scale up, you might need a separate process server, and it has the same requirements as the configuration server.<br/><br/> Learn more about these components [here](./site-recovery-set-up-vmware-to-azure.md#configuration-server-minimum-requirements)
+**On-premises configuration server** | You need a VMware VM running Windows Server 2012 R2 or later. You set up this server during Site Recovery deployment.<br/><br/> By default the process server and master target server are also installed on this VM. When you scale up, you might need a separate process server, and it has the same requirements as the configuration server.
 **On-premises VMware servers** | One or more VMware vSphere servers, running 6.0, 5.5, 5.1 with latest updates. Servers should be located in the same network as the configuration server (or separate process server).<br/><br/> We recommend a vCenter server to manage hosts, running 6.0 or 5.5 with the latest updates. Only features that are available in 5.5 are supported when you deploy version 6.0.
 **On-premises VMs** | VMs you want to replicate should be running a [supported operating system](./site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and conform with [Azure prerequisites](./site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). VM should have VMware tools running.
 **URLs** | The configuration server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).<br/><br/> Allow this URL for the MySQL download: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
@@ -181,7 +180,7 @@ Before you set up the target environment, check you have an [Azure storage accou
 
 ## Plan capacity
 
-1. Now that you have your basic infrastructure set up you can think about capacity planning, and figure out whether you need additional resources. [Learn more](./site-recovery-plan-capacity-vmware.md).
+1. Now that you have your basic infrastructure set up you can think about capacity planning, and figure out whether you need additional resources. 
 2. When you’re done with capacity planning, select **Yes** in **Have you completed capacity planning?**
 
    ![Capacity planning](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
@@ -194,7 +193,7 @@ The Mobility service must be installed on all VMware VMs that you want to replic
 2. Install using deployment tools such as System Center Configuration Manager, or Azure automation DSC.
 3.  Install manually.
 
-[Learn more](./site-recovery-vmware-to-azure-install-mob-svc.md)
+
 
 ## Enable replication
 
@@ -310,7 +309,6 @@ After you get replication up and running, when an outage occurs you fail over to
 
 - [Learn more](./site-recovery-failover.md) about different types of failovers, and how to run them.
 - If you're migrating machines rather than replicating and failing back, [read more](./site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
-- [Read about failback](./site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.
 
 ## Third-party software notices and information
 Do Not Translate or Localize

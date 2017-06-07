@@ -67,7 +67,7 @@ Area | Component | Details
 1. After you verify that test failover is working as expected, you can run unplanned failovers to Azure as required. Planned failover isn't supported.
 2. You can fail over a single machine, or create [recovery plans](./site-recovery-create-recovery-plans.md), to fail over multiple VMs.
 3. When you run a failover, replica VMs are created in Azure. You commit a failover to start accessing the workload from the replica Azure VM.
-4. When your primary on-premises site is available again, you can fail back. You set up a failback infrastructure, start replicating the machine from the secondary site to the primary, and run an unplanned failover from the secondary site. After you commit this failover, data will be back on-premises, and you need to enable replication to Azure again. [Learn more](./site-recovery-failback-azure-to-vmware.md)
+4. When your primary on-premises site is available again, you can fail back. You set up a failback infrastructure, start replicating the machine from the secondary site to the primary, and run an unplanned failover from the secondary site. After you commit this failover, data will be back on-premises, and you need to enable replication to Azure again. 
 
 There are a few failback requirements:
 
@@ -197,5 +197,5 @@ Here's what you need for replicating Hyper-V VMs to a secondary site.
 
 ## Next steps
 
-- [Learn more](./site-recovery-hyper-v-azure-architecture.md) about the Hyper-V replication workflow.
+
 - [Check prerequisites](./site-recovery-prereq.md)

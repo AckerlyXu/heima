@@ -16,7 +16,6 @@
 ## Plan
 ### [Deployment prerequisites](site-recovery-prereq.md)
 ### [Plan network infrastructure](site-recovery-network-design.md)
-### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 

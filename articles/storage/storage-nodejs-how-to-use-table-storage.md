@@ -29,7 +29,7 @@ This topic shows how to perform common scenarios using the Azure Table service i
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
 - [Create a Node.js web app in Azure App Service](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
-- [Build and deploy a Node.js web app to Azure using WebMatrix](./app-service-web/web-sites-nodejs-use-webmatrix.md)
+- [Build and deploy a Node.js web app to Azure using WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 - [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -456,7 +456,7 @@ For more information, see the following resources.
 
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [ Website with WebMatrix]: ./app-service-web/web-sites-nodejs-use-webmatrix.md
+  [ Website with WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ./storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md

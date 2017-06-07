@@ -150,7 +150,6 @@ Adding new machines to existing replication groups is supported. To do so, selec
 ### Can I throttle bandwidth allotted for Hyper-V replication traffic?
 Yes. You can read more about throttling bandwidth in the deployment articles:
 
-- [Capacity planning for replicating VMware VMs and physical servers](./site-recovery-plan-capacity-vmware.md)
 - [Capacity planning for replicating Hyper-V VMs in VMM clouds](./site-recovery-vmm-to-azure.md#step-5-capacity-planning)
 - [Capacity planning for replicating Hyper-V VMs without VMM](./site-recovery-hyper-v-site-to-azure.md#step-5-capacity-planning) 
 
@@ -178,7 +177,6 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 
 - [Read more](./site-recovery-create-recovery-plans.md) about recovery plans.
 - [Read more](./site-recovery-failover.md) about failover.
-- [Read more](./site-recovery-failback-azure-to-vmware.md) about failing back VMware VMs and physical servers
 
 ## Service providers
 ### I'm a service provider. Does Site Recovery work for dedicated and shared infrastructure models?

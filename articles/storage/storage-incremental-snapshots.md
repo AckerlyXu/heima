@@ -82,7 +82,7 @@ Consider a DS-series Azure VM with a premium storage P30 disk attached. The P30 
 
 To learn about creating storage account and disks, refer to [About Azure storage accounts](./storage-create-storage-account.md).
 
-To learn about backing up Azure VMs, refer to [Plan Azure VM backups](./backup/backup-azure-vms-introduction.md).
+To learn about backing up Azure VMs, refer to [Plan Azure VM backups](../backup/backup-azure-vms-introduction.md).
 
 ## Steps to maintain backups of a disk using incremental snapshots
 The steps described below will take snapshots of *mypremiumdisk* and maintain the backups in *mybackupstdaccount*. The backup will be a standard page blob called *mybackupstdpageblob*. The backup page blob will always reflect the same state as the last snapshot of *mypremiumdisk*.

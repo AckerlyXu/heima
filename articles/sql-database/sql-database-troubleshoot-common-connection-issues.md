@@ -97,6 +97,5 @@ The following table lists every connection problem topic that applies directly t
 
 ## Additional resources
 * [SQL Database Development Overview](sql-database-develop-overview.md)
-* [General transient fault-handling guidance](../best-practices-retry-general.md)
 * [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 

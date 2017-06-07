@@ -47,7 +47,7 @@ Here's what you'll need in Azure.
 **Prerequisite** | **Details**
 --- | ---
 **Azure account**| You'll need a [Azure](https://azure.cn/) account. You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing.
-**Azure storage** | You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](./storage/storage-redundancy.md#geo-redundant-storage). The account must in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/storage-introduction.md) Azure storage.
+**Azure storage** | You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/storage-introduction.md) Azure storage.
 **Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Site Recovery vault.
 
 ## On-premises prerequisites
@@ -73,7 +73,7 @@ If you want to deploy network mapping you'll need the following:
 
 Prepare for network mapping as follows:
 
-1. [Read about](site-recovery-network-mapping.md) network mapping requirements.
+1. Read about network mapping requirements.
 2. Prepare VM networks in VMM:
 
     - [Set up logical networks](https://technet.microsoft.com/zh-cn/library/jj721568.aspx).
