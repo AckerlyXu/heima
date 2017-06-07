@@ -67,7 +67,6 @@
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
 ### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
-### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)

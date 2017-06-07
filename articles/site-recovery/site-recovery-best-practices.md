@@ -49,7 +49,7 @@ You have a couple of deployment choices for protecting VMware virtual machines o
 **Azure** | **Subscription**: You'll need a subscription for the Site Recovery service. <br/><br/> **Storage account**: You'll need a storage account with geo-replication enabled. The account should be in the same region as the Site Recovery vault and be associated with the same subscription. <br/><br/> **Configuration server**: You'll need to set up the configuration server as an Azure VM <br/><br/> **Master target server**: You'll need to set up the master target server as an Azure VM <br/><br/> Configure with Windows to protect Windows machines, or Linux to protect Linux.<br/><br/> **Azure virtual network**:  You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault | NA  
 **Virtual machines/physical servers** | At least one VMware virtual machine or physical Windows/Linux server.<br/><br/>During deployment the Mobility service will be installed on each machine| At least one VMware VM or physical Windows/Linux server.<br/><br/> During deployment the Unified agent is installed on each machine.
 
-##<a name="virtual-machines"></a> Azure virtual machine requirements
+##<a name="virtual-machines"></a><a name="azure-virtual-machine-requirements"></a> Azure virtual machine requirements
 
 You can deploy Site Recovery to replicate virtual machines and physical servers running any operating system supported by Azure. This includes most versions of Windows and Linux. You will need to make sure that on-premises virtual machines that you want to protect conform with Azure requirements.
 

@@ -33,10 +33,6 @@ There are two ways to create Premium disks for Azure VMs:
 **Unmanaged disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
-**[Azure Managed Disks](./storage-managed-disks-overview.md)**: 
-This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don’t have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
-
-Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
 
 To get started with Azure Premium Storage, visit [Get started for 1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). 
 
