@@ -46,23 +46,23 @@
 <!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
-## [.NET](/dotnet/api/microsoft.azure.management.network.models)
-## [Java](/java/api/com.microsoft.azure.management.network)
+## [PowerShell](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/network/lb)
+## [.NET](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.azure.management.network.models)
+## [Java](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Related
-## [Application Gateway](/azure/application-gateway/)
-## [Express Route](/azure/expressroute/)
-## [Virtual Network](/azure/virtual-network/)
-## [VPN Gateway](/azure/vpn-gateway/)
-## [Virtual Machine](/azure/virtual-machines/)
-## [Traffic Manager](/azure/traffic-manager/)
-## [DNS](/azure/dns/)
+## [Application Gateway](/application-gateway/)
+## [Express Route](/expressroute/)
+## [Virtual Network](/virtual-network/)
+## [VPN Gateway](/vpn-gateway/)
+## [Virtual Machine](/virtual-machines/)
+## [Traffic Manager](/traffic-manager/)
+<!-- Not Available [dns](/dns/) -->
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
