@@ -152,5 +152,3 @@ Learn how to [monitor and manage an elastic pool](./sql-database-elastic-pool-ma
 - [What is an Azure elastic pool?](./sql-database-elastic-pool.md)
 - [Scaling out with Azure SQL Database](./sql-database-elastic-scale-introduction.md)
 - [Multi-tenant applications with elastic database tools and row-level security](./sql-database-elastic-tools-multi-tenant-row-level-security.md)
-- [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](/documentation/articles/guidance-multitenant-identity-authenticate/)
-- [Tailspin Surveys application](/documentation/articles/guidance-multitenant-identity-tailspin/)

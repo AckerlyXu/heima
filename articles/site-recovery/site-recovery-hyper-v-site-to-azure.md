@@ -38,7 +38,7 @@ If you want to migrate machines to Azure (without failback), learn more in [this
 
 Follow the article to complete these deployment steps:
 
-1. [Learn more](site-recovery-components.md#hyper-v-to-azure) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
+1. [Learn more](site-recovery-components.md#hyper-v-to-azure) about the architecture for this deployment. 
 2. Verify prerequisites and limitations.
 3. Set up Azure network and storage accounts.
 4. Prepare Hyper-V hosts.
@@ -50,7 +50,7 @@ Follow the article to complete these deployment steps:
 
 
 
-## Prerequisites
+##<a name="on-premises-prerequisites"></a> Prerequisites
 
 
 **Requirement** | **Details** |
@@ -103,7 +103,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
 
-4. [Create a new resource group](../azure-resource-manager/resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions, see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
+4. [Create a new resource group](../azure-resource-manager/resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions, see Geographic Availability in [Azure Site Recovery Pricing Details](https://www.azure.cn/pricing/details/site-recovery/).
 
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard**, and then click **Create**.
 

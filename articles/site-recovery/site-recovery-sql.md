@@ -315,7 +315,7 @@ If the SQL Server is using availability groups for high availability (or an FCI)
 6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
 7. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
 
-For applications that use distributed transactions, we recommend you deploy Site Recovery with [SAN replication](./site-recovery-vmm-san.md), or [VMware/physical server site-to-site replication](./site-recovery-vmware-to-vmware.md).
+For applications that use distributed transactions, we recommend you deploy Site Recovery with [SAN replication](./site-recovery-vmm-san.md).
 
 ### Recovery plan considerations
 1. Add this sample script to the VMM library, on the primary and secondary sites.
@@ -340,7 +340,7 @@ For a cluster running SQL Server Standard edition, or SQL Server 2008 R2, we rec
 
 ### On-premises to on-premises
 
-* If the app uses distributed transactions we recommend you deploy [Site Recovery with SAN replication](./site-recovery-vmm-san.md) for a Hyper-V environment, or [VMware/physical server to VMware](./site-recovery-vmware-to-vmware.md) for a VMware environment.
+* If the app uses distributed transactions we recommend you deploy [Site Recovery with SAN replication](./site-recovery-vmm-san.md) for a Hyper-V environment.
 * For non-DTC applications, use the above approach to recover the cluster as a standalone server, by leveraging a local high safety DB mirror.
 
 ### On-premises to Azure
@@ -349,7 +349,7 @@ Site Recovery doesn't provide guest cluster support when replicating to Azure. S
 
 1. Configure an additional standalone SQL Server instance on the on-premises site.
 2. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high safety mode.
-3. Configure Site Recovery on the on-premises site, for ([Hyper-V](./site-recovery-hyper-v-site-to-azure.md) or [VMware VMs/physical servers](./site-recovery-vmware-to-azure-classic.md).
+3. Configure Site Recovery on the on-premises site, for ([Hyper-V](./site-recovery-hyper-v-site-to-azure.md).
 4. Use Site Recovery replication to replicate the new SQL Server instance to Azure. Since it's a high safety mirror copy, it will be synchronized with the primary cluster, but it will be replicated to Azure using Site Recovery replication.
 
 ![Standard cluster](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)

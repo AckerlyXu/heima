@@ -88,7 +88,7 @@ Subgroups:
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
 
-## Connect the CLI to your Azure subscription
+##<a name="connect-to-your-azure-subscription"></a> Connect the CLI to your Azure subscription
 
 To work with the resources in your Azure subscription, you must first log in to your Azure account with `az login`. There are several ways you can log in:
 

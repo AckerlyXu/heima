@@ -26,7 +26,7 @@ ms.author: toddabel
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location helps you analyze and troubleshoot issues in your cluster, or issues in the applications and services running in that cluster.
 
-One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage, Azure Application Insights, or Azure Event Hubs. The logs are not that useful directly in storage or in Event Hubs. But you can use an external process to read the events from storage and place them in a product such as [Log Analytics](/documentation/articles/log-analytics-service-fabric/) or another log-parsing solution. [Azure Application Insights](https://www.azure.cn/home/features/application-insights/) comes with a comprehensive log search and analytics service built-in.
+One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage, Azure Application Insights, or Azure Event Hubs. The logs are not that useful directly in storage or in Event Hubs.
 
 ## Prerequisites
 You use these tools to perform some of the operations in this document:
@@ -231,4 +231,3 @@ To understand in more detail what events you should look for while troubleshooti
 
 ## Related articles
 * [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
-* [Service Fabric solution in Log Analytics](/documentation/articles/log-analytics-service-fabric/)

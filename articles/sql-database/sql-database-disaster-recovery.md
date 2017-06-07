@@ -29,7 +29,7 @@ To learn about business continuity scenarios and the features supporting these s
 ### Prepare for the event of an outage
 For success with recovery to another data region using either Active Geo-Replication or geo-redundant backups, you need to prepare a server in another data center outage to become the new primary server should the need arise as well as have well defined steps documented and tested to ensure a smooth recovery. These preparation steps include:
 
-* Identify the logical server in another region to become the new primary server. With Active Geo-Replication, this will be at least one and perhaps each of the secondary servers. For Geo-Restore, this will generally be a server in the [paired region](../best-practices-availability-paired-regions.md) for the region in which your database is located.
+* Identify the logical server in another region to become the new primary server. With Active Geo-Replication, this will be at least one and perhaps each of the secondary servers. For Geo-Restore, this will generally be a server in the paired region for the region in which your database is located.
 * Identify, and optionally define, the server-level firewall rules needed on for users to access the new primary database.
 * Determine how you are going to redirect users to the new primary server, such as by changing connection strings or by changing DNS entries.
 * Identify, and optionally create, the logins that must be present in the master database on the new primary server, and ensure these logins have appropriate permissions in the master database, if any. For more information, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)

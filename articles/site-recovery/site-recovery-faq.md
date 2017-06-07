@@ -48,7 +48,7 @@ For the Hyper-V host server what you need depends on the deployment scenario. Ch
 - If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/zh-cn/library/cc794868%28v=ws.10%29.aspx).
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
-No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](./site-recovery-vmware-to-azure.md), or a [secondary datacenter](./site-recovery-vmware-to-vmware.md).
+No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](./site-recovery-vmware-to-azure.md).
 
 ### What workloads can I protect with Site Recovery?
 You can use Site Recovery to protect most workloads running on a supported VM or physical server. Site Recovery provides support for application-aware replication, so that apps can be recovered to an intelligent state. It integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM and Red Hat. [Learn more](./site-recovery-workload.md) about workload protection.
@@ -135,9 +135,6 @@ Extended or chained replication isn't supported.
 
 This isn't supported.
 
-### Can I exclude specific disks from replication?
-
-This is supported when you're [replicating VMware VMs and Hyper-V VMs](./site-recovery-exclude-disk.md) to Azure, using the Azure portal.
 
 ### Can I replicate virtual machines with dynamic disks?
 Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines to Azure. The operating system disk must be a basic disk.
@@ -150,7 +147,6 @@ Adding new machines to existing replication groups is supported. To do so, selec
 ### Can I throttle bandwidth allotted for Hyper-V replication traffic?
 Yes. You can read more about throttling bandwidth in the deployment articles:
 
-- [Capacity planning for replicating VMware VMs and physical servers](./site-recovery-plan-capacity-vmware.md)
 - [Capacity planning for replicating Hyper-V VMs in VMM clouds](./site-recovery-vmm-to-azure.md#step-5-capacity-planning)
 - [Capacity planning for replicating Hyper-V VMs without VMM](./site-recovery-hyper-v-site-to-azure.md#step-5-capacity-planning) 
 
@@ -178,7 +174,6 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 
 - [Read more](./site-recovery-create-recovery-plans.md) about recovery plans.
 - [Read more](./site-recovery-failover.md) about failover.
-- [Read more](./site-recovery-failback-azure-to-vmware.md) about failing back VMware VMs and physical servers
 
 ## Service providers
 ### I'm a service provider. Does Site Recovery work for dedicated and shared infrastructure models?

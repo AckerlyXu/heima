@@ -63,7 +63,7 @@ For more advanced topics related to Service Fabric, see the following articles:
 
 - [Configuring stateful Reliable Services](./service-fabric-reliable-services-configuration.md)
 
-- [Service Fabric health introduction](/documentation/articles/service-fabric-health-introduction.md/)
+- [Service Fabric health introduction](service-fabric-health-introduction.md)
 
 - [Using system health reports for troubleshooting](./service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 

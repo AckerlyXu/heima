@@ -46,7 +46,7 @@ Make sure you have these prerequisites in place:
 
 - You'll need a [Microsoft Azure](https://www.azure.cn) account. You can start with a [trial](/price/1rmb-trial).
 - You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md).
-- You'll need to make sure that virtual machines you want to protect comply with [Azure virtual machine prerequisites](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements).
+- You'll need to make sure that virtual machines you want to protect comply with [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 ### VMM prerequisites
 - You'll need  VMM server running on System Center 2012 R2.
@@ -303,7 +303,7 @@ New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscript
 
 After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
 
-Virtual machines must meet [Azure virtual machine prerequisites](/documentation/articles/site-recovery-best-practices.md/#virtual-machines).
+Virtual machines must meet [Azure virtual machine prerequisites](site-recovery-best-practices.md#virtual-machines).
 
 To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
