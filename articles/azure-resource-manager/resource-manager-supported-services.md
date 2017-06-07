@@ -126,9 +126,10 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 ## Resource Manager
 | Feature | Resource Manager Enabled | REST API | Template format |
 | --- | --- | --- | --- |
-| Authorization |Yes |[Authorization REST](https://docs.microsoft.com/rest/api/authorization) |[Resource lock](/documentation/articles/resource-manager-template-lock/)<br />[Role assignments](/documentation/articles/resource-manager-template-role/)<br/>[Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
-| Resources |Yes |[Resources REST](https://docs.microsoft.com/rest/api/resources) | [Resource links](/documentation/articles/resource-manager-template-links/) <br/> [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
-<!-- resource-manager-template-lock, resource-manager-template-role,resource-manager-template-links  Redirect with valid URI -->
+| Authorization |Yes |[Authorization REST](https://docs.microsoft.com/rest/api/authorization) |[Resource lock](resource-manager-template-lock.md)<br /> [Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
+| Resources |Yes |[Resources REST](https://docs.microsoft.com/rest/api/resources) | [Resource links](resource-manager-template-links.md) <br/> [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
+<!-- resource-manager-template-lock,resource-manager-template-links  Redirect with valid URI -->
+<!-- resource-manager-template-role Redirect Unvalid URI -->
 
 ## <a name="resource-providers-and-types"></a> Resource providers and types
 When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
