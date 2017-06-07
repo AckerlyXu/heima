@@ -39,7 +39,7 @@ You can use either private IP addresses or public IP addresses to configure the 
  - If a /29 subnet is used, it will be split into two /30 subnets. 
      - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
      - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-     - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
+     - You must setup both BGP sessions for our [availability SLA](https://www.azure.cn/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 

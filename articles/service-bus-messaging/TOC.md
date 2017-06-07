@@ -55,10 +55,10 @@
 ### [Using PowerShell to provision entities](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
-## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
-## [REST](/rest/api/servicebus)
+## [PowerShell](https://doc.microsoft.com/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](https://doc.microsoft.com/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](https://doc.microsoft.com/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](https://doc.microsoft.com/rest/api/servicebus)
 
 # Resources
 ## [SQLFilter syntax](service-bus-messaging-sql-filter.md)
@@ -72,7 +72,7 @@
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Pricing](https://www.azure.cn/pricing/details/messaging/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)

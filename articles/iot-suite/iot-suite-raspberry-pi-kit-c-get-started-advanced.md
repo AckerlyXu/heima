@@ -140,7 +140,7 @@ You can observe the firmware update process as it runs on the device and by view
 
 ## Next steps
 
-Visit the [Azure IoT Dev Center](/develop/iot/) for more samples and documentation on Azure IoT.
+Visit the [Azure IoT Dev Center](https://www.azure.cn/develop/iot/) for more samples and documentation on Azure IoT.
 
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-advanced/app-output.png

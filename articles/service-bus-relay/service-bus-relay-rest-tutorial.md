@@ -203,7 +203,7 @@ As with the previous steps, there is very little difference between implementing
 ### To define the configuration for running the web service on Service Bus
 1. In **Solution Explorer**, double-click **App.config** to open it in the Visual Studio editor.
    
-    The **App.config** file includes the service name, endpoint (that is, the location Azure Relay exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
+    The **App.config** file includes the service name, endpoint (that is, the location Azure Relay exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
 2. The `<system.serviceModel>` XML element is a WCF element that defines one or more services. Here, it is used to define the service name and endpoint. At the bottom of the `<system.serviceModel>` element (but still within `<system.serviceModel>`), add a `<bindings>` element that has the following content. This defines the bindings used in the application. You can define multiple bindings, but for this tutorial you are defining only one.
    
     ```xml
@@ -217,7 +217,7 @@ As with the previous steps, there is very little difference between implementing
     </bindings>
     ```
    
-    The previous code defines a WCF Relay [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
+    The previous code defines a WCF Relay [WebHttpRelayBinding](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
 3. After the `<bindings>` element, add a `<services>` element. Similar to the bindings, you can define multiple services in a single configuration file. However, for this tutorial, you define only one.
    
     ```xml

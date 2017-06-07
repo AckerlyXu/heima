@@ -86,7 +86,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../azure-resource-manager/resource-group-overview.md
-[lnk-event-hubs]: /documentation/services/event-hubs/
+[lnk-event-hubs]: /event-hubs/
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 

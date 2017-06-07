@@ -190,7 +190,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Get started with IoT Hub]: ./iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
-[Azure IoT Developer Center]: /develop/iot
+[Azure IoT Developer Center]: https://www.azure.cn/develop/iot
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

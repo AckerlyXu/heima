@@ -204,7 +204,7 @@ For more information, see the [Node.js Developer Center].
 [Connect PowerShell]:../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: ./index.md
-[Node.js Developer Center]: /develop/nodejs/
+[Node.js Developer Center]: https://www.azure.cn/develop/nodejs/
 
 <!-- IMG List -->
 

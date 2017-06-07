@@ -146,7 +146,7 @@ Once the deployment operation completes, your browser will open and display the 
 
 ## Next steps
 
-For more information, see the [Node.js Developer Center](/develop/nodejs/).
+For more information, see the [Node.js Developer Center](https://www.azure.cn/develop/nodejs/).
 
   [Node.js Web Application]: ./cloud-services-nodejs-develop-deploy-app.md
   [Express]: http://expressjs.com/

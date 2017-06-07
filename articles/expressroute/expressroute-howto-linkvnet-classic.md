@@ -35,7 +35,7 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 
 ## Configuration prerequisites
 
-1. You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
+1. You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://www.azure.cn/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 2. You need to review the [prerequisites](./expressroute-prerequisites.md), [routing requirements](./expressroute-routing.md), and [workflows](./expressroute-workflows.md) before you begin configuration.
 3. You must have an active ExpressRoute circuit. 
     - Follow the instructions to [create an ExpressRoute circuit](./expressroute-howto-circuit-classic.md) and have your connectivity provider enable the circuit.

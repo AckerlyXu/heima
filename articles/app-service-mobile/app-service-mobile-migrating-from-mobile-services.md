@@ -35,7 +35,6 @@ Microsoft is recommending that you migrate your Azure Mobile Service to take adv
 
   *  New host features, including [WebJobs] and [custom domain names].
   *  Connectivity to your on-premise resources using VNet in addition to [Hybrid Connections].
-  *  Monitoring and troubleshooting with New Relic or [Application Insights].
   *  Built-in DevOps tooling, including [staging slots], roll-back, and in-production testing.
   *  [Auto-scale], load balancing, and [performance monitoring].
 
@@ -43,7 +42,7 @@ For more information on the benefits of Azure App Service, see the [Mobile Servi
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Before beginning any major work on your site, you should [Back up your Mobile Service] scripts and SQL database.
+Before beginning any major work on your site, you should back up your Mobile Service scripts and SQL database.
 
 ## <a name="migrating-site"></a>Migrating your sites
 
@@ -278,7 +277,6 @@ Your Notification Hub is managed through the [Azure portal].  Note the Notificat
 > legacy Service Bus features.  [Convert your Mixed namespaces] before continuing.  Once the conversion is complete, your notification hub
 > appears in the [Azure portal].
 
-For more information, review the [Notification Hubs] documentation.
 
 > [!TIP]
 > Notification Hubs management features in the [Azure portal] are still in preview.  The [Azure Classic Portal] remains available for
@@ -405,7 +403,6 @@ Now that your application is migrated to App Service, there are even more featur
   * Deployment [staging slots] allow you to stage changes to your site and perform A/B testing.
   * [WebJobs] provide a replacement for On-demand scheduled jobs.
   * You can [continuously deploy] your site by linking your site to GitHub, TFS, or Mercurial.
-  * You can use [Application Insights] to monitor your site.
   * Serve a website and a Mobile API from the same code.
 
 ### <a name="upgrading-your-site"></a>Upgrading your Mobile Services site to Azure Mobile Apps SDK
@@ -424,7 +421,6 @@ Now that your application is migrated to App Service, there are even more featur
 
 <!-- Links -->
 [App Service pricing]: https://www.azure.cn/pricing/details/app-service/
-[Application Insights]: /documentation/articles/app-insights-overview/
 [Auto-scale]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Azure App Service deployment documentation]: ../app-service-web/web-sites-deploy.md
@@ -440,10 +436,8 @@ Now that your application is migrated to App Service, there are even more featur
 [Logging]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services vs. App Service]: ./app-service-mobile-value-prop-migration-from-mobile-services.md
-[Notification Hubs]: /documentation/articles/notification-hubs-overview/
 [performance monitoring]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[Back up your Mobile Service]: /documentation/articles/mobile-services-disaster-recovery/
 [staging slots]: ../app-service-web/web-sites-staged-publishing.md
 
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
