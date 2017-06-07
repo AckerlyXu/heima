@@ -125,7 +125,7 @@ Use the [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/modul
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/virtual-machines/linux/ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
 
 ```bash 
 ssh <Public IP Address>

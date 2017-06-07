@@ -134,7 +134,6 @@
 # Related
 ## [Virtual Machines](/virtual-machines/)
 ## [Application Gateway](/application-gateway/)
-## [Azure DNS](/dns/)
 ## [Traffic Manager](/traffic-manager/)
 ## [Load Balancer](/load-balancer/)
 ## [VPN Gateway](/vpn-gateway/)

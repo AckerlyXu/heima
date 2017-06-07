@@ -170,4 +170,4 @@ The Diagnostics configuration file defines values that are used to initialize di
 [Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Trial]: https://www.azure.cn/pricing/1rmb-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: /install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /powershell-install-configure/

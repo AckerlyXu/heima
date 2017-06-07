@@ -63,7 +63,6 @@
 # Related
 ## [Virtual Network](/virtual-network/)
 ## [Application Gateway](/application-gateway/)
-## [Azure DNS](/dns/)
 ## [Traffic Manager](/traffic-manager/)
 ## [Load Balancer](/load-balancer/)
 ## [ExpressRoute](/expressroute/)

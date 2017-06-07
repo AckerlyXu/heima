@@ -103,7 +103,7 @@ Follow the steps in [Create a PHP-MySQL web app in Azure and deploy using Git](w
 
 Configure your PHP web app into a WordPress site locally, and push it to Azure.
 
-If you are migrating an existing WordPress site, see [Migrate an existing WordPress site to Azure](#Migrate-an-existing-WordPress-site-to-Azure) after you create a new web app.
+If you are migrating an existing WordPress site, see [Migrate an existing WordPress site to Azure](#migrate-an-existing-wordpress-site-to-azure) after you create a new web app.
 
 ### Migrate an existing WordPress site to Azure
 As mentioned in the [Architecture and planning](#planning) section, there are two ways to migrate a WordPress site:
@@ -115,7 +115,7 @@ Use one of the following sections to migrate your site.
 
 #### The export and import method
 1. Use [WordPress export][export] to export your existing site.
-2. Create a web app by using the steps in the [Create a WordPress site](#Create-a-new-WordPress-site) section.
+2. Create a web app by using the steps in the [Create a WordPress site](#create-a-wordpress-site) section.
 3. Sign in to your WordPress site on the [Azure portal preview][mgmtportal], and then click **Plugins** > **Add New**. Search for and install the **WordPress Importer** plugin.
 4. After you install the WordPress Importer plugin, click **Tools** > **Import**, and then click **WordPress** to use the WordPress Importer plugin.
 5. On the **Import WordPress** page, click **Choose File**. Find the WXR file that was exported from your existing WordPress site, and then click **Upload file and import**.

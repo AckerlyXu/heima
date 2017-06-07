@@ -36,7 +36,6 @@
 # Related
 ## [Application Gateway](/application-gateway/)
 ## [Load Balancer](/load-balancer/)
-## [Azure DNS](/dns/)
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/traffic-manager/)
