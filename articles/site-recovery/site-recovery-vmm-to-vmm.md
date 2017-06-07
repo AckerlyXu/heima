@@ -25,7 +25,7 @@ ms.author: raynew
 
 This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](./site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](./site-recovery-components.md#hyper-v-to-a-secondary-site).
 
-## Prerequisites
+##<a name="prerequisites"></a> Prerequisites
 
 **Prerequisite** | **Details**
 --- | ---
@@ -35,7 +35,7 @@ This article describes how to replicate on-premises Hyper-V virtual machines man
 **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, install [update 2961977](https://support.microsoft.com/zh-cn/kb/2961977)<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012, cluster broker isn't created automatically if you have a static IP address-based cluster. Configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Hyper-V servers need internet access.
 **URLs** | VMM servers and Hyper-V hosts should be able to reach these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-## Deployment steps
+##<a name="single-vmm-server-deployment"></a> Deployment steps
 
 Here's what you do:
 
@@ -166,7 +166,7 @@ Select the target VMM server and cloud.
 
      ![Replication policy](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
-### Configure network mapping
+###<a name="network-mapping-overview"></a> Configure network mapping
 
 - Learn about [network mapping](#prepare-for-network-mapping) before you start.
 - Verify that virtual machines on VMM servers are connected to a VM network.
@@ -198,7 +198,7 @@ Now that you have your basic infrastructure set up, think about capacity plannin
 - Download and run the [Azure Site Recovery Capacity planner](./site-recovery-capacity-planner.md), to gather information about your replication environment, including VMs, disks per VM, and storage per disk.
 - After you've collected real-time replication information, you can modify the NetQos policy to control replication bandwidth for VMs. Read more about [Throttling Hyper-V Replica Traffic](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/), on Thomas Maurer's blog. Get more information about the [New-NetQosPolicy cmdlet](https://technet.microsoft.com/zh-cn/library/hh967468.aspx.).
 
-## Enable replication
+##<a name="prepare-for-initial-offline-replication"></a> Enable replication
 
 1. Click **Step 2: Replicate application** > **Source**. After you've enabled replication for the first time, you click **+Replicate** in the vault to enable replication for additional machines.
 
@@ -349,7 +349,7 @@ Instead of deploying a standalone VMM server as a VM that replicates to a second
 3. Follow the instructions in this article to create a vault, register the server, and set up protection. You need to register each VMM server in the cluster in the Recovery Services vault. To do this, you install the Provider on an active node, and register the VMM server. Then you install the Provider on other nodes.
 4. When an outage occurs, the VMM server and its corresponding SQL Server database are failed over, and accessed from the secondary site.
 
-## Prepare for storage mapping
+##<a name="prepare-for-storage-mapping"></a> Prepare for storage mapping
 
 You set up storage mapping by mapping storage classifications on a source and target VMM servers to do the following:
 

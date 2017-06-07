@@ -380,4 +380,4 @@ to learn about more complex storage tasks.
 
   [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Build and deploy a Node.js web app to Azure using Web Matrix]: /documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Build and deploy a Node.js web app to Azure using Web Matrix]: ./app-service-web/web-sites-nodejs-use-webmatrix.md

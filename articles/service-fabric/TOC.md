@@ -245,14 +245,13 @@
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Reference
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java API](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
-## [REST](/rest/api/servicefabric)
+## [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/servicefabric)
+## [Java API](https://docs.microsoft.com/java/api/microsoft.servicefabric.services)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services)
+## [REST](https://docs.microsoft.com/rest/api/servicefabric)
 
 # Resources
 ## [Common questions about Service Fabric](service-fabric-common-questions.md)
 ## [Service Fabric support options](service-fabric-support.md)
-
 ## [Pricing](https://www.azure.cn/pricing/details/service-fabric/)
 

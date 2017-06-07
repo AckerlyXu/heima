@@ -33,12 +33,12 @@ To set up database recovery between two on-premises locations, you need to downl
 ![Virtual Machine Manager site deployment for replication between on-premises sites](./media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### Virtual Machine Manager site deployment for replication between on-premises locations and Azure
-When you set up database recovery between on-premises locations and Azure, you need to download the Azure Site Recovery provider and install it on the Virtual Machine Manager server. You also need to install the Azure Recovery Services Agent, which needs to be installed on each Hyper-V host. Refer to [Understanding site to Azure protection](/documentation/articles/site-recovery-understanding-site-to-azure-protection/) for more information.
+When you set up database recovery between on-premises locations and Azure, you need to download the Azure Site Recovery provider and install it on the Virtual Machine Manager server. You also need to install the Azure Recovery Services Agent, which needs to be installed on each Hyper-V host. Refer to [Understanding site to Azure protection](site-recovery-understanding-site-to-azure-protection.md) for more information.
 
 ![Virtual Machine Manager site deployment for replication between on-premises locations and Azure](./media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### Hyper-V site deployment for replication between on-premises locations and Azure
-This process is similar to Virtual Machine Manager deployment. The only difference is that the Azure Site Recovery provider and Azure Recovery Services Agent get installed on the Hyper-V host itself. Refer to [Understanding site to Azure protection](/documentation/articles/site-recovery-understanding-site-to-azure-protection/) for more information.
+This process is similar to Virtual Machine Manager deployment. The only difference is that the Azure Site Recovery provider and Azure Recovery Services Agent get installed on the Hyper-V host itself. Refer to [Understanding site to Azure protection](site-recovery-understanding-site-to-azure-protection.md) for more information.
 
 ## Monitor configuration, protection, and recovery operations
 Every operation in Azure Site Recovery is audited and tracked under the **JOBS** tab. For any configuration, protection, or recovery error, go to the **JOBS** tab and look for failures.

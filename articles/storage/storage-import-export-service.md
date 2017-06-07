@@ -34,7 +34,7 @@ You can use this service in scenarios such as:
 * Backup: Take backups of your on-premises data to store in Azure blob storage.
 * Data recovery: Recover large amount of data stored in blob storage and have it delivered to your on-premises location.
 
-## Prerequisites
+##<a name="pre-requisites"></a> Prerequisites
 In this section we list the prerequisites required to use this service. Please review them carefully before shipping your drives.
 
 ### Storage account
@@ -153,7 +153,7 @@ At a high level, an export job involves the following steps:
   
     ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 
-### Viewing your job and drive status
+###<a name="viewing-your-job-status"></a> Viewing your job and drive status
 You can track the status of your import or export jobs from the Azure portal. Click the **Import/Export** tab. A list of your jobs will appear on the page.
 
 ![View Job State](./media/storage-import-export-service/jobstate.png)
@@ -208,7 +208,7 @@ When you ship drives to Azure, you pay the shipping cost to the shipping carrier
 
 **Transaction costs**
 
-There are no transaction costs when importing data into blob storage. The standard egress charges are applicable when data is exported from blob storage. For more details on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
+There are no transaction costs when importing data into blob storage. The standard egress charges are applicable when data is exported from blob storage. For more details on transaction costs, see [Data transfer pricing.](https://www.azure.cn/pricing/details/data-transfer/)
 
 ## Quick Start
 In this section, we provide step-by-step instructions for creating an import and an export job. Please make sure you meet all of the [pre-requisites](#pre-requisites) before moving forward.
