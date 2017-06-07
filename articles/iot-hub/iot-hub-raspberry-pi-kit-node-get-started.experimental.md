@@ -46,7 +46,7 @@ Connect Raspberry Pi to an IoT hub that you create. Then you run a sample applic
 ![What you need](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * The Raspberry Pi 2 or Raspberry Pi 3 board.
-* An active Azure subscription. If you don't have an Azure account, [create a Azure trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an Azure account, [create a Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 * A monitor, a USB keyboard, and mouse that connect to Pi.
 * A Mac or a PC that is running Windows or Linux.
 * An Internet connection.

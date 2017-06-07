@@ -31,7 +31,7 @@ The tutorials in this section help you learn how to connect a Raspberry Pi 3 dev
 
 ## Next steps
 
-Visit the [Azure IoT Dev Center](/develop/iot/) for more samples and documentation on Azure IoT.
+Visit the [Azure IoT Dev Center](https://www.azure.cn/develop/iot/) for more samples and documentation on Azure IoT.
 
 [lnk-node-simulator]: ./iot-suite-raspberry-pi-kit-node-get-started-simulator.md
 [lnk-node-basic]: ./iot-suite-raspberry-pi-kit-node-get-started-basic.md

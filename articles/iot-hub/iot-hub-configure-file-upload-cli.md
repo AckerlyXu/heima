@@ -160,7 +160,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-securing]: ./iot-hub-security-ground-up.md
 
 
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
 [lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
 [lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
@@ -168,7 +168,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: /pricing/details/iot-hub/
+[lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-manage-storage]: ../storage/storage-azure-cli.md#manage-storage-accounts
 [lnk-portal-storage]: ../storage/storage-create-storage-account.md
 [lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create

@@ -194,13 +194,13 @@ Take care using the **ImportDevicesAsync** method because in addition to provisi
 
 The **ImportDevicesAsync** method takes two parameters:
 
-* A *string* that contains a URI of an [Azure Storage](../storage/index.md) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+* A *string* that contains a URI of an [Azure Storage](/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-*  A *string* that contains a URI of an [Azure storage](/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
+*  A *string* that contains a URI of an [Azure storage](/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete

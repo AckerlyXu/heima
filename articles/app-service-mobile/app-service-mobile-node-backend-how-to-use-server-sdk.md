@@ -1093,7 +1093,6 @@ table or API, then click **Edit script**. The script file is opened in the App S
 [Xamarin.Android Client QuickStart]: ./app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms Client QuickStart]: ./app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client QuickStart]: ./app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: /documentation/articles/app-service-html-get-started/
 [offline data sync]: ./app-service-mobile-offline-data-sync.md
 [How to configure Azure Active Directory Authentication]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
 [How to configure Microsoft Authentication]: ./app-service-mobile-how-to-configure-microsoft-authentication.md
@@ -1103,7 +1102,6 @@ table or API, then click **Edit script**. The script file is opened in the App S
 [Troubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: /documentation/articles/app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/

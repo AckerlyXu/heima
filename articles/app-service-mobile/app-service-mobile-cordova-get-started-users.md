@@ -121,6 +121,6 @@ Learn how to use the SDKs.
 [Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 
 [About Authentication]: ./app-service-mobile-auth.md
-[Apache Cordova SDK]: /documentation/articles/app-service-mobile-codova-how-to-use-client-library/
+[Apache Cordova SDK]: ./app-service-mobile-codova-how-to-use-client-library.md
 [ASP.NET Server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md

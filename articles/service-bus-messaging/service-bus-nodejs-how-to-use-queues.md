@@ -179,7 +179,7 @@ To learn more about queues, see the following resources.
 
 -   [Queues, topics, and subscriptions][]
 -   [Azure SDK for Node][] repository on GitHub
--   [Node.js Developer Center](/develop/nodejs/)
+-   [Node.js Developer Center](https://www.azure.cn/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Azure classic portal]: http://manage.windowsazure.cn

@@ -36,4 +36,4 @@ You can learn more about the [permissions on the azureiotsuite.com site][lnk-per
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [img-method-history]: ./media/iot-suite-visualize-connecting/history.png
 [lnk-customize]:/documentation/articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions/
-[lnk-permissions]: /documentation/articles/iot-suite/iot-suite-permissions/
+[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md

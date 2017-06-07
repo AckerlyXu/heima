@@ -211,7 +211,7 @@ The gateway is now sending telemetry from the SensorTag device to the remote mon
 
 ## Next steps
 
-Visit the [Azure IoT Dev Center](/develop/iot/) for more samples and documentation on Azure IoT.
+Visit the [Azure IoT Dev Center](https://www.azure.cn/develop/iot/) for more samples and documentation on Azure IoT.
 
 [img-telemetry]: ./media/iot-suite-gateway-kit-get-started-sensortag/appoutput.png
 

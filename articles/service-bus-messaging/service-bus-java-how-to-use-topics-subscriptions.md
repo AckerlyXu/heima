@@ -363,7 +363,7 @@ service.deleteTopic("TestTopic");
 ## Next Steps
 Now that you've learned the basics of Service Bus queues, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
 
-  [Azure SDK for Java]: /develop/java/
+  [Azure SDK for Java]: https://www.azure.cn/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
   [Service Bus queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter 

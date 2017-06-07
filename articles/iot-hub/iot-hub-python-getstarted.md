@@ -310,8 +310,8 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/

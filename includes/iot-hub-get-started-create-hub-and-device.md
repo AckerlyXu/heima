@@ -7,7 +7,7 @@
 
    **Name**: It is the name for your IoT hub. If the name you enter is valid, a green check mark appears.
 
-   **Pricing and scale tier**: Select the free F1 tier. This option is sufficient for this demo. See [pricing and scale tier](/pricing/details/iot-hub/).
+   **Pricing and scale tier**: Select the free F1 tier. This option is sufficient for this demo. See [pricing and scale tier](https://www.azure.cn/pricing/details/iot-hub/).
 
    **Resource group**: Create a resource group to host the IoT hub or use an existing one. See [Using resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-portal.md).
 

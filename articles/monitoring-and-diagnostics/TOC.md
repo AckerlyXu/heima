@@ -22,9 +22,9 @@
 
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](https://doc.microsoft.com/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [REST](/rest/api/monitor/)
+## [REST](https://doc.microsoft.com/rest/api/monitor/)
 
 # Resources
 ## [PowerShell Samples](../monitoring-and-diagnostics/insights-powershell-samples.md)

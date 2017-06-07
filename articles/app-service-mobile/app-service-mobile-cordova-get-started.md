@@ -36,7 +36,7 @@ To complete this tutorial, you need the following prerequisites:
 
 * A PC with [Visual Studio Community 2015] or newer.
 * [Visual Studio Tools for Apache Cordova].
-* An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
+* An [active Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
 You may also bypass Visual Studio and use the Apache Cordova command line directly.  Using the command line
 is useful when completing the tutorial on a Mac computer.  Compiling Apache Cordova client applications using 

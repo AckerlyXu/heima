@@ -1,4 +1,4 @@
-The following table lists quota information specific to Service Bus messaging. For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) overview.
+The following table lists quota information specific to Service Bus messaging. For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](https://www.azure.cn/pricing/details/messaging/) overview.
 
 | Quota Name | Scope | Type | Behavior when exceeded | Value |
 | --- | --- | --- | --- | --- |
