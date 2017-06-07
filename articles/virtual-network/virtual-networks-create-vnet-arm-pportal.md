@@ -53,6 +53,8 @@ The sections that follow include steps for deploying a VNet using the Azure [por
 ## CLI
 Though CLI commands are the same whether you execute the commands from Windows, Linux, or macOS, there are scripting differences across operating system shells. The following instructions are for executing a Bash script that contains CLI commands:
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 #!/bin/bash
 

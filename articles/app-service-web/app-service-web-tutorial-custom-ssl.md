@@ -219,6 +219,8 @@ You can automate SSL bindings for your web app with scripts, using the [Azure CL
 
 ### Azure CLI
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 The following command uploads an exported PFX file and gets the thumbprint. 
 
 ```bash

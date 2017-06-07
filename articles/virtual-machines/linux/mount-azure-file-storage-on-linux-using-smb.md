@@ -66,6 +66,8 @@ Moving files from a VM to an SMB mount that's hosted on File storage is a great 
 
 For this detailed walkthrough, we create the prerequisites needed to first create the File storage share, and then mount it via SMB on a Linux VM.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create) to hold the file share.
 
     To create a resource group named `myResourceGroup` in the "China North" location, use the following example:

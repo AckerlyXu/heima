@@ -48,6 +48,8 @@ The sample Azure CLI commands below expect a simple environment already created 
 ## Create the UDR for the front-end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. Create a route table for the front-end subnet with the [az network route-table create](https://docs.microsoft.com/cli/azure/network/route-table#create) command:
 
     ```azurecli

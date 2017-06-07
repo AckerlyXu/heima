@@ -56,7 +56,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 5. Create  a storage account for the VM. Before running the following command, replace *mystorageaccount* with a unique name. The name must be unique across Azure:
 
     ```azurecli
-    az storage account create --resource-group $RgName --location $Location --name mystorageaccount \
+    azure storage account create --resource-group $RgName --location $Location --name mystorageaccount \
     --kind Storage --sku Standard_LRS
     ```
 
@@ -110,7 +110,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 7. Create a Linux VM 
 
     ```azurecli
-    az vm create --resource-group $RgName --name myVM1 --location $Location --nics myNic1 \
+    azure vm create --resource-group $RgName --name myVM1 --location $Location --nics myNic1 \
     --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --admin-username azureuser
     ```
 

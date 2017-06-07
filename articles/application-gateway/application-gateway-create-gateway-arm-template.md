@@ -166,6 +166,8 @@ You are prompted to authenticate with your credentials.
 
 ## Deploy the Azure Resource Manager template by using the Azure CLI
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the following steps:
 
 1. If you have never used Azure CLI, see [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and follow the instructions up to the point where you select your Azure account and subscription.

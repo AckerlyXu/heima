@@ -32,6 +32,8 @@ Azure virtual machines use disks to store the VMs operating system, applications
 > * Resizing disks
 > * Disk snapshots
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Default Azure disks

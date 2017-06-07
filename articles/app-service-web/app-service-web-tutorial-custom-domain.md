@@ -308,6 +308,8 @@ You can automate management of custom domains with scripts, using the [Azure CLI
 
 ### Azure CLI 
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 The following command adds a configured custom DNS name to an App Service app. 
 
 ```bash 

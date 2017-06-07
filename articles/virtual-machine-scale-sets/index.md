@@ -83,7 +83,7 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
                         <h3>Languages</h3>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="https://docs.microsoft.com/java/api">Java</a></p>
-                        <p><a href="/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="/develop/nodejs/">Node​.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>

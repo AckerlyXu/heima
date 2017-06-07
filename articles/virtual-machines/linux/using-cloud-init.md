@@ -40,6 +40,8 @@ users:
 
 Create a resource group to launch VMs into with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates the resource group named *myResourceGroup*:
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
 ```

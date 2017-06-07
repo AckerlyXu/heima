@@ -428,6 +428,8 @@ These tabs in the blade show the many great features you can add to your web app
 
 ## Clean up Resources
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
 
 ```azurecli 

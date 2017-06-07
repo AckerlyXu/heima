@@ -35,6 +35,8 @@ ssh-keygen -t rsa -b 2048
 ## Use the SSH key pair
 The public key that you place on your Linux VM in Azure is by default stored in `~/.ssh/id_rsa.pub`, unless you changed the location when you created them. If you use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure) to create your VM, specify the location of this public key when you use the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) with the `--ssh-key-path` option. If you copy and paste the contents of the public key file to use in the Azure portal preview or a Resource Manager template, make sure you don't copy any additional whitespace. For example, if you use OS X, you can pipe the public key file (by default, **~/.ssh/id_rsa.pub**) to **pbcopy** to copy the contents (there are other Linux programs that do the same thing, such as `xclip`). 
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 If you're not familiar with SSH public keys, you can see your public key by running `cat` as follows, replacing `~/.ssh/id_rsa.pub` with your own public key file location:
 
 ```bash

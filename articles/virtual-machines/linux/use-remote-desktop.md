@@ -67,6 +67,8 @@ sudo passwd ops
 
 Exit the SSH session to your Linux VM. Use the Azure CLI on your local computer to create a network security group rule to allow the remote desktop traffic. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0. The following example creates a rule named `myNetworkSecurityGroupRule` within `myNetworkSecurityGroup` to allow traffic on tcp port 3389:
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
     --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \

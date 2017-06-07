@@ -35,6 +35,8 @@ Complete the following tasks before completing any steps in any section of this 
 - If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## <a name="about"></a>About NICs and IP addresses
 
 Each NIC can be assigned multiple private and public IP addresses, within the [Azure limits](../azure-subscription-service-limits.md?toc=%2fnetwork%2ftoc.json#azure-resource-manager-virtual-networking-limits). Assigning multiple IP addresses to a NIC is helpful in scenarios such as:

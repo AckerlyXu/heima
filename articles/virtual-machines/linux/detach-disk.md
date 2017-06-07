@@ -32,6 +32,8 @@ If you want to use the existing data on the disk again, you can reattach it to t
 
 ## Detach a data disk using CLI 2.0
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az vm unmanaged-disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```

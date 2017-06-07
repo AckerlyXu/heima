@@ -24,6 +24,8 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 
 ## Quick command summary
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. Save and edit the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your preference on your local machine.
 2. Run the following two commands to create a resource group and then deploy your template:
 

@@ -51,6 +51,8 @@ For information on supported operating systems and installation instructions, se
 
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure CLI, replacing the example location with the location of your choice.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az vm extension image list --location chinanorth -o table
 ```

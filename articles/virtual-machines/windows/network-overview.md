@@ -60,6 +60,8 @@ This table lists the methods that you can use to create a network interface.
 | [Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | To provide the identifer of the public IP address that you previously created, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) with the **--public-ip-address** parameter. |
 | [Template](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a network interface using a template. |
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## IP addresses 
 
 You can assign these types of [IP addresses](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) to a NIC in Azure:

@@ -38,6 +38,8 @@ exit
 
 For a detailed overview of capturing, see [Capture a Linux virtual machine](capture-image.md).
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 Deallocate the VM with [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate):
 
 ```azurecli

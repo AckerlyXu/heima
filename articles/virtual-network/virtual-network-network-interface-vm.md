@@ -35,6 +35,8 @@ Complete the following tasks before completing any steps in any section of this 
 - If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed.To get help for CLI commands, type `az <command> --help`.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## <a name="about"></a>About NICs and VMs
 
 You can add (attach) an existing NIC to a VM when you create the VM, provided the NIC isn't currently attached to another VM. You can add a NIC to, or remove (detach) a NIC to from an existing VM, provided the VM is in the stopped (deallocated) state. If you create a VM using the Azure portal preview, the portal creates a NIC for you with default settings. The portal does not allow you to:

@@ -26,6 +26,8 @@ This article shows how to attach a persistent disk to your VM so that you can pr
 ## Quick Commands
 The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 To use unmanaged disks:
 
 ```azurecli
