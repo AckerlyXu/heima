@@ -27,7 +27,7 @@ In this tutorial, you create a highly available application that is resilient to
 
 To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) module.
 
-First, log in to your Azure subscription with the Login-AzureRmAccount -EnvironmentName AzureChinaCloud command and follow the on-screen directions.
+First, log in to your Azure subscription with the Login-AzureRmAccount command and follow the on-screen directions.
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud

@@ -22,7 +22,7 @@ ms.author: annahar
 # Assign multiple IP addresses to virtual machines using the Azure portal preview
 
 >[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
->
+
 This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal preview. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
