@@ -288,7 +288,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes**, record and save any observations associated with the test failover. This will delete the VMs that were created during test failover.
 
-[Learn more]((/documentation/articles/site-recovery-test-failover-to-azure/) about test failovers.
+[Learn more]((site-recovery-test-failover-to-azure.md) about test failovers.
 
 ## VMware account permissions
 

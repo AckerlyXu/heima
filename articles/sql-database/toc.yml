@@ -314,15 +314,15 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql
+    href: https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql
   - name: PowerShell (Elastic DB)
-    href: /powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs
+    href: https://docs.microsoft.com/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs
   - name: Azure CLI 2.0
-    href: /cli/azure/sql
+    href: https://docs.microsoft.com/cli/azure/sql
   - name: .NET
-    href: /dotnet/api/microsoft.azure.management.sql.models
+    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models
   - name: Java
-    href: /java/api/com.microsoft.azure.management.sql
+    href: https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql
   - name: Node.js
     href: https://msdn.microsoft.com/library/mt652093.aspx
   - name: Python
@@ -367,17 +367,11 @@
   - name: Troubleshoot connectivity
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/sql-database/
+    href: https://www.azure.cn/pricing/details/sql-database/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/sql-azure
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?service=sql-database
-  - name: Architecture guidance
-    href: https://docs.microsoft.com/sql/#pivot=architecture
   - name: Customer implementations
     href: sql-database-customer-implementations.md
   - name: Sample applications

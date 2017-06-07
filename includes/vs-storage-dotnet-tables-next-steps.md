@@ -6,4 +6,4 @@ Now that you've learned the basics of Azure table storage, follow these links to
 - View more feature guides to learn about additional options for storing data in Azure.
   - To work with Azure Storage Blobs, see [Get Started with Azure Blob storage using .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
   - To work with Azure Storage Queues, [Get started with Azure Queue storage using .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
-  - To store relational data, see [How to use Azure SQL Database in .NET applications](/documentation/articles/sql-database-dotnet-how-to-use/).
+  - To store relational data, see [How to use Azure SQL Database in .NET applications](../articles/sql-database/sql-database-dotnet-how-to-use/).

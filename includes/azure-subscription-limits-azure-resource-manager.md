@@ -15,7 +15,7 @@
 
 <sup>1</sup>Default limits vary by offer Category Type, such as 1rmb-trial, Pay-As-You-Go, and series, such as Dv2, F, G, etc.
 
-<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
+<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://www.azure.cn/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
 
 <sup>3</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager.
 
