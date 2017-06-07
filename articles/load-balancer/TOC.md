@@ -38,7 +38,7 @@
 ## [Configure Distribution mode for Load Balancer](load-balancer-distribution-mode.md)
 ## [Configure Internal Load Balancer for SQL AlwaysOn](load-balancer-configure-sqlao.md)
 ## [Configure multiple VIPs for cloud service](load-balancer-multivip.md)
-## [Combining load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+## [Combining load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fload-balancer%2ftoc.json)
 ## [Using multiple IP configurations](load-balancer-multiple-ip.md)
 ### [Using multiple IP configurations (CLI)](load-balancer-multiple-ip-cli.md)
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)

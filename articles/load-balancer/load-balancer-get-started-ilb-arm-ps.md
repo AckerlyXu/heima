@@ -241,7 +241,7 @@ Primary              : False
 
 Use the command Add-AzureRmVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fload-balancer%2ftoc.json).
 
 ## Add the network interface
 

@@ -43,7 +43,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
-### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure-resource-manager%2ftoc.json)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 
 ## Manage
@@ -58,7 +58,7 @@
 ## Control Access
 ### Create service principal
 #### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
@@ -70,8 +70,8 @@
 <!-- Not Available ### [Script policy assignment](resource-manager-policy-create-assign.md) -->
 <!-- Not Available ### [Resource tag policies](resource-manager-policy-tags.md) -->
 <!-- Not Available ### [Storage policies](resource-manager-policy-storage.md) -->
-### [Linux VM policies](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Linux VM policies](../virtual-machines/linux/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
+### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
 
 <!-- Not Available ## Use managed applications -->
 <!-- Not Available ### [Publish managed application](managed-application-publishing.md) -->

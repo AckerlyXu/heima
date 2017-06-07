@@ -42,7 +42,7 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md)
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2factive-directory%2faad-connect%2ftoc.json)
 #### [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Metaverse designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Metaverse search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)

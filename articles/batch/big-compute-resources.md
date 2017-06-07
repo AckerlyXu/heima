@@ -43,7 +43,7 @@ HPC Pack is Microsoft's free HPC solution built on Azure and Windows Server tech
 - [Download HPC Pack 2016](https://www.microsoft.com/download/details.aspx?id=54507)
 - [Download HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922)
 - [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
-- HPC Pack cluster options in Azure:  [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+- HPC Pack cluster options in Azure:  [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 
 - [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 - [Burst to Azure  Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 - [Windows HPC forums](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -71,7 +71,7 @@ Use these Azure templates to deploy Linux HPC clusters.
 - [MPI forum](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 ## Compute-intensive instances
-Azure offers a [range of VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run your Linux and Windows HPC workloads. 
+Azure offers a [range of VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to run your Linux and Windows HPC workloads. 
 
 For GPU-intensive workloads, check out [NC and NV sizes](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/).
 
