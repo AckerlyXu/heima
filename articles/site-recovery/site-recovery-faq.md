@@ -48,7 +48,7 @@ For the Hyper-V host server what you need depends on the deployment scenario. Ch
 - If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/zh-cn/library/cc794868%28v=ws.10%29.aspx).
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
-No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](./site-recovery-vmware-to-azure.md), or a [secondary datacenter](./site-recovery-vmware-to-vmware.md).
+No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](./site-recovery-vmware-to-azure.md).
 
 ### What workloads can I protect with Site Recovery?
 You can use Site Recovery to protect most workloads running on a supported VM or physical server. Site Recovery provides support for application-aware replication, so that apps can be recovered to an intelligent state. It integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM and Red Hat. [Learn more](./site-recovery-workload.md) about workload protection.
@@ -135,9 +135,6 @@ Extended or chained replication isn't supported.
 
 This isn't supported.
 
-### Can I exclude specific disks from replication?
-
-This is supported when you're [replicating VMware VMs and Hyper-V VMs](./site-recovery-exclude-disk.md) to Azure, using the Azure portal.
 
 ### Can I replicate virtual machines with dynamic disks?
 Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines to Azure. The operating system disk must be a basic disk.

@@ -6,7 +6,6 @@
 ## [FAQ](site-recovery-faq.md)
 
 # Get Started
-## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
@@ -16,7 +15,6 @@
 ## Plan
 ### [Deployment prerequisites](site-recovery-prereq.md)
 ### [Plan network infrastructure](site-recovery-network-design.md)
-### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 
 
@@ -25,7 +23,6 @@
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
 ### [Run a test failover](site-recovery-test-failover-to-azure.md)
-### [Reprotect machines after failover](site-recovery-how-to-reprotect.md)
 
 ## Migrate
 ### [Migrate to Azure](site-recovery-migrate-to-azure.md)
@@ -34,8 +31,6 @@
 ## Workloads
 ### [Active Directory and DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-sharepoint.md)
-### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)

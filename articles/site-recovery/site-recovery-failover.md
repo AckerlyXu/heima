@@ -84,7 +84,7 @@ You might want to automate certain actions while doing a failover. You can use s
 * **Drive letter** — To retain the drive letter on virtual machines after failover you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/zh-cn/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## Next Steps
-Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](./site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
+Once you have failed over virtual machines and the on-premises data center is available, you should **Re-protect** VMware virtual machines back to the on-premises data center.
 
 Use [**Planned failover**](./site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 
