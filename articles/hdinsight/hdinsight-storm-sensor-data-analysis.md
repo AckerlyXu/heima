@@ -275,7 +275,7 @@ The Resource Manager template used in this document is located in a public blob 
 
 3. Use the **Basics** section to create a resource group or select an existing one.
 4. In the **Resource group location** dropdown menu, select the same location as you selected for the **Location** parameter in the **Settings** section.
-5. Click **Legal terms**, and then click **Create**.
+5. Click **Legal terms**, and then click **Purchase**.
 6. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
