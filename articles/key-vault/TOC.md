@@ -25,22 +25,22 @@
 ### [Create and Manage using CLI](key-vault-manage-with-cli.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Azure 2.0 CLI (Preview)](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure 2.0 CLI (Preview)](https://docs.microsoft.com/cli/azure/keyvault)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-## [REST](/rest/api/keyvault)
+## [REST](https://docs.microsoft.com/rest/api/keyvault)
 
 # Related
-## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
+## [Azure Active Directory](/active-directory/)
 ## [Azure Rights Management](https://technet.microsoft.com/en-US/dn175750)
 ## [Extensible key management using Key Vault](https://msdn.microsoft.com/en-us/library/azure/dn198405)
-## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+## [Multi-Factor Authentication](/multi-factor-authentication/)
 
 # Resources
 ## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Pricing](https://www.azure.cn/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)

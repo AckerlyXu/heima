@@ -26,7 +26,7 @@ When it comes to protecting your accounts, two-step verification should be stand
 This article covers explains the difference between the versions offered to administrators and the full Azure MFA version, and specifies which features are available in each. If you're ready to deploy the complete Azure MFA offering, the later sections covers implementation options and how Microsoft calculates consumption.
 
 >[!IMPORTANT]
->This article is meant to be a guide to help you understand the different ways to buy Azure Multi-Factor Authentication. For specific details about pricing and billing, you should always refer to the [Multi-Factor Authentication pricing page](/pricing/details/multi-factor-authentication/).
+>This article is meant to be a guide to help you understand the different ways to buy Azure Multi-Factor Authentication. For specific details about pricing and billing, you should always refer to the [Multi-Factor Authentication pricing page](https://www.azure.cn/pricing/details/multi-factor-authentication/).
 
 ## Available versions of Azure Multi-Factor Authentication
 
@@ -66,6 +66,6 @@ The following table provides a list of the features that are available in the va
 
 ## Next steps
 
-- For more pricing details, see [Azure MFA Pricing](/pricing/details/multi-factor-authentication/).
+- For more pricing details, see [Azure MFA Pricing](https://www.azure.cn/pricing/details/multi-factor-authentication/).
 
 - Choose whether to deploy Azure MFA [in the cloud or on-premises](./multi-factor-authentication-get-started-cloud.md)
