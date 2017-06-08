@@ -267,7 +267,7 @@ Use the following resources to learn how to:
 
 <!-- links -->
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
@@ -276,7 +276,7 @@ Use the following resources to learn how to:
 [lnk-dm-overview]: ./iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-[lnk-connect-device]: /develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: ./iot-hub-node-node-getstarted.md

@@ -151,7 +151,7 @@ You are prompted to authenticate with your credentials.
     Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in China East location.
+1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in China North location.
 
     ```powershell
     New-AzureRmResourceGroup -Name AppgatewayRG -Location "China North"

@@ -28,5 +28,5 @@ A desktop computer to enable you to connect remotely to the command line on the 
 - Resistors
 - LEDs
 
-[lnk-starter-kits]: /develop/iot/iot-starter-kits/
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-starter-kits]: https://www.azure.cn/develop/iot/iot-starter-kits/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

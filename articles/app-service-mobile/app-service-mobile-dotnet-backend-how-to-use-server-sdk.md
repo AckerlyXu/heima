@@ -622,7 +622,7 @@ tokens when running locally, which the client obtains the token from the cloud-b
 [1]: https://msdn.microsoft.com/zh-cn/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server
 [3]: ./app-service-mobile-ios-get-started.md
-[4]: /downloads/
+[4]: https://www.azure.cn/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
 [Azure portal]: https://portal.azure.cn

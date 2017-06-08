@@ -71,7 +71,7 @@ The key parameters of a [SharedAccessAuthorizationRule](https://docs.microsoft.c
 | *SecondaryKey* |A base64-encoded 256-bit secondary key for signing and validating the SAS token. |
 | *AccessRights* |A list of access rights granted by the authorization rule. These rights can be any collection of Listen, Send, and Manage rights. |
 
-When a Service Bus namespace is provisioned, a [SharedAccessAuthorizationRule](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), with [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) set to **RootManageSharedAccessKey**, is created by default.
+When a Service Bus namespace is provisioned, a [SharedAccessAuthorizationRule](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), with [KeyName](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) set to **RootManageSharedAccessKey**, is created by default.
 
 ## Generate a Shared Access Signature (token)
 
@@ -126,7 +126,7 @@ The endpoint for accessing shared access authorization rules on a Service Bus na
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-To create a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a Service Bus namespace, execute a POST operation on this endpoint with the rule information serialized as JSON or XML. For example:
+To create a [SharedAccessAuthorizationRule](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a Service Bus namespace, execute a POST operation on this endpoint with the rule information serialized as JSON or XML. For example:
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -167,7 +167,7 @@ https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespa
 
 ## Access Shared Access Authorization rules on an entity
 
-You can access a [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object configured on a Service Bus queue or topic through the [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) collection in the corresponding [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) or [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
+You can access a [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object configured on a Service Bus queue or topic through the [AuthorizationRules](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.authorizationrules) collection in the corresponding [QueueDescription](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription) or [TopicDescription](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription).
 
 The following code shows how to add authorization rules for a queue.
 
@@ -219,7 +219,7 @@ sendClient.Send(helloMessage);
 
 Applications can also use SAS for authentication by using a SAS connection string in methods that accept connection strings.
 
-Note that to use SAS authorization with Service Bus relays, you can use SAS keys configured on the Service Bus namespace. If you explicitly create a relay on the namespace ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) with a [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)) object, you can set the SAS rules just for that relay. To use SAS authorization with Service Bus subscriptions, you can use SAS keys configured on a Service Bus namespace or on a topic.
+Note that to use SAS authorization with Service Bus relays, you can use SAS keys configured on the Service Bus namespace. If you explicitly create a relay on the namespace ([NamespaceManager](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) with a [RelayDescription](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.relaydescription)) object, you can set the SAS rules just for that relay. To use SAS authorization with Service Bus subscriptions, you can use SAS keys configured on a Service Bus namespace or on a topic.
 
 ## Use the Shared Access Signature (at HTTP level)
 

@@ -142,8 +142,8 @@ A deployment for this reference architecture is available on [GitHub][github-fol
     * Select the region from the **Location** drop down box.
     * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
     * Select **windows** in the **Os Type** drop down box.
-    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-    * Click on the **Purchase** button.
+    * Select **Legal terms**, review the terms and conditions, then click the **Purchase** button.
+    * Click on the **Create** button.
 3. Wait for the deployment to complete.
 4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal preview. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 

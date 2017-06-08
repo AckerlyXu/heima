@@ -245,7 +245,7 @@ To send notifications by using a .NET console application follow these steps.
 
 You can find all the supported payloads in the [toast catalog], [tile catalog], and [badge overview] topics on MSDN.
 
-##Next steps
+##Next steps <a name="next-steps"></a>
 
 In this simple example, you sent broadcast notifications to all your Windows devices using the portal or a console app. We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step. It will show you how to send notifications from an ASP.NET backend using tags to target specific users.
 

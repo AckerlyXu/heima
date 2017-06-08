@@ -167,7 +167,7 @@ Congratulations! You have now received messages from an Event Hub using the Even
 > 
 
 <!-- Links -->
-[Event Hubs Overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs Overview]: event-hubs-overview.md
 [Event Hubs Programming Guide]: ./event-hubs-programming-guide.md
 [Azure Storage account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
@@ -176,7 +176,7 @@ Congratulations! You have now received messages from an Event Hub using the Even
 ## Next steps
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can learn more by visiting the following links:
 
-* [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [Event Processor Host](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Event Hubs overview][Event Hubs overview]
 * [Event Hubs FAQ](./event-hubs-faq.md)
 

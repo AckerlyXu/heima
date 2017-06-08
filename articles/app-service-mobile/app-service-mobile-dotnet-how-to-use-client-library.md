@@ -1093,7 +1093,6 @@ note of the version of your package SID formed by concatenating this value as a 
 Xamarin apps require some additional code to be able to register an app running on the iOS or Android
 platforms. For more information, see the topic for your platform:
 
-* [Xamarin.Android](/documentation/articles/app-service-mobile-xamarin-android-get-started-push/#add-push)
 * [Xamarin.iOS](./app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
 ###<a name="register-xplat"></a>How to: Register push templates to send cross-platform notifications

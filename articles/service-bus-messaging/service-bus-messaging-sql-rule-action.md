@@ -20,7 +20,7 @@ ms.author: sethm
 
 # SQLRuleAction syntax
 
-A *SqlRuleAction* is an instance of the [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SqlRuleAction* is an instance of the [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
 
 This topic lists details about the SQL rule action grammar.  
 
@@ -62,7 +62,7 @@ This topic lists details about the SQL rule action grammar.
 
 ## Arguments  
 
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
 
 ### Remarks  
 
@@ -215,9 +215,9 @@ The `property(name)` function returns the value of the property referenced by `n
 - SET performs implicit conversion if possible when the expression type and the existing property type are different.
 - Action fails if non-existent system properties were referenced.
 - Action does not fail if non-existent user properties were referenced.
-- A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) when evaluating operators.
+- A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLFilter](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) when evaluating operators.
 
 ## Next steps
 
-- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLFilter class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

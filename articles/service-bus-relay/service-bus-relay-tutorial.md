@@ -228,7 +228,7 @@ This step describes how to run an Azure Relay service.
     ```
 
     The SAS key will be used later to access your project. The namespace is passed as a parameter to `CreateServiceUri` to create a service URI.
-2. Using a [TransportClientEndpointBehavior](/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) object, declare that you will be using a SAS key as the credential type. Add the following code directly after the code added in the last step.
+2. Using a [TransportClientEndpointBehavior](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) object, declare that you will be using a SAS key as the credential type. Add the following code directly after the code added in the last step.
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
@@ -261,7 +261,7 @@ For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoServ
     ```
 
     The service host is the WCF object that instantiates the service. Here, you pass it the type of service you want to create (an `EchoService` type), and also to the address at which you want to expose the service.
-3. At the top of the Program.cs file, add references to [System.ServiceModel.Description](https://msdn.microsoft.com/library/system.servicemodel.description.aspx) and [Microsoft.ServiceBus.Description](/dotnet/api/microsoft.servicebus.description).
+3. At the top of the Program.cs file, add references to [System.ServiceModel.Description](https://msdn.microsoft.com/library/system.servicemodel.description.aspx) and [Microsoft.ServiceBus.Description](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.description).
 
     ```csharp
     using System.ServiceModel.Description;

@@ -474,7 +474,7 @@ To test push notifications on iOS, you must deploy the app to a physical iOS dev
 
     ![iOS App Push Notification Receive Test][35]
 
-##Next steps
+##Next steps <a name="next-steps"></a>
 
 In this simple example, you broadcasted push notifications to all your registered iOS devices. We suggest as a next step in your learning that you proceed to the [Azure Notification Hubs Notify Users for iOS with .NET backend] tutorial, which will walk you through creating a backend to send push notifications using tags. 
 
