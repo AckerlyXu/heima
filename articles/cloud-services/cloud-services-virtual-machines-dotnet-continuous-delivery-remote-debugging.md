@@ -22,7 +22,7 @@ You can enable remote debugging in Azure, for cloud services or virtual machines
 
     * [Remote Tools for Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
     * [Remote Tools for Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
-    * [Remote Tools for Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
+
 
     As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
 

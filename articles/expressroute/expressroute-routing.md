@@ -75,7 +75,6 @@ Make sure that your IP address and AS number are registered to you in one of the
 
 - [ARIN](https://www.arin.net/)
 - [APNIC](https://www.apnic.net/)
-- [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
 - [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)

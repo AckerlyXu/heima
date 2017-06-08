@@ -217,11 +217,6 @@
 ## [.NET (Devices)](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](https://doc.microsoft.com/java/api/com.microsoft.azure.iot.service.auth)
 ## [Java (Devices)](https://doc.microsoft.com/java/api/com.microsoft.azure.iothub)
-## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
-## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (Device Messaging) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Related
 ## [Azure IoT Suite](/iot-suite/)

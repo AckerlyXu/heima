@@ -80,24 +80,6 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
         </div>
         </a>
     </li>
-    <li>
-        <a href="/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create a metric alert with a Resource Manager template</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
 ---

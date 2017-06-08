@@ -74,8 +74,7 @@ For additional information, you can always type ```get-help``` and then the Powe
        - The **Resource ID** for the resource you want to set an alert for
     - The **metric definitions** available for that resource
 
-    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. **RESOURCE ID** is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.cn/).
-
+    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. **RESOURCE ID** is a field in the next blade. 
      An example Resource ID for a web app is
 
     ```
