@@ -52,7 +52,7 @@
 # Resources
 <!-- Not Available ## [Release notes](stream-analytics-release-notes.md)  -->
 ## [Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
-## [Pricing](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [Pricing](https://www.azure.cn/pricing/details/stream-analytics/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)

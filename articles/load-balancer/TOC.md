@@ -65,5 +65,5 @@
 <!-- Not Available [dns](/dns/) -->
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Pricing](https://www.azure.cn/pricing/details/load-balancer/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)

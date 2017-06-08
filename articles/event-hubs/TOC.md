@@ -53,7 +53,7 @@
 
 # Resources
 ## [Code samples](event-hubs-samples.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Pricing](https://www.azure.cn/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
