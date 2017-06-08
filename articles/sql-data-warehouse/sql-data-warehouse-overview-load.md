@@ -129,4 +129,4 @@ For more development tips, see the [development overview][development overview].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Import/Export]: /azure/storage-import-export-service/
+[Import/Export]: ../storage/storage-import-export-service.md

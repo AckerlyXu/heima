@@ -92,42 +92,8 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </div>
         </a>
     </li>
-    <li>
-        <a href="/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with a Twitter sentiment analysis solution using Stream Analytics</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/stream-analytics/stream-analytics-machine-learning-integration-tutorial">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with a real-time scoring solution leveraging Azure Machine Learning</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
+    <!-- Not Available /Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends-->
+    <!-- Not Available /Stream-Analytics/stream-analytics-machine-learning-integration-tutorial-->
 </ul>
 
 ---
