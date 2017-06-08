@@ -76,12 +76,12 @@ Notification Hubs is primarily designed to send notifications to mobile apps. It
 Notification Hubs also does not provide an in-browser push notification delivery service out of the box. Customers can implement this feature using SignalR on top of the supported server-side platforms. 
 
 ### How are Mobile Apps and Azure Notification Hubs related and when do I use them?
-If you have an existing mobile app back end and you want to add only the capability to send push notifications, you can use Azure Notification Hubs. If you want to set up your mobile app back end from scratch, consider using the Mobile Apps feature of Azure App Service. A mobile app automatically provisions a notification hub so that you can easily send push notifications from the mobile app back end. Pricing for Mobile Apps includes the base charges for a notification hub. You pay only when you exceed the included pushes. For more details on costs, go to the [App Service Pricing] page.
+If you have an existing mobile app back end and you want to add only the capability to send push notifications, you can use Azure Notification Hubs. If you want to set up your mobile app back end from scratch, consider using the Mobile Apps feature of Azure App Service. A mobile app automatically provisions a notification hub so that you can easily send push notifications from the mobile app back end. Pricing for Mobile Apps includes the base charges for a notification hub. You pay only when you exceed the included pushes. For more details on costs, go to the App Service Pricing page.
 
 ### How many devices can I support if I send push notifications via Notification Hubs?
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-If you need support for more than 10 million registered devices, [contact us](/support/contact/) directly and we will help you scale your solution.
+If you need support for more than 10 million registered devices, [contact us](https://www.azure.cn/support/contact/) directly and we will help you scale your solution.
 
 ### How many push notifications can I send out?
 Depending on the selected tier, Azure Notification Hubs automatically scales up based on the number of notifications flowing through the system.
@@ -195,26 +195,25 @@ Azure Notification Hubs enables viewing telemetry data in the [Azure Classic Man
 We also provide the capability to export the telemetry data programmatically (in the Standard tier). For details, see the [Notification Hubs Metrics sample].
 
 [Azure Classic Management Portal]: https://manage.windowsazure.cn
-[Notification Hubs Pricing]: /pricing/details/notification-hubs/
-[Notification Hubs SLA]: /support/legal/sla/
+[Notification Hubs Pricing]: https://www.azure.cn/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://www.azure.cn/support/legal/sla/
 [Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Case Study: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Case Study: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Case Study: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Case Study: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs Getting Started tutorials]: /documentation/articles/notification-hubs-ios-apple-push-notification-apns-get-started/
-[Mobile Services Pricing]: /pricing/details/mobile-services/
+[Notification Hubs Getting Started tutorials]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Mobile Services Pricing]: https://www.azure.cn/pricing/details/mobile-services/
 [Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Backend Registration guidance 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Notification Hubs security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs Secure Push tutorial]: /documentation/articles/notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification/
-[Notification Hubs troubleshooting]: /documentation/articles/notification-hubs-push-notification-fixer/
+[Notification Hubs Secure Push tutorial]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Notification Hubs troubleshooting]: ./notification-hubs-push-notification-fixer.md
 [Notification Hubs Metrics]: https://msdn.microsoft.com/library/dn458822.aspx
 [Notification Hubs Metrics sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.cn
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Mobile Apps]: /documentation/services/mobile-services/
-[App Service Pricing]: /pricing/details/app-service/
+[App Service Pricing]: https://www.azure.cn/pricing/details/app-service/
 
