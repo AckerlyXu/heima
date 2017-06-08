@@ -28,7 +28,7 @@ ms.author: tomfitz
 
 ## Ensure tag consistency with policies
 
-Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.<!-- For more information, see [Apply resource policies for tags](/documentation/articles/resource-manager-policy-tags/).-->
+Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.
 
 ## Templates
 

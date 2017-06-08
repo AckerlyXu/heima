@@ -26,7 +26,6 @@ You can view the SAML token by selecting this line and then selecting the **Insp
 ## Related Articles
 
 - [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](/documentation/articles/active-directory-saas-custom-apps/)
 - [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./active-directory-saml-claims-customization.md)
 
 <!--Image references-->

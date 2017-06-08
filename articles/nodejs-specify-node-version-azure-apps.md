@@ -107,7 +107,7 @@ Now that you understand how to specify the version of Node.js used by your appli
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
-[How to use the Azure Command-Line Tools for Mac and Linux]:/documentation/articles/xplat-cli-install/
-[Azure Command-line tools]:/documentation/articles/xplat-cli-install/
+[How to use the Azure Command-Line Tools for Mac and Linux]:./xplat-cli-install.md
+[Azure Command-line tools]:./xplat-cli-install.md
 [work with modules]:./nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]:./app-service-web/web-sites-nodejs-develop-deploy-mac.md

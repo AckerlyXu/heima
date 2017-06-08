@@ -38,7 +38,7 @@
 ## [Big Compute in Azure: technical resources](./big-compute-resources.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [Pricing](https://www.azure.cn/pricing/details/batch/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)

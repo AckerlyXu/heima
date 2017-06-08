@@ -80,7 +80,7 @@ The connection **connectionstring** value can be obtained from the [Azure Portal
 ![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](../powershell-install-configure.md) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/documentation/articles/xplat-cli-install/).
+> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](../powershell-install-configure.md) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md).
 
 ## General architecture
 The **NotificationHubService** object exposes the following object instances for sending push notifications to specific devices and applications:

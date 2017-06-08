@@ -175,7 +175,7 @@ Azure AD tenants are isolated by design. These tasks are unsupported:
 You can use FIM 2010 or MIM 2016 on-premises to sync users (via GALSync) between two Exchange organizations. The users in one organization appear as foreign users/contacts in the other organization. These different on-premises Active Directory instances can then be synchronized with their own Azure AD tenants.
 
 ## Next steps
-To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](/documentation/articles/active-directory-aadconnect-get-started-custom/).
+To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 

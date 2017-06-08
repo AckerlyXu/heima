@@ -429,8 +429,6 @@ In this tutorial, we will keep it simple and just demonstrate testing your clien
 
 * **Node.js** : [How to use Notification Hubs from Node.js](./notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Azure Mobile Services**: For an example of how to send notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see [Add push notifications to your Mobile Services app](/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/).
-
 * **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](./notification-hubs-java-push-notification-tutorial.md) | [PHP](./notification-hubs-php-push-notification-tutorial.md)).
 
 ##(Optional) Send notifications from a .NET console app.

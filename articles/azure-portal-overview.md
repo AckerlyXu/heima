@@ -24,7 +24,7 @@ The Microsoft Azure portal is a central place where you can provision and manage
 
 ## Before you get started
 
-You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](http://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://manage.windowsazure.cn].
+You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://www.azure.cn/pricing/1rmb-trial/) today.  Once you have a subscription, you can access the portal at [https://manage.windowsazure.cn].
 
 ## How to create a resource
 

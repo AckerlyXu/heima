@@ -308,8 +308,7 @@ def create_pool(batch_service_client, pool_id,
 
     # Create a new pool of Linux compute nodes using an Azure Virtual Machines
     # Marketplace image. For more information about creating pools of Linux
-    # nodes, see:
-    # /documentation/articles/batch-linux-nodes/
+    # nodes, see: /batch-linux-nodes/
 
     # Specify the commands for the pool's start task. The start task is run
     # on each node as it joins the pool, and when it's rebooted or re-imaged.
@@ -329,7 +328,7 @@ def create_pool(batch_service_client, pool_id,
     # Get the node agent SKU and image reference for the virtual machine
     # configuration.
     # For more information about the virtual machine configuration, see:
-    # /documentation/articles/batch-linux-nodes/
+    #  /batch-linux-nodes/
     sku_to_use, image_ref_to_use = \
         common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
             batch_service_client, publisher, offer, sku)

@@ -33,7 +33,7 @@ For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io
 Integrating your app with Microsoft Accounts and Azure AD accounts is now one simple process.  You can use a single set of endpoints, a single library, and a single app registration to gain access to both the consumer and enterprise worlds.  To learn more about the v2.0 endpoint, check out [the overview](active-directory-appmodel-v2-overview.md).
 
 ## New app registration portal
-To register an app that works with the v2.0 endpoint, you must use a new app registration portal: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList).  This is the portal where you can obtain an application ID, customize the appearance of your app's sign-in page, and more.  All you need to access the portal is a Microsoft powered account - either personal or work/school account.
+To register an app that works with the v2.0 endpoint, you must use a new app registration portal: [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the portal where you can obtain an application ID, customize the appearance of your app's sign-in page, and more.  All you need to access the portal is a Microsoft powered account - either personal or work/school account.
 
 ## One app ID for all platforms
 If you've used Azure Active Directory, you've probably registered several different apps for a single project.  For example, if you built both a website and an iOS app, you had to register them separately, using two different Application Ids. The Azure AD app registration portal forced you to make this distinction during registration:

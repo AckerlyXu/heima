@@ -252,8 +252,6 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 <!-- URLs.-->
 [get-started]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Use Notification Hubs to broadcast localized breaking news]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
-[Notify users with Notification Hubs]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-[Mobile Service]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

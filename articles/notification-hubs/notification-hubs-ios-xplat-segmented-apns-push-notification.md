@@ -116,7 +116,7 @@ The first step is to add the UI elements to your existing storyboard that enable
     }
     ```
 
-    This class uses local storage to store and retrieve the categories of news that this device will receive. Also, it contains a method to register for these categories using a [Template](/documentation/articles/notification-hubs-templates-cross-platform-push-messages-cross-platform-push-messages-cross-platform-push-messages/) registration.
+    This class uses local storage to store and retrieve the categories of news that this device will receive. Also, it contains a method to register for these categories using a [Template](notification-hubs-templates-cross-platform-push-messages-cross-platform-push-messages-cross-platform-push-messages.md) registration.
 
 7. In the AppDelegate.h file, add an import statement for Notifications.h and add a property for an instance of the Notifications class:
 
@@ -233,7 +233,7 @@ If you don't have access to Visual Studio, you can skip to the next section and 
 
 Normally notifications would be sent by a backend service but, you can send breaking news notifications directly from the app. To do this we will update the `SendNotificationRESTAPI` method that we defined in the [Get started with Notification Hubs][get-started] tutorial.
 
-1. In ViewController.m update the `SendNotificationRESTAPI` method as follows so that it accepts a parameter for the category tag and sends the proper [template](/documentation/articles/notification-hubs-templates-cross-platform-push-messages-cross-platform-push-messages-cross-platform-push-messages/) notification.
+1. In ViewController.m update the `SendNotificationRESTAPI` method as follows so that it accepts a parameter for the category tag and sends the proper [template](notification-hubs-templates-cross-platform-push-messages-cross-platform-push-messages-cross-platform-push-messages.md) notification.
 
     ```
     - (void)SendNotificationRESTAPI:(NSString*)categoryTag

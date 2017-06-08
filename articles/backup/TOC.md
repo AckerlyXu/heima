@@ -51,7 +51,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [Pricing](https://www.azure.cn/pricing/details/backup/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
 ## [Service updates](https://azure.microsoft.com/updates/?product=backup)

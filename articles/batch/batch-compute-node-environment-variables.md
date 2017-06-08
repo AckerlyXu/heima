@@ -21,7 +21,7 @@ For additional information about using environment variables with Batch, see [En
 
 ## Environment variable visibility
 
-These environment variables are visible only in the context of the **task user**, the user account on the node under which a task is executed. You will *not* see these if you [connect remotely](/documentation/articles/batch-api-basics/#connecting-to-compute-nodes/) to a compute node via Remote Desktop Protocol (RDP) or Secure Shell (SSH) and list the environment variables. This is because the user account that is used for remote connection is not the same as the account that is used by the task.
+These environment variables are visible only in the context of the **task user**, the user account on the node under which a task is executed. You will *not* see these if you [connect remotely](batch-api-basics.md#connecting-to-compute-nodes) to a compute node via Remote Desktop Protocol (RDP) or Secure Shell (SSH) and list the environment variables. This is because the user account that is used for remote connection is not the same as the account that is used by the task.
 
 ## Command-line expansion of environment variables
 
@@ -56,7 +56,7 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 | `AZ_BATCH_IS_CURRENT_NODE_MASTER` | Specifies whether the current node is the master node for a [multi-instance task][multi_instance]. Possible values are `true` and `false`.| Multi-instance primary and subtasks. | `true` |
 
 
-[files_dirs]:/documentation/articles/batch-api-basics/#files-and-directories/
-[multi_instance]: /documentation/articles/batch-mpi/
-[coord_cmd]:/documentation/articles/batch-mpi/#coordination-command/
-[app_cmd]:/documentation/articles/batch-mpi/#application-command/
+[files_dirs]: batch-api-basics.md#files-and-directories
+[multi_instance]: batch-mpi.md
+[coord_cmd]: batch-mpi.md#coordination-command
+[app_cmd]: batch-mpi.md#application-command

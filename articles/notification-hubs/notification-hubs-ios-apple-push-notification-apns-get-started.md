@@ -25,7 +25,7 @@ wacn.date: ''
 ##Overview
 
 > [!NOTE]
-> To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure 1rmb-trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started/).
+> To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure 1rmb-trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application. You'll create a blank iOS app that receives push notifications by using the Apple Push Notification service (APNs). 
 
@@ -509,7 +509,6 @@ For general information about Notification Hubs, see [Notification Hubs Guidance
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]:/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 [Azure Notification Hubs Notify Users for iOS with .NET backend]:./notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]:./notification-hubs-ios-xplat-segmented-apns-push-notification.md
 

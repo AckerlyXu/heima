@@ -34,7 +34,7 @@ Azure Diagnostics can collect the following types of data:
 | Custom error logs |Logs created by your application or service |
 | Azure Diagnostic infrastructure logs |Information about Diagnostics itself |
 
-The Azure diagnostics extension can transfer this data to an Azure storage account or send it to services like [Application Insights](/documentation/articles/app-insights-cloudservices/). You can use the data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
+The Azure diagnostics extension can transfer this data to an Azure storage account or send it to services. You can use the data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
 ## Next Steps
 Choose which service you are trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
@@ -49,7 +49,6 @@ Note that Web Apps do not use Azure Diagnostics. Find the equivalent information
 
 For more advanced topics, see
 
-- [Using Azure Diagnostics with Application Insights for Cloud Services](/documentation/articles/app-insights-cloudservices/)
 - [Trace the flow of a Cloud Services application with Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 
