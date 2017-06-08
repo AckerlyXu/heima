@@ -84,7 +84,7 @@ Azure IoT Hub implements the [service-assisted communication][lnk-service-assist
 - Bidirectional communication for devices that connect sporadically due to power or connectivity concerns is facilitated by holding commands and device notifications until a device connects to receive them. IoT Hub maintains device-specific queues for the commands it sends.
 - Application payload data is secured separately for protected transit through gateways to a particular service.
 
-The mobile industry has used the service-assisted communication pattern at enormous scale to implement push notification services such as [Windows Push Notification Services][lnk-wns] and [Apple Push Notification Service][lnk-apple-push].
+The mobile industry has used the service-assisted communication pattern at enormous scale to implement push notification services such as [Windows Push Notification Services][lnk-wns].
 
 IoT Hub is supported over ExpressRoute's public peering path.
 
@@ -109,7 +109,6 @@ To get started writing some code and running some samples, see the [Get started 
 [lnk-devguide-security]: ./iot-hub-devguide.md
 [lnk-wns]: https://msdn.microsoft.com/zh-cn/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
-[lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/iot-edge

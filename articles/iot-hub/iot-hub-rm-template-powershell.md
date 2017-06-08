@@ -141,7 +141,6 @@ Use a JSON template to create an IoT hub in your resource group. You can also us
 ## Next steps
 Now you have deployed an IoT hub using an Azure Resource Manager template with PowerShell, you may want to explore further:
 
-- Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
 - Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following articles:
@@ -157,7 +156,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
 
