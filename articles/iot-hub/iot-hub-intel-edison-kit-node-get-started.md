@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
+ms.date: 04/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 

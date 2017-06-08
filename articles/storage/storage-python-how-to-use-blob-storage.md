@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 02/24/2017
 ms.author: marsma
 
 ---

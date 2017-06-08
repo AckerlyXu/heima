@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 5/1/2017
+ms.date: 05/01/2017
 wacn.date: ''
 ms.author: kmouss
 
