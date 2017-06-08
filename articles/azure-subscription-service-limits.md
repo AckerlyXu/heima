@@ -47,7 +47,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Gateway](#application-gateway-limits)
-- [Application Insights](#application-insights-limits)
 - [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
@@ -55,8 +54,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Batch](#batch-limits)
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
-- [Data Factory](#data-factory-limits)
-- [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [Event Hubs](#event-hubs-limits)
@@ -75,7 +72,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Site Recovery](#site-recovery-limits)
 - [SQL Database](#sql-database-limits)
 - [Storage](#storage-limits)
-
 - [Stream Analytics](#stream-analytics-limits)
 - [Subscription](#subscription-limits)
 - [Traffic Manager](#traffic-manager-limits)
@@ -206,9 +202,6 @@ DocumentDB is a global scale database in which throughput and storage can be sca
 
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### Application Insights limits
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### API Management limits
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
