@@ -42,24 +42,7 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </div>
         </a>
     </li>
-    <li>
-        <a href="/iot-suite/iot-solution-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Preconfigured Solutions</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>    
+ 
 </ul>
 
 ---
