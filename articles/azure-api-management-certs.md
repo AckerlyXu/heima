@@ -10,7 +10,8 @@ editor: ''
 ms.service: na
 ms.topic: article
 ms.date: 04/18/2016
-wa.date: ''
+wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Upload an Azure Management API Management Certificate

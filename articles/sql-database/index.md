@@ -1,16 +1,20 @@
-<properties
-    pageTitle="Azure SQL Database Documentation - Tutorials, API Reference | Azure"
-    description="Learn SQL Database, a database-as-a-service in the cloud. Tutorials, videos, and other documentation show how to set up, connect, and manage a relational database."
-    services="sql-database"
-    author="carolz"
-    manager="carolz"
-    layout="LandingPage"
-    ms.service: "sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="landing-page"
-    ms.date="01/23/2017"
-    ms.author="carolz" />
+---
+title: Azure SQL Database Documentation - Tutorials, API Reference | Azure
+description: Learn SQL Database, a database-as-a-service in the cloud. Tutorials, videos, and other documentation show how to set up, connect, and manage a relational database.
+services: sql-database
+author: carolz
+manager: carolz
+layout: LandingPage
+
+ms.service: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: carolz"
+wacn.date: ''
+---
 # SQL Database Documentation
 
 Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine. Tutorials, videos, and other documentation show you how to set up, connect, and manage a SQL database.
