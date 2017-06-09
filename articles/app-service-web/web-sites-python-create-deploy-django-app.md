@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 02/19/2016
 wacn.date: ''
-ms.author: huvalo
+ms.author: v-dazen
 
 ---
 # Creating web apps with Django in Azure
@@ -195,7 +195,7 @@ To trigger a deployment, click on **Sync** or **Push**. Sync does both a push an
 
 The first deployment will take some time, as it will create a virtual environment, install packages, etc.
 
-Visual Studio doesn't show the progress of the deployment. If you'd like to review the output, see the section on [Troubleshooting - Deployment](#troubleshooting-deployment).
+Visual Studio doesn't show the progress of the deployment.
 
 Browse to the Azure URL to view your changes.
 

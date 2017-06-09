@@ -18,7 +18,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # What is Apache Hive and HiveQL on Azure HDInsight
@@ -144,7 +144,7 @@ In the previous example, the HiveQL statements perform the following actions:
 
 > [!NOTE]
 > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or MapReduce operation.
-> <p>
+>
 > Dropping an external table does **not** delete the data, it only deletes the table definition.
 
 To create an **internal** table instead of external, use the following HiveQL:
@@ -174,9 +174,9 @@ These statements perform the following actions:
 
 > [!NOTE]
 > Tez is currently off by default for Windows-based HDInsight clusters and it must be enabled. To take advantage of Tez, the following value must be set for a Hive query:
-> <p>
+>
 > `set hive.execution.engine=tez;`
-> <p>
+>
 > Tez is the default engine for Linux-based HDInsight clusters.
 
 The [Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contains details about the implementation choices and tuning configurations.

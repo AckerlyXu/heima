@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2016
-ms.author: juliako;cenkdin
+ms.author: v-johch
 
 ---
 # Creating Filters with Azure Media Services .NET SDK

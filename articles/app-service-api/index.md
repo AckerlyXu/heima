@@ -1,6 +1,6 @@
 ---
 title: Azure App Service - API Apps Documentation - Tutorials | Azure
-description: Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, videos, and other documentation.
+description: Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials and other documentation.
 services: app-service\api
 author: carolz
 manager: carolz
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: carolz
+ms.author: v-dazen
 ---
 # App Service - API Apps Documentation
 
-Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, videos, and other documentation show you how create and deploy API apps.
+Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, and other documentation show you how create and deploy API apps.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -31,24 +31,6 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
                     </div>
                     <div class="cardText">
                         <h3>Learn about API Apps</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>App Service Video Library</h3>
                     </div>
                 </div>
             </div>

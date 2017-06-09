@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # Replicate Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery by using SAN

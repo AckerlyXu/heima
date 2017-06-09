@@ -9,8 +9,10 @@ editor: ''
 tags: azure-service-management,hpc-pack
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 04/20/2016
+ms.author: v-yiso
 ---
 
 # Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes

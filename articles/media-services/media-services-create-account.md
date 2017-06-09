@@ -8,8 +8,10 @@ manager: erikre
 editor: ''
 
 ms.service: media-services
+ms.topic: article
 ms.date: 06/22/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Create an Azure Media Services account

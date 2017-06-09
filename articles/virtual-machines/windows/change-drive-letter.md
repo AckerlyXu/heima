@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Use the D: drive as a data drive on a Windows VM
@@ -30,7 +30,7 @@ For more information about how Azure uses the temporary disk, see [Understanding
 First, you'll need to attach the data disk to the virtual machine. 
 
 * To use the portal, see [How to attach a data disk in the Azure portal preview](attach-disk-portal.md)
-* To use the Classic Management Portal, see [How to attach a data disk to a Windows virtual machine](classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+* To use the Classic Management Portal, see [How to attach a data disk to a Windows virtual machine](classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
 
 ## Temporarily move pagefile.sys to C drive
 1. Connect to the virtual machine. 

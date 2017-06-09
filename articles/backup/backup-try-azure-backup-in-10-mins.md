@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/23/2017
-ms.author: markgal;
+ms.author: v-junlch
 
 ---
 # First look: back up files and folders in Resource Manager deployment

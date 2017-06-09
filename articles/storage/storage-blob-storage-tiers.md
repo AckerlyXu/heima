@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: mihauss
+ms.author: v-johch
 
 ---
 # Azure Blob Storage: Hot and cool storage tiers
@@ -152,7 +152,7 @@ In this section we will demonstrate the following scenarios using the Azure port
     For more details on Azure Storage replication options, check out [Azure Storage replication](./storage-redundancy.md).
 7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
 8. Select the subscription in which you want to create the new storage account.
-9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](/documentation/articles//resource-group-overview/).
+9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 10. Select the region for your storage account.
 11. Click **Create** to create the storage account.
 

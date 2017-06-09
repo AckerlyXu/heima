@@ -8,8 +8,10 @@ manager: mbaldwin
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 02/20/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Add sign-in to a Windows Universal app using the v2.0 endpoint

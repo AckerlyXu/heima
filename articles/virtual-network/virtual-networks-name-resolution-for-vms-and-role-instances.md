@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
 wacn.date: ''
-ms.author: telmos
+ms.author: v-dazen
 
 ---
 # Name Resolution for VMs and Role Instances

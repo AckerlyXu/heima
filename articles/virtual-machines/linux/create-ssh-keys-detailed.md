@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 2/6/2016
+ms.date: 02/06/2016
 wacn.date: ''
-ms.author: rasquill
+ms.author: v-dazen
 
 ---
 
@@ -227,6 +227,6 @@ When `ssh fedora22` is executed SSH first locates and loads any settings from th
 
 Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with an SSH public key as the login are better secured than VMs created with the default login method, passwords.  Azure VMs created using SSH keys are by default configured with passwords disabled, avoiding brute-forced guessing attempts.
 
-* [Create a secure Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a secure Linux VM using the Azure portal preview](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a secure Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure portal preview](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

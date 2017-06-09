@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Move a Windows VM to another Azure subscription or resource group

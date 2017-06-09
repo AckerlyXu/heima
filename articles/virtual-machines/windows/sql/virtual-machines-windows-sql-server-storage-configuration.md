@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 wacn.date: ''
-ms.author: ninarn
+ms.author: v-dazen
 
 ---
 # Storage configuration for SQL Server VMs

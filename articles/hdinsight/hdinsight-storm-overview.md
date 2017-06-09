@@ -18,7 +18,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 
@@ -52,9 +52,9 @@ Storm on HDInsight provides the following key benefits:
 
     * Azure Storage
 
-    * Azure Cosmos DB
+    * Azure DocumentDb
 
-* Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Kafka, Spark, HBase, or Hadoop clusters.
+* Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Spark, HBase, or Hadoop clusters.
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -68,7 +68,7 @@ Storm runs topologies instead of the MapReduce jobs that you might be familiar w
 
 * Spout components bring data into a topology. They emit one or more streams into the topology.
 
-* Bolt components consume streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, Kafka, or HBase.
+* Bolt components consume streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, or HBase.
 
 ## Ease of creation
 
@@ -98,7 +98,7 @@ You can provision a new Storm cluster on HDInsight in minutes. For more informat
 
     * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__, __Cosmos DB__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Database__, __DocumentDb__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ## Reliability
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/26/2017
 wacn.date: ''
-ms.author: jeffstok
+ms.author: v-yeche
 ---
 
 # How to configure data outputs for Stream Analytics jobs

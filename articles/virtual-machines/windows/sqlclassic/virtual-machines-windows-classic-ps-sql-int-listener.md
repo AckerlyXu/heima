@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: mikeray
+ms.author: v-dazen
 
 ---
 # Configure an ILB listener for Always On Availability Groups in Azure
@@ -44,7 +44,7 @@ Note the following guidelines on the availability group listener in Azure using 
 ## Determine the accessibility of the listener
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-This article focuses on creating a listener that uses an **Internal Load Balancer (ILB)**. If you need an public/external listener, see the version of this article that provides steps for setting up an [external listener](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+This article focuses on creating a listener that uses an **Internal Load Balancer (ILB)**. If you need an public/external listener, see the version of this article that provides steps for setting up an [external listener](../classic/ps-sql-ext-listener.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Create load-balanced VM endpoints with direct server return
 For ILB, you must first create the internal load balancer. This is done in the script below.

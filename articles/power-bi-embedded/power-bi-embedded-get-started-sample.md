@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/02/2017
-ms.author: asaxton
+ms.author: v-junlch
 
 ---
 # Get started with Power BI Embedded sample
@@ -43,7 +43,7 @@ Let's walk through setting up your Visual Studio development environment to acce
     > For example: replace https://api.powerbi.com with https://api.powerbi.cn, replace https://management.azure.com with https://management.chinacloudapi.cn 
     > in file \ProvisionSample\App.config, replace https://management.core.windows.net with 
     > https://management.core.chinacloudapi.cn in file \ProvisionSample\Program.cs, replace https://login.windows.net with https://login.chinacloudapi.cn
-    > in file \ProvisionSample\ProgramExtensions.cs. For more details on the url difference between global and China, please see [here](/documentation/articles/developerdifferences/).
+    > in file \ProvisionSample\ProgramExtensions.cs. For more details on the url difference between global and China, please see [here](/articles/developerdifferences).
 
 2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
 3. Build the solution.

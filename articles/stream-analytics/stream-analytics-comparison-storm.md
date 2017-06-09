@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/24/2017
 wacn.date: ''
-ms.author: jeffstok
+ms.author: v-yeche
 
 ---
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics

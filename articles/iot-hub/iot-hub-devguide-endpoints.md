@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Reference - IoT Hub endpoints
@@ -86,7 +86,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../azure-resource-manager/resource-group-overview.md
-[lnk-event-hubs]: /documentation/services/event-hubs/
+[lnk-event-hubs]: /event-hubs/
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 

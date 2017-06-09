@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
-ms.author: markgal;trinadhk;
+ms.date: 03/10/2017
+ms.author: v-junlch
 
 ---
 # Back up a Windows server or workstation to Azure using the Classic Management Portal

@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -119,7 +119,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 <!--MSDN references-->
 [sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: /azure/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 09/29/2016
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # AMQP 1.0 support in Service Bus

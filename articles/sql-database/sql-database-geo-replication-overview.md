@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Overview: SQL Database Active Geo-Replication

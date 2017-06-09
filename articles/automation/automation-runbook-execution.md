@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2016
 wacn.date: ''
-ms.author: bwren
+ms.author: v-dazen
 
 ---
 # Runbook execution in Azure Automation

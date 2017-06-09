@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: juliako
+ms.author: v-johch
 
 ---
 # Media Services development with .NET

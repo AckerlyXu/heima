@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 wacn.date: ''
-ms.author: sethm;clemensv
+ms.author: v-yeche
 ---
 
 # Event Hubs authentication and security model overview

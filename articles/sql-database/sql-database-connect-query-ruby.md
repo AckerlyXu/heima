@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.author: v-johch
 
 ---
 

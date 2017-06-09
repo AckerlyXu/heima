@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/01/2017
 wacn.date: ''
-ms.author: thmullan;jackr
+ms.author: v-johch
 ---
 
 # Securing your SQL Database

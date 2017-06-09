@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: priyamo
+ms.author: v-junlch
 ---
 
 # Federation metadata

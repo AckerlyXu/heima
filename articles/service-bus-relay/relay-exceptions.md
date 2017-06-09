@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: sethm;jotaub
+ms.author: v-yiso
 
 ---
 # Relay exceptions
@@ -27,7 +27,7 @@ The Relay APIs generate exceptions that can fall into the following categories, 
 
 1. User coding error ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). General action: try to fix the code before proceeding.
 2. Setup/configuration error [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). General action: review your configuration and change if necessary.
-3. Transient exceptions ([Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception.aspx)). General action: retry the operation or notify users.
+3. Transient exceptions ([Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception.aspx)). General action: retry the operation or notify users.
 4. Other exceptions ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). General action: specific to the exception type; please refer to the table in the following section. 
 
 ## Exception types

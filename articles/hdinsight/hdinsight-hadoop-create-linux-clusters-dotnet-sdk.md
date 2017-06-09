@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/27/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Create Linux-based clusters in HDInsight using the .NET SDK
@@ -28,7 +28,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 > [!IMPORTANT]
 > The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
-> <p>
+>
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
 ## Prerequisites

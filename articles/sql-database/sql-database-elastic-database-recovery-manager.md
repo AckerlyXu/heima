@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: ''
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # Using the RecoveryManager class to fix shard map problems

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
@@ -48,7 +48,7 @@ You must have the following:
 
     > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p> 
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     > 
 

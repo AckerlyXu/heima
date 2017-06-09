@@ -11,7 +11,7 @@ Azure Cosmos DB databases can now be used as the data store for apps written for
 You can create an Azure Cosmos DB with support for MongoDB account using either the Azure portal or Azure CLI with Azure Resource Manager templates. This article shows how to create an Azure Cosmos DB with support for MongoDB account using the Azure portal. To create an account using Azure CLI with Azure Resource Manager, see [Automate Azure Cosmos DB account management using Azure CLI 2.0](documentdb-automation-resource-manager-cli.md).
 
 ## Prerequisite
-An Azure account. If you don't have an Azure account, create a [Azure account](/pricing/1rmb-trial/) now.
+An Azure account. If you don't have an Azure account, create a [Azure account](http://www.azure.cn/pricing/1rmb-trial/) now.
 ## Create an Azure Cosmos DB account
 
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.cn).

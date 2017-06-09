@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to capture a VM image from a generalized Azure VM
 This article shows you how to use Azure PowerShell to create an image of a generalized Azure VM. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
 
 ## Prerequisites
-* You need to have already [generalized the VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. You can also generalize a Linux VM using `sudo waagent -deprovision+user` and then use PowerShell to capture the VM. For information about using the CLI to capture a VM, see [How to generalize and capture a Linux virtual machine using the Azure CLI ](../linux/capture-image.md)
+* You need to have already [generalized the VM](generalize-vhd.md?toc=%2fmachines%2fwindows%2ftoc.json). Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. You can also generalize a Linux VM using `sudo waagent -deprovision+user` and then use PowerShell to capture the VM. For information about using the CLI to capture a VM, see [How to generalize and capture a Linux virtual machine using the Azure CLI ](../linux/capture-image.md)
 * You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for installation steps.
 
 ## Log in to Azure PowerShell
@@ -79,4 +79,4 @@ This article shows you how to use Azure PowerShell to create an image of a gener
     You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
 
 ## Next steps
-* Now you can [create a VM from the image](create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Now you can [create a VM from the image](create-vm-generalized.md?toc=%2fmachines%2fwindows%2ftoc.json).

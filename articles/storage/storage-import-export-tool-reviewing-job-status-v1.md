@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 wacn.date: ''
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # Reviewing Azure Import/Export job status with copy log files

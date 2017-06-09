@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 08/24/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Migrate SQL Server database to SQL Database using Deploy Database to Azure Database Wizard

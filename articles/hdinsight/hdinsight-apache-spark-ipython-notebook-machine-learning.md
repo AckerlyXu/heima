@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Build Machine Learning applications to run on Apache Spark clusters on HDInsight
@@ -50,7 +50,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
 
     > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p> 
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     > 
     > 

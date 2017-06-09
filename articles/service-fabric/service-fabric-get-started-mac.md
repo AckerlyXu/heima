@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2017
-ms.author: saysa
+ms.author: v-johch
 
 ---
 # Set up your development environment on Mac OS X

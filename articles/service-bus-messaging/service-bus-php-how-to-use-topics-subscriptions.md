@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 01/18/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # How to use Service Bus topics and subscriptions

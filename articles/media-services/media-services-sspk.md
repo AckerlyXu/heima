@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: xpouyat
+ms.author: v-johch
 
 ---
 # Licensing Microsoft® Smooth Streaming Client Porting Kit

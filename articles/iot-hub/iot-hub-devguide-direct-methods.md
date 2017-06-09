@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 wacn.date: ''
-ms.author: nberdy
+ms.author: v-yiso
 ---
 
 # Understand and invoke direct methods from IoT Hub

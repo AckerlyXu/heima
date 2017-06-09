@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: michaelhauss
+ms.author: v-johch
 
 ---
 # How to use Blob Storage from Xamarin

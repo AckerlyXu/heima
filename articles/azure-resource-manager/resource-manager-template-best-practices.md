@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Best practices for creating Azure Resource Manager templates
@@ -29,7 +29,7 @@ Generally, you work with three types of resource names in Resource Manager:
 * Resource names that can be generic.
 
 <!-- Not Available /guidance/guidance-naming-conventions.md -->
-For help with establishing a naming convention, see the [Azure Infrastructure naming guidelines](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For help with establishing a naming convention, see the [Azure Infrastructure naming guidelines](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Unique resource names
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common resource types that require a unique name include:

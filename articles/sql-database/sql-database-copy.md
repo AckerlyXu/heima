@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.custom: move data
 ms.devlang: NA
 ms.date: 04/05/2017
-ms.author: sashan;carlrab
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -34,7 +34,7 @@ When you copy a database to a different logical server, the security principal o
 
 If you use [Azure Active Directory](../active-directory/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access may not work because the logins do not exist on the new server. See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing logins when copying a database to a different logical server. 
 
-After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database. To resolve logins after the copy operation completes, see [Resolve logins](sql-database-copy.md#resolve-logins.md)
+After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database. To resolve logins after the copy operation completes, see [Resolve logins](sql-database-copy.md#resolve-logins)
 
 ## Database copy using the Azure portal preview
 

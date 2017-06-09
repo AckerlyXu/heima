@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: ''
-ms.author: anuragm;jimpark;delhan;trinadhk;markgal
+ms.author: v-junlch
 ---
 
 # Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM

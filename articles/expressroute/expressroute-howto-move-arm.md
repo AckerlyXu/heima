@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ---
 
 # Move ExpressRoute circuits from the classic to the Resource Manager deployment model using PowerShell

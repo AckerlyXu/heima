@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 wacn.date: ''
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Get started with device twins (Node)
@@ -221,7 +221,7 @@ Use the following resources to learn how to:
 
 <!-- links -->
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://www.azure.cn/pricing/free-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
 [lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
@@ -232,7 +232,7 @@ Use the following resources to learn how to:
 [lnk-iothub-getstarted]: ./iot-hub-node-node-getstarted.md
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/
 
 [lnk-twin-how-to-configure]: ./iot-hub-node-node-twin-how-to-configure.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup/

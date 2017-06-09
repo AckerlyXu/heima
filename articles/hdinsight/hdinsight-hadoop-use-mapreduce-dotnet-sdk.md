@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Run MapReduce jobs using HDInsight .NET SDK

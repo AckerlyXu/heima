@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Add authentication to your Apache Cordova app
@@ -112,7 +112,6 @@ Next, update the app to authenticate users before requesting resources from the 
 
 Learn how to use the SDKs.
 
-* [Apache Cordova SDK]
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
@@ -121,6 +120,5 @@ Learn how to use the SDKs.
 [Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 
 [About Authentication]: ./app-service-mobile-auth.md
-[Apache Cordova SDK]: /documentation/articles/app-service-mobile-codova-how-to-use-client-library/
 [ASP.NET Server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md

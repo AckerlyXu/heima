@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: jroth
+ms.author: v-dazen
 
 ---
 # Provision a SQL Server virtual machine using Azure PowerShell (Resource Manager)
@@ -188,7 +188,7 @@ Execute the following cmdlet and, in the Windows PowerShell credential request w
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### Set the operating system properties for the virtual machine
-Now we are ready to set the virtual machine's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
+Now we are ready to set the virtual machine's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../classic/agents-and-extensions.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
 
 Execute the following cmdlet to set the operating system properties for your virtual machine.
 

@@ -16,7 +16,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: raprasa
+ms.author: v-junlch
 
 ---
 # Automatic online backup and restore with Azure Cosmos DB

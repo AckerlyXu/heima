@@ -56,10 +56,10 @@
 ## [Traffic Manager](/traffic-manager/)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)
+## [Pricing](https://www.azure.cn/pricing/details/expressroute/)
 ## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [SLA](https://www.azure.cn/support/legal/sla/)
 ## [Subscription and Service Limits](../azure-subscription-service-limits.md)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Create an ExpressRoute circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)

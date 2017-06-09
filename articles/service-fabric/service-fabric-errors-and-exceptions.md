@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/16/2017
 wacn.date: ''
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # Common exceptions and errors when working with the FabricClient APIs

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 wacn.date: ''
-ms.author: anithaa
+ms.author: v-dazen
 
 ---
 # Troubleshoot Network Security Groups using Azure PowerShell
@@ -49,7 +49,7 @@ Complete the following steps to troubleshoot NSGs for a VM:
 
     > [!TIP]
     > If you don't know the name of a NIC, enter the following command to retrieve the names of all NICs in a resource group: 
-    > <p> 
+    >
     > `Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`
     > 
     > 

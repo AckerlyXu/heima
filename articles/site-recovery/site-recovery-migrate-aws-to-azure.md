@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 02/12/2017
 wacn.date: ''
-ms.author: bsiva
+ms.author: v-johch
 ---
 
 # Migrate virtual machines in Amazon Web Services (AWS) to Azure with Azure Site Recovery

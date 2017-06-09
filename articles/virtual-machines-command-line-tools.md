@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2017
 wacn.date: ''
-ms.author: danlep
+ms.author: v-junlch
 ---
 
 # Azure CLI commands in Azure Service Management (asm) mode

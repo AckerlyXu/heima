@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # What workloads can you protect with Azure Site Recovery?
@@ -84,7 +84,7 @@ Azure Site Recovery helps protect SharePoint deployments, as follows:
 * Simplifies SharePoint application development and testing by creating a production-like copy on-demand replica environment for testing and debugging.
 * Simplifies transition to the cloud by using Site Recovery to migrate SharePoint deployments to Azure.
 
-[Learn more](site-recovery-sharepoint.md) about protecting SharePoint.
+
 
 
 ## Protect RDS

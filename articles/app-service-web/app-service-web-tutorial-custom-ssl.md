@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Bind an existing custom SSL certificate to Azure Web Apps
@@ -218,6 +218,8 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 You can automate SSL bindings for your web app with scripts, using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 ### Azure CLI
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 The following command uploads an exported PFX file and gets the thumbprint. 
 

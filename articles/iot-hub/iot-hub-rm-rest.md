@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Create an IoT hub using the resource provider REST API (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
-You can use the [IoT Hub resource provider REST API][lnk-rest-api] to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the IoT Hub resource provider REST API to create an IoT hub from a C# program.
+You can use the IoT Hub resource provider REST API to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the IoT Hub resource provider REST API to create an IoT hub from a C# program.
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
@@ -71,7 +71,7 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## Use the resource provider REST API to create an IoT hub
-Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub in your resource group. You can also use the resource provider REST API to make changes to an existing IoT hub.
+Use the IoT Hub resource provider REST API to create an IoT hub in your resource group. You can also use the resource provider REST API to make changes to an existing IoT hub.
 
 1. Add the following method to Program.cs:
 
@@ -160,7 +160,6 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 ## Next steps
 Now you have deployed an IoT hub using the resource provider REST API, you may want to explore further:
 
-- Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
 - Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following articles:
@@ -177,7 +176,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md

@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 02/17/2017
 wacn.date: ''
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # Service Fabric terminology overview

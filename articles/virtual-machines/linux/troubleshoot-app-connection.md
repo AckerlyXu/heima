@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Troubleshoot application connectivity issues on a Linux Azure virtual machine

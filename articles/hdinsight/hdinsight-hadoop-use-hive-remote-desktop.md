@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -29,7 +29,7 @@ In this article, you will learn how to connect to an HDInsight cluster by using 
 
 > [!IMPORTANT]
 > Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-> <p>
+>
 > For HDInsight 3.4 or greater, see [Use Hive with HDInsight and Beeline](hdinsight-hadoop-use-hive-beeline.md) for information on running Hive queries directly on the cluster from a command-line.
 
 ## <a id="prereq"></a>Prerequisites
@@ -66,7 +66,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
 
         > [!NOTE]
         > External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
-        > <p>
+        >
         > Dropping an external table does **not** delete the data, only the table definition.
         >
         >

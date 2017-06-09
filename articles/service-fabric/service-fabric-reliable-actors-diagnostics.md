@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 wacn.date: ''
-ms.author: abhisram
+ms.author: v-johch
 ---
 
 # Diagnostics and performance monitoring for Reliable Actors

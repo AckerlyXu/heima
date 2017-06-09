@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 wacn.date: ''
-ms.author: dugill;tomfitz
+ms.author: v-yeche
 
 ---
 # Use Resource Manager authentication API to access subscriptions
@@ -29,7 +29,7 @@ Your app can access the Resource Manager APIs in couple of ways:
 
 This topic provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
-All the code for this topic is running as a web app that you can try at [http://vipswapper.chinacloudsites.cn/cloudsense](http://vipswapper.chinacloudsites.cn/cloudsense).
+<!-- Not Available for the sample Site [http://vipswapper.chinacloudsites.cn/cloudsense](http://vipswapper.chinacloudsites.cn/cloudsense) -->
 
 ## What the web app does
 The web app:

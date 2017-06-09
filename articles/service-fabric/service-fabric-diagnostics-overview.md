@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/10/2017
-ms.author: dekapur
+ms.author: v-johch
 
 ---
 # Monitoring and Diagnostics in Azure Service Fabric

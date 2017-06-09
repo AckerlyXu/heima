@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 08/10/2016
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ---
 
 # Configuring a custom domain name for an Azure cloud service

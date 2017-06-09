@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
-ms.author: amsriva
+ms.author: v-dazen
 
 ---
 # Application Gateway multiple site hosting

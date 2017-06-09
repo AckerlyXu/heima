@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 
 ---
 
@@ -129,4 +129,4 @@ For more development tips, see the [development overview][development overview].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Import/Export]: /azure/storage-import-export-service/
+[Import/Export]: ../storage/storage-import-export-service.md

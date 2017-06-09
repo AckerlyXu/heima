@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to detach a data disk from a Windows virtual machine
@@ -56,4 +56,4 @@ Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 For more information, see [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+If you want to reuse the data disk, you can just [attach it to another VM](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

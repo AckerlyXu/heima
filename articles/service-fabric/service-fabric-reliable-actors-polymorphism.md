@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/28/2017
-ms.author: seanmck
+ms.author: v-johch
 
 ---
 # Polymorphism in the Reliable Actors framework

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: elioda
+ms.author: v-yiso
 
 ---
 # Get started with device twins (.NET/Node)

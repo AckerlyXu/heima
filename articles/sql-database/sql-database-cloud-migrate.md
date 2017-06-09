@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL Server database migration to SQL Database in the cloud

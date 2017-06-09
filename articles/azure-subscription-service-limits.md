@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-junlch
 
 ---
 # Azure subscription and service limits, quotas, and constraints
@@ -47,7 +47,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Gateway](#application-gateway-limits)
-- [Application Insights](#application-insights-limits)
 - [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
@@ -55,8 +54,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Batch](#batch-limits)
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
-- [Data Factory](#data-factory-limits)
-- [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [Event Hubs](#event-hubs-limits)
@@ -75,7 +72,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Site Recovery](#site-recovery-limits)
 - [SQL Database](#sql-database-limits)
 - [Storage](#storage-limits)
-
 - [Stream Analytics](#stream-analytics-limits)
 - [Subscription](#subscription-limits)
 - [Traffic Manager](#traffic-manager-limits)
@@ -133,7 +129,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 #### Virtual machine disk limits 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
+See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
 #### Managed virtual machine disks
 
@@ -207,9 +203,6 @@ DocumentDB is a global scale database in which throughput and storage can be sca
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-### Application Insights limits
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
-
 ### API Management limits
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
@@ -231,7 +224,7 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 ## See also
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)
 

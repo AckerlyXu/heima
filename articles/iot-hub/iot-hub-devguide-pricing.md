@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2016
 wacn.date: ''
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Azure IoT Hub pricing information

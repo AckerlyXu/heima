@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Get the required values for authenticating an application to access SQL Database from code

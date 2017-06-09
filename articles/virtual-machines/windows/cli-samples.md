@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 
 ---
 # Azure CLI Samples for Windows virtual machines

@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---                    
 
@@ -24,9 +24,9 @@ ms.author: cynthn
 This article shows you how to create a copy of your Azure virtual machine (VM)
 running Linux using the Azure CLI 2.0 and the Azure Resource Manager deployment
 model. You can also perform these steps with the [Azure CLI
-1.0](copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+1.0](copy-vm-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 

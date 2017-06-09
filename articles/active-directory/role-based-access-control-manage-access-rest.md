@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # Manage Role-Based Access Control with the REST API

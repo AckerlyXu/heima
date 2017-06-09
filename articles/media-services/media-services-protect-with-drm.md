@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/16/2017
-ms.author: juliako
+ms.author: v-johch
 
 ---
 # Using PlayReady dynamic common encryption

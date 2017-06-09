@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 
 ---
 # Azure Cosmos DB SQL query cheat sheet PDF

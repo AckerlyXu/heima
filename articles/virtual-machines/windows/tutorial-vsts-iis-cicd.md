@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # Create a continuous integration pipeline with Visual Studio Team Services and IIS

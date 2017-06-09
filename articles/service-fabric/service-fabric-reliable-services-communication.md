@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
-ms.author: vturecek
+ms.author: v-johch
 
 ---
 # How to use the Reliable Services communication APIs

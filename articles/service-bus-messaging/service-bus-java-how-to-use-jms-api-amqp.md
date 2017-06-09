@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 04/27/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
@@ -333,4 +333,4 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 * [How to use AMQP 1.0 with the Service Bus .NET API](./service-bus-amqp-dotnet.md)
 * [Service Bus AMQP 1.0 Developer's Guide](./service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)
-* [Java Developer Center](/develop/java/).
+* [Java Developer Center](https://www.azure.cn/develop/java/).

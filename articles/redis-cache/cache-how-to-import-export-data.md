@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # Import and Export data in Azure Redis Cache

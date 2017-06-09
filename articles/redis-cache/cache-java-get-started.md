@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 04/13/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # How to use Azure Redis Cache with Java

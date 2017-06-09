@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Set up your Media Services development environment

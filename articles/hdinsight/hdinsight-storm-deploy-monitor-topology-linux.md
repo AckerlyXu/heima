@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/22/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Deploy and manage Apache Storm topologies on HDInsight
@@ -27,7 +27,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 > [!IMPORTANT]
 > The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
-> <p>
+>
 > For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
 ## Prerequisites
@@ -57,7 +57,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
     > [!NOTE]
     > The Data Lake Tools for Visual Studio were formerly called the HDInsight Tools for Visual Studio.
-    > <p>
+    >
     > Data Lake Tools for Visual Studio are included in the __Azure Workload__ for Visual Studio 2017.
 
 2. Open Visual Studio, select **File** > **New** > **Project**.

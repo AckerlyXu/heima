@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: ''
-ms.author: jeffstok
+ms.author: v-yeche
 
 ---
 # Rotate login credentials for inputs and outputs in Stream Analytics Jobs

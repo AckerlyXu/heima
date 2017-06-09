@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/18/2017
 wacn.date: ''
-ms.author: pajosh;markgal;trinadhk
+ms.author: v-junlch
 ---
 
 # Backup and restore encrypted VMs using Azure Backup

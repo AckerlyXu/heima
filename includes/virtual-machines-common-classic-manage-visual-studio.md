@@ -129,4 +129,4 @@ As you configure your virtual machine and install software on it, it's a good id
 2. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
 
 ## Next steps
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual machine running Windows in the Azure Portal Preview](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual machine running Windows in the Azure Portal Preview](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

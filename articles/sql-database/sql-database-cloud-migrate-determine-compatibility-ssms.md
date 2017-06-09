@@ -17,13 +17,13 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database
 
 > [!div class="op_single_selector"]
->- [SSDT](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssdt/)
+>- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 >- [SqlPackage](./sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 >- [SSMS](./sql-database-cloud-migrate-determine-compatibility-ssms.md)
 >- [SAMW](./sql-database-cloud-migrate-fix-compatibility-issues.md)

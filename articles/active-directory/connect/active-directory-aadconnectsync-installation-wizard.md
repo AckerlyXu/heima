@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect sync: Running the installation wizard a second time
@@ -47,10 +47,10 @@ Click **Previous** to go back. If you select **Exit**, you close the installatio
 ## Customize synchronization options
 This option is used to make changes to the sync configuration. You see a subset of options from the custom configuration installation path. You see this option even if you used express installation initially.
 
-- [Add more directories](/documentation/articles/active-directory-aadconnect-get-started-custom/#connect-your-directories/). For removing a directory, see [Delete a Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
-- [Change Domain and OU filtering](/documentation/articles/active-directory-aadconnect-get-started-custom/#domain-and-ou-filtering/).
+- [Add more directories](active-directory-aadconnect-get-started-custom.md#connect-your-directories). For removing a directory, see [Delete a Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+- [Change Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
 - Remove Group filtering.
-- [Change optional features](/documentation/articles/active-directory-aadconnect-get-started-custom/#optional-features/).
+- [Change optional features](active-directory-aadconnect-get-started-custom.md#optional-features).
 
 The other options from the initial installation cannot be changed and are not available. These options are:
 

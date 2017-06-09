@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 wacn.date: ''
-ms.author: femila
+ms.author: v-junlch
 ---
 
 # Guidelines for deploying Windows Server Active Directory on Azure virtual machines

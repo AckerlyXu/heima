@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/1/2017
-ms.author: raiye
+ms.date: 05/01/2017
+ms.author: v-yiso
 
 ---
 # Azure Guest OS

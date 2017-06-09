@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # Integrate Azure AD into a Windows Desktop WPF App

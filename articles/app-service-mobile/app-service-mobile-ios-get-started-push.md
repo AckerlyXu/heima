@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # Add Push Notifications to your iOS App

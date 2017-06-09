@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
-ms.author: sashan;carlrab
+ms.author: v-johch
 
 ---
 # SQL Database FAQ

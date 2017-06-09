@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 wacn.date: ''
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # Connect to a secure cluster

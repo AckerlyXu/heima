@@ -8,8 +8,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 05/27/2016
 wacn.date: 05/23/2016
+ms.author: v-johch
 ---
 
 # Create a new elastic database pool with PowerShell

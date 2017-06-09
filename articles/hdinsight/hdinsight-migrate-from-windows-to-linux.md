@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -161,7 +161,7 @@ Ambari has an alert system that can tell you of potential problems with the clus
 
 > [!IMPORTANT]
 > Ambari alerts indicate that there *may* be a problem, not that there *is* a problem. For example, you may receive an alert that HiveServer2 cannot be accessed, even though you can access it normally.
-> <p>
+>
 > Many alerts are implemented as interval-based queries against a service, and expect a response within a specific time frame. So the alert doesn't necessarily mean that the service is down, just that it didn't return results within the expected time frame.
 
 You should evaluate whether an alert has been occurring for an extended period, or mirrors user problems that have been reported before taking action on it.

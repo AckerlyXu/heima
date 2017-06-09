@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
-ms.author: markvi
+ms.author: v-junlch
 
 ---
 # Understand Azure Active Directory architecture

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Managing Media Services entities with REST 

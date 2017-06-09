@@ -15,7 +15,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # Add sign-in to an iOS app using a third-party library with Graph API using the v2.0 endpoint
@@ -51,7 +51,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## Register an app
-Create a new app at the [Application registration portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](./active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at the [Application registration portal](https://apps.dev.microsoft.com), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](./active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy the **Application Id** that's assigned to your app because you'll need it soon.
 - Add the **Mobile** platform for your app.

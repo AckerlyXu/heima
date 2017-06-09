@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: tarcher
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Getting started with Storage Explorer (Preview)

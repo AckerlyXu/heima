@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Create an elastic database pool with C&#x23;
@@ -72,7 +72,7 @@ namespace SqlElasticPoolConsoleApp
         {
 
         // For details about these four (4) values, see
-        // https://wwww.azure.cn/documentation/articles/resource-group-authenticate-service-principal/
+        // https://www.azure.cn/documentation/articles/resource-group-authenticate-service-principal/
         static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
         static string _tenantId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
         static string _applicationId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";

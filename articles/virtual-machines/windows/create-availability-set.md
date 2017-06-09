@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Increase VM availability by creating an Azure availability set 
@@ -29,7 +29,7 @@ Availability sets provide redundancy to your application. We recommend that you 
 
 If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set.
 
-For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Use the portal to create an availability set before creating your VMs
 1. In the hub menu, click **Browse** and select **Availability sets**.
@@ -82,4 +82,4 @@ For more information, see [New-AzureRmAvailabilitySet](https://docs.microsoft.co
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Add additional storage to your VM by adding an additional [data disk](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -7,7 +7,7 @@ keywords:
 author: jeffgilb
 manager: femila
 
-ms.date: 5/1/2017
+ms.date: 05/01/2017
 
 ms.topic: article
 ms.prod:
@@ -15,6 +15,7 @@ ms.service: azure
 ms.technology:
 ms.assetid:
 wacn.date: ''
+ms.author: v-junlch
 
 ---
 # Fundamentals of Azure identity management

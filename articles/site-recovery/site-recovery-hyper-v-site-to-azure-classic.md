@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Azure Site Recovery
@@ -44,7 +44,7 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 
 ## Azure prerequisites
 - You need a [ Azure](https://azure.cn/) account. You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
-- You need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](/documentation/articles//storage-introduction). Note that we don't support moving storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+- You need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md). Note that we don't support moving storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
 - You'll need an Azure virtual network so that Azure virtual machines will be connected to a network when you fail over from your primary site.
 
 ## Hyper-V prerequisites

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 11/16/2016
-ms.author: adegeo
+ms.author: v-yiso
 wacn.date: ''
 ---
 
@@ -342,7 +342,7 @@ For more details about using Azure services from your web and worker roles, such
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
 [execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
 [execution model-cloud services]: ./cloud-services-choose-me.md
-[Python Developer Center]: /develop/python/
+[Python Developer Center]: https://www.azure.cn/develop/python/
 
 [Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
 [Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md

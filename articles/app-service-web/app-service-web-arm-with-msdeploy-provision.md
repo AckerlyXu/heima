@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 wacn.date: ''
-ms.author: jodehavi
+ms.author: v-dazen
 
 ---
 # Deploy a web app with MSDeploy, custom hostname and SSL certificate

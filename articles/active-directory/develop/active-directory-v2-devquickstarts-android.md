@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint

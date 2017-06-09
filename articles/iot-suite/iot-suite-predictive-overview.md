@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2017
 wacn.date: ''
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Predictive maintenance preconfigured solution overview
@@ -151,7 +151,7 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-faq]: ./iot-suite-faq.md
 [lnk-security-groundup]: ./securing-iot-ground-up.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn/
-[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn
 [lnk-permissions]: ./iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/

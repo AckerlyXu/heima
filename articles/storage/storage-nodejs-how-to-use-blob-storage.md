@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: ''
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # How to use Blob storage from Node.js
@@ -414,7 +414,7 @@ For more information, see the following resources.
 [Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Node.js Cloud Service with Storage]: ./storage-nodejs-use-table-storage-cloud-service-app.md
 [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Build and deploy a Node.js web app to Azure using Web Matrix]: /documentation/articles/web-sites-nodejs-use-webmatrix/
+[Build and deploy a Node.js web app to Azure using Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/zh-cn/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.cn
 [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md

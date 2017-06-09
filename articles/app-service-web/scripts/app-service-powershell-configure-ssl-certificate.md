@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # Bind a custom SSL certificate to a web app

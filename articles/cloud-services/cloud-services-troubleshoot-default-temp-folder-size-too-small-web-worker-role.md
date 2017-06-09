@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/12/2016
-ms.author: v-six
+ms.author: v-yiso
 ---
 
 # Default TEMP folder size is too small on a cloud service web/worker role

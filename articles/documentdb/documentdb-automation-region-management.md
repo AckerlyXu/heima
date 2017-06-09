@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: dimakwan
+ms.author: v-junlch
 
 ---
 # Automate Azure Cosmos DB account region management using Azure CLI 1.0 and Azure Resource Manager templates

@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
-ms.author: janeng
+ms.author: v-johch
 ---
 
 # Import from a bacpac into a SQL database using PowerShell
@@ -112,11 +112,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup]() | Creates a resource group in which all resources are stored. |
-| [New-AzureRmSqlServer]() | Creates a logical server that hosts the SQL Database. |
-| [New-AzureRmSqlServerFirewallRule]() | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [New-AzureRmSqlDatabase]() | Creates the SQL Database in the logical server. |
-| [Remove-AzureRmResourceGroup]() | Deletes a resource group including all nested resources. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.0.0) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqlserver?view=azurermps-4.0.0) | Creates a logical server that hosts the SQL Database. |
+| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.0.0) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
+| [New-AzureRmSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqldatabase?view=azurermps-4.0.0) | Creates the SQL Database in the logical server. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.0.0) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: davidmu
+ms.author: v-dazen
 ---
 
 # Monitor a Windows Virtual Machine with Azure PowerShell

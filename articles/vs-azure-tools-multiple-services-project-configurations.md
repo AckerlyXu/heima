@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Configuring Your Azure Project Using Multiple Service Configurations

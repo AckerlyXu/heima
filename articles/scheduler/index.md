@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-johch
 ---
 # Scheduler Documentation
 
@@ -19,7 +19,7 @@ Learn how to use Scheduler to schedule and automatically invoke recurring jobs i
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/scheduler/scheduler-intro">
+        <a href="/scheduler/scheduler-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -37,7 +37,7 @@ Learn how to use Scheduler to schedule and automatically invoke recurring jobs i
         </a>
     </li>
     <li>
-        <a href="/azure/scheduler/scheduler-get-started-portal">
+        <a href="/scheduler/scheduler-get-started-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -66,7 +66,7 @@ Learn how to use Scheduler to schedule and automatically invoke recurring jobs i
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@ Learn how to use Scheduler to schedule and automatically invoke recurring jobs i
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/scheduler">REST API Reference</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/scheduler">REST API Reference</a></p>
                     </div>
                 </div>
             </div>

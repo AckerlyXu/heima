@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # Using Service Bus from .NET with AMQP 1.0

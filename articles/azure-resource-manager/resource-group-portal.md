@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Manage Azure resources through portal
@@ -99,8 +99,8 @@ If you need to move resources to another resource group or another subscription,
 
 ## Lock resources
 You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](./resource-group-lock-resources.md).
-
-[!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
+<!-- Not translate the [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md) -->
+<!-- [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)] -->
 
 ## View your subscription and costs
 You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.

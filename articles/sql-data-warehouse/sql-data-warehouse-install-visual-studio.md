@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 
 ---
 

@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/23/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Build a hyper-scale web app in Azure

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/06/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's
@@ -56,7 +56,7 @@ When using an SSH tunnel for web traffic, you must have the following:
     > The SOCKS proxy support built into Windows does not support SOCKS5, and will not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
     > * Microsoft Edge
     > * Microsoft Internet Explorer
-    > <p>
+    >
     > Google Chrome also relies on the Windows proxy settings. However, you can install extensions that support SOCKS5. We recommend FoxyProxy Standard.
 
 ## <a name="usessh"></a>Create a tunnel using the SSH command
@@ -136,7 +136,7 @@ Once the cluster has been established, use the following steps to verify that yo
 
     > [!NOTE]
     > If you have a slow internet connection, or the head node is very busy, you may get a wait indicator instead of a menu when you select **Quick Links**. If so, wait a minute or two for the data to be received from the server, then try the list again.
-    > <p> 
+    >
     > If you have a lower resolution monitor, or your browser window is not maximized, some entries in the **Quick Links** menu may be cut off by the right side of the screen. If so, expand the menu using your mouse, then use the right arrow key to scroll the screen to the right to see the rest of the menu.
     > 
     > 

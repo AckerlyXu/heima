@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2017
-ms.author: chackdan
+ms.author: v-johch
 
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal preview
@@ -194,7 +194,7 @@ These are all the Key Vault prerequisites for configuring a Service Fabric clust
   * Key Vault
     * Cluster server authentication certificate
 
-</a "create-cluster-portal" ></a>
+<a name="create-cluster-portal" ></a>
 
 ## Create cluster in the Azure portal preview
 ### Search for the Service Fabric cluster resource

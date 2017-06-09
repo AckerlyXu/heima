@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: jrj;barbkess
+ms.author: v-yeche
 ---
 
 # Monitor user queries in Azure SQL Data Warehouse

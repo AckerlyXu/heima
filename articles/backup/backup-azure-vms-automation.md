@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: markgal;trinadhk
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---

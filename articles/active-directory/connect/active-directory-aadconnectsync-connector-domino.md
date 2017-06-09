@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Lotus Domino Connector technical reference

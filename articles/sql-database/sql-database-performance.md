@@ -8,8 +8,10 @@ manager: jhubbard
 editor: monicar
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 07/19/2016
 wacn.date: 05/23/2016
+ms.author: v-johch
 ---
 
 # SQL Database Performance Insight

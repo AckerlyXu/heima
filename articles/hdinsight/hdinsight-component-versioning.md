@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: ''
-ms.author: bprakash
+ms.author: v-dazen
 
 ---
 # What are the Hadoop components and versions available with HDInsight?

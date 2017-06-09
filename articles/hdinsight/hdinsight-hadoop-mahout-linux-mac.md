@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (SSH)
@@ -210,7 +210,7 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 > [!WARNING]
 > If you want to run the command again, you must also delete the output directory. Use the following to delete this directory:
-> <p>
+>
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 ## Next steps

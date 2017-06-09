@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Get started: Create an Apache Spark cluster in HDInsight and run interactive Spark SQL queries
@@ -89,7 +89,7 @@ In this article, you use the **PySpark** kernel in the notebook from where you r
 
     > [!NOTE]
     > You may also access the Jupyter notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p>
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     >
     >

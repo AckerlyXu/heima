@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 wacn.date: ''
-ms.author: kumud
+ms.author: v-dazen
 ---
 
 # Traffic Manager endpoint monitoring
@@ -85,7 +85,7 @@ Traffic Manager periodically checks the health of every endpoint, including unhe
 > * Request for client authentication
 > * Timeout (the timeout threshold is 10 seconds)
 > * Unable to connect
-> <p>
+>
 > For more information about troubleshooting failed checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
 The following timeline is a detailed description of the monitoring process.
@@ -122,7 +122,7 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 > This condition is commonly caused by improper configuration of the service, such as:
 > * An access control list [ACL] blocking the Traffic Manager health checks
 > * An improper configuration of the monitoring path in the Traffic manager profile
-> <p>
+>
 > The consequence of this behavior is that if Traffic Manager health checks are not configured correctly, it might appear from the traffic routing as though Traffic Manager *is* working properly. However, in this case, endpoint failover cannot happen which affects overall application availability. It is important to check that the profile shows an Online status, not a Degraded status. An Online status indicates that the Traffic Manager health checks are working as expected.
 
 For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).

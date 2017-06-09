@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Using AES-128 dynamic encryption and key delivery service

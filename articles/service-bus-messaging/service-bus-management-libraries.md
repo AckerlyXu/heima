@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 01/06/2017
 wacn.date: ''
-ms.author: jotaub
+ms.author: v-yiso
 ---
 
 # Service Bus management libraries

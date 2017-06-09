@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 11/08/2016
 wacn.date: ''
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # Troubleshooting
@@ -93,7 +93,7 @@ iothub-explorer help
 A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure storage issues
-[Microsoft Azure Storage Explorer (preview)](http://storageexplorer.com) is a standalone app from Microsoft that you can use to work with [Azure Storage](/services/storage/) data on Windows, macOS, and Linux. By using this tool, you can connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.
+[Microsoft Azure Storage Explorer (preview)](http://storageexplorer.com) is a standalone app from Microsoft that you can use to work with [Azure Storage](/storage/) data on Windows, macOS, and Linux. By using this tool, you can connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.
 
 ## Next steps
 This page only includes the most common problems of Intel Edison kit. You can also leave bottom comments to report issues for further troubleshooting.

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Enable heap dumps for Hadoop services on Linux-based HDInsight
@@ -82,7 +82,7 @@ You can also trigger a script when an **OutOfMemoryError** occurs. For example, 
 
 > [!NOTE]
 > Since Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.
-> <p> 
+> 
 > The script must also be in a location that is accessible by the account the service runs as, and must provide execute permissions. For example, you may wish to store scripts in `/usr/local/bin` and use `chmod go+rx /usr/local/bin/filename.sh` to grant read and execute permissions.
 
 ## Using Ambari

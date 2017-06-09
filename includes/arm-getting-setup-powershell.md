@@ -28,12 +28,12 @@ Verify that the value of **PSVersion** is 3.0 or 4.0. If not, see [Windows Manag
 
 ### Set your Azure account and subscription
 
-If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+If you don't already have an Azure subscription, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 Open an Azure PowerShell command prompt and log on to Azure with this command.
 
 ```
-Login-AzureRmAccount
+Login-AzureRmAccount -environmentName azureChinaCloud
 ```
 
 If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.

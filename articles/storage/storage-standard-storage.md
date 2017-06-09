@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2017
-ms.author: yuemlu 
+ms.author: v-johch
 
 ---
 # Cost-effective Standard Storage and unmanaged Azure VM disks

@@ -8,8 +8,10 @@ manager: stevenpo
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 02/09/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 #Managing Certificates for Federated Single Sign-On in Azure Active Directory

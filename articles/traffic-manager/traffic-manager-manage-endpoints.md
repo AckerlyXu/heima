@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: kumud
+ms.author: v-dazen
 ---
 
 # Add, disable, enable, or delete endpoints

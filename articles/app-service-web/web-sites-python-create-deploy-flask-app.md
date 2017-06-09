@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/20/2016
 wacn.date: ''
-ms.author: huvalo
+ms.author: v-dazen
 
 ---
 # Creating web apps with Flask in Azure

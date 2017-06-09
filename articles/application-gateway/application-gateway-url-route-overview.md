@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/16/2016
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # URL Path Based Routing overview

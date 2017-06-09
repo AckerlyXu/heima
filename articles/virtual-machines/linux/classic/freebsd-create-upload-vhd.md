@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: kyliel
+ms.author: v-dazen
 
 ---
 # Create and upload a FreeBSD VHD to Azure
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure.
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about uploading a VHD using the Resource Manager model, see [here](../upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about uploading a VHD using the Resource Manager model, see [here](../upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 This article assumes that you have the following items:

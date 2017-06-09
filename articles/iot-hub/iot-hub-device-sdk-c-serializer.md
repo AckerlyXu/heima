@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 wacn.date: ''
-ms.author: obloch
+ms.author: v-yiso
 ---
 
 # Azure IoT device SDK for C – more about serializer

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 wacn.date: ''
-ms.author: dariagrigoriu
+ms.author: v-dazen
 
 ---
 # Azure App Service Deployment Overview

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
-ms.author: sethm
+ms.author: v-yiso
 
 ---
 # Service Bus pricing and billing
@@ -22,7 +22,7 @@ ms.author: sethm
 Service Bus is offered in Basic, Standard tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
 
 >[!NOTE]
-> For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://www.azure.cn/pricing/details/service-bus/), and the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing).
+> For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://www.azure.cn/pricing/details/messaging/), and the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing).
 >
 >
 
@@ -37,7 +37,7 @@ The **Premium** tier provides resource isolation at the CPU and memory layer so 
 
 Note that the standard tier base charge is charged only once per month per Azure subscription. This means that after you create a single Standard tier Service Bus namespace, you will be able to create as many additional Standard namespaces as you want under that same Azure subscription, without incurring additional base charges.
 
-The [Service Bus pricing](/pricing/details/service-bus/) table summarizes the functional differences between the Basic, Standard tiers.
+The [Service Bus pricing](https://www.azure.cn/pricing/details/messaging/) table summarizes the functional differences between the Basic, Standard tiers.
 
 ## Messaging operations
 
@@ -49,7 +49,7 @@ As part of the new pricing model, billing for queues and topics/subscriptions is
 |Messaging|Sending and receiving messages with queues or topics/subscriptions.|
 |Session state|Getting or setting session state on a queue or topic/subscription.|
 
-For cost details, see the prices listed on the [Service Bus pricing](/pricing/details/service-bus/) page.
+For cost details, see the prices listed on the [Service Bus pricing](https://www.azure.cn/pricing/details/messaging/) page.
 
 ## Brokered connections
 
@@ -57,7 +57,7 @@ For cost details, see the prices listed on the [Service Bus pricing](/pricing/de
 
 For connection quotas and other service limits, see the [Service Bus quotas](./service-bus-quotas.md) article.
 
-The Standard tier removes the per-namespace brokered connection limit and counts aggregate brokered connection usage across the Azure subscription. For more information, see the [Brokered connections](/pricing/details/service-bus/) table.
+The Standard tier removes the per-namespace brokered connection limit and counts aggregate brokered connection usage across the Azure subscription. For more information, see the [Brokered connections](https://www.azure.cn/pricing/details/messaging/) table.
 
 >[!NOTE]
 > 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
@@ -99,7 +99,7 @@ Yes. There are no connection charges for sending events using HTTP, regardless o
 
 ## Next steps
 
-- For complete details about Service Bus pricing, see the [Service Bus pricing page](https://www.azure.cn/pricing/details/service-bus/).
+- For complete details about Service Bus pricing, see the [Service Bus pricing page](https://www.azure.cn/pricing/details/messaging/).
 
 * See the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing) for some common FAQs about Service bus pricing and billing.
 

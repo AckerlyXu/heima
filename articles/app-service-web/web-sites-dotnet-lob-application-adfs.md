@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Create a line-of-business Azure app with AD FS authentication
@@ -191,7 +191,7 @@ Now you need to configure an RP trust in AD FS Management before you can use you
     * Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add line-of-business functionality** section of [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
     > [!NOTE]
-    > The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](/active-directory/active-directory-token-and-claims/).
+    > The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](/active-directory/develop/active-directory-token-and-claims/).
     > 
     > 
 11. In the Edit Claim Rules dialog, click **Add Rule**.

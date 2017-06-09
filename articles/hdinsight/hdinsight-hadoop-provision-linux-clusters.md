@@ -18,7 +18,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Create Hadoop clusters in HDInsight
@@ -186,7 +186,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 
 > [!NOTE]
 > The cluster size limit varies among Azure subscriptions. Contact billing support to increase the limit.
-> <p>
+>
 > The nodes that your cluster uses do not count as virtual machines because the virtual machine images used for the nodes are an implementation detail of the HDInsight service. The compute cores used by the nodes do count against the total number of compute cores available to your subscription. When you create an HDInsight cluster, you can see the number of available cores and the cores that will be used by the cluster in the summary section of the **Cluster size** blade.
 >
 >
@@ -228,7 +228,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 | Standard_D13_v2 |8 |56 GB |8 |Temporary (SSD) =400 GB |16 |16x500 |
 | Standard_D14_v2 |16 |112 GB |8 |Temporary (SSD) =800 GB |32 |32x500 |
 
-For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about pricing of the various sizes, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).   
+For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For information about pricing of the various sizes, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).   
 
 > [!IMPORTANT]
 > If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.

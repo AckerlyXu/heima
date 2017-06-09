@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Enable offline sync for your Cordova mobile app

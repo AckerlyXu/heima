@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 01/11/2017
 wacn.date: ''
-ms.author: glimoli;genli
+ms.author: v-dazen
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
@@ -274,9 +274,9 @@ Install the latest updates for Windows. If that's not possible, make sure that t
 * [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
 ## Run Sysprep  <a id="step23"></a>    
-If you want to create an image to deploy to multiple VMs, you need to [generalize the image by running Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. For more information, see the following articles:
+If you want to create an image to deploy to multiple VMs, you need to [generalize the image by running Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. For more information, see the following articles:
 
-* [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Complete recommended configurations
@@ -303,4 +303,4 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```
 
 ## Next steps
-* [Upload a Windows VM image to Azure for Resource Manager deployments](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Upload a Windows VM image to Azure for Resource Manager deployments](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

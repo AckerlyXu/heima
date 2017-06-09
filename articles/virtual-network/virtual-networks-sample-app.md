@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: ''
-ms.author: jonor
+ms.author: v-dazen
 
 ---
 # Sample application for use with DMZs

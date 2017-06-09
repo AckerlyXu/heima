@@ -9,8 +9,10 @@ editor: ''
 tags: ''
 
 ms.service: best-practice
+ms.topic: article
 ms.date: 07/14/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Caching guidance
@@ -556,7 +558,7 @@ Using the Session State Provider with Azure Redis Cache delivers several benefit
 * It supports controlled, concurrent access to the same session state data for multiple readers and a single writer, and
 * It can use compression to save memory and improve network performance.
 
-For more information visit the [ASP.NET Session State Provider for Azure Redis Cache](/documentation/articles/cache-asp.net-session-state-provider/) page on the Microsoft website.
+For more information visit the ASP.NET Session State Provider for Azure Redis Cache page on the Microsoft website.
 
 > [!NOTE]
 > Do not use the Session State Provider for Azure Redis Cache for ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2017
 wacn.date: ''
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Connect your simulated device to your IoT hub using .NET
@@ -290,4 +290,4 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/

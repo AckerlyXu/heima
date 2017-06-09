@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/24/2017
-ms.author: ryanwi
+ms.date: 03/24/2017
+ms.author: v-johch
 
 ---
 # Package an application

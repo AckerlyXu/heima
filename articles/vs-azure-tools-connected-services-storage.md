@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: tarcher
+ms.author: v-junlch
 
 ---
 # Adding Azure storage by using Visual Studio Connected Services

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: ''
-ms.author: jonor
+ms.author: v-dazen
 
 ---
 # Example 1 - Build a simple DMZ using NSGs with classic PowerShell

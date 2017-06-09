@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # How to encrypt virtual disks on a Linux VM
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
@@ -74,7 +74,7 @@ az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-L
   --use-unmanaged-disk
 ```
 
-SSH to your VM. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
+SSH to your VM. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
 Encrypt your VM with [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption#enable). The following example uses the `$sp_id` and `$sp_password` variables from the preceding `ad sp create-for-rbac` command:
 
@@ -200,7 +200,7 @@ az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-L
   --use-unmanaged-disk
 ```
 
-SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
+SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
 ## Encrypt virtual machine
 To encrypt the virtual disks, you bring together all the previous components:

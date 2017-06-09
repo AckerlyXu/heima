@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -27,7 +27,7 @@ This document provides a walkthrough for using the Pig command to run Pig Latin 
 
 > [!IMPORTANT]
 > Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-> <p>
+>
 > For HDInsight 3.4 or greater, see [Use Pig with HDInsight and SSH](hdinsight-hadoop-use-pig-ssh.md) for information on interactively running Pig jobs directly on the cluster from a command-line.
 
 ## <a id="prereq"></a>Prerequisites

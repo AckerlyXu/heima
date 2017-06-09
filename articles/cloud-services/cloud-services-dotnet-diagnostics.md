@@ -8,8 +8,10 @@ manager: jwhit
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 01/25/2016
 wacn.date: ''
+ms.author: v-yiso
 ---
 
 # Enabling Azure Diagnostics in Azure Cloud Services

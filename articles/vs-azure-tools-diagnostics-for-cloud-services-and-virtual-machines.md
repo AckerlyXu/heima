@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Configuring Diagnostics for Azure Cloud Services and Virtual Machines

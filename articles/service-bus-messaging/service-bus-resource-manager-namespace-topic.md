@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/18/2017
-ms.author: sethm;shvija
+ms.author: v-yiso
 
 ---
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template

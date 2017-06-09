@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # How to load balance Linux virtual machines in Azure to create a highly available application
@@ -30,6 +30,8 @@ Load balancing provides a higher level of availability by spreading incoming req
 > * Create virtual machines and attach to a load balancer
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 

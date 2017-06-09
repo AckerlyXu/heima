@@ -46,22 +46,22 @@
   - name: Regions and availability
     href: regions-and-availability.md
   - name: Storage
-    href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Networking
     href: network-overview.md
   - name: VM Scale Sets
-    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     items:
     - name: Deployment models
-      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Templates for VMs
       href: template-description.md
   - name: Azure Windows agent
     href: agent-user-guide.md
   - name: Disaster recovery
-    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Planned maintenance
     href: planned-maintenance.md
     items:
@@ -127,12 +127,12 @@
     - name: Resize a VM
       href: resize-vm.md
     - name: Use tags
-      href: ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../resource-group-using-tags.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
       items:
       - name: Tag a VM
         href: tag.md
     - name: Manage backups with PowerShell
-      href: ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../backup/backup-azure-vms-automation.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Download VM template
       href: download-template.md
     - name: Common PowerShell tasks
@@ -193,11 +193,11 @@
     href: ps-common-network-ref.md
     items:
     - name: Create virtual networks
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Create a VM with multiple NICs
       href: multiple-nics.md
     - name: Create a static public IP
-      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Configure ports, endpoints and security
       href: endpoints-in-resource-manager.md
     - name: Allow access to VM
@@ -220,7 +220,7 @@
       href: load-balance.md
       items:
       - name: Create a load balancer
-        href: ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Scale multiple VMs with VMSS
       href: vmss-powershell-creating.md
     - name: Create multiple Azure virtual machines
@@ -333,23 +333,23 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/vm
+    href: https://docs.microsoft.com/cli/azure/vm
   - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
+    href: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
   - name: .NET
-    href: /dotnet/api/microsoft.azure.management.compute
+    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute
   - name: Java
-    href: /java/api
+    href: https://docs.microsoft.com/java/api
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: Compute REST
-    href: /rest/api/compute
+    href: https://docs.microsoft.com/rest/api/compute
 - name: Resources
   items:
   - name: Author templates
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing

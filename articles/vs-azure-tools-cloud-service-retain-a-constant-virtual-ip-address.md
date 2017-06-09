@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 
 ---
 # Retain a constant virtual IP address for an Azure cloud service

@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 wacn.date: ''
-ms.author: riande
+ms.author: v-dazen
 
 ---
 # Create a REST service using ASP.NET Web API and SQL Database in Azure App Service

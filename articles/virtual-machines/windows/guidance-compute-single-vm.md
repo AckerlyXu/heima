@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/29/2016
 wacn.date: ''
-ms.author: mwasson
+ms.author: v-dazen
 
 ---
 # Best Practices for running a Windows VM on Azure

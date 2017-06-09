@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Deploy resources with Resource Manager templates and Azure portal
@@ -106,4 +106,4 @@ The portal enables you to save a template to your Azure account, and redeploy it
 * To troubleshoot deployment errors, see [View deployment operations](./resource-manager-deployment-operations.md).
 * To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](./resource-manager-export-template.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).
-* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
+* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Agile software development with Azure App Service
@@ -70,7 +70,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:
-> <p> 
+> 
 > * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 >
 > 
@@ -94,12 +94,12 @@ In a typical DevOps scenario, you have an application that's running live in Azu
 
     >[!NOTE]
     > Before you can use these templates, you need to do the following edition, in order to fit in the Azure China Cloud environment:
-    > <p>1. Open file "ProdAndStage.json", and search for "sourcecontrols".
-    > <p>2. Inside "properties", add `"IsManualIntegration": true`
-    > <p>3. Replace "West US" or "East US" by "China East" or "China North" in both "ProdAndStage.json", and "deploy.ps1"
-    > <p>
-    > <p> You can find a modified version [here](https://github.com/bbetstcw/ToDoApp).
-    > <p> In Azure China, we cannot setup GitHub Credential through the new portal. So, countinuous deployment is suitable for public repository only.
+    > 1. Open file "ProdAndStage.json", and search for "sourcecontrols".
+    > 2. Inside "properties", add `"IsManualIntegration": true`
+    > 3. Replace "West US" or "East US" by "China East" or "China North" in both "ProdAndStage.json", and "deploy.ps1"
+    >
+    > You can find a modified version [here](https://github.com/bbetstcw/ToDoApp).
+    > In Azure China, we cannot setup GitHub Credential through the new portal. So, countinuous deployment is suitable for public repository only.
 
 5. When prompted, type in the desired username and password for database access.
 
@@ -136,8 +136,8 @@ Now that you have a complex application running in production in Azure, you will
 
     >[!NOTE]
     > You should do the same modification to "Dev.json" as what you have done to "ProdAndStage.json"
-    > <p>
-    > <p> You can find a modified version [here](https://github.com/bbetstcw/ToDoApp).
+    >
+    > You can find a modified version [here](https://github.com/bbetstcw/ToDoApp).
 
 2. When prompted, type in the desired username and password for database access. 
 

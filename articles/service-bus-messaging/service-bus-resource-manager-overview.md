@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/18/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # Create Service Bus resources using Azure Resource Manager templates

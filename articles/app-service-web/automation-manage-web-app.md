@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 wacn.date: ''
-ms.author: magoedte;csand
+ms.author: v-dazen
 
 ---
 # Managing Azure Web App using Azure Automation

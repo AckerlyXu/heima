@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
-ms.author: magoedte;bwren
+ms.author: v-dazen
 
 ---
 # Runbook and module galleries for Azure Automation

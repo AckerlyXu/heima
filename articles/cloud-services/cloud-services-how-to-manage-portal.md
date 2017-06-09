@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 12/27/2016
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ---
 
 # How to Manage Cloud Services

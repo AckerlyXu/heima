@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
 wacn.date: ''
-ms.author: magoedte;bwren
+ms.author: v-dazen
 
 #Redirection
 redirect_url: /automation/automation-solution-vm-management 

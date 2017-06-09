@@ -1,6 +1,20 @@
 ---
+title: Azure IoT Suite Documentation - Tutorials, API Reference | Azure
+description: 
+services: iot-suite
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: iot-suite
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: v-yiso
 ---
+
 # IoT Suite Documentation
 
 Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions, and accelerate the development of your Internet of Things (IoT) solution. Add new devices—and connect existing ones—using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices, and rely on the global availability of Azure&mdash;no matter how large or small your project.
@@ -42,24 +56,7 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </div>
         </a>
     </li>
-    <li>
-        <a href="/iot-suite/iot-solution-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Preconfigured Solutions</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>    
+ 
 </ul>
 
 ---

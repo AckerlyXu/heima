@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure
@@ -38,7 +38,7 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - You can use a stand-alone head node VM or one that is part of a larger cluster. To create a stand-alone head node, see [Deploy an HPC
-  Pack Head Node in an Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  Pack Head Node in an Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
     > [!TIP]
     > If you use the [HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md) to create the cluster in Azure,

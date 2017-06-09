@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2016
 wacn.date: ''
-ms.author: jimpark;saurabhsensharma;nkolli;trinadhk
+ms.author: v-junlch
 ---
 
 # Offline-backup workflow in Azure Backup

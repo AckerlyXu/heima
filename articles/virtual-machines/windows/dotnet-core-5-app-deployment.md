@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -161,7 +161,7 @@ In the example CustomScriptExtension resource definition below, our custom scrip
 
 The main benefit of this approach is that it does not require you to change your template or deployment parameters in the event of the storage account key changing.
 
-For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](extensions-customscript.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Next Step
 <hr>

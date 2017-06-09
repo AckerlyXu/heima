@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ROBOTS: NOINDEX
 
@@ -64,7 +64,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
     > [!NOTE]
     > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://www.azure.cn/support/contact/).
-    > <p>
+    >
     > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
     >
     >

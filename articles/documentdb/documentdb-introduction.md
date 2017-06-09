@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 
 ---
 # Introduction to Azure Cosmos DB: DocumentDB API

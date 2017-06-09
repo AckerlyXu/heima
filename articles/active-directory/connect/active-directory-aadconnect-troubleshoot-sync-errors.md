@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 wacn.date: ''
-ms.author: vakarand
+ms.author: v-junlch
 ---
 
 # Troubleshooting Errors during synchronization

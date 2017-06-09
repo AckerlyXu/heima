@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Build an ASP.NET app in Azure with SQL Database
@@ -427,6 +427,8 @@ These tabs in the blade show the many great features you can add to your web app
 - Add user authentication
 
 ## Clean up Resources
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
 

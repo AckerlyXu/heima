@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2017
-ms.author: dobett
+ms.author: v-yiso
 
 ---
 # Connect your Raspberry Pi 3 to the remote monitoring solution and enable remote firmware updates using Node.js
@@ -155,7 +155,7 @@ You can observe the firmware update process as it runs on the device and by view
 
 ## Next steps
 
-Visit the [Azure IoT Dev Center](/develop/iot/) for more samples and documentation on Azure IoT.
+Visit the [Azure IoT Dev Center](https://www.azure.cn/develop/iot/) for more samples and documentation on Azure IoT.
 
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-advanced/app-output.png

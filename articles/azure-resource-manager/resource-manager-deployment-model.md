@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
@@ -209,5 +209,5 @@ All the automation and scripts that you've built continue to work for the existi
 A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://azure.microsoft.com/zh-cn/documentation/templates/).
 
 ## Next steps
-* To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](/documentation/articles/resource-manager-template-walkthrough/).
+* To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).
 * To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](./resource-group-template-deploy.md).

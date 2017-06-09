@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 wacn.date: ''
-ms.author: briz
+ms.author: v-yiso
 ---
 
 # Overview of device management with IoT Hub

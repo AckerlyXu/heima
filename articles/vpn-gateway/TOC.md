@@ -1,7 +1,7 @@
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fvpn-gateway%2ftoc.json)
 
 # Get Started
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
@@ -28,7 +28,7 @@
 ## Configure a VNet-to-VNet connection between deployment models
 ### [Azure portal preview](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [Configure Site-to-Site and ExpressRoute coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [Configure Site-to-Site and ExpressRoute coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fvpn-gateway%2ftoc.json)
 ## Configure forced tunneling
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
@@ -56,14 +56,13 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
 ## [PowerShell (classic)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/zh-tw/rest/api/network/virtualnetworkgateways)
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 
 # Related
 ## [Virtual Network](/virtual-network/)
 ## [Application Gateway](/application-gateway/)
-## [Azure DNS](/dns/)
 ## [Traffic Manager](/traffic-manager/)
 ## [Load Balancer](/load-balancer/)
 ## [ExpressRoute](/expressroute/)

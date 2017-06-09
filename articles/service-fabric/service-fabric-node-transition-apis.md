@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2016
 wacn.date: ''
-ms.author: lemai
+ms.author: v-johch
 ---
 
 # Replacing the Start Node and Stop node APIs with the Node Transition API

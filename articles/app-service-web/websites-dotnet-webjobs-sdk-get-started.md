@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 wacn.date: ''
-ms.author: glenga
+ms.author: v-dazen
 
 ---
 # Create a .NET WebJob in Azure App Service
@@ -43,7 +43,7 @@ The tutorial can be used with Visual Studio 2015, but before you run the applica
 
 > [!NOTE]
 > <a name="note"></a>You need an Azure account to complete this tutorial:
-> <p>
+>
 > * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
 >
 >

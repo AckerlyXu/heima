@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/24/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Introduction to Azure Storage
@@ -166,11 +166,11 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Storage Client Library for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Storage Client Library for Java/Android](https://wwww.azure.cn/develop/java/)
+* [Storage Client Library for Java/Android](https://www.azure.cn/develop/java/)
 * [Storage Client Library for Node.js](http://azure.github.io/azure-storage-node/)
-* [Storage Client Library for PHP](https://wwww.azure.cn/develop/php/)
-* [Storage Client Library for Ruby](https://wwww.azure.cn/develop/ruby/)
-* [Storage Client Library for Python](https://wwww.azure.cn/develop/python/)
+* [Storage Client Library for PHP](https://www.azure.cn/develop/php/)
+* [Storage Client Library for Ruby](https://www.azure.cn/develop/ruby/)
+* [Storage Client Library for Python](https://www.azure.cn/develop/python/)
 * [Storage Cmdlets for PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### Azure Storage management services

@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.date: 07/07/2016
 wacn.date: ''
-ms.author: huvalo
+ms.author: v-dazen
 
 ---
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio

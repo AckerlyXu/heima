@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/06/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -280,7 +280,7 @@ An extension can also be removed using the Azure portal preview. To do so:
 ## Common VM extensions reference
 | Extension name | Description | More information |
 | --- | --- | --- |
-| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](extensions-customscript.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
+| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

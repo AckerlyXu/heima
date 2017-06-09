@@ -73,8 +73,8 @@
 ##### [CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Create a VM with multiple network interfaces
-##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
@@ -85,10 +85,10 @@
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
 ### Connectivity scenarios
-#### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [VNet (Resource Manager) to a VNet (Classic)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [VNet to on-premises network (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [VNet to on-premises network (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)
+#### [VNet (Resource Manager) to a VNet (Classic)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fvirtual-network%2ftoc.json)
+#### [VNet to on-premises network (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)
+#### [VNet to on-premises network (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json)
 
 ### Security scenarios
 #### [Secure networks with virtual appliances](virtual-network-scenario-udr-gw-nva.md)
@@ -134,7 +134,6 @@
 # Related
 ## [Virtual Machines](/virtual-machines/)
 ## [Application Gateway](/application-gateway/)
-## [Azure DNS](/dns/)
 ## [Traffic Manager](/traffic-manager/)
 ## [Load Balancer](/load-balancer/)
 ## [VPN Gateway](/vpn-gateway/)

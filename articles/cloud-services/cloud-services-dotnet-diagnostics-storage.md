@@ -8,8 +8,10 @@ manager: jwhit
 editor: tysonn
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 08/01/2016
 wacn.date: ''
+ms.author: v-yiso
 ---
 
 # Store and view diagnostic data in Azure Storage

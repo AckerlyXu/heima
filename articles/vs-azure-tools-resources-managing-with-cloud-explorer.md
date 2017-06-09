@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
-ms.author: tarcher
+ms.author: v-junlch
 
 ---
 # Manage the resources associated with your Azure accounts in Visual Studio Cloud Explorer

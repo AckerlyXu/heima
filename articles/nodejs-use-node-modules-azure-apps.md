@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # Using Node.js Modules with Azure applications
@@ -83,6 +83,6 @@ Now that you understand how to use Node.js modules with Azure, learn how to [spe
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
 [specify the Node.js version]:./nodejs-specify-node-version-azure-apps.md
-[How to use the Azure Command-Line Interface for Mac and Linux]:/documentation/articles/xplat-cli-install/
+[How to use the Azure Command-Line Interface for Mac and Linux]:./xplat-cli-install.md
 [build and deploy a Node.js web app]:./app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Build and deploy a Node.js application to an Azure Cloud Service]:./cloud-services/cloud-services-nodejs-develop-deploy-app.md

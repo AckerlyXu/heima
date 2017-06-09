@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 wacn.date: ''
-ms.author: sngun
+ms.author: v-dazen
 
 ---
 # Runbook input parameters

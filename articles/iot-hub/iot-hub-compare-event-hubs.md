@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 wacn.date: ''
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Comparison of Azure IoT Hub and Azure Event Hubs

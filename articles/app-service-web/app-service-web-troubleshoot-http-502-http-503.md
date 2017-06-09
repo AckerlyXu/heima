@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps

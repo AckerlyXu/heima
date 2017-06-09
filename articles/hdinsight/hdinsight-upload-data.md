@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Upload data for Hadoop jobs in HDInsight

@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/25/2016
 wacn.date: ''
-ms.author: thmullan
+ms.author: v-dazen
 
 ---
 # Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security

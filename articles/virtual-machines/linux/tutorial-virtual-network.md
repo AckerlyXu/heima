@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
@@ -30,6 +30,8 @@ Azure virtual machines use Azure networking for internal and external network co
 > * Manage virtual machine public IP addresses
 > * Secure incoming internet traffic
 > * Secure VM to VM traffic
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 This tutorial requires the Azure CLI version 2.0.4 or later. To find the CLI version run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 

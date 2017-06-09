@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Use empty edge nodes in HDInsight
@@ -106,7 +106,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
     * **Install Script Action**: Keep the default value for going through this tutorial.
 
     Some properties have been hardcoded in the template: Cluster type, Cluster worker node count, Edge node size, and Edge node name.
-4. Click **Legal terms**, and then click **Create**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
+4. Click **Legal terms**, and then click **Purchase**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
 
 ## Access an edge node
 The edge node ssh endpoint is &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.cn:22.  For example, new-edgenode.myedgenode0914-ssh.azurehdinsight.cn:22.

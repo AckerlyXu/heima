@@ -212,28 +212,21 @@
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 
 # Reference
-## [Azure CLI 2.0 Preview](/cli/azure/iot)
-## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
-## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (Service)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (Devices)](/java/api/com.microsoft.azure.iothub)
-## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
-## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (Device Messaging) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [Azure CLI 2.0 Preview](https://doc.microsoft.com/cli/azure/iot)
+## [.NET (Service)](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices)
+## [.NET (Devices)](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices.client)
+## [Java (Service)](https://doc.microsoft.com/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (Devices)](https://doc.microsoft.com/java/api/com.microsoft.azure.iothub)
 
 # Related
-## [Azure IoT Suite](../iot-suite/index.md)
-## [Azure Event Hubs](../event-hubs/index.md)
-## [Stream Analytics](../stream-analytics/index.md)
+## [Azure IoT Suite](/iot-suite/)
+## [Azure Event Hubs](/event-hubs/)
+## [Stream Analytics](/stream-analytics/)
 
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Pricing](https://www.azure.cn/pricing/details/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
 ## [Service updates](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)

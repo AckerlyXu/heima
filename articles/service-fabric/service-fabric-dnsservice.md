@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
-ms.author: msfussell
+ms.date: 05/09/2017
+ms.author: v-johch
 
 ---
 # DNS Service in Azure Service Fabric

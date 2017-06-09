@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET

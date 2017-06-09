@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: v-johch
 
 ---
 # Client-Side Encryption and Azure Key Vault with Java for Azure Storage

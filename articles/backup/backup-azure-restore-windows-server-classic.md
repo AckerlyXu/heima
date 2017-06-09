@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
-ms.author: saurse;trinadhk;markgal;
+ms.date: 01/31/2017
+ms.author: v-junlch
 
 ---
 # Restore files to a Windows server or Windows client machine using the classic deployment model

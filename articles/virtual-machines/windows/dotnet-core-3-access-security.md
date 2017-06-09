@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Access and security in Azure Resource Manager templates for Windows VMs
@@ -140,4 +140,4 @@ For in-depth information on Network Security Groups, see [What is a Network Secu
 ## Next step
 <hr>
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](dotnet-core-4-availability-scale.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

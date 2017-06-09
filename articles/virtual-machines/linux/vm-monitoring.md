@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/08/2016
 wacn.date: ''
-ms.author: kmouss
+ms.author: v-dazen
 
 ---
 # Enable or Disable Azure VM Monitoring
@@ -49,7 +49,7 @@ To enable monitoring for an Azure VM.
 
 [Azure.Note] You can change from version 2.0 to a later version when available. 
 
-For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM's performance and diagnostic data](classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM's performance and diagnostic data](classic/diagnostic-extension.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Image references-->
 [1]: ./media/vm-monitoring/portal-enable-disable.png

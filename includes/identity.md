@@ -24,7 +24,7 @@ Running Windows Server AD in Azure VMs is much like running it on premises. [Fig
 
 ![Azure Active Directory in Virtual Machine](./media/identity/identity_01_ADinVM.png)
 
-<a name="Fig1"></a>Figure 1: Windows Server Active Directory can run in Azure VMs connected to an organization's on-premises datacenter using Azure Virtual Network.
+<a name="fig1"></a>Figure 1: Windows Server Active Directory can run in Azure VMs connected to an organization's on-premises datacenter using Azure Virtual Network.
 
 In the example shown here, Windows Server AD is running in VMs created using Azure Virtual Machines, the platform's IaaS technology. These VMs and a few others are grouped into a virtual network (VNET) connected to an on-premises datacenter using Azure Virtual Network. The VNET carves out a group of cloud VMs that interact with the on-premises network via a virtual private network (VPN) connection. Doing this lets these Azure VMs look like just another subnet to the on-premises datacenter. As the figure shows, two of those VMs are running Windows Server AD domain controllers. The other VMs in the VNET might be running applications, such as SharePoint, or being used in some other way, such as for development and testing. The on-premises datacenter is also running two Windows Server AD domain controllers.
 

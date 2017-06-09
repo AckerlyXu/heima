@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/03/2017
-ms.author: rli; juliako;
+ms.author: v-johch
 
 ---
 # Redact faces with Azure Media Analytics walkthrough

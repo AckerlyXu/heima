@@ -15,7 +15,7 @@ ms.topic: article
 ms.workload: required
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: ruturajd@microsoft.com
+ms.author: v-johch
 ---
 
 # Add Azure automation runbooks to recovery plans in the classic portal

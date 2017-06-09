@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: cakarst;barbkess
+ms.author: v-yeche
 ---
 
 # Load data from Azure blob storage into SQL Data Warehouse (PolyBase)

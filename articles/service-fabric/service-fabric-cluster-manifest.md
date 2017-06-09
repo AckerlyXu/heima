@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 02/17/2017
 wacn.date: ''
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # Configuration settings for standalone Windows cluster

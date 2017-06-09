@@ -9,8 +9,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 07/12/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # SQL error codes for SQL Database client applications: Database connection error and other issues

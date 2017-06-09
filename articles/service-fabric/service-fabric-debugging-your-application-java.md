@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2017
 wacn.date: ''
-ms.author: vturecek;mikhegn
+ms.author: v-johch
 ---
 
 # Debug your Java Service Fabric application using Eclipse

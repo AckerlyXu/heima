@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Scale your IoT hub solution

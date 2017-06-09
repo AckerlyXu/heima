@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/03/2017
-ms.author: osamam
+ms.author: v-yiso
 ---
 
 # ExpressRoute routing requirements  
@@ -39,7 +39,7 @@ You can use either private IP addresses or public IP addresses to configure the 
  - If a /29 subnet is used, it will be split into two /30 subnets. 
      - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
      - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-     - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
+     - You must setup both BGP sessions for our [availability SLA](https://www.azure.cn/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 
@@ -75,7 +75,6 @@ Make sure that your IP address and AS number are registered to you in one of the
 
 - [ARIN](https://www.arin.net/)
 - [APNIC](https://www.apnic.net/)
-- [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
 - [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)

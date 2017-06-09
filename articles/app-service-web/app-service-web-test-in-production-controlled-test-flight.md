@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Flighting deployment (beta testing) in Azure App Service
@@ -71,8 +71,8 @@ In this tutorial, you will learn how to bring the following scenarios together t
 ## Set up your production web app
 > [!NOTE]
 > The script used in this tutorial will automatically configure continuous publishing from your GitHub repository. This requires that your GitHub credentials are already stored in Azure, otherwise the scripted deployment will fail when attempting to configure source control settings for the web apps.
-> <p>
-> <p> To store your GitHub credentials in Azure, create a web app in the [Azure Portal Preview](https://portal.azure.cn/) and [configure GitHub deployment](app-service-continuous-deployment.md). You only need to do this once.
+>
+> To store your GitHub credentials in Azure, create a web app in the [Azure Portal Preview](https://portal.azure.cn/) and [configure GitHub deployment](app-service-continuous-deployment.md). You only need to do this once.
 >
 >
 

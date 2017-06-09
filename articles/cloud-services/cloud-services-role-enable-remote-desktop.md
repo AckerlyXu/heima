@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services

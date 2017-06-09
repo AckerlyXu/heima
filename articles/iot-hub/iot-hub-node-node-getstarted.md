@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2017
 wacn.date: ''
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Connect your simulated device to your IoT hub using Node
@@ -294,4 +294,4 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/

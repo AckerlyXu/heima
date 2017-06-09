@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/16/2017
-ms.author: sethm
+ms.author: v-yiso
 
 ---
 # .NET on-premises/cloud hybrid application using Azure WCF Relay
@@ -45,7 +45,7 @@ reach for access by the cloud solution. Many internal services are not
 built or hosted in a way that they can be easily exposed at the
 corporate network edge.
 
-[Azure Relay](/documentation/services/messaging/) is designed for the use-case of taking existing
+[Azure Relay](/service-bus-messaging/) is designed for the use-case of taking existing
 Windows Communication Foundation (WCF) web services and making those
 services securely accessible to solutions that reside outside the
 corporate perimeter without requiring intrusive changes to the corporate
@@ -77,7 +77,7 @@ The following is a screen shot of the start page of the completed web applicatio
 ## Set up the development environment
 Before you can begin developing Azure applications, download the tools and set up your development environment:
 
-1. Install the Azure SDK for .NET from the SDK [downloads page](/downloads/).
+1. Install the Azure SDK for .NET from the SDK [downloads page](https://www.azure.cn/downloads/).
 2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.

@@ -13,9 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 01/19/2017
 wacn.date: ''
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # Designing Highly Available Applications using RA-GRS

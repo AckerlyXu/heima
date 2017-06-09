@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 wacn.date: ''
-ms.author: asaxton
+ms.author: v-dazen
 
 ---
 # Use ReportViewer in a Web Site Hosted in Azure
@@ -39,7 +39,7 @@ Review the "General recommendation and best practices" section in [SQL Server Bu
 
 > [!NOTE]
 > ReportViewer controls are shipped with Visual Studio, Standard Edition or above. If you are using the Web Developer Express Edition, you must install the [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) to use the ReportViewer runtime features.
-> <p> 
+>
 > ReportViewer configured in local processing mode is not supported in Azure.
 
 ## Adding Assemblies to the Deployment Package
@@ -79,7 +79,7 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 
 > [!IMPORTANT]
 > If the Add Azure Deployment Project or Add Azure Cloud Service Project command does not appear in the shortcut menu in Solution Explorer, you may need to change the Target framework for the project to .NET Framework 4.
-> <p> 
+>
 > The two commands provide essentially the same functionality. One or the other command will appear in the shortcut menu depending on which version of the Azure SDK you have installed.
 > 
 > 

@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Map an existing custom DNS name to Azure Web Apps
@@ -307,6 +307,8 @@ In your browser, browse to the DNS name(s) that you configured earlier (`contoso
 You can automate management of custom domains with scripts, using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 ### Azure CLI 
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 The following command adds a configured custom DNS name to an App Service app. 
 

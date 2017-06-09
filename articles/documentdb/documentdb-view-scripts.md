@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 wacn.date: ''
-ms.author: kirillg
+ms.author: v-junlch
 
 ---
 # Create and run stored procedures, triggers, and user-defined functions using the Azure Cosmos DB Script Explorer

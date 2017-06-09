@@ -21,5 +21,5 @@ A desktop computer to enable you to connect remotely to the command line on the 
 - Intel® NUC Kit DE3815TYKE with 4G Memory and Bluetooth expansion card
 - Power adaptor
 
-[lnk-starter-kits]: /develop/iot/iot-starter-kits/
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-starter-kits]: https://www.azure.cn/develop/iot/iot-starter-kits/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

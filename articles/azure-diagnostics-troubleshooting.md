@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
-ms.author: robb
+ms.author: v-junlch
 ---
 
 # Azure Diagnostics Troubleshooting

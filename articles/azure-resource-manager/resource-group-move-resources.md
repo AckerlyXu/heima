@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Move resources to new resource group or subscription

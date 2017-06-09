@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 11/08/2016
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Determine SQL Database compatibility using SqlPackage.exe
 
 > [!div class="op_single_selector"]
->- [SSDT](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssdt/)
+>- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 >- [SqlPackage](./sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 >- [SSMS](./sql-database-cloud-migrate-determine-compatibility-ssms.md)
 >- [SAMW](./sql-database-cloud-migrate-fix-compatibility-issues.md)

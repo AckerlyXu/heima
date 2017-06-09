@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: nisoneji
+ms.author: v-johch
 ---
 
 # Plan capacity for protecting virtual machines and physical servers in Azure Site Recovery

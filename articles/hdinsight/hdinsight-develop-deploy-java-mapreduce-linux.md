@@ -17,7 +17,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Develop Java MapReduce programs for Hadoop on HDInsight Linux

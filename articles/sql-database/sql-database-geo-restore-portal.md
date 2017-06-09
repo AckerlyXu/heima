@@ -15,7 +15,7 @@ ms.tgt_pltfrm: powershell
 ms.workload: NA
 ms.date: 12/19/2016
 wacn.date: ''
-ms.author: sstein; carlrab
+ms.author: v-johch
 ---
 
 # Restore an Azure SQL Database from a geo-redundant backup with the Azure portal

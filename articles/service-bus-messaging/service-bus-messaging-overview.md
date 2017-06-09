@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/16/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # Service Bus messaging: flexible data delivery in the cloud

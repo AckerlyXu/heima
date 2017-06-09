@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: v-dazen
 
 ---
 # Customize Swashbuckle-generated API definitions

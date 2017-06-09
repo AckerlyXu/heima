@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # Add a Java application to Azure App Service Web Apps

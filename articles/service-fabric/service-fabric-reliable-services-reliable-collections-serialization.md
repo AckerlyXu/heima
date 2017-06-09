@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/8/2017
-ms.author: mcoskun
+ms.date: 05/08/2017
+ms.author: v-johch
 
 ---
 # Reliable Collection object serialization in Azure Service Fabric

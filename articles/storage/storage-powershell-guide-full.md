@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # Using Azure PowerShell with Azure Storage
@@ -772,7 +772,7 @@ To use Azure Storage with AzureChinaCloud, you need to create a storage context 
     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
     ```
 
-* [Overview of Differences When Creating an Application on China Service](https://www.azure.cn/documentation/articles/developerdifferences/)
+* [Overview of Differences When Creating an Application on China Service](/articles/developerdifferences/)
 
 ## Next Steps
 In this guide, you've learned how to manage Azure Storage with Azure PowerShell. Here are some related articles and resources for learning more about them.

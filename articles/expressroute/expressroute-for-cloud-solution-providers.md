@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: richcar
+ms.author: v-yiso
 ---
 
 # ExpressRoute for Cloud Solution Providers (CSP)

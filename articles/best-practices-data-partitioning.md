@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 wacn.date: ''
-ms.author: masashin
+ms.author: v-junlch
 ---
 
 # Data partitioning guidance

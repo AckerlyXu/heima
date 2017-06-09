@@ -16,7 +16,7 @@ ms.devlang: node
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 
 ---
 # Node.js tutorial: DocumentDB Node.js console application

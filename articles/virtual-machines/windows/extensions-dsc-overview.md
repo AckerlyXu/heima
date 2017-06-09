@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 wacn.date: ''
-ms.author: zachal
+ms.author: v-dazen
 
 ---
 # Introduction to the Azure Desired State Configuration extension handler
@@ -151,8 +151,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
 ## Next steps
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-Examine the [Azure Resource Manager template for the DSC extension](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Examine the [Azure Resource Manager template for the DSC extension](extensions-dsc-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
 
-For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](extensions-dsc-credentials.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/16/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 
 ---
 # Azure Virtual Machine PowerShell samples

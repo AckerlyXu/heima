@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Install and use Solr on HDInsight Hadoop clusters

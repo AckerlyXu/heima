@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-ms.author: billmath
+ms.author: v-junlch
 
 ---
 # Changing the Azure AD Connect sync service account password

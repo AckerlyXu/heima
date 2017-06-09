@@ -8,8 +8,10 @@ manager: erikre
 editor: ''
 
 ms.service: notification-hubs
+ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Use Notification Hubs to send localized breaking news
@@ -64,7 +66,7 @@ Then we will ensure that devices register with a template that refers to the cor
 </toast>
 ```
 
-Templates are a very powerful feature you can learn more about in our [Templates](/documentation/articles/notification-hubs-templates-cross-platform-push-messages-cross-platform-push-messages-cross-platform-push-messages/) article. 
+Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages-cross-platform-push-messages-cross-platform-push-messages.md) article. 
 
 ##The app user interface
 

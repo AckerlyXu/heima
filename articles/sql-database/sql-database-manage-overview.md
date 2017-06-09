@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Overview: Tools to manage & develop with Azure SQL Database

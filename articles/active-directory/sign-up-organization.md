@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # Sign up for Azure as an organization

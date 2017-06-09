@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/17/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -102,7 +102,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
     > [!NOTE]
     > When submitting your own topologies to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. Use the `scp` command to copy the file. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
-    > <p>
+    >
     > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 If you are interested in viewing the source for the storm starter examples, you can find the code at [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). This link is for Storm 1.0.x, which is provided with HDInsight 3.5. For other versions of Storm, use the __Branch__ button at the top of the page to select a different Storm version.

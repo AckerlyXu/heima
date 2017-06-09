@@ -17,7 +17,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use C# with MapReduce streaming on Hadoop in HDInsight

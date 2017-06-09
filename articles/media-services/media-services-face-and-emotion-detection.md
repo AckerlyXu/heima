@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: milanga;juliako;
+ms.author: v-johch
 
 ---
 # Detect Face and Emotion with Azure Media Analytics

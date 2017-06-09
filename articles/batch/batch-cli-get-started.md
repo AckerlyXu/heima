@@ -15,7 +15,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: tamram
+ms.author: v-junlch
 ---
 
 # Get started with Azure Batch CLI
@@ -24,7 +24,7 @@ The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manag
 This article is based on Azure CLI version 0.10.5.
 
 ## Prerequisites
-- [Install the Azure CLI](/documentation/articles/xplat-cli-install/)
+- [Install the Azure CLI](../xplat-cli-install.md)
 - [Connect the Azure CLI to your Azure subscription](../xplat-cli-connect.md)
 - Switch to **Resource Manager mode**: `azure config mode arm`
 

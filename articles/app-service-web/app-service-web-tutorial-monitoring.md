@@ -4,7 +4,7 @@ description: Learn how to set up Monitoring on your Web App
 services: App-Service
 keywords:
 author: btardif
-ms.author: byvinyal
+ms.author: v-dazen
 ms.date: 04/04/2017
 wacn.date: ''
 ms.topic: article

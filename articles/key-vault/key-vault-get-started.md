@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 wacn.date: ''
-ms.author: cabailey
+ms.author: v-junlch
 ---
 
 # Get started with Azure Key Vault

@@ -16,13 +16,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 wacn.date: ''
-ms.author: kundanap
+ms.author: v-dazen
 
 ---
 # Linux VM extension configuration samples
 > [!div class="op_single_selector"]
-> * [PowerShell - Template](../windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-> * [CLI - Template](../windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [PowerShell - Template](../windows/extensions-configuration-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - Template](../windows/extensions-configuration-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -33,9 +33,9 @@ ms.author: kundanap
 
 This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about these extensions click here : [Azure VM Extensions Overview.](../windows/extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-To learn more about authoring extension templates click here : [Authoring Extension Templates.](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](../windows/extensions-authoring-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 This article lists expected configuration values for some of the Linux Extensions.
 

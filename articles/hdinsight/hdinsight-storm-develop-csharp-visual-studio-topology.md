@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -34,9 +34,9 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 > [!IMPORTANT]
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies__.
-> <p>
+>
 > To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
-> <p>
+>
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
 ## Prerequisites
@@ -73,8 +73,8 @@ The HDInsight Tools for Visual Studio provide the following templates:
 | --- | --- |
 | Storm Application |An empty Storm topology project |
 | Storm Azure SQL Writer Sample |How to write to Azure SQL Database |
-| Storm Azure Cosmos DB Reader Sample |How to read from Azure Cosmos DB |
-| Storm Azure Cosmos DB Writer Sample |How to write to Azure Cosmos DB |
+| Storm Azure DocumentDb Reader Sample |How to read from Azure DocumentDb |
+| Storm Azure DocumentDb Writer Sample |How to write to Azure DocumentDb |
 | Storm EventHub Reader Sample |How to read from Azure Event Hubs |
 | Storm EventHub Writer Sample |How to write to Azure Event Hubs |
 | Storm HBase Reader Sample |How to read from HBase on HDInsight clusters |

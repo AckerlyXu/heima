@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 
 ---
 # How to import data into Azure Cosmos DB for the DocumentDB API?

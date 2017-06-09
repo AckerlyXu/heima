@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Create an application gateway by using the portal
@@ -51,7 +51,7 @@ To create an application gateway, complete the steps that follow. Application ga
 1. In the Favorites pane of the portal, click **New**
 1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:
 
-![Creating Application Gateway][1]
+    ![Creating Application Gateway][1]
 
 1. In the **Basics** blade that appears, eneter the following values, then click **OK**:
 
@@ -62,7 +62,7 @@ To create an application gateway, complete the steps that follow. Application ga
    |**SKU Size**|Medium|Choices when choosing Standard tier are Small, Medium and Large. When choosing WAF tier, options are Medium and Large only.|
    |**Instance count**|2|Number of instances of the application gateway for high availability. Instance counts of 1 should only be used for testing purposes.|
    |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
-   |**Resource group**|**Create new:** AdatumAppGatewayRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) overview article.|
+   |**Resource group**|**Create new:** AdatumAppGatewayRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fapplication-gateway%2ftoc.json#resource-groups) overview article.|
    |**Location**|China North||
 
 1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This will open enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.

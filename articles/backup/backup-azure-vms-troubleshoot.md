@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: trinadhk;markgal;jpallavi;
+ms.author: v-junlch
 
 ---
 # Troubleshoot Azure virtual machine backup
@@ -99,7 +99,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-- Follow the instructions on [Updating Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Follow the instructions on [Updating Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository.
 
 ### Validating VM Agent installation

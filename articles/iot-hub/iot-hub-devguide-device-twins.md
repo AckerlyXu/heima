@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 wacn.date: ''
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Understand and use device twins in IoT Hub

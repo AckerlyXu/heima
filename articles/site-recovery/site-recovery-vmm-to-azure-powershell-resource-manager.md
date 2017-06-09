@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using PowerShell and Azure Resource Manager
@@ -56,7 +56,7 @@ Make sure you have these prerequisites in place:
 - You'll need a [Azure](https://azure.cn/) account. If you don't have one, start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). In addition, you can read about the [Azure Site Recovery Manager pricing](https://www.azure.cn/pricing/details/site-recovery/).
 - You'll need a CSP subscription if you are trying out the replication to a CSP subscription scenario. Learn more about the CSP program in [how to enroll in the CSP program](https://msdn.microsoft.com/zh-cn/library/partnercenter/mt156995.aspx).
 - You'll need an Azure v2 storage (ARM) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Azure Storage](../storage/storage-introduction.md) for reference.
-- You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements).
+- You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 > [!NOTE]
 > Currently, only VM level operations are possible through Powershell. Support for recovery plan level operations will be made soon.  For now, you are limited to performing fail-overs only at a ‘protected VM’ granularity and not at a Recovery Plan level.
@@ -70,7 +70,7 @@ Make sure you have these prerequisites in place:
     - One or more virtual machines on the source Hyper-V server.
 - Learn more about setting up VMM clouds:
     - Read more about private VMM clouds in [What’s New in Private Cloud with System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357) and in [VMM 2012 and the clouds](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
-    - Learn about [Configuring the VMM cloud fabric](/documentation/articles/site-recovery-best-practices/)
+    - Learn about [Configuring the VMM cloud fabric](site-recovery-best-practices.md)
     - After your cloud fabric elements are in place learn about creating private clouds in [Creating a private cloud in VMM](https://technet.microsoft.com/zh-cn/library/jj860425.aspx) and in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](https://blogs.technet.microsoft.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 ### Hyper-V prerequisites
@@ -300,7 +300,7 @@ After the servers, clouds and networks are configured correctly, you can enable 
 
  Note the following:
 
- - Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](/documentation/articles/site-recovery-best-practices/) in the planning guide.
+ - Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](site-recovery-best-practices.md) in the planning guide.
 
  - To enable protection, the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/02/2016
-ms.author: cawa
+ms.author: v-yiso
 ---
 # Securely Save Cloud Services Diagnostics Storage Key and Setup Continuous Integration and Deployment to Azure using Visual Studio Online
  It is a common practice to open source projects nowadays. Saving application secrets in configuration files is no longer safe practice as security vulnerabilities are exposed from secrets being leaked from public source controls. Storing secret as plaintext in a file in a Continuous Integration pipeline is not secure either since build servers could be shared resources on the Cloud environment. This article explains how Visual Studio and Visual Studio Online mitigates the security concerns during development and Continuous Integration process.

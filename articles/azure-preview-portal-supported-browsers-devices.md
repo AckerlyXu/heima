@@ -9,8 +9,10 @@ manager: lwelicki
 editor: ''
 
 ms.service: multiple
+ms.topic: article
 ms.date: 07/23/2015
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 #Supported browsers and devices

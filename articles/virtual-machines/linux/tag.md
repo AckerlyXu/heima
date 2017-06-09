@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 wacn.date: ''
-ms.author: memccror
+ms.author: v-dazen
 
 ---
 # How to tag a Linux virtual machine in Azure
@@ -29,7 +29,7 @@ To begin, you need the latest [Azure CLI 2.0 (Preview)](https://docs.microsoft.c
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-You can also perform these steps with the [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also perform these steps with the [Azure CLI 1.0](tag-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 

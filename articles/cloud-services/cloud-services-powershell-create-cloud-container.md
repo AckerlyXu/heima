@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 07/29/2016
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ---
 
 # Use an Azure PowerShell command to create an empty cloud service container

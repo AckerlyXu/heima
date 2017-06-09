@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: adegeo
+ms.author: v-dazen
 ---
 
 # Convert an existing Azure virtual machine to a scale set
@@ -37,6 +37,8 @@ exit
 ## Step 2 - Capture an image of the VM
 
 For a detailed overview of capturing, see [Capture a Linux virtual machine](capture-image.md).
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 Deallocate the VM with [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate):
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
@@ -28,7 +28,7 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - We recommend that you use
-  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
   to deploy the head node and cluster. You need the DNS
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
@@ -52,7 +52,7 @@ For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
+> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
 > you can optionally install and configure the web components as part of the deployment.
 > 
 > 

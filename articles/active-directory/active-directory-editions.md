@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 # Azure Active Directory editions

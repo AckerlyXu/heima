@@ -16,13 +16,13 @@ ms.workload: required
 ms.date: 01/10/2017
 wacn.date: ''
 ms.devlang: na
-ms.author: delhan
+ms.author: v-dazen
 
 ---
 # Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
 > [!div class="op_single_selector"]
 > * [Classic](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-> * [Resource Manager](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Resource Manager](../restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 > 
 > 
 
@@ -80,4 +80,4 @@ You can consolidate all your VMs in the same cloud service. If your existing clo
 If the existing cloud service is not associated with a region-based virtual network, then you have to delete the VMs in the existing cloud service, and recreate them in the new cloud service from their disks. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
 
 ## Next steps
-If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

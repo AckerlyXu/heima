@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/06/2016
 wacn.date: ''
-ms.author: ranjithr;wadeh
+ms.author: v-dazen
 
 ---
 # Best practices and troubleshooting guide for node applications on Azure Web Apps

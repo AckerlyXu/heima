@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2016
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -40,5 +40,5 @@ You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a colle
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-iot-hub]: ./iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: ../iot-suite/index.md
-[lnk-iotdev]: /develop/iot/
+[lnk-iotdev]: https://www.azure.cn/develop/iot/
 [lnk-device-management]: ./iot-hub-device-management-overview.md

@@ -15,7 +15,7 @@ ms.devlang: cpp
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: ''
-ms.author: aasthan
+ms.author: v-junlch
 
 ---
 # Azure Cosmos DB: C++ console application tutorial for the DocumentDB API

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Configure IoT Hub file uploads using the Azure portal

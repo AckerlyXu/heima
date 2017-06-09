@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: cabailey
+ms.author: v-junlch
 ---
 
 # What is Azure Key Vault?

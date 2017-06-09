@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
-ms.author: allclark
+ms.author: v-junlch
 ---
 
 # Troubleshooting Visual Studio Docker Development

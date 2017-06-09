@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 wacn.date: ''
-ms.author: renash
+ms.author: v-johch
 ---
 
 # Retrieving State Information for a Job

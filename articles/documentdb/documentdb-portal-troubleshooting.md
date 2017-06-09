@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 
 ---
 # Azure Cosmos DB portal troubleshooting tips

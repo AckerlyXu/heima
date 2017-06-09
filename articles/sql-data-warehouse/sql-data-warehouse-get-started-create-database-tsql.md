@@ -17,7 +17,7 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
@@ -86,4 +86,4 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 <!--Other Web references-->
 [SQL Data Warehouse pricing]: https://www.azure.cn/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://www.azure.cn/pricing/1rmb-trial/
-[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+<!-- Not Available [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F-->

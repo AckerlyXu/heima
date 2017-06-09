@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ---
 
 # Send events to Azure Event Hubs using C
@@ -36,7 +36,8 @@ To complete this tutorial, you will need the following:
 ## Send messages to Event Hubs
 In this section we will write a C app to send events to your Event Hub. We will use the Proton AMQP library from the [Apache Qpid project](http://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP from C as shown [here](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). For more information, see [Qpid Proton documentation](http://qpid.apache.org/proton/index.html).
 
-1. From the [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html), click the **Installing Qpid Proton** link and follow the instructions depending on your environment.
+<!-- [Qpid AMQP Messenger 页] actually is (http://qpid.apache.org/components/index.html) -->
+1. From the [Qpid AMQP Messenger page](http://qpid.apache.org/components/index.html), click the **Installing Qpid Proton** link and follow the instructions depending on your environment.
 2. To compile the Proton library, install the following packages:
 
     ```shell
@@ -149,7 +150,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
     ```
 
     > [!NOTE]
-    > In this code, we use an outgoing window of 1 to force the messages out as soon as possible. In general, your application should try to batch messages to increase throughput. See [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html) for more information about how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
+    > In this code, we use an outgoing window of 1 to force the messages out as soon as possible. In general, your application should try to batch messages to increase throughput. See [Qpid AMQP Messenger page](http://qpid.apache.org/components/index.html) for more information about how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
@@ -165,6 +166,6 @@ You can learn more about Event Hubs by visiting the following links:
 <!-- Links -->
 [Azure Classic Management Portal]: https://manage.windowsazure.cn/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

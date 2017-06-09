@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
-ms.author: douglasl
+ms.author: v-johch
 
 ---
 # Public data sets for testing and prototyping

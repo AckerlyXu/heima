@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Upgrade your existing Node.js Azure Mobile Service to App Service

@@ -136,7 +136,7 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Pricing](https://www.azure.cn/pricing/details/sql-data-warehouse/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)

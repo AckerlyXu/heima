@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 wacn.date: ''
-ms.author: cfowler
+ms.author: v-dazen
 
 ---
 # Create a Python application on Web App

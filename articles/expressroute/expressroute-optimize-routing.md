@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2017
-ms.author: charwen
+ms.author: v-yiso
 
 ---
 # Optimize ExpressRoute Routing

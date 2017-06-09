@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/10/2017
 wacn.date: ''
-ms.author: guybo
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -46,6 +46,8 @@ A button links to the portal deployment feature in the detail pages for these te
 You can change the capacity of a scale set in the Azure portal preview by clicking the **Scaling** section under **Settings**. 
 
 To change scale set capacity on the command line, use the **scale** command in [Azure CLI](https://github.com/Azure/azure-cli). For example, use this command to set a scale set to a capacity of 10 VMs:
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```bash
 az vmss scale -g resourcegroupname -n scalesetname --new-capacity 10 

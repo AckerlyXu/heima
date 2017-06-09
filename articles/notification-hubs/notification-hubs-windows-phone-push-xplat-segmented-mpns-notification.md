@@ -8,8 +8,10 @@ manager: erikre
 editor: ''
 
 ms.service: notification-hubs
+ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Use Notification Hubs to send breaking news
@@ -296,19 +298,6 @@ The app is now complete and can store a set of categories in the device local st
 
 You have completed this topic.
 
-<!--##Next steps
-
-In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
-
-+ [Use Notification Hubs to broadcast localized breaking news]
-
-    Learn how to expand the breaking news app to enable sending localized notifications.
-
-+ [Notify users with Notification Hubs]
-
-    Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
--->
-
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
 [Register for notifications]: #register
@@ -323,5 +312,3 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 <!-- URLs.-->
 [Get started with Notification Hubs]: ./notification-hubs-windows-mobile-push-notifications-mpns.md
-
-[Notify users with Notification Hubs]:/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/

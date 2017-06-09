@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: v-six
+ms.author: v-yiso
 ---
 
 # Troubleshooting allocation failure when you deploy Cloud Services in Azure

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # Enable Session Affinity #

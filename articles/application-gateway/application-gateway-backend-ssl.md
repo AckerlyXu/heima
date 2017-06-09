@@ -16,7 +16,7 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 wacn.date: ''
-ms.author: amsriva
+ms.author: v-dazen
 
 ---
 # Overview of end to end SSL and SSL Policy on Application Gateway

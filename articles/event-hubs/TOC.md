@@ -39,21 +39,21 @@
 
 # Reference
 ## .NET
-### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
-### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
+### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
+### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
+### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+### [Microsoft.Azure.Management.EventHub](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.eventhub)
 ## Java
-### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
-## [REST](/rest/api/eventhub)
+### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost)
+## [REST](https://docs.microsoft.com/rest/api/eventhub)
 ## [Exceptions](event-hubs-messaging-exceptions.md)
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
 ## [Code samples](event-hubs-samples.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Pricing](https://www.azure.cn/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)

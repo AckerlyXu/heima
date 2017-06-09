@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 #  Prerequisites for replication to Azure by using Azure Site Recovery
@@ -24,7 +24,7 @@ The Azure Site Recovery service contributes to your business continuity and disa
 
 This article summarizes the prerequisites required to begin Site Recovery replication to Azure.
 
-## Azure requirements
+##<a name="Azure requirements"></a><a name="azure-requirements"></a> Azure requirements
 
 **Requirement** | **Details**
 --- | ---

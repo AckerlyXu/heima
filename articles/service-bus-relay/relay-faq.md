@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: jotaub;sethm
+ms.author: v-yiso
 
 ---
 # Relay FAQ
@@ -32,7 +32,7 @@ A [namespace](./relay-create-namespace-portal.md) provides a scoping container f
 The previously named Service Bus **Relay** service is now called *WCF Relay*. You can continue to use this service as usual. Hybrid Connections is an updated version of a service transplanted from BizTalk. Both WCF Relay and Hybrid Connections will continue to be supported going forward.
 
 ## Pricing
-This section answers some frequently-asked questions about the Relay pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](/pricing/details/messaging/).
+This section answers some frequently-asked questions about the Relay pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](https://www.azure.cn/pricing/details/messaging/).
 
 ### How do you charge for Hybrid Connections and WCF Relay?
 For complete information about Relay pricing, please see [Service Bus pricing details][Pricing overview]. In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned.
@@ -49,7 +49,7 @@ Please note that the prices used in the examples are applicable only during the 
 ### How are Relay hours calculated?
 WCF Relay and Hybrid Connection hours are billed for the cumulative amount of time during which each Service Bus Relay is "open." A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
 
-WCF Relays are available only in Standard tier namespaces. Otherwise, pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours. For more information, see the [Hybrid Connections and WCF Relays](/pricing/details/service-bus/) table on the pricing details page.
+WCF Relays are available only in Standard tier namespaces. Otherwise, pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours. For more information, see the [Hybrid Connections and WCF Relays](https://www.azure.cn/pricing/details/messaging/) table on the pricing details page.
 
 ### What if I have more than one listener connected to a given Relay?
 In some cases, a single Relay may have multiple connected listeners. A Relay is considered "open" when at least one Relay listener is connected to it. Adding additional listeners to an open Relay will result in additional relay hours. The number of Relay senders (clients that invoke or send messages to Relays) connected to a Relay also has no effect on the calculation of Relay hours.
@@ -100,7 +100,7 @@ The following sequence of PowerShell commands moves a namespace from one Azure s
 ```powershell
 # Create a new resource group in target subscription
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+New-AzureRmResourceGroup -Name 'targetRG' -Location 'China East'
 
 # Move namespace from source subscription to target subscription
 Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
@@ -123,6 +123,6 @@ Yes. The Relay client makes connections to the Relay service using fully qualifi
 * [Get started with .NET](./relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](./relay-hybrid-connections-node-get-started.md)
 
-[Pricing overview]: /pricing/details/messaging/
+[Pricing overview]: https://www.azure.cn/pricing/details/messaging/
 [Relay exceptions]: ./relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

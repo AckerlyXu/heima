@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: rasquill
+ms.author: v-junlch
 ---
 
 # Install the Azure CLI 1.0

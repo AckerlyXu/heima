@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 wacn.date: ''
-ms.author: 
+ms.author: v-dazen
 
 ---
 
@@ -86,7 +86,7 @@ form of update domains. 
 
 For more information about configuring your virtual machines for high
 availability, see [*Manage the availability of your Windows virtual
-machines*](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+machines*](manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Scheduled events
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -272,4 +272,4 @@ For more information on deploying Azure SQL Database, see [Azure SQL Database do
 ## Next step
 <hr>
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Step 2 - Access and Security in Azure Resource Manager Templates](dotnet-core-3-access-security.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

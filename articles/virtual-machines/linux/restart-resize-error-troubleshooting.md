@@ -16,7 +16,7 @@ ms.devlang: na
 ms.workload: required
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: delhan
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -62,4 +62,4 @@ The request to resize the VM has to be attempted at the original cluster that ho
     3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
 
 ## Next steps
-If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

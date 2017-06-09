@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
-ms.author: wesmc
+ms.author: v-junlch
 wacn.date: ''
 ---
 
@@ -428,8 +428,6 @@ In this tutorial, we will keep it simple and just demonstrate testing your clien
 * **Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 * **Node.js** : [How to use Notification Hubs from Node.js](./notification-hubs-nodejs-push-notification-tutorial.md).
-
-* **Azure Mobile Services**: For an example of how to send notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see [Add push notifications to your Mobile Services app](/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/).
 
 * **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](./notification-hubs-java-push-notification-tutorial.md) | [PHP](./notification-hubs-php-push-notification-tutorial.md)).
 

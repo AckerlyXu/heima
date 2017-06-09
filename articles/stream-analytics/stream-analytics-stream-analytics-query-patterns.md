@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 wacn.date: ''
-ms.author: jeffstok
+ms.author: v-yeche
 
 ---
 # Query examples for common Stream Analytics usage patterns

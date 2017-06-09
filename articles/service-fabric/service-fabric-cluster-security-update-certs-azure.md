@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
-ms.author: chackdan
+ms.author: v-johch
 
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure

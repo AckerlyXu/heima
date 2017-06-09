@@ -28,7 +28,7 @@
 
 ## Table Storage
 ### [.NET](storage-dotnet-how-to-use-tables.md)
-### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
+### [F#](https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
@@ -67,7 +67,6 @@
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
 ### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
-### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)

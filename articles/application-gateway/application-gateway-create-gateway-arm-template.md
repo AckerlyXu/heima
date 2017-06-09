@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
@@ -143,7 +143,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
     Get-AzureRmSubscription
     ```
 
-You are prompted to authenticate with your credentials.
+    You are prompted to authenticate with your credentials.
 
 1. Choose which of your Azure subscriptions to use.
 
@@ -151,7 +151,7 @@ You are prompted to authenticate with your credentials.
     Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in China East location.
+1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in China North location.
 
     ```powershell
     New-AzureRmResourceGroup -Name AppgatewayRG -Location "China North"
@@ -165,6 +165,8 @@ You are prompted to authenticate with your credentials.
     ```
 
 ## Deploy the Azure Resource Manager template by using the Azure CLI
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the following steps:
 

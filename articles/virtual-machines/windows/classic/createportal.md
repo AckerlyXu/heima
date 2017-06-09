@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Create a custom virtual machine running Windows using the classic deployment model

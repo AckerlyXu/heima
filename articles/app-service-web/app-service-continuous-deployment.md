@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 wacn.date: ''
-ms.author: dariagrigoriu
+ms.author: v-dazen
 
 ---
 # Continuous Deployment to Azure App Service

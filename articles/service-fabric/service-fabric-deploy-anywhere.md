@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
-ms.author: chackdan
+ms.author: v-johch
 
 ---
 # Create Service Fabric clusters on Windows Server or Linux

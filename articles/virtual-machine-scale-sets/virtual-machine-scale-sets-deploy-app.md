@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: guybo
+ms.author: v-dazen
 
 ---
 # Deploy an App on Virtual Machine Scale Sets
@@ -29,7 +29,7 @@ An application running on a VM Scale Set is typically deployed in one of three w
 ## Install new software on a platform image at deployment time
 A platform image in this context is an operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2, etc.
 
-You can install new software on a platform image using a [VM Extension](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension.
+You can install new software on a platform image using a [VM Extension](../virtual-machines/windows/extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension.
 
 An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and VM deployment time could be longer if there is a lot for the script to download and configure.
 

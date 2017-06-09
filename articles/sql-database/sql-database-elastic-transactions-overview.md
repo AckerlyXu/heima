@@ -8,8 +8,10 @@ manager: jeffreyg
 editor: sidneyh
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 05/27/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Distributed transactions across cloud databases

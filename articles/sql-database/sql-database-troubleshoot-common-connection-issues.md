@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: daleche
+ms.author: v-johch
 
 ---
 # Troubleshoot connection issues to Azure SQL Database
@@ -64,7 +64,7 @@ This error occurs when the Azure database is being moved (or reconfigured) and y
 3. As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Troubleshooting Performance Issues](sql-database-troubleshoot-performance.md).
 4. If connectivity problems continue, or if the duration for which your application encounters the error exceeds 60 seconds or if you see multiple occurrences of the error in a given day, file an Azure support request by selecting **Get Support** on the [Azure Support](https://www.azure.cn/support/contact/) site.
 
-## Troubleshoot persistent errors (non-transient errors)
+##<a name="troubleshoot-the-persistent-errors"></a> Troubleshoot persistent errors (non-transient errors)
 If the application persistently fails to connect to Azure SQL Database, it usually indicates an issue with one of the following:
 
 * Firewall configuration. The Azure SQL database or client-side firewall is blocking connections to Azure SQL Database.
@@ -97,6 +97,5 @@ The following table lists every connection problem topic that applies directly t
 
 ## Additional resources
 * [SQL Database Development Overview](sql-database-develop-overview.md)
-* [General transient fault-handling guidance](../best-practices-retry-general.md)
 * [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 

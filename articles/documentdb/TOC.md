@@ -90,8 +90,8 @@
 ## [.NET Core](documentdb-sdk-dotnet-core.md)
 ## [Node.js](documentdb-sdk-node.md)
 ## [Python](documentdb-sdk-python.md)
-## [REST](/rest/api/documentdb/)
-## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## [REST](https://docs.microsoft.com/rest/api/documentdb/)
+## [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 
 # Related
 ## [.NET samples](documentdb-dotnet-samples.md)
@@ -101,7 +101,7 @@
 ## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+## [Pricing](https://www.azure.cn/pricing/details/documentdb/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)

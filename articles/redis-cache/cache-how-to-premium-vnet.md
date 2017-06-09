@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # How to configure Virtual Network Support for a Premium Azure Redis Cache

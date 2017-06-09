@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 wacn.date: ''
-ms.author: juanpere
+ms.author: v-yiso
 ---
 
 # Schedule and broadcast jobs (Node)

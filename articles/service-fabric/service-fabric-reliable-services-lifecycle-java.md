@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/09/2017
-ms.author: pakunapa;
+ms.author: v-johch
 ---
 
 # Reliable services lifecycle overview

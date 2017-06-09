@@ -8,8 +8,10 @@ manager: femila
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 08/15/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 #What is application access and single sign-on with Azure Active Directory?
@@ -76,7 +78,7 @@ Password-based SSO relies on a browser extension to securely retrieve the applic
 
 For password-based SSO, the end user’s browsers can be:
 
-- Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (See also [IE Extension Deployment Guide](/documentation/articles/active-directory-saas-ie-group-policy/))
+- Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (See also IE Extension Deployment Guide)
 - Chrome -- on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
@@ -115,7 +117,7 @@ Once you’ve found your application, you can get started by follow the step-by-
 
 If your application is not found in the Azure AD application gallery, then you have these options:
 
-* **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](/documentation/articles/active-directory-saas-custom-apps/).
+* **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. 
 
 * **Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
   * [Authentication Scenarios for Azure AD](./develop/active-directory-authentication-scenarios.md)
@@ -165,8 +167,6 @@ The Access Panel at https://myapps.microsoft.com is a web-based portal that allo
 ![][3]
 
 The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription or Office 365 subscription.
-
-For more information on the Azure AD access panel, see the [introduction to the access panel](/documentation/articles/active-directory-saas-access-panel-introduction/).
 
 ###Office 365 application launcher
 

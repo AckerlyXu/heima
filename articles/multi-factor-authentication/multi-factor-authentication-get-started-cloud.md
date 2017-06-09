@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: kgremban
+ms.author: v-junlch
 
 ---
 # Getting started with Azure Multi-Factor Authentication in the cloud

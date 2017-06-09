@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Use the Azure CLI to manage Azure resources and resource groups

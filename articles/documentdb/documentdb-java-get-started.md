@@ -16,7 +16,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: arramac
+ms.author: v-junlch
 
 ---
 # NoSQL tutorial: Build a DocumentDB Java console application

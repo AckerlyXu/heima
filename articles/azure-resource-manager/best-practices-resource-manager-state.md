@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Share state to and from Azure Resource Manager templates

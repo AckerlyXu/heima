@@ -8,10 +8,40 @@ description: Learn how to build and manage powerful applications using Microsoft
     <div class="container">
         <ul class="cardsY panelContent featuredContent">
             <li>
+                <a href="/articles/">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">Azure Operations Guide</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
             <li>
-            </li>
-            <li>
+                <a href="/articles/developerdifferences">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">Developer Notes for Azure in China Applications</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
@@ -106,7 +136,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/cosmos-db/">DocumentDb</a></li>
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
@@ -1866,7 +1896,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h3>Azure CLI
                                                 </h3>
                                                 <p>
-                                                    <a href="/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>
+                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Download Azure CLI for Linux</a>
@@ -1878,7 +1908,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">Reference</a>
+                                                    <a href="/virtual-machines/azure-cli-arm-commands/">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1976,7 +2006,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://storageexplorer.com/">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>

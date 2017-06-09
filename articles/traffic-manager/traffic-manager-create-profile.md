@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 wacn.date: ''
-ms.author: kumud
+ms.author: v-dazen
 ---
 
 # Create a Traffic Manager profile

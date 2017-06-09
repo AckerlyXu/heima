@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/23/2017
-ms.author: markgal;trinadhk;
+ms.date: 02/23/2017
+ms.author: v-junlch
 
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model

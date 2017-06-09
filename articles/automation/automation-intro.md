@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 wacn.date: ''
-ms.author: magoedte;bwren
+ms.author: v-dazen
 
 ---
 # Azure Automation overview

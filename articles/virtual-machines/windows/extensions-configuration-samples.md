@@ -16,13 +16,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: ''
-ms.author: kundanap
+ms.author: v-dazen
 
 ---
 # Azure Windows VM Extension Configuration Samples
 > [!div class="op_single_selector"]
-> * [PowerShell - Template](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-> * [CLI - Template](../linux/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [PowerShell - Template](extensions-configuration-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - Template](../linux/extensions-configuration-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -30,9 +30,9 @@ ms.author: kundanap
 
 This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
 
-To learn more about these extensions, see [Azure VM Extensions Overview.](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about these extensions, see [Azure VM Extensions Overview.](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-To learn more about authoring extension templates, see [Authoring Extension Templates.](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about authoring extension templates, see [Authoring Extension Templates.](extensions-authoring-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 This article lists expected configuration values for some of the Windows Extensions.
 
@@ -330,7 +330,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
           }
 
 ### Azure Diagnostics
-For more details about how to configure diagnostics, see [Azure Diagnostics Extension](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+For more details about how to configure diagnostics, see [Azure Diagnostics Extension](extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",

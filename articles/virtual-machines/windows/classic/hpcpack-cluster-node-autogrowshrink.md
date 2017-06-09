@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload

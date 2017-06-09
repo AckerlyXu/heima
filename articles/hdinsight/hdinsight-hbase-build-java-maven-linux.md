@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use Maven to build Java applications that use HBase with Linux-based HDInsight (Hadoop)
@@ -166,7 +166,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    > <p>
+    >
     > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
 ## Create the application
@@ -381,7 +381,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    > <p>
+    >
     > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar`
 
 2. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
@@ -390,7 +390,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    > <p>
+    >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. Once connected, use the following to create an HBase table using the Java application:

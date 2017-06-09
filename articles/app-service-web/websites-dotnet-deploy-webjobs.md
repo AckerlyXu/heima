@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
 wacn.date: ''
-ms.author: glenga
+ms.author: v-dazen
 
 ---
 # Deploy WebJobs using Visual Studio

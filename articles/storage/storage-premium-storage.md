@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: ramankum
+ms.author: v-johch
 ---
 
 # High-Performance Premium Storage and unmanaged and managed Azure VM Disks
@@ -33,14 +33,10 @@ There are two ways to create Premium disks for Azure VMs:
 **Unmanaged disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
-**[Azure Managed Disks](./storage-managed-disks-overview.md)**: 
-This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don’t have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
-
-Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
 
 To get started with Azure Premium Storage, visit [Get started for 1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). 
 
-For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure Windows VM to Managed Disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating an existing Azure Linux VM to Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md).
+
 
 > [!NOTE]
 > Premium Storage is currently supported in most regions. 
@@ -189,11 +185,6 @@ To maintain geo-redundant copies of your snapshots, you can copy snapshots from 
 
 For detailed information on performing REST operations against page blobs in premium storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
 
-### Managed disks
-
-A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](./storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md).
-
-If a managed disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate a shared access signature (SAS) to perform the copy operation.
 
 ## Using Linux VMs with Premium Storage
 Please refer to the important instructions below for configuring your Linux VMs on Premium Storage:

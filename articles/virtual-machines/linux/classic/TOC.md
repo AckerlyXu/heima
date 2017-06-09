@@ -56,7 +56,7 @@
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
-## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://github.com/Azure/azure-quickstart-templates)
 ## [Compute REST](https://docs.microsoft.com/rest/api/compute)
 ## [Network REST](https://docs.microsoft.com/rest/api)

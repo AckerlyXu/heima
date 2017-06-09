@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: masnider
+ms.author: v-johch
 ---
 
 # Introducing the Service Fabric cluster resource manager

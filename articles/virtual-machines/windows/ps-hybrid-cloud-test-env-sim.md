@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 wacn.date: ''
-ms.author: josephd
+ms.author: v-dazen
 
 ---
 # Set up a simulated hybrid cloud environment for testing
@@ -211,4 +211,4 @@ This is your current configuration.
 Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next step
-* Set up a [web-based, line of business application](ps-hybrid-cloud-test-env-lob.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in this environment.
+* Set up a [web-based, line of business application](ps-hybrid-cloud-test-env-lob.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) in this environment.

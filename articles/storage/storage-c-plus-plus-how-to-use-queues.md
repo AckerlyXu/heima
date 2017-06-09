@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: cbrooksmsft
+ms.author: v-johch
 
 ---
 # How to use Queue Storage from C++

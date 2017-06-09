@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ---
 
 # Event Hubs .NET Framework API overview

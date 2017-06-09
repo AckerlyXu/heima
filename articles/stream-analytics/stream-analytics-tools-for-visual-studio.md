@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: ''
-ms.author: 
+ms.author: v-yeche
 
 ---
 # Use Azure Stream Analytics Tool for Visual Studio

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # How to monitor Azure Redis Cache
@@ -31,7 +31,7 @@ To view cache metrics, [browse](cache-configure.md#configure-redis-cache-setting
 
 > [!IMPORTANT]
 > If the following message is displayed in the **Redis metrics** blade, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
-> <p> 
+>
 > `Monitoring may not be enabled. Click here to turn on Diagnostics.`
 > 
 > 

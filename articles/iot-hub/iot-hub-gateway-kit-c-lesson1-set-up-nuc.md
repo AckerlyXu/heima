@@ -14,8 +14,8 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
-ms.author: xshi
+ms.date: 03/21/2017
+ms.author: v-yiso
 
 ---
 # Set up Intel NUC as an IoT gateway

@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Linux
@@ -28,6 +28,8 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Increase or decrease the number of instances in a scale set
 > * View connection info for scale set instances
 > * Use data disks in a scale set
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 

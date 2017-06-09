@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Process and analyze JSON documents using Hive in HDInsight
@@ -245,7 +245,7 @@ For other related articles, see
 
 * [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md)
 * [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Run a Hadoop job using Azure Cosmos DB and HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
+* [Run a Hadoop job using Azure DocumentDb and HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 

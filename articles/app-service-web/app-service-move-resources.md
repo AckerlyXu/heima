@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 wacn.date: ''
-ms.author: zarizvi
+ms.author: v-dazen
 
 ---
 # Supported Move Configurations

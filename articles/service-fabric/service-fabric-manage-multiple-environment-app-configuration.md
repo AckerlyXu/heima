@@ -13,9 +13,9 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/06/2017
+ms.date: 02/06/2017
 wacn.date: ''
-ms.author: seanmck
+ms.author: v-johch
 ---
 
 # Manage application parameters for multiple environments

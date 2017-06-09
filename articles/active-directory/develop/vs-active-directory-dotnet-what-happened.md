@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?

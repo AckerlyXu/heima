@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: kumud
+ms.author: v-yeche
 ---
 
 # <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
@@ -236,7 +236,7 @@ Create network interfaces (or modify existing ones) and then associate them to N
 
 ## Create a virtual machine
 
-For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-quick-create-powershell.md?toc=%2fload-balancer%2ftoc.json).
 
 ## Add the network interface to the load balancer
 

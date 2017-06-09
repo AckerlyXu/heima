@@ -15,7 +15,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # Convert WordPress to Multisite in Azure App Service
@@ -24,7 +24,7 @@ ms.author: robmcm
 
 In this tutorial, you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install. Additionally, you will learn how to assign a custom domain to each of the subsites within your install.
 
-It is assumed that you have an existing installation of WordPress. If you do not, please follow the guidance provided in [Create a WordPress web site from the gallery in Azure][website-from-gallery].
+It is assumed that you have an existing installation of WordPress.
 
 Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex](http://codex.wordpress.org).
 
@@ -122,7 +122,6 @@ Azure Web Apps allow you to add an unlimited number of domains to a web app. To 
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
-[website-from-gallery]: /develop/php/tutorials/website-from-gallery/
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
 [website-w-mysql-and-ftp-ftp-setup]: /app-service-web/web-sites-php-mysql-deploy-use-ftp
 [website-w-mysql-and-git-git-setup]: /app-service-web/web-sites-php-mysql-deploy-use-git

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: ''
-ms.author: jodebrui
+ms.author: v-johch
 ---
 
 # Monitor In-Memory OLTP Storage

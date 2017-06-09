@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
 wacn.date: ''
-ms.author: rasquill
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -212,4 +212,4 @@ info:    vm image list command OK
 ```
 
 ## Next steps
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

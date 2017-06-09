@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 09/21/2016
 wacn.date: ''
-ms.author: lakshmir;barbkess;sonyama
+ms.author: v-yeche
 ---
 ss
 # Restore Azure SQL Data Warehouse (portal)

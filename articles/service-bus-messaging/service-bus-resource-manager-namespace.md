@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/15/2016
-ms.author: sethm;shvija
+ms.author: v-yiso
 wacn.date: ''
 ---
 
@@ -36,7 +36,7 @@ For the complete template, see the [Service Bus namespace template][] on GitHub.
 
 ## What will you deploy?
 
-With this template, you will deploy a Service Bus namespace with a [Basic, Standard, or Premium](https://www.azure.cn/pricing/details/service-bus/) SKU.
+With this template, you will deploy a Service Bus namespace with a [Basic, Standard, or Premium](https://www.azure.cn/pricing/details/messaging/) SKU.
 
 To run the deployment automatically, click the following button:
 
@@ -63,7 +63,7 @@ The name of the Service Bus namespace to create.
 
 ### serviceBusSKU
 
-The name of the Service Bus [SKU](https://www.azure.cn/pricing/details/service-bus/) to create.
+The name of the Service Bus [SKU](https://www.azure.cn/pricing/details/messaging/) to create.
 
 ```
 "serviceBusSku": { 

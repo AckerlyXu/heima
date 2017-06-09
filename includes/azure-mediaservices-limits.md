@@ -24,18 +24,18 @@
 
 <sup>2</sup> This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs. You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request.
 
-Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. If you need to archive the job/task information, you can use the code described [here](/documentation/articles/media-services-dotnet-manage-entities/).
+Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. If you need to archive the job/task information, you can use the code described [here](../articles/media-services/media-services-dotnet-manage-entities.md).
 
 <sup>3</sup> When making a request to list Job entities, a maximum of 1,000 will be returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](http://msdn.microsoft.com/zh-cn/library/gg309461.aspx).
 
-<sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions. For more information, see [this](/documentation/articles/media-services-content-protection-overview/) section.
+<sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions. For more information, see [this](../articles/media-services/media-services-content-protection-overview.md) section.
 
 <sup>5</sup> The storage accounts must be from the same Azure subscription.
 
 <sup>6</sup> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> You should use the same policy ID if you are always using the same days / access permissions / etc. For information and an example, see [this](/documentation/articles/media-services-dotnet-manage-entities/#limit-access-policies/) section.
+> You should use the same policy ID if you are always using the same days / access permissions / etc. For information and an example, see [this](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
 
 <sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the following limits. 
 

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 wacn.date: ''
-ms.author: sedusch
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -546,7 +546,7 @@ It needs to be configured by purpose when rolling out VMs as seen here:
 
 If we want to create highly available configurations of DBMS deployments (independent of the individual DBMS HA functionality used), the DBMS VMs would need to:
 
-* Add the VMs to the same Azure Virtual Network (</virtual-network/>)
+* Add the VMs to the same Azure Virtual Network (<https://review.docs.azure.cn/virtual-network/>)
 * The VMs of the HA configuration should also be in the same subnet. Name resolution between the different subnets is not possible in Cloud-Only deployments, only IP resolution will work. Using site-to-site or ExpressRoute connectivity for Cross-Premises deployments, a network with at least one subnet will be already established. Name resolution will be done according to the on-premises AD policies and network infrastructure.
 
 
@@ -712,8 +712,8 @@ However, keep in mind, the throughput also is dependent on the location of the A
 #### Managing Backup BLOBs
 There is a requirement to manage the backups on your own. Since the expectation is that many blobs will be created by executing frequent transaction log backups, administration of those blobs easily can overburden the Azure Portal Preview. Therefore, it is recommendable to leverage a Azure Storage Explorer. There are several good ones available which can help to manage an Azure storage account
 
-* Microsoft Visual Studio with Azure SDK installed (</downloads/>)
-* Azure Storage Explorer (</downloads/>)
+* Microsoft Visual Studio with Azure SDK installed (<https://review.docs.azure.cn/downloads/>)
+* Azure Storage Explorer (<https://review.docs.azure.cn/downloads/>)
 * 3rd party tools
 
 

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2017
-ms.author: markvi
+ms.author: v-junlch
 
 ---
 # Azure Active Directory certificate-based authentication on Android

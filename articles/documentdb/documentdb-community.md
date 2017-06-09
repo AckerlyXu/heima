@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: andrl
+ms.author: v-junlch
 
 ---
 # Community portal

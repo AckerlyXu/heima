@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: alexwun
+ms.author: v-johch
 ---
 
 # Understand the ImageStoreConnectionString setting

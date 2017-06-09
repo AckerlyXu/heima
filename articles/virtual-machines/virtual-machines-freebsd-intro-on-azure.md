@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 wacn.date: ''
-ms.author: kyliel
+ms.author: v-dazen
 
 ---
 # Introduction to FreeBSD on Azure

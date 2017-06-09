@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Glossary of IoT Hub terms
@@ -171,7 +171,7 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 The [IoT Hub query language](./iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [jobs](#job) and device twins.
 
 ## IoT Hub resource provider REST API
-You can use the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
+You can use the IoT Hub resource provider REST API to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
 
 ## IoT Suite
 Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)

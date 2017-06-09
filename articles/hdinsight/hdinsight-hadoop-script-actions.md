@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -32,7 +32,7 @@ Script Action can be used to install additional software running on a Hadoop clu
 
 > [!NOTE]
 > If you experience the following error message:
-> <p>
+>
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > It is because you didn't include the helper methods.  See [Helper methods for custom scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >

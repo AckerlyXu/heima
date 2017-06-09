@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date:  01/23/2017
-ms.author: carolz
+ms.author: v-yiso
 ---
 #Service Bus Documentation
 
@@ -174,24 +174,6 @@ Learn how to use Service Bus to connect across on-premises and cloud environment
                     </div>
                     <div class="cardText">
                         <h3>Get started with Service Bus queues using Ruby</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/service-bus-messaging/service-bus-brokered-tutorial-rest">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/rest.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Service Bus queues using REST</h3>
                     </div>
                 </div>
             </div>

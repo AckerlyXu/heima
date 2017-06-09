@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # Exporting Resource Groups that contain VM extensions

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2016
 wacn.date: ''
-ms.author: arramac
+ms.author: v-junlch
 
 ---
 # Modeling data in Azure Cosmos DB

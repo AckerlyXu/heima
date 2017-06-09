@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
-ms.author: deli
+ms.author: v-johch
 
 ---
 # Get started with Azure Scheduler in Azure portal preview

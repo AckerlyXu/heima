@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: davidmu
+ms.author: v-dazen
 
 ---
 # Deploy an Azure Virtual Machine Using C# #
@@ -507,7 +507,7 @@ Now that you created all the supporting resources, you can create a virtual mach
     ```
 
     > [!NOTE]
-    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     >
 
@@ -567,5 +567,5 @@ Because you are charged for resources used in Azure, it is always good practice 
 3. After the virtual machine is created and before you press **Enter** to start deleting resources, you could take a few minutes to inspect the resources in the Azure portal preview.
 
 ## Next Steps
-* Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

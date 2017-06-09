@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/06/2017
-ms.author: cherylmc
+ms.author: v-yiso
 ---
 
 # ExpressRoute prerequisites & checklist  

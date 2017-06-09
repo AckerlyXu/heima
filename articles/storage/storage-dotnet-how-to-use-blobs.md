@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 # Get started with Azure Blob storage using .NET
 

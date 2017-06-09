@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 wacn.date: ''
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Upload files from your simulated device to the cloud with IoT Hub
@@ -178,12 +178,12 @@ To further explore the capabilities of IoT Hub, see:
 [Azure portal]: https://portal.azure.cn/
 
 
-[Hadoop]: /documentation/services/hdinsight/
+[Hadoop]: /hdinsight/
 
 [Send Cloud-to-Device messages with IoT Hub]: ./iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: ./iot-hub-csharp-csharp-process-d2c.md
 [Get started with IoT Hub]: ./iot-hub-csharp-csharp-getstarted.md
-[Azure IoT Developer Center]: /develop/iot
+[Azure IoT Developer Center]: https://www.azure.cn/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account

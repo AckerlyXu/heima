@@ -8,8 +8,9 @@ manager: stevenpo
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 02/26/2016
-ms.author: asmalser
+ms.author: v-junlch
 ---
 
 #Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory
@@ -57,7 +58,6 @@ If for a given user there is no value stored for a selected attribute, then that
 ## Related Articles
 
 - [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](/documentation/articles/active-directory-saas-custom-apps/)
 - [Troubleshooting SAML-Based Single Sign-On](./active-directory-saml-debugging.md)
 
 <!--Image references-->

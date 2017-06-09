@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
-ms.author: xshi
+ms.author: v-yiso
 
 ---
 # Connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub in the cloud
@@ -74,7 +74,7 @@ The following items are optional in case you don’t have a sensor. You also hav
    ![basic information for iot hub creation](./media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
 
    * **Name**: The name for your IoT hub. If the name you enter is valid, a green check mark appears.
-   * **Pricing and scale tier**: Select the free F1 tier, will suffice for this demo. See [pricing and scale tier](/pricing/details/iot-hub/).
+   * **Pricing and scale tier**: Select the free F1 tier, will suffice for this demo. See [pricing and scale tier](https://www.azure.cn/pricing/details/iot-hub/).
    * **Resource group**: Create a resource group to host the IoT hub or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
    * **Location**: Select the closest location to you where the IoT hub is created.
    * **Pin the dashboard**: Check this option for easy access to your IoT hub from the dashboard.

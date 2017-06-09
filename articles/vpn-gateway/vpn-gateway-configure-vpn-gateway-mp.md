@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 wacn.date: ''
-ms.author: cherylmc
+ms.author: v-dazen
 
 ---
 # Configure a VPN gateway in the Classic Management Portal 
@@ -126,6 +126,6 @@ Before changing your gateway VPN routing type, be sure to verify that your VPN d
     Use the procedure at the top of the page to create a new gateway: [Create a VPN gateway](#create-a-vpn-gateway).
 
 ## Next steps
-You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/windows/classic/createportal.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 If you want to configure a point-to-site VPN connection, see [Configure a point-to-site VPN connection](vpn-gateway-point-to-site-create.md).

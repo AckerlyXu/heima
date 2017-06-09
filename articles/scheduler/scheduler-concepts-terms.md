@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.author: deli
+ms.author: v-johch
 
 ---
 # Scheduler concepts, terminology, + entity hierarchy

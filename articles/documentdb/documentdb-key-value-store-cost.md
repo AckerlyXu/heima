@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: acomet
+ms.author: v-junlch
 ---
 
 # Azure Cosmos DB as a key value store - Cost overview

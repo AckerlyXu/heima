@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---

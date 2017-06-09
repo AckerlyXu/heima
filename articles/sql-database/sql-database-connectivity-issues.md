@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2017
 wacn.date: ''
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database
@@ -379,8 +379,6 @@ In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.
 Here are links to information about EntLib60:
 
 - Free [Book Download: Developer's Guide to Microsoft Enterprise Library, 2nd Edition](http://www.microsoft.com/en-us/download/details.aspx?id=41145)
-
-- Best practices: [Retry general guidance](../best-practices-retry-general.md) has an excellent in-depth discussion of retry logic.
 
 - NuGet download of [Enterprise Library - Transient Fault Handling application block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 

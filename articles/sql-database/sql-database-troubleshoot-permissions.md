@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
-ms.author: v-shysun
+ms.author: v-johch
 ---
 
 # How to perform common administrative tasks such as resetting admin password in Azure SQL Database

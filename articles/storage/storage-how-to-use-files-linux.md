@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/8/2017
-ms.author: renash
+ms.date: 03/08/2017
+ms.author: v-johch
 
 ---
 # How to use Azure File Storage with Linux

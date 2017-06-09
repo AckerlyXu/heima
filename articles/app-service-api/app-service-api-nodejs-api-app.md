@@ -15,7 +15,7 @@ ms.devlang: node
 ms.topic: get-started-article
 ms.date: 05/26/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: v-dazen
 
 ---
 # Build a Node.js RESTful API and deploy it to an API app in Azure

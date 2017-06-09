@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 wacn.date: ''
-ms.author: narayan;aglick
+ms.author: v-dazen
 
 ---
 # Virtual Network - Business Continuity

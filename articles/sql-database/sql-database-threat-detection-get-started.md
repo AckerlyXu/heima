@@ -8,8 +8,10 @@ manager: jhubbard
 editor: v-romcal
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 07/10/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Get started with SQL Database Threat Detection

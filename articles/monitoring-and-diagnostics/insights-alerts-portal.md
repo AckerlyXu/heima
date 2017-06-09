@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
-ms.author: robb
+ms.author: v-yiso
 
 ---
 # Create metric alerts in Azure Monitor for Azure services - Azure portal

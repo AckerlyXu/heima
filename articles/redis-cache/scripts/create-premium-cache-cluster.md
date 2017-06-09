@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/14/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # Create a Premium Azure Redis Cache with clustering

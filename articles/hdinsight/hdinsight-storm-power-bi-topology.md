@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use Power BI to visualize data from an Apache Storm topology
@@ -30,11 +30,11 @@ Power BI allows you to visually display data as reports. This document provides 
 
 > [!NOTE]
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.
-> <p>
+>
 > To use a C# topology with a Linux-based cluster, update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
-> <p>
+>
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work. However you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
-> <p>
+>
 > For a Java version of this project, which works with Linux-based or Windows-based HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Prerequisites
@@ -96,7 +96,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
     > [!NOTE]
     > It may take a few seconds for the **Storm Cluster** dropdown to populate with server names.
-    > <p>
+    >
     > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
 2. When the topology has been submitted, the __Topology Viewer__ appears. To view this topology, select the SqlAzureWriterTopology entry from the list.

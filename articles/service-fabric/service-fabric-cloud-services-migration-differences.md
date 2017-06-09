@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 wacn.date: ''
-ms.author: vturecek
+ms.author: v-johch
 ---
 
 # Learn about the differences between Cloud Services and Service Fabric before migrating applications.

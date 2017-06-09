@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/22/2017
-ms.author: seguler
+ms.author: v-johch
 
 ---
 # Transfer Data with the Azure Storage Data Movement Library
