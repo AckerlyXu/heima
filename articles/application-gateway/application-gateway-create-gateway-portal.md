@@ -51,7 +51,7 @@ To create an application gateway, complete the steps that follow. Application ga
 1. In the Favorites pane of the portal, click **New**
 1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:
 
-![Creating Application Gateway][1]
+    ![Creating Application Gateway][1]
 
 1. In the **Basics** blade that appears, eneter the following values, then click **OK**:
 

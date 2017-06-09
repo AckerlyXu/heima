@@ -143,7 +143,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
     Get-AzureRmSubscription
     ```
 
-You are prompted to authenticate with your credentials.
+    You are prompted to authenticate with your credentials.
 
 1. Choose which of your Azure subscriptions to use.
 

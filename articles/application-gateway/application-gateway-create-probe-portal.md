@@ -42,22 +42,22 @@ Probes are configured in a two-step process through the portal. The first step i
 
 1. Click **Probes** and click the **Add** button to add a probe.
 
-  ![Add Probe blade with information filled out][1]
+    ![Add Probe blade with information filled out][1]
 
 1. On the **Add health probe** blade, fill out the required information for the probe, and when complete click **OK**.
 
-  |**Setting** | **Value** | **Details**|
-  |---|---|---|
-  |**Name**|customProbe|This value is a friendly name to the probe that is accessible in the portal.|
-  |**Protocol**|HTTP or HTTPS | The protocol that the health probe uses.|
-  |**Host**|i.e contoso.com|This value is the host name that is used for the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from the VM host name.|
-  |**Path**|/ or another path|The remainder of the full url for the custom probe. A valid path starts with '/'. For the default path of http://contoso.com just use '/' |
-|**Interval (secs)**|30|How often the probe is run to check for health. It is not recommended to set the lower than 30 seconds.|
-|**Timeout (secs)**|30|The amount of time the probe waits before timing out. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available.|
-|**Unhealthy threshold**|3|Number of failed attempts to be considered unhealthy. A threshold of 0 means that if a health check fails the back-end is determined unhealthy immediately.|
+    |**Setting** | **Value** | **Details**|
+    |---|---|---|
+    |**Name**|customProbe|This value is a friendly name to the probe that is accessible in the portal.|
+    |**Protocol**|HTTP or HTTPS | The protocol that the health probe uses.|
+    |**Host**|i.e contoso.com|This value is the host name that is used for the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from the VM host name.|
+    |**Path**|/ or another path|The remainder of the full url for the custom probe. A valid path starts with '/'. For the default path of http://contoso.com just use '/' |
+    |**Interval (secs)**|30|How often the probe is run to check for health. It is not recommended to set the lower than 30 seconds.|
+    |**Timeout (secs)**|30|The amount of time the probe waits before timing out. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available.|
+    |**Unhealthy threshold**|3|Number of failed attempts to be considered unhealthy. A threshold of 0 means that if a health check fails the back-end is determined unhealthy immediately.|
 
-> [!IMPORTANT]
-> The host name is not the same as server name. This value is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
+    > [!IMPORTANT]
+    > The host name is not the same as server name. This value is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
 
 ## Add probe to the gateway
 
@@ -65,7 +65,7 @@ Now that the probe has been created, it is time to add it to the gateway. Probe 
 
 1. Click **HTTP settings** on the application gateway, to bring up the configuration blade click the current backend http settings listed in the window.
 
-  ![https settings window][2]
+    ![https settings window][2]
 
 1. On the **appGatewayBackEndHttpSettings** settings blade, check the **Use custom probe** checkbox and choose the probe created in the [Create the probe](#createprobe) section on the **Custom probe** drop-down..
 When complete, click **Save** and the settings are applied.
