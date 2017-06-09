@@ -170,7 +170,7 @@ Add the private IP addresses to the VM operating system by completing the steps 
 
 You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
-1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.microsoft.com/cli/azure/install-az-cli2?toc=%2fvirtual-network%2ftoc.json) article and login to your Azure account with the `az-login` command.
+1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.microsoft.com/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) article and login to your Azure account with the `az-login` command.
 
 2. Complete the steps in one of the following sections, based on your requirements:
 
