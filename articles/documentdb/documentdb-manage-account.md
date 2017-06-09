@@ -97,9 +97,6 @@ To remove an Azure Cosmos DB account from the Azure Portal that you are no longe
 
 ![How to delete an Azure Cosmos DB account in the Azure Portal](./media/documentdb-manage-account/delete-account-confirm.png)
 
-## <a id="next"></a>Next steps
-Learn how to [get started with your Azure Cosmos DB account](./documentdb-get-started-quickstart.md).
-
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png

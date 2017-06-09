@@ -98,7 +98,7 @@ Yes, DocumentDB API supports cross-document transactions expressed as JavaScript
 ### What is a collection?
 A collection is a group of documents and their associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the throughput and storage used. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly based on the provisioned throughput and the storage space used. For more information, see [DocumentDB API  pricing](/pricing/details/documentdb/).  
+Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly based on the provisioned throughput and the storage space used. For more information, see [DocumentDB API  pricing](http://www.azure.cn/pricing/details/documentdb/).  
 
 ### How do I create a database?
 You can create databases using the Azure Portal as described in [Create an Azure Cosmos DB collection and database](documentdb-create-collection.md), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
@@ -236,9 +236,6 @@ The surface area of the new Table API (preview) is compatible with existing Azur
 
 ### Do I need to migrate existing Azure Table based application to new SDK if I do not want to use Table API (preview) features?
 No, existing customers can create and use present Standard Table assets without interruption of any kind. However, if you do not use the new Table API (preview), you cannot benefit from the automatic index, additional consistency option, or global distribution. 
-
-### How do I add replication for the data in Premium Table API (Preview) across multiple regions of Azure?
-You can use the Cosmos DB portal’s [global replication settings](documentdb-portal-global-replication.md) for adding regions which are suitable for your application. To develop a globally distributed application - you should also add your application with PreferredLocation information set to local region for providing low read latency. 
 
 ### How do I change the primary write region for the account in  Premium Table API(preview)?
 You can use Cosmos DB’s global replication portal pane to add a region and then failover to required region. For instructions see [Developing with multi-region Azure Cosmos DB accounts](documentdb-regional-failovers.md). 

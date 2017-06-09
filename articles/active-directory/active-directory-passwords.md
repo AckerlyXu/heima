@@ -66,7 +66,7 @@ Self-service password reset in Azure AD is made up of the following components:
 
 More detail about these topics can be found on the following pages
 
-- [**Azure AD Pricing Details**](/pricing/details/identity/)
+- [**Azure AD Pricing Details**](http://www.azure.cn/pricing/details/identity/)
 - [**Office 365 Pricing**](https://products.office.com/compare-all-microsoft-office-products?tab=2)
 - [**Azure Service Level Agreements**](/support/legal/sla/)
 - [**Service Level Agreement for Microsoft Online Services**](http://go.microsoft.com/fwlink/?LinkID=272026&clcid=0x409)

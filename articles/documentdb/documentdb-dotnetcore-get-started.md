@@ -57,7 +57,7 @@ Now let's get started!
 ## Prerequisites
 Please make sure you have the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Trial](/pricing/1rmb-trial/). 
+- An active Azure account. If you don't have one, you can sign up for a [Trial](http://www.azure.cn/pricing/1rmb-trial/). 
     - Alternatively, you can use the [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
 - [Visual Studio 2017](https://www.visualstudio.com/vs/) 
     - If you're working on MacOS or Linux, you can develop .NET Core apps from the command-line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#macos) for the platform of your choice. 
@@ -205,7 +205,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateColl"></a>Step 5: Create a collection
 > [!WARNING]
-> **CreateDocumentCollectionAsync** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](/pricing/details/documentdb/).
+> **CreateDocumentCollectionAsync** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](http://www.azure.cn/pricing/details/documentdb/).
 
 A [collection](documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
 
@@ -580,7 +580,7 @@ Congratulations! You've completed the tutorial and have a working C# console app
 ## <a id="GetSolution"></a> Get the complete tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Trial](/pricing/1rmb-trial/).
+- An active Azure account. If you don't have one, you can sign up for a [Trial](http://www.azure.cn/pricing/1rmb-trial/).
 - A [Azure Cosmos DB account][documentdb-create-account].
 - The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) solution available on GitHub.
 

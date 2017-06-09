@@ -122,7 +122,7 @@ We suggest following these practices while configuring backups for virtual machi
 Azure Backup does not encrypt data as a part of the backup process. However, you can encrypt data within the VM and back up the protected data seamlessly (read more about [backup of encrypted data](./backup-azure-vms-encryption.md)).
 
 ## Calculating the cost of protected instances
-Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk.”
+Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](http://www.azure.cn/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk.”
 
 Pricing for backing up VMs is *not* based on the maximum supported size for each data disk attached to the virtual machine. Pricing is based on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data that is stored in Azure Backup, which is the sum of the actual data in each recovery point.
 
