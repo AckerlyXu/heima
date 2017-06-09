@@ -180,24 +180,6 @@ Learn how to use Service Bus to connect across on-premises and cloud environment
         </div>
         </a>
     </li>
-     <li>
-        <a href="/azure/service-bus-messaging/service-bus-brokered-tutorial-rest">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/rest.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Service Bus queues using REST</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
 ---
