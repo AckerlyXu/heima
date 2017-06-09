@@ -70,5 +70,5 @@ When you finish the dialog, Visual Studio adds references and modifies certain c
 ## Next steps
 - [MSDN Forum: Azure Storage](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazuredata)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Azure Storage documentation](https://docs.microsoft.com/azure/storage/)
+- [Azure Storage documentation](/storage/)
 

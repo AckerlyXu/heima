@@ -592,7 +592,7 @@ To restore the references to the DocumentDB .NET Core SDK in Visual Studio, righ
 - Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md)
 - Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 - Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-- Learn more about the programming model in the Develop section of the [DocumentDB documentation page](/documentation/services/documentdb/).
+- Learn more about the programming model in the Develop section of the [DocumentDB documentation page](index.md).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: ./media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png

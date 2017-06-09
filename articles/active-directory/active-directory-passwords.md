@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) sets itself
 - **Self-service password change** allows end users or administrators to change their passwords without administrator assistance
 - **Self-service account unlock** allows end users to unlock their own account without administrator assistance
 - **Self-service password reset** allows end users or administrators to reset their passwords automatically without administrator assistance. Self-service password reset requires Azure AD Premium or Basic - [Azure Active Directory Editions](active-directory-editions.md).
-- **Administrator-initiated password reset** allows an administrator to reset an end user’s or another administrator’s password from within the [Azure portal](https://docs.microsoft.com/azure/azure-portal-overview)
+- **Administrator-initiated password reset** allows an administrator to reset an end user’s or another administrator’s password from within the [Azure portal](../azure-portal-overview.md)
 
 ## Why choose Azure AD self-service password reset
 
@@ -68,7 +68,7 @@ More detail about these topics can be found on the following pages
 
 - [**Azure AD Pricing Details**](http://www.azure.cn/pricing/details/identity/)
 - [**Office 365 Pricing**](https://products.office.com/compare-all-microsoft-office-products?tab=2)
-- [**Azure Service Level Agreements**](/support/legal/sla/)
+- [**Azure Service Level Agreements**](https://www.azure.cn/support/legal/sla/)
 - [**Service Level Agreement for Microsoft Online Services**](http://go.microsoft.com/fwlink/?LinkID=272026&clcid=0x409)
 - [**Azure Updates**](https://azure.microsoft.com/updates/)
 - [**Azure Roadmap**](https://www.microsoft.com/cloud-platform/roadmap-recently-available)

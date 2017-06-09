@@ -258,5 +258,5 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 - View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com/).
 
-- Learn how to [create applications using Azure blobs, tables, queues, and files](/documentation/services/storage/).
+- Learn how to [create applications using Azure blobs, tables, queues, and files](storage/index.md).
 

@@ -284,7 +284,7 @@ To build the GetStarted solution that contains all the samples in this article, 
 ## Next steps
 - Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 - Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-- Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](/documentation/services/documentdb/).
+- Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](index.md).
 
 [documentdb-create-account]: documentdb-create-account.md
 

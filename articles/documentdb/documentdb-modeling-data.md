@@ -391,7 +391,7 @@ The biggest takeaways from this article is to understand that data modeling in a
 
 Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily. 
 
-To learn more about Azure Cosmos DB, refer to the service's [documentation](/documentation/services/documentdb/) page. 
+To learn more about Azure Cosmos DB, refer to the service's [documentation](index.md) page. 
 
 To learn about tuning indexes in Azure Cosmos DB, refer to the article on [indexing policies](documentdb-indexing-policies.md).
 
