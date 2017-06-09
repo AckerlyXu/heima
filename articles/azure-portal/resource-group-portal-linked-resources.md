@@ -8,8 +8,10 @@ manager: wpickett
 editor: ''
 
 ms.service: azure-portal
+ms.topic: article
 ms.date: 07/16/2015
 wacn.date: ''
+ms.author: v-yiso
 ---
 
 # Related and linked resources in the tile gallery

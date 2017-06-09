@@ -8,8 +8,10 @@ manager: jhubbard
 editor: monicar
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 06/21/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Azure SQL Database benchmark overview

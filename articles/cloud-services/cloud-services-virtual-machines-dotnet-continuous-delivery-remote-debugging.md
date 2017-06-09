@@ -8,8 +8,10 @@ manager: douge
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 11/18/2016
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ---
 
 # Enable remote debugging when using continuous delivery to publish to Azure

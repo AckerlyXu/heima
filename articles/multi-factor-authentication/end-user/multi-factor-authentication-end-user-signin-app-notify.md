@@ -8,8 +8,10 @@ manager: stevenpo
 editor: curtland
 
 ms.service: multi-factor-authentication
+ms.topic: article
 ms.date: 08/04/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Signing in to the mobile app using notification with Azure Multi-Factor Authentication

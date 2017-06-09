@@ -8,8 +8,10 @@ manager: jhubbard
 editor: monicar
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 07/31/2016
 wacn.date: 04/22/2016
+ms.author: v-johch
 ---
 
 #Performing Disaster Recovery Drill

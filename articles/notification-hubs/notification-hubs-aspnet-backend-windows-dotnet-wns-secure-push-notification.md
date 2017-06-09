@@ -8,8 +8,10 @@ editor: ''
 services: notification-hubs
 
 ms.service: notification-hubs
+ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 #Azure Notification Hubs Secure Push

@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: Service-Fabric
+ms.topic: article
 ms.date: 03/30/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Architecture for stateful and stateless Reliable Services

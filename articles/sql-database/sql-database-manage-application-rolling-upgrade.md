@@ -8,8 +8,10 @@ manager: jhubbard
 editor: monicar
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 07/16/2016
 wacn.date: 05/23/2016
+ms.author: v-johch
 ---
 
 # Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication

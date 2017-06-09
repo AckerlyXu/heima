@@ -9,8 +9,10 @@ manager: timlt
 editor: ''
 
 ms.service: iot-suite
+ms.topic: article
 ms.date: 02/08/2017
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ---
 
 # Permissions on the azureiotsuite.com site

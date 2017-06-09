@@ -8,8 +8,10 @@ manager: jwhit
 editor: tysonn
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 02/29/2016
 wacn.date: ''
+ms.author: v-yiso
 ---
 
 # Create and use performance counters in an Azure application

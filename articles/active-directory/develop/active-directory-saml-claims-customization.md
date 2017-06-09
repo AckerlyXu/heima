@@ -8,6 +8,7 @@ manager: stevenpo
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 02/26/2016
 ms.author: asmalser
 ---

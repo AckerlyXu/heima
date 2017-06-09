@@ -8,8 +8,10 @@ manager: terrylan
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 09/28/2015
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # How to get an Azure Active Directory tenant

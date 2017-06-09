@@ -8,8 +8,10 @@ services: monitoring-and-diagnostics
 documentationCenter: monitoring-and-diagnostics
 
 ms.service: azure-portal
+ms.topic: article
 ms.date: 04/28/2015
 wacn.date: ''
+ms.author: v-yiso
 ---
 
 # View events and activity logs

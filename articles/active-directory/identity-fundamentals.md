@@ -15,6 +15,7 @@ ms.service: azure
 ms.technology:
 ms.assetid:
 wacn.date: ''
+ms.author: v-junlch
 
 ---
 # Fundamentals of Azure identity management

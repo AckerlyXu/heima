@@ -14,6 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # What is Microsoft Azure Diagnostics

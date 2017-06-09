@@ -9,8 +9,10 @@ editor: ''
 tags: ''
 
 ms.service: best-practice
+ms.topic: article
 ms.date: 07/14/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Caching guidance

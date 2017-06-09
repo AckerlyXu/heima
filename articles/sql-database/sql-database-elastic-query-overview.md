@@ -7,8 +7,10 @@ manager: jhubbard
 authors: torsteng
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 04/27/2016
 wacn.date: 06/01/2016
+ms.author: v-johch
 ---
 
 # Azure SQL Database elastic database query overview (preview)

@@ -9,8 +9,10 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-network
+ms.topic: article
 ms.date: 02/11/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Azure Deployment Models

@@ -8,8 +8,10 @@ editor: mollybos
 services: ''
 
 ms.service: multiple
+ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # What is the Azure SDK for .NET?

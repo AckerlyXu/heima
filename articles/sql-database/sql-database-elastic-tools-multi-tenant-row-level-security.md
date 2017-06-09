@@ -8,8 +8,10 @@ manager: jhubbard
 authors: tmullaney
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 05/27/2016
 wacn.date: 06/01/2016
+ms.author: v-johch
 ---
 
 # Multi-tenant applications with elastic database tools and row-level security 

@@ -8,8 +8,10 @@ manager: douge
 editor: ''
 
 ms.service: app-service-web
+ms.topic: article
 ms.date: 06/01/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 #Download the Azure SDK for PHP

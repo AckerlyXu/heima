@@ -8,8 +8,10 @@ manager: femila
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 08/15/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 #What is application access and single sign-on with Azure Active Directory?

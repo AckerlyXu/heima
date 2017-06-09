@@ -13,6 +13,7 @@ ms.assetid:
 ms.reviewer: jsnow
 ms.custom: it-pro
 wacn.date: ''
+ms.author: v-junlch
 
 ---
 # Understand Azure identity solutions

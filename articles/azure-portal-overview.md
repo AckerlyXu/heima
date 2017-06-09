@@ -8,8 +8,10 @@ manager: dwrede
 editor: jimbe
 
 ms.service: na
+ms.topic: article
 ms.date: 12/16/2015
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Microsoft Azure portal overview

@@ -8,8 +8,10 @@ manager: krassk
 editor: ''
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 07/18/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Signing key rollover in Azure Active Directory

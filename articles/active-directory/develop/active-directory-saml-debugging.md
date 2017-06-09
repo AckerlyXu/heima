@@ -7,8 +7,10 @@ documentationCenter: na
 manager: stevenpo
 
 ms.service: active-directory
+ms.topic: article
 ms.date: 02/09/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 #How to debug SAML-based single sign-on to applications in Azure Active Directory

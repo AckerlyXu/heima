@@ -9,8 +9,10 @@ editor: ''
 tags: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 07/30/2016
 wacn.date: 04/20/2016
+ms.author: v-yiso
 ---
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
