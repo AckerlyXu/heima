@@ -31,8 +31,9 @@ To find out how to configure continuous deployment manually from a cloud reposit
 To enable continuous deployment,
 
 1. Publish your app content to the repository that will be used for continuous deployment.  
+    For more information on publishing your project to these services, see [Create a repo (GitHub)].
 
-    For more information on publishing your project to these services, see [Create a repo (GitHub)]. The folloing steps are only for GitHub Repo. For Repo other than GitHub's, see [Manually triggering a deployment](https://github.com/projectkudu/kudu/wiki/Manually-triggering-a-deployment) to setup the webhook.
+    The folloing steps are only for GitHub Repo. For Repo other than GitHub's, see [Manually triggering a deployment](https://github.com/projectkudu/kudu/wiki/Manually-triggering-a-deployment) to setup the webhook.
 
 2. In your app's menu blade in the [Azure portal preview], click **APP DEPLOYMENT > Deployment options**. Click **Choose Source**, then select **External Repository**.
 2. Enter the url of you GitHub Repo, and enter the branch you want to track. Leave the **Repository Type** to be Git, and click **OK**

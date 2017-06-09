@@ -31,6 +31,7 @@ During cluster creation, the script enumerates the files, copies them to the `/u
 
 > [!NOTE]
 > Using the script actions in this article makes the libraries available in the following scenarios:
+>
 > * **Linux-based HDInsight** - when using the a Hive client, **WebHCat**, and **HiveServer2**.
 > * **Windows-based HDInsight** - when using the Hive client and **WebHCat**.
 

@@ -24,8 +24,6 @@ ms.author: v-dazen
 
 Power BI allows you to visually display data as reports. This document provides an example of how to use Apache Storm on HDInsight to generate data for Power BI.
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 > [!NOTE]

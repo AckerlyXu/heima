@@ -164,7 +164,8 @@ Now that you have a complex application running in production in Azure, you will
 
 > [!NOTE]
 > When you have multiple developers working on the new update, each of them can easily create a branch and dedicated dev environment by doing the following:
-> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)). 
+> 
+> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)).
 > 2. Clone the fork on their local machine
 > 3. Run the same commands to create their own dev branch and environment.
 > 
@@ -195,6 +196,7 @@ The template files ProdAndStage.json and Dev.json already specify the source con
 
     > [!NOTE]
     > If you can't read the image above: 
+    > 
     > * In line 18, change `check-list` to `list-group`.
     > * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
     > 

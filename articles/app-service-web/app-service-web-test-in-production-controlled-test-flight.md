@@ -64,6 +64,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:
+>
 > * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 >
 >

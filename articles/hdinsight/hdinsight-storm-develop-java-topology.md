@@ -253,6 +253,7 @@ To reduce requirements for setting up external data sources, the following spout
 
 > [!NOTE]
 > For an example of a spout that reads from an external data source, see one of the following examples:
+>
 > * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): An example spout that reads from Twitter
 > * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): A spout that reads from Kafka
 
