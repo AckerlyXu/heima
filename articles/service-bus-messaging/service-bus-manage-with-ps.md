@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
-ms.author: sethm
+ms.author: v-yiso
 
 ---
 # Use PowerShell to manage Service Bus resources

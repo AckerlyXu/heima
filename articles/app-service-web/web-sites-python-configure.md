@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 wacn.date: ''
-ms.author: huvalo
+ms.author: v-dazen
 
 ---
 # Configuring Python with Azure App Service Web Apps

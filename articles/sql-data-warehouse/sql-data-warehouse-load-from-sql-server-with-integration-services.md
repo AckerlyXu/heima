@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: douglasl;barbkess
+ms.author: v-yeche
 ---
 
 # Load data from SQL Server into Azure SQL Data Warehouse (SSIS)

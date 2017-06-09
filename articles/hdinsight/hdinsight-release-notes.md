@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Release notes for Hadoop components on Azure HDInsight

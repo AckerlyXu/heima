@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/15/2017
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data

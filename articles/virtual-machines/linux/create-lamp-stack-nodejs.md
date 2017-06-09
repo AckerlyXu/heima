@@ -16,7 +16,7 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: ''
-ms.author: juluk
+ms.author: v-dazen
 
 ---
 # Deploy LAMP stack with the Azure CLI 1.0

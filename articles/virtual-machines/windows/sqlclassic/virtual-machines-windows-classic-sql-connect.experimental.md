@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 wacn.date: ''
-ms.author: jroth
+ms.author: v-dazen
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 

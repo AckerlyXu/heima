@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # Azure Storage samples

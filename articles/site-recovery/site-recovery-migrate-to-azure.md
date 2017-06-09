@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # Migrate to Azure with Site Recovery?

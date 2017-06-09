@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: adigan;giridham; jimpark;markgal;trinadhk
+ms.author: v-junlch
 wacn.date: ''
 ---
 

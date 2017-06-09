@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: ronitr
+ms.author: v-johch
 ---
 
 # SQL Database -  Downlevel clients support and IP endpoint changes for Auditing

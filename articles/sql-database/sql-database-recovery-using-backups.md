@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2017
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Recover an Azure SQL database using automated database backups

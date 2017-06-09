@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2016
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure

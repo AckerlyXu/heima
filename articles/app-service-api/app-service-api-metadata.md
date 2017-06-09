@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 wacn.date: ''
-ms.author: alkarche
+ms.author: v-dazen
 
 ---
 # App Service API Apps metadata for API discovery and code generation

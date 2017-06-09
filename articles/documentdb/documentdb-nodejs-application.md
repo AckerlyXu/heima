@@ -16,7 +16,7 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 wacn.date: ''
-ms.author: syamk
+ms.author: v-junlch
 
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB

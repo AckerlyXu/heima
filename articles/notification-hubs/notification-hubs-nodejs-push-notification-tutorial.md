@@ -16,7 +16,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: ''
-ms.author: yuaxu
+ms.author: v-junlch
 ---
 
 # Sending push notifications with Azure Notification Hubs and Node.js

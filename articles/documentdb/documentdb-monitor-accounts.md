@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 
 ---
 # Monitor Azure Cosmos DB requests, usage, and storage

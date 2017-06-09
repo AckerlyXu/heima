@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # Connect Adafruit Feather M0 WiFi to Azure IoT Hub in the cloud

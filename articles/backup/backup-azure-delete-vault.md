@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
-ms.author: markgal;trinadhk
+ms.author: v-junlch
 
 ---
 # Delete an Azure Backup vault

@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: ''
-ms.author: syamk
+ms.author: v-junlch
 
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB

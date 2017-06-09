@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
-ms.author: subramar
+ms.author: v-johch
 
 ---
 # Differences between Service Fabric on Linux (preview) and Windows (generally available)

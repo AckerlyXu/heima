@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 wacn.date: ''
-ms.author: dastrock
+ms.author: v-junlch
 
 ---
 # Should I use the v2.0 endpoint?

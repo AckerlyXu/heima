@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # Develop line-of-business apps for Azure Active Directory

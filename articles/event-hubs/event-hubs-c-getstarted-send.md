@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ---
 
 # Send events to Azure Event Hubs using C

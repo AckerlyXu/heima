@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # Deploy a web app from a local Git repository

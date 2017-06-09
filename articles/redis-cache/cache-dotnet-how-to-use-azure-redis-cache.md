@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/11/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # How to Use Azure Redis Cache

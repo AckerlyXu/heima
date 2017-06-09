@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
-ms.author: ganesr
+ms.author: v-yiso
 ---
 
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model

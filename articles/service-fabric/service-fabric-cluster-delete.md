@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
-ms.author: chackdan
+ms.author: v-johch
 
 ---
 # Delete a Service Fabric cluster on Azure and the resources it uses

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: allclark
+ms.author: v-dazen
 ---
 
 # Deploy the LAMP stack in a load-balanced virtual machine scale set

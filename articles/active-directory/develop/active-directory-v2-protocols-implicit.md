@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # v2.0 Protocols - SPAs using the implicit flow

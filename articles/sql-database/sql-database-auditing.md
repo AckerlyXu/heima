@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: giladm
+ms.author: v-johch
 
 ---
 # Get started with SQL database auditing

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: muralikk
+ms.author: v-johch
 
 ---
 # Use the Azure Import/Export service to transfer data to blob storage

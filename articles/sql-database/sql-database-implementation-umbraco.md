@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Umbraco uses Azure SQL Database to quickly provision and scale services for thousands of tenants in the cloud

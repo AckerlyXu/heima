@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
-ms.author: carlasab
+ms.author: v-dazen
 
 ---
 # Migrate a SQL Server database to SQL Server in an Azure VM

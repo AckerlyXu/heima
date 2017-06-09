@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
-ms.author: seanmck
+ms.author: v-johch
 
 ---
 # Disaster recovery in Azure Service Fabric

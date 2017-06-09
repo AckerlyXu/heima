@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/26/2017
 wacn.date: ''
-ms.author: curtand;jeffsta
+ms.author: v-junlch
 
 ---
 # Add new users  or users with Microsoft accounts to Azure Active Directory

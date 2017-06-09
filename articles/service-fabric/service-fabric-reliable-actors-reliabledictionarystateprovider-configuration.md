@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: sumukhs
+ms.author: v-johch
 ---
 
 # Configuring Reliable Actors--ReliableDictionaryActorStateProvider

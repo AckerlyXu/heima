@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-junlch
 
 ---
 # Azure subscription and service limits, quotas, and constraints

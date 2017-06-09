@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: v-dazen
 
 ---
 # App Service API Apps - What's changed

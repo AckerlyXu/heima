@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Upload a Windows VHD from an on-premises VM to Azure

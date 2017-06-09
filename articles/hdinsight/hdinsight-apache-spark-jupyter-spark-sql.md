@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Get started: Create an Apache Spark cluster in HDInsight and run interactive Spark SQL queries

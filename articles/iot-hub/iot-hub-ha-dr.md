@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 wacn.date: ''
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # IoT Hub high availability and disaster recovery

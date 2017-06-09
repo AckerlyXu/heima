@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: bruceper
+ms.author: v-junlch
 
 ---
 # Manage Key Vault using CLI

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: zachal
+ms.author: v-dazen
 
 ---
 # Using Virtual Machine Scale Sets with the Azure DSC Extension

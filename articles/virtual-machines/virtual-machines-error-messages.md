@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/17/2017
 wacn.date: ''
-ms.author: xujing
+ms.author: v-dazen
 
 ---
 # Azure Virtual Machine Error Messages

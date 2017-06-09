@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
-ms.author: vturecek
+ms.author: v-johch
 
 ---
 # Get started with Reliable Services

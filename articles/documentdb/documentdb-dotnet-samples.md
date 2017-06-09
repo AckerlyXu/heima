@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
-ms.author: rnagpal
+ms.author: v-junlch
 
 ---
 # DocumentDB .NET examples

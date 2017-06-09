@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 wacn.date: ''
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Use desired properties to configure devices (Node)

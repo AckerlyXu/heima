@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
 wacn.date: ''
-ms.author: aelnably
+ms.author: v-dazen
 
 ---
 # Using Azure Resource Manager-Based XPlat CLI for Azure App Service

@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/16/2017
 wacn.date: ''
-ms.author: milanga;juliako;
+ms.author: v-johch
 ---
 
 #Use Azure Media Video Thumbnails to Create a Video Summarization

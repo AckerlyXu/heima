@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 wacn.date: ''
-ms.author: rodend;karlku;tomfitz
+ms.author: v-yeche
 ---
 
 # Examples of implementing Azure enterprise scaffold

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: v-shysun
+ms.author: v-johch
 ---
 
 # SQL Database performance tuning tips

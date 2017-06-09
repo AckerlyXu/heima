@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: daleche
+ms.author: v-johch
 
 ---
 # Troubleshoot connection issues to Azure SQL Database

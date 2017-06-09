@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 wacn.date: ''
-ms.author: dariagrigoriu
+ms.author: v-dazen
 
 ---
 # Configure deployment credentials for Azure App Service

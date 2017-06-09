@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: mikeray
+ms.author: v-dazen
 
 ---
 # Configure an ILB listener for Always On Availability Groups in Azure

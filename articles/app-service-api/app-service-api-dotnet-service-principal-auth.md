@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
-ms.author: alkarche
+ms.author: v-dazen
 
 ---
 # Service principal authentication for API Apps in Azure App Service

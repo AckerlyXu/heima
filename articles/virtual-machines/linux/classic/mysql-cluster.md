@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 wacn.date: ''
-ms.author: jparrel
+ms.author: v-dazen
 
 ---
 # Use load-balanced sets to clusterize MySQL on Linux

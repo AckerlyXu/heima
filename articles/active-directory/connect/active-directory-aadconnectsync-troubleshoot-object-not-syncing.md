@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
 

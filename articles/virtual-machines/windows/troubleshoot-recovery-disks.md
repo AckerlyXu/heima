@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/13/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 

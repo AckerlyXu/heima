@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # How to set a static internal private IP address using PowerShell (Classic)

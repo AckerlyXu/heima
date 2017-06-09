@@ -17,7 +17,7 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 10/30/2016
 wacn.date: ''
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Create an Apache Cordova app

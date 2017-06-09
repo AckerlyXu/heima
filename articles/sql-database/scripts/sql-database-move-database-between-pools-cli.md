@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/24/2017
-ms.author: janeng
+ms.author: v-johch
 ---
 
 # Create elastic pools and move databases between pools and out of a pool using the Azure CLI

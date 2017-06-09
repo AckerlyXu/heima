@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
+ms.author: v-johch
 
 ---
 # Scheduler High-Availability and Reliability

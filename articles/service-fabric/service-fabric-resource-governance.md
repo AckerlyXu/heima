@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/02/2017
-ms.author: subramar
+ms.author: v-johch
 ---
 
 # Resource governance 

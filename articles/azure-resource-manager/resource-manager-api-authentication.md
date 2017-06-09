@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 wacn.date: ''
-ms.author: dugill;tomfitz
+ms.author: v-yeche
 
 ---
 # Use Resource Manager authentication API to access subscriptions

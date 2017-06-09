@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: ''
-ms.author: markgal;trinadhk;jimpark
+ms.author: v-junlch
 ---
 
 # Deploy and manage backup for Azure VMs using PowerShell

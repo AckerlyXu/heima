@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/24/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Introduction to Azure Storage

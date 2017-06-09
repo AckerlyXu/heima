@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: genemi
+ms.author: v-johch
 
 ---
 # Plan and prepare to upgrade to SQL Database V12

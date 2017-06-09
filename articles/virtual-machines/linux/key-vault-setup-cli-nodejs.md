@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 wacn.date: ''
-ms.author: singhkay
+ms.author: v-dazen
 
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager with the Azure CLI 1.0

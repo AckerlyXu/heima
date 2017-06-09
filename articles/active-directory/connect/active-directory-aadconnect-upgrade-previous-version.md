@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect: Upgrade from a previous version to the latest

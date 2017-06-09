@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 wacn.date: ''
-ms.author: szark
+ms.author: v-dazen
 
 ---
 # Prepare a SLES or openSUSE virtual machine for Azure

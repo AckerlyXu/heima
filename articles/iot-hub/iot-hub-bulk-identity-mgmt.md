@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
-ms.author: dobett
+ms.author: v-yiso
 
 ---
 # Manage your IoT Hub device identities in bulk

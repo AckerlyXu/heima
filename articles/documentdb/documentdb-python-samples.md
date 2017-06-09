@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2016
-ms.author: moderakh
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Azure Cosmos DB Python examples

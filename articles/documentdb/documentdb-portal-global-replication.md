@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: https://docs.microsoft.com/azure/cosmos-db/tutorial-global-distribution-documentdb
 ROBOTS: NOINDEX, NOFOLLOW
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2017
-ms.author: chackdan
+ms.author: v-johch
 
 ---
 # Service Fabric cluster capacity planning considerations

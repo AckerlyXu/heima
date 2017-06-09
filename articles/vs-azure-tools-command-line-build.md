@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 
 ---
 # Building Azure projects from the command line

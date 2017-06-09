@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
-ms.author: harahma
+ms.author: v-johch
 
 ---
 # Service Fabric hosting model

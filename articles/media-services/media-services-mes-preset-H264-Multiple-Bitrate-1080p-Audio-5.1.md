@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # H264 Multiple Bitrate 1080p Audio 5.1

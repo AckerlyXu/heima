@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: meetb;carlrab;sstein
+ms.author: v-johch
 
 ---
 # Azure SQL Database: Use PHP to connect and query data

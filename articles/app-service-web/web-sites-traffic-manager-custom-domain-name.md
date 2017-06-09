@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # Configuring a custom domain name for a web app in Azure App Service using Traffic Manager

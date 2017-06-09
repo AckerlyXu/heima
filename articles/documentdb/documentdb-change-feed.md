@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: arramac
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Working with the change feed support in Azure Cosmos DB

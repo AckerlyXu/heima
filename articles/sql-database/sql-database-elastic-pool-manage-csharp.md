@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Monitor and manage an elastic database pool with C&#x23; 

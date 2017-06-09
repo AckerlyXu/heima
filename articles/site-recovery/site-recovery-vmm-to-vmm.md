@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site using the Azure portal

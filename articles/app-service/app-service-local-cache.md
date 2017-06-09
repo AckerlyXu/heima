@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 wacn.date: ''
-ms.author: cfowler
+ms.author: v-dazen
 
 ---
 # Azure App Service Local Cache overview

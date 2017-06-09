@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 11/16/2016
-ms.author: adegeo
+ms.author: v-yiso
 wacn.date: ''
 ---
 

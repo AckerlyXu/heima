@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: lakshmir;barbkess
+ms.author: v-yeche
 ---
 
 # SQL Data Warehouse restore

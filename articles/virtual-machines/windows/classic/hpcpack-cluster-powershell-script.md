@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Create a Windows high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/24/2016
-ms.author: raiye
+ms.author: v-yiso
 ---
 
 # Guest OS Family 1 retirement notice

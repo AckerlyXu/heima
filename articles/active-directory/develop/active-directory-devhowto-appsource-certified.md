@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
 wacn.date: ''
-ms.author: skwan;bryanla
+ms.author: v-junlch
 ---
 
 # How to get AppSource Certified for Azure Active Directory (AD)

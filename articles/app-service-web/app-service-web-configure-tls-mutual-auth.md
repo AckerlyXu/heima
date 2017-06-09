@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 wacn.date: ''
-ms.author: naziml
+ms.author: v-dazen
 
 ---
 # How To Configure TLS Mutual Authentication for Web App

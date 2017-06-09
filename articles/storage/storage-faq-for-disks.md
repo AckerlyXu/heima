@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
-ms.author: robinsh
+ms.author: v-johch
 
 ---
 # Frequently Asked Questions about Azure IaaS VM Disks and unmanaged premium disks

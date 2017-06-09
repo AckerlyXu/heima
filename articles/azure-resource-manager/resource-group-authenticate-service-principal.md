@@ -15,7 +15,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/03/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Use Azure PowerShell to create a service principal to access resources

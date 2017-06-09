@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2017
-ms.author: dobett
+ms.author: v-yiso
 
 ---
 # Connect your Raspberry Pi 3 to the remote monitoring solution and send simulated telemetry using Node.js

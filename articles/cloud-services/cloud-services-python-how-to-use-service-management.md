@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 04/05/2017
-ms.author: lmazuel
+ms.author: v-yiso
 ---
 
 # How to use Service Management from Python

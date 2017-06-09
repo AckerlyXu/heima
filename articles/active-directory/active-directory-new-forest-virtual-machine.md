@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
-ms.author: joflore
+ms.author: v-junlch
 
 ---
 # Install a new Active Directory forest on an Azure virtual network

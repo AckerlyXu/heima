@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Upload and create a Linux VM from custom disk image by using the Azure CLI 1.0

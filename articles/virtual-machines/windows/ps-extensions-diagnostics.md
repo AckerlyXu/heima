@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 wacn.date: ''
-ms.author: saurabh
+ms.author: v-dazen
 
 ---
 # Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows

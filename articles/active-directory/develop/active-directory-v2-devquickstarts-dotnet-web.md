@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # Add sign-in to an .NET MVC web app

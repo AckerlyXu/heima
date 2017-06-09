@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: saurse;trinadhk;markgal;
+ms.author: v-junlch
 
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model

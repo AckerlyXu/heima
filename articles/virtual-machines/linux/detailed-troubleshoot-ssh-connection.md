@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Detailed SSH troubleshooting steps

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Azure Virtual Network

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/20/2017
-ms.author: antisch
+ms.author: v-junlch
 ---
 
 # Azure Batch CLI Samples

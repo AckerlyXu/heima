@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/06/2016
 wacn.date: ''
-ms.author: rclaus
+ms.author: v-dazen
 
 ---
 # Configuring Oracle Data Guard for Azure

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: ''
-ms.author: rclaus
+ms.author: v-dazen
 
 ---
 # Optimize your Linux VM on Azure

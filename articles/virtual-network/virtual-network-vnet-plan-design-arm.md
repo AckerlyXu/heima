@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Plan and design Azure Virtual Networks

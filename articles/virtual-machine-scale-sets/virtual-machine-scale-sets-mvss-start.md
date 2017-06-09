@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 wacn.date: ''
-ms.author: negat
+ms.author: v-dazen
 ---
 
 # Learn about virtual machine scale set templates

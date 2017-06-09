@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
-ms.author: cherylmc
+ms.author: v-yiso
 ---
 
 # ExpressRoute partners and peering locations

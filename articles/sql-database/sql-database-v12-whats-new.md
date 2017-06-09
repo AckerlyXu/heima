@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: genemi
+ms.author: v-johch
 
 ---
 # What's new in SQL Database V12

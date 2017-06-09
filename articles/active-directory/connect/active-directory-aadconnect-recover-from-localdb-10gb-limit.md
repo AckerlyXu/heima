@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: cychua
+ms.author: v-junlch
 
 ---
 # Azure AD Connect: How to recover from LocalDB 10-GB limit

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2017
-ms.author: sethm;hillaryc
+ms.author: v-yiso
 
 ---
 # Partitioned queues and topics

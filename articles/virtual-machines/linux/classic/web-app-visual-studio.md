@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-dazen
 
 ---
 # Creating a virtual machine for a web application with Visual Studio

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: v-johch
 
 ---
 # Monitor, diagnose, and troubleshoot Azure Storage

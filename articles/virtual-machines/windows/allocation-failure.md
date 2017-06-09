@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2016
 wacn.date: ''
-ms.author: cjiang
+ms.author: v-dazen
 
 ---
 # Troubleshoot allocation failures when you create, restart, or resize Windows VMs in Azure

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 
 ---
 # Use MongoChef with an Azure Cosmos DB: API for MongoDB account

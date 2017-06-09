@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/22/2017
-ms.author: dkshir
+ms.author: v-yiso
 ms.custom: na
 
 ---

@@ -11,7 +11,7 @@ ms.topic: "article"
 ms.assetid: 3990f0c8-b627-432f-9551-5ce10f9bb0ca
 caps.latest.revision: 14
 author: "tamram"
-ms.author: "tamram"
+ms.author: v-junlch
 manager: "timlt"
 ---
 # Azure Batch compute node environment variables

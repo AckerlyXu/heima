@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # Canceling and deleting Azure Import/Export jobs

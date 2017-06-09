@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: rachelap;robmcm
+ms.author: v-dazen
 
 ---
 # Build and deploy a Java API app in Azure App Service

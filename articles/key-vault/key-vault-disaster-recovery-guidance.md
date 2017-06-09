@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: sumedhb;aglick
+ms.author: v-junlch
 ---
 
 # Azure Key Vault availability and redundancy

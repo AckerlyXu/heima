@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/24/2017
-ms.author: msfussell
+ms.author: v-johch
 
 ---
 # Deploy a Docker container to Service Fabric

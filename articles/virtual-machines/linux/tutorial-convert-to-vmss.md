@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: adegeo
+ms.author: v-dazen
 ---
 
 # Convert an existing Azure virtual machine to a scale set

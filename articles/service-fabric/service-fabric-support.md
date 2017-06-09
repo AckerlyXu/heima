@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/05/2017
-ms.author: pkc
+ms.author: v-johch
 
 ---
 # Azure Service Fabric support options

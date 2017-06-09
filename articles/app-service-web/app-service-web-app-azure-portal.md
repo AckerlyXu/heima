@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2016
 wacn.date: ''
-ms.author: jaime-espinosa
+ms.author: v-dazen
 
 ---
 # Reference for navigating the Azure portal preview

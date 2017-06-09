@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 
 ---
 # Creating an Azure cloud service project with Visual Studio

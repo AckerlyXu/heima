@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Use HDFS-compatible storage with Hadoop in HDInsight

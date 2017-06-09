@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/30/2016
-ms.author: jotaub;sethm
+ms.author: v-yiso
 wacn.date: ''
 ---
 

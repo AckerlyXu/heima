@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Configuring Azure Media Services telemetry with .NET

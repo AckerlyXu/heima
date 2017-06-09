@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: bruceper
+ms.author: v-junlch
 
 ---
 # Azure Key Vault .NET 2.0 - Release Notes and Migration Guide

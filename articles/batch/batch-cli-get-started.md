@@ -15,7 +15,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: tamram
+ms.author: v-junlch
 ---
 
 # Get started with Azure Batch CLI

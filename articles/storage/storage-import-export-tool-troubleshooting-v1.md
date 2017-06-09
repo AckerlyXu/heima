@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 wacn.date: ''
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # Troubleshooting the Azure Import-Export Tool

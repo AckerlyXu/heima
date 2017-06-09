@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # Debugging Azure Applications in Eclipse

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: msfussell
+ms.author: v-johch
 
 ---
 # DNS Service in Azure Service Fabric

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: ''
-ms.author: kundanap
+ms.author: v-dazen
 
 ---
 # Authoring Azure Resource Manager templates with Linux VM extensions

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 wacn.date: ''
-ms.author: drewm
+ms.author: v-dazen
 
 ---
 # Change the availability set for a Windows VM

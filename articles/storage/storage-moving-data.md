@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: jarrettr
+ms.author: v-johch
 ---
 
 # Moving data to and from Azure Storage

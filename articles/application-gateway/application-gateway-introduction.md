@@ -16,7 +16,7 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Overview of Application Gateway

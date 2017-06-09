@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2016
 wacn.date: ''
-ms.author: bryanla;mbaldwin
+ms.author: v-junlch
 
 ---
 # Application and service principal objects in Azure Active Directory (Azure AD)

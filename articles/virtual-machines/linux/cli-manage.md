@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: rclaus
+ms.author: v-dazen
 
 ---
 # Common Azure CLI 2.0 commands for managing Azure resources

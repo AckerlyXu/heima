@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 wacn.date: ''
-ms.author: monicar
+ms.author: v-junlch
 ---
 
 # Azure glossary: A dictionary of cloud terminology on the Azure platform

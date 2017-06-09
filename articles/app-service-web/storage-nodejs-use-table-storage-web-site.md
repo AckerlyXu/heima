@@ -16,7 +16,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # Node.js web app using the Azure Table Service

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2016
-ms.author: sashan;carlrab;barbkess
+ms.author: v-johch
 
 ---
 # Learn about SQL Database backups

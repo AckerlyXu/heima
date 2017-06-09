@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # Manage passwords in Azure Active Directory

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Azure CLI commands in Resource Manager mode

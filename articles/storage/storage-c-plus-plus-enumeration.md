@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: dineshm
+ms.author: v-johch
 ---
 
 # List Azure Storage resources in C++

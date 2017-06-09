@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 04/27/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0

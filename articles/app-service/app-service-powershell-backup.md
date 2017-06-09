@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 wacn.date: ''
-ms.author: nicking
+ms.author: v-dazen
 
 ---
 # Use PowerShell to back up and restore App Service apps

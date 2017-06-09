@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 wacn.date: ''
-ms.author: seguler
+ms.author: v-johch
 ---
 
 # Azure Storage samples using Java

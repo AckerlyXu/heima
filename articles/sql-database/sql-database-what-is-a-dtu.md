@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 04/13/2017
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Explaining Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs)

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
-ms.author: dariagrigoriu
+ms.author: v-dazen
 
 ---
 # Best Practices for Azure App Service

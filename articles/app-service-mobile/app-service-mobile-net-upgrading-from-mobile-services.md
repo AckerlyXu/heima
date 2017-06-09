@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Upgrade your existing .NET Azure Mobile Service to App Service

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: bryanla
+ms.author: v-junlch
 ---
 
 # Azure Active Directory developer glossary

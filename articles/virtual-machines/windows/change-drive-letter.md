@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Use the D: drive as a data drive on a Windows VM

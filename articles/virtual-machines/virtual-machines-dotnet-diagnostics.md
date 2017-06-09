@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/16/2016
 wacn.date: ''
-ms.author: davidmu
+ms.author: v-dazen
 
 ---
 # Enabling Diagnostics in Azure Virtual Machines

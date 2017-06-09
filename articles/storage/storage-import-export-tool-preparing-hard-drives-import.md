@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
-ms.author: muralikk
+ms.author: v-johch
 
 ---
 # Preparing hard drives for an Import Job

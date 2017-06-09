@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # NodeJS Web App Sign In & Sign Out with Azure AD

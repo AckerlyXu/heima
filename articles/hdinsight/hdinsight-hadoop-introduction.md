@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/11/2017
 wacn.date: ''
-ms.author: cgronlun
+ms.author: v-dazen
 
 ---
 # Introduction to Azure HDInsight, the Hadoop technology stack, and Hadoop clusters

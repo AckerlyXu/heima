@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 wacn.date: ''
-ms.author: bhanupr
+ms.author: v-dazen
 
 ---
 # Upgrade HDInsight cluster to a newer version

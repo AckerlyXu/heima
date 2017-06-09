@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: juliako;anilmur
+ms.author: v-johch
 
 ---
 # Encode an asset with Media Encoder Standard using .NET

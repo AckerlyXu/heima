@@ -15,7 +15,7 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: shvija;sethm
+ms.author: v-yeche
 ---
 
 # Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template

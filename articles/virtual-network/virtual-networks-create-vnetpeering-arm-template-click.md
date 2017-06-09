@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 wacn.date: ''
-ms.author: narayan;annahar
+ms.author: v-dazen
 
 ---
 # Create a virtual network peering using an Azure Resource Manager template

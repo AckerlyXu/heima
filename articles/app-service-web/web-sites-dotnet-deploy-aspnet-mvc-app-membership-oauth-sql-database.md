@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2016
 wacn.date: ''
-ms.author: riande
+ms.author: v-dazen
 
 ---
 # Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service

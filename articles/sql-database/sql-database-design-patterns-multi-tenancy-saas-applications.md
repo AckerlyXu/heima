@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 wacn.date: ''
-ms.author: srinia
+ms.author: v-johch
 ---
 
 # Design patterns for multitenant SaaS applications and Azure SQL Database

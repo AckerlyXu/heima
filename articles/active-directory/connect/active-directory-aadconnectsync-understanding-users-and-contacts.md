@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 wacn.date: ''
-ms.author: markvi;andkjell
+ms.author: v-junlch
 
 ---
 # Azure AD Connect sync: Understanding Users and Contacts

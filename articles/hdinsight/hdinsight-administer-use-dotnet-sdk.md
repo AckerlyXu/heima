@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Manage Hadoop clusters in HDInsight by using .NET SDK

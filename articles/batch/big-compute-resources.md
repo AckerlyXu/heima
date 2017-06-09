@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
 ms.date: 03/17/2017
-ms.author: danlep
+ms.author: v-junlch
 
 ---
 # Big Compute in Azure: Technical resources for batch and high-performance computing

@@ -16,7 +16,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # How to run a Java application server on a virtual machine created with the classic deployment model

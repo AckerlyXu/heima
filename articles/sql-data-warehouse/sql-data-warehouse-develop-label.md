@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: jrj;barbkess
+ms.author: v-yeche
 
 ---
 

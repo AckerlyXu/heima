@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
-ms.author: ryanwi;mikhegn
+ms.author: v-johch
 
 ---
 # Get started with deploying and upgrading applications on your local cluster

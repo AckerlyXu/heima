@@ -15,7 +15,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: ''
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # How to use Queue storage from PHP

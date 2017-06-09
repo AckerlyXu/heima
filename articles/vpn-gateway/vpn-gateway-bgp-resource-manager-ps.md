@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 wacn.date: ''
-ms.author: yushwang
+ms.author: v-dazen
 
 ---
 # How to configure BGP on Azure VPN Gateways using PowerShell

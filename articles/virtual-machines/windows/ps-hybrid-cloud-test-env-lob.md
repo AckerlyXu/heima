@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 wacn.date: ''
-ms.author: josephd
+ms.author: v-dazen
 
 ---
 # Set up a web-based LOB application in a hybrid cloud for testing

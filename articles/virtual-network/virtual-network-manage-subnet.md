@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Create, change, or delete virtual network subnets

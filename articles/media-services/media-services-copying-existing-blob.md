@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: juliako
+ms.author: v-johch
 
 ---
 # Copying existing blobs into a Media Services Asset

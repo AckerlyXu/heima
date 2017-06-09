@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Control routing and use virtual appliances (classic) using PowerShell

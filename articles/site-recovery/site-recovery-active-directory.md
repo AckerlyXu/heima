@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/17/2017
-ms.author: pratshar
+ms.author: v-johch
 
 ---
 # Protect Active Directory and DNS with Azure Site Recovery

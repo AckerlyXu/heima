@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
-ms.author: tamram
+ms.author: v-johch
 ---
 
 # On-premises application with blob storage

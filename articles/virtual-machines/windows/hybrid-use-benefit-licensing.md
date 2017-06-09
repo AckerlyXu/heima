@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/01/2017
 wacn.date: ''
-ms.author: kmouss
+ms.author: v-dazen
 
 ---
 # Azure Hybrid Use Benefit for Windows Server and Windows Client

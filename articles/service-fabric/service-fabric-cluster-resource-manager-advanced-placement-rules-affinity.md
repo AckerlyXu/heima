@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: masnider
+ms.author: v-johch
 ---
 
 # Configuring and using service affinity in Service Fabric

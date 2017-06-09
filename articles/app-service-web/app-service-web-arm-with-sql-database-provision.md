@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Provision a web app with a SQL Database

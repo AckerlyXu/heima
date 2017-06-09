@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: manayar
+ms.author: v-johch
 
 ---
 # Multi-tenant support in Azure Site Recovery for replicating VMware virtual machines to Azure through the CSP Program

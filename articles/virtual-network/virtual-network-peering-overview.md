@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/17/2016
 wacn.date: ''
-ms.author: narayan
+ms.author: v-dazen
 
 ---
 # Virtual network peering

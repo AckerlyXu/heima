@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: krnese
+ms.author: v-johch
 ---
 
 # Deploy the Mobility service with Azure Automation DSC for replication of VM

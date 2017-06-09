@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 wacn.date: ''
-ms.author: yushwang;cherylmc
+ms.author: v-dazen
 
 ---
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: tobiast
+ms.author: v-johch
 
 ---
 # Connect to SQL Database using C and C++

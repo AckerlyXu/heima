@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # With Azure, SnelStart has rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month

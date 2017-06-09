@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 12/09/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-dazen
 
 ---
 # Create and manage Linux virtual machines in Visual Studio

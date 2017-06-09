@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use Apache Sqoop to import and export data between Hadoop in HDInsight and SQL Database

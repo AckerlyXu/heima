@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
-ms.author: ryanwi
+ms.author: v-johch
 
 ---
 # Secure a standalone cluster on Windows using X.509 certificates

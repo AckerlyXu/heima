@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: ''
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 #Azure Storage security guide

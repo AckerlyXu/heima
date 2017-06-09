@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
 wacn.date: ''
-ms.author: glenga
+ms.author: v-dazen
 
 ---
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison

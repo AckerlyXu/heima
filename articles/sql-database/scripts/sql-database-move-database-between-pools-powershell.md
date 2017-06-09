@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
-ms.author: janeng
+ms.author: v-johch
 ---
 
 # Create elastic pools and move databases between pools and out of a pool using PowerShell

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: aungoo
+ms.author: v-johch
 ---
 
 # Back up Azure unmanaged VM disks with incremental snapshots

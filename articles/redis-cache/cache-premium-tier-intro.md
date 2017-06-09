@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # Introduction to the Azure Redis Cache Premium tier

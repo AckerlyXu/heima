@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 12/07/2016
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # View the oldest restore point from the service-generated backups of an Azure SQL database

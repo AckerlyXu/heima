@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 wacn.date: ''
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # Preparing Hard Drives for an Import Job

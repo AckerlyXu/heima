@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # Set password expiration policies in Azure Active Directory

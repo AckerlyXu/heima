@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: ''
-ms.author: seanmck
+ms.author: v-yiso
 ---
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services

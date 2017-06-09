@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: alainl
+ms.author: v-johch
 
 ---
 # Improved query performance with compatibility Level 130 in Azure SQL Database

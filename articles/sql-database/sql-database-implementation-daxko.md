@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Daxko/CSI used Azure to accelerate its development cycle and to enhance its customer services and performance

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect: Upgrade from DirSync

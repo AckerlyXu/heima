@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # Distributed data and distributed tables for Massively Parallel Processing (MPP)

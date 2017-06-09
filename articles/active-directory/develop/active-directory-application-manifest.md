@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: dkershaw;bryanla
+ms.author: v-junlch
 ---
 
 # Understanding the Azure Active Directory application manifest

@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
-ms.author: dobett
+ms.author: v-yiso
 wacn.date: ''
 ---
 # Get started with the preconfigured solutions

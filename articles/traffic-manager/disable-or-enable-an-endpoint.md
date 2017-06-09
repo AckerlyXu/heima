@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 wacn.date: ''
-ms.author: kumud
+ms.author: v-dazen
 
 ---
 <!-- repub for nofollow -->

@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---                    
 

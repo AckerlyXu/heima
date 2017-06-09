@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 11/14/2016
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # View and update an Azure SQL Database server and its settings

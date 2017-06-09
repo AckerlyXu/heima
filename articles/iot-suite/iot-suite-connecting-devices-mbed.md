@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Connect your device to the remote monitoring preconfigured solution (mbed)

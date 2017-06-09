@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL Server authentication, access, and database-level firewall rules

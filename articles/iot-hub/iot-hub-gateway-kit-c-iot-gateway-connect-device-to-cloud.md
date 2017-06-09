@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
-ms.author: xshi
+ms.author: v-yiso
 
 ---
 # Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub

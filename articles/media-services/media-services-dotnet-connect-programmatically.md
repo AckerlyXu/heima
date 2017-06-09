@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Connecting to Media Services Account using Media Services SDK for .NET

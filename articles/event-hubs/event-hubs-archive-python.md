@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 wacn.date: ''
-ms.author: darosa;sethm
+ms.author: v-yeche
 ---
 
 # Event Hubs Archive walkthrough: Python

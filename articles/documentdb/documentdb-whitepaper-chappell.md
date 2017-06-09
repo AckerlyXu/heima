@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: https://azure.cn/documentation/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 

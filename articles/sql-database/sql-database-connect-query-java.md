@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: andrela;carlrab;sstein
+ms.author: v-johch
 
 ---
 # Azure SQL Database: Use Java to connect and query data

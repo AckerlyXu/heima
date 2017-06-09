@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/02/2017
-ms.author: asaxton
+ms.author: v-junlch
 
 ---
 # Get started with Power BI Embedded sample

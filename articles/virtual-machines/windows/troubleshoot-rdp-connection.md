@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 02/09/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Troubleshoot Remote Desktop connections to an Azure virtual machine

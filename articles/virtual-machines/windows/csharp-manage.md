@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: davidmu
+ms.author: v-dazen
 
 ---
 # Manage Azure Virtual Machines using Azure Resource Manager and C# #

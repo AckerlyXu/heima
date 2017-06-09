@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 # What is Azure Active Directory?

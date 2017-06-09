@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 wacn.date: ''
-ms.author: jonor;sivae
+ms.author: v-dazen
 
 ---
 # Example 2 - Build a DMZ to protect applications with a Firewall and NSGs

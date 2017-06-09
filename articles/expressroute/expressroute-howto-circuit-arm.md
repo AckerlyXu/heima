@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]

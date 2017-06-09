@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: https://azure.cn/documentation/articles/tutorial-global-distribution-documentdb
 ROBOTS: NOINDEX, NOFOLLOW
 

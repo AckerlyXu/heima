@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2016
 wacn.date: ''
-ms.author: cephalin;riande
+ms.author: v-dazen
 
 ---
 # Deploy an ASP.NET MVC 5 mobile web app in Azure App Service

@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: develop
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: jrj;barbkess
+ms.author: v-yeche
 ---
 
 # Design decisions and coding techniques for SQL Data Warehouse

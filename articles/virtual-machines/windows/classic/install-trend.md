@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM

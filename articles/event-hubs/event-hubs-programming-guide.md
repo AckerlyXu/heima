@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 02/10/2017
 wacn.date: ''
-ms.author: sethm
+ms.author: v-yeche
 ---
 
 # Event Hubs programming guide

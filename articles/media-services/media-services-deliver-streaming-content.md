@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: juliako
+ms.author: v-johch
 
 ---
 # Publish Azure Media Services content using .NET

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 wacn.date: ''
-ms.author: zachal
+ms.author: v-dazen
 
 ---
 # Introduction to the Azure Desired State Configuration extension handler

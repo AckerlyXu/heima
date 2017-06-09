@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Set up staging environments in Azure App Service

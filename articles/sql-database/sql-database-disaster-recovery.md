@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/14/2017
-ms.author: sashan
+ms.author: v-johch
 
 ---
 # Restore an Azure SQL Database or failover to a secondary

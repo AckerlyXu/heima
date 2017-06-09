@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Use BI tools with Apache Spark cluster on Azure HDInsight

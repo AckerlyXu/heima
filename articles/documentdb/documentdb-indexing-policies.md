@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: arramac
+ms.author: v-junlch
 
 ---
 # How does Azure Cosmos DB index data?

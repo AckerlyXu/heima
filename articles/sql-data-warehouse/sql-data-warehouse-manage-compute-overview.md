@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/22/2017
 wacn.date: ''
-ms.author: elbutter
+ms.author: v-yeche
 ---
 
 # Manage compute power in Azure SQL Data Warehouse (Overview)

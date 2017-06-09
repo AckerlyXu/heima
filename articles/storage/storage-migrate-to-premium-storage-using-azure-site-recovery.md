@@ -14,7 +14,7 @@
   ms.devlang: na
   ms.topic: article
   ms.date: 04/06/2017
-  ms.author: luywang
+  ms.author: v-johch
 
 ---
 # Migrating to Premium Storage using Azure Site Recovery

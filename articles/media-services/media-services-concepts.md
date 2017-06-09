@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2017
-ms.author: juliako
+ms.author: v-johch
 
 ---
 # Azure Media Services concepts

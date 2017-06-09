@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 wacn.date: ''
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # Get Azure tools (Windows 7 and later)

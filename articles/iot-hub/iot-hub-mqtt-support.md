@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: kdotchko
+ms.author: v-yiso
 ---
 
 # Communicate with your IoT hub using the MQTT protocol

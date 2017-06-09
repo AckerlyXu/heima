@@ -15,7 +15,7 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: ''
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # How to use Blob storage from Ruby

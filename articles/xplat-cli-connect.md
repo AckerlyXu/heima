@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: danlep
+ms.author: v-junlch
 ---
 
 # Log in to Azure from the Azure CLI

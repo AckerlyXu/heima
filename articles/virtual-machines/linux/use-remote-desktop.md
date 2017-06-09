@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure

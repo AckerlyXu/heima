@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 # What is Self-Service Signup for Azure?

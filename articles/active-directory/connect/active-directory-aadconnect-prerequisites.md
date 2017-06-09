@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: billmath
+ms.author: v-junlch
 
 ---
 # Prerequisites for Azure AD Connect

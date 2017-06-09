@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2017
-ms.author: sethm
+ms.author: v-yiso
 
 ---
 # Best Practices for performance improvements using Service Bus Messaging

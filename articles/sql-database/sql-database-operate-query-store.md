@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Operating the Query Store in Azure SQL Database

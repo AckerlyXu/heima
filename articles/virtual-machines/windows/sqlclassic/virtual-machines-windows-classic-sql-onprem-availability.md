@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/03/2017
 wacn.date: ''
-ms.author: mikeray
+ms.author: v-dazen
 
 ---
 # Extend on-premises Always On Availability Groups to Azure

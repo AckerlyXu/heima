@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: aungoo
+ms.author: v-johch
 ---
 
 # Azure Premium Storage: Design for High Performance

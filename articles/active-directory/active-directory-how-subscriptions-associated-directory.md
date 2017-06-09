@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 # How Azure subscriptions are associated with Azure Active Directory

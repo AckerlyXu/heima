@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 12/09/2016
 wacn.date: ''
-ms.author: carlrab; jognanay;
+ms.author: v-johch
 ---
 
 # Migrate SQL Server database to Azure SQL Database using transactional replication

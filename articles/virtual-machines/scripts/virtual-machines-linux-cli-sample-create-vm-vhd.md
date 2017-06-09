@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
 wacn.date: ''
-ms.author: allclark
+ms.author: v-dazen
 ---
 
 # Create a VM with a virtual hard disk

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 wacn.date: ''
-ms.author: seanmck
+ms.author: v-dazen
 ---
 
 # Cloud Foundry on Azure

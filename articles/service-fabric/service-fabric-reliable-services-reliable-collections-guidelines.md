@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 05/03/2017
-ms.author: mcoskun
+ms.author: v-johch
 
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
