@@ -381,7 +381,8 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 ## Redis commands not supported in Azure Redis Cache
 > [!IMPORTANT]
 > Because configuration and management of Azure Redis Cache instances is managed by Microsoft, the following commands are disabled. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
-> * BGREWRITEAOF 
+> 
+> * BGREWRITEAOF
 > * BGSAVE
 > * CONFIG
 > * DEBUG

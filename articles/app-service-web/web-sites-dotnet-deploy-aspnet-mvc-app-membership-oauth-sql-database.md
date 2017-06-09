@@ -42,7 +42,7 @@ You'll learn:
 > [!NOTE]
 > This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](app-service-web-get-started-dotnet.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
 > 
->
+> 
 
 ## Prerequisites
 To complete this tutorial, you need a Azure account. If you don't have an account, you can [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).

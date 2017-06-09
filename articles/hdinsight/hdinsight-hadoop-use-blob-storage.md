@@ -45,7 +45,7 @@ Azure storage is a robust, general-purpose storage solution that integrates seam
 > | Blob Storage Account | Hot | No |
 > | &nbsp; | Cool | No |
 
-### <a id="architecture"></a> HDInsight storage architecture
+### HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
 ![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
@@ -94,7 +94,7 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 > 
 > 
 
-### <a id="preparingblobstorage"></a> Create Blob containers
+### Create Blob containers
 To use blobs, you first create an [Azure Storage account][azure-storage-create]. As part of this, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same region.
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.
@@ -157,7 +157,7 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a id="addressing"></a> Address files in Azure storage
+### Address files in Azure storage
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/<path>
@@ -187,7 +187,7 @@ The &lt;path&gt; is the file or directory HDFS path name. Because containers in 
 > 
 > 
 
-### <a id="azurecli"></a> Access blobs using Azure CLI
+### Access blobs using Azure CLI
 Use the following command to list the blob-related commands:
 
     azure storage blob
@@ -208,7 +208,7 @@ Use the following command to list the blob-related commands:
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-### <a id="powershell" name="access-blobs-using-azure-powershell"></a> Access blobs using Azure PowerShell
+### Access blobs using Azure PowerShell
 > [!NOTE]
 > The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 > 

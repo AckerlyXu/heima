@@ -53,13 +53,13 @@ The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehd
 
 > [!IMPORTANT]
 > While the cluster name in the fully qualified domain name (FQDN) part of the URI (CLUSTERNAME.azurehdinsight.cn) is case-insensitive, other occurrences in the URI are case-sensitive. For example, if your cluster is named `MyCluster`, the following are valid URIs:
->
+> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
 >
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
->
+> 
 > The following URIs return an error because the second occurrence of the name is not the correct case.
->
+> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster`
 >
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/mycluster`
@@ -78,6 +78,7 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 
 > [!IMPORTANT]
 > The Bash examples in this document make the following assumptions:
+>
 > * The login name for the cluster is the default value of `admin`.
 > * `$PASSWORD` contains the password for the HDInsight login command. You can set this value by using `PASSWORD='mypassword'`.
 > * `$CLUSTERNAME` contains the name of the cluster. You can set this value by using `set CLUSTERNAME='clustername'`
@@ -90,6 +91,7 @@ $resp.Content
 
 > [!IMPORTANT]
 > The PowerShell examples in this document make the following assumptions:
+>
 > * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
 > * `$clusterName` is a string that contains the name of the cluster. You can set this value by using `$clusterName="clustername"`.
 

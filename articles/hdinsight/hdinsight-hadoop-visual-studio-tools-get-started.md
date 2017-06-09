@@ -115,7 +115,7 @@ All HDInsight clusters come with a sample Hive table called *hivesampletable*. W
 
     You can customize the row count.
 
-   ![Data Lake Tools: HDInsight Hive Visual Studio schema query](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Hive query results")
+    ![Data Lake Tools: HDInsight Hive Visual Studio schema query](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Hive query results")
 
 ### Create Hive tables
 You can use the GUI to create a Hive table or use Hive queries. For information about using Hive queries, see [Run Hive queries](#run.queries).

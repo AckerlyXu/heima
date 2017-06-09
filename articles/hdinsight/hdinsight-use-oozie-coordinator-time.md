@@ -98,7 +98,7 @@ Before you begin this tutorial, you must have the following:
 > [!NOTE]
 > Fill-in the values in the tables. It will be helpful for going through this tutorial.
 
-## <a id="defineworkflow"></a> Define Oozie workflow and the related HiveQL script
+## Define Oozie workflow and the related HiveQL script
 Oozie workflows definitions are written in hPDL (an XML process definition language). The default workflow file name is *workflow.xml*.  You will save the workflow file locally, and then deploy it to the HDInsight cluster by using Azure PowerShell later in this tutorial.
 
 The Hive action in the workflow calls a HiveQL script file. This script file contains three HiveQL statements:
@@ -249,7 +249,7 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
     | ${wfPath} |The path for the workflow.xml.  If the workflow file name is not the default file name (workflow.xml), you must specify it. |
 2. Save the file as **C:\Tutorials\UseOozie\coordinator.xml** by using the ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.)
 
-## <a id="deploy"></a> Deploy the Oozie project and prepare the tutorial
+## Deploy the Oozie project and prepare the tutorial
 You will run an Azure PowerShell script to perform the following:
 
 * Copy the HiveQL script (useoozie.hql) to Azure Blob storage, wasbs:///tutorials/useoozie/useoozie.hql.
@@ -393,7 +393,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
     ![Tutorial preparation output][img-preparation-output]
 
-## <a id="run"></a> Run the Oozie project
+## Run the Oozie project
 Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight cluster version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight cluster version 2.1).
 
 **To submit an Oozie job**

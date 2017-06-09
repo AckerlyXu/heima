@@ -374,6 +374,7 @@ Now, you create a simple CRUD work items tracker.
     > on some of the actions. Due to the behavior described by Brock Allen at 
     > [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail 
     > anti-forgery token validation because:
+    > 
     > * Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
     >   which is required by default by the anti-forgery token.
     > * If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 

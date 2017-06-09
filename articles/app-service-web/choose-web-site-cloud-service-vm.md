@@ -166,7 +166,7 @@ To get started with the option(s) you choose for your application, see the follo
 [Service Fabric]: https://www.azure.cn/home/features/service-fabric/
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: /app-service-web/websites-webjobs-resources
-[Configuring an SSL certificate for an Azure Website]: /azure/app-service-web/web-sites-configure-ssl-certificate
+[Configuring an SSL certificate for an Azure Website]: /app-service-web/web-sites-configure-ssl-certificate
 [dotnet]: /develop/net/
 [nodejs]: /develop/nodejs/
 [PHP]: /develop/php/
