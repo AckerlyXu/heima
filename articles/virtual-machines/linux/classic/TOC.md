@@ -31,7 +31,6 @@
 ## Deploy images
 ### [Create and upload a VHD](create-upload-vhd.md)
 ### [Create and upload a FreeBSD VHD](freebsd-create-upload-vhd.md)
-### [List of Oracle VM images](oracle-images.md)
 
 ## Manage workloads
 ### MySQL and MariaDB
