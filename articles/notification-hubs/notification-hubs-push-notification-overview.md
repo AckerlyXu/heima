@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 1/17/2017
-ms.author: yuaxu
+ms.date: 01/17/2017
+ms.author: v-junlch
 
 ---
 # Azure Notification Hubs

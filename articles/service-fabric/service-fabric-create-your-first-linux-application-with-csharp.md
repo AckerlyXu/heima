@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
-ms.author: subramar
+ms.author: v-johch
 
 ---
 # Create your first Azure Service Fabric application

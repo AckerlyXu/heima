@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/22/2016
 wacn.date: ''
-ms.author: ronitr; ronmat
+ms.author: v-johch
 ---
 
 # Get started with SQL Database dynamic data masking with the Azure Portal

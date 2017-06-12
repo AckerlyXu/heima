@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2017
 wacn.date: ''
-ms.author: sngun; v-reagie
+ms.author: v-dazen
 
 ---
 # Troubleshooting common issues in Azure Automation 

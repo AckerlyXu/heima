@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 wacn.date: ''
-ms.author: zivr
+ms.author: v-dazen
 
 ---
 # Azure Metadata Service - Scheduled Events (Preview)

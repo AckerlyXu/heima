@@ -17,7 +17,7 @@ ms.tgt_pltfrm: 'na'
 ms.workload: big-data
 ms.date: 04/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight

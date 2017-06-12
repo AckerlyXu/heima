@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Tag resources in Azure Resource Manager templates

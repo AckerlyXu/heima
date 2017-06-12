@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: seguler
+ms.author: v-johch
 
 ---
 # How to use Table storage from C++

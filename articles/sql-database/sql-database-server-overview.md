@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/01/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Azure SQL Database logical servers

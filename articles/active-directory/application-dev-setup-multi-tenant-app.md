@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: asteen
+ms.author: v-junlch
 
 ---
 
@@ -21,8 +21,8 @@ ms.author: asteen
 
 Here is a list of recommended topics to learn more about multi-tenant applications:
 
-- Get a general understanding of [what it means to be a multi-tenant application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- For more depth, learn [how a multi-tenant application is configured and coded end-to-end](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), including how to register, use the "common" endpoint, implement "user" and "admin" consent, how to implement more advanced multi-tier scenarios
+- Get a general understanding of [what it means to be a multi-tenant application](develop/active-directory-dev-glossary.md#multi-tenant-application)
+- For more depth, learn [how a multi-tenant application is configured and coded end-to-end](develop/active-directory-devhowto-multi-tenant-overview.md), including how to register, use the "common" endpoint, implement "user" and "admin" consent, how to implement more advanced multi-tier scenarios
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

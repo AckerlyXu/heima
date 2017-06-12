@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 wacn.date: ''
-ms.author: raviperi
+ms.author: v-dazen
 
 ---
 # SCP programming guide

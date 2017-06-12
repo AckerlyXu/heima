@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 wacn.date: ''
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ---
 
 # Get started sending messages to Event Hubs in .NET Standard

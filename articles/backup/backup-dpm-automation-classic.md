@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
-ms.author: nkolli;trinadhk;anuragm;markgal
+ms.date: 01/23/2017
+ms.author: v-junlch
 
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell

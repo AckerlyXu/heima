@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # Load data from SQL Server into Azure SQL Data Warehouse (flat files)

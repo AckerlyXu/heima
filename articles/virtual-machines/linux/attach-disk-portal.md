@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to attach a data disk to a Linux VM in the Azure portal preview

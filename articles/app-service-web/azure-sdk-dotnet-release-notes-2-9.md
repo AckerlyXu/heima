@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: ''
-ms.author: juliako;mikhegn
+ms.author: v-dazen
 
 ---
 # Azure SDK for .NET 2.9 release notes

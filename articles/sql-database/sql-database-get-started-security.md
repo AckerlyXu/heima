@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/17/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL Database tutorial: Create SQL database user accounts to access and manage a database

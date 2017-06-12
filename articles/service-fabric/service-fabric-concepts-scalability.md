@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/30/2016
 wacn.date: ''
-ms.author: masnider
+ms.author: v-johch
 ---
 
 # Scaling Service Fabric applications

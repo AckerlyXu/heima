@@ -15,7 +15,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # How to create PHP web and worker roles

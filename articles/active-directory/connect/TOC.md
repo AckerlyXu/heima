@@ -76,12 +76,6 @@
 ### [Service features](active-directory-aadconnectsyncservice-features.md)
 
 
-
-
-# Related
-## [Hybrid Identity Design Guide](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
-
-
 # Resources
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync Deprecation](active-directory-aadconnect-dirsync-deprecated.md)

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 wacn.date: ''
-ms.author: chackdan
+ms.author: v-johch
 ---
 
 # Upgrade your standalone Service Fabric cluster on Windows Server

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2016
 wacn.date: ''
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Configurable Token Lifetimes in Azure Active Directory (Public Preview)

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: genli
+ms.author: v-junlch
 ---
 
 # Troubleshoot slow backup of files and folders in Azure Backup

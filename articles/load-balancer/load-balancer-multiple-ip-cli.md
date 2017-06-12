@@ -18,7 +18,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 wacn.date: ''
-ms.author: annahar
+ms.author: v-yeche
 ---
 
 # Load balancing on multiple IP configurations

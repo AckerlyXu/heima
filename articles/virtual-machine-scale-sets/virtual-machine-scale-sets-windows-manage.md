@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
-ms.author: adegeo
+ms.author: v-dazen
 
 ---
 # Manage virtual machines in a virtual machine scale set

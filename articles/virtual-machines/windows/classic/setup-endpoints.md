@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to set up endpoints on a classic Windows virtual machine in Azure

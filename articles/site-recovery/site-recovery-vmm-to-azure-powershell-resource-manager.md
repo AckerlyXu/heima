@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using PowerShell and Azure Resource Manager

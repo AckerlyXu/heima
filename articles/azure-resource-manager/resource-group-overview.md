@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Azure Resource Manager overview
@@ -220,7 +220,7 @@ az resource list --tag costCenter=Finance
 
 You can also view tagged resources through the Azure portal.
 
-The [usage report](/documentation/articles/billing-understand-your-bill/) for your subscription includes tag names and values, which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md).
+The [usage report](../billing-understand-your-bill.md) for your subscription includes tag names and values, which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md).
 
 ## Access control
 Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates role-based access control (RBAC) into the management platform and applies that access control to all services in your resource group. 

@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/18/2016
 wacn.date: ''
-ms.author: shigu;barbkess
+ms.author: v-yeche
 ---
 
 # Memory optimizations for columnstore compression

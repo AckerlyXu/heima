@@ -16,7 +16,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: arramac
+ms.author: v-junlch
 
 ---
 # NoSQL tutorial: Build a DocumentDB Java console application
@@ -187,7 +187,7 @@ Congratulations! You've completed this NoSQL tutorial and have a working Java co
 - Want a Java web app tutorial? See [Build a web application with Java using Azure Cosmos DB](documentdb-java-application.md).
 - Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 - Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-- Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](/documentation/services/documentdb/).
+- Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](index.md).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

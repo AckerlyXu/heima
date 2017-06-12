@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery

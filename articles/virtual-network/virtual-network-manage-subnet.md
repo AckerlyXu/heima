@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Create, change, or delete virtual network subnets
@@ -34,8 +34,8 @@ Complete the following tasks before completing steps in any section of this arti
 - If you're new to VNets and subnets in Azure, we recommend completing the exercise in the [Create your first Azure Virtual Network](virtual-network-get-started-vnet-subnet.md) before reading this article. The exercise helps familiarize you with VNets and subnets.
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for subnets and VNets.
 - Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://azure.microsoft.com/free).
-- If you use Azure PowerShell commands to complete tasks in this article, first you must [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If you use Azure Command-line interface (CLI) commands to complete tasks in this article, first you must [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+- If you use Azure PowerShell commands to complete tasks in this article, first you must [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+- If you use Azure Command-line interface (CLI) commands to complete tasks in this article, first you must [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -58,7 +58,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet?toc=%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>Change subnet settings
@@ -76,7 +76,7 @@ You can change the NSG, route tables, and user access to the subnet with resourc
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-subnet"></a>Delete a subnet
@@ -93,7 +93,7 @@ You can only delete a subnet if there are no resources connected to it. If there
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[az network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps

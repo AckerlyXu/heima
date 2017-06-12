@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/04/2017
-ms.author: subramar
+ms.author: v-johch
 
 ---
 # Prepare your development environment on Linux

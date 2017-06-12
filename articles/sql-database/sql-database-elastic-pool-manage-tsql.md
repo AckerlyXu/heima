@@ -8,8 +8,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 05/27/2016
 wacn.date: 06/01/2016
+ms.author: v-johch
 ---
 
 # Monitor and manage an elastic database pool with Transact-SQL  

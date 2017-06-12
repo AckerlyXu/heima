@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/18/2017
-ms.author: ryanwi
+ms.author: v-johch
 
 ---
 # So you want to learn about Service Fabric?

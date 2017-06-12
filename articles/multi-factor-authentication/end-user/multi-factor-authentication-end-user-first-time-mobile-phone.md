@@ -8,8 +8,10 @@ manager: stevenp
 editor: curtland
 
 ms.service: multi-factor-authentication
+ms.topic: article
 ms.date: 08/04/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # Use mobile phone as your contact method with Azure Multi-Factor Authentication

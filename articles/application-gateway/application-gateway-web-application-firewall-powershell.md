@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Configure web application firewall on a new or existing Application Gateway
@@ -108,9 +108,9 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 
 Create a resource group for the application gateway.
 
-    ```powershell
-    New-AzureRmResourceGroup -Name appgw-rg -Location "China North"
-    ```
+```powershell
+New-AzureRmResourceGroup -Name appgw-rg -Location "China North"
+```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 

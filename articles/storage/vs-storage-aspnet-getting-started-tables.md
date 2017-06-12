@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-johch
 ---
 
 # Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)

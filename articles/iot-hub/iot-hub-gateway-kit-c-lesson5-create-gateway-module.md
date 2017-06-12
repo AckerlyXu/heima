@@ -14,8 +14,8 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
-ms.author: xshi
+ms.date: 03/21/2017
+ms.author: v-yiso
 ---
 
 # Lesson 5: Create your first Azure IoT Gateway module

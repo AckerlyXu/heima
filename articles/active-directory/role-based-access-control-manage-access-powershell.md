@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/02/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # Manage Role-Based Access Control with Azure PowerShell

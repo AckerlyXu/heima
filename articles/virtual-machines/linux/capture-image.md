@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Capture a Linux virtual machine running on Azure

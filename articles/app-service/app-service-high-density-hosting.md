@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/11/2017
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-dazen
 
 ---
 # High density hosting on Azure App Service

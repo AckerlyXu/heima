@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-junlch
 
 ---
 # Azure subscription and service limits, quotas, and constraints
 This document lists some of the most common Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more of the platform.
 
-Please visit [Azure Pricing Overview](https://www.azure.cn/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://www.azure.cn/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://www.azure.cn/pricing/details/virtual-machines/#Windows/)).
+Please visit [Azure Pricing Overview](https://www.azure.cn/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://www.azure.cn/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://www.azure.cn/pricing/details/virtual-machines#Windows)).
 
 > [!NOTE]
 > If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. 
@@ -47,7 +47,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Gateway](#application-gateway-limits)
-- [Application Insights](#application-insights-limits)
 - [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
@@ -55,8 +54,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Batch](#batch-limits)
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
-- [Data Factory](#data-factory-limits)
-- [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [Event Hubs](#event-hubs-limits)
@@ -75,7 +72,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Site Recovery](#site-recovery-limits)
 - [SQL Database](#sql-database-limits)
 - [Storage](#storage-limits)
-
 - [Stream Analytics](#stream-analytics-limits)
 - [Subscription](#subscription-limits)
 - [Traffic Manager](#traffic-manager-limits)
@@ -206,9 +202,6 @@ DocumentDB is a global scale database in which throughput and storage can be sca
 
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### Application Insights limits
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### API Management limits
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

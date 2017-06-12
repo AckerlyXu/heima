@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure

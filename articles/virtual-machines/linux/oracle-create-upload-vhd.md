@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 wacn.date: ''
-ms.author: szark
+ms.author: v-dazen
 
 ---
 # Prepare an Oracle Linux virtual machine for Azure

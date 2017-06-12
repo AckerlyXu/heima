@@ -8,8 +8,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 08/08/2016
 wacn.date: 06/02/2016
+ms.author: v-johch
 ---
 
 # Upgrade to Azure SQL Database V12 using the Azure portal

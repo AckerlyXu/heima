@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
 wacn.date: ''
-ms.author: bryanla
+ms.author: v-junlch
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers

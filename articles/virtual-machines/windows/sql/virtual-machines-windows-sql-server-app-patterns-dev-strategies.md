@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 wacn.date: ''
-ms.author: lvargas
+ms.author: v-dazen
 
 ---
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines

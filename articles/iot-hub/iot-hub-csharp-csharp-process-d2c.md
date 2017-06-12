@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Process IoT Hub device-to-cloud messages using routes (.NET)

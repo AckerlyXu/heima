@@ -17,7 +17,7 @@ ms.workload: data-management
 ms.custom: security
 ms.date: 03/21/2017
 wacn.date: ''
-ms.author: rickbyh;barbkess
+ms.author: v-yeche
 
 ---
 

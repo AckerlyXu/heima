@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure

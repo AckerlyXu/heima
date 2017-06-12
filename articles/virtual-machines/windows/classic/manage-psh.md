@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 wacn.date: ''
-ms.author: kasing
+ms.author: v-dazen
 
 ---
 # Manage your virtual machines by using Azure PowerShell

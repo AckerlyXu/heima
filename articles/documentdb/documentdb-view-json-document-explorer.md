@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 wacn.date: ''
-ms.author: kirillg
+ms.author: v-junlch
 
 ---
 # View, edit, create, and upload JSON documents 

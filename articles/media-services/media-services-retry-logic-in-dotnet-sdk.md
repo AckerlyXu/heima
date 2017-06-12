@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Retry logic in the Media Services SDK for .NET

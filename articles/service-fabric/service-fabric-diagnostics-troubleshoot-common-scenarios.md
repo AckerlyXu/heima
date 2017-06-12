@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: service-fabric
+ms.topic: article
 ms.date: 03/31/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Troubleshoot common issues when you deploy services on Azure Service Fabric

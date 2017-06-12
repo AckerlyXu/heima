@@ -11,7 +11,7 @@ ms.topic: "reference"
 ms.assetid: feddca1e-c69c-4257-be44-a36172e77157
 caps.latest.revision: 4
 author: "tamram"
-ms.author: "tamram"
+ms.author: v-junlch
 manager: "timlt"
 ---
 # Pool delete start event

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage
 

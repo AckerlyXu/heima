@@ -8,8 +8,10 @@ manager: dwrede
 editor: ''
 
 ms.service: cache
+ms.topic: article
 ms.date: 08/11/2015
 wacn.date: ''
+ms.author: v-yiso
 ---
 
 # How to Use In-Role Cache for Azure Cache

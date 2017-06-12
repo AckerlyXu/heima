@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2016
-ms.author: curtand;jeffsta
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Add your custom domain name to Azure Active Directory

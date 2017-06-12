@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/16/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Redeploy Windows virtual machine to new Azure node

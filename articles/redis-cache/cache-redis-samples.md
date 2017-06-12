@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # Azure Redis Cache samples

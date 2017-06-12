@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Process and analyze JSON documents using Hive in HDInsight
@@ -119,7 +119,7 @@ Here is the output when running this query in console window.
 There are a few limitations of the get-json_object UDF.
 
 * Because each field in the query requires reparsing the query, it affects the performance.
-* GET\_JSON_OBJECT() returns the string representation of an array. To convert this  array to a Hive array, you have to use regular expressions to replace the square brackets '[' and ']' and then also call split to get the array.
+* GET\_JSON_OBJECT() returns the string representation of an array. To convert this array to a Hive array, you have to use regular expressions to replace the square brackets '[' and ']' and then also call split to get the array.
 
 This is why the Hive wiki recommends using json_tuple.  
 
@@ -214,7 +214,7 @@ To calculate the sum of scores of the JSON document
     FROM json_table jt
       lateral view explode(jt.StudentClassCollection.Score) collection as scores;
 
-The  preceding query uses [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF to expand the array of scores so that they can be summed.
+The preceding query uses [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF to expand the array of scores so that they can be summed.
 
 Here is the output from the Hive console.
 
@@ -222,13 +222,12 @@ Here is the output from the Hive console.
 
 To find which subjects a given student has scored more than 80 points:
 
-
     SELECT  
       jt.StudentClassCollection.ClassId
     FROM json_table jt
       lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
 
-The  preceding query returns a Hive array unlike get\_json\_object, which returns a string.
+The preceding query returns a Hive array unlike get\_json\_object, which returns a string.
 
 ![SerDe Query 3][image-hdi-hivejson-serde_query3]
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 wacn.date: ''
-ms.author: kumud
+ms.author: v-yeche
 ---
 
 # Configure the distribution mode for load balancer

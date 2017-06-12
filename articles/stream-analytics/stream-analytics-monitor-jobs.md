@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 wacn.date: ''
-ms.author: jeffstok
+ms.author: v-yeche
 
 ---
 # Programmatically create a Stream Analytics job monitor

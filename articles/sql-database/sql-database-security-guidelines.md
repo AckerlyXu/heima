@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/18/2016
-ms.author: rickbyh
+ms.author: v-johch
 
 ---
 # Azure SQL Database security guidelines and limitations

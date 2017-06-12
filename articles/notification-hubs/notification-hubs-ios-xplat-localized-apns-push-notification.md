@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: v-junlch
 wacn.date: ''
 ---
 
@@ -272,7 +272,6 @@ For more information on using templates, see:
 [Notify users with Notification Hubs: Mobile Services]:/manage/services/notification-hubs/notify-users/
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]:/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/#create-new-service/
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/zh-cn/library/jj927170.aspx

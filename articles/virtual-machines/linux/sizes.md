@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # Sizes for Linux virtual machines in Azure

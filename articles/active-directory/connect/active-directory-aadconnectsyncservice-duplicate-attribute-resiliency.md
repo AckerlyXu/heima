@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 wacn.date: ''
-ms.author: markvi
+ms.author: v-junlch
 
 ---
 # Identity synchronization and duplicate attribute resiliency

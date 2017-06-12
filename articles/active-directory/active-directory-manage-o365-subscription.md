@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 # Manage the directory for your Office 365 subscription in Azure

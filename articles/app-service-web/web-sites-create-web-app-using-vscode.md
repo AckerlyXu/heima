@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Create an ASP.NET Core web app in Visual Studio Code

@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # What is Site Recovery?

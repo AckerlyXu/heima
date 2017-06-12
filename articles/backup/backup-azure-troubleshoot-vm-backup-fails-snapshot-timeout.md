@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: genli;markgal;
+ms.author: v-junlch
 ---
 
 # Troubleshoot Azure Backup failure: Snapshot VM sub task timed out

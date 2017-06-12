@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 03/23/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 # How to use Service Bus topics and subscriptions
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]

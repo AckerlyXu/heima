@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use Maven to build Java applications that use HBase with Linux-based HDInsight (Hadoop)

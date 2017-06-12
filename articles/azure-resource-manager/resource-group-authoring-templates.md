@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Understand the structure and syntax of Azure Resource Manager templates

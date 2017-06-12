@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # Sample Workflow to Prepare Hard Drives for an Import Job

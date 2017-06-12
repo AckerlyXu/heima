@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Jupyter notebooks kernels with Apache Spark clusters in HDInsight 

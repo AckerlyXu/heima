@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/09/2017
-ms.author: ronitr; ronmat
+ms.author: v-johch
 
 ---
 # SQL Database dynamic data masking

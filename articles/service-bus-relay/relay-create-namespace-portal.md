@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/13/2017
-ms.author: jotaub;sethm
+ms.author: v-yiso
 ---
 
 # Create a Relay namespace using the Azure portal

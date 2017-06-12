@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 wacn.date: ''
-ms.author: mthalman;mikhegn
+ms.author: v-johch
 ---
 
 # Set up Service Fabric continuous integration and deployment with Visual Studio Team Services

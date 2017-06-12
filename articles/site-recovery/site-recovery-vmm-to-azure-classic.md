@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # Replicate Hyper-V virtual machines in VMM clouds to Azure

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
+ms.author: v-johch
 
 ---
 # Elastic Database tools glossary

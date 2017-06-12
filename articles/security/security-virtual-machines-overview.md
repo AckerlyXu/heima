@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
-ms.author: lingche
+ms.author: v-johch
 ---
 
 # Azure Virtual Machines security overview

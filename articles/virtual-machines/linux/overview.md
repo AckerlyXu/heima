@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 wacn.date: ''
-ms.author: rclaus
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Azure and Linux

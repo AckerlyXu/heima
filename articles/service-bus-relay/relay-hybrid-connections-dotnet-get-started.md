@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 03/27/2017
-ms.author: jotaub;sethm
+ms.author: v-yiso
 
 ---
 # Get started with Relay Hybrid Connections

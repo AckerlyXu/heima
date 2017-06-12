@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: seguler
+ms.author: v-johch
 ---
 
 # Using the Azure CLI 1.0 with Azure Storage

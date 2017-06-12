@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # About Azure storage accounts

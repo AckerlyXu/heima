@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: pullabhk
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Back up a SharePoint farm to Azure
@@ -121,7 +121,7 @@ After you have configured MABS and the SharePoint farm as explained previously, 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS provides a maximum of two daily backups to Azure from the then available latest disk backup point. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](/documentation/articles/backup-configure-vault/#enable-network-throttling/).
+    > MABS provides a maximum of two daily backups to Azure from the then available latest disk backup point. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](backup-configure-vault.md#enable-network-throttling).
     >
     >
 11. Depending on the backup schedule that you selected, on the **Specify Online Retention Policy** page, select the retention policy for daily, weekly, monthly, and yearly backup points.

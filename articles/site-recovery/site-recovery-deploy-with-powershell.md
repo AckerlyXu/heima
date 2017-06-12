@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: bsiva
+ms.author: v-johch
 ---
 
 # Replicate Hyper-V VMs to Azure with PowerShell in the classic portal

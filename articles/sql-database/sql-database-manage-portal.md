@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Manage Azure SQL Databases using the Azure portal

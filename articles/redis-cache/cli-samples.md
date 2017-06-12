@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # Azure CLI Samples for Azure Redis Cache

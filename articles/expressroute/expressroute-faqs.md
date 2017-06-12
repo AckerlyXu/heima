@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
-ms.author: cherylmc
+ms.author: v-yiso
 ---
 
 # ExpressRoute FAQ

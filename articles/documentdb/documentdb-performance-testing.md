@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2017
 wacn.date: ''
-ms.author: arramac
+ms.author: v-junlch
 
 ---
 # Performance and scale testing with Azure Cosmos DB

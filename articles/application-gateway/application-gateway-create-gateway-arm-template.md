@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
@@ -143,7 +143,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
     Get-AzureRmSubscription
     ```
 
-You are prompted to authenticate with your credentials.
+    You are prompted to authenticate with your credentials.
 
 1. Choose which of your Azure subscriptions to use.
 

@@ -16,7 +16,7 @@ ms.topic: samples
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/24/2017
-ms.author: janeng
+ms.author: v-johch
 ---
 
 # Scale an elastic pool in Azure SQL Database using the Azure CLI

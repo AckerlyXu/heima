@@ -8,8 +8,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 07/12/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # How to use batching to improve SQL Database application performance

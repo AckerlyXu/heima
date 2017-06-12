@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Capture an image of an Azure Windows virtual machine created with the classic deployment model.

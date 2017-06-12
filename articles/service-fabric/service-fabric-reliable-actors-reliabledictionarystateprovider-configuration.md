@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/8/2017
+ms.date: 02/08/2017
 wacn.date: ''
-ms.author: sumukhs
+ms.author: v-johch
 ---
 
 # Configuring Reliable Actors--ReliableDictionaryActorStateProvider

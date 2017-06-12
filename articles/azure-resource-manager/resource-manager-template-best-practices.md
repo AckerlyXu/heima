@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Best practices for creating Azure Resource Manager templates

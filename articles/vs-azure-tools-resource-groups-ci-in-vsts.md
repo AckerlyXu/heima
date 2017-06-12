@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: mlearned
+ms.author: v-junlch
 ---
 
 # Continuous integration in Visual Studio Team Services using Azure Resource Group deployment projects

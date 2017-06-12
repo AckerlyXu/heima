@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
-ms.author: xshi
+ms.author: v-yiso
 
 ---
 # Use iothub-explorer to send and receive messages between your device and IoT Hub

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2016
 wacn.date: ''
-ms.author: kumud
+ms.author: v-dazen
 
 ---
 # Load balancing for Azure infrastructure services

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 03/08/2017
 wacn.date: ''
-ms.author: cfowler
+ms.author: v-dazen
 
 ---
 # Azure PowerShell Samples

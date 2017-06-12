@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to configure an availability set for Linux virtual machines in the classic deployment model

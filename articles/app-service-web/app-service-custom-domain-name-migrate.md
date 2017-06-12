@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Migrate an active custom domain to Azure App Service

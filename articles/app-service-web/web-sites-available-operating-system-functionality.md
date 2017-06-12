@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Operating system functionality on Azure App Service

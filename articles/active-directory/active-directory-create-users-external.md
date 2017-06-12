@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/14/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 # Add users from other directories or partner companies in Azure Active Directory

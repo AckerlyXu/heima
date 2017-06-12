@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: jimpark;markgal
+ms.author: v-junlch
 wacn.date: ''
 ---
 

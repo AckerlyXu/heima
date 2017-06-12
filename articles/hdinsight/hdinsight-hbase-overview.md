@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # What is HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Hadoop

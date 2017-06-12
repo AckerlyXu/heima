@@ -16,7 +16,7 @@ ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/03/2017
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Create an Azure SQL database in the Azure portal preview

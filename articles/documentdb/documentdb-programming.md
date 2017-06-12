@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2016
 wacn.date: ''
-ms.author: andrl
+ms.author: v-junlch
 ---
 # Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs
 Learn how Azure Cosmos DB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write database program application logic that can be shipped and executed directly on the database storage partitions 

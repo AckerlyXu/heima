@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 wacn.date: ''
-ms.author: guybo
+ms.author: v-dazen
 
 ---
 # Upgrade a virtual machine scale set

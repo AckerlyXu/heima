@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/24/2017
-ms.author: janeng
+ms.author: v-johch
 ---
 
 # Create a single SQL database and configure a firewall rule using the Azure CLI

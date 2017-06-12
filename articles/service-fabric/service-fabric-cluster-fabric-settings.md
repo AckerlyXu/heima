@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/15/2017
 wacn.date: ''
-ms.author: chackdan
+ms.author: v-johch
 ---
 
 # Customize Service Fabric cluster settings and Fabric Upgrade policy

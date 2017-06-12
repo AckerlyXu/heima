@@ -4,7 +4,7 @@ description: Learn how to set up Monitoring on your Web App
 services: App-Service
 keywords:
 author: btardif
-ms.author: byvinyal
+ms.author: v-dazen
 ms.date: 04/04/2017
 wacn.date: ''
 ms.topic: article
@@ -89,32 +89,7 @@ Now that the alert is created an email is sent every time the app goes over the 
 > - [Take Action On Metrics](../monitoring-and-diagnostics/monitoring-overview.md)
 > - [Create metric alerts](../monitoring-and-diagnostics/insights-alerts-portal.md)
 
-## <a name="companion"></a> Step 3 - App Service Companion
-**App Service companion** offers a convenient way to monitor your app with a native experience in your mobile device (iOS or Android).
-
-Use App Service Companion to:
-- Review application metrics
-- Review and act on application alerts and recommendations
-- Perform basic troubleshooting (browse, start, stop, restart the app)
-- Get push notifications for critical events.
-
-![App Service Companion](./media/app-service-web-tutorial-monitoring/app-service-companion.png)
-
-[![App Service Companion App Store](./media/app-service-web-tutorial-monitoring/app-service-companion-appStore.png)](https://itunes.apple.com/app/azure-app-service-companion/id1146659260)
-[![App Service Companion Google Play](./media/app-service-web-tutorial-monitoring/app-service-companion-googlePlay.png)](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
-
-You can install App Service companion from the [App Store](https://itunes.apple.com/app/azure-app-service-companion/id1146659260) or [Google Play](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
-
-## <a name="diagnose"></a> Step 4 - Diagnose and solve problems
-**Diagnose and solve problems** helps you separate application issues form platform issues. It can also suggest possible mitigations to get your Web App back to healthy.
-
-![Diagnose and Solve Problems](./media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
-
-Continuing with the example form previous steps, we can see that the application has been having availably issues. In contrast, the platform availability has not moved from 100%.
-
-When the app is having issue and the platform stays up, it's a clear indication that we are dealing with an application issue.
-
-## <a name="logging"></a> Step 5 - Logging
+## <a name="logging"></a> Step 3 - Logging
 Now that we have narrowed down the failures to an application issue, we can look at the application and server logs to get more information.
 
 Logging allows you to collect both **Application Diagnostics** and **Web Server Diagnostics** logs for your Web App.
@@ -189,7 +164,7 @@ Logs stored in blob storage are accessed using Azure Storage Explorer. Logs stor
 - **Web Server Logs** - `%HOME%/LogFiles/http/RawLogs`.
     - This folder contains one or more text files formatted using the W3C extended log file format.
 
-## <a name="streaming"></a> Step 5 - Log Streaming
+## <a name="streaming"></a> Step 4 - Log Streaming
 Streaming logs are convenient when debugging an application since it saves time compared to [accessing the logs](#Accessing-Logs) through FTP.
 
 App Service can stream **Application Logs** and **Web Server Logs** as they are generated.
@@ -204,7 +179,7 @@ To stream logs, go to **Monitoring**> **Log Stream**. Select **Application Logs*
 > [!TIP]
 > Logs are only generated when there is traffic on the app, you can also increase the verbosity of logs to get more events or information.
 
-## <a name="remote"></a> Step 6 - Remote Debugging
+## <a name="remote"></a> Step 5 - Remote Debugging
 Once you have pin-pointed the source of the applications problems, use **Remote Debugging** to walk through the code.
 
 Remote debugging lets you attach a debugger to your Web App running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path just like you do for an app running locally.
@@ -225,7 +200,7 @@ Visual Studio configures your application for remote debugging and launches a br
 > [!WARNING]
 > Running in debug mode in production is not recommended. If your production app is not scaled out to multiple server instances, debugging prevent the web server from responding to other requests. For troubleshooting production problems, your best resource is to [configure logging](#logging) and [Application Insights](#insights).
 
-## <a name="explorer"></a> Step 8 - Process Explorer
+## <a name="explorer"></a> Step 6 - Process Explorer
 When your application is scaled out to more than one instance, **process explorer** can help you identify instance specific problems.
 
 Use **Process Explorer** to:
@@ -238,17 +213,3 @@ Use **Process Explorer** to:
 Process Explorer can be found under **Monitoring** > **Process Explorer**.
 
 ![Process Explorer](./media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
-
-## <a name="insights"></a> Step 9 - Application Insights
-**Application Insights** provides application profiling and advanced monitoring capabilities for your app.
-
-Use Application Insights to detect and diagnose exceptions and performance issues in your Web App.
-
-You can enable Application Insights for your Web App under **Monitoring** > **Application Insights**
-
-> [!NOTE]
-> Application Insights might prompt you to install the Application Insights site extension to start collecting data. Installing the site extension causes an application restart.
-
-![Application Insights](./media/app-service-web-tutorial-monitoring/app-service-monitor-appinsights.png)
-
-Application Insights has a rich feature set, to learn more, follow the links included in the [Next Steps](#next) section.

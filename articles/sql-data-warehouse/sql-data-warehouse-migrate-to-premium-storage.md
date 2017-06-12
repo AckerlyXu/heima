@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 wacn.date: ''
-ms.author: rortloff;barbkess
+ms.author: v-yeche
 ---
 
 # Migrate your data warehouse to premium storage

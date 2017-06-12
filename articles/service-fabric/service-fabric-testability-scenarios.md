@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2017
 wacn.date: ''
-ms.author: motanv
+ms.author: v-johch
 ---
 
 # Testability scenarios

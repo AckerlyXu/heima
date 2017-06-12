@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: anilmur;juliako;
+ms.author: v-johch
 
 ---
 # Crop videos with Media Encoder Standard

@@ -11,7 +11,7 @@ ms.topic: "reference"
 ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
 caps.latest.revision: 3
 author: "tamram"
-ms.author: "tamram"
+ms.author: v-junlch
 manager: "timlt"
 ---
 # Task fail event

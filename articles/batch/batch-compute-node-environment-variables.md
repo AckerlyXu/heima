@@ -11,17 +11,17 @@ ms.topic: "article"
 ms.assetid: 3990f0c8-b627-432f-9551-5ce10f9bb0ca
 caps.latest.revision: 14
 author: "tamram"
-ms.author: "tamram"
+ms.author: v-junlch
 manager: "timlt"
 ---
 # Azure Batch compute node environment variables
 The [Azure Batch service](https://azure.microsoft.com/services/batch/) sets the following environment variables on compute nodes. You can reference these environment variables in task command lines, and in the programs and scripts run by the command lines.
 
-For additional information about using environment variables with Batch, see [Environment settings for tasks](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+For additional information about using environment variables with Batch, see [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks).
 
 ## Environment variable visibility
 
-These environment variables are visible only in the context of the **task user**, the user account on the node under which a task is executed. You will *not* see these if you [connect remotely](/documentation/articles/batch-api-basics/#connecting-to-compute-nodes/) to a compute node via Remote Desktop Protocol (RDP) or Secure Shell (SSH) and list the environment variables. This is because the user account that is used for remote connection is not the same as the account that is used by the task.
+These environment variables are visible only in the context of the **task user**, the user account on the node under which a task is executed. You will *not* see these if you [connect remotely](batch-api-basics.md#connecting-to-compute-nodes) to a compute node via Remote Desktop Protocol (RDP) or Secure Shell (SSH) and list the environment variables. This is because the user account that is used for remote connection is not the same as the account that is used by the task.
 
 ## Command-line expansion of environment variables
 
@@ -56,7 +56,7 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 | `AZ_BATCH_IS_CURRENT_NODE_MASTER` | Specifies whether the current node is the master node for a [multi-instance task][multi_instance]. Possible values are `true` and `false`.| Multi-instance primary and subtasks. | `true` |
 
 
-[files_dirs]:/documentation/articles/batch-api-basics/#files-and-directories/
-[multi_instance]: /documentation/articles/batch-mpi/
-[coord_cmd]:/documentation/articles/batch-mpi/#coordination-command/
-[app_cmd]:/documentation/articles/batch-mpi/#application-command/
+[files_dirs]: batch-api-basics.md#files-and-directories
+[multi_instance]: batch-mpi.md
+[coord_cmd]: batch-mpi.md#coordination-command
+[app_cmd]: batch-mpi.md#application-command

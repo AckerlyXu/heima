@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2016
 wacn.date: ''
-ms.author: georgem;tomfitz
+ms.author: v-yeche
 ---
 
 # Security considerations for Azure Resource Manager

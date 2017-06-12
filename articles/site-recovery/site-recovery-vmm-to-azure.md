@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-=article
 ms.date: 04/05/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using Site Recovery in the Azure portal preview

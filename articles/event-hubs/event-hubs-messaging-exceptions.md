@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: sethm
+ms.author: v-yeche
 ---
 
 # Event Hubs messaging exceptions

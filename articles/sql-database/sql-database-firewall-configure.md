@@ -17,7 +17,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/10/2017
-ms.author: rickbyh
+ms.author: v-johch
 
 ---
 # Azure SQL Database server-level and database-level firewall rules 

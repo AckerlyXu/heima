@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2016
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Optimize Hive queries in Azure HDInsight

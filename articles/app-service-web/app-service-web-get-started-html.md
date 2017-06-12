@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/08/2017
 wacn.date: ''
-ms.author: riande
+ms.author: v-dazen
 
 ---
 # Create a static HTML web app in Azure in five minutes

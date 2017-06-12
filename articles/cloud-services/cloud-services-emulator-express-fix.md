@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/02/2016
-ms.author: cawa
+ms.author: v-yiso
 ---
 # Use Emulator Express to debug Cloud Services application in VS 2017
 This article explains how to use Emulator Express to debug Cloud Services applications in VS 2017.

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: cfowler
+ms.author: v-dazen
 ---
 
 # Connect a web app to a redis cache

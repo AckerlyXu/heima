@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/01/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)

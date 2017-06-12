@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Filter network traffic with network security groups

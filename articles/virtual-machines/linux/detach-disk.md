@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/21/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to detach a data disk from a Linux virtual machine

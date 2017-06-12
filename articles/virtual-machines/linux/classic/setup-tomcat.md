@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 wacn.date: ''
-ms.author: ningk
+ms.author: v-dazen
 
 ---
 # Set up Tomcat7 on a Linux virtual machine with Azure

@@ -3,8 +3,9 @@ ms.assetid:
 title: Azure Key Vault soft delete | Microsoft Docs
 ms.service: key-vault
 author: BrucePerlerMS
-ms.author: bruceper
+ms.author: v-junlch
 manager: mbaldwin
+ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
 

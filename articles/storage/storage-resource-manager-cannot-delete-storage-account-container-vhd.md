@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: genli
+ms.author: v-johch
 ---
 
 # Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment

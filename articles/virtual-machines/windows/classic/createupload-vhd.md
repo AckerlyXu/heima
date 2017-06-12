@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Create and upload a Windows Server VHD to Azure

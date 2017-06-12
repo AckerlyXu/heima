@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: ''
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # Node.js Web Application using Storage

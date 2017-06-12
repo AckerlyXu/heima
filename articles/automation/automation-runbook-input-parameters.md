@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 wacn.date: ''
-ms.author: sngun
+ms.author: v-dazen
 
 ---
 # Runbook input parameters
@@ -74,7 +74,7 @@ You can pass values to input parameters in runbooks in the following scenarios.
 A runbook can be started many ways: through the Azure Classic Management Portal, with a webhook, with PowerShell cmdlets, with the REST API, or with the SDK. Below we discuss different methods for starting a runbook and assigning parameters.
 
 #### Start a published runbook by using the Azure Classic Management Portal and assign parameters
-When you [start the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), the **Start Runbook** Pop-up opens and you can configure values for the parameters that you just created.
+When you [start the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-classic-management-portal), the **Start Runbook** Pop-up opens and you can configure values for the parameters that you just created.
 
 In the label beneath the input box, you can see the attributes that have been set for the parameter. Attributes include mandatory or optional, type, and  default value. In the help balloon next to the parameter name, you can see all the key information you need to make decisions about parameter input values. This information includes whether a parameter is mandatory or optional. It also includes the type and default value (if any), and other helpful notes.
 

@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
-ms.author: markgal;trinadhk;
+ms.date: 03/10/2017
+ms.author: v-junlch
 
 ---
 # Back up a Windows server or workstation to Azure using the Classic Management Portal
@@ -34,7 +34,7 @@ This article covers the procedures that you need to follow to prepare your envir
 >
 
 ## Before you start
-To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](/pricing/1rmb-trial/) in just a couple of minutes.
+To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](http://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
 
 ## Create a backup vault
 To back up files and folders from a server or client, you need to create a backup vault in the geographic region where you want to store the data.
@@ -161,7 +161,7 @@ After the initial backup is completed, the **Job completed** status appears in t
 ![IR complete](./media/backup-configure-vault-classic/ircomplete.png)
 
 ## Next steps
-- Sign up for a [Azure account](/pricing/1rmb-trial/).
+- Sign up for a [Azure account](http://www.azure.cn/pricing/1rmb-trial/).
 
 For additional information about backing up VMs or other workloads, see:
 

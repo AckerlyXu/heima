@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # How to Use iOS Client Library for Azure Mobile Apps

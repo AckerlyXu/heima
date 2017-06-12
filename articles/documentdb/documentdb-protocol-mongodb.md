@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 
 ---
 # Introduction to Azure Cosmos DB: API for MongoDB
@@ -50,7 +50,7 @@ Create an Azure Cosmos DB account in the [Azure Portal](https://portal.azure.cn)
 
 *And, that's it!*
 
-For more detailed instructions, follow [create account](documentdb-create-mongodb-account.md) and [connect to your account](documentdb-connect-mongodb-account.md).
+For more detailed instructions, follow [create account](documentdb-create-account.md) and [connect to your account](documentdb-connect-mongodb-account.md).
 
 ## Next steps
 

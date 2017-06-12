@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Use Microsoft Cognitive Toolkit deep learning model with Azure HDInsight Spark cluster

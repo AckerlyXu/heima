@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System

@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: elbutter;barbkess
+ms.author: v-yeche
 
 ---
 # Connect to SQL Data Warehouse with SQL Server Management Studio (SSMS)

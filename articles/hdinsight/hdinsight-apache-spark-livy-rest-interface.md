@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Submit Spark jobs remotely to an Apache Spark cluster on HDInsight using Livy

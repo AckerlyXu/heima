@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # How to use the Azure slave plug-in with Hudson Continuous Integration

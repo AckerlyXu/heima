@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 wacn.date: ''
-ms.author: milanga;cenkdin;juliako
+ms.author: v-johch
 ---
 
 #Update Media Services after rolling storage access keys

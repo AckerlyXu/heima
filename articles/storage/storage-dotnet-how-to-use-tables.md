@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/10/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Get started with Azure Table storage using .NET

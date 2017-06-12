@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: ''
-ms.author: cjiang
+ms.author: v-dazen
 
 ---
 # Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure

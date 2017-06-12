@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: bryanla
+ms.author: v-junlch
 ---
 
 # Azure Active Directory developer glossary
@@ -187,11 +187,11 @@ Please use the following comments section to provide feedback and help us refine
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-Subscriptions-Assoc]:../active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]:/documentation/articles/active-directory-how-to-integrate/
+[AAD-How-To-Integrate]: active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:./active-directory-howto-tenant.md
 [AAD-Integrating-Apps]:./active-directory-integrating-applications.md
 [AAD-Multi-Tenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
+[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

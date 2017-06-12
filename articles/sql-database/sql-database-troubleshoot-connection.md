@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2017
 wacn.date: ''
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # Error "Database on server is not currently available" when connecting to sql database

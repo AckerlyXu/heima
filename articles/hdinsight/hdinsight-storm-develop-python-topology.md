@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Develop Apache Storm topologies using Python on HDInsight
@@ -142,6 +142,7 @@ To stop the topology, use __Ctrl + C__.
 
 > [!NOTE]
 > Once started, a Storm topology runs until stopped. To stop the topology, use one of the following methods:
+>
 > * The `storm kill TOPOLOGYNAME` command from the command line
 > * The **Kill** button in the Storm UI.
 

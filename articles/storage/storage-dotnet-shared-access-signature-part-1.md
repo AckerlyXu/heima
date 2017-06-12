@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Using shared access signatures (SAS)

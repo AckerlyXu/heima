@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Experiment with installing a role on your Windows VM

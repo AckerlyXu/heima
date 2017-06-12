@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 wacn.date: ''
-ms.author: markvi
+ms.author: v-junlch
 
 ---
 # Azure Active Directory FAQ

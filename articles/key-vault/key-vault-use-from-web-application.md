@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: adhurwit
+ms.author: v-junlch
 ---
 
 # Use Azure Key Vault from a Web Application

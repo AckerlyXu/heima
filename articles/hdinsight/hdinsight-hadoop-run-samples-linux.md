@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Run the Hadoop samples in HDInsight

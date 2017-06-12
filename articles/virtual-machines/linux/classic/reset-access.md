@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension

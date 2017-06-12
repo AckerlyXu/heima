@@ -15,7 +15,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Learn the various ways to debug an Azure Cloud Service

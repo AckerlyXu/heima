@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -16,7 +16,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # How to run a compute-intensive task in Java on a virtual machine

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Connect Windows virtual machines created with the classic deployment model with a virtual network or cloud service

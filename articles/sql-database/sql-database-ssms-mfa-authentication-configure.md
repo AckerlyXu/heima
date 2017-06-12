@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: rickbyh
+ms.author: v-johch
 ---
 
 # Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio

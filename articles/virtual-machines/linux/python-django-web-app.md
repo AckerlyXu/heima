@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/17/2015
 wacn.date: ''
-ms.author: huvalo
+ms.author: v-dazen
 
 ---
 # Django Hello World web application on a Linux VM

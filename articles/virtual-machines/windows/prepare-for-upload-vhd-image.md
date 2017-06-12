@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 01/11/2017
 wacn.date: ''
-ms.author: glimoli;genli
+ms.author: v-dazen
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure

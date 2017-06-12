@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Get started with delivering content on demand using Java

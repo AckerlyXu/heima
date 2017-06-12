@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 11/08/2016
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Migrate a SQL Server Database to Azure SQL Database Using SQL Server Data Tools for Visual Studio

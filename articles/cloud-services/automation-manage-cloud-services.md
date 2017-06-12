@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 06/20/2016
 wacn.date: 04/20/2016
+ms.author: v-yiso
 ---
 
 #Managing Azure Cloud Services using Azure Automation

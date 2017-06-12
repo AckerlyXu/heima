@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
-ms.author: xshi
+ms.author: v-yiso
 
 ---
 # Connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub in the cloud

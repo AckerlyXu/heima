@@ -15,7 +15,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/31/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Use Azure CLI to create a service principal to access resources

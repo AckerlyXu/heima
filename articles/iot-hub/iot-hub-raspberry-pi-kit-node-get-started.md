@@ -16,8 +16,8 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/14/2017
-ms.author: xshi
+ms.date: 04/14/2017
+ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/10/2017
-ms.author: xshi
+ms.author: v-yiso
 
 ---
 # Use iothub-explorer for Azure IoT Hub device management

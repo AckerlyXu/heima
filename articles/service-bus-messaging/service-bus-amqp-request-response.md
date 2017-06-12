@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/23/2016
 wacn.date: ''
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations

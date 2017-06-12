@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: tarcher
+ms.author: v-junlch
 
 ---
 # Adding Azure storage by using Visual Studio Connected Services
@@ -70,5 +70,5 @@ When you finish the dialog, Visual Studio adds references and modifies certain c
 ## Next steps
 - [MSDN Forum: Azure Storage](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazuredata)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Azure Storage documentation](https://docs.microsoft.com/azure/storage/)
+- [Azure Storage documentation](/storage/)
 

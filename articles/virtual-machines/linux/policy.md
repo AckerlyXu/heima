@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2016
 wacn.date: ''
-ms.author: singhkay
+ms.author: v-dazen
 
 ---
 # Apply security and policies to Linux VMs with Azure Resource Manager

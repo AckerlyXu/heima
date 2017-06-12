@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-ms.author: juliako
+ms.author: v-johch
 
 ---
 #  Use Azure Media Encoder Standard to auto-generate a bitrate ladder

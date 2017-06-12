@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Configuring Azure Media Services telemetry with REST

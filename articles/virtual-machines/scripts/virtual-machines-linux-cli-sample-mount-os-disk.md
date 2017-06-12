@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # Troubleshoot a VMs operating system disk

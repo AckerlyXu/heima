@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 2/21/2017
+ms.date: 02/21/2017
 wacn.date: ''
-ms.author: juluk
+ms.author: v-dazen
 
 ---
 # Deploy LAMP stack on Azure

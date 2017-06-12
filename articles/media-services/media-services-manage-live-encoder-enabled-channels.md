@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: juliako;anilmur
+ms.author: v-johch
 ---
 
 # Live streaming using Azure Media Services to create multi-bitrate streams

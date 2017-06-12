@@ -15,7 +15,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: juliako;cenkdin
+ms.author: v-johch
 ---
 
 #Creating Filters with Azure Media Services REST API

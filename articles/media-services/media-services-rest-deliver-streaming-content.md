@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Publish Azure Media Services content using REST

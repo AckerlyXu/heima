@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2017
 wacn.date: ''
-ms.author: moderakh
+ms.author: v-junlch
 
 ---
 # Azure Cosmos DB Node.js examples

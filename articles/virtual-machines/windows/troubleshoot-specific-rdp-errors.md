@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Troubleshooting specific RDP error messages to a Windows VM in Azure

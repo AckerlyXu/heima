@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/1/2017
-ms.author: sangarg
+ms.date: 05/01/2017
+ms.author: v-johch
 
 ---
 # Introduction to ReliableConcurrentQueue in Azure Service Fabric

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # How to use Service Bus topics and subscriptions

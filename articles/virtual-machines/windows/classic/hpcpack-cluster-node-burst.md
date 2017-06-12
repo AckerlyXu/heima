@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure

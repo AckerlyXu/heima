@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # How to manage Azure SQL Database security after disaster recovery

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: ryanwi
+ms.author: v-johch
 
 ---
 # Automate the application lifecycle using PowerShell

@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Upload data for Hadoop jobs in HDInsight
@@ -91,6 +91,7 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
 > [!NOTE]
 > If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
+>
 > * **AZURE\_STORAGE\_ACCOUNT**: The storage account name
 > * **AZURE\_STORAGE\_ACCESS\_KEY**: The storage account key
 >

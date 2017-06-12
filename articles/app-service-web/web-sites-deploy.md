@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: cephalin;dariac
+ms.author: v-dazen
 
 ---
 # Deploy your app to Azure App Service

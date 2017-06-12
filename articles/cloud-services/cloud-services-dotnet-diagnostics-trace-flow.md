@@ -8,8 +8,10 @@ manager: jwhit
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 02/20/2016
 wacn.date: ''
+ms.author: v-yiso
 ---
 
 # Trace the flow of a Cloud Services application with Azure Diagnostics

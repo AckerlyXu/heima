@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
+ms.author: v-johch
 
 ---
 # Elastic Database client library with Entity Framework

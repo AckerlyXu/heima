@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight
@@ -149,6 +149,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     > [!IMPORTANT]
     > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
+    >
     > * Must be at least 10 characters in length
     > * Must contain at least one digit
     > * Must contain at least one non-alphanumeric character

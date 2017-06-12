@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: bryanla
+ms.author: v-junlch
 wacn.date: ''
 
 ---
@@ -60,7 +60,7 @@ Integration with Azure AD comes with benefits that do not require you to write a
 **Azure AD extends Active Directory to the cloud so that your application can integrate with AD.**  Many organizations around the world use Active Directory as their principal sign-in and identity management system, and require their applications to work with AD.  Integrating with Azure AD integrates your app with Active Directory.
 
 ### Advanced Security Features
-**Multi-factor authentication.**  Azure AD provides native multi-factor authentication.  IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself.  Learn more about [Multi-Factor Authentication](/documentation/services/multi-factor-authentication/).
+**Multi-factor authentication.**  Azure AD provides native multi-factor authentication.  IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself.  Learn more about [Multi-Factor Authentication](../../multi-factor-authentication/index.md).
 
 ### Easy Development
 **Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](active-directory-authentication-protocols.md).

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2017
 wacn.date: ''
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Predictive maintenance preconfigured solution overview

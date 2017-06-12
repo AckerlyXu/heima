@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
-ms.author: clemensv;sethm
+ms.author: v-yiso
 ---
 
 # Overview of Service Bus transaction processing

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Enable heap dumps for Hadoop services on Linux-based HDInsight

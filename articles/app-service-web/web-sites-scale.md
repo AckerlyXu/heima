@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Scale up an app in Azure

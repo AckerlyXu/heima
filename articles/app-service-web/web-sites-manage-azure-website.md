@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: v-dazen
 
 ---
 # Manage a web app in Azure App Service

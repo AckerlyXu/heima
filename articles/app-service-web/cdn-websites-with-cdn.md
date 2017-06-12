@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/01/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Use Azure CDN in Azure App Service
@@ -44,6 +44,7 @@ This tutorial has the following prerequisites:
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:
+> 
 > * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 > 
 > 

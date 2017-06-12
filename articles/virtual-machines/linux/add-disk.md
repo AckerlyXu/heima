@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 02/02/2017
 wacn.date: ''
-ms.author: rasquill
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Add a disk to a Linux VM

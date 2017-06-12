@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to detach a disk from a Windows virtual machine

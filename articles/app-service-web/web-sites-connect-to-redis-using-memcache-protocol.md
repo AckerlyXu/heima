@@ -15,7 +15,7 @@ ms.tgt_pltfrm: windows
 ms.workload: na
 ms.date: 02/29/2016
 wacn.date: ''
-ms.author: cfowler
+ms.author: v-dazen
 
 ---
 # Connect a web app in Azure App Service to Redis Cache via the Memcache protocol

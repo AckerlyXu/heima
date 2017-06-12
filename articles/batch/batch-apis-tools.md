@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
-ms.author: tamram
+ms.author: v-junlch
 ---
 
 
@@ -51,7 +51,7 @@ Your applications and services can issue direct REST API calls or use one or mor
 
 Functionality provided by the development APIs is also available using command-line tools: 
 
-- [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](/documentation/articles/powershell-install-configure/) module enable you to manage Batch resources with PowerShell.
+- [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](../powershell-install-configure.md) module enable you to manage Batch resources with PowerShell.
 - [Azure CLI](../cli-install-nodejs.md): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including Batch.
 
 ## Batch resource management

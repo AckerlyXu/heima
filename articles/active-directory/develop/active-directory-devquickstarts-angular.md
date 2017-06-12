@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # Securing AngularJS Single Page Apps with Azure AD

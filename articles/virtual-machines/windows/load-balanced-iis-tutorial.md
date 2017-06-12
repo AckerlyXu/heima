@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: davidmu
+ms.author: v-dazen
 ---
 
 # Build a load balanced, highly available application on Windows virtual machines in Azure

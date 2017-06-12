@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2016
 wacn.date: ''
-ms.author: v-livech
+ms.author: v-dazen
 
 ---
 # Add a user to an Azure VM

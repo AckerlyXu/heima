@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: amitsriva
+ms.author: v-dazen
 
 ---
 # Backend health, diagnostics logging and metrics for Application Gateway

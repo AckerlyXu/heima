@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 wacn.date: ''
-ms.author: magoedte;bwren
+ms.author: v-dazen
 
 ---
 # Learning key Windows PowerShell Workflow concepts for Automation runbooks 
@@ -88,7 +88,7 @@ Another option is to use another cmdlet that performs the same functionality as 
         Stop-Service -Name $Service.Name
     }
 
-## <a name="InlineScript" id="inlinescript"></a> InlineScript
+## InlineScript
 The **InlineScript** activity is useful when you need to run one or more commands as traditional PowerShell script instead of PowerShell workflow.  While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell.
 
 InlineScript uses the following syntax shown below.
@@ -134,7 +134,7 @@ While InlineScript activities may be critical in certain workflows, they do not 
 
 For more information on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](http://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
 
-## <a name="parallel-processing"></a> Parallel processing
+## Parallel processing
 One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
 You can use the **Parallel** keyword to create a script block with multiple commands that run concurrently. This uses the following syntax shown below. In this case, Activity1 and Activity2 starts at the same time. Activity3 starts only after both Activity1 and Activity2 have completed.
@@ -194,7 +194,7 @@ The following example is similar to the previous example copying files in parall
 > We do not recommend running child runbooks in parallel since this has been shown to give unreliable results.  The output from the child runbook sometimes does not show up, and settings in one child runbook can affect the other parallel child runbooks
 >
 
-## <a name="Checkpoints" id="checkpoints"></a> Checkpoints
+## Checkpoints
 A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the worfklow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
 
 In the following sample code, an exception occurs after Activity2 causing the workflow to end. When the workflow is run again, it starts by running Activity2 since this was just after the last checkpoint set.

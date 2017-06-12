@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Create a virtual network using the Azure CLI

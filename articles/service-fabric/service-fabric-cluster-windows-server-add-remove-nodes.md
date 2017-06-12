@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/02/2017
+ms.date: 02/02/2017
 wacn.date: ''
-ms.author: chackdan
+ms.author: v-johch
 ---
 
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server

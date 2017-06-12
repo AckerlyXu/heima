@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 wacn.date: ''
-ms.author: cherylmc
+ms.author: v-dazen
 
 ---
 # Connect virtual networks from different deployment models using the portal

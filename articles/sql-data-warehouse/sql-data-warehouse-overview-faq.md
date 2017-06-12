@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
-ms.date: 3/1/2017
+ms.date: 03/01/2017
 wacn.date: ''
-ms.author: elbutter
+ms.author: v-yeche
 
 ---
 

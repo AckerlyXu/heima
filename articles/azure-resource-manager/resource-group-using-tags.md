@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Use tags to organize your Azure resources
@@ -28,7 +28,7 @@ ms.author: tomfitz
 
 ## Ensure tag consistency with policies
 
-Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.<!-- For more information, see [Apply resource policies for tags](/documentation/articles/resource-manager-policy-tags/).-->
+Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.
 
 ## Templates
 

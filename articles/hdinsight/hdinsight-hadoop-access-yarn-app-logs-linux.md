@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Access YARN application logs on Linux-based HDInsight

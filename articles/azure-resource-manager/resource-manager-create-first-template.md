@@ -15,7 +15,7 @@ ms.devlang: na
 ms.date: 04/18/2017
 wacn.date: ''
 ms.topic: get-started-article
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Create your first Azure Resource Manager template

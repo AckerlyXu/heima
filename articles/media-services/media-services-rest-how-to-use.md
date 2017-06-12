@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/29/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Media Services Operations REST API overview

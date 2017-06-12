@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
 ms.date: 02/22/2017
-ms.author: ruturajd@microsoft.com
+ms.author: v-johch
 
 ---
 # Add Azure automation runbooks to recovery plans

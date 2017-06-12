@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2017
-ms.author: motanv
+ms.author: v-johch
 ---
 
 # Induce controlled Chaos in Service Fabric clusters

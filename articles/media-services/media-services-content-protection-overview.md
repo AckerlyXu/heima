@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: juliako
+ms.author: v-johch
 
 ---
 # Protecting content overview

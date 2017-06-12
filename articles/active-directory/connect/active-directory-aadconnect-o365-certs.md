@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Renew federation certificates for Office 365 and Azure Active Directory

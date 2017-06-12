@@ -15,7 +15,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: cenkdin;juliako
+ms.author: v-johch
 ---
 
 #How to perform live streaming with on-premise encoders using .NET

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
-ms.author: sashan;carlrab
+ms.author: v-johch
 
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools

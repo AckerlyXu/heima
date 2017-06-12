@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: seanmck
+ms.author: v-johch
 ---
 
 # Visualize your cluster with Service Fabric Explorer

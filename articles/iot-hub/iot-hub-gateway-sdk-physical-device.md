@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: andbuc
+ms.author: v-yiso
 ---
 # Use Azure IoT Edge to send device-to-cloud messages with a physical device (Linux)
 
@@ -223,7 +223,7 @@ At the time of writing, IoT Edge only supports gateways that use BLE modules on 
 ### Configure two sample devices in your IoT Hub
 
 * [Create an IoT hub][lnk-create-hub] in your Azure subscription, you need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [device explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You map this device to the SensorTag device when you configure the gateway.
+* Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the device explorer or iothub-explorer tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You map this device to the SensorTag device when you configure the gateway.
 
 ### Build Azure IoT Edge on your Raspberry Pi 3
 
@@ -508,7 +508,6 @@ To further explore the capabilities of IoT Hub, see:
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/iot-edge/tree/master/samples/ble_gateway
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-sdk]: https://github.com/Azure/iot-edge/
 [lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/

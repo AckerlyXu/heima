@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 wacn.date: ''
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ---
 
 # Receive events from Azure Event Hubs using the .NET Framework
@@ -188,5 +188,5 @@ Now that you've built a working application that creates an Event Hub and sends 
 
 <!-- Links -->
 [EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: event-hubs-overview.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

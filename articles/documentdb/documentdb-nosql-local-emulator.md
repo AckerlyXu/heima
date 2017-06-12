@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2017
-ms.author: arramac
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Use the Azure Cosmos DB Emulator for local development and testing

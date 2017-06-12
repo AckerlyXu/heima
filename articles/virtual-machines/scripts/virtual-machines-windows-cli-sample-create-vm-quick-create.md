@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 wacn.date: ''
-ms.author: rickstercdn
+ms.author: v-dazen
 ---
 
 # Quick Create a virtual machine with the Azure CLI

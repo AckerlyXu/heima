@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect: When you have an existent tenant

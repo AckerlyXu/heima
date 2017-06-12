@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
 wacn.date: ''
-ms.author: glenga
+ms.author: v-dazen
 
 ---
 # What is the Azure WebJobs SDK

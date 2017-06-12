@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 wacn.date: ''
-ms.author: v-livech
+ms.author: v-dazen
 
 ---
 # Use cloud-init to customize a Linux VM during creation with the Azure CLI 1.0

@@ -13,9 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 01/15/2017
 wacn.date: ''
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # Using the Azure Import/Export Tool (v1)

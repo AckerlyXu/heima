@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 10/12/2016
-ms.author: bonova
+ms.author: v-johch
 ---
 
 #Manage historical data in Temporal Tables with retention policy

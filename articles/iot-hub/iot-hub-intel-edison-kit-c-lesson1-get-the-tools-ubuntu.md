@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 11/08/2016
 wacn.date: ''
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # Get the tools (Ubuntu 16.04)

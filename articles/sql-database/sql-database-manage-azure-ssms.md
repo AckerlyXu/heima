@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Managing Azure SQL Database using SQL Server Management Studio 

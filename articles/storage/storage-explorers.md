@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: dineshmurthy
+ms.author: v-johch
 
 ---
 # Azure Storage Client Tools

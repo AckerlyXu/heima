@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/06/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's
@@ -54,6 +54,7 @@ When using an SSH tunnel for web traffic, you must have the following:
 
     > [!WARNING]
     > The SOCKS proxy support built into Windows does not support SOCKS5, and will not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
+    > 
     > * Microsoft Edge
     > * Microsoft Internet Explorer
     >

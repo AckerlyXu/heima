@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-dazen
 
 ---
 # How to: Monitor Apps in Azure App Service

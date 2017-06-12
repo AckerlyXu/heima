@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: big-data
 ms.date: 04/26/2017
 wacn.date: ''
-ms.author: gao
+ms.author: v-dazen
 
 ---
 # Index of Hadoop in HDInsight troubleshooting articles

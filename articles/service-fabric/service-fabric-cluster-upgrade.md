@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2017
-ms.author: chackdan
+ms.author: v-johch
 
 ---
 # Upgrade an Azure Service Fabric cluster

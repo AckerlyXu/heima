@@ -8,8 +8,10 @@ authors: SilviaDoomra
 editor: ''
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 05/23/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Performance counters for shard map manager

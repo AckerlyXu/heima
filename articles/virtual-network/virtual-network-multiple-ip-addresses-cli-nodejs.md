@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 wacn.date: ''
-ms.author: annahar
+ms.author: v-dazen
 
 ---
 # Assign multiple IP addresses to virtual machines using Azure CLI 1.0

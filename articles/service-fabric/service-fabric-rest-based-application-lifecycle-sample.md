@@ -13,9 +13,9 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 12/02/2016
 wacn.date: ''
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # REST-based application lifecycle sample

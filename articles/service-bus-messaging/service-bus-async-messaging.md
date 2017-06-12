@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
-ms.author: sethm
+ms.author: v-yiso
 
 ---
 # Asynchronous messaging patterns and high availability

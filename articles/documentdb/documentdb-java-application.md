@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/16/2016
 wacn.date: ''
-ms.author: denlee
+ms.author: v-junlch
 
 ---
 # Build a Java web application using Azure Cosmos DB

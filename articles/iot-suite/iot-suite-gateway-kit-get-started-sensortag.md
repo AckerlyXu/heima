@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2017
-ms.author: dobett
+ms.author: v-yiso
 
 ---
 # Connect your Azure IoT gateway to the remote monitoring preconfigured solution and send telemetry from a SensorTag

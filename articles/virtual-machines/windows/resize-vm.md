@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 wacn.date: ''
-ms.author: drewm
+ms.author: v-dazen
 
 ---
 # Resize a Windows VM

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: shvija;sethm
+ms.author: v-yeche
 ---
 
 # Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template
@@ -23,7 +23,7 @@ This article shows how to use an Azure Resource Manager template that creates a 
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
-For more information on practice and patterns on Azure Resources naming conventions, please see [Azure Resources Naming Conventions][Azure Resources Naming Conventions].
+<!-- Not Available for [Azure Resources Naming Conventions][Azure Resources Naming Conventions] -->
 
 For the complete template, see the [Event Hub and enable Archive template][Event Hub and enable Archive template] on GitHub.
 
@@ -283,5 +283,5 @@ You can learn more about Event Hubs by visiting the following links:
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
-[Azure Resources Naming Conventions]: /documentation/articles/guidance-naming-conventions/
+<!-- Not Available [Azure Resources Naming Conventions]: ../guidance-naming-conventions.md-->
 [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive

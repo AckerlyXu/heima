@@ -16,7 +16,7 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Create, start, or delete an application gateway with PowerShell 

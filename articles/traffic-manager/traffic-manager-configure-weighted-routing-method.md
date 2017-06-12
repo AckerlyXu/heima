@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: ''
-ms.author: kumud
+ms.author: v-dazen
 ---
 
 # Configure the weighted traffic routing method in Traffic Manager

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
 wacn.date: ''
-ms.author: alkarche
+ms.author: v-dazen
 
 ---
 # Get started with API Apps, ASP.NET, and Swagger in Azure App Service

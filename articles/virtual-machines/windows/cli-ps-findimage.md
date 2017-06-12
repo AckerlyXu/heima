@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 wacn.date: ''
-ms.author: rasquill
+ms.author: v-dazen
 
 ---
 # Navigate and select Windows virtual machine images in Azure with PowerShell

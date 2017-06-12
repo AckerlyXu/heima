@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 wacn.date: ''
-ms.author: aelnably
+ms.author: v-dazen
 
 ---
 # Azure App Service SSL Certificate Binding using PowerShell

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 wacn.date: ''
-ms.author: rclaus
+ms.author: v-dazen
 
 ---
 # DNS Name Resolution Options for Linux VMs in Azure

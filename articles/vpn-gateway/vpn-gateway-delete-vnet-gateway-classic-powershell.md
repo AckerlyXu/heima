@@ -11,12 +11,12 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 wacn.date: ''
-ms.author: cherylmc
+ms.author: v-dazen
 
 ---
 # Delete a virtual network gateway using PowerShell (classic)

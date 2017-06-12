@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
-ms.author: jotaub
+ms.author: v-yiso
 ---
 
 # Relay Hybrid Connections hyco-ws Node API overview

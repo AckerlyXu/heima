@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: tarcher
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Getting started with Storage Explorer (Preview)
@@ -37,7 +37,7 @@ Storage Explorer (Preview) provides a number of ways to connect to storage accou
 
 ## Connect to an Azure subscription
 > [!NOTE]
-> If you don't have an Azure account, you can [sign up for a trial](/pricing/1rmb-trial/?WT.mc_id=A261C142F/).
+> If you don't have an Azure account, you can [sign up for a trial](http://www.azure.cn/pricing/1rmb-trial).
 >
 >
 

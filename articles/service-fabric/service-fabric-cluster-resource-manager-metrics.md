@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: masnider
+ms.author: v-johch
 ---
 
 # Managing resource consumption and load in Service Fabric with metrics

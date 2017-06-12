@@ -1908,7 +1908,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">Reference</a>
+                                                    <a href="/virtual-machines/azure-cli-arm-commands/">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2006,7 +2006,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://storageexplorer.com/">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>

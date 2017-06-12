@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/19/2017
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 
 ---
 # Azure Cosmos DB: DocumentDB API getting started tutorial

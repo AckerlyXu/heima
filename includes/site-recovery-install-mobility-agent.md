@@ -7,7 +7,7 @@ editor: ''
 
 ms.service: site-recovery
 ms.devlang: na
-ms.topic:
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: ''

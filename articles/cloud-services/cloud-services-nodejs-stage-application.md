@@ -8,8 +8,10 @@ manager: wpickett
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 08/11/2016
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ---
 
 # Staging an Application in Azure

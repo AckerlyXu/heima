@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: lmazuel
+ms.author: v-junlch
 ---
 
 # Installing Python and the SDK

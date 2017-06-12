@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-johch
 ---
 
 # Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)

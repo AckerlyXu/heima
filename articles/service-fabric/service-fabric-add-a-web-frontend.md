@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/28/2017
-ms.author: vturecek
+ms.author: v-johch
 
 ---
 # Build a web service front end for your application using ASP.NET Core

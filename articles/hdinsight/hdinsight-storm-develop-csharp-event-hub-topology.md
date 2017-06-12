@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -179,7 +179,7 @@ You can download a complete version of the project created in this tutorial from
 
 * An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* The [Azure .NET SDK](https://www.azure.cn/downloads/)
+* The [Azure .NET SDK](/downloads/)
 
 * The [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 

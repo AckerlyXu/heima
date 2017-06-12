@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # How to use the managed client for Azure Mobile Apps
@@ -1256,7 +1256,7 @@ public async Task CallClientWithHandler()
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/zh-cn/library/windows/apps/Hh701916.aspx
-[Windows Dev Center]: https://dev.windows.com/overview
+[Windows Dev Center]: https://developer.microsoft.com/en-us/dashboard/apps/signup
 [DelegatingHandler]: https://msdn.microsoft.com/zh-cn/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/zh-cn/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/zh-cn/library/windows/apps/windows.security.credentials.passwordvault.aspx

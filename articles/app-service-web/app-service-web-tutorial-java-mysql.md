@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/06/2017
 wacn.date: ''
-ms.author: bbenz
+ms.author: v-dazen
 ---
 # Build a Java and MySQL web app in Azure
 This tutorial shows you how to create a Java web app in Azure tea connects to a MySQL database. 

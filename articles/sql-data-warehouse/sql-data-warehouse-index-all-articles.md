@@ -16,7 +16,7 @@ ms.topic: article
 ms.custom: reference
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # All topics for Azure SQL Data Warehouse service

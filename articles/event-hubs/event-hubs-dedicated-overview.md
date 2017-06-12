@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: ''
-ms.author: sethm;babanisa
+ms.author: v-yeche
 ---
 
 # Overview of Event Hubs Dedicated

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Load data from CSV into Azure SQL Data Warehouse (flat files)

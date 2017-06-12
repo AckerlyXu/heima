@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2017
-ms.author: mcoskun
+ms.date: 03/01/2017
+ms.author: v-johch
 
 ---
 # Reliable Services notifications

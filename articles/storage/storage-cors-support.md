@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 2/22/2017
-ms.author: cbrooks
+ms.date: 02/22/2017
+ms.author: v-johch
 
 ---
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services

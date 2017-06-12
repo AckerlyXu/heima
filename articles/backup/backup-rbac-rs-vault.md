@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
-ms.author: trinadhk;markgal
+ms.date: 02/10/2017
+ms.author: v-junlch
 
 ---
 

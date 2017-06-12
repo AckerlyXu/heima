@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: multiple
+ms.topic: article
 ms.date: 07/29/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 # Publish an application to a remote cluster by using Visual Studio

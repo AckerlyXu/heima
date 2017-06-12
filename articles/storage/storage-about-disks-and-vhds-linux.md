@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 wacn.date: ''
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # About disks and VHDs for Azure Linux VMs

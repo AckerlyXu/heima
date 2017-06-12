@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: v-dazen
 
 ---
 # App Service API Apps - What's changed
@@ -66,12 +66,9 @@ At this time, the metadata endpoint needs to be publicly accessible without auth
 Selecting **New > Web + Mobile > API App** in the portal will create API apps that reflect the new capabilities described in the article. **Browse > API Apps** will only show these new API apps. Once you browse into an API app, the blade shares the same layout and capabilities as those of Web and Mobile Apps. The only differences are quickstart content and ordering of settings.
 
 ## Visual Studio
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. Download the SDK from the [Azure downloads page](/downloads/).
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 With the rationalization of the App Service types, publish is also unified under **Publish > Azure App Service**:
 

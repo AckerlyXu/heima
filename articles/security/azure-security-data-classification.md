@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2017
-ms.author: yurid
+ms.author: v-johch
 
 ---
 # Data classification for Azure

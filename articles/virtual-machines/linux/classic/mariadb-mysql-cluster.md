@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 wacn.date: ''
-ms.author: asabbour
+ms.author: v-dazen
 
 ---
 # MariaDB (MySQL) cluster: Azure tutorial

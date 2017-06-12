@@ -8,8 +8,10 @@ manager: eamono
 editor: ''
 
 ms.service: storage
+ms.topic: article
 ms.date: 05/23/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 #Managing Azure Storage using Azure Automation

@@ -11,14 +11,14 @@ ms.topic: "reference"
 ms.assetid: 2fda4d9c-f782-4088-9320-656b450e3100
 caps.latest.revision: 7
 author: "tamram"
-ms.author: "tamram"
+ms.author: v-junlch
 manager: "timlt"
 wacn.date: ""
 ---
 # Batch Analytics
 The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 
-See [Azure Batch diagnostic logging](/documentation/articles/batch-diagnostics/) for more information on enabling and consuming Batch diagnostic logs.
+See [Azure Batch diagnostic logging](batch-diagnostics.md) for more information on enabling and consuming Batch diagnostic logs.
 
 ## Diagnostic logs
 

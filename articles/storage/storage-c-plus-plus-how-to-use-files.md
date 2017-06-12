@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: renashahmsft
+ms.author: v-johch
 
 ---
 # How to use File Storage from C++

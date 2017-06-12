@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Prepare to Publish or Deploy an Azure Application from Visual Studio

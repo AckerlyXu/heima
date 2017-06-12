@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
 wacn.date: ''
-ms.author: negat
+ms.author: v-dazen
 
 ---
 # Designing VM Scale Sets For Scale

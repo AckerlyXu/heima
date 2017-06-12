@@ -8,8 +8,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
+ms.topic: article
 ms.date: 07/11/2016
 wacn.date: ''
+ms.author: v-johch
 ---
 
 #Getting Started with Azure SQL Data Sync (Preview)

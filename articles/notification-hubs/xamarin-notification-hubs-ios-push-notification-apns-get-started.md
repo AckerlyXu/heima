@@ -9,8 +9,10 @@ manager: erikre
 editor: ''
 
 ms.service: notification-hubs
+ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # iOS Push Notifications with Notification Hubs for Xamarin apps
@@ -202,7 +204,7 @@ In this tutorial, we will keep it simple and just demonstrate testing your clien
 
 * **Node.js** : [How to use Notification Hubs from Node.js](./notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Azure Mobile Services**: For an example of how to send push notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see "Get started with push notifications in Mobile Services" ([.NET backend](/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push/) | [JavaScript backend](/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/)).
+* **Azure Mobile Services**: For an example of how to send push notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see "Get started with push notifications in Mobile Services" (.NET backend | JavaScript backend ).
 
 * **Java / PHP**: For an example of how to send push notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](./notification-hubs-java-push-notification-tutorial.md) | [PHP](./notification-hubs-php-push-notification-tutorial.md)).
 

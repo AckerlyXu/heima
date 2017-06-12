@@ -8,8 +8,10 @@ manager: erikre
 editor: ''
 
 ms.service: notification-hubs
+ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
+ms.author: v-junlch
 ---
 
 # How to use Notification Hubs from Java
@@ -361,14 +363,10 @@ In this topic we showed how to create a simple Java REST client for Notification
     - [Get Started with Notification Hubs]
     - [Send breaking news]
     - [Send localized breaking news]
-    - [Send notifications to authenticated users]
-    - [Send cross-platform notifications to authenticated users]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Get Started with Notification Hubs]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Send breaking news]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Send localized breaking news]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
-[Send notifications to authenticated users]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-[Send cross-platform notifications to authenticated users]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
 [Maven]: http://maven.apache.org/

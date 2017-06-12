@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM

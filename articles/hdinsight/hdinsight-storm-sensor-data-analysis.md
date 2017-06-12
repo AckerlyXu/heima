@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Analyze sensor data with Apache Storm, Event Hub, and HBase in HDInsight (Hadoop)
@@ -38,6 +38,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 
     > [!IMPORTANT]
     > You do not need an existing HDInsight cluster. The steps in this document create the following resources:
+    > 
     > * A Azure Virtual Network
     > * A Storm on HDInsight cluster (Linux-based, two worker nodes)
     > * An HBase on HDInsight cluster (Linux-based, two worker nodes)
@@ -87,6 +88,7 @@ The following diagram explains the layout of the topology:
 
 > [!NOTE]
 > This is a simplified view of the topology. At run time, an instance of each component is created for each partition for the Event Hub that is being read. These instances are distributed across the nodes in the cluster, and data is routed between them as follows:
+> 
 > * Data from the spout to the parser is load balanced.
 > * Data from the parser to the Dashboard and HBase is grouped by Device ID, so that messages from the same device always flow to the same component.
 

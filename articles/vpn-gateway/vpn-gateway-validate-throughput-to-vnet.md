@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2017
 wacn.date: ''
-ms.author: radwiv;chadmat;genli
+ms.author: v-dazen
 
 ---
 # How to validate VPN throughput to a virtual network

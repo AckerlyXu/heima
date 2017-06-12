@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-johch
 ---
 
 # Getting Started with Azure Storage (Azure WebJob Projects)

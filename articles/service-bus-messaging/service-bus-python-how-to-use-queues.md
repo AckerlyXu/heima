@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 04/30/2017
-ms.author: sethm;lmazuel
+ms.author: v-yiso
 
 ---
 # How to use Service Bus queues

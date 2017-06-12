@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # Role-Based Access Control troubleshooting

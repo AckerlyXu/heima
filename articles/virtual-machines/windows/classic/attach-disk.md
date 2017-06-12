@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Attach a data disk to a Windows virtual machine created with the classic deployment model

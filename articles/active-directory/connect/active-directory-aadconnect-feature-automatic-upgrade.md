@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect: Automatic upgrade
@@ -89,7 +89,7 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
-| UpgradeNotSupportedNonMsolAccount |The [AD Connector account](/documentation/articles/active-directory-aadconnect-accounts-permissions/#active-directory-account/) is not the default MSOL_ account anymore. |
+| UpgradeNotSupportedNonMsolAccount |The [AD Connector account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) is not the default MSOL_ account anymore. |
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](active-directory-aadconnect-feature-preview.md#user-writeback) feature. |
 
