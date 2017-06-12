@@ -47,7 +47,7 @@ This scenario will:
 
 To create an application gateway, complete the steps that follow. Application gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet, only additional application gateways are able to be added to the subnet.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial)
 1. In the Favorites pane of the portal, click **New**
 1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:
 

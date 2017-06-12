@@ -36,7 +36,7 @@ If you do not already have an application gateway, visit [Create an Application 
 
 Probes are configured in a two-step process through the portal. The first step is to create the probe. In the second step, you add the probe to the backend http settings of the application gateway.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial)
 
 1. In the Azure portal preview Favorites pane, click All resources. Click the application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter partners.contoso.net in the Filter by name… box to easily access the application gateway.
 

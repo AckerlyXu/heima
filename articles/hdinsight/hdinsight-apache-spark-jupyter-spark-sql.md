@@ -29,7 +29,7 @@ Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluste
 
 ## Prerequisites
 
-* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://azure.microsoft.com/free).
+* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://www.azure.cn/pricing/1rmb-trial).
 
 ## Create HDInsight Spark cluster
 
