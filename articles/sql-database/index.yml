@@ -25,17 +25,17 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+        src: /sql-database/media/index/portal.svg
       text: Azure Portal
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal
+      href: /sql-database/sql-database-get-started-portal
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+        src: /sql-database/media/index/cli.svg
       text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-cli
+      href: /sql-database/sql-database-get-started-cli
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+        src: /sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-powershell
+      href: /sql-database/sql-database-get-started-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -48,16 +48,6 @@ sections:
     - html: <a href="/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: <a href="/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
     - html: <a href="/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a>
-- title: Free PluralSight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsW
-    items:
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/video-training-dotnet.png
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Samples
   items:
   - type: paragraph
@@ -66,8 +56,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-    - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>
+    - html: <a href="/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
+    - html: <a href="/sql-database/sql-database-cli-samples">Azure CLI</a>
 - title: Reference
   items:
   - type: list
@@ -75,7 +65,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="https://docs.microsoft.com/cli/azure/sql">Azure CLI 2.0</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST

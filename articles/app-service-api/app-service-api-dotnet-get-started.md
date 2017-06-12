@@ -21,13 +21,11 @@ ms.author: v-dazen
 # Get started with API Apps, ASP.NET, and Swagger in Azure App Service
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 This is the first in a series of tutorials that show how to use features of Azure App Service that are helpful for developing and hosting RESTful APIs.  This tutorial covers support for API metadata in Swagger format.
 
 You'll learn:
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 * How to create and deploy [API apps](app-service-api-apps-why-best-platform.md) in Azure App Service by using tools built into Visual Studio 2015.
 * How to automate API discovery by using the Swashbuckle NuGet package to dynamically generate Swagger API metadata.

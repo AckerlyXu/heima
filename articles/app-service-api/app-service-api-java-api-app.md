@@ -272,7 +272,9 @@ In this article, you were able to start with a Swagger JSON file and some scaffo
 
 To build on this sample, you can learn more about the [Storage SDK for Java] to persist the JSON blobs. Or, you could use the [Document DB Java SDK] to save your Contact data to Azure Document DB. 
 
-## <a name="see-also"></a> See Also
+<a name="see-also"></a>
+
+## See Also
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
