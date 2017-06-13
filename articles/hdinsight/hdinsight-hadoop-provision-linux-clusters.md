@@ -30,8 +30,8 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 
 From the [Azure portal preview](https://portal.azure.cn), you can create an HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the Quick create option. The Custom option includes the following additional configurations:
 
-- [Applications](#hdinsight-applications)
-- [Cluster size](#cluster-size)
+- [Applications](#install-hdinsight-applications)
+- [Cluster size](#configure-cluster-size)
 - Advanced settings
 
   - [Script actions](#customize-clusters-using-script-action)

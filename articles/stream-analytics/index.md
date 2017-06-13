@@ -38,24 +38,6 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </div>
         </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Stream Analytics Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
     <li>
         <a href="/stream-analytics/">
         <div class="cardSize">

@@ -39,24 +39,6 @@ Learn how to use SQL Data Warehouse, which combines the SQL Server relational da
         </a>
     </li>
      <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Data Warehouse Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
         <a href="/sql-data-warehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">

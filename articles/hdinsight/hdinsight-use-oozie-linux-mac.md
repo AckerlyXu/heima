@@ -583,7 +583,7 @@ To define a schedule for the workflow, use the following steps:
     > The `${...}` variables are replaced by values in the job definition at run-time. The variables are:
     >
     > * `${coordFrequency}`: Time between running instances of the job.
-    > ** `${coordStart}`: The job start time.
+    > * `${coordStart}`: The job start time.
     > * `${coordEnd}`: The job end time.
     > * `${coordTimezone}`: Coordinator jobs are in a fixed time zone with no daylight savings time (typically represented by using UTC). This time zone is referred as the "Oozie processing timezone."
     > * `${wfPath}`: The path to the workflow.xml.

@@ -17,7 +17,7 @@ manager: "timlt"
 # Azure Batch compute node environment variables
 The [Azure Batch service](https://azure.microsoft.com/services/batch/) sets the following environment variables on compute nodes. You can reference these environment variables in task command lines, and in the programs and scripts run by the command lines.
 
-For additional information about using environment variables with Batch, see [Environment settings for tasks](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+For additional information about using environment variables with Batch, see [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks).
 
 ## Environment variable visibility
 

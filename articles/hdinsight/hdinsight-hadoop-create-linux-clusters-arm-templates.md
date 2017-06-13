@@ -37,6 +37,7 @@ To follow the instructions in this article, you'll need:
 
 ### Resource Manager templates
 A Resource Manager template makes it easy to create the following for your application in a single, coordinated operation:
+
 * HDInsight clusters and their dependent resources (such as the default storage account)
 * Other resources (such as Azure SQL Database to use Apache Sqoop)
 
@@ -142,6 +143,7 @@ The following sample uses Azure command-line interface (CLI). It creates a clust
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
 
 You are prompted to enter:
+
 * The cluster name.
 * The cluster user password. (The default username is **admin**.)
 * The SSH user password. (The default SSH username is **sshuser**.)

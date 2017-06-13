@@ -21,8 +21,8 @@ ms.author: v-junlch
 
 ## Recommended documents
 
-- Learn more about how client applications use [delegated and application permission requests](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) to access resources.
-- For more depth, learn how resource applications expose [scopes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) and [application roles](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
+- Learn more about how client applications use [delegated and application permission requests](develop/active-directory-dev-glossary.md#permissions) to access resources.
+- For more depth, learn how resource applications expose [scopes](develop/active-directory-dev-glossary.md#scopes) and [application roles](develop/active-directory-dev-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

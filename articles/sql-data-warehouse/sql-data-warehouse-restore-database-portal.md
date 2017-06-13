@@ -32,7 +32,8 @@ In this article, you will learn how to restore Azure SQL Data Warehouse by using
 
 ## Before you begin
 
-**Verify your DTU capacity.** Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.chinacloudapi.cn) which has a default data throughput unit (DTU) quota. Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for the database that you're restoring. To learn how to calculate DTU quota or to request more DTUs, see [Request a DTU quota change][Request a DTU quota change].
+<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
+**Verify your DTU capacity.** Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.chinacloudapi.cn) which has a default data throughput unit (DTU) quota. Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for the database that you're restoring.
 
 ## Restore an active or paused database
 
@@ -122,7 +123,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+<!-- Not Available [Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
 
 <!--MSDN references-->
 

@@ -47,7 +47,7 @@ The alternative is to extend Swashbuckle to make it automatically generate uniqu
 
 The following steps show how to customize Swashbuckle by using the *SwaggerConfig.cs* file that is included in the project by the Visual Studio API Apps Preview project template.  You can also customize Swashbuckle in a Web API project that you configure for deployment as an API app.
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 1. Create a custom `IOperationFilter` implementation 
 

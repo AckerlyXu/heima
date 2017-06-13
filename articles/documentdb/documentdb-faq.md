@@ -26,7 +26,7 @@ Azure Cosmos DB is a globally replicated, multi-model database service that that
 
 Azure Cosmos DB started in late 2010 to address developer pain-points that are faced by large scale applications inside Microsoft. Since building globally distributed applications is not a problem unique to just to Microsoft, we made the service available externally to all Azure Developers in the form of Azure DocumentDB. Azure Cosmos DB is the next big leap in the evolution of DocumentDB and we are now making it available for you to use. As a part of this release of Azure Cosmos DB, DocumentDB customers (with their data) are automatically Azure Cosmos DB customers. The transition is seamless and they now have access to a broader range of new capabilities offered by Azure Cosmos DB. 
 
-For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](/documentation/services/documentdb/).
+For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](index.md).
 
 ### What happened to DocumentDB?
 The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (preview), Table API (preview)  and MongoDB API. 
