@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 # Create an IoT hub using the Azure CLI 2.0
 

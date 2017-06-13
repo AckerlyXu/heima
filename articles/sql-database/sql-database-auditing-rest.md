@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 wacn.date: ''
-ms.author: ronitr; giladm
+ms.author: v-johch
 ---
 
 # Configure and manage SQL database auditing using the REST API

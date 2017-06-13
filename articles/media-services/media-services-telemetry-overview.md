@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Azure Media Services Telemetry

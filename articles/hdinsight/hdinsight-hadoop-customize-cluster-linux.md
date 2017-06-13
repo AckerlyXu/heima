@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Customize Linux-based HDInsight clusters using Script Action

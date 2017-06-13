@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # Replicate VMware virtual machines to Azure with  Site Recovery

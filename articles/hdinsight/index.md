@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: carolz
+ms.author: v-dazen
 ---
 
 #Azure HDInsight Documentation
@@ -92,7 +92,6 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
         </div>
         </a>
     </li>
-    <li>
 </ul>
 
 ---

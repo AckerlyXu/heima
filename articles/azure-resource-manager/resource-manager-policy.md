@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Resource policy overview

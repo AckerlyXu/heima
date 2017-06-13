@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 02/23/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Get started with Azure Storage in five minutes

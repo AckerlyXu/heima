@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
-ms.author: dobett
+ms.author: v-yiso
 
 ---
 # Send and receive messages with IoT Hub

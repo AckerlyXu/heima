@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 11/23/2016
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Create Azure SQL Database servers

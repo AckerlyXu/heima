@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: curtand;jeffsta
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Conceptual overview of custom domain names in Azure Active Directory

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: dimakwan
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Create an Azure Cosmos DB account using the Azure CLI

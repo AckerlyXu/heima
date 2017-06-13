@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Manage resources with Azure PowerShell and Resource Manager

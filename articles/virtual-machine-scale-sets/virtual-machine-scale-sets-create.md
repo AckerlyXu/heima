@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: adegeo
+ms.author: v-dazen
 ---
 
 # Create and deploy a virtual machine scale set

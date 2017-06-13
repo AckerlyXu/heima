@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: v-johch
 
 ---
 # Azure Storage Service Encryption for Data at Rest

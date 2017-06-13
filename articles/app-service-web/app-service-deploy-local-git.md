@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 wacn.date: ''
-ms.author: dariagrigoriu
+ms.author: v-dazen
 
 ---
 # Local Git Deployment to Azure App Service

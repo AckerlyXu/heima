@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2016
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-dazen
 
 ---
 # Streaming Logs and the Console

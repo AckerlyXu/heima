@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Get Started with Azure Active Directory and Visual Studio connected services (WebApi projects)

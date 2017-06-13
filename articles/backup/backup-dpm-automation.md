@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adigan;anuragm;trinadhk;markgal
+ms.author: v-junlch
 
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell

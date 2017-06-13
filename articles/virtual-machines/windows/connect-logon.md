@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # How to connect and log on to an Azure virtual machine running Windows

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 
 ---
 # Export Azure Resource Manager templates with PowerShell

@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
 wacn.date: ''
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # Java web app sign-in and sign-out with Azure AD

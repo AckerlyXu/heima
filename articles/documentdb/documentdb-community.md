@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: andrl
+ms.author: v-junlch
 
 ---
 # Community portal
@@ -209,7 +209,7 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 ### Other projects
 | Name | GitHub | Website |
 | --- | --- | --- |
-| Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](/documentation/services/documentdb/) |
+| Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](index.md) |
 | Hadoop Connector |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/download/details.aspx?id=46436) |
 

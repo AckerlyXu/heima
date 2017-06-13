@@ -16,7 +16,7 @@ ms.devlang:
 ms.topic: article
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Windows

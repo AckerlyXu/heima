@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 wacn.date: ''
-ms.author: rasquill
+ms.author: v-dazen
 
 ---
 # Manage virtual machine extensions

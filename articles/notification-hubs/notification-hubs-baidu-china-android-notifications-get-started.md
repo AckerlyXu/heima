@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
-ms.author: wesmc
+ms.author: v-junlch
 wacn.date: ''
 ---
 

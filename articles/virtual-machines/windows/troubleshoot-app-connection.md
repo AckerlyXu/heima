@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Troubleshoot access to an application running on an Azure virtual machine

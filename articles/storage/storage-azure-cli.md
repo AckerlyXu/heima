@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Using the Azure CLI 2.0 with Azure Storage

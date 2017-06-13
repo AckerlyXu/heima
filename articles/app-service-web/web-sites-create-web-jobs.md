@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2016
 wacn.date: ''
-ms.author: glenga
+ms.author: v-dazen
 
 ---
 # Run Background tasks with WebJobs

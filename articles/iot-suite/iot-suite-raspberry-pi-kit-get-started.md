@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2017
-ms.author: dobett
+ms.author: v-yiso
 
 ---
 # Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring solution

@@ -15,7 +15,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
 wacn.date: ''
-ms.author: xerners
+ms.author: v-junlch
 
 ---
 # How to enable cross-app SSO on iOS using ADAL

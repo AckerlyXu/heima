@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # H264 Single Bitrate High Quality SD for Android

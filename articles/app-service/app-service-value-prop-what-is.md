@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/02/2016
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-dazen
 
 ---
 # What is Azure App Service?

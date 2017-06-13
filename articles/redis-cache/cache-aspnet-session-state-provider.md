@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # ASP.NET Session State Provider for Azure Redis Cache

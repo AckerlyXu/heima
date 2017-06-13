@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 wacn.date: ''
-ms.author: zachal
+ms.author: v-dazen
 
 ---
 # Windows VMSS and Desired State Configuration with Azure Resource Manager templates

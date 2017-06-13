@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 wacn.date: ''
-ms.author: sethm;jotaub
+ms.author: v-yeche
 ---
 
 # Availability and consistency in Event Hubs

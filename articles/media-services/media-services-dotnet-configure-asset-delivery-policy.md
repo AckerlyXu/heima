@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
-ms.author: juliako;mingfeiy
+ms.author: v-johch
 
 ---
 # Configure asset delivery policies with .NET SDK

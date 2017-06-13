@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Create, start, or delete an application gateway by using Azure Resource Manager

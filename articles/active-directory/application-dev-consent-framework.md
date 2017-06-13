@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: asteen
+ms.author: v-junlch
 
 ---
 
@@ -23,9 +23,9 @@ This article is to help you learn more about how the Azure AD consent framework 
 
 ## Recommended documents
 
-- Get a general understanding of [how consent allows a resource owner to govern an application's access to resources](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- For more depth, learn [how a multi-tenant application can use the consent framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
-- For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+- Get a general understanding of [how consent allows a resource owner to govern an application's access to resources](develop/active-directory-dev-glossary.md#consent).
+- For more depth, learn [how a multi-tenant application can use the consent framework](develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
+- For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](develop/active-directory-protocols-oauth-code.md#request-an-authorization-code)
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
-ms.author: vturecek;mikhegn
+ms.author: v-johch
 
 ---
 # Debug your Service Fabric application by using Visual Studio

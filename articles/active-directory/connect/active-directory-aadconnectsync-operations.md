@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect sync: Operational tasks and consideration

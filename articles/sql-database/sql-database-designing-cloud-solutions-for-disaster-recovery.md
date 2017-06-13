@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 04/21/2017
-ms.author: sashan
+ms.author: v-johch
 
 ---
 # Designing highly available services using Azure SQL Database

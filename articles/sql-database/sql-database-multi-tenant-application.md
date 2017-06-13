@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/08/2017
-ms.author: 'AyoOlubek'
+ms.author: v-johch
 
 ---
 

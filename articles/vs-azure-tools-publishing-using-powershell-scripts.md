@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Using Windows PowerShell scripts to publish to dev and test environments

@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Build an ASP.NET app in Azure with SQL Database
@@ -115,8 +115,9 @@ Your Azure web app also needs an _App Service plan_.
 
 > [!NOTE]
 > An App Service plan represents the collection of physical resources used to host your apps. All apps assigned to an App Service plan share the resources defined by it, which enables you to save cost when hosting multiple apps. 
-> <br/>
+>
 > App Service plans define:
+>
 > - Region (China North, China East)
 > - Instance Size (Small, Medium, Large)
 > - Scale Count (one, two, or three instances, etc.) 

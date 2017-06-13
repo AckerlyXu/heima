@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
-ms.author: juliako;cenkd;anilmur
+ms.author: v-johch
 
 ---
 # Use the NewTek TriCaster encoder to send a single bitrate live stream

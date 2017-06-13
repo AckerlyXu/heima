@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2015
 wacn.date: ''
-ms.author: naziml
+ms.author: v-dazen
 
 ---
 # Azure App Service Security

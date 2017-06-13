@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Configure a custom domain name for your Blob storage endpoint

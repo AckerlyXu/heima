@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/07/2017
-ms.author: rickbyh
+ms.author: v-johch
 
 ---
 # Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)

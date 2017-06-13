@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 wacn.date: ''
-ms.author: rasquill
+ms.author: v-dazen
 
 ---
 # Injecting custom data into an Azure virtual machine

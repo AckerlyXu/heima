@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: bsiva
+ms.author: v-johch
 ---
 
 # Replicate between on-premises Hyper-V virtual machines and Azure by using PowerShell and Azure Resource Manager

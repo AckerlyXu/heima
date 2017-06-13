@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 wacn.date: ''
-ms.author: ccompy
+ms.author: v-dazen
 
 ---
 # Connect your app to your virtual network by using PowerShell

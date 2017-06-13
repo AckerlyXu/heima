@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 wacn.date: ''
-ms.author: v-livech
+ms.author: v-dazen
 
 ---
 # Disable SSH passwords on your Linux VM by configuring SSHD

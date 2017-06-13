@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
-ms.author: anmola
+ms.author: v-johch
 
 ---
 # Introduction to the Fault Analysis Service

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Explore Azure SQL Database tutorials

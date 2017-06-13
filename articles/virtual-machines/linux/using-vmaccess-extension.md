@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 wacn.date: ''
-ms.author: v-livech
+ms.author: v-dazen
 
 ---
 # Manage users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0

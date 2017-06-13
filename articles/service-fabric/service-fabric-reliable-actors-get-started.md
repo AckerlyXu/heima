@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/06/2017
-ms.author: vturecek
+ms.author: v-johch
 
 ---
 # Getting started with Reliable Actors

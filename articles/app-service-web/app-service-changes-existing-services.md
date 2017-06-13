@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 wacn.date: ''
-ms.author: yochaykk
+ms.author: v-dazen
 
 ---
 # Azure App Service and existing Azure services

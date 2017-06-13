@@ -18,7 +18,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Hadoop tutorial: Get started using Hadoop in HDInsight

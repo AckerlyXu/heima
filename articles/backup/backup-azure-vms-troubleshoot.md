@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: ''
-ms.author: trinadhk;markgal;jpallavi;
+ms.author: v-junlch
 
 ---
 # Troubleshoot Azure virtual machine backup

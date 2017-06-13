@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Deploy a Sails.js web app to Azure App Service
@@ -183,7 +183,7 @@ MySQL, MongoDB, Azure (Redis) Cache, etc., and use the corresponding
 [datastore adapter](https://github.com/balderdashy/sails#compatibility) to connect to it. The steps in this section
 show you how to connect to MongoDB by using an [Azure DocumentDb](../documentdb/documentdb-protocol-mongodb.md) database, which can support MongoDB client connections.
 
-1. [Create a DocumentDb account with MongoDB protocol support](../documentdb/documentdb-create-mongodb-account.md).
+1. [Create a DocumentDb account with MongoDB protocol support](../documentdb/documentdb-create-account.md).
 2. [Create a DocumentDb collection and database](../documentdb/documentdb-create-collection.md). The name of the collection doesn't matter,
 but you need the name of the database when you connect from Sails.js.
 3. [Find the connection information for your DocumentDb database](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).

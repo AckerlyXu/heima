@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
-ms.author: sstein
+ms.author: v-johch
 
 ---
 # Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in the Windows certificate store

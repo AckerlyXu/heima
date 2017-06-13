@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/06/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 
 ---
 # Configure an Azure cloud service project with Visual Studio

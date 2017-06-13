@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 wacn.date: ''
-ms.author: riande
+ms.author: v-dazen
 
 ---
 # Session state with Azure Redis cache in Azure App Service

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2016
-ms.author: anandy
+ms.author: v-junlch
 
 ---
 # Azure AD Connect and federation

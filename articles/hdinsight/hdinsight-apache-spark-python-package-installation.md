@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Use Script Action to install external Python packages for Jupyter notebooks in Apache Spark clusters on HDInsight

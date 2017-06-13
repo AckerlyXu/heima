@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # H264 Single Bitrate 4x3 SD Audio 5.1

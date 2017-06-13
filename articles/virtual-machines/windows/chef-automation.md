@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2015
 wacn.date: ''
-ms.author: diviso
+ms.author: v-dazen
 
 ---
 # Automating Azure virtual machine deployment with Chef

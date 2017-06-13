@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: kumud
+ms.author: v-yeche
 ---
 
 # Get started creating an Internet facing load balancer (classic) in the Azure Classic Management Portal

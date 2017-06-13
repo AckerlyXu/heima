@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 02/19/2016
 wacn.date: ''
-ms.author: huvalo
+ms.author: v-dazen
 
 ---
 # Creating web apps with Django in Azure

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/19/2016
-ms.author: raiye
+ms.author: v-yiso
 ---
 
 # Azure Guest OS supportability and retirement policy

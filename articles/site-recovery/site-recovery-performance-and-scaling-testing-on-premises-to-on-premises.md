@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # Test results for on-premises to on-premises Hyper-V replication with Site Recovery

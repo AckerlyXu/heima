@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 wacn.date: ''
-ms.author: zachal
+ms.author: v-dazen
 
 ---
 # Passing credentials to the Azure DSC extension handler

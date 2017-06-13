@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2017
 wacn.date: ''
-ms.author: cawa
+ms.author: v-junlch
 ---
 
 # Azure Storage Explorer 0.8.7 (Preview)

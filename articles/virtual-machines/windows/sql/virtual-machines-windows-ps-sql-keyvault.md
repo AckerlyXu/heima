@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/14/2017
 wacn.date: ''
-ms.author: jroth
+ms.author: v-dazen
 
 ---
 # Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Resource Manager)

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 wacn.date: ''
-ms.author: kirillg
+ms.author: v-junlch
 
 ---
 # Write, edit, and run SQL queries for Azure Cosmos DB using Query Explorer in the Azure portal

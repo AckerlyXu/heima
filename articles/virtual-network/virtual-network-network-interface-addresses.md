@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 
@@ -31,9 +31,9 @@ If you need to create, change, or delete NICs, read the [NIC settings and tasks]
 Complete the following tasks before completing any steps in any section of this article:
 
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fnetwork%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for public and private IP addresses.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://azure.microsoft.com/free).
-- If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -77,8 +77,8 @@ You can add as many IP addresses as necessary to a NIC, within the limits listed
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fnetwork%2ftoc.json#create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/add-azurermnetworkinterfaceipconfig?toc=%2fnetwork%2ftoc.json)|
+|CLI|[az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fazure%2fnetwork%2ftoc.json#create)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fnetwork%2ftoc.json)|
 
 ## <a name="change-ip-config"></a>Change IP address settings
 
@@ -98,8 +98,8 @@ You may need to change the assignment method of an IP address, change the static
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config update](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fnetwork%2ftoc.json#update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fnetwork%2ftoc.json)|
+|CLI|[az network nic ip-config update](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fazure%2fnetwork%2ftoc.json#update)|
+|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fnetwork%2ftoc.json)|
 
 ## <a name="delete-ip-config"></a>Remove IP addresses
 
@@ -116,8 +116,8 @@ You can remove private and public IP addresses from a NIC, but a NIC must always
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config delete](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fnetwork%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig?toc=%2fnetwork%2ftoc.json)|
+|CLI|[az network nic ip-config delete](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fazure%2fnetwork%2ftoc.json#delete)|
+|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fnetwork%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps
 To create a VM with multiple NICs or IP addresses, read the following articles:

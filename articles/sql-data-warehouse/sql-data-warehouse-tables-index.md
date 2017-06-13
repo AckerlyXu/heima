@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2016
 wacn.date: ''
-ms.author: jrj;barbkess;sonyama
+ms.author: v-yeche
 ---
 
 # Indexing tables in SQL Data Warehouse

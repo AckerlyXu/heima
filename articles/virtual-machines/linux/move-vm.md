@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Move a Linux VM to another subscription or resource group

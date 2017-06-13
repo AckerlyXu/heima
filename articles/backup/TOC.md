@@ -47,8 +47,8 @@
 ### [Slow backup of files and folders in Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
-## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/backup/)

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # User States in Azure Multi-Factor Authentication

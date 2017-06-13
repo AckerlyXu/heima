@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -46,7 +46,7 @@ To start working with resources, you must [create a database account](documentdb
 
 | Resource | Description |
 | --- | --- |
-| Database account |A database account is associated with a set of databases and a fixed amount of blob storage for attachments. You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](/pricing/details/documentdb/). |
+| Database account |A database account is associated with a set of databases and a fixed amount of blob storage for attachments. You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](http://www.azure.cn/pricing/details/documentdb/). |
 | Database |A database is a logical container of document storage partitioned across collections. It is also a users container. |
 | User |The logical namespace for scoping permissions. |
 | Permission |An authorization token associated with a user for access to a specific resource. |

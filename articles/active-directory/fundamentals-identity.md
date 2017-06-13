@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 wacn.date: ''
-ms.author: Jeff.Gilbert
+ms.author: v-junlch
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # The fundamentals of Azure identity management

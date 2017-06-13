@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
-ms.author: terrylan
+ms.author: v-johch
 
 ---
 # Security management in Azure

@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: jrj;barbkess
+ms.author: v-yeche
 ---
 
 # Migrate your solution to SQL Data Warehouse

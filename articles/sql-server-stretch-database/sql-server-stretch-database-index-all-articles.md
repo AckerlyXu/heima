@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
-ms.author: DouglasL
+ms.author: v-yeche
 ---
 
 # All topics for Azure SQL Server Stretch Database service

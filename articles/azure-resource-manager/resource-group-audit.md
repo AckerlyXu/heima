@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # View activity logs to audit actions on resources

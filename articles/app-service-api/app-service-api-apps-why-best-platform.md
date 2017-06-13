@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 wacn.date: ''
-ms.author: alkarche
+ms.author: v-dazen
 
 ---
 # API Apps overview

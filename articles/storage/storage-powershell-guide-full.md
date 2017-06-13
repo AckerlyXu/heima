@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # Using Azure PowerShell with Azure Storage

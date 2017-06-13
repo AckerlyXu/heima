@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 wacn.date: ''
-ms.author: cephalin;dariac
+ms.author: v-dazen
 
 ---
 # Deploy your app to Azure App Service using FTP/S
@@ -54,10 +54,11 @@ use the connection information you gathered to connect to your app.
 
 > [!NOTE] 
 > Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
+>
 > - dependency restore (such as NuGet, NPM, PIP, and Composer automations)
 > - compilation of .NET binaries
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
->
+> 
 > You must restore, build, and generate these necessary files manually on your local machine and deploy them together with your app.
 >
 >

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 wacn.date: ''
-ms.author: mingzhan
+ms.author: v-dazen
 
 ---
 # Install and configure PostgreSQL on Azure

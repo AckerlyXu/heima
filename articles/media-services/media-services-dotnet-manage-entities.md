@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #Managing Assets and Related Entities with Media Services .NET SDK

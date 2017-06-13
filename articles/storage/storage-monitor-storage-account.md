@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Monitor a storage account in the Azure portal

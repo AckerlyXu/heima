@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.author: v-yeche
 ---
 
 # Managing statistics on tables in SQL Data Warehouse

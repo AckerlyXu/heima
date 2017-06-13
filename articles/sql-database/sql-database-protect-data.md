@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 12/21/2016
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Protecting data within your SQL Database

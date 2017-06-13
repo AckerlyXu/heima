@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/06/2017
 wacn.date: ''
-ms.author: jotaub
+ms.author: v-yiso
 ---
 
 # Service Bus management libraries

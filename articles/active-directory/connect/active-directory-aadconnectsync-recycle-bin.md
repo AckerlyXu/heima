@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-ms.author: billmath
+ms.author: v-junlch
 
 ---
 # Azure AD Connect sync: Enable AD recycle bin
@@ -27,7 +27,7 @@ This feature helps with restoring Azure AD user objects by doing the following:
 
 - If you accidentally deleted an on-premises AD user object, the corresponding Azure AD user object will be deleted in the next sync cycle. By default, Azure AD keeps the deleted Azure AD user object in soft-deleted state for 30 days.
 
-- If you have on-premises AD Recycle Bin feature enabled, you can restore the deleted on-premises AD user object without changing its Source Anchor value. When the recovered on-premises AD user object is synchronized to Azure AD, Azure AD will restore the corresponding soft-deleted Azure AD user object. For information about Source Anchor attribute, refer to article [Azure AD Connect: Design concepts](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+- If you have on-premises AD Recycle Bin feature enabled, you can restore the deleted on-premises AD user object without changing its Source Anchor value. When the recovered on-premises AD user object is synchronized to Azure AD, Azure AD will restore the corresponding soft-deleted Azure AD user object. For information about Source Anchor attribute, refer to article [Azure AD Connect: Design concepts](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 - If you do not have on-premises AD Recycle Bin feature enabled, you may be required to create an AD user object to replace the deleted object. If Azure AD Connect Synchronization Service is configured to use system-generated AD attribute (such as ObjectGuid) for the Source Anchor attribute, the newly created AD user object will not have the same Source Anchor value as the deleted AD user object. When the newly created AD user object is synchronized to Azure AD, Azure AD creates a new Azure AD user object instead of restoring the soft-deleted Azure AD user object.
 

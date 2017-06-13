@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: seguler
+ms.author: v-johch
 
 ---
 # Using Azure Storage with a Jenkins Continuous Integration solution

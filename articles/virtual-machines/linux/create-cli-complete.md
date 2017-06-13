@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/07/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Create a complete Linux environment with the Azure CLI 2.0

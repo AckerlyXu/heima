@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2016
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #How to configure on-premise encoders when using Azure Media Services to create multi-bitrate streams

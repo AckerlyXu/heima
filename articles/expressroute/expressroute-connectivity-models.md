@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2017
 wacn.date: ''
-ms.author: cherylmc
+ms.author: v-yiso
 ---
 
 # ExpressRoute connectivity models

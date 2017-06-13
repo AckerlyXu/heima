@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 
@@ -31,9 +31,9 @@ If you need to add, change, or remove IP addresses for a NIC, read the [Add, cha
 Complete the following tasks before completing any steps in any section of this article:
 
 - Learn about how many NICs each Linux and Windows VM size supports by reviewing the [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json) VM sizes articles.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://azure.microsoft.com/free).
-- If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed.To get help for CLI commands, type `az <command> --help`.
+- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed.To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -64,8 +64,8 @@ When you create a VM through the portal, the portal creates a NIC with default s
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm create](https://docs.microsoft.com/cli/azure/vm?toc=%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm create](https://docs.microsoft.com/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Add existing NICs to an existing VM
 
@@ -73,8 +73,8 @@ You can add as many NICs to a VM as the VM size you're adding NICs to supports. 
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fvirtual-network%2ftoc.json#add)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)|
+|PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-view-nic"></a> View NICs for a VM
 
@@ -89,8 +89,8 @@ You can view the NICs currently attached to a VM to learn about each NIC's confi
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm show](https://docs.microsoft.com/cli/azure/vm?toc=%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm show](https://docs.microsoft.com/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|PowerShell|[Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a> Remove NICs from a VM
 
@@ -100,8 +100,8 @@ The VM you want to remove a NIC from must be in the stopped (deallocated) state 
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fvirtual-network%2ftoc.json#remove)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)|
+|PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps
 To create a VM with multiple NICs or IP addresses, read the following articles:

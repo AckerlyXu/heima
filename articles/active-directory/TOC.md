@@ -94,13 +94,13 @@
 
 
 # Reference
-## [PowerShell cmdlets](/powershell/ )
-## [Java API Reference](/java/api)
-## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
+## [Java API Reference](http://docs.microsoft.com/java/api)
+## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](./active-directory-service-limits-restrictions.md)
 
 # Related
-## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
+## [Multi-Factor Authentication](/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
 

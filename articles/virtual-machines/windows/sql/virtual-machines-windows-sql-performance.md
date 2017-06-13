@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/28/2017
 wacn.date: ''
-ms.author: jroth
+ms.author: v-dazen
 
 ---
 # Performance best practices for SQL Server in Azure Virtual Machines

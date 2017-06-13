@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2017
-ms.author: clemensv;sethm
+ms.author: v-yiso
 
 ---
 # Overview of Service Bus dead-letter queues

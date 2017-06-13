@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2016
 wacn.date: ''
-ms.author: aelnably
+ms.author: v-dazen
 
 ---
 # Azure App Service App Cloning Using Azure Portal Preview

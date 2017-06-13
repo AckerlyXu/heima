@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/23/2017
 wacn.date: ''
-ms.author: yochayk
+ms.author: v-dazen
 
 ---
 # How App Service works

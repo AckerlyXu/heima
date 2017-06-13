@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
-ms.author: charwen,cherylmc
+ms.author: v-yiso
 
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections

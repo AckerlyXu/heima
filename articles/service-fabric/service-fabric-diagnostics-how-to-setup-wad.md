@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: toddabel
+ms.author: v-johch
 ---
 
 # Collect logs by using Azure Diagnostics

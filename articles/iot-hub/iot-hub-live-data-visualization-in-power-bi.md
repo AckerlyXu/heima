@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: xshi
+ms.author: v-yiso
 
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Power BI

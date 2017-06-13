@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/10/2015
 wacn.date: ''
-ms.author: crwilcox
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Creating an Azure VM, installing Jupyter, and running a Jupyter Notebook on Azure

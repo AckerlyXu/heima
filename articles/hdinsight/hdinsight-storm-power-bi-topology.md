@@ -17,14 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use Power BI to visualize data from an Apache Storm topology
 
 Power BI allows you to visually display data as reports. This document provides an example of how to use Apache Storm on HDInsight to generate data for Power BI.
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 

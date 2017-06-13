@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: 
 
 ---
@@ -78,7 +78,7 @@ az network vnet subnet create \
 ```
 
 ## PowerShell
-1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json) article.
+1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **Powershell**, then clicking **PowerShell** from the search results.
 3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. In your browser, copy the following script:

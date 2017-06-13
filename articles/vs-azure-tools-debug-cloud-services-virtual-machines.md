@@ -15,7 +15,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio

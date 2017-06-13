@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: arramac
+ms.author: v-junlch
 
 ---
 # How does Azure Cosmos DB index data?
@@ -113,7 +113,7 @@ The following code sample show how create an Azure Cosmos DB collection using th
 
 
 ### Index paths
-Azure Cosmos DB models JSON documents and the index as trees, and allows you to tune to policies for paths within the tree. You can find more details in this [introduction to Azure Cosmos DB indexing](documentdb-indexing.md). Within documents, you can choose which paths must be included or excluded from indexing. This can offer improved write performance and lower index storage for scenarios when the query patterns are known beforehand.
+Azure Cosmos DB models JSON documents and the index as trees, and allows you to tune to policies for paths within the tree. Within documents, you can choose which paths must be included or excluded from indexing. This can offer improved write performance and lower index storage for scenarios when the query patterns are known beforehand.
 
 Index paths start with the root (/) and typically end with the ? wildcard operator, denoting that there are multiple possible values for the prefix. For example, to serve SELECT * FROM Families F WHERE F.familyName = "Andersen", you must include an index path for /familyName/? in the collection’s index policy.
 

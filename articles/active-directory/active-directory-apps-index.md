@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: markvi
+ms.author: v-junlch
 
 ---
 # Article Index for Application Management in Azure Active Directory

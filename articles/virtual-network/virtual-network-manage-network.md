@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Create, change, or delete virtual networks
@@ -34,9 +34,9 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you're new to VNets, we recommend completing the exercise in the [Create your first Azure Virtual Network](virtual-network-get-started-vnet-subnet.md) before reading this article. The exercise helps familiarize you with VNets.
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for VNets.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://azure.microsoft.com/free).
-- If you use Azure PowerShell commands to complete tasks in this article, first you must [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If you use Azure Command-line interface (CLI) commands to complete tasks in this article, first you must [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- If you use Azure PowerShell commands to complete tasks in this article, first you must [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+- If you use Azure Command-line interface (CLI) commands to complete tasks in this article, first you must [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -46,7 +46,7 @@ Complete the following tasks before completing steps in any section of this arti
 2. In the Azure portal preview, click **+ New**. In the **New** blade that appears, click **Networking**. In the **Networking** blade that appears, click **Virtual network.**
 3. In the **Virtual network** blade that appears, leave *Resource Manager* selected in the **Select a deployment model** box, and click **Create**.
 4. In the **Create virtual network** blade that appears, enter, or select values for the following settings, then click **Create**:
-    - **Name**: The name must be unique with the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group) you select to create the VNet in. The name cannot be changed after the VNet is created. You may create multiple VNets over time. Read the [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) article for naming suggestions to make it easier to manage multiple VNets.
+    - **Name**: The name must be unique with the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group) you select to create the VNet in. The name cannot be changed after the VNet is created. You may create multiple VNets over time. Read the [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) article for naming suggestions to make it easier to manage multiple VNets.
     - **Address space**: Specify in CIDR notation. The address space you define can be public or private (RFC 1918). Whether you define a public or private address space, the address space is only reachable from within the VNet, interconnected VNets, and any on-premises networks you have connected to the VNet. You cannot add the following address spaces:
         - 224.0.0.0/4 (Multicast)
         - 255.255.255.255/32 (Broadcast)
@@ -70,14 +70,14 @@ Complete the following tasks before completing steps in any section of this arti
     - **Subnet address range:** Must be within the **Address space** you entered for the VNet. The smallest range you can specify is /29, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance. Three additional addresses are reserved for Azure service usage. As a result, a VNet with a subnet address range of /29 only has three usable IP addresses. If you ever plan to connect a VNet to a VPN Gateway, a gateway subnet must be created. Learn more about [specific address range considerations for gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub). You can change the address range after the subnet is created, under specific conditions. To learn how to change a subnet address range, read the [Change subnet](#change-subnet) section of the [Add, change, or delete subnets](virtual-network-manage-subnet.md) article.
     - **Subscription:** Select a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription). A VNet cannot span subscriptions, though it can be connected to VNets in other subscriptions using an Azure VPN Gateway or VNet peering. Azure resources that you connect to the VNet must exist in the same subscription.
     - **Resource group:** Select an existing [resource group](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#resource-groups) or create a new one. Azure resources you connect to the VNet can exist in the same or different resource groups.
-    - **Location:** Select an Azure [location](https://azure.microsoft.com/regions/), also referred to as a region. A VNet cannot span Azure locations, though a VNet in one location can be connected to a VNet in another location using an Azure VPN Gateway. Azure resources that you connect to the VNet must exist in the same location.
+    - **Location:** Select an Azure location, also referred to as a region. A VNet cannot span Azure locations, though a VNet in one location can be connected to a VNet in another location using an Azure VPN Gateway. Azure resources that you connect to the VNet must exist in the same location.
 
 **Commands**
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>View virtual networks and settings
 
@@ -103,8 +103,8 @@ Complete the following tasks before completing steps in any section of this arti
 
 |**Tool**|**Command**|
 |---|---|
-|CLI|[az network vnet show](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.8.0/get-azurermvirtualnetwork/?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az network vnet show](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|PowerShell|[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.8.0/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="address-spaces"></a>Add-remove address spaces
 
@@ -128,7 +128,7 @@ You can add address spaces to and remove address spaces from a VNet. The address
 
 |Tool|Command|
 |---|---|
-|CLI|Resource Manager only|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#update)|
+|CLI|Resource Manager only|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Add-change-remove DNS servers
@@ -153,7 +153,7 @@ All VMs connected to the VNet register with the DNS servers specified for the VN
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Delete a virtual network
@@ -171,7 +171,7 @@ You can only delete a VNet if there are no resources connected to it. If there a
 
 |Tool|Command|
 |---|---|
-|CLI|[azure network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[azure network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # How to use the managed client for Azure Mobile Apps

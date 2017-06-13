@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---

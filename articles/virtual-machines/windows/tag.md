@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 wacn.date: ''
-ms.author: memccror
+ms.author: v-dazen
 
 ---
 # How to tag a Windows virtual machine in Azure

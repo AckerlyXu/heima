@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 wacn.date: ''
-ms.author: anwestg
+ms.author: v-dazen
 ---
 
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper

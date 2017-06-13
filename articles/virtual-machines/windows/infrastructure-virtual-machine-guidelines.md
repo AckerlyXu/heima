@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Azure virtual machines guidelines for Windows

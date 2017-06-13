@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (SSH)

@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
 wacn.date: ''
-ms.author: cakarst
+ms.author: v-yeche
 ---
 
 # Load data with PolyBase in SQL Data Warehouse

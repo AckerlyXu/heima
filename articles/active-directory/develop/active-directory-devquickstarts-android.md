@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # Integrate Azure AD into an Android App

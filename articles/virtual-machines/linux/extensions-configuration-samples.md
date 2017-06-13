@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 wacn.date: ''
-ms.author: kundanap
+ms.author: v-dazen
 
 ---
 # Linux VM extension configuration samples

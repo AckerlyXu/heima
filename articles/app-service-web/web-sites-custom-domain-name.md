@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Map a custom domain name to an Azure app

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # How to capture a classic Linux virtual machine as an image

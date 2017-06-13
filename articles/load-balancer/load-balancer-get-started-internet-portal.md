@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: annahar
+ms.author: v-yeche
 ---
 
 # Creating an Internet-facing load balancer using the Azure portal preview

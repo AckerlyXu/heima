@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2017
 wacn.date: ''
-ms.author: magoedte;bwren
+ms.author: v-dazen
 
 ---
 # My first PowerShell Workflow runbook

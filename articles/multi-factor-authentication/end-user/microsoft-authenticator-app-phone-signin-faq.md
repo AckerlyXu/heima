@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ms.custom: end-user
 ---
 # Sign in with your phone, not your password

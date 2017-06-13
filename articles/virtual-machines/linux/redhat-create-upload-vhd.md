@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2017
 wacn.date: ''
-ms.author: szark
+ms.author: v-dazen
 
 ---
 # Prepare a Red Hat-based virtual machine for Azure

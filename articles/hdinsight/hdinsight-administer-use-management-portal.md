@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ROBOTS: NOINDEX
 
@@ -63,9 +63,9 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 * Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
     > [!NOTE]
-    > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://www.azure.cn/support/contact/).
+    > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Azure Support](https://www.azure.cn/support/contact/).
     >
-    > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
+    > Cascading is not supported by HDInsight, and is not eligible for Azure Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
     >
     >
 

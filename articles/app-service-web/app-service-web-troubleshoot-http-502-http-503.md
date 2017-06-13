@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
@@ -46,7 +46,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ### <a name="observe"></a> 1. Observe and monitor application behavior
 #### Track Service health
-Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/).
+Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### Monitor your web app
 This option enables you to find out if your application is having any issues. In your web app's blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.

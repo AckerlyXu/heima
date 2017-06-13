@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect sync: How to manage the Azure AD service account

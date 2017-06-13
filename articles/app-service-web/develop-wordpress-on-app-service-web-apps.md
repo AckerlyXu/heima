@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2016
 wacn.date: ''
-ms.author: sunbuild
+ms.author: v-dazen
 
 ---
 # Developing WordPress on Azure App Service

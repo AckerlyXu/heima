@@ -11,7 +11,7 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: bruceper
+ms.author: v-junlch
 
 ---
 # Azure Key Vault Developer's Guide

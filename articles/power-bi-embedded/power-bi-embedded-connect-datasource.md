@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 wacn.date: ''
-ms.author: asaxton
+ms.author: v-junlch
 ---
 
 # Connect to a data source

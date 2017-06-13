@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/09/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # HBase tutorial: Get started using Apache HBase in HDInsight

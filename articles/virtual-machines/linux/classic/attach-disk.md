@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # How to Attach a Data Disk to a Linux Virtual Machine

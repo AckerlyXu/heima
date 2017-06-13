@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.date: 02/26/2016
-ms.author: asmalser
+ms.author: v-junlch
 ---
 
 #Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory

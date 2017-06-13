@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/062/2016
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal preview and initiate failover

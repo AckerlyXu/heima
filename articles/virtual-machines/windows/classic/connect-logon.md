@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Log on to a Windows virtual machine using the Azure portal preview

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # View deployment operations with Azure Resource Manager

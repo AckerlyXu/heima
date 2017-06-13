@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: kasing
+ms.author: v-dazen
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI

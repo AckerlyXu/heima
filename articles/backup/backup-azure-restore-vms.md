@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: trinadhk; jimpark;
+ms.author: v-junlch
 ---
 
 # Restore virtual machines in Azure

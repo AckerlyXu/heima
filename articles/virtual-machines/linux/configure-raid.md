@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
-ms.author: rclaus
+ms.author: v-dazen
 
 ---
 # Configure Software RAID on Linux

@@ -15,7 +15,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # Convert WordPress to Multisite in Azure App Service

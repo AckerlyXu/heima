@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: mfussell
+ms.author: v-johch
 ---
 
 # Service Fabric application scenarios

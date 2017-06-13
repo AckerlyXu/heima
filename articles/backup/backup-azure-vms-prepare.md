@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: markgal;trinadhk;
+ms.author: v-junlch
 
 ---
 # Prepare your environment to back up Azure virtual machines

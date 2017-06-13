@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: pullabhk
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Back up an Exchange server to Azure Backup with Azure Backup Server

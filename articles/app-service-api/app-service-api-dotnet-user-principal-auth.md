@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
-ms.author: alkarche
+ms.author: v-dazen
 
 ---
 # User authentication for API Apps in Azure App Service
@@ -67,7 +67,7 @@ To make authenticated API calls, the caller includes the authentication provider
 ## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorials
 If you are following the Node.js or Java tutorials for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 If you are following the .NET tutorial series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Set up authentication in App Service and Azure AD](#azureauth) section.
 
@@ -272,6 +272,7 @@ The two Web API projects were created by using the **Azure API App** project tem
 
 For information about how to  create an AngularJS single-page application with a Web API 2 back end, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see the following resources:
 
+* [Securing AngularJS Single Page Apps with Azure AD](../active-directory/develop/active-directory-devquickstarts-angular.md).
 * [Introducing ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
 
 ## Troubleshooting

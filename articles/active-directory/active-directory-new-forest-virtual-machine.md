@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
-ms.author: joflore
+ms.author: v-junlch
 
 ---
 # Install a new Active Directory forest on an Azure virtual network
@@ -65,7 +65,7 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
    |  **Virtual Machine Configuration** |<p>Select <b>Install the VM Agent</b> and any other extensions you need.</p> |
 2. Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the **Host Cache Preference** set to **None**. For the steps, see [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. After you first sign in to the VM, open **Server Manager** > **File and Storage Services** to create a volume on this disk using NTFS.
-4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](/powershell/azureps-cmdlets-docs/) and run the Set-AzureStaticVNetIP cmdlet. For example:
+4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) and run the Set-AzureStaticVNetIP cmdlet. For example:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 

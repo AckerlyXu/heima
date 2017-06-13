@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 04/11/2017
-ms.author: sethm
+ms.author: v-yiso
 wacn.date: ''
 ---
 # .NET multi-tier application using Azure Service Bus queues

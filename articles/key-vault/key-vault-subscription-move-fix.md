@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 wacn.date: ''
-ms.author: ambapat
+ms.author: v-junlch
 ---
 
 # Change a key vault tenant ID after a subscription move

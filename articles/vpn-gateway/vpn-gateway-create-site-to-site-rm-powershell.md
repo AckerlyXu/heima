@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2017
 wacn.date: ''
-ms.author: cherylmc
+ms.author: v-dazen
 
 ---
 # Create a VNet with a Site-to-Site VPN connection using PowerShell

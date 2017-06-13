@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Create an elastic database pool with C&#x23;

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Options with HPC Pack to create and manage a Windows HPC cluster in Azure

@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2017
-ms.author: ryanwi, mikhegn
+ms.author: v-johch
 
 ---
 # Prepare your development environment

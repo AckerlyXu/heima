@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 wacn.date: ''
-ms.author: arramac
+ms.author: v-junlch
 
 ---
 # Expire data in Azure Cosmos DB collections automatically with time to live

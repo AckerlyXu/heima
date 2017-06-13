@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/10/2017
-ms.author: markgal;
+ms.author: v-junlch
 
 ---
 # First look: Backing up Azure virtual machines

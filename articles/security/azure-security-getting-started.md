@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2016
-ms.author: yuridio
+ms.author: v-johch
 ---
 
 #Getting started with Microsoft Azure security

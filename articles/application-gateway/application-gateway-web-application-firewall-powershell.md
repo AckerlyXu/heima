@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Configure web application firewall on a new or existing Application Gateway

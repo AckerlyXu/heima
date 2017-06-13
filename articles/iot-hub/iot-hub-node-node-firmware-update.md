@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: juanpere
+ms.author: v-yiso
 ---
 
 # Use device management to initiate a device firmware update (Node/Node)

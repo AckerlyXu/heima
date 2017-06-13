@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
-ms.author: femila
+ms.author: v-junlch
 ---
 
 # Azure AD and Applications: Assigning Users to an Application

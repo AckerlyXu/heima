@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: cychua
+ms.author: v-junlch
 
 ---
 # Azure AD Connect: How to recover from LocalDB 10-GB limit
@@ -95,8 +95,8 @@ This step is to reduce the likelihood of running into the 10-GB limit issue afte
 
 ## Long-term solution - Migrate to full SQL
 In general, the issue is indicative that 10-GB database size is no longer sufficient for Azure AD Connect to synchronize your on-premises Active Directory to Azure AD. It is recommended that you switch to using the full version of SQL server. You cannot directly replace the LocalDB of an existing Azure AD Connect deployment with the database of the full version of SQL. Instead, you must deploy a new Azure AD Connect server with the full version of SQL. It is recommended that you do a swing migration where the new Azure AD Connect server (with SQL DB) is deployed as a staging server, next to the existing Azure AD Connect server (with LocalDB). 
-- For instruction on how to configure remote SQL with Azure AD Connect, refer to article [Custom installation of Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-- For instructions on swing migration for Azure AD Connect upgrade, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+- For instruction on how to configure remote SQL with Azure AD Connect, refer to article [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+- For instructions on swing migration for Azure AD Connect upgrade, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

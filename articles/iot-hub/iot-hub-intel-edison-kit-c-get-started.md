@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/17/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 # Connect Intel Edison to Azure IoT Hub (C)
 

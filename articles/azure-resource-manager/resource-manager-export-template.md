@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Export an Azure Resource Manager template from existing resources

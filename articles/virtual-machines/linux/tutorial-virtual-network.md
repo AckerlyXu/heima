@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI

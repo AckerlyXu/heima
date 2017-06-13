@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
-ms.author: xiaoyzhu
+ms.author: v-dazen
 
 ---
 # Use Caffe on Azure HDInsight Spark for distributed deep learning

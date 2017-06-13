@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/10/2017
 wacn.date: ''
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ---
 
 # Event Hubs management libraries

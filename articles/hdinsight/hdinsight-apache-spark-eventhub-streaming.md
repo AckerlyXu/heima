@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Apache Spark streaming: Process data from Azure Event Hubs with Spark cluster on HDInsight

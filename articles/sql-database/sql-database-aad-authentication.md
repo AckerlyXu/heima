@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 05/10/2017
-ms.author: rickbyh
+ms.author: v-johch
 
 ---
 # Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse

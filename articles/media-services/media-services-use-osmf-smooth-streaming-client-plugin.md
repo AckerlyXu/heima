@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework

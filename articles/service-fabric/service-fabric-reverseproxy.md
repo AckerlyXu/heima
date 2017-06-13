@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
-ms.author: bharatn
+ms.author: v-johch
 
 ---
 # Reverse proxy in Azure Service Fabric

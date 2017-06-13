@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2017
 wacn.date: ''
-ms.author: danlep
+ms.author: v-junlch
 ---
 
 # Azure CLI commands in Azure Service Management (asm) mode
@@ -27,7 +27,7 @@ This article provides syntax and options for Azure CLI commands you'd commonly u
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](./azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. You can also [read about Resource Manager model CLI commands](./virtual-machines/azure-cli-arm-commands.md), and use the CLI to [migrate resources](./virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) from the classic to the Resource Manager model.
 >
 
-To get started, first [install the Azure CLI](/documentation/articles/xplat-cli-install/) and [connect to your Azure subscription](./xplat-cli-connect.md).
+To get started, first [install the Azure CLI](xplat-cli-install.md) and [connect to your Azure subscription](./xplat-cli-connect.md).
 
 For current command syntax and options at the command line, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
@@ -1616,7 +1616,7 @@ info:    mobile data truncate command OK
 ```
 
 ### <a name="Mobile_Scripts"></a>Commands to manage scripts
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](/documentation/articles/mobile-services-how-to-use-server-scripts/).
+Commands in this section are used to manage the server scripts that belong to a mobile service. 
 
 **mobile script list [options] [servicename]**
 

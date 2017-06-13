@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2017
-ms.author: maburlik;chackdan
+ms.author: v-johch
 
 ---
 

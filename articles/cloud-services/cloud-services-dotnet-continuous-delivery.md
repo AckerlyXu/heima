@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
+ms.author: v-yiso
 ---
 
 # Continuous Delivery for Cloud Services in Azure

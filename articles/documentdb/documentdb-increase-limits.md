@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2016
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 
 ---
 # Request increased Azure Cosmos DB account quotas

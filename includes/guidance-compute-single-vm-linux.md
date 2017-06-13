@@ -37,7 +37,7 @@ Azure offers many different virtual machine sizes, but we recommend the DS- and 
 
 If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. If you require multiple NICs for your VM, be aware that the maximum number of NICs is a function of the [VM size][vm-size-tables].
 
-When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all region. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
+When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all region. To list the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
 
 ```
 azure vm sizes --location <location>

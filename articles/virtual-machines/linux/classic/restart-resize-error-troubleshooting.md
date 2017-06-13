@@ -16,7 +16,7 @@ ms.workload: required
 ms.date: 01/10/2017
 wacn.date: ''
 ms.devlang: na
-ms.author: delhan
+ms.author: v-dazen
 
 ---
 # Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure

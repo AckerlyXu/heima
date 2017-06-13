@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 wacn.date: ''
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # Azure Site Recovery support matrix for replicating to Azure

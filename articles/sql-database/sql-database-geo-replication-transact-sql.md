@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/14/2017
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Configure active geo-replication for Azure SQL Database with Transact-SQL

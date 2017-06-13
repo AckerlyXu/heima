@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/12/2016
 wacn.date: ''
-ms.author: adsolank;juliako;johndeu
+ms.author: v-johch
 ---
 
 # Indexing Media Files with Azure Media Indexer

@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
-ms.author: robmcm;asirveda;martinsawicki
+ms.author: v-junlch
 ---
 
 # What's New in the Azure Toolkit for Eclipse

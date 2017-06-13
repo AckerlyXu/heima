@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/14/2017
 wacn.date: ''
-ms.author: jgao
+ms.author: v-dazen
 
 ---
 # Create Hadoop clusters in HDInsight by using Resource Manager templates
@@ -171,7 +171,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 
-## <a name="appx-a-arm-template"></a> Appendix: Resource Manager template
+## Appendix: Resource Manager template
 The following Azure Resource Manager template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
 > [!NOTE]

@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Get started in the Hadoop ecosystem with a Hadoop Sandbox on a virtual machine

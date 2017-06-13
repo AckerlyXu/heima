@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: milanga;juliako;johndeu
+ms.author: v-johch
 
 ---
 # Azure Media Services Analytics Overview

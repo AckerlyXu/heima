@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: juliako;anilmur
+ms.author: v-johch
 ---
 
 # Azure Media Services overview and common scenarios

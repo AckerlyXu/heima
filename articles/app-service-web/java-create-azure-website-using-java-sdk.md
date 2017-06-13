@@ -16,7 +16,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/25/2016
 wacn.date: ''
-ms.author: v-donntr
+ms.author: v-dazen
 
 ---
 # Create a Web App in Azure App Service using the Azure SDK for Java

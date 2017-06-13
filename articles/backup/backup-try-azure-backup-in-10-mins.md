@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/23/2017
-ms.author: markgal;
+ms.author: v-junlch
 
 ---
 # First look: back up files and folders in Resource Manager deployment
@@ -33,7 +33,7 @@ Backing up files and folders to Azure requires these activities:
 ![How to back up your Windows machine with Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ## Get an Azure subscription
-If you don't have an Azure subscription, create a [Trial](/pricing/1rmb-trial/) that lets you access any Azure service.
+If you don't have an Azure subscription, create a [Trial](http://www.azure.cn/pricing/1rmb-trial/) that lets you access any Azure service.
 
 ## Create a recovery services vault
 To back up your files and folders, you need to create a Recovery Services vault in the region where you want to store the data. You also need to determine how you want your storage replicated.

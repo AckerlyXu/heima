@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2017
 wacn.date: ''
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 wacn.date: ''
-ms.author: sumuth
+ms.author: v-dazen
 
 ---
 # Use DevOps environments effectively for your web apps

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2017
 wacn.date: ''
-ms.author: markvi
+ms.author: v-junlch
 
 ---
 # Get started with certificate-based authentication in Azure Active Directory

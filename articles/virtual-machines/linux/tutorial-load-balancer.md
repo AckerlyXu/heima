@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # How to load balance Linux virtual machines in Azure to create a highly available application

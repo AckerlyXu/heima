@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Generalize a Windows virtual machine using Sysprep

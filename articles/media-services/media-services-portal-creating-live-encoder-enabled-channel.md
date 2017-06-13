@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal

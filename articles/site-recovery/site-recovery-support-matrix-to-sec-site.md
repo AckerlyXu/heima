@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/08/2017
 wacn.date: ''
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # Support matrix for replication to a secondary site with Azure Site Recovery

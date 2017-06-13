@@ -16,7 +16,7 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 wacn.date: ''
-ms.author: syamk
+ms.author: v-junlch
 
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB
@@ -558,7 +558,7 @@ Now let’s turn our attention to building the user interface so a user can actu
 - Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md)
 - Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 - Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-- Explore the [Azure Cosmos DB documentation](/documentation/services/documentdb/).
+- Explore the [Azure Cosmos DB documentation](index.md).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

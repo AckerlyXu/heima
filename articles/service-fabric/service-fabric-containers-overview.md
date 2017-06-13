@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: msfussell
+ms.author: v-johch
 ---
 
 # Preview: Service Fabric and containers

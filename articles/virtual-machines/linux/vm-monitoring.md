@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/08/2016
 wacn.date: ''
-ms.author: kmouss
+ms.author: v-dazen
 
 ---
 # Enable or Disable Azure VM Monitoring

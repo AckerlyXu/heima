@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2017
-ms.author: juanpere
+ms.author: v-yiso
 
 ---
 # Use device management to initiate a device firmware update (.NET/Node)

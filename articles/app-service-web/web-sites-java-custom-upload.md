@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: robmcm
+ms.author: v-dazen
 
 ---
 # Upload a custom Java web app to Azure

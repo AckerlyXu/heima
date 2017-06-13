@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 
 ---
 # Create and modify peering for an ExpressRoute circuit (classic)

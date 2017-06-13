@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: juliako;mingfeiy
+ms.author: v-johch
 ---
 
 # Dynamic encryption: configure content key authorization policy

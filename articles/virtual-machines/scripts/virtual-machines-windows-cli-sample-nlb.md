@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 wacn.date: ''
-ms.author: rclaus
+ms.author: v-dazen
 ---
 
 # Load balance traffic between highly available virtual machines

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: mimig
+ms.author: v-junlch
 wacn.date: ''
 ---
 

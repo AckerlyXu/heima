@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 # How to use the Azure Mobile Apps SDK for Android
 

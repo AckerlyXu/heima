@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 wacn.date: ''
-ms.author: vturecek
+ms.author: v-johch
 ---
 
 # Service Fabric testability scenarios: Service communication

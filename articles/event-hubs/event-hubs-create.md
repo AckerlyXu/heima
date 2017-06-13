@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 wacn.date: ''
-ms.author: jotaub
+ms.author: v-yeche
 ---
 
 # Create an Event Hubs namespace and an Event Hub using the Azure portal preview

@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2016
 wacn.date: ''
-ms.author: riande
+ms.author: v-dazen
 
 ---
 # Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service
@@ -42,7 +42,7 @@ You'll learn:
 > [!NOTE]
 > This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](app-service-web-get-started-dotnet.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
 > 
->
+> 
 
 ## Prerequisites
 To complete this tutorial, you need a Azure account. If you don't have an account, you can [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/08/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 
 ---
 # Azure CLI Samples for Linux virtual machines

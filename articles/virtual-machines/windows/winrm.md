@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 wacn.date: ''
-ms.author: kasing
+ms.author: v-dazen
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager

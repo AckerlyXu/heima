@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: mihauss
+ms.author: v-johch
 
 ---
 # Azure Blob Storage: Hot and cool storage tiers

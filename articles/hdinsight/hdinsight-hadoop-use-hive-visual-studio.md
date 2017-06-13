@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Run Hive queries using the HDInsight tools for Visual Studio

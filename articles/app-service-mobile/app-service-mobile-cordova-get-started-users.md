@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Add authentication to your Apache Cordova app

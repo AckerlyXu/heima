@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 wacn.date: ''
-ms.author: billmath
+ms.author: v-junlch
 
 ---
 # Generic SQL Connector technical reference

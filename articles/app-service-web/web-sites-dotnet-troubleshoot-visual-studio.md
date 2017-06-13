@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 wacn.date: ''
-ms.author: rachelap
+ms.author: v-dazen
 
 ---
 # Troubleshoot a web app in Azure App Service using Visual Studio

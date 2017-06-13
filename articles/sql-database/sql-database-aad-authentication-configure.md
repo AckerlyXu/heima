@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 05/05/2017
-ms.author: rickbyh
+ms.author: v-johch
 
 ---
 # Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse

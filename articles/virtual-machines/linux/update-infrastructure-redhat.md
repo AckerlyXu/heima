@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 wacn.date: ''
-ms.author: borisb
+ms.author: v-dazen
 
 ---
 # Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure

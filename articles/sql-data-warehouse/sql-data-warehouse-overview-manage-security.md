@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: rortloff;barbkess
+ms.author: v-yeche
 ---
 
 # Secure a database in SQL Data Warehouse

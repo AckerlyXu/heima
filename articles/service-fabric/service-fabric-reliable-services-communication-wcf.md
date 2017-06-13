@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/25/2017
 wacn.date: ''
-ms.author: bharatn
+ms.author: v-johch
 ---
 
 # WCF-based communication stack for Reliable Services

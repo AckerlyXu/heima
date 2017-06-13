@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/24/2017
 wacn.date: ''
-ms.author: jroth
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Resource Manager)

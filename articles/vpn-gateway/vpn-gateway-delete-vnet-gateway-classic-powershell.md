@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 wacn.date: ''
-ms.author: cherylmc
+ms.author: v-dazen
 
 ---
 # Delete a virtual network gateway using PowerShell (classic)

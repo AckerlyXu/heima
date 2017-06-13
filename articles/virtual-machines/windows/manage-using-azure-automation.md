@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2016
 wacn.date: ''
-ms.author: timlt
+ms.author: v-dazen
 
 ---
 # Managing Azure Virtual Machines using Azure Automation

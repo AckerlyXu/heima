@@ -17,7 +17,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/24/2017
 wacn.date: ''
-ms.author: singhkay
+ms.author: v-dazen
 
 ---
 # How to set up Key Vault for virtual machines with the Azure CLI 2.0

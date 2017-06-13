@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 wacn.date: ''
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 

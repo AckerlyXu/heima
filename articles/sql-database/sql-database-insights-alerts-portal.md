@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Use Azure portal to create alerts for Azure SQL Database

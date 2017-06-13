@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 wacn.date: ''
-ms.author: garbrad
+ms.author: v-dazen
 
 ---
 # Using Dynamic DNS to register hostnames in your own DNS server

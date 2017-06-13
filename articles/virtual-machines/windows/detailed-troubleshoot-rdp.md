@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 
 ---
 # Detailed troubleshooting steps for remote desktop connection issues to Windows VMs in Azure

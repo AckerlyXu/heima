@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 wacn.date: ''
-ms.author: mingzhan
+ms.author: v-dazen
 
 ---
 # Using Remote Desktop to connect to a Azure Linux VM

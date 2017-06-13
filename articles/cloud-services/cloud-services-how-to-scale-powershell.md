@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 wacn.date: ''
-ms.author: seanmck
+ms.author: v-yiso
 ---
 
 # How to scale a cloud service in PowerShell

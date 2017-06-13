@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Authenticate with on-premises Active Directory in your Azure app

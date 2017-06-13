@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: barbkess;mausher
+ms.author: v-yeche
 ---
 
 # Data warehouse workload

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # How to Use Apache Cordova Client Library for Azure Mobile Apps

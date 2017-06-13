@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/17/2016
 wacn.date: ''
-ms.author: juanpere
+ms.author: v-yiso
 ---
 
 # Get started with device management (.NET/Node)

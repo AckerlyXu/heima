@@ -16,7 +16,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -381,7 +381,7 @@ The output for the **Hive** job should appear similar to the following example:
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### <a name="jythonpy"></a> Pig (Jython)
+#### Pig (Jython)
 
 The following script uses the **pig_python.py** script, using the Jython interpreter. Before running, it prompts you for the HTTPs/Admin information for the HDInsight cluster.
 

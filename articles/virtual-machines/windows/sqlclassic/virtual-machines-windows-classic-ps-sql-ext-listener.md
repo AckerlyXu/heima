@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 wacn.date: ''
-ms.author: mikeray
+ms.author: v-dazen
 
 ---
 # Configure an external listener for Always On Availability Groups in Azure

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2016
 wacn.date: ''
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # Create an Azure function app and storage account

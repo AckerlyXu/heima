@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # Manage Role-Based Access Control with the Azure command-line interface

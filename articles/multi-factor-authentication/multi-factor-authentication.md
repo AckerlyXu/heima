@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
-ms.author: kgremban
+ms.author: v-junlch
 
 ---
 # What is Azure Multi-Factor Authentication?

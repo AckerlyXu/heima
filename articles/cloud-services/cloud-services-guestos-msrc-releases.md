@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: raiye
+ms.author: v-yiso
 
 ---
 # Azure Guest OS

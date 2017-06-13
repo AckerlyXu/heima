@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 wacn.date: ''
-ms.author: igalf
+ms.author: v-dazen
 
 ---
 # How to Schedule Planned Maintenance on Azure VMs

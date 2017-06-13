@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
-ms.author: alkarche
+ms.author: v-dazen
 
 ---
 # Service principal authentication for API Apps in Azure App Service
@@ -332,7 +332,7 @@ Make the following changes to the TodoListDataAPI project.
 ## Building the projects from scratch
 The two Web API projects were created by using the **Azure API App** project template and replacing the default Values controller with a ToDoList controller. For acquiring Azure AD service principal tokens in the ToDoListAPI project, the [Active Directory Authentication Library (ADAL) for .NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) NuGet package was installed.
 
-For information about how to  create an AngularJS single-page application with a Web API back end like ToDoListAngular, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see [Securing AngularJS Single Page Apps with Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
+For information about how to  create an AngularJS single-page application with a Web API back end like ToDoListAngular, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see [Securing AngularJS Single Page Apps with Azure AD](../active-directory/develop/active-directory-devquickstarts-angular.md).
 
 ## Troubleshooting
 [!INCLUDE [troubleshooting](../../includes/app-service-api-auth-troubleshooting.md)]

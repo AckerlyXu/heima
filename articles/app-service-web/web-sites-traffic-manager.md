@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Controlling Azure web app traffic with Azure Traffic Manager

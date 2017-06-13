@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: lakshmir;barbkess
+ms.author: v-yeche
 ---
 
 # Restore an Azure SQL Data Warehouse (PowerShell)

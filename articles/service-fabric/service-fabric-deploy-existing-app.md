@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/07/2016
-ms.author: mfussell;mikhegn
+ms.author: v-johch
 
 ---
 # Deploy a guest executable to Service Fabric

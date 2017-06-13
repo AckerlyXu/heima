@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/19/2017
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # Accessing private Azure clouds with Visual Studio

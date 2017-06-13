@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 wacn.date: ''
-ms.author: cherylmc
+ms.author: v-dazen
 
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection

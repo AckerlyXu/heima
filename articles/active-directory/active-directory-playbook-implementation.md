@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: dstefan
+ms.author: v-junlch
 
 ---
 # Azure Active Directory Proof of Concept Playbook: Implementation

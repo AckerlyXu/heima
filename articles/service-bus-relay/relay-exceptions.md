@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: sethm;jotaub
+ms.author: v-yiso
 
 ---
 # Relay exceptions

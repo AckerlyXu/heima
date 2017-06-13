@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: billmath
+ms.author: v-junlch
 wacn.date: ''
 ---
 
@@ -31,7 +31,7 @@ Azure AD Connect sync is running under a service account created by the installa
 ## Changes to the scheduler
 Starting with the releases from build 1.1 (February 2016) you can configure the [scheduler](active-directory-aadconnectsync-feature-scheduler.md) to have a different sync cycle than the default 30 minutes.
 
-## Changes to Synchronization Rules
+## Changes to Synchronization Rules <a name="changes-to-synchronization-rules"></a>
 The installation wizard provides a configuration that is supposed to work for the most common scenarios. In case you need to make changes to the configuration, then you must follow these rules to still have a supported configuration.
 
 - You can [change attribute flows](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) if the default direct attribute flows are not suitable for your organization.

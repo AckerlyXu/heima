@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 
 ---
 # Virtual machine extensions and features for Linux

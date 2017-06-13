@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/03/2017
-ms.author: osamam
+ms.author: v-yiso
 ---
 
 # ExpressRoute routing requirements  

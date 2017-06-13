@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2015
 wacn.date: ''
-ms.author: chrande
+ms.author: v-dazen
 
 ---
 # Using WebJobs in Azure App Service

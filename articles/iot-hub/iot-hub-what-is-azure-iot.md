@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2016
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]

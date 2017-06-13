@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 wacn.date: ''
-ms.author: chkuhtz
+ms.author: v-yeche
 ---
 
 # Multiple VIPs for Azure Load Balancer

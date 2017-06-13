@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 03/09/2017
-ms.author: babanisa;sethm
+ms.author: v-yiso
 
 ---
 # What is Azure Relay?

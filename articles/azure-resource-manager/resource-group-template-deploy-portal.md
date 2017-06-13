@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Deploy resources with Resource Manager templates and Azure portal

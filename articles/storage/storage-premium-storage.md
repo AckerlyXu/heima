@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: ramankum
+ms.author: v-johch
 ---
 
 # High-Performance Premium Storage and unmanaged and managed Azure VM Disks

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 wacn.date: ''
-ms.author: nepeters
+ms.author: v-dazen
 
 ---
 # Azure Virtual Machine Agent overview

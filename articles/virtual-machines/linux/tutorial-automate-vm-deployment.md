@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 wacn.date: ''
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # How to customize a Linux virtual machine on first boot

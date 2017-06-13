@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/28/2017
 wacn.date: ''
-ms.author: jroth
+ms.author: v-dazen
 
 ---
 # Connect to a SQL Server Virtual Machine on Azure (Resource Manager)

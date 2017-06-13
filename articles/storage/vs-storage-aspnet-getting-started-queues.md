@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
 wacn.date: ''
-ms.author: tarcher
+ms.author: v-johch
 ---
 
 # Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)

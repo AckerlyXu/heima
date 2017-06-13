@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/21/2017
 wacn.date: ''
-ms.author: kgremban
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---

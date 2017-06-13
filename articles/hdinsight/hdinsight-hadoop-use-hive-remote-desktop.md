@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---

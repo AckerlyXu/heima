@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
 wacn.date: ''
-ms.author: kasing
+ms.author: v-dazen
 
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: kmouss
+ms.author: v-dazen
 
 ---
 # Accessing and Using Azure VM Unique ID

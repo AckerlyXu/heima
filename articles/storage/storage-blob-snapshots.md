@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Create a blob snapshot

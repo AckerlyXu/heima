@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL

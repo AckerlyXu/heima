@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 wacn.date: ''
-ms.author: byvinyal
+ms.author: v-dazen
 
 ---
 # Azure App Service: Scaling App Service Applications

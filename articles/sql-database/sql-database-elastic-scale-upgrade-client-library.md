@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: ddove
+ms.author: v-johch
 
 ---
 # Upgrade an app to use the latest elastic database client library

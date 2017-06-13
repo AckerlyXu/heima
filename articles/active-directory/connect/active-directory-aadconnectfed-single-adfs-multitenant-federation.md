@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2017
-ms.author: anandy; billmath
+ms.author: v-junlch
 ---
 
 #Federate multiple instances of Azure AD with single instance of AD FS

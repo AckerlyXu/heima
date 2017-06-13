@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2017
-ms.author: ryanwi
+ms.author: v-johch
 
 ---
 

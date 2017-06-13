@@ -31,7 +31,6 @@
 ## Deploy images
 ### [Create and upload a VHD](create-upload-vhd.md)
 ### [Create and upload a FreeBSD VHD](freebsd-create-upload-vhd.md)
-### [List of Oracle VM images](oracle-images.md)
 
 ## Manage workloads
 ### MySQL and MariaDB
@@ -64,6 +63,5 @@
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
-## [Regional availability](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

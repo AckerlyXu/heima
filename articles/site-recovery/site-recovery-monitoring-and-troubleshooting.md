@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/19/2017
 wacn.date: ''
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # Monitor and troubleshoot protection for virtual machines and physical servers

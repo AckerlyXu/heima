@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: seanmck
+ms.author: v-johch
 ---
 
 # Create your first Azure Service Fabric application

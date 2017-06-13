@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal preview

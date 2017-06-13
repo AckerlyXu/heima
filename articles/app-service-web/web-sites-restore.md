@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Restore an app in Azure

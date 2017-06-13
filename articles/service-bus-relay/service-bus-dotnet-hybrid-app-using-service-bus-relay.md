@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/16/2017
-ms.author: sethm
+ms.author: v-yiso
 
 ---
 # .NET on-premises/cloud hybrid application using Azure WCF Relay

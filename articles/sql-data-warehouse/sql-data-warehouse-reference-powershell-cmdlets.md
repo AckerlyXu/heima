@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse

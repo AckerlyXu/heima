@@ -15,7 +15,7 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 wacn.date: ''
-ms.author: markscu
+ms.author: v-dazen
 
 ---
 # Create MATLAB Distributed Computing Server clusters on Azure VMs

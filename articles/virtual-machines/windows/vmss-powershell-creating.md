@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: ''
-ms.author: danielsollondon
+ms.author: v-dazen
 
 ---
 # Creating Virtual Machine Scale Sets using PowerShell cmdlets

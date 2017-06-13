@@ -15,7 +15,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Overview of Live Streaming using Azure Media Services

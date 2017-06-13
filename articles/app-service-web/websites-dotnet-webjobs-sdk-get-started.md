@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 wacn.date: ''
-ms.author: glenga
+ms.author: v-dazen
 
 ---
 # Create a .NET WebJob in Azure App Service

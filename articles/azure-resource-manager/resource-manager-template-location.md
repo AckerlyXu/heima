@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Set resource location in Azure Resource Manager templates

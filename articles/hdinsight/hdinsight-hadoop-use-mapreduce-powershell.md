@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Run MapReduce jobs with Hadoop on HDInsight using PowerShell

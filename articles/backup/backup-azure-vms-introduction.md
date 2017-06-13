@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2017
-ms.author: markgal;trinadhk
+ms.author: v-junlch
 wacn.date: ''
 ---
 # Plan your VM backup infrastructure in Azure
@@ -50,7 +50,7 @@ Azure Backup takes VSS full backups on Windows VMs (read more about [VSS full ba
 
 #### Linux VMs
 Azure Backup provides a scripting framework. To ensure application consistency when backing up Linux VMs, create custom pre-scripts and post-scripts that control the backup workflow and environment. Azure Backup invokes the pre-script before taking the VM snapshot and invokes the post-script once the VM snapshot job completes. For more details, see [application consistent
-VM backups using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+VM backups using pre-script and post-script](backup-azure-linux-app-consistent.md).
 > [!NOTE]
 > Azure Backup only invokes the customer-written pre- and post-scripts. If the pre-script and post-scripts execute successfully, Azure Backup marks the recovery point as application consistent. However, the customer is ultimately responsible for the application consistency when using custom scripts.
 >
@@ -122,7 +122,7 @@ We suggest following these practices while configuring backups for virtual machi
 Azure Backup does not encrypt data as a part of the backup process. However, you can encrypt data within the VM and back up the protected data seamlessly (read more about [backup of encrypted data](./backup-azure-vms-encryption.md)).
 
 ## Calculating the cost of protected instances
-Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk.”
+Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](http://www.azure.cn/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk.”
 
 Pricing for backing up VMs is *not* based on the maximum supported size for each data disk attached to the virtual machine. Pricing is based on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data that is stored in Azure Backup, which is the sum of the actual data in each recovery point.
 

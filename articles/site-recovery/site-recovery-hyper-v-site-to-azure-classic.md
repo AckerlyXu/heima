@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
-ms.author: raynew
+ms.author: v-johch
 
 ---
 # Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Azure Site Recovery

@@ -16,7 +16,7 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 02/28/2017
 wacn.date: ''
-ms.author: jrj;mausher;kevin;barbkess;elbutter
+ms.author: v-yeche
 ---
 
 # What is Azure SQL Data Warehouse?

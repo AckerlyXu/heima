@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 # Create an application gateway by using the Azure Resource Manager template

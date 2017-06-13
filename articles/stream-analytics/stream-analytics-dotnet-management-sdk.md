@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 wacn.date: ''
-ms.author: jeffstok
+ms.author: v-yeche
 
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET

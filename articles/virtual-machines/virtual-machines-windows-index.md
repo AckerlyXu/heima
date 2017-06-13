@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 wacn.date: ''
-ms.author: danlep
+ms.author: v-dazen
 
 ---
 # Technical articles for Windows VMs in the classic deployment model

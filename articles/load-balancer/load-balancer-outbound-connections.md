@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: kumud
+ms.author: v-yeche
 ---
 
 # Understanding outbound connections in Azure

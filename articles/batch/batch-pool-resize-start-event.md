@@ -11,7 +11,7 @@ ms.topic: "reference"
 ms.assetid: 8bd33e8b-6390-4a34-95dc-2e63d8bce941
 caps.latest.revision: 6
 author: "tamram"
-ms.author: "tamram"
+ms.author: v-junlch
 manager: "timlt"
 ---
 # Pool resize start event

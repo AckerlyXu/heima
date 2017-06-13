@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 wacn.date: ''
-ms.author: cephalin
+ms.author: v-dazen
 
 ---
 # Enable diagnostics logging for web apps in Azure App Service
@@ -69,6 +69,7 @@ The [Classic Management Portal](https://manage.windowsazure.cn) Web app **Config
 
 > [!NOTE]
 > If you [regenerate your storage account's access keys](../storage/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
+>
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob or table again. Save your setting.
 >

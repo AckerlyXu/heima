@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 # Assign multiple IP addresses to virtual machines using an Azure Resource Manager template

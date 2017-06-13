@@ -16,7 +16,7 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 wacn.date: ''
-ms.author: rortloff;barbkess
+ms.author: v-yeche
 ---
 
 # Get started with Transparent Data Encryption (TDE)

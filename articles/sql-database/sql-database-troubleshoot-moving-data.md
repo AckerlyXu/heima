@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
-ms.author: v-shysun
+ms.author: v-johch
 ---
 
 # Move databases between servers, between subscriptions, and in and out of Azure

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 wacn.date: ''
-ms.author: jdial
+ms.author: v-dazen
 
 ---
 
@@ -33,9 +33,9 @@ This article explains how to work with public IP addresses deployed through the 
 Complete the following tasks before completing any steps in any section of this article:
 
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for public IP addresses.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://azure.microsoft.com/free).
-- If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -62,7 +62,7 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip-create](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az network public-ip-create](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="change"></a>Change settings for, or delete a public IP address
@@ -81,8 +81,8 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fvirtual-network%2ftoc.json#update) to update; [az network public-ip delete](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fvirtual-network%2ftoc.json#delete) to delete|
-|PowerShell|[Set-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fvirtual-network%2ftoc.json) to update; [Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermpublicipaddress) to delete|
+|CLI|[az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) to update; [az network public-ip delete](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) to delete|
+|PowerShell|[Set-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) to update; [Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermpublicipaddress) to delete|
 
 ## <a name="next-steps"></a>Next steps
 Assign public IP addresses when creating the following Azure resources:

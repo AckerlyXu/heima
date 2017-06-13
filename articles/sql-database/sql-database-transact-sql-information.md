@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
-ms.author: rickbyh
+ms.author: v-johch
 
 ---
 # Resolving Transact-SQL differences during migration to SQL Database   

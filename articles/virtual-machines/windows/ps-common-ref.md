@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: ''
-ms.author: davidmu
+ms.author: v-dazen
 
 ---
 # Common PowerShell commands for creating and managing Azure Virtual Machines

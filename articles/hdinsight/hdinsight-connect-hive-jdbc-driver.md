@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/13/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Connect to Hive on Azure HDInsight using the Hive JDBC driver

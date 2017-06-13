@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 wacn.date: ''
-ms.author: sdanie
+ms.author: v-dazen
 
 ---
 # How to use Azure Redis Cache with Node.js

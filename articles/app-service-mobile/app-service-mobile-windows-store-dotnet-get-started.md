@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 #Create a Windows app

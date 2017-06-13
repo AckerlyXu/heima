@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: rickbyh
+ms.author: v-johch
 ---
 
 # Azure SQL Database access control

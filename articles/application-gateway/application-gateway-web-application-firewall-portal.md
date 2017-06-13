@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 wacn.date: ''
-ms.author: gwallace
+ms.author: v-dazen
 
 ---
 
@@ -87,7 +87,7 @@ This scenario will:
 
 <br/>
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial)
 1. In the Favorites pane of the portal, click **New**
 1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:
 1. Navigate to the Azure portal preview, click **New** > **Networking** > **Application Gateway**

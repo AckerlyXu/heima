@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 wacn.date: ''
-ms.author: limichel
+ms.author: v-dazen
 ---
 
 # Using load-balancing services in Azure

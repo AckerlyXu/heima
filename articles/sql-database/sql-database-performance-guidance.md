@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 wms.date: 05/14/2017
-ms.author: carlrab
+ms.author: v-johch
 
 ---
 # Azure SQL Database and performance for single databases

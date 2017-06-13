@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/13/2017
 wacn.date: ''
-ms.author: magoedte
+ms.author: v-dazen
 ---
 
 # Azure Automation Integration Modules

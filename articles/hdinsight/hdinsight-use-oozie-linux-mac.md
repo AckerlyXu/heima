@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: larryfr
+ms.author: v-dazen
 
 ---
 # Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight

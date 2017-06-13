@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Add push notifications to your Windows app

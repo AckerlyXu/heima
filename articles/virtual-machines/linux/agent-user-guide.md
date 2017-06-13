@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 wacn.date: ''
-ms.author: szark
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Understanding and using the Azure Linux Agent

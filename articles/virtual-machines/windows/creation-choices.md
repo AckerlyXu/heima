@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: andbuc
+ms.author: v-yiso
 ---
 # Use Azure IoT Edge to send device-to-cloud messages with a physical device (Linux)
 

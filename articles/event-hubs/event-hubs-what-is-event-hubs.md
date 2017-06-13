@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 wacn.date: ''
-ms.author: sethm; babanisa
+ms.author: v-yeche
 ---
 
 # What is Azure Event Hubs?

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 wacn.date: ''
-ms.author: cynthn
+ms.author: v-dazen
 
 ---
 # Frequently asked question about Azure Windows virtual machines created with the classic deployment model

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Use Key Vault to pass secure parameter value during deployment

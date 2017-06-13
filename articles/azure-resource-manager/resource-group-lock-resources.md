@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
 wacn.date: ''
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Lock resources to prevent unexpected changes 

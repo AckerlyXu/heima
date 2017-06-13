@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: syamk
+ms.author: v-junlch
 
 ---
 # Request Units in Azure Cosmos DB

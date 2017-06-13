@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: sutalasi
+ms.author: v-johch
 ---
 
 # Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site using PowerShell (Resource Manager)

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: lbosq
+ms.author: v-johch
 
 ---
 # Azure SQL Database: Use Node.js to connect and query data

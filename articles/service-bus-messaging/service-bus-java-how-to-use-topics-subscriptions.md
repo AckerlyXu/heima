@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: sethm
+ms.author: v-yiso
 wacn.date: ''
 ---
 

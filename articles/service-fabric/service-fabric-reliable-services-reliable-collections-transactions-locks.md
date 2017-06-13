@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 05/01/2017
-ms.author: mcoskun
+ms.author: v-johch
 
 ---
 # Transactions and lock modes in Azure Service Fabric Reliable Collections

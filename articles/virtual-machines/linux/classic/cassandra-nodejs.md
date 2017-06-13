@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: ''
-ms.author: hanuk;robmcm
+ms.author: v-dazen
 
 ---
 # Running Cassandra with Linux on Azure and Accessing it from Node.js

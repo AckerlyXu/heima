@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
-ms.author: acomet
+ms.author: v-junlch
 ---
 
 # Azure Cosmos DB as a key value store - Cost overview
@@ -28,7 +28,7 @@ This article describes the cost of Azure Cosmos DB for simple write and read ope
 
 ## Why we use Request Units (RUs)
 
-Azure Cosmos DB performance is based on the amount of provisioned [Request Units](documentdb-request-units.md) (RU) for the partition. The provisioning is at a second granularity and is purchased in RUs/sec ([not to be confused with the hourly billing](/pricing/details/documentdb/)). RUs should be considered as a currency that simplifies the provisioning of required throughput for the application. Our customers do not have to think of differentiating between read and write capacity units. The single currency model of RUs creates efficiencies to share the provisioned capacity between reads and writes. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency, and high availability. Finally, we use RU to model throughput but each provisioned RU has also a defined amount of resources (Memory, Core). RU/sec is not only IOPS.
+Azure Cosmos DB performance is based on the amount of provisioned [Request Units](documentdb-request-units.md) (RU) for the partition. The provisioning is at a second granularity and is purchased in RUs/sec ([not to be confused with the hourly billing](http://www.azure.cn/pricing/details/documentdb/)). RUs should be considered as a currency that simplifies the provisioning of required throughput for the application. Our customers do not have to think of differentiating between read and write capacity units. The single currency model of RUs creates efficiencies to share the provisioned capacity between reads and writes. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency, and high availability. Finally, we use RU to model throughput but each provisioned RU has also a defined amount of resources (Memory, Core). RU/sec is not only IOPS.
 
 As a globally distributed database system, Azure Cosmos DB is the only Azure service that provides an SLA on latency, throughput, and consistency in addition to high availability. The throughput you provision is applied to each of the regions associated with your Azure Cosmos DB database account. For reads, Azure Cosmos DB offers multiple, well-defined [consistency levels](documentdb-consistency-levels.md) for you to choose from. 
 Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large scale, [globally distributed](documentdb-distribute-data-globally.md) applications easily. By default, Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](documentdb-sql-query.md) (and [JavaScript](documentdb-programming.md)) queries on any kind of data. 

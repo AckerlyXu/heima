@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: ''
-ms.author: nitinme
+ms.author: v-dazen
 
 ---
 # Machine learning: Predictive analysis on food inspection data using MLlib with Apache Spark cluster on HDInsight

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 wacn.date: ''
-ms.author: mimig
+ms.author: v-junlch
 
 ---
 # Performance tips for Azure Cosmos DB

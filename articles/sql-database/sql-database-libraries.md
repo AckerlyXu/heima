@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
-ms.author: genemi
+ms.author: v-johch
 ---
 
 # Connection libraries for SQL Database and SQL Server

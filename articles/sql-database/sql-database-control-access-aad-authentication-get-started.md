@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/17/2017
 wacn.date: ''
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules

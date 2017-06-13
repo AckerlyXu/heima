@@ -12,7 +12,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # Enable offline sync for your Android mobile app

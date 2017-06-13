@@ -16,7 +16,7 @@ ms.devlang: node
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: ''
-ms.author: anhoh
+ms.author: v-junlch
 
 ---
 # Node.js tutorial: DocumentDB Node.js console application
@@ -622,7 +622,7 @@ That's it, build it and you're on your way!
 - Want a more complex Node.js sample? See [Build a Node.js web application using Azure Cosmos DB](documentdb-nodejs-application.md).
 - Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 - Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-- Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](/documentation/services/documentdb/).
+- Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](index.md).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: ./media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
