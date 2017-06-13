@@ -76,7 +76,6 @@ If your SSH account is secured using a key, the client must provide the matching
 * If you have __multiple private keys__ for use with different servers, consider using a utility such as [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent). The `ssh-agent` utility can be used to automatically select the key to use when establishing an SSH session.
 
 > [!IMPORTANT]
->
 > If you secure your private key with a passphrase, you must enter the passphrase when using the key. Utilities such as `ssh-agent` can cache the password for your convenience.
 
 ### Create an SSH key pair
