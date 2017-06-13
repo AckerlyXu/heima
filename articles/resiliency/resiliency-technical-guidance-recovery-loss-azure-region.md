@@ -78,11 +78,8 @@ In addition to automatic failover provided by geo-redundant storage, Azure has i
 
 For more information about both geo-redundant storage and read-access geo-redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md).
 
-### Geo-replication region mappings
-
-It's important to know where your data is geo-replicated, in order to know where to deploy the other instances of your data that require regional affinity with your storage. The following table shows the primary and secondary location pairings.
-
-[!INCLUDE [paired-region-list](../../includes/paired-region-list.md)]
+<!-- Not Available ### Geo-replication region mappings -->
+<!-- [!INCLUDE [paired-region-list](../../includes/paired-region-list.md)] -->
 
 ### Geo-replication pricing
 
