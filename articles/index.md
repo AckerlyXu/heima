@@ -1667,9 +1667,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a target="_blank" href="https://docs.microsoft.com/dotnet/api">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Get samples</a>
-                                                </p>
-                                                <p>
                                                     <a target="_blank" href="https://azure.microsoft.com/develop/net/">Learn more</a>
                                                 </p>
                                             </div>
@@ -1695,9 +1692,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/resources/samples/?platform=python">Get samples</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://azure.microsoft.com/develop/python">Learn more</a>
@@ -1727,9 +1721,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a target="_blank" href="http://azure.github.io/azure-sdk-for-node/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>
-                                                </p>
-                                                <p>
                                                     <a target="_blank" href="https://azure.microsoft.com/develop/nodejs">Learn more</a>
                                                 </p>
                                             </div>
@@ -1755,9 +1746,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/java/api/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/documentation/samples/?platform=java">Get samples</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://azure.microsoft.com/develop/java/">Learn more</a>
@@ -1787,9 +1775,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Get samples</a>
-                                                </p>
-                                                <p>
                                                     <a target="_blank" href="https://azure.microsoft.com/develop/ruby/">Learn more</a>
                                                 </p>
                                             </div>
@@ -1812,9 +1797,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </h3>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/rest/api">Reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/documentation/samples/?platform=rest">Get samples</a>
                                                 </p>
                                             </div>
                                         </div>
