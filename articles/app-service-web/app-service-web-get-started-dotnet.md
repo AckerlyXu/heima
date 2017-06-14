@@ -92,7 +92,7 @@ Your Azure web app also needs an _App Service plan_.
 >
 > App Service plans define:
 >
-> - Region (China North, China East, China North)
+> - Region (China North, China East)
 > - Instance Size (Small, Medium, Large)
 > - Scale Count (one, two, or three instances, etc.) 
 > - SKU (Free, Shared, Basic, Standard, Premium)
