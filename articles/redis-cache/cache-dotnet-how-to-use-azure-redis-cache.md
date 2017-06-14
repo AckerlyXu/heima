@@ -82,7 +82,7 @@ To programmatically work with a cache, you need a reference to the cache. Add th
 
 The connection to the Azure Redis Cache is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application, and does not need to be created on a per operation basis. 
 
-To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key. Use the key generated from the Azure portal preview as the password parameter.
+To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key. Use the key generated from the Azure Portal as the password parameter.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=...");
 
@@ -189,7 +189,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 * Check out the ASP.NET providers for Azure Redis Cache.
     * [Azure Redis Session State Provider](cache-aspnet-session-state-provider.md)
     * [Azure Redis Cache ASP.NET Output Cache Provider](cache-aspnet-output-cache-provider.md)
-* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal preview and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 * Check out the [StackExchange.Redis cache client documentation][StackExchange.Redis cache client documentation].
     * Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis Cache can also be used with third-party services and tools such as Redsmin and Redis Desktop Manager.
@@ -256,7 +256,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: https://www.azure.cn/pricing/details/redis-cache/
-[Azure portal preview]: https://portal.azure.cn/
+[Azure Portal]: https://portal.azure.cn/
 
 [Overview of Azure Redis Cache]: /redis-cache/
 [Azure Redis Cache]: /redis-cache/

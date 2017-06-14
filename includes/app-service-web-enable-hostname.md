@@ -1,4 +1,4 @@
-Switch back to the browser window which contains the Azure portal preview.
+Switch back to the browser window which contains the Azure Portal.
 
 #### Add Hostname
 

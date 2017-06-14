@@ -190,7 +190,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 13. Since there are no outbound rules on the Frontend subnet the response is allowed, and the internet User receives the web page requested.
 
 #### (*Allowed*) RDP to backend
-1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure portal preview or via PowerShell)
+1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure Portal or via PowerShell)
 2. Backend subnet begins inbound rule processing:
     1. NSG Rule 1 (DNS) doesn't apply, move to next rule
     2. NSG Rule 2 (RDP) does apply, traffic is allowed, stop rule processing

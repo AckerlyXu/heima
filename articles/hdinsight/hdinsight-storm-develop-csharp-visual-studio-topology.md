@@ -22,11 +22,9 @@ ms.author: v-dazen
 ---
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 Learn how to create a C# Storm topology by using the HDInsight tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 You also learn how to create hybrid topologies that use C# and Java components.
 
@@ -510,6 +508,7 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 
 > [!IMPORTANT]
 > If your project was created with an earlier version of SCP.NET that did not use NuGet, you must perform the following steps to update to a newer version:
+>
 > 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 > 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
 

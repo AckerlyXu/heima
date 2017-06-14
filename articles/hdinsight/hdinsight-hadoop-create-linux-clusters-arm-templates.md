@@ -37,6 +37,7 @@ To follow the instructions in this article, you'll need:
 
 ### Resource Manager templates
 A Resource Manager template makes it easy to create the following for your application in a single, coordinated operation:
+
 * HDInsight clusters and their dependent resources (such as the default storage account)
 * Other resources (such as Azure SQL Database to use Apache Sqoop)
 
@@ -51,11 +52,11 @@ For more information about Resource Manager templates, see the following article
 
 ## Generate templates
 
-By using the Azure portal preview, you can configure all the properties of a cluster and then save the template before deploying it. You can then reuse the template.
+By using the Azure Portal, you can configure all the properties of a cluster and then save the template before deploying it. You can then reuse the template.
 
-**To generate a template by using the Azure portal preview**
+**To generate a template by using the Azure Portal**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. Click **New** on the left menu, click **Intelligence + analytics**, and then click **HDInsight**.
 3. Follow the instructions to enter properties. You can use either the **Quick create** or the **Custom** option.
 4. On the **Summary** tab, click **Download template and parameters**:
@@ -142,6 +143,7 @@ The following sample uses Azure command-line interface (CLI). It creates a clust
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
 
 You are prompted to enter:
+
 * The cluster name.
 * The cluster user password. (The default username is **admin**.)
 * The SSH user password. (The default SSH username is **sshuser**.)
@@ -171,7 +173,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 
-## <a name="appx-a-arm-template"></a> Appendix: Resource Manager template
+## Appendix: Resource Manager template
 The following Azure Resource Manager template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
 > [!NOTE]

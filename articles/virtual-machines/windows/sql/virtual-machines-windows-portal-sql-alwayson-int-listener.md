@@ -30,12 +30,12 @@ Related topics include:
 * [Configure Always On availability groups in Azure VM (Manually)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-By walking through this article, you create and configure a load balancer in the Azure portal preview. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
+By walking through this article, you create and configure a load balancer in the Azure Portal. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
 
-## Create and configure the load balancer in the Azure portal preview
+## Create and configure the load balancer in the Azure Portal
 In this portion of the task, do the following:
 
-1. In the Azure portal preview, create the load balancer and configure the IP address.
+1. In the Azure Portal, create the load balancer and configure the IP address.
 2. Configure the back-end pool.
 3. Create the probe. 
 4. Set the load balancing rules.
@@ -48,7 +48,7 @@ In this portion of the task, do the following:
 ### Step 1: Create the load balancer and configure the IP address
 First, create the load balancer. 
 
-1. In the Azure portal preview, open the resource group that contains the SQL Server virtual machines. 
+1. In the Azure Portal, open the resource group that contains the SQL Server virtual machines. 
 
 2. In the resource group, click **Add**.
 
@@ -197,9 +197,9 @@ The SQLCMD connection automatically connects to the SQL Server instance that hos
 
 Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. After you create an availability group, add the IP address to the load balancer, and then configure the listener.
 
-To add an IP address to a load balancer with the Azure portal preview, do the following:
+To add an IP address to a load balancer with the Azure Portal, do the following:
 
-1. In the Azure portal preview, open the resource group that contains the load balancer, and then click the load balancer. 
+1. In the Azure Portal, open the resource group that contains the load balancer, and then click the load balancer. 
 
 2. Under **SETTINGS**, click **Frontend IP pool**, and then click **Add**. 
 
@@ -210,7 +210,7 @@ To add an IP address to a load balancer with the Azure portal preview, do the fo
 5. Set the IP address for the listener. 
 
    >[!TIP]
-   >You can set the IP address to static and type an address that is not currently used in the subnet. Alternatively, you can set the IP address to dynamic and save the new front-end IP pool. When you do so, the Azure portal preview automatically assigns an available IP address to the pool. You can then reopen the front-end IP pool and change the assignment to static. 
+   >You can set the IP address to static and type an address that is not currently used in the subnet. Alternatively, you can set the IP address to dynamic and save the new front-end IP pool. When you do so, the Azure Portal automatically assigns an available IP address to the pool. You can then reopen the front-end IP pool and change the assignment to static. 
 
 6. Save the IP address for the listener. 
 

@@ -34,6 +34,9 @@ Integrating Web Apps with Azure CDN gives you the following advantages:
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## What you will build
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
 You will deploy a web app to Azure App Service using the default ASP.NET MVC template in Visual Studio, add code to serve content from an integrated Azure CDN, such as an image, controller action results, and the default JavaScript and CSS files, and also write code to configure the fallback mechanism for bundles served in the event that the CDN is offline.
 
 ## What you will need
@@ -44,6 +47,7 @@ This tutorial has the following prerequisites:
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:
+> 
 > * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 > 
 > 
@@ -71,7 +75,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
     ![](./media/cdn-websites-with-cdn/6-publish-website.png)
 
     You will see your published web app in the browser when publishing is complete. 
-7. To create a CDN endpoint, log into the [Azure portal preview](https://portal.azure.cn). 
+7. To create a CDN endpoint, log into the [Azure Portal](https://portal.azure.cn). 
 8. Click **+ New** > **Media + CDN** > **CDN**.
 
     ![](./media/cdn-websites-with-cdn/create-cdn-profile.png)

@@ -43,7 +43,7 @@ Follow these steps below to achieve the scenario outlined in this article:
 
 For each VM in your virtual network, add set IP configuration for the secondary NIC as follows:  
 
-1. From a browser navigate to the Azure portal preview: http://portal.azure.cn and login with your Azure account.
+1. From a browser navigate to the Azure Portal: http://portal.azure.cn and login with your Azure account.
 2. On the top left-hand side of the screen, click the Resource Group icon, and then click the resource group the VMs are located in (for example, *contosofabrikam*). The **Resource groups** blade that lists all the resources along with the network interfaces for the VMs is now displayed.
 3. To the secondary NIC of each VM, add an IP configuration as follows:
     1. Select the network interface you want to add the IP configuration to.
@@ -58,7 +58,7 @@ For each VM in your virtual network, add set IP configuration for the secondary 
 
 Create a load balancer as follows:
 
-1. From a browser navigate to the Azure portal preview: http://portal.azure.cn and login with your Azure account.
+1. From a browser navigate to the Azure Portal: http://portal.azure.cn and login with your Azure account.
 2. On the top left-hand side of the screen, click **New** > **Networking** > **Load Balancer**. Next, click **Create**.
 3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called *mylb*.
 4. Under Public IP address, create a new public IP called **PublicIP1**.

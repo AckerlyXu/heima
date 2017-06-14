@@ -66,7 +66,7 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started managing Traffic Manager endpoints using the Azure portal preview</h3>
+                        <h3>Get Started managing Traffic Manager endpoints using the Azure Portal</h3>
                     </div>
                 </div>
             </div>

@@ -64,7 +64,7 @@ To create a SQL Server 2016 Azure VM with one of these pay-per-usage images, see
 - [SQL Server 2016 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016)
 
 > [!IMPORTANT]
-> When you create a SQL Server virtual machine in the Azure portal preview, the estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone.
+> When you create a SQL Server virtual machine in the Azure Portal, the estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone.
 >
 > ![Choose VM size blade](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >

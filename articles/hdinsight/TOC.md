@@ -124,7 +124,7 @@
 #### [Use cURL and the Azure REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 #### [Use the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 #### [Use the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-#### [Use the Azure portal preview](hdinsight-hadoop-create-linux-clusters-portal.md)
+#### [Use the Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md)
 #### [Use Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [Manage Hadoop clusters](hdinsight-administer-use-portal-linux.md)
 #### [Use .NET SDK](hdinsight-administer-use-dotnet-sdk.md)
@@ -183,7 +183,7 @@
 ### [Generate movie recommendations using Mahout](hdinsight-mahout.md)
 ### [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions.md)
-### [Manage clusters with Azure portal preview](hdinsight-administer-use-management-portal.md)
+### [Manage clusters with Azure Portal](hdinsight-administer-use-management-portal.md)
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources

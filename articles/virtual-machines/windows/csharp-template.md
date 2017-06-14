@@ -77,9 +77,9 @@ Before you start this step, make sure that you have access to an [Active Directo
 
     Replace these values:
 
-    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal preview, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
+    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure Portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
     - *client-secret* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal preview. It is labeled *Directory ID*.
+    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure Portal. It is labeled *Directory ID*.
 
 3. To call the method that you just added, add this code to the Main method:
 
@@ -106,7 +106,7 @@ Although you can create a resource group from a template, the template that you 
     Replace these values:
 
     - *myResourceGroup* with the name of the resource group being created.
-    - *subscriptionId* with your subscription identifier. You can find the subscription identifier on the Subscriptions blade of the Azure portal preview.
+    - *subscriptionId* with your subscription identifier. You can find the subscription identifier on the Subscriptions blade of the Azure Portal.
     - *deploymentName* with the name of the deployment.
     - *location* with the Azure region where you want to create the resources.
 
@@ -253,9 +253,9 @@ It should take about five minutes for this console application to run completely
 
 2. Press **Enter** after the *Succeeded* status appears. 
 
-    You should also see **1 Succeeded** under Deployments on the Overview blade for your resource group in the Azure portal preview.
+    You should also see **1 Succeeded** under Deployments on the Overview blade for your resource group in the Azure Portal.
 
-3. Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal preview. Click the deployment status to see information about the deployment.
+3. Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure Portal. Click the deployment status to see information about the deployment.
 
 ## Next Steps
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md).

@@ -19,12 +19,12 @@ ms.author: v-dazen
 
 ---
 # Configure web apps in Azure App Service
-This topic explains how to configure a web app using the [Azure Portal Preview].
+This topic explains how to configure a web app using the [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Application settings
-1. In the [Azure Portal Preview], open the blade for the web app.
+1. In the [Azure Portal], open the blade for the web app.
 2. Click **All Settings**.
 3. Click **Application Settings**.
 
@@ -114,7 +114,7 @@ To view the log files, you must create FTP credentials, as follows:
 
 1. Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
 
-1. Back to [Azure portal Preview](https://portal.azure.cn). The full FTP user name is "app\username" where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
+1. Back to [Azure Portal](https://portal.azure.cn). The full FTP user name is "app\username" where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
 
 ![FTP deployment credentials][configure02]
 
@@ -148,7 +148,7 @@ For more information, see [How to: Monitor web endpoint status].
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[Azure Portal Preview]: https://portal.azure.cn/
+[Azure Portal]: https://portal.azure.cn/
 [Configure a custom domain name in Azure App Service]: ./web-sites-custom-domain-name.md
 [Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [Enable HTTPS for an app in Azure App Service]: ./web-sites-configure-ssl-certificate.md

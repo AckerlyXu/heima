@@ -22,7 +22,7 @@ ms.author: v-dazen
 # Create, start, or delete an application gateway with PowerShell 
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)

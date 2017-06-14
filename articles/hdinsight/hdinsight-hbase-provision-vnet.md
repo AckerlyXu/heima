@@ -53,7 +53,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 >
 >
 
-1. Click the following image to open the template in the Azure portal preview. The template is located in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux-vnet/).
+1. Click the following image to open the template in the Azure Portal. The template is located in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -71,7 +71,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
     * **I agree to the terms and the conditions stated above**: (Select)
 3. Click **Purchase**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
-After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal preview](hdinsight-administer-use-management-portal.md#delete-clusters).
+After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
@@ -209,7 +209,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
         This will return the DNS suffix. For example, **yourclustername.b4.internal.chinacloudapp.cn**.
     * Use RDP
 
-        You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see [Manage Hadoop clusters in HDInsight using the Azure portal preview][hdinsight-admin-portal].
+        You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see [Manage Hadoop clusters in HDInsight using the Azure Portal][hdinsight-admin-portal].
 
         ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 

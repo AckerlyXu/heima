@@ -448,7 +448,7 @@ To change the number of VMs in a virtual machine scale set, see [Change the inst
 
 ### How do I create a scale set in an existing resource group?
 
-Creating scale sets in an existing resource group is not yet possible from the Azure portal preview, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
+Creating scale sets in an existing resource group is not yet possible from the Azure Portal, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
 
 ### Can we move a scale set to another resource group?
 

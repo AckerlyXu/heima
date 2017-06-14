@@ -50,7 +50,7 @@ The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Vi
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
 ## <a name="sitemanagement"></a>Web app configuration and management
-Visual Studio provides access to a subset of the web app management functions and configuration settings available in the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal). In this section you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open both windows from the **View** menu.
+Visual Studio provides access to a subset of the web app management functions and configuration settings available in the [Azure Portal](/app-service-web/app-service-web-app-azure-portal). In this section you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open both windows from the **View** menu.
 
 1. If you aren't already signed in to Azure in Visual Studio, click the **Connect to Azure** button in **Server Explorer**.
 
@@ -75,7 +75,7 @@ Visual Studio provides access to a subset of the web app management functions an
 
     For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Apps: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-    If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure portal preview.
+    If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure Portal.
 
 ## <a name="remoteview"></a>Access web app files in Server Explorer
 You typically deploy a web project with the `customErrors` flag in the Web.config file set to `On` or `RemoteOnly`, which means you don't get a helpful error message when something goes wrong. For many errors all you get is a page like one of the following ones.
@@ -393,7 +393,7 @@ Web server logs record all HTTP activity for the web app. In order to see them i
 
     ![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
-By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the Azure portal preview to specify that web server logs should be written to a blob container in a storage account.
+By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the Azure Portal to specify that web server logs should be written to a blob container in a storage account.
 
 If you use the portal to enable web server logging to an Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored.
 

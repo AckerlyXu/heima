@@ -58,7 +58,7 @@ Follow these steps to generate the SSH authentication key.
 5. Select and copy the public key, and save it in a file named publicKey.pem. Don't click **Save public key**, because the saved public key's file format is different from the public key we want.
 6. Click **Save private key**, and save it in a file named privateKey.ppk.
 
-### Step 2: Create the image in the Azure portal preview
+### Step 2: Create the image in the Azure Portal
 1. In the [portal](https://portal.azure.cn/), click **New** in the task bar to create an image. Then choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
 ![Screenshot of the portal that shows the New button][3]
 

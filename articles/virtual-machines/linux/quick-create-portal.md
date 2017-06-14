@@ -19,9 +19,9 @@ wacn.date: ''
 ms.author: v-dazen
 ---
 
-# Create a Linux virtual machine with the Azure portal preview
+# Create a Linux virtual machine with the Azure Portal
 
-Azure virtual machines can be created through the Azure portal preview. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
+Azure virtual machines can be created through the Azure Portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
 
 If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,11 +37,11 @@ ssh-keygen -t rsa -b 2048
 
 ## Log in to Azure 
 
-Log in to the Azure portal preview at http://portal.azure.cn.
+Log in to the Azure Portal at http://portal.azure.cn.
 
 ## Create virtual machine
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal preview.
+1. Click the **New** button found on the upper left-hand corner of the Azure Portal.
 
 2. Select **Compute**, select **Ubuntu Server 16.04 LTS**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
 
@@ -57,7 +57,7 @@ Log in to the Azure portal preview at http://portal.azure.cn.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 
-7. The VM will be pinned to the Azure portal preview dashboard. Once the deployment has completed, the VM summary blade automatically opens.
+7. The VM will be pinned to the Azure Portal dashboard. Once the deployment has completed, the VM summary blade automatically opens.
 
 ## Connect to virtual machine
 
@@ -67,7 +67,7 @@ Create an SSH connection with the virtual machine.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
-2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal preview.
+2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure Portal.
 
     ```bash 
     ssh azureuser@40.112.21.50
@@ -87,11 +87,11 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-When done, exit the SSH session and return the VM properties in the Azure portal preview.
+When done, exit the SSH session and return the VM properties in the Azure Portal.
 
 ## Open port 80 for web traffic 
 
-A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal preview, an inbound rule is created on port 22 for SSH connections. Because this VM hosts a webserver, an NSG rule needs to be created for port 80.
+A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure Portal, an inbound rule is created on port 22 for SSH connections. Because this VM hosts a webserver, an NSG rule needs to be created for port 80.
 
 1. On the virtual machine, click the name of the **Resource group**.
 2. Select the **network security group**. The NSG can be identified using the **Type** column. 
@@ -102,7 +102,7 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 
 ## View the NGIX welcome page
 
-With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. the public IP address can be found on the VM blade in the Azure portal preview.
+With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. the public IP address can be found on the VM blade in the Azure Portal.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 

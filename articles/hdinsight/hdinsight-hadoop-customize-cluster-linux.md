@@ -46,7 +46,7 @@ Additionally, if you are creating an HDInsight cluster, someone with at least **
 
 For more information on working with access management, see the following documents:
 
-* [Get started with access management in the Azure portal preview](../active-directory/role-based-access-control-what-is.md)
+* [Get started with access management in the Azure Portal](../active-directory/role-based-access-control-what-is.md)
 * [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
 
 ## Understanding Script Actions
@@ -87,7 +87,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
 * Can accept **parameters** that are used by the script during execution.
 * Run with **root level privileges** on the cluster nodes.
-* Can be used through the **Azure portal preview**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
+* Can be used through the **Azure Portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
 
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
 
@@ -138,7 +138,7 @@ When applying a script to a cluster, the cluster state changes to from **Running
 
 ## Example Script Action scripts
 
-Script Action scripts can be used from the Azure portal preview, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK. HDInsight provides scripts to install the following components on HDInsight clusters:
+Script Action scripts can be used from the Azure Portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK. HDInsight provides scripts to install the following components on HDInsight clusters:
 
 | Name | Script |
 | --- | --- |
@@ -151,9 +151,9 @@ Script Action scripts can be used from the Azure portal preview, Azure PowerShel
 
 ## Use a Script Action during cluster creation
 
-This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure portal preview, using an Azure Resource Manager template, using PowerShell CMDlets, and using the .NET SDK.
+This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure Portal, using an Azure Resource Manager template, using PowerShell CMDlets, and using the .NET SDK.
 
-### Use a Script Action during cluster creation from the Azure portal preview
+### Use a Script Action during cluster creation from the Azure Portal
 
 1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. Under **Optional Configuration**, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:
@@ -460,11 +460,11 @@ The HDInsight .NET SDK provides client libraries that makes it easier to work wi
 
 ## Apply a Script Action to a running cluster
 
-This section provides examples on the different ways you can apply script actions to a running HDInsight cluster; from the Azure portal preview, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK. The persisted script action used in this section adds an existing Azure storage account to a running cluster. You can also use other script actions, See [Example Script Action scripts](#example-script-action-scripts).
+This section provides examples on the different ways you can apply script actions to a running HDInsight cluster; from the Azure Portal, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK. The persisted script action used in this section adds an existing Azure storage account to a running cluster. You can also use other script actions, See [Example Script Action scripts](#example-script-action-scripts).
 
-### Apply a Script Action to a running cluster from the Azure portal preview
+### Apply a Script Action to a running cluster from the Azure Portal
 
-1. From the [Azure portal preview](https://portal.azure.cn), select your HDInsight cluster.
+1. From the [Azure Portal](https://portal.azure.cn), select your HDInsight cluster.
 
 2. From the HDInsight cluster blade, select the **Script Actions** tile.
 
@@ -570,9 +570,9 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 ## View history, promote, and demote Script Actions
 
-### Using the Azure portal preview
+### Using the Azure Portal
 
-1. From the [Azure portal preview](https://portal.azure.cn), select your HDInsight cluster.
+1. From the [Azure Portal](https://portal.azure.cn), select your HDInsight cluster.
 
 2. From the HDInsight cluster blade, select **Settings**.
 

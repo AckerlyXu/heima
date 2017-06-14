@@ -120,7 +120,7 @@ The following describes the diagnostics configuration xml that collects standard
 The Metrics definition xml node in the above configuration is an important configuration element as it defines how the performance counters defined earlier in the xml in *PerformanceCounter* node will be aggregated and stored. 
 
 > [!IMPORTANT]
-> These metrics drive the monitoring charts and alerts in the Azure portal preview.  The **Metrics** node with the *resourceID* and **MetricAggregation** must be included in the diagnostics configuration for your VM if you want to see the VM monitoring data in the Azure portal preview. 
+> These metrics drive the monitoring charts and alerts in the Azure Portal.  The **Metrics** node with the *resourceID* and **MetricAggregation** must be included in the diagnostics configuration for your VM if you want to see the VM monitoring data in the Azure Portal. 
 > 
 > 
 

@@ -36,7 +36,7 @@ The following image illustrates the high degree of redundancy with Cosmos DB.
 ![High degree of redundancy with Cosmos DB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
 ## Full, automatic, online backups
-Oops, I deleted my container or database! With Cosmos DB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These automated backups are currently taken approximately every four hours and latest 2 backups are stored at all times. If the data is accidently dropped or corrupted, please [contact Azure support](/support/contact/) within 8 hours. 
+Oops, I deleted my container or database! With Cosmos DB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These automated backups are currently taken approximately every four hours and latest 2 backups are stored at all times. If the data is accidently dropped or corrupted, please [contact Azure support](https://www.azure.cn/support/contact/) within 8 hours. 
 
 The backups are taken without affecting the performance or availability of your database operations. Cosmos DB takes the backup in the background without consuming your provisioned RUs or affecting the performance and without affecting the availability of your database. 
 
@@ -51,7 +51,7 @@ As described above, we periodically take snapshots of your data and per our comp
 
 
 ## Restore database from the online backup
-In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](/support/contact/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
+In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://www.azure.cn/support/contact/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
 
 ## Next steps
 

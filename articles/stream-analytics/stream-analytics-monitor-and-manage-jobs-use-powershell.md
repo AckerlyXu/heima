@@ -54,7 +54,7 @@ Azure PowerShell 1.0:
     New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 > [!NOTE]
-> Stream Analytics jobs created programmatically do not have monitoring enabled by default.  You can manually enable monitoring in the Azure Portal Preview by navigating to the job's Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at [Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically](stream-analytics-monitor-jobs.md).
+> Stream Analytics jobs created programmatically do not have monitoring enabled by default.  You can manually enable monitoring in the Azure Portal by navigating to the job's Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at [Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically](stream-analytics-monitor-jobs.md).
 > 
 > 
 
@@ -401,7 +401,7 @@ Azure PowerShell 1.0:
 This PowerShell command starts the job StreamingJob with a custom output start time set to December 12, 2012, 12:12:12 UTC.
 
 ### Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-Asynchronously stops a Stream Analytics job from running in Azure and de-allocates resources that were that were being used. The job definition and metadata will remain available within your subscription through both the Azure portal preview and management APIs, such that the job can be edited and restarted. You will not be charged for a job in the stopped state.
+Asynchronously stops a Stream Analytics job from running in Azure and de-allocates resources that were that were being used. The job definition and metadata will remain available within your subscription through both the Azure Portal and management APIs, such that the job can be edited and restarted. You will not be charged for a job in the stopped state.
 
 **Example 1**
 

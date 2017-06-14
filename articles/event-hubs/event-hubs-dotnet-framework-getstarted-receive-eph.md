@@ -36,13 +36,13 @@ To complete this tutorial, you'll need the following:
 
 ## Create an Event Hubs namespace and an Event Hub
 
-The first step is to use the [Azure portal preview](https://portal.azure.cn) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](./event-hubs-create.md), then proceed with the following steps.
+The first step is to use the [Azure Portal](https://portal.azure.cn) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](./event-hubs-create.md), then proceed with the following steps.
 
 ## Create an Azure Storage account
 
 To use the [Event Processor Host][EventProcessorHost], you must have an [Azure Storage account][Azure Storage account]:
 
-1. Log on to the [Azure portal preview][Azure portal preview], and click **New** at the top left of the screen.
+1. Log on to the [Azure Portal][Azure Portal], and click **New** at the top left of the screen.
 
 2. Click **Storage**, then click **Storage account**.
 

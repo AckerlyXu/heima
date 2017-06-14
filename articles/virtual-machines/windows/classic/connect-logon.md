@@ -19,21 +19,21 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Log on to a Windows virtual machine using the Azure portal preview
-In the Azure portal preview, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
+# Log on to a Windows virtual machine using the Azure Portal
+In the Azure Portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 
 Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](../../linux/mac-create-ssh-keys.md).
 
 <!--
 Deleting, but not 100% sure
-Learn how to [perform these steps using new Azure portal preview](../connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+Learn how to [perform these steps using new Azure Portal](../connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about how to log on to a VM using the Resource Manager model, see [here](../connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Connect to the virtual machine
-1. Sign in to the Azure portal preview.
+1. Sign in to the Azure Portal.
 2. Click on the virtual machine that you want to access. The name is listed in the **All resources** pane.
 
     ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)

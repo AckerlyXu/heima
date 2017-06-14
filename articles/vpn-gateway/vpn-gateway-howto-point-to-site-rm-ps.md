@@ -24,9 +24,9 @@ ms.author: v-dazen
 This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 
@@ -195,7 +195,7 @@ To connect to a VNet using a Point-to-Site VPN, each client must install a packa
 
 You can use the same VPN client configuration package on each client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#faq) at the end of this article.
 
-1. After the gateway has been created, you can generate and download the client configuration package. This example downloads the package for 64-bit clients. If you want to download the 32-bit client, replace 'Amd64' with 'x86'. You can also download the VPN client by using the Azure portal preview.
+1. After the gateway has been created, you can generate and download the client configuration package. This example downloads the package for 64-bit clients. If you want to download the 32-bit client, replace 'Amd64' with 'x86'. You can also download the VPN client by using the Azure Portal.
 
     ```powershell
     Get-AzureRmVpnClientPackage -ResourceGroupName $RG `

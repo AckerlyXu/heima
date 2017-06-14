@@ -29,8 +29,8 @@ By default, PHP 5.5 is installed and immediately available for use when you crea
 
 PHP 5.6 and PHP 7.0 versions are also available, but not enabled by default. To update the PHP version, follow one of these methods:
 
-### Azure Portal Preview
-1. Browse to your web app in the [Azure Portal Preview](https://portal.azure.cn) and click on the **Settings** button.
+### Azure Portal
+1. Browse to your web app in the [Azure Portal](https://portal.azure.cn) and click on the **Settings** button.
 
     ![Web App Settings][settings-button]
 2. From the **Settings** blade select **Application Settings** and choose the new PHP version.
@@ -123,7 +123,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 1. Add a `bin` directory to the root directory.
 2. Put `.dll` extension files in the `bin` directory (for example, `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP and are VC9 and non-thread-safe (nts) compatible.
 3. Deploy your web app.
-4. Browse to your web app in the Azure Portal Preview and click on the **Settings** button.
+4. Browse to your web app in the Azure Portal and click on the **Settings** button.
 
     ![Web App Settings][settings-button]
 5. From the **Settings** blade select **Application Settings** and scroll to the **App settings** section.
@@ -144,7 +144,7 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 3. Optionally, add extensions to your PHP runtime and enable them in the `php.ini` file.
 4. Add a `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
 5. Deploy your web app.
-6. Browse to your web app in the Azure Portal Preview and click on the **Settings** button.
+6. Browse to your web app in the Azure Portal and click on the **Settings** button.
 
     ![Web App Settings][settings-button]
 7. From the **Settings** blade select **Application Settings** and scroll to the **Handler mappings** section. Add `*.php` to the Extension field and add the path to the `php-cgi.exe` executable. If you put your PHP runtime in the `bin` directory in the root of you application, the path will be `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
@@ -164,9 +164,9 @@ processing during `git push` by enabling the Composer extension.
 > 
 > 
 
-1. In your PHP web app's blade in the [Azure portal preview](https://portal.azure.cn), click **Tools** > **Extensions**.
+1. In your PHP web app's blade in the [Azure Portal](https://portal.azure.cn), click **Tools** > **Extensions**.
 
-    ![Azure Portal Preview settings blade to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-settings.png)
+    ![Azure Portal settings blade to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-settings.png)
 2. Click **Add**, then click **Composer**.
 
     ![Add Composer extension to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-add.png)

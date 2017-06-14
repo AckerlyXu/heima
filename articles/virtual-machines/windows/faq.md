@@ -60,7 +60,7 @@ Yes. Using managed images, you can create an image of a virtual machine and then
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 
-The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal preview to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
+The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure Portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
 
 ## Does Azure support Linux VMs?
 Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure using the Portal](../linux/quick-create-portal.md).

@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
-> * Manage the app in the Azure portal preview
+> * Manage the app in the Azure Portal
 
 ## Prerequisites
 
@@ -115,8 +115,9 @@ Your Azure web app also needs an _App Service plan_.
 
 > [!NOTE]
 > An App Service plan represents the collection of physical resources used to host your apps. All apps assigned to an App Service plan share the resources defined by it, which enables you to save cost when hosting multiple apps. 
-> <br/>
+>
 > App Service plans define:
+>
 > - Region (China North, China East)
 > - Instance Size (Small, Medium, Large)
 > - Scale Count (one, two, or three instances, etc.) 
@@ -404,7 +405,7 @@ To stop the log-streaming service, click the **Stop monitoring** button in the *
 
 ## Manage your Azure web app
 
-Go to the Azure portal preview to see the web app you created. 
+Go to the Azure Portal to see the web app you created. 
 
 To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn).
 
@@ -416,7 +417,7 @@ You have landed in your web app's _blade_ (a portal page that opens horizontally
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open. 
 
-![App Service blade in Azure portal preview](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
+![App Service blade in Azure Portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
@@ -446,7 +447,7 @@ In this tutorial, you learned how to:
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
-> * Manage the app in the Azure portal preview
+> * Manage the app in the Azure Portal
 
 Advance to the next tutorial to learn how to map a custom DNS name to it.
 

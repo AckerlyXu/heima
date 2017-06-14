@@ -1,6 +1,6 @@
 ---
-title: 'Connect a computer to an Azure virtual network using Point-to-Site: Azure portal preview: classic | Azure'
-description: Securely connect to your classic Azure Virtual Network by creating a Point-to-Site VPN gateway connection using the Azure portal preview.
+title: 'Connect a computer to an Azure virtual network using Point-to-Site: Azure Portal: classic | Azure'
+description: Securely connect to your classic Azure Virtual Network by creating a Point-to-Site VPN gateway connection using the Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -19,16 +19,16 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Configure a Point-to-Site connection to a VNet using the Azure portal preview (classic)
+# Configure a Point-to-Site connection to a VNet using the Azure Portal (classic)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-This article shows you how to create a VNet with a Point-to-Site connection in the classic deployment model using the Azure portal preview. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VNet with a Point-to-Site connection in the classic deployment model using the Azure Portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 
@@ -68,9 +68,9 @@ Before beginning, verify that you have an Azure subscription. If you don't alrea
 
 ### <a name="createvnet"></a>Part 1: Create a virtual network
 
-If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure portal preview, use the following steps:
+If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure Portal, use the following steps:
 
-1. From a browser, navigate to the [Azure portal preview](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure Portal](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
 2. Click **New**. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** blade.
 
     ![Search for virtual network blade](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
@@ -94,7 +94,7 @@ If you don't already have a virtual network, create one. Screenshots are provide
 
 ### <a name="gateway"></a>Part 2: Create gateway subnet and a dynamic routing gateway
 
-In this step, you create a gateway subnet and a Dynamic routing gateway. In the Azure portal preview for the classic deployment model, creating the gateway subnet and the gateway can be done through the same configuration blades.
+In this step, you create a gateway subnet and a Dynamic routing gateway. In the Azure Portal for the classic deployment model, creating the gateway subnet and the gateway can be done through the same configuration blades.
 
 1. In the portal, navigate to the virtual network for which you want to create a gateway.
 2. On the blade for your virtual network, on the **Overview** blade, in the VPN connections section, click **Gateway**.
@@ -160,7 +160,7 @@ You can use the same VPN client configuration package on each client computer, a
 
 ### Part 1: Generate and install the VPN client configuration package
 
-1. In the Azure portal preview, in the **Overview** blade for your VNet, in **VPN connections**, click the client graphic to open the **Point-to-site VPN connection** blade.
+1. In the Azure Portal, in the **Overview** blade for your VNet, in **VPN connections**, click the client graphic to open the **Point-to-site VPN connection** blade.
 2. At the top of the **Point-to-site VPN connection** blade, click the download package that corresponds to the client operating system on which it will be installed:
 
     * For 64-bit clients, select **VPN Client (64-bit)**.

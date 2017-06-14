@@ -29,13 +29,13 @@ Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluste
 
 ## Prerequisites
 
-* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://azure.microsoft.com/free).
+* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://www.azure.cn/pricing/1rmb-trial).
 
 ## Create HDInsight Spark cluster
 
 In this section, you create an HDInsight Spark cluster using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux/). For other cluster creation methods, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Click the following image to open the template in the Azure portal preview.         
+1. Click the following image to open the template in the Azure Portal.         
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-jupyter-spark-sql/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -77,7 +77,7 @@ In this article, you use the **PySpark** kernel in the notebook from where you r
 
 ### Create Jupyter notebook with PySpark kernel
 
-1. Open the [Azure portal preview](https://portal.azure.cn/).
+1. Open the [Azure Portal](https://portal.azure.cn/).
 
 2. If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
 

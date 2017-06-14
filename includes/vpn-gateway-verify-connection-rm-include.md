@@ -18,11 +18,11 @@ You can verify that your connection succeeded by using the 'Get-AzureRmVirtualNe
             "egressBytesTransferred": 4142431
     ```
 
-### To verify your connection by using the Azure portal preview
+### To verify your connection by using the Azure Portal
 
-In the Azure portal preview, you can view the connection status by navigating to the connection. There are multiple ways to do this. The following steps show one way to navigate to your connection and verify.
+In the Azure Portal, you can view the connection status by navigating to the connection. There are multiple ways to do this. The following steps show one way to navigate to your connection and verify.
 
-1. In the [Azure portal preview](http://portal.azure.cn), click **All resources** and navigate to your virtual network gateway.
+1. In the [Azure Portal](http://portal.azure.cn), click **All resources** and navigate to your virtual network gateway.
 2. On the blade for your virtual network gateway, click **Connections**. You can see the status of each connection.
 3. Click the name of the connection that you want to verify to open **Essentials**. In Essentials, you can view more information about your connection. The **Status** is 'Succeeded' and 'Connected' when you have made a successful connection.
 

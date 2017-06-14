@@ -179,7 +179,7 @@ You can download a complete version of the project created in this tutorial from
 
 * An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* The [Azure .NET SDK](https://www.azure.cn/downloads/)
+* The [Azure .NET SDK](/downloads/)
 
 * The [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -200,7 +200,7 @@ Create a directory named `eventhubspout` and save the file into the directory.
 
 Event Hubs is the data source for this example. Use the information in the **Create an Event Hub** section of the [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) document.
 
-1. After the event hub has been created, view the EventHub blade in the Azure portal preview and select **Shared access Policies**. Select **+ Add** to add the following policies:
+1. After the event hub has been created, view the EventHub blade in the Azure Portal and select **Shared access Policies**. Select **+ Add** to add the following policies:
 
     | Name | Permissions |
     | --- | --- |

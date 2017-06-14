@@ -33,7 +33,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you're new to VNets and subnets in Azure, we recommend completing the exercise in the [Create your first Azure Virtual Network](virtual-network-get-started-vnet-subnet.md) before reading this article. The exercise helps familiarize you with VNets and subnets.
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for subnets and VNets.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://azure.microsoft.com/free).
+- Log in to the Azure Portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If you use Azure PowerShell commands to complete tasks in this article, first you must [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If you use Azure Command-line interface (CLI) commands to complete tasks in this article, first you must [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
@@ -42,7 +42,7 @@ Complete the following tasks before completing steps in any section of this arti
 ## <a name="create-subnet"></a>Create a subnet
 
 1. Log in to the [portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
+2. In the box that contains the text *Search resources* at the top of the Azure Portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appears, click the virtual network you want to add a subnet to.
 4. In the pane that appears for the virtual network you selected, click **Subnets**.
 5. Click **+ Subnet**.
@@ -84,7 +84,7 @@ You can change the NSG, route tables, and user access to the subnet with resourc
 You can only delete a subnet if there are no resources connected to it. If there are resources connected to the subnet, you must first delete the resources connected to the subnet. The instructions for how to delete a resource vary depending upon the resource. To learn how to delete resources connected to subnets, read the documentation for each resource type you want to delete.
 
 1. Log in to the [portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
+2. In the box that contains the text *Search resources* at the top of the Azure Portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appears, click the VNet you want to delete a subnet from.
 4. In the blade that appears for the VNet you selected, click **Subnets** under **Settings**.
 5. In the list of subnets that appears in the subnets blade, right-click the subnet you want to delete, click **Delete**, then **Yes** to delete the subnet.

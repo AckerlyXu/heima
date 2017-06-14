@@ -38,7 +38,7 @@ This topic shows you how to perform those steps through the portal. It focuses o
 To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
 
 ### Check Azure Active Directory permissions
-1. Log in to your Azure Account through the [Azure portal preview](https://portal.azure.cn).
+1. Log in to your Azure Account through the [Azure Portal](https://portal.azure.cn).
 2. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -83,7 +83,7 @@ To check your subscription permissions:
     ![show permissions](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## Create an Azure Active Directory application
-1. Log in to your Azure Account through the [Azure portal preview](https://portal.azure.cn).
+1. Log in to your Azure Account through the [Azure Portal](https://portal.azure.cn).
 2. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)

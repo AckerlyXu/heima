@@ -159,7 +159,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ## Verify that the VM was created
-You should see the newly created VM either in the [Azure portal preview](https://portal.azure.cn), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+You should see the newly created VM either in the [Azure Portal](https://portal.azure.cn), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

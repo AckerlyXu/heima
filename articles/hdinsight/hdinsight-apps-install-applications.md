@@ -33,7 +33,7 @@ Currently there are four published applications:
 * **Streamsets Data Collector for HDnsight** provides a full-featured integrated development environment (IDE) that lets you design, test, deploy, and manage any-to-any ingest pipelines that mesh stream and batch data, and include a variety of in-stream transformations--all without having to write custom code. 
 * **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water supports the following distributed algorithms: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks , Deep learning, K-means , PCA, Generalized Low Rank Models, Anomaly Detection, and Autoencoders.
 
-The instructions provided in this article use Azure portal preview. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The instructions provided in this article use Azure Portal. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Prerequisites
 If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
@@ -43,7 +43,7 @@ The following procedure shows you how to install HDInsight applications to an ex
 
 **To install an HDInsight application**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **More Services**, and then click **HDInsight Clusters**.
 3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Click **Applications** under the **Configurations** category. You can see a list of installed applications if there are any. If you cannot find Applications, that means there is no applications for this version of the HDInsight cluster.
@@ -65,7 +65,7 @@ You have the option to install HDInsight applications when you create a cluster.
 
 **To install an HDInsight application**
 
-1. Sign in to the [Azure  portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure  Portal](https://portal.azure.cn).
 2. Click **NEW**, Click **Data + Analytics**, and then click **HDInsight**.
 3. Enter **Cluster Name**: This name must be globally unique.
 4. Click **Subscription** to select the Azure subscription that will be used for the cluster.
@@ -85,7 +85,7 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
 
 **To list HDInsight application and display properties**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click an HDInsight cluster.
 4. From the **Settings** blade, click **Applications** under the **General** category. The Installed Apps blade lists all the installed applications. 

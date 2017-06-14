@@ -37,7 +37,7 @@ Here is a flowchart to identify the order in which steps need to be executed dur
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
 * Read through the [supported and unsupported features and configurations](migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
-* If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal preview.
+* If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure Portal.
 
 > [!IMPORTANT]
 > Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager. 
@@ -54,7 +54,7 @@ For installation instructions, see [How to install and configure Azure PowerShel
 <br>
 
 ## Step 3: Ensure that you are co-administrator for the subscription in Azure Classic Management Portal
-To perform this migration, you must be added as co-administrator for the subscription in the [Azure Classic Management Portal](https://manage.windowsazure.cn/). This is required even if you are already added as owner in the [Azure portal preview](https://portal.azure.cn). Try to add a co-administrator for the subscription in Azure Classic Management Portal to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator then please contact a service administrator or co-administrator for the subscription to get yourself added.   
+To perform this migration, you must be added as co-administrator for the subscription in the [Azure Classic Management Portal](https://manage.windowsazure.cn/). This is required even if you are already added as owner in the [Azure Portal](https://portal.azure.cn). Try to add a co-administrator for the subscription in Azure Classic Management Portal to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator then please contact a service administrator or co-administrator for the subscription to get yourself added.   
 
 ## Step 4: Set your subscription and sign up for migration
 First, start a PowerShell prompt. For migration, you need to set up your environment for both classic and Resource Manager.
@@ -202,7 +202,7 @@ This example sets the VM name to **myVM**. Replace the example name with your ow
     $vm.VM.MigrationState
 ```
 
-Check the configuration for the prepared resources by using either PowerShell or the Azure portal preview. If you are not ready for migration and you want to go back to the old state, use the following command:
+Check the configuration for the prepared resources by using either PowerShell or the Azure Portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
 ```powershell
     Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName
@@ -240,7 +240,7 @@ The preceding command displays any warnings and errors that block migration. If 
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 ```
 
-Check the configuration for the prepared virtual machines by using either Azure PowerShell or the Azure portal preview. If you are not ready for migration and you want to go back to the old state, use the following command:
+Check the configuration for the prepared virtual machines by using either Azure PowerShell or the Azure Portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
 ```powershell
     Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
@@ -313,7 +313,7 @@ Prepare each storage account for migration by using the following command. In th
     Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
 ```
 
-Check the configuration for the prepared storage account by using either Azure PowerShell or the Azure portal preview. If you are not ready for migration and you want to go back to the old state, use the following command:
+Check the configuration for the prepared storage account by using either Azure PowerShell or the Azure Portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
 ```powershell
     Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName

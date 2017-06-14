@@ -454,7 +454,7 @@ Before you move on, review the [What you need](#bkmk_domainname) section and ver
 * your app is running in **Basic** tier or higher, and
 * you have an SSL certificate for the custom domain from a CA.
 
-1. In your browser, open the **[Azure Portal Preview.](https://portal.azure.cn/)**
+1. In your browser, open the **[Azure Portal.](https://portal.azure.cn/)**
 2. Click the **App Service** option on the left side of the page.
 3. Click the name of your app to which you want to assign this certificate. 
 4. In the **Settings**, Click **SSL certificates**

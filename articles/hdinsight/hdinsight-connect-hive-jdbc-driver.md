@@ -84,7 +84,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * For **Windows-based HDInsight**, use the following steps to download the jar files.
 
-        1. From the Azure portal preview, select your HDInsight cluster, and then select the **Remote Desktop** icon.
+        1. From the Azure Portal, select your HDInsight cluster, and then select the **Remote Desktop** icon.
 
             ![Remote Desktop icon](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 

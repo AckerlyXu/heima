@@ -20,14 +20,14 @@ ms.author: v-dazen
 ---
 # Streaming Logs and the Console
 ## Streaming Logs
-The **Azure portal preview** provides an integrated streaming log viewer that 
+The **Azure Portal** provides an integrated streaming log viewer that 
 lets you view tracing events from your **App Service** apps in real time.  
 
 Setting up this feature requires a few simple steps:
 
 * Write traces in your code
 * Enable Application **Diagnostic Logs** for your app
-* View the stream from the built-in **Streaming Logs** UI in the **Azure portal preview**.
+* View the stream from the built-in **Streaming Logs** UI in the **Azure Portal**.
 
 ### How to write traces in your code
 Writing traces in your code is easy.  In C# it's as easy as writing the following code:
@@ -73,13 +73,13 @@ Click **SAVE** at the top of the blade and you're ready to view logs.
 > 
 
 ![][StreamingLogsScreenshot]
-To view the **streaming logs** from within the Azure portal preview, click on 
+To view the **streaming logs** from within the Azure Portal, click on 
 **(1) Log Stream** also in the **Monitoring** section of the settings menu. 
 If your app is actively writing trace statements, then you should see them in the 
 **(2) streaming logs UI** in near real time.
 
 ## Console
-The **Azure portal preview** provides console access to your app. You can explore 
+The **Azure Portal** provides console access to your app. You can explore 
 your app's file system and run powershell/cmd scripts. You are bound by the 
 same permissions set as your running app code when executing console commands. 
 Access to protected directories or running scripts that require elevated 

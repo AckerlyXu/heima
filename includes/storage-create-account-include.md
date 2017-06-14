@@ -1,5 +1,5 @@
 ## Create an Azure storage account
-The easiest way to create your first Azure storage account is by using the [Azure portal preview](https://portal.azure.cn). To learn more, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
+The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.cn). To learn more, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
 
 You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.storage).
 

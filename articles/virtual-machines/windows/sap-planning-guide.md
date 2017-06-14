@@ -501,10 +501,10 @@ Please note that not all different VM series might be offered in each one of the
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
-Microsoft allows to deploy Virtual Machines into so called 'Azure Regions'. An Azure Region may be one or multiple data centers that are located in close proximity. For most of the geopolitical regions in the world Microsoft has at least two Azure Regions. E.g. in Europe there is an Azure Region of 'China North' and one of 'China North'. Such two Azure Regions within a geopolitical region are separated by significant enough distance so that natural or technical disasters do not affect both Azure Regions in the same geopolitical region. Since Microsoft is steadily building out new Azure Regions in different geopolitical regions globally, the number of these regions is steadily growing and as of Dec 2015 reached the number of 20 Azure Regions with additional Regions announced already. You as a customer can deploy SAP systems into all these regions, including the two Azure Regions in China. For current up to date information about Azure regions see this website : <https://azure.microsoft.com/regions/>
+Microsoft allows to deploy Virtual Machines into so called 'Azure Regions'. An Azure Region may be one or multiple data centers that are located in close proximity. For most of the geopolitical regions in the world Microsoft has at least two Azure Regions. E.g. in Europe there is an Azure Region of 'China North' and one of 'China North'. Such two Azure Regions within a geopolitical region are separated by significant enough distance so that natural or technical disasters do not affect both Azure Regions in the same geopolitical region. Since Microsoft is steadily building out new Azure Regions in different geopolitical regions globally, the number of these regions is steadily growing and as of Dec 2015 reached the number of 20 Azure Regions with additional Regions announced already. You as a customer can deploy SAP systems into all these regions, including the two Azure Regions in China.
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>The Azure Virtual Machine Concept
-Azure offers an Infrastructure as a Service (IaaS) solution to host Virtual Machines with similar functionalities as an on-premises virtualization solution. You are able to create Virtual Machines from within the Azure Portal Preview, PowerShell or CLI, which also offer deployment and management capabilities.
+Azure offers an Infrastructure as a Service (IaaS) solution to host Virtual Machines with similar functionalities as an on-premises virtualization solution. You are able to create Virtual Machines from within the Azure Portal, PowerShell or CLI, which also offer deployment and management capabilities.
 
 Azure Resource Manager allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application life cycle.
 
@@ -776,17 +776,17 @@ See also this blog and attached document for SAP sizing on Azure :
 * Number of VHDs in DBMS VM to provide enough IOPS
 
 ## Managing Azure Assets
-### Azure Portal Preview
-The Azure Portal Preview is one of three interfaces to manage Azure VM deployments. The basic management tasks, like deploying VMs from images, can be done through the Azure Portal Preview. In addition, the creation of Storage Accounts, Virtual Networks and other Azure components are also tasks the Azure Portal Preview can handle very well. However, functionality like uploading VHDs from on-premises to Azure or copying a VHD within Azure are tasks which require either third party tools or administration through PowerShell or CLI.
+### Azure Portal
+The Azure Portal is one of three interfaces to manage Azure VM deployments. The basic management tasks, like deploying VMs from images, can be done through the Azure Portal. In addition, the creation of Storage Accounts, Virtual Networks and other Azure components are also tasks the Azure Portal can handle very well. However, functionality like uploading VHDs from on-premises to Azure or copying a VHD within Azure are tasks which require either third party tools or administration through PowerShell or CLI.
 
-![Azure Portal Preview - Virtual Machine overview][planning-guide-figure-800]
+![Azure Portal - Virtual Machine overview][planning-guide-figure-800]
 
 
-Administration and configuration tasks for the Virtual Machine instance are possible from within the Azure Portal Preview.
+Administration and configuration tasks for the Virtual Machine instance are possible from within the Azure Portal.
 
 Besides restarting and shutting down a Virtual Machine you can also attach, detach and create data disks for the Virtual Machine instance, to capture the instance for image preparation and configure the size of the Virtual Machine instance.
 
-The Azure Portal Preview provides basic functionality to deploy and configure VMs and many other Azure services. However not all available functionality is covered by the Azure Portal Preview. In the Azure Portal Preview, it's not possible to perform tasks like:
+The Azure Portal provides basic functionality to deploy and configure VMs and many other Azure services. However not all available functionality is covered by the Azure Portal. In the Azure Portal, it's not possible to perform tasks like:
 
 * Uploading VHDs to Azure
 * Copying VMs
@@ -799,7 +799,7 @@ The process to enable a local desktop/laptop for the usage of Azure PowerShell c
 
 More detailed steps on how to install, update and configure the Azure PowerShell cmdlets can also be found in [this chapter of the Deployment Guide][deployment-guide-4.1].
 
-Customer experience so far has been that PowerShell (PS) is certainly the more powerful tool to deploy VMs and to create custom steps in the deployment of VMs. All of the customers running SAP instances in Azure are using PS cmdlets to supplement management tasks they do in the Azure Portal Preview or are even using PS cmdlets exclusively to manage their deployments in Azure. Since the Azure specific cmdlets share the same naming convention as the more than 2000 Windows related cmdlets, it is an easy task for Windows administrators to leverage those cmdlets.
+Customer experience so far has been that PowerShell (PS) is certainly the more powerful tool to deploy VMs and to create custom steps in the deployment of VMs. All of the customers running SAP instances in Azure are using PS cmdlets to supplement management tasks they do in the Azure Portal or are even using PS cmdlets exclusively to manage their deployments in Azure. Since the Azure specific cmdlets share the same naming convention as the more than 2000 Windows related cmdlets, it is an easy task for Windows administrators to leverage those cmdlets.
 
 See example here :
 <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
@@ -813,7 +813,7 @@ For a general list of Azure related PowerShell commands check here: <https://msd
 ### Management via Azure CLI commands
 For customers who use Linux and want to manage Azure resources Powershell might not be an option. Microsoft offers Azure CLI as an alternative.
 The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. The Azure CLI provides much of
-the same functionality found in the Azure portal preview.
+the same functionality found in the Azure Portal.
 
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
@@ -865,7 +865,7 @@ Requirements when preparing your own Azure VM Disk are:
 
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * VHDs which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. The same size limit of the OS disk applies to data disks as well. VHDs can have a maximum size of 1TB. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
-* Add another local account with administrator privileges which can be used by Microsoft support or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
+* Add another local account with administrator privileges which can be used by Azure Support or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
 * For the case of using a Cloud-Only deployment scenario (see chapter [Cloud-Only - Virtual Machine deployments into Azure without dependencies on the on-premises customer network][planning-guide-2.1] of this document) in combination with this deployment method, domain accounts might not work once the Azure Disk is deployed in Azure. This is especially true for accounts which are used to run services like the DBMS or SAP applications. Therefore you need to replace such domain accounts with VM local accounts and delete the on-premises domain accounts in the VM. Keeping on-premises domain users in the VM image is not an issue when the VM is deployed in the Cross-Premises scenario as described in chapter [Cross-Premise - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network][planning-guide-2.2] in this document.
 * If domain accounts were used as DBMS logins or users when running the system on-premises and those VMs are supposed to be deployed in Cloud-Only scenarios, the domain users need to be deleted. You need to make sure that the local administrator plus another VM local user is added as a login/user into the DBMS as administrators.
 * Add other local accounts as those might be needed for the specific deployment scenario.
@@ -895,7 +895,7 @@ Requirements when preparing your own Azure VM Image are:
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * VHDs which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. The same size limit of the OS disk applies to data disks as well. VHDs can have a maximum size of 1TB. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * Since all the Domain users registered as users in the VM will not exist in a Cloud-Only scenario (see chapter [Cloud-Only - Virtual Machine deployments into Azure without dependencies on the on-premises customer network][planning-guide-2.1] of this document), services using such domain accounts might not work once the Image is deployed in Azure. This is especially true for accounts which are used to run services like DBMS or SAP applications. Therefore you need to replace such domain accounts with VM local accounts and delete the on-premises domain accounts in the VM. Keeping on-premises domain users in the VM image might not be an issue when the VM is deployed in the Cross-Premise scenario as described in chapter [Cross-Premise - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network][planning-guide-2.2] in this document.
-* Add another local account with administrator privileges which can be used by Microsoft support in problem investigations or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
+* Add another local account with administrator privileges which can be used by Azure Support in problem investigations or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
 * In Cloud-Only deployments and where domain accounts were used as DBMS logins or users when running the system on-premises, the domain users should be deleted. You need to make sure that the local administrator plus another VM local user is added as a login/user of the DBMS as administrators.
 * Add other local accounts as those might be needed for the specific deployment scenario.
 * If the image contains an installation of SAP NetWeaver and renaming of the host name from the original name at the point of the Azure deployment is likely, it is recommended to copy the latest versions of the SAP Software Provisioning Manager DVD into the template. This will enable you to easily use the SAP provided rename functionality to adapt the changed hostname and/or change the SID of the SAP system within the deployed VM image as soon as a new copy is started.
@@ -934,7 +934,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 
 - - -
 ### Transferring VMs and VHDs between on-premises to Azure
-Since uploading VM images and disks to Azure is not possible via the Azure Portal Preview, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
+Since uploading VM images and disks to Azure is not possible via the Azure Portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
 A third alternative would be to use various third party GUI oriented tools. However, please make sure that these tools are supporting Azure Page Blobs. For our purposes we need to use Azure Page Blob store (the differences are described here: <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>). Also the tools provided by Azure are very efficient in compressing the VMs and VHDs which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S. based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
 
@@ -1000,7 +1000,7 @@ Azure Infrastructure as a Service is not a one-way street of only being able to 
 During the time of the download the VHDs can't be active. Even when downloading VHDs which are mounted to VMs, the VM needs to be shutdown. If you only want to download the database content which then should be used to set up a new system on-premises and if it is acceptable that during the time of the download and the setup of the new system that the system in Azure can still be operational, you could avoid a long downtime by performing a compressed database backup into a VHD and just download that VHD instead of also downloading the OS base VM.
 
 #### Powershell
-Once the SAP system is stopped and the VM is shutdown, you can use the PowerShell cmdlet Save-AzureRmVhd on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the URL of the VHD which you can find in the 'Storage Section' of the Azure Portal Preview (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
+Once the SAP system is stopped and the VM is shutdown, you can use the PowerShell cmdlet Save-AzureRmVhd on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the URL of the VHD which you can find in the 'Storage Section' of the Azure Portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
 Then you can leverage the command by simply defining the parameter SourceUri as the URL of the VHD to download and the LocalFilePath as the physical location of the VHD (including its name). The command could look like:
 
@@ -1011,7 +1011,7 @@ Save-AzureRmVhd -ResourceGroupName <resource group name of storage account> -Sou
 For more details of the Save-AzureRmVhd cmdlet, please check here <https://msdn.microsoft.com/library/mt622705.aspx>.
 
 #### CLI
-Once the SAP system is stopped and the VM is shutdown, you can use the Azure CLI command azure storage blob download on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD which you can find in the 'Storage Section' of the Azure Portal Preview (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
+Once the SAP system is stopped and the VM is shutdown, you can use the Azure CLI command azure storage blob download on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD which you can find in the 'Storage Section' of the Azure Portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
 Then you can leverage the command by simply defining the parameters blob and container of the VHD to download and the destination as the physical target location of the VHD (including its name). The command could look like:
 
@@ -1070,7 +1070,7 @@ azure vm disk attach <resource group name> <vm name> <path to vhd>
 ```
 
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copying disks between Azure Storage Accounts
-This task cannot be performed on the Azure Portal Preview. You can ise Azure PowerShell cmdlets, Azure CLI or a third party storage browser. The PowerShell cmdlets or CLI commands can create and manage blobs, which include the ability to asynchronously copy blobs across Storage Accounts and across regions within the Azure subscription.
+This task cannot be performed on the Azure Portal. You can ise Azure PowerShell cmdlets, Azure CLI or a third party storage browser. The PowerShell cmdlets or CLI commands can create and manage blobs, which include the ability to asynchronously copy blobs across Storage Accounts and across regions within the Azure subscription.
 
 ##### Powershell
 Copying VHDs between subscriptions is also possible. For more information read [this article][storage-powershell-guide-full-copy-vhd].
@@ -1181,7 +1181,7 @@ up to 1TB in size. This should be enough space to keep all the necessary file in
 For more suggestions and more details, specifically for DBMS VMs, please consult the [DBMS Deployment Guide][dbms-guide]
 
 #### Disk Handling
-In most scenarios you need to create additional disks in order to deploy the SAP database into the VM. We talked about the considerations on number of VHDs in chapter [VM/VHD structure for SAP deployments][planning-guide-5.5.1] of this document. The Azure Portal Preview allows to attach and detach disks once a base VM is deployed. The disks can be attached/detached when the VM is up and running as well as when it is stopped. When attaching a disk, the Azure Portal Preview offers to attach an empty disk or an existing disk which at this point in time is not attached to another VM.
+In most scenarios you need to create additional disks in order to deploy the SAP database into the VM. We talked about the considerations on number of VHDs in chapter [VM/VHD structure for SAP deployments][planning-guide-5.5.1] of this document. The Azure Portal allows to attach and detach disks once a base VM is deployed. The disks can be attached/detached when the VM is up and running as well as when it is stopped. When attaching a disk, the Azure Portal offers to attach an empty disk or an existing disk which at this point in time is not attached to another VM.
 
 **Note**: VHDs can only be attached to one VM at any given time.
 
@@ -1194,7 +1194,7 @@ You need to decide whether you want to create a new and empty VHD (which would b
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> [How to attach a data disk in the Azure portal preview][virtual-machines-windows-attach-disk-portal]
+> [How to attach a data disk in the Azure Portal][virtual-machines-windows-attach-disk-portal]
 >
 > If disks are attached, you need to log in into the VM to open the Windows Disk Manager. If automount is not enabled as recommended in chapter [Setting automount for attached disks][planning-guide-5.5.3], the newly attached volume needs to be taken online and initialized.
 >
@@ -1661,7 +1661,7 @@ In order to enable the monitoring of mission critical SAP systems on Azure the S
 #### Solution design
 The solution developed to enable SAP Monitoring is based on the architecture of Azure VM Agent and Extension framework. The idea of the Azure VM Agent and Extension framework is to allow installation of software application(s) available in the Azure VM Extension gallery within a VM. The principle idea behind this concept is to allow (in cases like the Azure Monitoring Extension for SAP), the deployment of special functionality into a VM and the configuration of such software at deployment time.
 
-Since February 2014, the 'Azure VM Agent' that enables handling of specific Azure VM Extensions within the VM is injected into Windows VMs by default on VM creation in the Azure Portal Preview. In case of SUSE or Red Hat Linux the VM agent is already part of the
+Since February 2014, the 'Azure VM Agent' that enables handling of specific Azure VM Extensions within the VM is injected into Windows VMs by default on VM creation in the Azure Portal. In case of SUSE or Red Hat Linux the VM agent is already part of the
 Azure Marketplace image. In case one would upload a Linux VM from on-premises to Azure the VM agent has to be installed manually.
 
 The basic building blocks of the Monitoring solution in Azure for SAP looks like this:
@@ -1881,8 +1881,8 @@ However, over the course of last year data center partners developed co-location
 ### Offline Backup of SAP systems
 Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a need to backup. The content of the VM itself plus to have a backup of the database. The DBMS related backups are expected to be done with database methods. A detailed description for the different databases, can be found in [DBMS Guide][dbms-guide]. On the other hand, the SAP data can be backed up in an offline manner (including the database content as well) as described in this section or online as described in the next section.
 
-The offline backup would basically require a shutdown of the VM through the Azure Portal Preview and a copy of the base VM disk plus all attached VHDs to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the 'backups' into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
-Besides the shutdown using the Azure Portal Preview one can also do it via Powershell or CLI as described here :
+The offline backup would basically require a shutdown of the VM through the Azure Portal and a copy of the base VM disk plus all attached VHDs to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the 'backups' into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
+Besides the shutdown using the Azure Portal one can also do it via Powershell or CLI as described here :
 <https://review.docs.azure.cn/virtual-machines/virtual-machines-deploy-rmtemplates-powershell/>
 
 A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted VHDs, copying back the saved VHDs to the original Storage Account and then redeploying the system.

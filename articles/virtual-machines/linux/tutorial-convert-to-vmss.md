@@ -177,7 +177,7 @@ This extension automatically runs on all current instances, and any instances la
 
 ## Step 7 - Configure autoscale rules
 
-Currently, autoscale rules cannot be set in Azure CLI. Use the [Azure portal preview](https://portal.azure.cn) to configure autoscale.
+Currently, autoscale rules cannot be set in Azure CLI. Use the [Azure Portal](https://portal.azure.cn) to configure autoscale.
 
 ## Step 8 - Management tasks
 

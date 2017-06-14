@@ -41,11 +41,11 @@ The following table details the offer IDs that are eligible to deploy Windows 10
 | [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## Check your Azure subscription
-If you do not know your offer ID, you can obtain it through the Azure portal preview in one of these two ways:  
+If you do not know your offer ID, you can obtain it through the Azure Portal in one of these two ways:  
 
 - On the 'Subscriptions' blade:
 
-![Offer ID details from the Azure portal preview](./media/client-images/offer-id-azure-portal.png) 
+![Offer ID details from the Azure Portal](./media/client-images/offer-id-azure-portal.png) 
 
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the Billing blade.
 

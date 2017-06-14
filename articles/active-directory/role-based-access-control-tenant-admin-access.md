@@ -96,7 +96,7 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
     Again, save the GUID from the *name* parameter, in this case **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
-3. Finally, call [DELETE roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById/) where roleAssignmentId = the name GUID you found in step 2.
+3. Finally, call [DELETE roleAssignments](https://docs.microsoft.com/rest/api/authorization/roleassignments#RoleAssignments_DeleteById/) where roleAssignmentId = the name GUID you found in step 2.
 
 ## Next steps
 

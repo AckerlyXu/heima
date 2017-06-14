@@ -44,7 +44,7 @@ The optional fields can be configured in Multi-Factor Authentication Server.
 The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
 
 ## Billing
-Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](http://www.azure.cn/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
 **Q: Is my organization charged for sending the phone calls and text messages that are used for authentication?**
 

@@ -51,7 +51,7 @@ You will use Spark to perform some predictive analysis on food inspection data (
 In the steps below, you develop a model to see what it takes to pass or fail a food inspection.
 
 ## Start building a machine learning application using Spark MLlib
-1. From the [Azure Portal Preview](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
     > [!NOTE]

@@ -311,9 +311,9 @@ At this point, you have an Availability Group with replicas on two instances of 
 
 ## <a name="configure-internal-load-balancer"></a> Create an Azure load balancer
 
-On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP address for the Availability Group listener. This section summarizes how to create the load balancer in the Azure portal preview.
+On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP address for the Availability Group listener. This section summarizes how to create the load balancer in the Azure Portal.
 
-1. In the Azure portal preview, go to the resource group where your SQL Servers are and click **+ Add**.
+1. In the Azure Portal, go to the resource group where your SQL Servers are and click **+ Add**.
 2. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
 
     ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
@@ -332,17 +332,17 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
     | **Subscription** |Use the same subscription as the virtual machine. |
     | **Location** |Use the same location as the virtual machine. |
 
-    The Azure portal preview blade should look like this:
+    The Azure Portal blade should look like this:
 
     ![Create Load Balancer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
 
 1. Click **Create**, to create the load balancer.
 
-To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure portal preview.
+To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure Portal.
 
 ### Add backend pool
 
-1. In the Azure portal preview, go to your availability group. You might need to refresh the view to see the newly created load balancer.
+1. In the Azure Portal, go to your availability group. You might need to refresh the view to see the newly created load balancer.
 
     ![Find Load Balancer in Resource Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 

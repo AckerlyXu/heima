@@ -88,13 +88,13 @@ Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $reso
 
 
 ## Create a blank SQL database
-1. Sign in to the [Azure portal preview](https://portal.azure.cn/).
+1. Sign in to the [Azure Portal](https://portal.azure.cn/).
 2. Go to **New** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal preview, see [Your first Azure SQL database](sql-database-get-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure Portal, see [Your first Azure SQL database](sql-database-get-started.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
-You will need the connection string later in the tutorial, so after you create the database, browse to the new  Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it in the Azure portal preview.
+You will need the connection string later in the tutorial, so after you create the database, browse to the new  Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it in the Azure Portal.
 
 1. Go to **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
@@ -256,7 +256,7 @@ This sample demonstrates how to:
 * Insert data into the encrypted columns.
 * Select a record by filtering for a specific value in an encrypted column.
 
-Replace the contents of **Program.cs** with the following code. Replace the connection string for the global connectionString variable in the line that directly precedes the Main method with your valid connection string from the Azure portal preview. This is the only change you need to make to this code.
+Replace the contents of **Program.cs** with the following code. Replace the connection string for the global connectionString variable in the line that directly precedes the Main method with your valid connection string from the Azure Portal. This is the only change you need to make to this code.
 
 Run the app to see Always Encrypted in action.
 

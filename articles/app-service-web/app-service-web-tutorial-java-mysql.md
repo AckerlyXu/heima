@@ -412,7 +412,7 @@ To update the app, repeat the maven clean package command and redeploy the app v
 
 ## Manage your Azure web app
 
-Go to the Azure portal preview to see the web app you created by signing in to [https://portal.azure.cn](https://portal.azure.cn).
+Go to the Azure Portal to see the web app you created by signing in to [https://portal.azure.cn](https://portal.azure.cn).
 
 From the left menu, click **appservice**, then click the name of your Azure web app.
 

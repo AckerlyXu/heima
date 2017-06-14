@@ -1,7 +1,7 @@
 ### Determine the DNS name of the virtual machine
 To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
 
-1. In the Azure Portal Preview (or from the previous step), select **Virtual machines (classic)**.
+1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
 2. Select your SQL VM.
 3. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
 

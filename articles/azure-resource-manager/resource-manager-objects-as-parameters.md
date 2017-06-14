@@ -177,7 +177,7 @@ However, if you include all the properties a single object, it is much easier to
 
 If you would like to experiment with these templates, follow these steps:
 
-1.    Go to the Azure portal preview, select the "+" icon, and search for the "template deployment" resource type. When you find it in the search results, select it.
+1.    Go to the Azure Portal, select the "+" icon, and search for the "template deployment" resource type. When you find it in the search results, select it.
 2.    When you get to the "template deployment" page, select the **create** button. This button opens the "custom deployment" blade.
 3.    Select the **edit template** button.
 4.    Delete the empty template in the right-hand pane.

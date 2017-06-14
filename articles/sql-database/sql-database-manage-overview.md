@@ -22,11 +22,11 @@ ms.author: v-johch
 This topic introduces the tools for managing and developing with Azure SQL databases.
 
 > [!IMPORTANT]
-> This documentation set includes QuickStarts, Sample, and How-to guides showing you how to management and develop with Azure SQL Database using the tools introduced in the following paragraphs. Use the left-hand navigation pane and filter box to find specific content for the Azure portal preview, PowerShell, and T-SQL.
+> This documentation set includes QuickStarts, Sample, and How-to guides showing you how to management and develop with Azure SQL Database using the tools introduced in the following paragraphs. Use the left-hand navigation pane and filter box to find specific content for the Azure Portal, PowerShell, and T-SQL.
 >
 
 ## Azure portal
-The [Azure portal preview](https://portal.azure.cn) is a web-based application where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a few databases, or need to do something quickly.
+The [Azure Portal](https://portal.azure.cn) is a web-based application where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a few databases, or need to do something quickly.
 
 ## SQL Server Management Studio and Transact-SQL
 SQL Server Management Studio (SSMS) is a client tool that runs on your computer for managing your database in the cloud using Transact-SQL. Many database administrators are familiar with SSMS, which can be used with Azure SQL databases. [Download the latest version of SSMS](https://msdn.microsoft.com/library/mt238290) and always use the latest release when working with Azure SQL Database. 

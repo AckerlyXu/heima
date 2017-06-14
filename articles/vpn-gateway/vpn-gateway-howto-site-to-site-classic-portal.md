@@ -19,15 +19,15 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Create a Site-to-Site connection using the Azure portal preview (classic)
+# Create a Site-to-Site connection using the Azure Portal (classic)
 
-This article shows you how to use the Azure portal preview to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to use the Azure Portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Classic Management Portal](vpn-gateway-site-to-site-create.md)
 > 
 >
@@ -73,7 +73,7 @@ When you create a virtual network to use for a S2S connection, you need to make 
 
 ### To create a virtual network
 
-1. From a browser, navigate to the [Azure portal preview](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure Portal](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
 2. Click **New**. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** blade.
 
     ![Search for virtual network blade](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
@@ -161,7 +161,7 @@ You must create a gateway subnet for your VPN gateway. The gateway subnet contai
 Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
 
 - A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
-- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal preview, PowerShell, or CLI.
+- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure Portal, PowerShell, or CLI.
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
@@ -169,7 +169,7 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 In this step, you set the shared key and create the connection. The key you set is must be the same key that was used in your VPN device configuration.
 
 > [!NOTE]
-> Currently, this step is not available in the Azure portal preview. You must use the Service Management (SM) version of the Azure PowerShell cmdlets.
+> Currently, this step is not available in the Azure Portal. You must use the Service Management (SM) version of the Azure PowerShell cmdlets.
 >
 
 ### Step 1. Connect to your Azure account

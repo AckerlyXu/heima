@@ -1,10 +1,10 @@
-## How to create a VNet in the Azure portal preview
-To create a VNet based on the scenario above by using the Azure Portal Preview, follow the steps below.
+## How to create a VNet in the Azure Portal
+To create a VNet based on the scenario above by using the Azure Portal, follow the steps below.
 
 1. From a browser, navigate to http://portal.azure.cn and, if necessary, sign in with your Azure account.
 2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**, as seen in the figure below.
 
-    ![Create VNet in Azure portal preview](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+    ![Create VNet in Azure Portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
 
     ![Create virtual network blade](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
@@ -18,7 +18,7 @@ To create a VNet based on the scenario above by using the Azure Portal Preview, 
     ![Creating virtual network tile](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 8. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add** as seen below.
 
-    ![Adding subnet in the Azure portal preview](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+    ![Adding subnet in the Azure Portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 9. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
 
     ![Subnet settings](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)

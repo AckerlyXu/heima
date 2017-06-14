@@ -51,7 +51,7 @@ If the **IISNode.yml** file did not already exist within your application, you m
 > 
 > 
 
-To restart the web app, select the web app in the [Azure Portal Preview](https://portal.azure.cn), and then click **RESTART** button:
+To restart the web app, select the web app in the [Azure Portal](https://portal.azure.cn), and then click **RESTART** button:
 
 ![restart button][restart-button]
 
@@ -72,7 +72,7 @@ Diagnostic logs can be accessed in three ways; Using the File Transfer Protocol 
 Once installed, the tools can be accessed using the 'azure' command. The command-line tools must first be configured to use your Azure subscription. For information on how to accomplish this task, see the **How to download and import publish settings** section of the [How to Use The Azure Command-Line Tools](../xplat-cli-connect.md) article.
 
 ### FTP
-To access the diagnostic information through FTP, visit the [Azure Portal Preview](https://portal.azure.cn), select your web app, and then select the **DASHBOARD**. In the **quick links** section, the **FTP DIAGNOSTIC LOGS** and **FTPS DIAGNOSTIC LOGS** links provide access to the logs using the FTP protocol.
+To access the diagnostic information through FTP, visit the [Azure Portal](https://portal.azure.cn), select your web app, and then select the **DASHBOARD**. In the **quick links** section, the **FTP DIAGNOSTIC LOGS** and **FTPS DIAGNOSTIC LOGS** links provide access to the logs using the FTP protocol.
 
 > [!NOTE]
 > If you have not previously configured user name and password for FTP or deployment, you can do so from the **Quickstart** management page by selecting **Set up deployment credentials**.

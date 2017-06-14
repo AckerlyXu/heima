@@ -81,7 +81,7 @@ There is a default outbound rule that allows traffic out to the internet. For th
 The above discussed NSG rules are very similar to the NSG rules in [Example 1 - Build a Simple DMZ with NSGs][Example1]. Please review the NSG Description in that document for a detailed look at each NSG rule and it's attributes.
 
 ## Firewall Rules
-A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure portal preview or PowerShell).
+A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure Portal or PowerShell).
 
 Instructions for client download and connecting to the Barracuda used in this example can be found here: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
@@ -148,7 +148,7 @@ With the activation of the firewall ruleset this example environment build is co
 16. Since there are no outbound rules on the Frontend subnet the response is allowed, and the Internet User receives the web page requested.
 
 #### (Allowed) RDP to Backend
-1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure Portal Preview or via PowerShell)
+1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure Portal or via PowerShell)
 2. Since the Firewall is only listening on the FrontEnd001.CloudApp.Net address, it is not involved with this traffic flow
 3. Backend subnet begins inbound rule processing:
     1. NSG Rule 1 (DNS) doesn't apply, move to next rule

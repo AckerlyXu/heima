@@ -22,7 +22,7 @@ ms.author: v-dazen
 # Create an application gateway by using the Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
@@ -42,7 +42,7 @@ To perform the steps in this article, you need to [install the Azure Command-Lin
 
 ## Scenario
 
-In this scenario, you learn how to create an application gateway using the Azure portal preview.
+In this scenario, you learn how to create an application gateway using the Azure Portal.
 
 This scenario will:
 

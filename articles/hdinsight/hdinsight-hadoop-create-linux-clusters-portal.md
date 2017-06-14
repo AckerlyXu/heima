@@ -1,6 +1,6 @@
 ---
 title: Create Azure HDInsight (Hadoop) using a web browser | Azure
-description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure Portal Preview.
+description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure Portal.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -20,28 +20,28 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Create Linux-based clusters in HDInsight using the Azure portal preview
+# Create Linux-based clusters in HDInsight using the Azure Portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The Azure portal preview is a web-based management tool for services and resources hosted in the Azure cloud. In this article you will learn how to create Linux-based HDInsight clusters using the portal.
+The Azure Portal is a web-based management tool for services and resources hosted in the Azure cloud. In this article you will learn how to create Linux-based HDInsight clusters using the portal.
 
 ## Prerequisites
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-* **A modern web browser**. The Azure  portal preview uses HTML5 and Javascript, and may not function correctly in older web browsers.
+* **A modern web browser**. The Azure  Portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 ## Create clusters
-The Azure portal preview exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The Azure Portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-1. Sign in to the [Azure  portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure  Portal](https://portal.azure.cn).
 2. Click **+**, click **Intelligence + Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure portal preview](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creating a new cluster in the Azure portal preview")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
 3. In the **HDInsight** blade, click **Custom (size, settings, apps)**, click **Basics**, and then enter the following information.
 
-    ![Creating a new cluster in the Azure portal preview](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.basics.png "Creating a new cluster in the Azure portal preview")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.basics.png "Creating a new cluster in the Azure Portal")
 
     * Enter **Cluster Name**: This name must be globally unique.
 
@@ -73,7 +73,7 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
 4. On the **Storage** blade, specify whether you want Azure Storage (WASB) as your default storage. Look at the table below for more information.
 
-    ![Creating a new cluster in the Azure portal preview](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Creating a new cluster in the Azure portal preview")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Creating a new cluster in the Azure Portal")
 
     | Storage                                      | Description |
     |----------------------------------------------|-------------|

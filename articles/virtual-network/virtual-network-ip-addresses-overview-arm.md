@@ -141,6 +141,6 @@ The limits imposed on IP addressing are indicated in the full set of [limits for
 Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page.
 
 ## Next steps
-* [Deploy a VM with a static public IP using the Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+* [Deploy a VM with a static public IP using the Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 * [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
-* [Deploy a VM with a static private IP address using the Azure portal preview](virtual-networks-static-private-ip-arm-pportal.md)
+* [Deploy a VM with a static private IP address using the Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)

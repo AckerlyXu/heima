@@ -32,12 +32,12 @@ Each App Service plan mode supports a different number of deployment slots. To f
 
 * When your app has multiple slots, you cannot change the mode.
 * Scaling is not available for non-production slots.
-* Linked resource management is not supported for non-production slots. In the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+* Linked resource management is not supported for non-production slots. In the [Azure Portal](/app-service-web/app-service-web-app-azure-portal) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 ## <a name="Add"></a> Add a deployment slot
 The app must be running in the **Standard** or **Premium** mode in order for you to enable multiple deployment slots.
 
-1. In the [Azure Portal Preview](https://portal.azure.cn/), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. In the [Azure Portal](https://portal.azure.cn/), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Choose the **Deployment slots** option, then click **Add Slot**.
 
     ![Add a new deployment slot][QGAddNewDeploymentSlot]

@@ -29,10 +29,10 @@ ms.author: v-dazen
 
 [App Service apps](https://www.azure.cn/home/features/app-service/web-apps/) can be backed up as blobs in Azure storage. The backup can also contain the app's databases. If the app is ever accidentally deleted, or if the app needs to be reverted to a previous version, it can be restored from any previous backup. Backups can be done at any time on demand, or backups can be scheduled at suitable intervals.
 
-This article explains how to backup and restore an app with RESTful API requests. If you would like to create and manage app backups graphically through the Azure portal preview, see [Back up a web app in Azure App Service](web-sites-backup.md)
+This article explains how to backup and restore an app with RESTful API requests. If you would like to create and manage app backups graphically through the Azure Portal, see [Back up a web app in Azure App Service](web-sites-backup.md)
 
 ## <a name="gettingstarted"></a> Getting Started
-To send REST requests, you need to know your app's **name**, **resource group**, and **subscription id**. This information can be found by clicking your app in the **App Service** blade of the [Azure portal preview](https://portal.azure.cn). For the examples in this article, we are configuring the website **backuprestoreapiexamples.chinacloudsites.cn**. It is stored in the Default-Web-ChinaNorth resource group and is running on a subscription with the ID 00001111-2222-3333-4444-555566667777.
+To send REST requests, you need to know your app's **name**, **resource group**, and **subscription id**. This information can be found by clicking your app in the **App Service** blade of the [Azure Portal](https://portal.azure.cn). For the examples in this article, we are configuring the website **backuprestoreapiexamples.chinacloudsites.cn**. It is stored in the Default-Web-ChinaNorth resource group and is running on a subscription with the ID 00001111-2222-3333-4444-555566667777.
 
 ![Sample Website Information][SampleWebsiteInformation]
 

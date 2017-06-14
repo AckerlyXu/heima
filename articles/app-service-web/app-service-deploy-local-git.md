@@ -19,7 +19,7 @@ ms.author: v-dazen
 
 ---
 # Local Git Deployment to Azure App Service
-This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal Preview].  
+This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
 Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started.md).
 
 ## Prerequisites
@@ -56,7 +56,7 @@ App Service supports applications created in a variety of programming languages.
 ## <a name="Step3"></a>Step 3: Enable the App Service app repository
 Perform the following steps to enable a Git repository for your App Service app.
 
-1. Log in to the [Azure Portal Preview].
+1. Log in to the [Azure Portal].
 2. In your App Service app's blade, click **Settings > Deployment source**. Click **Choose source**, then click **Local Git Repository**, and then click **OK**.  
 
     ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
@@ -65,7 +65,7 @@ Perform the following steps to enable a Git repository for your App Service app.
 ## <a name="Step4"></a>Step 4: Deploy your project
 Use the following steps to publish your app to App Service using Local Git.
 
-1. In your app's blade in the Azure Portal Preview, click **Settings > Properties** for the **Git URL**.
+1. In your app's blade in the Azure Portal, click **Settings > Properties** for the **Git URL**.
 
     ![](./media/app-service-deploy-local-git/git_url.png)
 
@@ -83,7 +83,7 @@ Use the following steps to publish your app to App Service using Local Git.
         git push azure master
 
     You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Classic Managemnt Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
-5. Go back to your app in the Azure Portal Preview. A log entry of your most recent push should be displayed in the **Deployments** blade. 
+5. Go back to your app in the Azure Portal. A log entry of your most recent push should be displayed in the **Deployments** blade. 
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. Click the **Browse** button at the top of the app's blade to verify the content has been deployed. 
@@ -96,7 +96,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Cause**: This error can occur if the app is not up and running.
 
-**Resolution**: Start the app in the Azure Portal Preview. Git deployment will not work unless the app is running. 
+**Resolution**: Start the app in the Azure Portal. Git deployment will not work unless the app is running. 
 
 - - -
 **Symptom**: Couldn't resolve host 'hostname'
@@ -156,7 +156,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 [Azure App Service]: /app-service-web/app-service-changes-existing-services
 [Azure Developer Center]: /develop/overview/
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
 [Azure Command-Line Interface]: /xplat-cli-azure-resource-manager

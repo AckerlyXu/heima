@@ -117,7 +117,7 @@ In a typical DevOps scenario, you have an application that's running live in Azu
 
     ![](./media/app-service-agile-software-development/production-4-swap.png)
 7. When the script finishes, go back to browse to the frontend's address (http://ToDoApp*&lt;unique_string>*master.chinacloudsites.cn/) to see the application running in production.
-8. Log into the [Azure Portal Preview](https://portal.azure.cn/) and take a look at what's created.
+8. Log into the [Azure Portal](https://portal.azure.cn/) and take a look at what's created.
 
     You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
 
@@ -164,7 +164,8 @@ Now that you have a complex application running in production in Azure, you will
 
 > [!NOTE]
 > When you have multiple developers working on the new update, each of them can easily create a branch and dedicated dev environment by doing the following:
-> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)). 
+> 
+> 1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)).
 > 2. Clone the fork on their local machine
 > 3. Run the same commands to create their own dev branch and environment.
 > 
@@ -195,6 +196,7 @@ The template files ProdAndStage.json and Dev.json already specify the source con
 
     > [!NOTE]
     > If you can't read the image above: 
+    > 
     > * In line 18, change `check-list` to `list-group`.
     > * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
     > 

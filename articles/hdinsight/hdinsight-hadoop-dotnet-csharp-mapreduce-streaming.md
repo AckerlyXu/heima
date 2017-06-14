@@ -179,11 +179,11 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 2. Use one of the following command to start the MapReduce job:
 
-    * If using __Azure Storage__ as default storage:
+    using __Azure Storage__ as default storage:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+    ```bash
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+    ```
 
     The following list describes what each parameter does:
 

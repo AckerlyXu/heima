@@ -485,7 +485,7 @@ You can also get extension information by using the **Get-AzureRmVMExtension** P
 
 When you deploy a template, Azure tracks the resources that you deployed as a group and automatically assigns a name to this deployed group. The name of the deployment is the same as the name of the template.
 
-If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal preview:
+If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure Portal:
 
 ![Get deployment information](./media/template-description/virtual-machines-deployment-info.png)
 

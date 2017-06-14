@@ -21,7 +21,7 @@ ms.author: v-dazen
 ---
 # Troubleshoot routes using Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal Preview](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 > 
 > 

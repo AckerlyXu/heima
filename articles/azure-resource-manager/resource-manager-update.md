@@ -137,7 +137,7 @@ Look at the `addressSpace` property and the `subnets` property on this resource.
 
 If you would like to experiment with this template, follow these steps:
 
-1.    Go to the Azure portal preview, select the "+" icon, and search for the "template deployment" resource type. When you find it in the search results, select it.
+1.    Go to the Azure Portal, select the "+" icon, and search for the "template deployment" resource type. When you find it in the search results, select it.
 2.    When you get to the "template deployment" page, select the **create** button, which opens the "custom deployment" blade.
 3.    Select the **edit** icon.
 4.    Delete the empty template.

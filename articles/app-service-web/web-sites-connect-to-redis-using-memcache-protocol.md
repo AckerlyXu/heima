@@ -39,7 +39,7 @@ Follow the steps outlined in these articles:
 Once you have the Scalable WordPress site deployed and a Redis Cache instance provisioned you will be ready to proceed with enabling the Memcache shim in Azure App Service Web Apps.
 
 ## Enable the Web Apps Memcache shim
-In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal), the [Classic Management Portal](https://manage.windowsazure.cn/), the [Azure PowerShell Cmdlets][4] or the [Azure Command-Line Interface][5]. For the purposes of this post, I'm going to use the [Azure Portal Preview][3] to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
+In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal](/app-service-web/app-service-web-app-azure-portal), the [Classic Management Portal](https://manage.windowsazure.cn/), the [Azure PowerShell Cmdlets][4] or the [Azure Command-Line Interface][5]. For the purposes of this post, I'm going to use the [Azure Portal][3] to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
 
 ![Azure Redis Cache Settings Blade](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -81,7 +81,7 @@ Download the Non-Thread Safe (NTS) x86 link for the version of PHP enabled in We
 ![PHP PECL Website Memcache Package](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
 ### Enable the php_memcache extension
-After you download the file, unzip and upload the **php\_memcache.dll** into the **d:\\home\\site\\wwwroot\\bin\\ext\\** directory. After the php_memcache.dll is uploaded into the web app, you need to enable the extension to the PHP Runtime. To enable the Memcache extension in the Azure Portal Preview, open the **Application Settings** blade for the web app, then add a new app setting with the key of **PHP\_EXTENSIONS** and the value **bin\\ext\\php_memcache.dll**.
+After you download the file, unzip and upload the **php\_memcache.dll** into the **d:\\home\\site\\wwwroot\\bin\\ext\\** directory. After the php_memcache.dll is uploaded into the web app, you need to enable the extension to the PHP Runtime. To enable the Memcache extension in the Azure Portal, open the **Application Settings** blade for the web app, then add a new app setting with the key of **PHP\_EXTENSIONS** and the value **bin\\ext\\php_memcache.dll**.
 
 > [!NOTE]
 > If the web app needs to load multiple PHP extensions, the value of PHP_EXTENSIONS should be a comma delimited list of relative paths to DLL files.
@@ -143,7 +143,7 @@ All of the steps to enable the Web Apps Memcache shim are now complete. The only
 > 
 > 
 
-In the Azure Portal Preview, browse to the Redis Cache instance that you created for this web app. Once the cache's blade is open, click the **Settings** icon.
+In the Azure Portal, browse to the Redis Cache instance that you created for this web app. Once the cache's blade is open, click the **Settings** icon.
 
 ![Azure Redis Cache Settings Button](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
 

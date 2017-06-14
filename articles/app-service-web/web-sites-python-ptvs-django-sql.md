@@ -73,7 +73,7 @@ For the database, we'll create an Azure SQL database.
 
 You can create a database by following these steps.
 
-1. Log into the [Azure Portal Preview].
+1. Log into the [Azure Portal].
 2. At the bottom of the navigation pane, click **NEW**. , click **Data + Storage** > **SQL Database**.
 3. Configure the new SQL Database by creating a new resource group and select the appropriate location for it.
 4. Once the SQL Database is created, click **Open in Visual Studio** in the database blade.
@@ -162,7 +162,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025

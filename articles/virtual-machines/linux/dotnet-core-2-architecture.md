@@ -59,7 +59,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
     }
 ```
 
-Once deployed, the virtual machine properties can be seen in the Azure portal preview.
+Once deployed, the virtual machine properties can be seen in the Azure Portal.
 
 ![Virtual Machine](./media/dotnet-core-2-architecture/vm.png)
 
@@ -98,7 +98,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 }
 ```
 
-After deployment, the storage account can be viewed in the Azure portal preview.
+After deployment, the storage account can be viewed in the Azure Portal.
 
 ![Storage Account](./media/dotnet-core-2-architecture/storacct.png)
 
@@ -146,7 +146,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 }
 ```
 
-From the Azure portal preview, the virtual network looks like the following image. Notice that all virtual machines deployed with the template are attached to the virtual network.
+From the Azure Portal, the virtual network looks like the following image. Notice that all virtual machines deployed with the template are attached to the virtual network.
 
 ![Virtual Network](./media/dotnet-core-2-architecture/vnet.png)
 
@@ -214,7 +214,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 }
 ```
 
-From the Azure portal preview, the network interface looks like the following image. The internal IP address and the virtual machine association can be seen on the network interface resource.
+From the Azure Portal, the network interface looks like the following image. The internal IP address and the virtual machine association can be seen on the network interface resource.
 
 ![Network Interface](./media/dotnet-core-2-architecture/nic.png)
 
@@ -260,7 +260,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 }
 ```
 
-A view of the SQL server and MusicStore database as seen in the Azure portal preview.
+A view of the SQL server and MusicStore database as seen in the Azure Portal.
 
 ![SQL Server](./media/dotnet-core-2-architecture/sql.png)
 

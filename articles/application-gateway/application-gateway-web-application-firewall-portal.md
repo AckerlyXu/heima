@@ -23,7 +23,7 @@ ms.author: v-dazen
 # Create an application gateway with web application firewall by using the portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-web-application-firewall-portal.md)
+> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
 Learn how to create an web application firewall enabled application gateway.
@@ -52,7 +52,7 @@ only additional application gateways are able to be added to the subnet.
 
 This example updates an existing application gateway to support web application firewall in prevention mode.
 
-1. In the Azure portal preview **Favorites** pane, click **All resources**. Click the existing Application Gateway in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter the name in the **Filter by name…** box to easily access the DNS zone.
+1. In the Azure Portal **Favorites** pane, click **All resources**. Click the existing Application Gateway in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter the name in the **Filter by name…** box to easily access the DNS zone.
 
     ![Creating Application Gateway][1]
 
@@ -87,10 +87,10 @@ This scenario will:
 
 <br/>
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Log in to the [Azure Portal](https://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial)
 1. In the Favorites pane of the portal, click **New**
 1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:
-1. Navigate to the Azure portal preview, click **New** > **Networking** > **Application Gateway**
+1. Navigate to the Azure Portal, click **New** > **Networking** > **Application Gateway**
 
     ![Creating Application Gateway][1]
 

@@ -186,4 +186,4 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 
 1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
 2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
-3. If you are still experiencing connectivity issues, open a support request from the Azure portal preview.
+3. If you are still experiencing connectivity issues, open a support request from the Azure Portal.

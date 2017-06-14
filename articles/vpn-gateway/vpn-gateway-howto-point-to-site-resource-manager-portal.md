@@ -1,6 +1,6 @@
 ---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site: Portal | Azure'
-description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using Resource Manager and the Azure portal preview.
+description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using Resource Manager and the Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -19,14 +19,14 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Configure a Point-to-Site connection to a VNet using the Azure portal preview
+# Configure a Point-to-Site connection to a VNet using the Azure Portal
 
-This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using the Azure portal preview. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using the Azure Portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 

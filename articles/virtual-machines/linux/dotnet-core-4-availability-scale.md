@@ -59,7 +59,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
   }
 ```
 
-The availability set as seen from the Azure portal preview. Each virtual machine and details about the configuration are detailed here.
+The availability set as seen from the Azure Portal. Each virtual machine and details about the configuration are detailed here.
 
 ![Availability Set](./media/dotnet-core-4-availability-scale/aset.png)
 
@@ -100,7 +100,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 ]
 ```
 
-From the Azure portal preview, the network load balancer overview shows the association with the public IP address.
+From the Azure Portal, the network load balancer overview shows the association with the public IP address.
 
 ![Network Load Balancer](./media/dotnet-core-4-availability-scale/nlb.png)
 
@@ -156,7 +156,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 ]
 ```
 
-The load balancer probe seen from the Azure portal preview.
+The load balancer probe seen from the Azure Portal.
 
 ![Network Load Balancer Probe](./media/dotnet-core-4-availability-scale/lbprobe.png)
 
@@ -195,7 +195,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 }
 ```
 
-One example inbound NAT rule as seen in the Azure portal preview. An SSH NAT rule is created for each virtual machine in the deployment.
+One example inbound NAT rule as seen in the Azure Portal. An SSH NAT rule is created for each virtual machine in the deployment.
 
 ![Inbound NAT Rule](./media/dotnet-core-4-availability-scale/natrule.png)
 

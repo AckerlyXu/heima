@@ -79,9 +79,9 @@ See [HDInsight release notes](hdinsight-release-notes.md) for additional release
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Note the following version information:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.
-* Once the support has expired for a particular version, it may not be available through the Azure portal preview. The following table indicates which versions are available on the Azure Classic Management Portal. Cluster versions  continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
+* Once the support has expired for a particular version, it may not be available through the Azure Portal. The following table indicates which versions are available on the Azure Classic Management Portal. Cluster versions  continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
 
-| HDInsight Version | HDP Version | VM OS | High Availability | Available on Azure portal preview |
+| HDInsight Version | HDP Version | VM OS | High Availability | Available on Azure Portal |
 | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |Yes |Yes |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |Yes |

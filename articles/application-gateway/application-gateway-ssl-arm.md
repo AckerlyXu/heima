@@ -21,7 +21,7 @@ ms.author: v-dazen
 # Configure an application gateway for SSL offload by using Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-ssl-portal.md)
+> * [Azure Portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
 

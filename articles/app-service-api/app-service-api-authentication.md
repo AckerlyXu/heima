@@ -62,7 +62,7 @@ App Service can prevent anonymous HTTP requests from reaching your API app, it c
 
     This option leaves the tasks of authentication and authorization entirely up to your application code.
 
-In the [Azure portal preview](https://portal.azure.cn/), you select the option you want on the **Authentication / Authorization** blade.
+In the [Azure Portal](https://portal.azure.cn/), you select the option you want on the **Authentication / Authorization** blade.
 
 ![](./media/app-service-api-authentication/authblade.png)
 

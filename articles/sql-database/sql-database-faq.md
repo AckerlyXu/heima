@@ -27,7 +27,7 @@ The current version of SQL Database is V12. Version V11 has been retired.
 We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Azure SQL Database and our Internet gateway. For more information, see [SLA](https://www.azure.cn/support/legal/sla/).
 
 ## How do I reset the password for the server admin?
-In the [Azure portal preview](https://portal.azure.cn) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
+In the [Azure Portal](https://portal.azure.cn) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
 ## How do I manage databases and logins?
 See [Managing databases and logins](sql-database-manage-logins.md).
@@ -116,7 +116,7 @@ The geo-secondary is an async replica and we do not try to keep it in full sync 
 We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
 ## To move a database to a different server in the same subscription
-* In the [Azure portal preview](https://portal.azure.cn), click **SQL databases**, select a database from the list, and then click **Copy**. See [Copy an Azure SQL database](sql-database-copy.md) for more detail.
+* In the [Azure Portal](https://portal.azure.cn), click **SQL databases**, select a database from the list, and then click **Copy**. See [Copy an Azure SQL database](sql-database-copy.md) for more detail.
 
 ## To move a database between subscriptions
-* In the [Azure portal preview](https://portal.azure.cn), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
+* In the [Azure Portal](https://portal.azure.cn), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.

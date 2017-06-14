@@ -1,5 +1,5 @@
 ---
-title: Manage Windows-based Hadoop clusters in HDInsight using the Azure portal preview | Azure
+title: Manage Windows-based Hadoop clusters in HDInsight using the Azure Portal | Azure
 description: Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console.
 services: hdinsight
 documentationcenter: ''
@@ -21,11 +21,11 @@ ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
-# Manage Windows-based Hadoop clusters in HDInsight by using the Azure portal preview
+# Manage Windows-based Hadoop clusters in HDInsight by using the Azure Portal
 
-Using the [Azure portal preview][azure-portal], you can create Windows-based Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
+Using the [Azure Portal][azure-portal], you can create Windows-based Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
 
-The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure portal preview](hdinsight-administer-use-portal-linux.md).
+The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
@@ -46,11 +46,11 @@ Before you begin this article, you must have the following:
         ![new HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
     * Click **HDInsight Clusters** from the left menu.
 
-        ![Azure portal preview HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
+        ![Azure Portal HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
 
     If **HDInsight** doesn't appear in the left menu, click **Browse**.
 
-    ![Azure portal preview Browse cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
+    ![Azure Portal Browse cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ## Create clusters
 For the creation instructions using the Portal, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
@@ -63,9 +63,9 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 * Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
     > [!NOTE]
-    > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://www.azure.cn/support/contact/).
+    > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Azure Support](https://www.azure.cn/support/contact/).
     >
-    > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
+    > Cascading is not supported by HDInsight, and is not eligible for Azure Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
     >
     >
 
@@ -79,7 +79,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
     **Menu and essentials**:
 
-    ![Azure portal preview HDInsight cluster essentials](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
+    ![Azure Portal HDInsight cluster essentials](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 
     * To customize the menu, right-click anywhere on the menu, and then click **Customize**.
     * **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
@@ -91,7 +91,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
     * **Users: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
 
         > [!IMPORTANT]
-        > This *only* affects access and permissions to this cluster in the Azure portal preview, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
+        > This *only* affects access and permissions to this cluster in the Azure Portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
         >
         >
     * **Tags**: Tags allow you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
@@ -104,10 +104,10 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
         **Usage**:
 
-        ![Azure portal preview HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+        ![Azure Portal HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
 5. Click **Settings**.
 
-    ![Azure portal preview HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![Azure Portal HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
     * **Properties**: View the cluster properties.
     * **Cluster AAD Identity**:
@@ -238,7 +238,7 @@ HDInsight clusters have the following HTTP web services (all of these services h
 * Oozie
 * Templeton
 
-By default, these services are granted for access. You can revoke/grant the access from the Azure portal preview.
+By default, these services are granted for access. You can revoke/grant the access from the Azure Portal.
 
 > [!NOTE]
 > By granting/revoking the access, you will reset the cluster user name and password.

@@ -23,7 +23,7 @@ This topic provides a list of resource providers that support Azure Resource Man
 
 When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
 
-To see which services are supported in the Azure portal preview and Classic Management Portal, see [Azure portal availability chart](/support/service-dashboard/). To see which services support moving resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+To see which services are supported in the Azure Portal and Classic Management Portal, see [Azure portal availability chart](/support/service-dashboard/). To see which services support moving resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
 The following tables list which Microsoft services support deployment and management through Resource Manager and which do not. There are also many third-party resource providers that support Resource Manager. You learn how to see all the resource providers in the [Resource providers and types](#resource-providers-and-types) section.
 

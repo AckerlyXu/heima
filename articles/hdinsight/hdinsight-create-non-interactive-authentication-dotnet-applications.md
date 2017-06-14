@@ -37,7 +37,7 @@ You must assign the application to a [role](../active-directory/role-based-acces
 
 **To add the Owner role to the Azure AD application**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. Click **Resource Group** from the left pane.
 3. Click the resource group that contains the HDInsight cluster where you will run your Hive query later in this tutorial. If there are too many resource groups, you can use the filter.
 4. Click **Access control (IAM)** from the resource group menu.

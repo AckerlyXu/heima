@@ -42,7 +42,7 @@ You'll learn:
 > [!NOTE]
 > This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](app-service-web-get-started-dotnet.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
 > 
->
+> 
 
 ## Prerequisites
 To complete this tutorial, you need a Azure account. If you don't have an account, you can [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
@@ -519,7 +519,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
 1. In **Server Explorer**, navigate to **Azure > App Service > {your resource group} > {your web app}**.
 2. Right-click the web app and select **Stop**. 
 
-    Alternatively, from the [Azure Portal Preview](https://portal.azure.cn/), you can go to the web app's blade, then click the **Stop** icon at the top of the blade.
+    Alternatively, from the [Azure Portal](https://portal.azure.cn/), you can go to the web app's blade, then click the **Stop** icon at the top of the blade.
 
     ![stop web app portal](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 

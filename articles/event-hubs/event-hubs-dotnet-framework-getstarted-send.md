@@ -23,7 +23,7 @@ ms.author: v-yeche
 ## Introduction
 Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
-This tutorial shows how to use the [Azure portal preview](https://portal.azure.cn) to create an Event Hub. It also shows how to send events to an Event Hub using a console application written in C# using the .NET Framework. To receive events using the .NET Framework, see the [Receive events using the .NET Framework](./event-hubs-dotnet-framework-getstarted-receive-eph.md) article, or click the appropriate receiving language in the left-hand table of contents.
+This tutorial shows how to use the [Azure Portal](https://portal.azure.cn) to create an Event Hub. It also shows how to send events to an Event Hub using a console application written in C# using the .NET Framework. To receive events using the .NET Framework, see the [Receive events using the .NET Framework](./event-hubs-dotnet-framework-getstarted-receive-eph.md) article, or click the appropriate receiving language in the left-hand table of contents.
 
 To complete this tutorial, you'll need the following:
 
@@ -32,7 +32,7 @@ To complete this tutorial, you'll need the following:
 
 ## Create an Event Hubs namespace and an Event Hub
 
-The first step is to use the [Azure portal preview](https://portal.azure.cn) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](./event-hubs-create.md), then proceed with the following steps.
+The first step is to use the [Azure Portal](https://portal.azure.cn) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](./event-hubs-create.md), then proceed with the following steps.
 
 ## Create a console application
 In this section, you'll write a Windows console app that sends events to your Event Hub.

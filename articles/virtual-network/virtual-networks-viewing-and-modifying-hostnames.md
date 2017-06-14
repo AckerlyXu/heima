@@ -24,13 +24,13 @@ To allow your role instances to be referenced by host name, you must set the val
 ## Viewing hostnames
 You can view the host names of virtual machines and role instances in a cloud service by using any of the tools below.
 
-### Azure Portal Preview
-You can use the [Azure portal preview](http://portal.azure.cn) to view the host names for virtual machines on the overview blade for a virtual machine. Keep in mind that the blade shows a value for **Name** and **Host Name**. Although they are initially the same, changing the host name will not change the name of the virtual machine or role instance.
+### Azure Portal
+You can use the [Azure Portal](http://portal.azure.cn) to view the host names for virtual machines on the overview blade for a virtual machine. Keep in mind that the blade shows a value for **Name** and **Host Name**. Although they are initially the same, changing the host name will not change the name of the virtual machine or role instance.
 
-Role instances can also be viewed in the Azure portal preview, but when you list the instances in a cloud service, the host name is not displayed. You will see a name for each instance, but that name does not represent the host name.
+Role instances can also be viewed in the Azure Portal, but when you list the instances in a cloud service, the host name is not displayed. You will see a name for each instance, but that name does not represent the host name.
 
 ### Service configuration file
-You can download the service configuration file for a deployed service from the **Configure** blade of the service in the Azure portal preview. You can then look for the **vmName** attribute for the **Role name** element to see the host name. Keep in mind that this host name is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*.
+You can download the service configuration file for a deployed service from the **Configure** blade of the service in the Azure Portal. You can then look for the **vmName** attribute for the **Role name** element to see the host name. Keep in mind that this host name is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*.
 
 ### Remote Desktop
 After you enable Remote Desktop (Windows), Windows PowerShell remoting (Windows), or SSH (Linux and Windows) connections to your virtual machines or role instances, you can view the host name from an active Remote Desktop connection in various ways:
@@ -42,7 +42,7 @@ After you enable Remote Desktop (Windows), Windows PowerShell remoting (Windows)
 ### Azure Service Management REST API
 From a REST client, follow these instructions:
 
-1. Ensure that you have a client certificate to connect to the Azure portal preview. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Ensure that you have a client certificate to connect to the Azure Portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Set a header entry named x-ms-version with a value of 2013-11-01.
 3. Send a request in the following format: https://management.core.chinacloudapi.cn/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Look for the **HostName** element for each **RoleInstance** element.

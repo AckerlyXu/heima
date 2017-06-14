@@ -20,7 +20,7 @@ ms.author: v-yeche
 
 # Create an internal load balancer using a template
 > [!div class="op_single_selector"]
->- [Azure Portal Preview](./load-balancer-get-started-ilb-arm-portal.md)
+>- [Azure Portal](./load-balancer-get-started-ilb-arm-portal.md)
 >- [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
 >- [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
 >- [Template](./load-balancer-get-started-ilb-arm-template.md)

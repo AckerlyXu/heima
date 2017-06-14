@@ -40,7 +40,7 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
    ![Type the server name and login credentials](./media/sql-database-connect-excel/connect-to-server.png)
    
    > [!TIP]
-   > Depending on your network environment, you may not be able to connect or you may lose the connection if the SQL Database server doesn't allow traffic from your client IP address. Go to the [Azure portal preview](https://portal.azure.cn/), click SQL servers, click your server, click firewall under settings and add your client IP address. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
+   > Depending on your network environment, you may not be able to connect or you may lose the connection if the SQL Database server doesn't allow traffic from your client IP address. Go to the [Azure Portal](https://portal.azure.cn/), click SQL servers, click your server, click firewall under settings and add your client IP address. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
    > 
    > 
 5. In the **Select Database and Table** dialog, select the database you want to work with from the list, and then click the tables or views you want to work with (we chose **vGetAllCategories**), and then click **Next**.

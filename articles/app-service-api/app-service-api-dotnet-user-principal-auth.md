@@ -38,9 +38,9 @@ The article contains two sections:
 ## <a id="authconfig"></a> How to configure user authentication in Azure App Service
 This section provides general instructions that apply to any API app. For steps specific to the To Do List .NET sample application, go to [Continuing the .NET getting-started tutorials](#tutorialstart).
 
-1. In the [Azure portal preview](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you want to protect, find the **Features** section, and then click **Authentication/ Authorization**.
+1. In the [Azure Portal](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you want to protect, find the **Features** section, and then click **Authentication/ Authorization**.
 
-    ![Azure portal preview Authentication/Authorization](./media/app-service-api-dotnet-user-principal-auth/features.png)
+    ![Azure Portal Authentication/Authorization](./media/app-service-api-dotnet-user-principal-auth/features.png)
 2. In the **Authentication / Authorization** blade, click **On**.
 3. Select one of the options from the **Action to take when request is not authenticated** drop-down list.
 
@@ -52,7 +52,7 @@ This section provides general instructions that apply to any API app. For steps 
 
     The image shows    choices that require all callers to be authenticated by Azure AD.
 
-    ![Azure portal preview Authentication/Authorization blade](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+    ![Azure Portal Authentication/Authorization blade](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 
     When you choose an authentication provider, the portal displays a configuration blade for that provider. 
 
@@ -67,7 +67,7 @@ To make authenticated API calls, the caller includes the authentication provider
 ## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorials
 If you are following the Node.js or Java tutorials for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 If you are following the .NET tutorial series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Set up authentication in App Service and Azure AD](#azureauth) section.
 
@@ -78,7 +78,7 @@ If you want to follow this tutorial without going through the first and second t
 > 
 > 
 
-1. Make sure that you have all of the prerequisites listed in the [first tutorial](app-service-api-dotnet-get-started.md). In addition to the prerequisites listed, these authentication tutorials assume that you have worked with App Service web apps and API apps in Visual Studio and the Azure portal preview.
+1. Make sure that you have all of the prerequisites listed in the [first tutorial](app-service-api-dotnet-get-started.md). In addition to the prerequisites listed, these authentication tutorials assume that you have worked with App Service web apps and API apps in Visual Studio and the Azure Portal.
 2. Click the **Deploy to Azure** button in the [To Do List sample repository readme file](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) to deploy the API apps and the web app. Make a note of the Azure resource group that gets created, as you can use this later to look up web app and API app names.
 3. Download or clone the [To Do List sample repository](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) to get the code that you'll work with locally in Visual Studio.
 
@@ -92,26 +92,26 @@ You now have the application running in Azure App Service without requiring that
 If you run into problems while following the tutorial directions, see the [Troubleshooting](#troubleshooting) section at the end of the tutorial. 
 
 ### Configure authentication for the middle tier API app
-1. In the [Azure portal preview](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you created for the ToDoListAPI project, find the **Features** section, and then click **Authentication / Authorization**.
+1. In the [Azure Portal](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you created for the ToDoListAPI project, find the **Features** section, and then click **Authentication / Authorization**.
 
-    ![Azure portal preview Authentication/Authorization](./media/app-service-api-dotnet-user-principal-auth/features.png)
+    ![Azure Portal Authentication/Authorization](./media/app-service-api-dotnet-user-principal-auth/features.png)
 2. In the **Authentication / Authorization** blade, click **On**.
 3. In the **Action to take when request is not authenticated** drop-down list, select **Log in with Azure Active Directory**.
 
     This option ensures that no unauathenticated requests will reach the API app. 
 4. Under **Authentication Providers**, click **Azure Active Directory**.
 
-    ![Azure portal preview Authentication/Authorization blade](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+    ![Azure Portal Authentication/Authorization blade](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 5. In the **Azure Active Directory Settings** blade, click **Express**
 
-    ![Azure portal preview Authentication/Authorization Express option](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
+    ![Azure Portal Authentication/Authorization Express option](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
     With the **Express** option, App Service can automatically create an Azure AD application in your Azure AD [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
 
     You don't have to create a tenant, because every Azure account automatically has one.
 6. Under **Management mode**, click **Create New AD App** if it isn't already selected, and notice the value that is in the **Create App** text box; you'll look up this AAD application in the Azure Classic Management Portal later.
 
-    ![Azure portal preview Azure AD settings](./media/app-service-api-dotnet-user-principal-auth/aadsettings2.png)
+    ![Azure Portal Azure AD settings](./media/app-service-api-dotnet-user-principal-auth/aadsettings2.png)
 
     Azure will automatically create an Azure AD application with the indicated name in your Azure AD tenant. By default, the Azure AD application is named the same as the API app. If you prefer, you can enter a different name.
 7. Click **OK**.
@@ -122,7 +122,7 @@ If you run into problems while following the tutorial directions, see the [Troub
 Now only users in your Azure AD tenant can call the API app.
 
 ### Optional: Test the API app
-1. In a browser go to the URL of the API app: in the **API app** blade in the Azure portal preview, click the link under **URL**.  
+1. In a browser go to the URL of the API app: in the **API app** blade in the Azure Portal, click the link under **URL**.  
 
     You are redirected to a login screen because unauthenticated requests are not allowed to reach the API app.
 
@@ -142,7 +142,7 @@ When you configured Azure AD authentication, App Service created an Azure AD app
 
 1. In the [Azure Classic Management Portal](https://manage.windowsazure.cn/), go to **Azure Active Directory**.
 
-    You have to use the Classic Management Portal because certain Azure Active Directory settings that you need access to are not yet available in the current Azure portal preview.
+    You have to use the Classic Management Portal because certain Azure Active Directory settings that you need access to are not yet available in the current Azure Portal.
 2. On the **Directory** tab, click your AAD tenant.
 
     ![Azure AD in Classic Management Portal](./media/app-service-api-dotnet-user-principal-auth/selecttenant.png)
@@ -272,6 +272,7 @@ The two Web API projects were created by using the **Azure API App** project tem
 
 For information about how to  create an AngularJS single-page application with a Web API 2 back end, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see the following resources:
 
+* [Securing AngularJS Single Page Apps with Azure AD](../active-directory/develop/active-directory-devquickstarts-angular.md).
 * [Introducing ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
 
 ## Troubleshooting

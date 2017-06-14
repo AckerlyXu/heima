@@ -72,16 +72,16 @@ Data Lake Tools for Visual Studio allows you to connect to your HDInsight cluste
     > 
     > 
 4. Enter your Azure subscription credentials, and then click **Sign In**. This is only required if you have never connected to the Azure subscription from Visual Studio on this workstation.
-5. In Server Explorer, you'll see a list of existing HDInsight clusters. If you don't have any clusters, you can create one by using the Azure portal preview, Azure PowerShell, or the HDInsight SDK. For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+5. In Server Explorer, you'll see a list of existing HDInsight clusters. If you don't have any clusters, you can create one by using the Azure Portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
    ![Data Lake Tools for Visual Studio Server Explorer cluster list](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.server.explorer.png "Data Lake Tools for Visual Studio Server Explorer")
 6. Expand an HDInsight cluster. You'll see **Hive Databases**, a default storage account, linked storage accounts, and **Hadoop Service log**. You can further expand the entities.
 
 After you've connected to your Azure subscription, you'll be able to do the following:
 
-**To connect to the Azure portal preview from Visual Studio**
+**To connect to the Azure Portal from Visual Studio**
 
-* From Server Explorer, expand **Azure** > **HDInsight**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure portal preview**.
+* From Server Explorer, expand **Azure** > **HDInsight**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure Portal**.
 
 **To ask questions and provide feedback from Visual Studio**
 
@@ -115,7 +115,7 @@ All HDInsight clusters come with a sample Hive table called *hivesampletable*. W
 
     You can customize the row count.
 
-   ![Data Lake Tools: HDInsight Hive Visual Studio schema query](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Hive query results")
+    ![Data Lake Tools: HDInsight Hive Visual Studio schema query](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Hive query results")
 
 ### Create Hive tables
 You can use the GUI to create a Hive table or use Hive queries. For information about using Hive queries, see [Run Hive queries](#run.queries).

@@ -39,11 +39,11 @@ When this feature is enabled, it automatically installs the SQL Server Connector
 You can enable AKV integration during provisioning or configure it for existing VMs.
 
 ### New VMs
-If you are provisioning a new SQL Server virtual machine with Resource Manager, the Azure portal preview provides a step to enable Azure Key Vault integration. The Azure Key Vault feature is available only for the Enterprise, Developer and Evaluation Editions of SQL Server.
+If you are provisioning a new SQL Server virtual machine with Resource Manager, the Azure Portal provides a step to enable Azure Key Vault integration. The Azure Key Vault feature is available only for the Enterprise, Developer and Evaluation Editions of SQL Server.
 
 ![SQL Azure Key Vault Integration](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual machine in the Azure Portal Preview](virtual-machines-windows-portal-sql-server-provision.md).
+For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Existing VMs
 For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the **Settings** blade.

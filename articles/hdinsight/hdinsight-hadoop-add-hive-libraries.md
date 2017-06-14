@@ -31,6 +31,7 @@ During cluster creation, the script enumerates the files, copies them to the `/u
 
 > [!NOTE]
 > Using the script actions in this article makes the libraries available in the following scenarios:
+>
 > * **Linux-based HDInsight** - when using the a Hive client, **WebHCat**, and **HiveServer2**.
 > * **Windows-based HDInsight** - when using the Hive client and **WebHCat**.
 
@@ -60,7 +61,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
     > [!NOTE]
     > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
     >
-    > If you have not created a storage account, you can do so through the [Azure portal preview](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
+    > If you have not created a storage account, you can do so through the [Azure Portal](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
 
 ## Create a cluster using the script
 

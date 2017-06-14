@@ -25,6 +25,6 @@ The WebJobs SDK makes it easier to use Azure Storage. The WebJobs SDK has a bind
 
 Creating, deploying, and managing WebJobs is seamless with integrated tooling in Visual Studio. You can create WebJobs from templates, publish, and manage (run/stop/monitor/debug) them.
 
-The WebJobs dashboard in the Azure portal preview provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output.
+The WebJobs dashboard in the Azure Portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output.
 
 [!INCLUDE [app-service-blueprint-webjobs](../../includes/app-service-blueprint-webjobs.md)]

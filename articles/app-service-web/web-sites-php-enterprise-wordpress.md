@@ -116,11 +116,11 @@ Use one of the following sections to migrate your site.
 #### The export and import method
 1. Use [WordPress export][export] to export your existing site.
 2. Create a web app by using the steps in the [Create a WordPress site](#create-a-wordpress-site) section.
-3. Sign in to your WordPress site on the [Azure portal preview][mgmtportal], and then click **Plugins** > **Add New**. Search for and install the **WordPress Importer** plugin.
+3. Sign in to your WordPress site on the [Azure Portal][mgmtportal], and then click **Plugins** > **Add New**. Search for and install the **WordPress Importer** plugin.
 4. After you install the WordPress Importer plugin, click **Tools** > **Import**, and then click **WordPress** to use the WordPress Importer plugin.
 5. On the **Import WordPress** page, click **Choose File**. Find the WXR file that was exported from your existing WordPress site, and then click **Upload file and import**.
 6. Click **Submit**. You are prompted that the import was successful.
-7. After you complete all these steps, restart your site from its **App Services** blade in the [Azure portal preview][mgmtportal].
+7. After you complete all these steps, restart your site from its **App Services** blade in the [Azure Portal][mgmtportal].
 
 After you import the site, you might need to perform the following steps to enable settings that are not in the import file.
 
@@ -139,9 +139,9 @@ After you import the site, you might need to perform the following steps to enab
     1. Create a database in "MySQL Database on Azure", or set up a  MySQL database on a [Windows][mysqlwindows] or [Linux][mysqllinux] virtual machine.
     2. Use a MySQL client like [MySQL Workbench][workbench] to connect to the new database, and import your WordPress database.
     3. Update the database to change the domain entries to your new Azure App Service domain, for example, mywordpress.chinacloudsites.cn. Use the [Search and Replace for WordPress Databases Script][searchandreplace] to safely change all instances.
-4. Create a web app in the Azure portal preview, and publish the WordPress backup.
+4. Create a web app in the Azure Portal, and publish the WordPress backup.
 
-    1. To create a web app that has a database, in the [Azure portal preview][mgmtportal], click **New** > **Web + Mobile** > **Web Apps** > **Create**. Configure all the required settings to create an empty web app.
+    1. To create a web app that has a database, in the [Azure Portal][mgmtportal], click **New** > **Web + Mobile** > **Web Apps** > **Create**. Configure all the required settings to create an empty web app.
     2. In your WordPress backup, locate the **wp-config.php** file, and open it in an editor. Replace the following entries with the information for your new MySQL database:
 
         * **DB_NAME**: The user name of the database.

@@ -22,14 +22,14 @@ experimental: true
 experimental_id: a641df96-f27d-40
 
 ---
-# Provision a SQL Server virtual machine in the Azure Portal Preview
+# Provision a SQL Server virtual machine in the Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
 > 
 > 
 
-This end-to-end tutorial shows you how to use the Azure Portal Preview to provision a virtual machine running SQL Server.
+This end-to-end tutorial shows you how to use the Azure Portal to provision a virtual machine running SQL Server.
 
 The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
 
@@ -41,12 +41,12 @@ In this tutorial, you will:
 * [Connect to SQL Server remotely](#connect-to-sql-server-remotely)
 
 ## Select a SQL VM image from the gallery
-1. Log in to the [Azure portal preview](https://portal.azure.cn) using your account.
+1. Log in to the [Azure Portal](https://portal.azure.cn) using your account.
 
    > [!NOTE]
    > If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-2. On the Azure portal preview, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
+2. On the Azure Portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
 3. In the **New** blade, click **Compute** and then click **See all**.
 4. In the **Filter** text box type SQL Server, and press the ENTER key.
 
@@ -254,7 +254,7 @@ You can enable [SQL Server R Services](https://msdn.microsoft.com/library/mt6048
 ## 5. Review the summary
 On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
 
-You can monitor the deployment from the azure portal preview. The **Notifications** button at the top of the screen shows basic status of the deployment.
+You can monitor the deployment from the azure Portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
 > [!NOTE]
 > To provide you with an idea on deployment times, I deployed a SQL VM to the China East region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.

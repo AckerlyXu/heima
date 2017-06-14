@@ -31,7 +31,7 @@ For more information about scale sets, watch these videos:
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## Creating and managing scale sets
-You can create a scale set in the [Azure portal preview](https://portal.azure.cn) by selecting **new** and typing **scale** on the search bar. **Virtual machine scale set** is listed in the results. From there, you can fill in the required fields to customize and deploy your scale set.
+You can create a scale set in the [Azure Portal](https://portal.azure.cn) by selecting **new** and typing **scale** on the search bar. **Virtual machine scale set** is listed in the results. From there, you can fill in the required fields to customize and deploy your scale set.
 
 You can define and deploy scale sets by using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx), just like individual Azure Resource Manager VMs. Therefore, you can use any standard Azure Resource Manager deployment methods. For more information about templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -43,7 +43,7 @@ A button links to the portal deployment feature in the detail pages for these te
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
 ## Scaling a scale set out and in
-You can change the capacity of a scale set in the Azure portal preview by clicking the **Scaling** section under **Settings**. 
+You can change the capacity of a scale set in the Azure Portal by clicking the **Scaling** section under **Settings**. 
 
 To change scale set capacity on the command line, use the **scale** command in [Azure CLI](https://github.com/Azure/azure-cli). For example, use this command to set a scale set to a capacity of 10 VMs:
 
@@ -66,7 +66,7 @@ To increase or decrease the number of virtual machines in a scale set by using a
 If you are redeploying an Azure Resource Manager template to change the capacity, you can define a much smaller template that includes only the **SKU** property packet with the updated capacity. [Here's an example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
 ## Monitoring your scale set
-The [Azure portal preview](https://portal.azure.cn) lists scale sets and shows their properties. The portal also supports management operations. You can perform management operations on both scale sets and individual VMs within a scale set. The portal also provides a customizable resource usage graph. 
+The [Azure Portal](https://portal.azure.cn) lists scale sets and shows their properties. The portal also supports management operations. You can perform management operations on both scale sets and individual VMs within a scale set. The portal also provides a customizable resource usage graph. 
 
 ## Scale set scenarios
 This section lists some typical scale set scenarios. Some higher-level Azure services (like Batch, Service Fabric, and Container Service) use these scenarios.

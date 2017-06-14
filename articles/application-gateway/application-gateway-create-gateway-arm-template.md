@@ -21,7 +21,7 @@ ms.author: v-dazen
 # Create an application gateway by using the Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
@@ -190,7 +190,7 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
 
 ## Deploy the Azure Resource Manager template by using click-to-deploy
 
-Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure portal preview.
+Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure Portal.
 
 1. Go to [Create an application gateway with web application firewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf/).
 

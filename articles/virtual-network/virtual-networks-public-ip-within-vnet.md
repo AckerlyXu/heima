@@ -26,7 +26,7 @@ The picture below shows a VNet that includes public and private IP adress spaces
 ![Public IP Conceptual](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
 
 ## How do I add a public IP address range?
-You add a public IP address range the same way you would add a private IP address range; by either using a *netcfg* file, or by adding the configuration in the [Azure portal preview](http://portal.azure.cn). You can add a public IP address range when you create your VNet, or you can go back and add it afterward. The example below shows both public and private IP address spaces configured in the same VNet.
+You add a public IP address range the same way you would add a private IP address range; by either using a *netcfg* file, or by adding the configuration in the [Azure Portal](http://portal.azure.cn). You can add a public IP address range when you create your VNet, or you can go back and add it afterward. The example below shows both public and private IP address spaces configured in the same VNet.
 
 ![Public IP Address in Portal](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
 

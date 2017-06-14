@@ -1,7 +1,7 @@
-## Azure portal preview and Azure Portal Preview
+## Azure Portal and Azure Portal
 > [!IMPORTANT]
-> The steps in this document use the Azure Classic Management Portal. Microsoft does not recommend using the Classic Management Portal when creating new services. For an explanation of the advantages of the Azure portal preview, see [Azure Portal Preview](https://azure.microsoft.com/features/azure-portal/). 
+> The steps in this document use the Azure Classic Management Portal. Microsoft does not recommend using the Classic Management Portal when creating new services. For an explanation of the advantages of the Azure Portal, see [Azure Portal](https://azure.microsoft.com/features/azure-portal/). 
 > 
 > 
 
-For a version of this document that uses the Azure portal preview, see the following link:
+For a version of this document that uses the Azure Portal, see the following link:

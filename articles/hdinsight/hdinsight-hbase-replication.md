@@ -81,7 +81,7 @@ HBase replication uses IP addresses of the ZooKeeper VMs. You must configure sta
 
 **To configure static IP addresses**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. From the left menu, click **Resource Groups**.
 3. Click your resource group that contains the destination HBase cluster. This is the resource group that you specified when you used the Resource Manager template to create the environment. You can use the filter to narrow down the list. You can see a list of resources that contains the two virtual networks.
 4. Click the virtual network that contains the destination HBase cluster. For example, click **xxxx-vnet2**. You can see three devices with names that start with **nic-zookeepermode-**. Those devices are the three ZooKeeper VMs.
@@ -119,11 +119,11 @@ Follow the instructions in [HBase tutorial: Get started using Apache HBase with 
 
 ## Enable replication
 
-The following steps show how to call the script action script from the Azure portal preview. For running a script action by using Azure PowerShell and the Azure command-line interface (CLI), see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
+The following steps show how to call the script action script from the Azure Portal. For running a script action by using Azure PowerShell and the Azure command-line interface (CLI), see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
 
-**To enable HBase replication from the Azure portal preview**
+**To enable HBase replication from the Azure Portal**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. Open the source HBase cluster.
 3. From the cluster menu, click **Script Actions**.
 4. Click **Submit New** from the top of the blade.

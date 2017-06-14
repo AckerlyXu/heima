@@ -32,7 +32,7 @@ Probe behavior depends on:
 * The number of successful probes that allow an instance to be labeled as up.
 * The number of failed probes that cause an instance to be labeled as down.
 
-The timeout and frequency value set in  SuccessFailCount determine whether an instance is confirmed to be running or not running. In the Azure portal preview, the timeout is set to two times the value of the frequency.
+The timeout and frequency value set in  SuccessFailCount determine whether an instance is confirmed to be running or not running. In the Azure Portal, the timeout is set to two times the value of the frequency.
 
 The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 

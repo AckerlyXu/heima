@@ -92,7 +92,6 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
         </div>
         </a>
     </li>
-    <li>
 </ul>
 
 ---

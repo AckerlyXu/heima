@@ -64,7 +64,7 @@ If you use GitHub for source control, you can put a [Deploy to Azure button](htt
 So now let's get right to it.
 
 1. Please read [Agile software development with Azure App Service](app-service-agile-software-development.md)to know about how to deploy the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service sample.
-6. Login to the Azure Portal Preview. Note that the web app is already connected to the GitHub repository under **External Project**. 
+6. Login to the Azure Portal. Note that the web app is already connected to the GitHub repository under **External Project**. 
 
     ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. In the resource group blade, note that there are already two web apps and one SQL Database in the resource group.
@@ -221,7 +221,7 @@ The **Deploy to Azure** button is great, but it allows you to deploy the resourc
     > 
 16. Click **Deploy**. If you selected **Save passwords**, the password will be saved in the parameter file **in plain text**. Otherwise, you'll be asked to input the database password during the deployment process.
 
-That's it! Now you just need to go to the [Azure Portal Preview](https://portal.azure.cn/) to see the new alerts and autoscale settings added to your JSON deployed application.
+That's it! Now you just need to go to the [Azure Portal](https://portal.azure.cn/) to see the new alerts and autoscale settings added to your JSON deployed application.
 
 Your steps in this section mainly accomplished the following:
 

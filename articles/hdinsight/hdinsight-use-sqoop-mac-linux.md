@@ -1,6 +1,6 @@
 ---
 title: Apache Sqoop with Hadoop - Azure HDInsight | Azure
-description: Learn how to use Apache Sqoop  to import and export between Hadoop on HDInsight and an Azure SQL database.
+description: Learn how to use Apache Sqoop to import and export between Hadoop on HDInsight and an Azure SQL Database.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -68,21 +68,21 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 2. At the `1>` prompt, enter the following query:
 
     ```sql
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
-        GO
-        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-        GO
+    CREATE TABLE [dbo].[mobiledata](
+    [clientid] [nvarchar](50),
+    [querytime] [nvarchar](50),
+    [market] [nvarchar](50),
+    [deviceplatform] [nvarchar](50),
+    [devicemake] [nvarchar](50),
+    [devicemodel] [nvarchar](50),
+    [state] [nvarchar](50),
+    [country] [nvarchar](50),
+    [querydwelltime] [float],
+    [sessionid] [bigint],
+    [sessionpagevieworder] [bigint])
+    GO
+    CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+    GO
     ```
 
     When the `GO` statement is entered, the previous statements are evaluated. First, the **mobiledata** table is created, then a clustered index is added to it (required by SQL Database.)
@@ -90,8 +90,8 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
     Use the following query to verify that the table has been created:
 
     ```sql
-        SELECT * FROM information_schema.tables
-        GO
+    SELECT * FROM information_schema.tables
+    GO
     ```
 
     You see output similar to the following text:
@@ -106,7 +106,7 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 1. From the SSH connection to the cluster, use the following command to verify that Sqoop can see your SQL Database:
 
     ```bash
-        sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> --password <adminPassword>
     ```
 
     This command returns a list of databases, including the **sqooptest** database that you created earlier.
@@ -114,7 +114,7 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 2. To export data from **hivesampletable** to the **mobiledata** table, use the following command:
 
     ```bash
-        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
     ```
 
     This command instructs Sqoop to connect to the **sqooptest** database. Sqoop then exports data from **wasbs:///hive/warehouse/hivesampletable** to the **mobiledata** table.
@@ -122,14 +122,14 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 3. After the command completes, use the following command to connect to the database using TSQL:
 
     ```bash
-        TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
     ```
 
     Once connected, use the following statements to verify that the data was exported to the **mobiledata** table:
 
     ```sql
-        SELECT * FROM mobiledata
-        GO
+    SELECT * FROM mobiledata
+    GO
     ```
 
     You should see a listing of data in the table. Type `exit` to exit the tsql utility.
@@ -139,7 +139,7 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 1. Use the following command to import data from the **mobiledata** table in SQL Database, to the **wasbs:///tutorials/usesqoop/importeddata** directory on HDInsight:
 
     ```bash
-        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
@@ -172,24 +172,24 @@ You can also use Sqoop to import and export data from SQL Server, either in your
     Use the following Transact-SQL statements to create the **mobiledata** table:
 
     ```sql
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
+    CREATE TABLE [dbo].[mobiledata](
+    [clientid] [nvarchar](50),
+    [querytime] [nvarchar](50),
+    [market] [nvarchar](50),
+    [deviceplatform] [nvarchar](50),
+    [devicemake] [nvarchar](50),
+    [devicemodel] [nvarchar](50),
+    [state] [nvarchar](50),
+    [country] [nvarchar](50),
+    [querydwelltime] [float],
+    [sessionid] [bigint],
+    [sessionpagevieworder] [bigint])
     ```
 
 * When connecting to the SQL Server from HDInsight, you may have to use the IP address of the SQL Server. For example:
 
     ```bash
-        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## Limitations

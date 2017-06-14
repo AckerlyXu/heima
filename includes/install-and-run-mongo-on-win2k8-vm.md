@@ -73,7 +73,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 12. If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now. You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely.
 
-    In the Azure portal preview, click **Virtual Machines (classic)**, click the name of your new virtual machine, and then click **Endpoints**.
+    In the Azure Portal, click **Virtual Machines (classic)**, click the name of your new virtual machine, and then click **Endpoints**.
 
     ![Endpoints][Image7]
 
