@@ -26,7 +26,7 @@ sections:
     items: 
     - image: 
         src: /virtual-machines/windows/media/index/portal.svg
-      text: Azure Portal Preview
+      text: Azure Portal
       href: /virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - image: 
         src: /virtual-machines/windows/media/index/logo_powershell.svg
