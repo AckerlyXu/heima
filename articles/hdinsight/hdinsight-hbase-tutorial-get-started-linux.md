@@ -36,7 +36,7 @@ Before you begin this HBase tutorial, you must have the following items:
 ## Create HBase cluster
 The following procedure uses an Azure Resource Manager template to create a version 3.5 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Click the following image to open the template in the Azure portal preview. The template is located in a public blob container. 
+1. Click the following image to open the template in the Azure Portal. The template is located in a public blob container. 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

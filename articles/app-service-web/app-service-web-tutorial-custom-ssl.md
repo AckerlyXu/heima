@@ -59,7 +59,7 @@ To bind a custom SSL certificate to your web app, your [App Service plan](https:
 
 ### Log in to Azure
 
-Open the Azure portal preview. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
+Open the Azure Portal. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
 
 ### Navigate to your web app
 From the left menu, click **App Services**, then click the name of your web app.

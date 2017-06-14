@@ -75,7 +75,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
     ![](./media/cdn-websites-with-cdn/6-publish-website.png)
 
     You will see your published web app in the browser when publishing is complete. 
-7. To create a CDN endpoint, log into the [Azure portal preview](https://portal.azure.cn). 
+7. To create a CDN endpoint, log into the [Azure Portal](https://portal.azure.cn). 
 8. Click **+ New** > **Media + CDN** > **CDN**.
 
     ![](./media/cdn-websites-with-cdn/create-cdn-profile.png)

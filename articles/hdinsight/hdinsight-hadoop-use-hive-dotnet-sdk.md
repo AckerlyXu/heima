@@ -141,7 +141,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
 * [Create Hadoop clusters in HDInsight][hdinsight-provision]
-* [Manage Hadoop clusters in HDInsight by using the Azure portal preview](hdinsight-administer-use-management-portal.md)
+* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use Sqoop with HDInsight](hdinsight-use-sqoop-mac-linux.md)

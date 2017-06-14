@@ -163,9 +163,9 @@ While App Service supports many ways to deploy your code to an API app, this tut
     ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
 ## <a id="createapiapp"></a> Create a new API App
-In this section you use the Azure portal preview to create a new API App in Azure. This API app represents the compute resources that Azure will provide to run your code. In later sections you'll deploy your code to the new API app.
+In this section you use the Azure Portal to create a new API App in Azure. This API app represents the compute resources that Azure will provide to run your code. In later sections you'll deploy your code to the new API app.
 
-1. Browse to the [Azure Portal Preview](https://portal.azure.cn/). 
+1. Browse to the [Azure Portal](https://portal.azure.cn/). 
 2. Click **New > Web + Mobile > API App**. 
 
     ![New API app in portal](media/app-service-api-nodejs-api-app/new-api-app-portal.png)
@@ -198,7 +198,7 @@ In this section you use the Azure portal preview to create a new API App in Azur
 You'll deploy your code to the API app by pushing commits to a Git repository in Azure App Service. In this section of the tutorial, you create the credentials and Git repository in Azure that you'll use for deployment.  
 
 1. Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
-4. Back to [Azure portal Preview](https://portal.azure.cn). In the **Settings** blade, click **Deployment source > Choose Source > Local Git Repository**, then click **OK**.
+4. Back to [Azure Portal](https://portal.azure.cn). In the **Settings** blade, click **Deployment source > Choose Source > Local Git Repository**, then click **OK**.
 
     ![Create Git Repo](media/app-service-api-nodejs-api-app/create-git-repo.png)
 5. Once your Git repository has been created the blade changes to show you your active deployments. Since the repository is new, you have no active deployments in the list. 
@@ -238,7 +238,7 @@ In this section you create a local Git repository that contains your server code
         git commit -m "initial revision"
 
     ![Git Commit Output](media/app-service-api-nodejs-api-app/git-commit-output.png)
-6. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure portal preview.
+6. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure Portal.
 
         git push azure master
 

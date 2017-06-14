@@ -73,7 +73,7 @@ Use the following steps to run a Hive query that will execute using Tez.
 >
 >
 
-1. From the [Azure portal preview](https://portal.azure.cn), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This will display the remote desktop blade
+1. From the [Azure Portal](https://portal.azure.cn), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This will display the remote desktop blade
 
     ![Remote desktop icon](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 2. From the Remote Desktop blade, select **Connect** to connect to the cluster head node. When prompted, use the cluster Remote Desktop user name and password to authenticate the connection.

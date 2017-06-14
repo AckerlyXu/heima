@@ -24,7 +24,7 @@ You can run programs or scripts in WebJobs in your [Azure App Service](/app-serv
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-This article shows how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
+This article shows how to deploy WebJobs by using the [Azure Portal](https://portal.azure.cn). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
@@ -44,7 +44,7 @@ The following file types are accepted:
 * .jar (using java)
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
-1. In the **Web App** blade of the [Azure Portal Preview](https://portal.azure.cn), click **All settings > WebJobs** to show the **WebJobs** blade.
+1. In the **Web App** blade of the [Azure Portal](https://portal.azure.cn), click **All settings > WebJobs** to show the **WebJobs** blade.
 
     ![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 2. Click **Add**. The **Add WebJob** dialog appears.
@@ -98,7 +98,7 @@ Other CRON schedule examples:
 ## <a name="CreateScheduled"></a>Create a scheduled WebJob using the Azure Scheduler
 The following alternate technique makes use of the Azure Scheduler. In this case, your WebJob does not have any direct knowledge of the schedule. Instead, the Azure Scheduler gets configured to trigger your WebJob on a schedule. 
 
-The Azure Portal Preview doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [Classic Management Portal](http://manage.windowsazure.cn).
+The Azure Portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [Classic Management Portal](http://manage.windowsazure.cn).
 
 1. In the [Classic Management Portal](http://manage.windowsazure.cn) go to the WebJob page and click **Add**.
 2. In the **How to Run** box, choose **Run on a schedule**.

@@ -1,4 +1,4 @@
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 
 2. Starting in the upper left, click **New > Compute > Windows Server 2016 Datacenter**.
 

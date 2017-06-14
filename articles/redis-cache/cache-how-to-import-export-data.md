@@ -41,7 +41,7 @@ Import can be used to bring Redis compatible RDB files from any Redis server run
 >
 >
 
-1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure portal preview and click **Import data** from the **Resource menu**.
+1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure Portal and click **Import data** from the **Resource menu**.
 
     ![Import data][cache-import-data]
 2. Click **Choose Blob(s)** and select the storage account that contains the data to import.
@@ -62,14 +62,14 @@ Import can be used to bring Redis compatible RDB files from any Redis server run
 
     ![Import][cache-import-blobs]
 
-    You can monitor the progress of the import operation by following the notifications from the Azure portal preview, or by viewing the events in the [audit log](../azure-resource-manager/resource-group-audit.md).
+    You can monitor the progress of the import operation by following the notifications from the Azure Portal, or by viewing the events in the [audit log](../azure-resource-manager/resource-group-audit.md).
 
     ![Import progress][cache-import-data-import-complete]
 
 ## Export
 Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB file(s). You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
-1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure portal preview and click **Export data** from the **Resource menu**.
+1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure Portal and click **Export data** from the **Resource menu**.
 
     ![Choose storage container][cache-export-data-choose-storage-container]
 2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
@@ -87,7 +87,7 @@ Export allows you to export the data stored in Azure Redis Cache to Redis compat
 
     ![Export][cache-export-data]
 
-    You can monitor the progress of the export operation by following the notifications from the Azure portal preview, or by viewing the events in the [audit log](../azure-resource-manager/resource-group-audit.md).
+    You can monitor the progress of the export operation by following the notifications from the Azure Portal, or by viewing the events in the [audit log](../azure-resource-manager/resource-group-audit.md).
 
     ![Export data complete][cache-export-data-export-complete]
 

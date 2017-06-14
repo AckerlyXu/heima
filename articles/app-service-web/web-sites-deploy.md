@@ -58,7 +58,7 @@ The cons of copying files manually are:
 * Potential long deployment times because many FTP tools don't provide diff-only copying and simply copy all the files.  
 
 ### <a name="howtoftp"></a>How to upload files with FTP
-The [Azure Portal Preview](https://portal.azure.cn) gives you all the information you need to connect to your app's directories using FTP or FTPS.
+The [Azure Portal](https://portal.azure.cn) gives you all the information you need to connect to your app's directories using FTP or FTPS.
 
 * [Deploy your app to Azure App Service using FTP](app-service-deploy-ftp.md)
 
@@ -81,7 +81,7 @@ In the Kudu, you can configure continuous deployment from GitHub.
 
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md). 
 
-To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal Preview (such as [GitLab](https://gitlab.com/)), see
+To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal (such as [GitLab](https://gitlab.com/)), see
 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="localgitdeployment"></a>Deploy from local Git
@@ -99,7 +99,7 @@ Con of deploying from local Git is:
 * No turn-key solutions for continuous deployment. 
 
 ### <a name="vsts"></a>How to deploy from local Git
-In the [Azure Portal Preview](https://portal.azure.cn), you can configure local Git deployment.
+In the [Azure Portal](https://portal.azure.cn), you can configure local Git deployment.
 
 * [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md). 
 * [Publishing to Web Apps from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  

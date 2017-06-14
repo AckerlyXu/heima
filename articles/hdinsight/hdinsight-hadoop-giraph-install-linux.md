@@ -56,7 +56,7 @@ A sample script to install Giraph on an HDInsight cluster is available at the fo
 
     https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-This section provides instructions on how to use the sample script while creating the cluster by using the Azure portal preview.
+This section provides instructions on how to use the sample script while creating the cluster by using the Azure Portal.
 
 > [!NOTE]
 > A script action can be applied using any of the following methods:

@@ -39,7 +39,7 @@ This tutorial assumes that you have a basic understanding of SQL Server Always O
 * You need an Azure account. You can [open a trial Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F). 
 
 ## Create a resource group
-1. Sign in to the [Azure portal preview](http://portal.azure.cn).
+1. Sign in to the [Azure Portal](http://portal.azure.cn).
 2. Click **+** to create a new object in the portal.
 
     ![New object](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -52,7 +52,7 @@ This tutorial assumes that you have a basic understanding of SQL Server Always O
 6. On the **Resource group** blade, under **Resource group name**, type a name for the resource group. For example, type **sql-ha-rg**.
 7. If you have multiple Azure subscriptions, verify that the subscription is the Azure subscription that you want to create the availability group in.
 8. Select a location. The location is the Azure region where you want to create the availability group. For this tutorial, we're going to build all resources in one Azure location.
-9. Verify that **Pin to dashboard** is checked. This optional setting places a shortcut for the resource group on the Azure portal preview dashboard.
+9. Verify that **Pin to dashboard** is checked. This optional setting places a shortcut for the resource group on the Azure Portal dashboard.
 
     ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
@@ -67,7 +67,7 @@ The solution uses one virtual network with two subnets. The [Virtual network ove
 
 To create the virtual network:
 
-1. In the Azure portal preview, in your resource group, click **+ Add**. Azure opens the **Everything** blade.
+1. In the Azure Portal, in your resource group, click **+ Add**. Azure opens the **Everything** blade.
 
     ![New item](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. Search for **virtual network**.
@@ -147,7 +147,7 @@ Configure two availability sets according to the parameters in the following tab
 | **Fault domains** |3 |3 |
 | **Update domains** |5 |3 |
 
-After you create the availability sets, return to the resource group in the Azure portal preview.
+After you create the availability sets, return to the resource group in the Azure Portal.
 
 ## Create domain controllers
 After you've created the network, subnets, availability sets, and an Internet-facing load balancer, you're ready to create the virtual machines for the domain controllers.
@@ -212,7 +212,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When you're prompted, add any additional features that are required by these roles.
 
     > [!NOTE]
-    > Windows warns you that there is no static IP address. If you're testing the configuration, click **Continue**. For production scenarios, set the IP address to static in the Azure portal preview, or [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
+    > Windows warns you that there is no static IP address. If you're testing the configuration, click **Continue**. For production scenarios, set the IP address to static in the Azure Portal, or [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
     >
     >
 
@@ -238,9 +238,9 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 Use the primary domain controller for DNS. Note the primary domain controller IP address.
 
-One way to get the primary domain controller IP address is through the Azure portal preview.
+One way to get the primary domain controller IP address is through the Azure Portal.
 
-1. On the Azure portal preview, open the resource group.
+1. On the Azure Portal, open the resource group.
 
 2. Click the primary domain controller.
 
@@ -253,7 +253,7 @@ Note the private IP address for this server.
 ### Configure the virtual network DNS
 After you create the first domain controller and enable DNS on the first server, configure the virtual network to use this server for DNS.
 
-1. In the Azure portal preview, click on the virtual network.
+1. In the Azure Portal, click on the virtual network.
 
 2. Under **Settings**, click **DNS Server**.
 
@@ -276,7 +276,7 @@ After the primary domain controller reboots, you can configure the second domain
 8. Click **OK**, and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
 
     >[!IMPORTANT]
-    >If you lose the connection to your remote desktop after changing the DNS setting, go to the Azure portal preview and restart the virtual machine.
+    >If you lose the connection to your remote desktop after changing the DNS setting, go to the Azure Portal and restart the virtual machine.
 
 9. From the remote desktop to the secondary domain controller, open **Server Manager Dashboard**.
 10. Click the **Add roles and features** link on the dashboard.
@@ -303,7 +303,7 @@ After the server finishes the configuration changes, restart the server.
 
 ### Add the Private IP Address to the second domain controller to the VPN DNS Server
 
-In the Azure portal preview, under virtual network, change the DNS Server to include the IP address of the secondary domain controller. This allows the DNS service redundancy.
+In the Azure Portal, under virtual network, change the DNS Server to include the IP address of the secondary domain controller. This allows the DNS service redundancy.
 
 ### <a name=DomainAccounts></a> Configure the domain accounts
 

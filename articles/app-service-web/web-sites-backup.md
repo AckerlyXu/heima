@@ -52,7 +52,7 @@ The following database solutions are supported with backup feature:
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error .
 
 ## <a name="manualbackup" id="create-a-manual-backup"></a> Create a manual backup
-1. In the [Azure portal preview](https://portal.azure.cn), navigate to your app's blade, select **Settings**, then **Backups**. The **Backups** blade is displayed.
+1. In the [Azure Portal](https://portal.azure.cn), navigate to your app's blade, select **Settings**, then **Backups**. The **Backups** blade is displayed.
 
     ![Backups page][ChooseBackupsPage]
 

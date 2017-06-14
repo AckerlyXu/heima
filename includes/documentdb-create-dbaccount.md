@@ -1,4 +1,4 @@
-1. In a new window, sign in to the [Azure portal preview](https://portal.azure.cn/).
+1. In a new window, sign in to the [Azure Portal](https://portal.azure.cn/).
 2. In the Jumpbar, click **New**, click **Databases**, and then click **NoSQL (DocumentDB)**.
 
    ![Screen shot of the Azure portal, highlighting More Services, and DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  

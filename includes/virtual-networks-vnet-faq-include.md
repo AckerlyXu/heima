@@ -30,7 +30,7 @@ Yes. You can use a VNet without using site-to-site connectivity. This is particu
 ### What tools do I use to create a VNet?
 You can use the following tools to create or configure a virtual network:
 
-* Azure Portal Preview (for classic and Resource Manager VNets).
+* Azure Portal (for classic and Resource Manager VNets).
 * A network configuration file (netcfg - for classic VNets only). See [Configure a virtual network using a network configuration file](../articles/virtual-network/virtual-networks-using-network-configuration-file.md).
 * PowerShell (for classic and Resource Manager VNets).
 * Azure CLI (for classic and Resource Manager VNets).

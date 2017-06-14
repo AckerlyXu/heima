@@ -62,7 +62,7 @@ __Requirements__:
 
 ## To use the script
 
-See the Apply a script action to a running cluster section of the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document for information on using script actions through the Azure portal preview, Azure PowerShell, and the Azure CLI.
+See the Apply a script action to a running cluster section of the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document for information on using script actions through the Azure Portal, Azure PowerShell, and the Azure CLI.
 
 When using the information provided in the customization document, replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh). Replace any example parameters with the Azure storage account name and key of the storage account to be added to the cluster.
 
@@ -71,9 +71,9 @@ When using the information provided in the customization document, replace any e
 
 ## Known issues
 
-### Storage accounts not displayed in Azure portal preview or tools
+### Storage accounts not displayed in Azure Portal or tools
 
-When viewing the HDInsight cluster in the Azure portal preview, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
+When viewing the HDInsight cluster in the Azure Portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
 
 The storage information isn't displayed because the script only modifies the core-site.xml configuration for the cluster. This information is not used when retrieving the cluster information using Azure management APIs.
 

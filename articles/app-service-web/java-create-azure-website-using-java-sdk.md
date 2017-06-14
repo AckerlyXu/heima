@@ -20,7 +20,7 @@ ms.author: v-dazen
 
 ---
 # Create a Web App in Azure App Service using the Azure SDK for Java
-<!-- Azure Active Directory workflow is not yet available on the Azure Portal Preview -->
+<!-- Azure Active Directory workflow is not yet available on the Azure Portal -->
 
 ## Overview
 This walkthrough shows you how to create an Azure SDK for Java application that creates a Web App in [Azure App Service][Azure App Service], then deploy an application to it. It consists of two parts:
@@ -210,7 +210,7 @@ where:
 
 > **Note:** Each time you run this application, you need to change the value 
 > of `webAppName` and `appServicePlanName` (or delete the web app on the Azure 
-> Portal Preview) before running the application again. Otherwise, execution will 
+> Portal) before running the application again. Otherwise, execution will 
 > fail because the same resource already exists on Azure.
 > 
 > 
@@ -398,7 +398,7 @@ Make sure you have run the **AzureWebDemo** application to create a web app. You
 #### Get FTP connection information
 To use FTP to deploy application files to the newly created web app, you need to obtain connection information. There are two ways to obtain connection information. One way is to visit the web app's **Dashboard** page; the other way is to download the web app's publish profile. The publish profile is an XML file that provides information such as FTP host name and logon credentials for your web apps in Azure App Service. You can use this username and password to deploy to any web app in all subscriptions associated with the Azure account, not only this one.
 
-To obtain FTP connection information from the web app's blade in the [Azure Portal Preview][Azure Portal Preview]:
+To obtain FTP connection information from the web app's blade in the [Azure Portal][Azure Portal]:
 
 1. Under **Essentials**, find and copy the **FTP hostname**. This is a URI similar to `ftp://waws-prod-bay-NNN.ftp.azurewebsites.chinacloudapi.cn`.
 2. Under **Essentials**, find and copy **FTP/Deployment username**. This will have the form *webappname\deployment-username*; for example `WebDemoWebApp\deployer77`.
@@ -524,4 +524,4 @@ This procedure creates an App Service web app. You will be billed for the resour
 [Key and Certificate Management Tool (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
 [WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn

@@ -24,7 +24,7 @@ ms.author: v-dazen
 
 This tutorial shows you how to configure a continuous deployment workflow for your [Azure App Service] app. App Service integration with BitBucket and GitHub enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
 
-To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal Preview (such as [GitLab](https://gitlab.com/)), see
+To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal (such as [GitLab](https://gitlab.com/)), see
 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="overview"></a>Enable continuous deployment
@@ -35,7 +35,7 @@ To enable continuous deployment,
 
     The folloing steps are only for GitHub Repo. For Repo other than GitHub's, see [Manually triggering a deployment](https://github.com/projectkudu/kudu/wiki/Manually-triggering-a-deployment) to setup the webhook.
 
-2. In your app's menu blade in the [Azure portal preview], click **APP DEPLOYMENT > Deployment options**. Click **Choose Source**, then select **External Repository**.
+2. In your app's menu blade in the [Azure Portal], click **APP DEPLOYMENT > Deployment options**. Click **Choose Source**, then select **External Repository**.
 2. Enter the url of you GitHub Repo, and enter the branch you want to track. Leave the **Repository Type** to be Git, and click **OK**
 
     > [!NOTE]
@@ -50,7 +50,7 @@ To enable continuous deployment,
     ```
 5. In the page of you GitHub Repo, click **Settings**, choose **Webhooks & services**, and then click **Add webhook**
 6. In **Payload URL**, enter `https://$<YOUR_WEB_APP>:<SOME_BIG_RANDOM_TOKEN>@<YOUR_WEB_APP>.scm.chinacloudsites.cn/deploy`, leave everything else as what it was, and click **Add webhook** to save the new webhook.
-5. To verify the app is successfully deployed, click the **URL** at the top of the app's blade in the Azure portal preview.
+5. To verify the app is successfully deployed, click the **URL** at the top of the app's blade in the Azure Portal.
 6. To verify that continuous deployment is occurring from the repository of your choice, push a change to the repository. Your app should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update in the **Deployment options** blade of your app.
 
 ## <a name="VSsolution"></a>Continuous deployment of a Visual Studio solution
@@ -71,7 +71,7 @@ Once you have set up your repository as described, and configured your app in Az
 ## <a name="disableCD"></a>Disable continuous deployment
 To disable continuous deployment,
 
-1. In your app's menu blade in the [Azure portal preview], click **APP DEPLOYMENT > Deployment options**. Then click **Disconnect** in the **Deployment options** blade.
+1. In your app's menu blade in the [Azure Portal], click **APP DEPLOYMENT > Deployment options**. Then click **Disconnect** in the **Deployment options** blade.
 
     ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 2. After answering **Yes** to the confirmation message, you can return to your app's blade and click **APP DEPLOYMENT > Deployment options** if you would like to set up publishing from another source.
@@ -85,7 +85,7 @@ To disable continuous deployment,
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure App Service]: /app-service-web/app-service-changes-existing-services/
-[Azure portal preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
 [How to use PowerShell for Azure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs

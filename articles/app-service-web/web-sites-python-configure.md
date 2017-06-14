@@ -31,10 +31,10 @@ It describes additional features of Git deployment, such as virtual environment 
 * [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)
 * [Creating web apps with Flask](web-sites-python-create-deploy-flask-app.md)
 
-## Web app creation on Azure Portal Preview
-This tutorial assumes an existing Azure subscription and access to the Azure Portal Preview.
+## Web app creation on Azure Portal
+This tutorial assumes an existing Azure subscription and access to the Azure Portal.
 
-If you do not have an existing web app, you can create one from the [Azure Portal Preview](https://portal.azure.cn).  Click the NEW button in the top left corner, then click **Web + Mobile** > **Web app**.
+If you do not have an existing web app, you can create one from the [Azure Portal](https://portal.azure.cn).  Click the NEW button in the top left corner, then click **Web + Mobile** > **Web app**.
 
 ## Git Publishing
 Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md). This tutorial uses Git to create, manage, and publish our Python web app to Azure App Service.

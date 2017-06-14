@@ -28,7 +28,7 @@ The purpose of the [WebJobs SDK](websites-webjobs-resources.md) is to simplify t
 
 Creating, deploying, and managing WebJobs is seamless with integrated tooling in Visual Studio. You can create WebJobs from templates, publish, and manage (run/stop/monitor/debug) them. 
 
-The WebJobs dashboard in the Azure portal preview provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output. 
+The WebJobs dashboard in the Azure Portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output. 
 
 ## <a name="getstarted"></a>Getting started with WebJobs and the WebJobs SDK
 * [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
@@ -48,7 +48,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ## <a name="deploy" id="deploying"></a>Deploying WebJobs
 * [How to Deploy Azure WebJobs using Visual Studio](websites-dotnet-deploy-webjobs.md)
-* [How to deploy WebJobs using the Azure Portal Preview](web-sites-create-web-jobs.md)
+* [How to deploy WebJobs using the Azure Portal](web-sites-create-web-jobs.md)
 * [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -56,7 +56,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ## <a name="schedule"></a>Scheduling WebJobs
 * [The Add Azure WebJob Dialog](websites-dotnet-deploy-webjobs.md#configure)
-* [Create a Scheduled WebJob in the Azure Portal Preview](web-sites-create-web-jobs.md#CreateScheduled)
+* [Create a Scheduled WebJob in the Azure Portal](web-sites-create-web-jobs.md#CreateScheduled)
 * [Hooking up a scheduler job to a WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Scheduling Azure WebJobs with cron expressions](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Scheduling individual WebJob functions using the WebJobs SDK TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)

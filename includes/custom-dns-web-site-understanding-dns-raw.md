@@ -43,7 +43,7 @@ This TXT record is used to verify that you own the domain you are attempting to 
 
 You can find the IP address and **.chinacloudsites.cn** names for your web app by performing the following steps:
 
-1. In your browser, open the [Azure Portal Preview](https://portal.azure.cn).
+1. In your browser, open the [Azure Portal](https://portal.azure.cn).
 2. In the **Web Apps** blade, click the name of your web app, and then select **Custom domains** from the bottom of the page.
 
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)

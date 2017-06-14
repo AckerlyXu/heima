@@ -1,8 +1,8 @@
 You can connect to a VM that is deployed to your VNet by creating a Remote Desktop Connection to your VM. The best way to initially verify that you can connect to your VM is to connect by using its private IP address, rather than computer name. That way, you are testing to see if you can connect, not whether name resolution is configured properly.
 
-1. Locate the private IP address. You can find the private IP address of a VM by either looking at the properties for the VM in the Azure portal preview, or by using PowerShell.
+1. Locate the private IP address. You can find the private IP address of a VM by either looking at the properties for the VM in the Azure Portal, or by using PowerShell.
 
-    - Azure portal preview - Locate your virtual machine in the Azure portal preview. View the properties for the VM. The private IP address is listed.
+    - Azure Portal - Locate your virtual machine in the Azure Portal. View the properties for the VM. The private IP address is listed.
 
     - PowerShell - Use the example to view a list of VMs and private IP addresses from your resource groups. You don't need to modify this example before using it.
 

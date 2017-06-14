@@ -158,7 +158,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 ```
 
 ## Verify that the VM was created
-When complete, you should see the newly created VM in the [Azure portal preview](https://portal.azure.cn) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+When complete, you should see the newly created VM in the [Azure Portal](https://portal.azure.cn) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
     $vmList = Get-AzureRmVM -ResourceGroupName $rgName

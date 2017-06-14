@@ -28,7 +28,7 @@ By default, Hadoop clusters are not optimized for performance. This article cove
 
 Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
 
-* At the provision time, you can specify the number of worker nodes using the Azure portal preview, Azure PowerShell, or Cross-platform command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal preview:
+* At the provision time, you can specify the number of worker nodes using the Azure Portal, Azure PowerShell, or Cross-platform command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure Portal:
 
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
 * At the run time, you can also scale out a cluster without recreating one:

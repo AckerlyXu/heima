@@ -1,6 +1,6 @@
 ---
 title: 'Connect an Azure virtual network to another VNet: Portal | Azure'
-description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal preview.
+description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -19,15 +19,15 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Configure a VNet-to-VNet VPN gateway connection using the Azure portal preview
+# Configure a VNet-to-VNet VPN gateway connection using the Azure Portal
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the Resource Manager deployment model and the Azure portal preview. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the Resource Manager deployment model and the Azure Portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Connect different deployment models - Azure portal preview](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Connect different deployment models - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >

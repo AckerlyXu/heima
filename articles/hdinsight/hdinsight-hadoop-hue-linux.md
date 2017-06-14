@@ -47,7 +47,7 @@ Hue is a set of Web applications used to interact with a Hadoop cluster. You can
 
 The script to install Hue on a Linux-based HDInsight cluster is available at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with Azure Storage Blobs (WASB) as default storage.
 
-This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal Preview.
+This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal.
 
 > [!NOTE]
 > Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).

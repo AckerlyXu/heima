@@ -68,14 +68,14 @@ It is also possible to install the SQL Server IaaS Agent Extension on an OS-only
     Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "China East"
 
 > [!NOTE]
-> If you manually install the SQL Server IaaS Agent Extension, you can not manage the SQL Server configuration settings through the Azure portal preview. In this scenario, you must make all changes with PowerShell.
+> If you manually install the SQL Server IaaS Agent Extension, you can not manage the SQL Server configuration settings through the Azure Portal. In this scenario, you must make all changes with PowerShell.
 
 If you update to the latest version of the SQL IaaS Agent Extension, you must restart your virtual machine after updating the extension.
 
 ## Status
-One way to verify that the extension is installed is to view the agent status in the Azure Portal Preview. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSExtension** extension listed.
+One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSExtension** extension listed.
 
-![SQL Server IaaS Agent Extension in Azure Portal Preview](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
+![SQL Server IaaS Agent Extension in Azure Portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
 You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
 
@@ -88,9 +88,9 @@ The previous command confirms the agent is installed and provides general status
     $sqlext.AutoBackupSettings
 
 ## Removal
-In the Azure Portal Preview, you can uninstall the extension by clicking the ellipsis on the **Extensions** blade of your virtual machine properties. Then click **Delete**.
+In the Azure Portal, you can uninstall the extension by clicking the ellipsis on the **Extensions** blade of your virtual machine properties. Then click **Delete**.
 
-![Uninstall the SQL Server IaaS Agent Extension in Azure Portal Preview](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
+![Uninstall the SQL Server IaaS Agent Extension in Azure Portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
 You can also use the **Remove-AzureRmVMSqlServerExtension** Powershell cmdlet.
 

@@ -21,7 +21,7 @@ ms.author: v-johch
 Azure Service Fabric allows for the creation of Service Fabric clusters on any VMs or computers running Windows Server or Linux. This means you are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected, be it on-premises, Azure or with any cloud provider.
 
 ## Create Service Fabric clusters on Azure
-Creating a cluster on Azure is done either via a Resource Model template or the Azure portal preview. Read [Create a Service Fabric cluster by using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) or [Create a Service Fabric cluster from the Azure portal preview](service-fabric-cluster-creation-via-portal.md) for more information.
+Creating a cluster on Azure is done either via a Resource Model template or the Azure Portal. Read [Create a Service Fabric cluster by using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) or [Create a Service Fabric cluster from the Azure Portal](service-fabric-cluster-creation-via-portal.md) for more information.
 
 ## Supported operating systems for clusters on Azure
 You are able to create clusters on VMs running these operating systems:
@@ -54,7 +54,7 @@ You are able to create clusters on VMs or computers running these operating syst
 ## Advantages of Service Fabric clusters on Azure over standalone Service Fabric clusters created on-premises
 Running Service Fabric clusters on Azure provides advantages over the on-premises option, so if you don't have specific needs for where you run your clusters, then we suggest that you run them on Azure. On Azure, we provide integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable.
 
-* **Azure portal preview:** Azure portal preview makes it easy to create and manage clusters.
+* **Azure Portal:** Azure Portal makes it easy to create and manage clusters.
 * **Azure Resource Manager:** Use of Azure Resource Manager allows easy management of all resources used by the cluster as a unit and simplifies cost tracking and billing.
 * **Service Fabric Cluster as an Azure Resource** A Service Fabric cluster is an ARM resource, so you can model it like you do other ARM resources in Azure.
 * **Integration with Azure Infrastructure** Service Fabric coordinates with the underlying Azure infrastructure for OS, network, and other upgrades to improve availability and reliability of your applications.  

@@ -22,7 +22,7 @@ ms.author: v-dazen
 ## Overview
 Azure provides built-in diagnostics to assist with debugging an [App Service web app](/app-service-web/app-service-changes-existing-services). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-This article uses the [Azure Portal Preview](https://portal.azure.cn), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+This article uses the [Azure Portal](https://portal.azure.cn), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -46,7 +46,7 @@ At runtime you can retrieve these logs to help with troubleshooting. For more in
 App Service web apps also log deployment information when you publish content to a web app. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
 ## <a name="enablediag"></a>How to enable diagnostics
-To enable diagnostics in the [Azure Portal Preview](https://portal.azure.cn), go to the blade for your web app and click **Settings > Diagnostics logs**.
+To enable diagnostics in the [Azure Portal](https://portal.azure.cn), go to the blade for your web app and click **Settings > Diagnostics logs**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -266,4 +266,4 @@ The web server logs are formatted using the [W3C extended log file format](http:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal preview](/app-service-web/app-service-web-app-azure-portal)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure Portal](/app-service-web/app-service-web-app-azure-portal)

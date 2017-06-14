@@ -209,7 +209,7 @@ Connect to the SQL database (the destination) from Visual Studio:
 2. If asked, click **Microsoft SQL Server** as a data source.
 
     ![Change Data Source dialog box](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
-3. In the **Server name** field, paste the name that you copied in the previous section from the Azure portal preview (that is, *servername*.database.chinacloudapi.cn).
+3. In the **Server name** field, paste the name that you copied in the previous section from the Azure Portal (that is, *servername*.database.chinacloudapi.cn).
 4. Click **Use SQL Server Authentication**.
 5. Enter **tolladmin** in the **User name** field and **123toll!** in the **Password** field.
 6. Click **Select or enter a database name**, and select **TollDataDB** as the database.

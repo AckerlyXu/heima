@@ -52,7 +52,7 @@ Yes. You can deploy a [WAN optimization network virtual appliance](https://azure
 ### What tools do I use to create a VNet?
 You can use the following tools to create or configure a VNet:
 
-* Azure Portal Preview (for classic and Resource Manager VNets).
+* Azure Portal (for classic and Resource Manager VNets).
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
 * PowerShell (for classic and Resource Manager VNets).
 * Azure CLI (for classic and Resource Manager VNets).
@@ -160,7 +160,7 @@ It depends. Dynamic private IP addresses remain with a VM until its stopped (dea
 Yes, but it's not recommended. Manually changing the IP address for a NIC within a VM's operating system could potentially lead to losing connectivity to the VM if the IP address assigned to a NIC within the Azure VM were to change.
 
 ### What happens to my IP addresses if I stop a Cloud Service deployment slot or shutdown a VM from within the operating system?
-Nothing. The IP addresses (public VIP, public, and private) remain assigned to the cloud service deployment slot or VM. Dynamic addresses are only released if a VM is stopped (deallocated) or deleted, or a cloud service deployment slot is deleted. Clicking the **Stop** button for a VM within the Azure portal preview sets its state to Stopped (deallocated). In this case, the VM will lose its IP addresses.
+Nothing. The IP addresses (public VIP, public, and private) remain assigned to the cloud service deployment slot or VM. Dynamic addresses are only released if a VM is stopped (deallocated) or deleted, or a cloud service deployment slot is deleted. Clicking the **Stop** button for a VM within the Azure Portal sets its state to Stopped (deallocated). In this case, the VM will lose its IP addresses.
 
 ### Can I move VMs from one subnet to another subnet in a VNet without re-deploying?
 Yes. You can find more information in the [How to move a VM or role instance to a different subnet](virtual-networks-move-vm-role-to-subnet.md) article.
@@ -211,6 +211,6 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msd
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
-- The Azure portal preview to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
+- The Azure Portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network) and [classic](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.

@@ -98,7 +98,7 @@ exposing this information. A simple search on [GitHub](https://github.com), for 
 
 The best practice is to keep this information out of your app's configuration files. App Service lets you store configuration information as part of the runtime environment as **app settings** and **connection strings**. The values 
 are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime. Apart from these situations, these
-configuration settings will remain encrypted unless you view or configure them using the [Azure Portal Preview](https://portal.azure.cn) or utilities such as PowerShell or the Azure CLI. 
+configuration settings will remain encrypted unless you view or configure them using the [Azure Portal](https://portal.azure.cn) or utilities such as PowerShell or the Azure CLI. 
 
 Storing configuration information in App Service makes it possible for the app's administrator to lock down sensitive information for the production apps. Developers can use a separate set of configuration settings
 for app development and the settings can be automatically superseded by the settings configured in App Service. Not even the developers need to know the secrets configured for the production app. For more information on 
@@ -110,7 +110,7 @@ always use FTPS instead of FTP.
 
 The FTPS link for your app can be found with the following steps:
 
-1. Open the [Azure Portal Preview](https://portal.azure.cn).
+1. Open the [Azure Portal](https://portal.azure.cn).
 2. Select **Browse All**.
 3. From the **Browse** blade, select **App Services**.
 4. From the **App Services** blade, Select the desired app.

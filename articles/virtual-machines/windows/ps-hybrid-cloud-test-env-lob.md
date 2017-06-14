@@ -52,7 +52,7 @@ This is your current configuration.
 ![](./media/ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)
 
 ## Phase 2: Configure the SQL server computer (SQL1)
-From the Azure portal preview, start the DC2 computer if needed.
+From the Azure Portal, start the DC2 computer if needed.
 
 Next, create a virtual machine for SQL1 with these commands at an Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
@@ -78,7 +78,7 @@ Next, create a virtual machine for SQL1 with these commands at an Azure PowerShe
     $vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
     New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Use the Azure portal preview to connect to SQL1 using the local administrator account of SQL1.
+Use the Azure Portal to connect to SQL1 using the local administrator account of SQL1.
 
 Next, configure Windows Firewall rules to allow basic connectivity testing and SQL Server traffic. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
 
@@ -114,7 +114,7 @@ Next, join SQL1 to the CORP Windows Server Active Directory domain with these co
 
 Use the CORP\User1 account when prompted to supply domain account credentials for the **Add-Computer** command.
 
-After restarting, use the Azure portal preview to connect to SQL1 *with the local administrator account of SQL1*.
+After restarting, use the Azure Portal to connect to SQL1 *with the local administrator account of SQL1*.
 
 Next, configure SQL Server 2014 to use the F: drive for new databases and for user account permissions.
 
@@ -159,7 +159,7 @@ First, create a virtual machine for LOB1 with these commands at the Azure PowerS
     $vm=Set-AzureRMVMOSDisk -VM $vm -Name LOB1-TestVNET-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
     New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Next, use the Azure portal preview to connect to LOB1 with the credentials of the local administrator account of LOB1.
+Next, use the Azure Portal to connect to LOB1 with the credentials of the local administrator account of LOB1.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on LOB1, run these commands.
 
@@ -175,7 +175,7 @@ Next, join LOB1 to the CORP Active Directory domain with these commands at the W
 
 Use the CORP\User1 account when prompted to supply domain account credentials for the **Add-Computer** command.
 
-After restarting, use the Azure portal preview to connect to LOB1 with the CORP\User1 account and password.
+After restarting, use the Azure Portal to connect to LOB1 with the CORP\User1 account and password.
 
 Next, configure LOB1 for IIS and test access from CLIENT1.
 
@@ -190,7 +190,7 @@ Next, configure LOB1 for IIS and test access from CLIENT1.
 9. On the **Select role services** page, select or clear the check boxes for the services you need for testing your LOB application, and then click **Next**.
 10. On the **Confirm installation selections** page, click **Install**.
 11. Wait until the installation of components has completed and then click **Close**.
-12. From the Azure portal preview, connect to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.
+12. From the Azure Portal, connect to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.
 13. In the Address bar, type **http://lob1/** and then press ENTER. You should see the default IIS 8 web page.
 
 This is your current configuration.
@@ -200,4 +200,4 @@ This is your current configuration.
 This environment is now ready for you to deploy your web-based application on LOB1 and test functionality from CLIENT1 on the Corpnet subnet.
 
 ## Next step
-* Add a new virtual machine using the [Azure portal preview](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+* Add a new virtual machine using the [Azure Portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

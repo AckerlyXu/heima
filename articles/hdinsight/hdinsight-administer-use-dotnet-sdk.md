@@ -214,7 +214,7 @@ To grant:
 > 
 > 
 
-This can also be done via the Portal. See [Administer HDInsight by using the Azure portal preview][hdinsight-admin-portal].
+This can also be done via the Portal. See [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
 It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
@@ -254,7 +254,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
 * [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Administer HDInsight by using the Azure portal preview][hdinsight-admin-portal]
+* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]

@@ -40,14 +40,14 @@ The article contains two sections:
 ## <a id="authconfig"></a> How to configure service principal authentication in Azure App Service
 This section provides general instructions that apply to any API app. For steps specific to the To Do List .NET sample application, go to [Continuing the .NET API Apps tutorial series](#tutorialstart).
 
-1. In the [Azure portal preview](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you want to protect, and then find the **Features** section and click **Authentication/ Authorization**.
+1. In the [Azure Portal](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you want to protect, and then find the **Features** section and click **Authentication/ Authorization**.
 
-    ![Authentication/Authorization in Azure portal preview](./media/app-service-api-dotnet-user-principal-auth/features.png)
+    ![Authentication/Authorization in Azure Portal](./media/app-service-api-dotnet-user-principal-auth/features.png)
 2. In the **Authentication / Authorization** blade, click **On**.
 3. In the **Action to take when request is not authenticated** drop-down list, select **Log in with Azure Active Directory** .
 4. Under **Authentication Providers**, select **Azure Active Directory**.
 
-    ![Authentication/Authorization blade in Azure portal preview](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+    ![Authentication/Authorization blade in Azure Portal](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 5. Configure the **Azure Active Directory Settings** blade to create a new Azure AD application, or use an existing Azure AD application if you already have one that you want to use.
 
     Internal scenarios typically involve an API app calling an API app. You can use separate Azure AD applications for each API app or just one Azure AD application.
@@ -98,17 +98,17 @@ In the following section, you configure the middle tier API app to send applicat
 
 If you run into problems while following the tutorial directions, see the [Troubleshooting](#troubleshooting) section at the end of the tutorial. 
 
-1. In the [Azure portal preview](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you created for the ToDoListDataAPI (data tier) API app, and then click **Settings**.
+1. In the [Azure Portal](https://portal.azure.cn/), navigate to the **Settings** blade of the API app that you created for the ToDoListDataAPI (data tier) API app, and then click **Settings**.
 2. In the **Settings** blade, find the **Features** section, and then click **Authentication / Authorization**.
 
-    ![Authentication/Authorization in Azure portal preview](./media/app-service-api-dotnet-user-principal-auth/features.png)
+    ![Authentication/Authorization in Azure Portal](./media/app-service-api-dotnet-user-principal-auth/features.png)
 3. In the **Authentication / Authorization** blade, click **On**.
 4. In the **Action to take when request is not authenticated** drop-down list, select **Log in with Azure Active Directory**.
 
     This is the setting that causes App Service to ensure that only authenticated requests reach the API app. For requests that have valid bearer tokens, App Service passes the tokens along to the API app and populates HTTP headers with commonly used claims to make that information more easily available to your code.
 5. Under **Authentication Providers**, click **Azure Active Directory**.
 
-    ![Authentication/Authorization blade in Azure portal preview](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+    ![Authentication/Authorization blade in Azure Portal](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 6. In the **Azure Active Directory Settings** blade, click **Express**.
 
     With the **Express** option Azure can automatically create an AAD application in your Azure AD [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
@@ -130,7 +130,7 @@ If you run into problems while following the tutorial directions, see the [Troub
     App Service creates an Azure Active Directory application with **Sign-on URL** and **Reply URL** automatically set to the URL of your API app. The latter value enables users in your AAD tenant to log in and access the API app.
 
 ### Verify that the API app is protected
-1. In a browser go to the URL of the API app: in the **API app** blade in the Azure portal preview, click the link under **URL**. 
+1. In a browser go to the URL of the API app: in the **API app** blade in the Azure Portal, click the link under **URL**. 
 
     You are redirected to a login screen because unauthenticated requests are not allowed to reach the API app. 
 
@@ -207,7 +207,7 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
      ![Copy new app key](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
 ### Configure Azure AD settings in the middle tier API app's runtime environment
-1. Go to the [Azure portal preview](https://portal.azure.cn/), and then navigate to the **API App** blade for the API app that hosts the TodoListAPI (middle tier) project.
+1. Go to the [Azure Portal](https://portal.azure.cn/), and then navigate to the **API App** blade for the API app that hosts the TodoListAPI (middle tier) project.
 2. Click **Settings > Application Settings**.
 3. In the **App settings** section, add the following keys and values:
 
@@ -247,7 +247,7 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
 
     ![To Do List page](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
 
-    If the application doesn't work as expected, double-check all of the settings you entered in the Azure portal preview. If all of the settings appear to be correct, see the [Troubleshooting](#troubleshooting) section later in this tutorial.
+    If the application doesn't work as expected, double-check all of the settings you entered in the Azure Portal. If all of the settings appear to be correct, see the [Troubleshooting](#troubleshooting) section later in this tutorial.
 
 ## Protect the API app from browser access
 For this tutorial you created a separate Azure AD application for the ToDoListDataAPI (data tier) API app. As you've seen, when App Service creates an AAD application, it configures the AAD application in a way that enables a user to go to the API app's URL in a browser and log on. That means it's possible for an end user in your Azure AD tenant, not just a service principal, to access the API. 
@@ -307,7 +307,7 @@ Make the following changes to the TodoListDataAPI project.
     b. To get a list of service principals, execute the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` command and then the `Get-AzureRmADServicePrincipal` command.
 
     c. Find the objectid for the service principal of the TodoListAPI application, and save it in a location you can copy from later.
-7. In the Azure portal preview, navigate to the API app blade for the API app that you deployed the ToDoListDataAPI project to.
+7. In the Azure Portal, navigate to the API app blade for the API app that you deployed the ToDoListDataAPI project to.
 8. Click **Settings > Application settings**.
 9. In the **App settings** section, add the following keys and values:
 

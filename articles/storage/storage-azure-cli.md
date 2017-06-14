@@ -19,7 +19,7 @@ ms.author: v-johch
 ---
 # Using the Azure CLI 2.0 with Azure Storage
 
-The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal preview](https://portal.azure.cn), including rich data access.
+The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure Portal](https://portal.azure.cn), including rich data access.
 
 In this guide, we show you how to use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
 

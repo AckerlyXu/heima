@@ -23,7 +23,7 @@ ms.author: v-dazen
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## Overview
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](/app-service-web/app-service-changes-existing-services) as an [Azure WebJob](/app-service-web/websites-webjobs-resources). For information about how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](/app-service-web/app-service-changes-existing-services) as an [Azure WebJob](/app-service-web/websites-webjobs-resources). For information about how to deploy WebJobs by using the [Azure Portal](https://portal.azure.cn), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -115,7 +115,7 @@ The **Add Azure WebJob** dialog enables you to enter WebJob name and scheduling 
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Portal Preview. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [Azure Scheduler](https://www.azure.cn/home/features/scheduler/) job collection if one doesn't exist yet, and it creates a job in the collection:
 

@@ -21,7 +21,7 @@ ms.author: v-dazen
 ---
 # Virtual machine extensions and features for Linux
 
-Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, or anti-virus protection, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal preview. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
+Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, or anti-virus protection, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure Portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
 This document provides an overview of VM extensions, prerequisites for using Azure VM extensions, and guidance on how to detect, manage, and remove VM extensions. This document provides generalized information because many VM extensions are available, each with a potentially unique configuration. Extension-specific details can be found in each document specific to the individual extension.
 
@@ -85,11 +85,11 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### Azure portal preview
+### Azure Portal
 
-VM extensions can be applied to an existing virtual machine through the Azure portal preview. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Select the extension you want from the list of available extensions and follow the instructions in the wizard.
+VM extensions can be applied to an existing virtual machine through the Azure Portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Select the extension you want from the list of available extensions and follow the instructions in the wizard.
 
-The following image shows the installation of the Linux Custom Script extension from the Azure portal preview.
+The following image shows the installation of the Linux Custom Script extension from the Azure Portal.
 
 ![Install custom script extension](./media/extensions-features/installscriptextensionlinux.png)
 
@@ -216,7 +216,7 @@ AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publis
 True                       chinanorth      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
-Extension execution status can also be found in the Azure portal preview. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
+Extension execution status can also be found in the Azure Portal. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
 
 ### Rerun a VM extension
 
@@ -226,7 +226,7 @@ There may be cases in which a virtual machine extension needs to be rerun. You c
 az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
-You can remove an extension by using the following steps in the Azure portal preview:
+You can remove an extension by using the following steps in the Azure Portal:
 
 1. Select a virtual machine.
 2. Choose **Extensions**.

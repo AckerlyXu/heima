@@ -61,7 +61,7 @@ The following diagram shows the architecture of this scenario:
 
 ### Step 1: Create a Traffic Manager profile
 
-1. In the Azure portal preview, click **New**, and then search the marketplace for "Traffic Manager profile."
+1. In the Azure Portal, click **New**, and then search the marketplace for "Traffic Manager profile."
 2. On the **Create Traffic Manager profile** blade, enter the following basic information:
 
     * **Name**: Give your Traffic Manager profile a DNS prefix name.
@@ -76,7 +76,7 @@ The following diagram shows the architecture of this scenario:
 
 ### Step 2: Create the application gateways
 
-1. In the Azure portal preview, in the left pane, click **New** > **Networking** > **Application Gateway**.
+1. In the Azure Portal, in the left pane, click **New** > **Networking** > **Application Gateway**.
 2. Enter the following basic information about the application gateway:
 
     * **Name**: The name of the application gateway.
@@ -152,9 +152,9 @@ In this scenario, Load Balancer distributes connections from the web tier to the
 
 If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) for step-by-step instructions.
 
-For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal preview](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. In the Azure portal preview, in the left pane, click **New** > **Networking** > **Load balancer**.
+1. In the Azure Portal, in the left pane, click **New** > **Networking** > **Load balancer**.
 2. On the **Create load balancer** blade, choose a name for your load balancer.
 3. Set the **Type** to **Internal**, and choose the appropriate virtual network and subnet for the load balancer to reside in.
 4. Under **IP address assignment**, select either **Dynamic** or **Static**.
@@ -199,7 +199,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 ### Step 5: Connect web-tier VMs to the load balancer
 
-Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure portal preview, go to the front-end IP pool on the **Load balancer settings** blade.
+Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure Portal, go to the front-end IP pool on the **Load balancer settings** blade.
 
 ![Load Balancer "Frontend IP pool" navigation pane](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

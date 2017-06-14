@@ -1,6 +1,6 @@
 ---
-title: Manage Hadoop clusters in HDInsight using Azure portal preview | Azure
-description: Learn how to create and manage HDInsight clusters using the Azure portal preview.
+title: Manage Hadoop clusters in HDInsight using Azure Portal | Azure
+description: Learn how to create and manage HDInsight clusters using the Azure Portal.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -20,10 +20,10 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Manage Hadoop clusters in HDInsight by using the Azure portal preview
+# Manage Hadoop clusters in HDInsight by using the Azure Portal
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure portal preview][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools.
+Using the [Azure Portal][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools.
 
 **Prerequisites**
 
@@ -40,7 +40,7 @@ Before you begin this article, you must have the following:
         ![new HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
     * Click **HDInsight Clusters** from the left menu to list the existing clusters
 
-        ![Azure portal preview HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
+        ![Azure Portal HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
         If you don't see HDInsight cluster, click **More services** on the bottom of the list, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
 
@@ -56,14 +56,14 @@ You must specify an Azure subscription when you create an HDInsight cluster. Thi
 
 - To use an existing resource group.
 
-    1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+    1. Sign in to the [Azure Portal](https://portal.azure.cn).
     2. Click **Resource groups** from the left menu to list the resource groups.
     3. Click the resource group you want to use for creating your HDInsight cluster.
     4. Click **Access control (IAM)**, and verify that you (or a group that you belong to) have at least the Contributor access to the resource group.
 
 - To create a new resource group
 
-    1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+    1. Sign in to the [Azure Portal](https://portal.azure.cn).
     2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
     3. Click the subscription that you use to create clusters. 
     4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
@@ -76,7 +76,7 @@ If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionReg
 3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
 4. Click a cluster from the list to see the overview page:
 
-    ![Azure portal preview HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
+    ![Azure Portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
 
     **Overview menu:**
 
@@ -238,7 +238,7 @@ Ambari then changes the password on all nodes in the cluster.
 
         usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address,) to the file, as this is needed in the next step.
-3. From the Azure portal preview, click **HDInsight Clusters**.
+3. From the Azure Portal, click **HDInsight Clusters**.
 4. Click your HDInsight cluster.
 4. Click **Script Actions**.
 4. From the **Script Actions** blade, select **Submit New**. When the **Submit script action** blade appears, enter the following information.
@@ -284,7 +284,7 @@ See [List and show clusters](#list-and-show-clusters).
 Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster appears under **Storage Accounts**. See [List and show clusters](#list-and-show-clusters).
 
 ## Run Hive queries
-You cannot run Hive job directly from the Azure portal preview, but you can use the Hive View on Ambari Web UI.
+You cannot run Hive job directly from the Azure Portal, but you can use the Hive View on Ambari Web UI.
 
 **To run Hive queries using Ambari Hive View**
 
@@ -299,7 +299,7 @@ You cannot run Hive job directly from the Azure portal preview, but you can use 
 See [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md#monitoring).
 
 ## Browse files
-Using the Azure portal preview, you can browse the content of the default container.
+Using the Azure Portal, you can browse the content of the default container.
 
 1. Sign in to [https://portal.azure.cn](https://portal.azure.cn).
 2. Click **HDInsight Clusters** from the left menu to list the existing clusters.

@@ -46,7 +46,7 @@ Finally, all long-running operations should be invoked repeatedly until they suc
 
 ### Elasticity
 
-The initial number of instances running for each role is determined in each role's configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal preview, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to autoscale an application](../cloud-services/cloud-services-how-to-scale.md).
+The initial number of instances running for each role is determined in each role's configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure Portal, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to autoscale an application](../cloud-services/cloud-services-how-to-scale.md).
 
 ### Partitioning
 
@@ -151,7 +151,7 @@ The following diagram demonstrates the architecture of AlwaysOn Availability Gro
 
 ![AlwaysOn Availability Groups in Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
-You can also automatically provision an AlwaysOn Availability Groups deployment end-to-end on Azure VMs by using the AlwaysOn template in the Azure portal preview. For more information, see [SQL Server AlwaysOn Offering in Azure Portal Preview Gallery](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
+You can also automatically provision an AlwaysOn Availability Groups deployment end-to-end on Azure VMs by using the AlwaysOn template in the Azure Portal. For more information, see [SQL Server AlwaysOn Offering in Azure Portal Gallery](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
 The following diagram demonstrates the use of database mirroring on Azure Virtual Machines. It was also taken from the in-depth topic [High availability and disaster recovery for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 

@@ -519,7 +519,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
 1. In **Server Explorer**, navigate to **Azure > App Service > {your resource group} > {your web app}**.
 2. Right-click the web app and select **Stop**. 
 
-    Alternatively, from the [Azure Portal Preview](https://portal.azure.cn/), you can go to the web app's blade, then click the **Stop** icon at the top of the blade.
+    Alternatively, from the [Azure Portal](https://portal.azure.cn/), you can go to the web app's blade, then click the **Stop** icon at the top of the blade.
 
     ![stop web app portal](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 

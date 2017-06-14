@@ -61,7 +61,7 @@ In this section, we'll create a Visual Studio project using a sample template. W
 ## Create an Azure Storage Account
 To use storage operations, you need an Azure storage account. You can create a storage account by following these steps.
 
-1. Log into the [Azure Portal Preview](https://portal.azure.cn/).
+1. Log into the [Azure Portal](https://portal.azure.cn/).
 2. Click the **New** icon on the top left of the Portal, then click **Data + Storage** > **Storage Account**. Click on **Create**, then give the storage account a unique name and create a new [resource group](../azure-resource-manager/resource-group-overview.md) for it.
 
       ![Quick Create](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
@@ -74,7 +74,7 @@ To use storage operations, you need an Azure storage account. You can create a s
     We will need this information to configure your project in the next section.
 
 ## Configure the Project
-In this section, we'll configure our application to use the storage account we just created. We'll see how to obtain connection settings from the Azure Portal Preview. Then we'll run the application locally.
+In this section, we'll configure our application to use the storage account we just created. We'll see how to obtain connection settings from the Azure Portal. Then we'll run the application locally.
 
 1. In Visual Studio, right-click on your project node in Solution Explorer and select **Properties**. Click on the **Debug** tab.
 
@@ -137,7 +137,7 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 ## Configure the Web Apps instance
 In this section, we'll configure environment variables for the Web Apps instance.
 
-1. In [Azure Portal Preview](https://portal.azure.cn), open the web app's blade by clicking **Browse** > **App Services** > your web app name.
+1. In [Azure Portal](https://portal.azure.cn), open the web app's blade by clicking **Browse** > **App Services** > your web app name.
 2. In your web app's blade, click **All Settings**, then click **Application Settings**.
 3. Scroll down to the **App settings** section and set the values for **REPOSITORY\_NAME**, **STORAGE\_NAME** and **STORAGE\_KEY** as described in the **Configure the project** section above.
 
@@ -171,7 +171,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 [How to Use the Table Storage Service from Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 [Azure SDK for .NET]: /downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025

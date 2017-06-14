@@ -395,4 +395,4 @@ you must enable IP Forwarding in the VM.
 * To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)
 * If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](./resource-group-lock-resources.md)
 * To configure routing and IP forwarding, see [Create User Defined Routes (UDR) in Resource Manager by using a template](../virtual-network/virtual-network-create-udr-arm-template.md)
-* For an overview of role-based access control, see [Role-based access control in the Azure portal preview](../active-directory/role-based-access-control-configure.md)
+* For an overview of role-based access control, see [Role-based access control in the Azure Portal](../active-directory/role-based-access-control-configure.md)

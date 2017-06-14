@@ -72,7 +72,7 @@ Adventure Works Cycles determined that they needed two storage accounts:
 ## Virtual network and subnets
 Because the virtual network does not need ongoing connectivity to the Adventure Work Cycles on-premises network, they decided on a cloud-only virtual network.
 
-They created a cloud-only virtual network with the following settings using the Azure portal preview:
+They created a cloud-only virtual network with the following settings using the Azure Portal:
 
 * Name: AZOS-CHE-VN01
 * Location: China East

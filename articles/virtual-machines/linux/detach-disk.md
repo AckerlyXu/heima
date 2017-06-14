@@ -1,6 +1,6 @@
 ---
 title: Detach a data disk from a Linux VM - Azure| Azure
-description: Learn to detach a data disk from a virtual machine in Azure using CLI 2.0 or the Azure portal preview.
+description: Learn to detach a data disk from a virtual machine in Azure using CLI 2.0 or the Azure Portal.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn

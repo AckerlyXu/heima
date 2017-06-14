@@ -706,7 +706,7 @@ This **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus
 > 
 > 
 
-Clicking the **Deploy to Azure** button takes you to the Azure portal preview and initiates the process of creating the resources described by the template.
+Clicking the **Deploy to Azure** button takes you to the Azure Portal and initiates the process of creating the resources described by the template.
 
 1. In the **Basics** section, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
 2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower-cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
@@ -764,7 +764,7 @@ Click some of the actions and experiment with retrieving the data from the diffe
 ## Delete the resources when you are finished with the application
 When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. If you use the **Deploy to Azure** button in the [Provision the Azure resources](#provision-the-azure-resources) section and all of your resources are contained in the same resource group, you can delete them together in one operation by deleting the resource group.
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn) and click **Resource groups**.
+1. Sign in to the [Azure Portal](https://portal.azure.cn) and click **Resource groups**.
 2. Type the name of your resource group into the **Filter items...** textbox.
 3. Click **...** to the right of your resource group.
 4. Click **Delete**.
@@ -788,7 +788,7 @@ To run the application locally on your machine, you need an Azure Redis Cache in
 * If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
 * If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Once you have selected or created the cache to use, browse to the cache in the Azure portal preview and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Once you have selected or created the cache to use, browse to the cache in the Azure Portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
 2. Edit the `value` attribute and replace `MyCache.redis.cache.chinacloudapi.cn` with the [host name](cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
@@ -812,7 +812,7 @@ Once you have selected or created the cache to use, browse to the cache in the A
     * For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
 * Learn more about [web apps in Azure App Service](../app-service-web/app-service-web-overview.md).
-* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal preview.
+* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure Portal.
 * Explore Azure Redis Cache premium features
 
     * [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)

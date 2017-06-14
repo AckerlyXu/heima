@@ -36,7 +36,7 @@ Here is a flowchart to identify the order in which steps need to be executed dur
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
 * Read through the [list of unsupported configurations or features](../windows/migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
-* If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal preview.
+* If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure Portal.
 
 > [!IMPORTANT]
 > Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager. 
@@ -121,7 +121,7 @@ After the prepare operation is successful, you can look through the verbose outp
 
     azure vm show <vmName> -vv
 
-Check the configuration for the prepared resources by using either CLI or the Azure portal preview. If you are not ready for migration and you want to go back to the old state, use the following command.
+Check the configuration for the prepared resources by using either CLI or the Azure Portal. If you are not ready for migration and you want to go back to the old state, use the following command.
 
     azure service deployment abort-migration <serviceName> <deploymentName>
 
@@ -152,7 +152,7 @@ Prepare the virtual network of your choice for migration by using the following 
 
     azure network vnet prepare-migration <virtualNetworkName>
 
-Check the configuration for the prepared virtual machines by using either CLI or the Azure portal preview. If you are not ready for migration and you want to go back to the old state, use the following command.
+Check the configuration for the prepared virtual machines by using either CLI or the Azure Portal. If you are not ready for migration and you want to go back to the old state, use the following command.
 
     azure network vnet abort-migration <virtualNetworkName>
 
@@ -167,7 +167,7 @@ Prepare the storage account for migration by using the following command
 
     azure storage account prepare-migration <storageAccountName>
 
-Check the configuration for the prepared storage account by using either CLI or the Azure portal preview. If you are not ready for migration and you want to go back to the old state, use the following command.
+Check the configuration for the prepared storage account by using either CLI or the Azure Portal. If you are not ready for migration and you want to go back to the old state, use the following command.
 
     azure storage account abort-migration <storageAccountName>
 

@@ -1,6 +1,6 @@
 ---
-title: Restore Azure SQL Data Warehouse (Azure portal preview) | Azure
-description: Azure portal preview tasks for restoring Azure SQL Data Warehouse.
+title: Restore Azure SQL Data Warehouse (Azure Portal) | Azure
+description: Azure Portal tasks for restoring Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: Lakshmi1812
@@ -28,7 +28,7 @@ ss
 > * [REST][REST]
 >
 >
-In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure portal preview.
+In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure Portal.
 
 ## Before you begin
 

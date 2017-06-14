@@ -1,5 +1,5 @@
 ---
-title: 'Add multiple VPN gateway Site-to-Site connections to a VNet: Azure Portal Preview: Resource Manager| Azure'
+title: 'Add multiple VPN gateway Site-to-Site connections to a VNet: Azure Portal: Resource Manager| Azure'
 description: Add multi-site S2S connections to a VPN gateway that has an existing connection
 services: vpn-gateway
 documentationcenter: na
@@ -26,7 +26,7 @@ ms.author: v-dazen
 > 
 > 
 
-This article walks you through using the Azure portal preview to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
+This article walks you through using the Azure Portal to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
 
 This article applies to VNets created using the Resource Manager deployment model that have a RouteBased VPN gateway. These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) for information about coexisting connections.
 
@@ -48,7 +48,7 @@ Verify the following items:
 * You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
 ## <a name="part1"></a>Part 1 - Configure a connection
-1. From a browser, navigate to the [Azure portal preview](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure Portal](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
 2. Click **All resources** and locate your **virtual network gateway** from the list of resources and click it.
 3. On the **Virtual network gateway** blade, click **Connections**.
 

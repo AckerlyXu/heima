@@ -38,7 +38,7 @@ Learn how to run Hive queries using Ambari Hive View. Ambari is a management and
 
 ## Open the Hive view
 
-You can Ambari Views from the Azure portal preview; select your HDInsight cluster and then select **Ambari Views** from the **Quick Links** section.
+You can Ambari Views from the Azure Portal; select your HDInsight cluster and then select **Ambari Views** from the **Quick Links** section.
 
 ![quick links section](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 

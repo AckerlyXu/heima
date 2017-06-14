@@ -325,7 +325,7 @@ This example uses a predefined Azure Resource Manager template in a GitHub repos
 
 The main template is in the file named "azuredeploy.json." This template can be submitted via PowerShell or CLI (with the associated "azuredeploy.parameters.json" file) to deploy this template. I find the easiest way is to use the "Deploy to Azure" button on the README.md page at GitHub.
 
-To deploy the template that builds this example from GitHub and the Azure portal preview, follow these steps:
+To deploy the template that builds this example from GitHub and the Azure Portal, follow these steps:
 
 1. From a browser, navigate to the [Template][Template]
 2. Click the "Deploy to Azure" button (or the "Visualize" button to see a graphical representation of this template)

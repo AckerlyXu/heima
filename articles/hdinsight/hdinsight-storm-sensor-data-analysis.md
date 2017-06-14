@@ -111,7 +111,7 @@ Before you use this example, you must create an Azure Event Hub, which the Storm
 
 Event Hub is the data source for this example. Use the following steps to create an Event Hub.
 
-1. From the [Azure portal preview](https://portal.azure.cn), select **+ New** -> **Internet of Things** -> **Event Hubs**.
+1. From the [Azure Portal](https://portal.azure.cn), select **+ New** -> **Internet of Things** -> **Event Hubs**.
 2. On the **Create Namespace** blade, perform the following tasks:
 
     1. Enter a **Name** for the namespace.
@@ -255,7 +255,7 @@ The steps in this section use an [Azure Resource Manager template](../azure-reso
 
 The Resource Manager template used in this document is located in a public blob container at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json**.
 
-1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal preview.
+1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure Portal.
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.5.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

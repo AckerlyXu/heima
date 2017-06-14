@@ -21,7 +21,7 @@ ms.author: v-dazen
 # Configure web application firewall on a new or existing Application Gateway
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-web-application-firewall-portal.md)
+> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
 Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.

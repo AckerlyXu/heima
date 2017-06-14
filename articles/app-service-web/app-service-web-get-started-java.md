@@ -125,7 +125,7 @@ When the **Create App Service** dialog box is displayed, the initial data which 
 
 If you do not have any existing App Service Plans, or if you would like to create a new service plan, then you will need to provide the following information:
 
-* A unique name for your new service plan; this name will show up when you publish web apps in the future using the Azure Toolkit, and it will be listed in the [Azure Portal Preview](https://portal.azure.cn) when you are managing your account.
+* A unique name for your new service plan; this name will show up when you publish web apps in the future using the Azure Toolkit, and it will be listed in the [Azure Portal](https://portal.azure.cn) when you are managing your account.
 
 * The geographic location where you service plan will be created.
 

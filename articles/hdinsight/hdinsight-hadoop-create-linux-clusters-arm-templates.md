@@ -52,11 +52,11 @@ For more information about Resource Manager templates, see the following article
 
 ## Generate templates
 
-By using the Azure portal preview, you can configure all the properties of a cluster and then save the template before deploying it. You can then reuse the template.
+By using the Azure Portal, you can configure all the properties of a cluster and then save the template before deploying it. You can then reuse the template.
 
-**To generate a template by using the Azure portal preview**
+**To generate a template by using the Azure Portal**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. Click **New** on the left menu, click **Intelligence + analytics**, and then click **HDInsight**.
 3. Follow the instructions to enter properties. You can use either the **Quick create** or the **Custom** option.
 4. On the **Summary** tab, click **Download template and parameters**:

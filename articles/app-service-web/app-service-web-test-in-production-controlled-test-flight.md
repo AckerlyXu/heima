@@ -73,7 +73,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 > [!NOTE]
 > The script used in this tutorial will automatically configure continuous publishing from your GitHub repository. This requires that your GitHub credentials are already stored in Azure, otherwise the scripted deployment will fail when attempting to configure source control settings for the web apps.
 >
-> To store your GitHub credentials in Azure, create a web app in the [Azure Portal Preview](https://portal.azure.cn/) and [configure GitHub deployment](app-service-continuous-deployment.md). You only need to do this once.
+> To store your GitHub credentials in Azure, create a web app in the [Azure Portal](https://portal.azure.cn/) and [configure GitHub deployment](app-service-continuous-deployment.md). You only need to do this once.
 >
 >
 
@@ -99,7 +99,7 @@ In a typical DevOps scenario, you have an application that's running live in Azu
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 7. When the script finishes, go back to browse to the frontend's address (http://ToDoApp*&lt;your_suffix>*.chinacloudsites.cn/) to see the application running in production.
-8. Log into the [Azure Portal Preview](https://portal.azure.cn/) and take a look at what's created.
+8. Log into the [Azure Portal](https://portal.azure.cn/) and take a look at what's created.
 
     You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
 
@@ -111,7 +111,7 @@ You have set up the production app.  Now, let's imagine that you receive feedbac
 1. Open *&lt;repository_root>*\src\MultiChannelToDo.sln in Visual Studio.
 2. Restore all Nuget packages by right-clicking solution > **Manage NuGet Packages for Solution** > **Restore**.
 3. Right-click **MultiChannelToDo.Web** > **Add Application Insights Telemetry** > **Configure Settings** > Change resource group to ToDoApp*&lt;your_suffix>* > **Add Application Insights to Project**.
-4. In the Azure Portal Preview, open the blade for the **MultiChannelToDo.Web** Application Insight resource. Then in the **Application health** part, click **Learn how to collect browser page load data** > copy code.
+4. In the Azure Portal, open the blade for the **MultiChannelToDo.Web** Application Insight resource. Then in the **Application health** part, click **Learn how to collect browser page load data** > copy code.
 5. Add the copied JS instrumentation code to *&lt;repository_root>*\src\MultiChannelToDo.Web\app\Index.cshtml, just before the closing `<heading>` tag. It should contain the unique instrumentation key of your Application Insight resource.
 
         <script type="text/javascript">

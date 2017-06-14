@@ -10,7 +10,7 @@ You can select the time planned maintenance impacts your VMs that are deployed i
 
 1. An email is sent to you seven calendar days before the planned maintenance to your VMs in a Multi-instance configuration. The subscription IDs and names of the affected Multi-instance VMs are included in the body of the email.
 2. During those seven days, you can choose the time your instances are updated by removing your multi-instance VMs in that region from their availability set. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn't targeted for maintenance.
-3. You can remove the VM from its availability set in the Azure portal preview.
+3. You can remove the VM from its availability set in the Azure Portal.
 
    1. In the portal, select the VM to remove from the Availability Set.  
 
@@ -43,7 +43,7 @@ Step-by-step
 
 1. An email is sent to you seven calendar days before the planned maintenance to VMs in a Single-instance configuration. The subscription IDs and names of the affected Single-Instance VMs are included in the body of the email.
 2. During those seven days, you can choose the time your instance reboots by adding your Single-instance VMs to an availability set in that same region. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn't targeted for maintenance.
-3. Follow instructions here to add existing VMs into availability sets using the Azure portal preview and Azure PowerShell. (See the Azure PowerShell sample that follows these steps.)
+3. Follow instructions here to add existing VMs into availability sets using the Azure Portal and Azure PowerShell. (See the Azure PowerShell sample that follows these steps.)
 4. Once these VMs are reconfigured as Multi-instance, they are excluded from the planned maintenance to Single-instance VMs.
 5. Once the single-instance VM update completes (according to schedule in the original email), you can return the VMs to single-instance by removing the VMs from their availability sets.
 

@@ -69,7 +69,7 @@ Before you prepare your environment, please understand the limitations.
 ## Create a recovery services vault for a VM
 A recovery services vault is an entity that stores the backups and recovery points that have been created over time. The recovery services vault also contains the backup policies associated with the protected virtual machines.
 
-Azure Portal Preview does not support Recovery Services in Azure China yet. To create a recovery services vault, follow the PowerShell steps [here](./backup-azure-vms-automation.md#create-a-recovery-services-vault)
+Azure Portal does not support Recovery Services in Azure China yet. To create a recovery services vault, follow the PowerShell steps [here](./backup-azure-vms-automation.md#create-a-recovery-services-vault)
 
 ## Install the VM Agent on the virtual machine
 The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. This information is provided for the situations where you are *not* using a VM created from the Azure gallery - for example you migrated a VM from an on-premises datacenter. In such a case, the VM Agent needs to be installed in order to protect the virtual machine. Learn about the [VM Agent](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).

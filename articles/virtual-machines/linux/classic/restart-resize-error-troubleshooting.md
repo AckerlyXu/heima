@@ -36,7 +36,7 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 ## Collect audit logs
 To start troubleshooting, collect the audit logs to identify the error associated with the issue.
 
-In the Azure portal preview, click **Browse** > **Virtual machines** > *your Linux virtual machine* > **Settings** > **Audit logs**.
+In the Azure Portal, click **Browse** > **Virtual machines** > *your Linux virtual machine* > **Settings** > **Audit logs**.
 
 ## Issue: Error when starting a stopped VM
 You try to start a stopped VM but get an allocation failure.

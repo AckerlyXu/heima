@@ -9,7 +9,7 @@ If you want to use the existing data on the disk again, you can reattach it to t
 ## Find the disk
 If you don't know the name of the disk or want to verify it before you detach it, follow these steps.
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 
 2. Click **Virtual Machines**, and then select the appropriate VM.
 
@@ -20,7 +20,7 @@ If you don't know the name of the disk or want to verify it before you detach it
     ![Find data disk](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
 ## Detach the disk
-1. From the Azure portal preview, click **Virtual Machines**, and then click the name of the virtual machine that has the data disk you want to detach.
+1. From the Azure Portal, click **Virtual Machines**, and then click the name of the virtual machine that has the data disk you want to detach.
 
 2. Click **Disks** along the left edge of the virtual machine dashboard, under **Settings**.
 

@@ -66,7 +66,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started creating a site-to-site connection using the Azure portal preview</h3>
+                        <h3>Get Started creating a site-to-site connection using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started creating a point-to-site connection using the Azure portal preview</h3>
+                        <h3>Get Started creating a point-to-site connection using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started creating a VNet-to-VNet connection using the Azure portal preview</h3>
+                        <h3>Get Started creating a VNet-to-VNet connection using the Azure Portal</h3>
                     </div>
                 </div>
             </div>

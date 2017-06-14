@@ -39,7 +39,7 @@ You will have a basic understanding of how you can use a VNet after completing t
 
 To create a virtual network with two subnets, complete the steps that follow. Different subnets are typically used to control the flow of traffic between subnets.
 
-1. Log in to the [Azure portal preview](<https://portal.azure.cn>). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial). 
+1. Log in to the [Azure Portal](<https://portal.azure.cn>). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial). 
 2. In the **Favorites** pane, of the portal, click **New**.
 3. In the **New** blade, click **Networking**. In the **Networking** blade, click **Virtual network**, as shown in the following picture:
 
@@ -58,9 +58,9 @@ To create a virtual network with two subnets, complete the steps that follow. Di
     |**Resource group**|**Create new:** *MyRG*|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#resource-groups) overview article.|
     |**Location**|*China North*| Typically the location that is closest to your physical location is selected.|
 
-    The VNet takes a few seconds to create. Once it's created, you see the Azure portal preview dashboard.
+    The VNet takes a few seconds to create. Once it's created, you see the Azure Portal dashboard.
 
-6. With the virtual network created, in the Azure portal preview **Favorites** pane, click **All resources**. Click the **MyVNet** virtual network in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter *MyVNet* in the **Filter by name…** box to easily access the VNet.
+6. With the virtual network created, in the Azure Portal **Favorites** pane, click **All resources**. Click the **MyVNet** virtual network in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter *MyVNet* in the **Filter by name…** box to easily access the VNet.
 7. The **MyVNet** blade opens and displays information about the VNet, as shown in the following picture:
 
     ![Virtual network diagram](./media/virtual-network-get-started-vnet-subnet/myvnet.png)
@@ -84,7 +84,7 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 To create the web server VM, complete the following steps:
 
-1. In the Azure portal preview favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
+1. In the Azure Portal favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
 2. In the **Windows Server 2016 Datacenter** blade, click **Create**.
 3. In the **Basics** blade that appears, enter or select the following values and click **OK**:
 
@@ -148,7 +148,7 @@ To create the database server VM, complete the following steps:
 
 ## <a name="review"></a>Review resources
 
-Though you created one VNet and two VMs, the Azure portal preview created several additional resources for you in the MyRG resource group. Review the contents of the MyRG resource group by completing the following steps:
+Though you created one VNet and two VMs, the Azure Portal created several additional resources for you in the MyRG resource group. Review the contents of the MyRG resource group by completing the following steps:
 
 1. In the **Favorites** pane, click **More services**.
 2. In the **More services** pane, type *Resource groups* in the box that has the word *Filter* in it. Click **Resource groups** when you see it in the filtered list.

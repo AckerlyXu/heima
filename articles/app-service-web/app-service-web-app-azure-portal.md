@@ -1,6 +1,6 @@
 ---
-title: Reference for navigating the Azure portal preview
-description: Learn the different user experiences for App Service Web between the management portal and the Azure Portal Preview
+title: Reference for navigating the Azure Portal
+description: Learn the different user experiences for App Service Web between the management portal and the Azure Portal
 services: app-service
 documentationcenter: ''
 author: jaime-espinosa
@@ -18,18 +18,18 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Reference for navigating the Azure portal preview
-Azure Websites are now called [App Service Web Apps](/app-service-web/app-service-changes-existing-services). We're updating all of our documentation to reflect this name change and to provide instructions for the Azure Portal Preview. Until that process is done, you can use this document as a guide for working with Web Apps in the Azure portal preview.
+# Reference for navigating the Azure Portal
+Azure Websites are now called [App Service Web Apps](/app-service-web/app-service-changes-existing-services). We're updating all of our documentation to reflect this name change and to provide instructions for the Azure Portal. Until that process is done, you can use this document as a guide for working with Web Apps in the Azure Portal.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## The future of the Azure Classic Management Portal
-While you will notice the branding changes on the Azure Classic Management Portal, that portal is in the process of being replaced by the Azure Portal Preview. As the Classic Management Portal is being phased out, the focus for new development is shifting to the Azure Portal Preview. All upcoming new features for Web Apps will come in the Azure Portal Preview. Start using the Azure Portal Preview to take advantage of the latest and greatest that Web Apps have to offer.
+While you will notice the branding changes on the Azure Classic Management Portal, that portal is in the process of being replaced by the Azure Portal. As the Classic Management Portal is being phased out, the focus for new development is shifting to the Azure Portal. All upcoming new features for Web Apps will come in the Azure Portal. Start using the Azure Portal to take advantage of the latest and greatest that Web Apps have to offer.
 
-## Layout differences between the Azure Classic Management Portal and Azure Portal Preview
+## Layout differences between the Azure Classic Management Portal and Azure Portal
 In the Classic Management Portal, all the Azure services are listed on the left hand side. Navigation in the Classic Management Portal follows a tree structure, where you start from the service and navigate into each element. This structure works well when managing independent components. However, applications built on Azure are a collection of interconnected services, and this tree structure isn't ideal for working with collections of services. 
 
-The Azure portal preview makes it easy to build applications end-to-end with components from multiple services. The portal is organized as *journeys*. A *journey* is a series of *blades*, which are containers for the different components. For example, setting up auto-scaling for a web app is a *journey* which takes you several blades as shown in the following example: the **web-site** blade (that blade title has not yet been updated to use the new terminology), the **Settings** blade, and the **Scale out** blade. In the example, auto scaling is being set up to depend on CPU usage, so there is also a **CPU Percentage** blade. The components within the *blades* are called *parts*, which look like tiles. 
+The Azure Portal makes it easy to build applications end-to-end with components from multiple services. The portal is organized as *journeys*. A *journey* is a series of *blades*, which are containers for the different components. For example, setting up auto-scaling for a web app is a *journey* which takes you several blades as shown in the following example: the **web-site** blade (that blade title has not yet been updated to use the new terminology), the **Settings** blade, and the **Scale out** blade. In the example, auto scaling is being set up to depend on CPU usage, so there is also a **CPU Percentage** blade. The components within the *blades* are called *parts*, which look like tiles. 
 
 ![](./media/app-service-web-app-azure-portal/AutoScaling.png)
 
@@ -71,7 +71,7 @@ Other than the brand name, a few things in the portal have been renamed or group
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)

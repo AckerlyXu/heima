@@ -1,6 +1,6 @@
 ---
 title: Monitor Apps in Azure App Service | Azure
-description: Learn how to monitor Apps in Azure App Service by using the Azure Portal Preview.
+description: Learn how to monitor Apps in Azure App Service by using the Azure Portal.
 services: app-service
 documentationcenter: ''
 author: btardif
@@ -20,7 +20,7 @@ ms.author: v-dazen
 ---
 # How to: Monitor Apps in Azure App Service
 [App Service](/app-service-web/app-service-changes-existing-services) provides
-built in monitoring functionality in the [Azure Portal Preview](https://portal.azure.cn).
+built in monitoring functionality in the [Azure Portal](https://portal.azure.cn).
 This includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
 automatically based on these metrics.
@@ -159,9 +159,9 @@ the service with the following granularities and retention policies:
 * **Hour** granularity metrics are retained for **30 days**
 * **Day** granularity metrics are retained for **90 days**
 
-## Monitoring Quotas and Metrics in the Azure Portal Preview.
+## Monitoring Quotas and Metrics in the Azure Portal.
 You can review the status of the different **quotas** and **metrics**
-affecting an application in the [Azure Portal Preview](https://portal.azure.cn).
+affecting an application in the [Azure Portal](https://portal.azure.cn).
 
 ![][quotas]
 **Quotas** can be found under Settings>**Quotas**. The UX allows you to

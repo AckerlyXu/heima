@@ -33,7 +33,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     b. Right-click the IP resource, and then click properties. Note the name of the IP address, and use it in the `$IPResourceName` variable in the PowerShell script.
 
-    c. Under **IP Address**, click **Static IP Address**. Set the IP address as the same address that you used when you set the load balancer address on the Azure portal preview.
+    c. Under **IP Address**, click **Static IP Address**. Set the IP address as the same address that you used when you set the load balancer address on the Azure Portal.
 
     ![IP Resource](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
@@ -77,7 +77,7 @@ The availability group listener is an IP address and network name that the SQL S
     ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
     $IPResourceName = "<IPResourceName>" # the IP Address resource name
-    $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal preview.
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure Portal.
     [int]$ProbePort = <nnnnn>
 
     Import-Module FailoverClusters

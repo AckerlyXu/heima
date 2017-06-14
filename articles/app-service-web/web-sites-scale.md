@@ -41,7 +41,7 @@ For information about the pricing and features of individual App Service plans, 
 
 <a name="scalingsharedorbasic"></a>
 ## <a name="scalingstandard"></a> Scale up your pricing tier
-1. In your browser, open the [Azure portal preview][portal].
+1. In your browser, open the [Azure Portal][portal].
 2. In your app's blade, click **All settings**, and then click **Scale Up**.
 
     ![Navigate to scale up your Azure app.][ChooseWHP]

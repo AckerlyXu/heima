@@ -102,7 +102,7 @@ Events](../virtual-machines-scheduled-events.md).
 ## Maintenance discovery and notifications
 
 Maintenance schedule is visible to customers at the level of individual
-VMs. You can use Azure portal preview, API, PowerShell, or CLI to query for the
+VMs. You can use Azure Portal, API, PowerShell, or CLI to query for the
 pre-emptive and scheduled maintenance windows. In addition, expect to
 receive a notification (email) in the case where one (or more) of your
 VMs are impacted during the process.
@@ -115,9 +115,9 @@ maintenance notification.
 
 ### View the maintenance window in the portal 
 
-You can use the Azure portal preview and look for VMs scheduled for maintenance.
+You can use the Azure Portal and look for VMs scheduled for maintenance.
 
-1.  Sign in to the Azure portal preview.
+1.  Sign in to the Azure Portal.
 
 2.  Click and open the **Virtual Machines** blade.
 

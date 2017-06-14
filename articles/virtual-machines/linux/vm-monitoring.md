@@ -19,12 +19,12 @@ ms.author: v-dazen
 
 ---
 # Enable or Disable Azure VM Monitoring
-This section describes how to enable or disable monitoring on Virtual machines running on Azure. By default monitoring is enabled on Azure Virtual machines if deployed from the [Azure portal preview](https://portal.azure.cn) and monitoring graphs are provided by default with a 1-minute period. You can enable or disable monitoring using the portal or Azure Command-line Interface for Mac, Linux, and Windows (the Azure CLI). 
+This section describes how to enable or disable monitoring on Virtual machines running on Azure. By default monitoring is enabled on Azure Virtual machines if deployed from the [Azure Portal](https://portal.azure.cn) and monitoring graphs are provided by default with a 1-minute period. You can enable or disable monitoring using the portal or Azure Command-line Interface for Mac, Linux, and Windows (the Azure CLI). 
 
-## Enable / Disable Monitoring through the Azure Portal Preview
-You can enable  monitoring of your Azure VM, which provides data about your instance in 1-minute periods. (storage changes apply). Detailed diagnostics data is then available for the VM in the portal graphs or through the API. By default, Azure portal preview enables monitoring, but you can turn it off as described below. You can enable monitoring while the VM is running or in stopped state.
+## Enable / Disable Monitoring through the Azure Portal
+You can enable  monitoring of your Azure VM, which provides data about your instance in 1-minute periods. (storage changes apply). Detailed diagnostics data is then available for the VM in the portal graphs or through the API. By default, Azure Portal enables monitoring, but you can turn it off as described below. You can enable monitoring while the VM is running or in stopped state.
 
-* Open the Azure portal preview at **[https://portal.azure.cn](https://portal.azure.cn)**
+* Open the Azure Portal at **[https://portal.azure.cn](https://portal.azure.cn)**
 * In the left navigation, click Virtual machines.
 * In the list Virtual machines, select a running or stopped instance. Virtual machine blad will open.
 * Click "All settings".
@@ -33,7 +33,7 @@ You can enable  monitoring of your Azure VM, which provides data about your inst
 
 [Azure.Note] The Diagnostics On switch is the default when you create a new virtual machine
 
-![Enable / Disable Monitoring through the Azure Portal Preview.][1]
+![Enable / Disable Monitoring through the Azure Portal.][1]
 
 ## Enable / Disable Monitoring with Azure CLI
 To enable monitoring for an Azure VM.

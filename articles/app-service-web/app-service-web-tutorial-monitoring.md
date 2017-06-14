@@ -33,7 +33,7 @@ Each section of this document goes over a specific feature. Using the features t
 - App performance
 - Resource consumption
 
-When investigating an application issue, reviewing metrics is a good place to start. Azure portal preview has a quick way to visually inspect the metrics of your app using **Azure Monitor**.
+When investigating an application issue, reviewing metrics is a good place to start. Azure Portal has a quick way to visually inspect the metrics of your app using **Azure Monitor**.
 
 Metrics provide a historical view across several key aggregations for your app. For any app hosted in app service, you should monitor both the Web App and the App Service plan.
 
@@ -80,7 +80,7 @@ Provide values for the Alert configuration:
 - **Period:** Alerts operate over the average value of a metric. Smaller periods of time yield more sensitive alerts. in this case we are looking at *5 Minutes*.
 - **Email Owners and contributors:** in this case: *Enabled*.
 
-Now that the alert is created an email is sent every time the app goes over the configured threshold. Active alerts can also be reviewed in the Azure portal preview.
+Now that the alert is created an email is sent every time the app goes over the configured threshold. Active alerts can also be reviewed in the Azure Portal.
 
 ![Triggered Alerts](./media/app-service-web-tutorial-monitoring/app-service-monitor-alerts-triggered.png)
 

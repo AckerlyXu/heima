@@ -190,7 +190,7 @@ Use the following steps to import data from the CSV file into a Hive table named
 
 ## Create a SQL Database
 
-If you already have a SQL Database, you must get the server name. You can find the server name in the [Azure portal preview](https://portal.azure.cn) by selecting **SQL Databases**, and then filtering on the name of the database you wish to use. The server name is listed in the **SERVER** column.
+If you already have a SQL Database, you must get the server name. You can find the server name in the [Azure Portal](https://portal.azure.cn) by selecting **SQL Databases**, and then filtering on the name of the database you wish to use. The server name is listed in the **SERVER** column.
 
 If you do not already have a SQL Database, use the information in [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md) to create one. Save the server name used for the database.
 

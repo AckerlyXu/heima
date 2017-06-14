@@ -84,9 +84,9 @@ Before you start this step, make sure that you have access to an [Active Directo
 
     Replace these values:
 
-    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal preview, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
+    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure Portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
     - *client-secret* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal preview. It is labeled *Directory ID*.
+    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure Portal. It is labeled *Directory ID*.
 
 3. To call the method that you previously added, add this code to the Main method in the Program.cs file:
 
@@ -123,7 +123,7 @@ All resources must be contained in a resource group. Before you can add resource
     Replace these values:
 
     - All resource names that start with *my*, with names that make sense for your environment.
-    - *subscriptionId* with your subscription identifier. You can find the subscription identifier on the Subscriptions blade of the Azure portal preview.
+    - *subscriptionId* with your subscription identifier. You can find the subscription identifier on the Subscriptions blade of the Azure Portal.
     - *location* with the Azure region where you want to create the resources.
     - *adminName* with the name of the administrator account on the virtual machine.
     - *adminPassword* with the password of the administrator account.
@@ -564,7 +564,7 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 2. Press **Enter** after the *Succeeded* status appears. 
 
-3. After the virtual machine is created and before you press **Enter** to start deleting resources, you could take a few minutes to inspect the resources in the Azure portal preview.
+3. After the virtual machine is created and before you press **Enter** to start deleting resources, you could take a few minutes to inspect the resources in the Azure Portal.
 
 ## Next Steps
 * Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

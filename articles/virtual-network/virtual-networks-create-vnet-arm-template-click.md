@@ -223,11 +223,11 @@ You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub 
 8. Click **Legal terms**, read the terms, and click **Buy** to agree. 
 9. Click **Create** to create the VNet.
 
-    ![Submitting deployment tile in Portal Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+    ![Submitting deployment tile in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Once the deployment is complete, in the Azure portal preview click **More services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
+10. Once the deployment is complete, in the Azure Portal click **More services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
 
-     ![Create VNet in Portal Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
+     ![Create VNet in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
 ## Next steps
 

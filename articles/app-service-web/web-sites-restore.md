@@ -31,7 +31,7 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tie
 backups to be performed than **Standard** tier.
 
 ## <a name="PreviousBackup"></a> Restore an app from an existing backup
-1. On the **Settings** blade of your app in the Azure portal preview, click **Backups** to display the **Backups** blade. Then click **Restore Now** in the command bar.
+1. On the **Settings** blade of your app in the Azure Portal, click **Backups** to display the **Backups** blade. Then click **Restore Now** in the command bar.
 
     ![Choose restore now][ChooseRestoreNow]
 2. In the **Restore** blade, first select the backup source.
@@ -58,7 +58,7 @@ backups to be performed than **Standard** tier.
 4. Click **OK**.
 
 ## <a name="StorageAccount"></a> Download or delete a backup from a storage account
-1. From the main **Browse** blade of the Azure portal preview, select **Storage accounts**. A list of your existing storage accounts is displayed.
+1. From the main **Browse** blade of the Azure Portal, select **Storage accounts**. A list of your existing storage accounts is displayed.
 2. Select the storage account that contains the backup that you want to download or delete.The blade for the storage account is displayed.
 3. In the storage account blade, select the container you want
 
@@ -69,7 +69,7 @@ backups to be performed than **Standard** tier.
 5. Click **Download** or **Delete** depending on what you want to do.  
 
 ## <a name="OperationLogs"></a> Monitor a restore operation
-To see details about the success or failure of the app restore operation, navigate to the **Activity Log** blade in the Azure portal preview.  
+To see details about the success or failure of the app restore operation, navigate to the **Activity Log** blade in the Azure Portal.  
 
 Scroll down to find the desired restore operation and click to select it.
 

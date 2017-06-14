@@ -74,11 +74,11 @@ To use the Blob service with Hudson, you'll need to install the Azure Storage pl
 2. On the **Manage Hudson** page, click **Configure System**.
 3. In the **Microsoft Azure Storage Account Configuration** section:
 
-    a. Enter your storage account name, which you can obtain from the [Azure Portal preview](https://portal.azure.cn).
+    a. Enter your storage account name, which you can obtain from the [Azure Portal](https://portal.azure.cn).
 
-    b. Enter your storage account key, also obtainable from the [Azure Portal preview](https://portal.azure.cn).
+    b. Enter your storage account key, also obtainable from the [Azure Portal](https://portal.azure.cn).
 
-    c. Use the default value for **Blob Service Endpoint URL** if you are using the public Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure Portal preview](https://portal.azure.cn) for your storage account.
+    c. Use the default value for **Blob Service Endpoint URL** if you are using the public Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure Portal](https://portal.azure.cn) for your storage account.
 
     d. Click **Validate storage credentials** to validate your storage account.
 
@@ -117,7 +117,7 @@ For instruction purposes, first we'll need to create a job that will create seve
 13. In the Hudson dashboard, click **Build Now** to run **MyJob**. Examine the console output for status. Status messages for Azure Storage will be included in the console output when the post-build action starts to upload build artifacts.
 14. Upon successful completion of the job, you can examine the build artifacts by opening the public blob.
 
-    a. Sign in to the [Azure Portal preview](https://portal.azure.cn).
+    a. Sign in to the [Azure Portal](https://portal.azure.cn).
 
     b. Click **Storage**.
 

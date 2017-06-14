@@ -279,13 +279,13 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 16. Add "swagger" to the URL in the browser's address bar, and then press Enter. (The URL is `http://{apiappname}.chinacloudsites.cn/swagger`.)
 
     The browser displays the same Swagger UI that you saw earlier, but now it's running in the cloud. Try out the Get method, and you see that you're back to the default 2 to-do items. The changes you made earlier were saved in memory in the local machine.
-17. Open the [Azure portal preview](https://portal.azure.cn/).
+17. Open the [Azure Portal](https://portal.azure.cn/).
 
-    The Azure portal preview is a web interface for managing Azure resources such as API apps.
+    The Azure Portal is a web interface for managing Azure resources such as API apps.
 18. Click **More Services > App Services**.
 
     ![Browse App Services](./media/app-service-api-dotnet-get-started/browseas.png)
-19. In the **App Services** blade, find and click your new API app. (In the Azure portal preview, windows that open to the right are called *blades*.)
+19. In the **App Services** blade, find and click your new API app. (In the Azure Portal, windows that open to the right are called *blades*.)
 
     ![App Services blade](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
@@ -392,7 +392,7 @@ Earlier you [created the data tier API app and deployed code to it](#createapiap
 ## Configure the middle tier to call the data tier
 If you called the middle tier API app now, it would try to call the data tier using the localhost URL that is still in the Web.config file. In this section you enter the data tier API app URL into an environment setting in the middle tier API app. When the code in the middle tier API app retrieves the data tier URL setting, the environment setting will override what's in the Web.config file.
 
-1. Go to the [Azure portal preview](https://portal.azure.cn/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
+1. Go to the [Azure Portal](https://portal.azure.cn/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
 2. In the API App's **Settings** blade, click **Application settings**.
 3. In the API App's **Application Settings** blade, scroll down to the **App settings** section and add the following key and value. The value will be the URL of the first API App you published in this tutorial.
 

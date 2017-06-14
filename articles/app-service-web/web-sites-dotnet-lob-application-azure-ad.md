@@ -75,7 +75,7 @@ You need the following to complete this tutorial:
     ![](./media/web-sites-dotnet-lob-application-azure-ad/4-published-shown-in-browser.png)
 
 ## <a name="bkmk_auth"></a> Configure authentication and directory access
-1. Log in to the [Azure portal preview](https://portal.azure.cn).
+1. Log in to the [Azure Portal](https://portal.azure.cn).
 2. From the left menu, click **App Services** > **&lt;*appname*>** > **Authentication / Authorization**.
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)

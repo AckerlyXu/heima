@@ -120,7 +120,7 @@ The first step is to generate the .cer file. The second step is to upload the .c
 
 The certificate will be found in the location that **$Configuration.GeneratedCertificatePath** specifies.
 
-To upload the certificate manually, use the [Azure portal preview][azureportal] and **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates**. From here, upload your certificate.
+To upload the certificate manually, use the [Azure Portal][azureportal] and **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates**. From here, upload your certificate.
 
 ##### Get the point-to-site package
 The next step in setting up a virtual network connection on a web app is to get the point-to-site package and provide it to your web app.

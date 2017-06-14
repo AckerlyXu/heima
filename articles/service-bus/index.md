@@ -65,7 +65,7 @@ Learn how to use Service Bus to connect across on-premises and cloud environment
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Service Bus using the Azure portal preview</h3>
+                        <h3>Get Started with Service Bus using the Azure Portal</h3>
                     </div>
                 </div>
             </div>

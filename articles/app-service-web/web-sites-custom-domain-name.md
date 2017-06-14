@@ -32,7 +32,7 @@ there are three main steps to map the custom domain to your app:
     * **Where**: your domain registrar's own management tool (e.g. Azure DNS, GoDaddy, etc.).
     * **Why**: so your domain registrar knows to resolves the desired custom domain to your Azure app.
 3. [Enable the custom domain name for your Azure app](#enable).
-    * **Where**: the [Azure portal preview](https://portal.azure.cn).
+    * **Where**: the [Azure Portal](https://portal.azure.cn).
     * **Why**: so your app knows to respond to requests made to the custom domain name.
 4. [Verify DNS propagation](#verify).
 
@@ -71,7 +71,7 @@ The tutorial shows you steps for using the A record and also for using the CNAME
 To map a custom domain name using an A record, you need your Azure app's IP address. If you will map using a CNAME record
 instead, skip this step and move onto the next section.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn).
+1. Log in to the [Azure Portal](https://portal.azure.cn).
 2. Click **App Services** on the left menu.
 3. Click your app, then click **Custom domains**.
 4. Take note of the IP address above Hostnames section..
@@ -180,11 +180,11 @@ Configure your CNAME record as follows (@ typically represents the root domain):
 </table>
 
 ## <a name="enable"></a> Step 3. Enable the custom domain name for your app
-Back in the **Custom Domains** blade in the Azure portal preview (see [Step 1](#vip)), you need to add the fully-qualified
+Back in the **Custom Domains** blade in the Azure Portal (see [Step 1](#vip)), you need to add the fully-qualified
 domain name (FQDN) of your custom domain to the list.
 
-1. If you haven't done so, log in to the [Azure portal preview](https://portal.azure.cn).
-2. In the Azure portal preview, click **App Services** on the left menu.
+1. If you haven't done so, log in to the [Azure Portal](https://portal.azure.cn).
+2. In the Azure Portal, click **App Services** on the left menu.
 3. Click your app, then click **Custom domains** > **Add hostname**.
 4. Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
 

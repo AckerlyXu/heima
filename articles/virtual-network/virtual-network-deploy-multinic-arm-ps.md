@@ -44,7 +44,7 @@ Before you can create the DB servers, you need to create the *IaaSStory* resourc
 
 1. Navigate to [the template page](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
 2. In the template page, to the right of **Parent resource group**, click **Deploy to Azure**.
-3. If needed, change the parameter values, then follow the steps in the Azure Portal Preview to deploy the resource group.
+3. If needed, change the parameter values, then follow the steps in the Azure Portal to deploy the resource group.
 
 > [!IMPORTANT]
 > Make sure your storage account names are unique. You cannot have duplicate storage account names in Azure.

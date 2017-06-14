@@ -52,7 +52,7 @@ This article shows you how to use Azure PowerShell to create an image of a gener
     Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
 
-    The *Status* for the VM in the Azure portal preview changes from **Stopped** to **Stopped (deallocated)**.
+    The *Status* for the VM in the Azure Portal changes from **Stopped** to **Stopped (deallocated)**.
 2. Set the status of the virtual machine to **Generalized**. 
 
     ```powershell

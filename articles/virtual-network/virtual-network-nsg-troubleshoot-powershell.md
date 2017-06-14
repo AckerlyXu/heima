@@ -21,7 +21,7 @@ ms.author: v-dazen
 ---
 # Troubleshoot Network Security Groups using Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal Preview](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 

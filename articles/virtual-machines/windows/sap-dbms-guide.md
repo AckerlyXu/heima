@@ -504,7 +504,7 @@ Whereas using the DS or GS-series of Azure VMs it is possible to mount VHDs out 
 
 Based on customer deployments and testing around 30 to 40 VHDs containing database data files and log files can be provisioned on a single Azure Standard Storage Account with acceptable performance. As mentioned earlier, the limitation of an Azure Premium Storage Account is likely to be the data capacity it can hold and not IOPS.
 
-As with SAN devices on-premises, sharing requires some monitoring in order to eventually detect bottlenecks on an Azure Storage Account. The Azure Monitoring Extension for SAP and the Azure Portal Preview are tools that can be used to detect busy Azure Storage Accounts that may be delivering suboptimal IO performance.  If this situation is detected it is recommended to move busy VMs to another Azure Storage Account. Please refer to the [Deployment Guide][deployment-guide] for details on how to activate the SAP host monitoring capabilities.
+As with SAN devices on-premises, sharing requires some monitoring in order to eventually detect bottlenecks on an Azure Storage Account. The Azure Monitoring Extension for SAP and the Azure Portal are tools that can be used to detect busy Azure Storage Accounts that may be delivering suboptimal IO performance.  If this situation is detected it is recommended to move busy VMs to another Azure Storage Account. Please refer to the [Deployment Guide][deployment-guide] for details on how to activate the SAP host monitoring capabilities.
 
 Another article summarizing best practices around Azure Standard Storage and Azure Standard Storage Accounts can be found here <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
@@ -553,7 +553,7 @@ If we want to create highly available configurations of DBMS deployments (indepe
 #### IP Addresses
 It is highly recommended to setup the VMs for HA configurations in a resilient way. Relying on IP addresses to address the HA partner(s) within the HA configuration is not reliable in Azure unless static IP addresses are used. There are two "Shutdown" concepts in Azure:
 
-* Shut down through Azure Portal Preview or Azure PowerShell cmdlet Stop-AzureRmVM: In this case the Virtual Machine gets shutdown and de-allocated. Your Azure account will no longer be charged for this VM so the only charges that will incur are for the storage used. However, if the private IP address of the network interface was not static, the IP address is released and it is not guaranteed that the network interface gets the old IP address assigned again after a restart of the VM. Performing the shut down through the Azure Portal Preview or by calling Stop-AzureRmVM will automatically cause de-allocation. If you do not want to deallocat the machine use Stop-AzureRmVM -StayProvisioned
+* Shut down through Azure Portal or Azure PowerShell cmdlet Stop-AzureRmVM: In this case the Virtual Machine gets shutdown and de-allocated. Your Azure account will no longer be charged for this VM so the only charges that will incur are for the storage used. However, if the private IP address of the network interface was not static, the IP address is released and it is not guaranteed that the network interface gets the old IP address assigned again after a restart of the VM. Performing the shut down through the Azure Portal or by calling Stop-AzureRmVM will automatically cause de-allocation. If you do not want to deallocat the machine use Stop-AzureRmVM -StayProvisioned
 * If you shut down the VM from an OS level, the VM gets shut down and NOT de-allocated. However, in this case, your Azure account will still be charged for the VM, despite the fact that it is shutdown. In such a case, the assignment of the IP address to a stopped VM will remain intact. Shutting down the VM from within will not automatically force de-allocation.
 
 Even for Cross-Premises scenarios, by default a shutdown and de-allocation will mean de-assignment of the IP addresses from the VM, even if on-premises policies in DHCP settings are different.
@@ -710,7 +710,7 @@ But when using the 'Microsoft SQL Server Backup to Azure Tool' in older releases
 However, keep in mind, the throughput also is dependent on the location of the Azure Storage Account you use for the backup. An idea might be to locate the storage account in a different region than the VMs are running in. E.g. you would run the VM configuration in China-North, but put the Storage Account that you use to back up against in China-North. That certainly will have impact on the backup throughput and is not likely to generate a throughput of 150MB/sec as it seems to be possible in cases where the target storage and the VMs are running in the same regional datacenter.
 
 #### Managing Backup BLOBs
-There is a requirement to manage the backups on your own. Since the expectation is that many blobs will be created by executing frequent transaction log backups, administration of those blobs easily can overburden the Azure Portal Preview. Therefore, it is recommendable to leverage a Azure Storage Explorer. There are several good ones available which can help to manage an Azure storage account
+There is a requirement to manage the backups on your own. Since the expectation is that many blobs will be created by executing frequent transaction log backups, administration of those blobs easily can overburden the Azure Portal. Therefore, it is recommendable to leverage a Azure Storage Explorer. There are several good ones available which can help to manage an Azure storage account
 
 * Microsoft Visual Studio with Azure SDK installed (<https://review.docs.azure.cn/downloads/>)
 * Azure Storage Explorer (<https://review.docs.azure.cn/downloads/>)
@@ -906,7 +906,7 @@ Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azur
 
 In this case you need to make sure to:
 
-* Add Inbound rules to the Network Security Group in the Azure Portal Preview for the TCP/IP ports used to communicate with ICM
+* Add Inbound rules to the Network Security Group in the Azure Portal for the TCP/IP ports used to communicate with ICM
 * Add Inbound rules to the Windows Firewall configuration for the TCP/IP ports used to communicate with the ICM
 
 For an automated imported of all corrections available, it is recommended to periodically apply the correction collection SAP Note applicable to your SAP version:
@@ -1063,7 +1063,7 @@ Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azur
 
 In this case you need to make sure to:
 
-* Add Inbound rules to the Network Security Group in the Azure Portal Preview for the TCP/IP ports used to communicate with ICM
+* Add Inbound rules to the Network Security Group in the Azure Portal for the TCP/IP ports used to communicate with ICM
 * Add Inbound rules to the Windows Firewall configuration for the TCP/IP ports used to communicate with the ICM
 
 For an automated imported of all corrections available, it is recommended to periodically apply the correction collection SAP Note applicable to your SAP version:

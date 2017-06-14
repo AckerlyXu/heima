@@ -27,7 +27,7 @@ This tutorial shows you how to create a PHP-MySQL web app and how to deploy it t
 
 You will learn:
 
-* How to create a web app and a MySQL database using the [Azure Portal Preview][management-portal]. Because PHP is enabled in [App Service Web Apps](/app-service-web/app-service-changes-existing-services) by default, nothing special is required to run your PHP code.
+* How to create a web app and a MySQL database using the [Azure Portal][management-portal]. Because PHP is enabled in [App Service Web Apps](/app-service-web/app-service-changes-existing-services) by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
 * How to enable the Composer extension to automate Composer tasks at every `git push`.
 
@@ -41,7 +41,7 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 ## <a id="create-web-site-and-set-up-git"></a> Create a web app and set up Git publishing
 Follow these steps to create a web app and a MySQL database:
 
-1. Login to the [Azure Portal Preview][management-portal].
+1. Login to the [Azure Portal][management-portal].
 2. Click the **New** icon.
 3. Click **See All** next to **Marketplace**. 
 4. Click **Web + Mobile**, then **Web app**. Then, click **Create**.
@@ -117,7 +117,7 @@ To build and run the application locally, follow the steps below. Note that thes
         <?php
             // DB connection info
             //TODO: Update the values for $host, $user, $pwd, and $db
-            //using the values you retrieved earlier from the Azure Portal Preview.
+            //using the values you retrieved earlier from the Azure Portal.
             $host = "value of Data Source";
             $user = "value of User Id";
             $pwd = "value of Password";
@@ -183,11 +183,11 @@ You can now browse to **http://localhost:8000/** to test the application.
 After you have tested your app locally, you can publish it to Web Apps using Git. You will initialize your local Git repository and publish the application.
 
 > [!NOTE]
-> These are the same steps shown in the Azure Portal Preview at the end of the Create a web app and Set up Git Publishing section above.
+> These are the same steps shown in the Azure Portal at the end of the Create a web app and Set up Git Publishing section above.
 > 
 > 
 
-1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the web app properties on the Azure Portal Preview.
+1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the web app properties on the Azure Portal.
 2. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
 
         git init
@@ -226,7 +226,7 @@ To publish changes to your app, follow these steps:
 By default, the git deployment process in App Service doesn't do anything with composer.json, if you have one in your PHP
 project. You can enable composer.json processing during `git push` by enabling the Composer extension.
 
-1. In your PHP web app's blade in the [Azure portal preview][management-portal], click **Tools** > **Extensions**.
+1. In your PHP web app's blade in the [Azure Portal][management-portal], click **Tools** > **Extensions**.
 
     ![Composer Extension Settings][composer-extension-settings]
 2. Click **Add**, then click **Composer**.

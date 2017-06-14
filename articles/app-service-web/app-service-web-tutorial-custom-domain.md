@@ -50,7 +50,7 @@ To map a custom DNS name, your [App Service plan](https://www.azure.cn/pricing/d
 
 ### Sign in to Azure
 
-Open the Azure portal preview. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
+Open the Azure Portal. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
 
 ### Navigate to your app
 From the left menu, click **App Services**, then click the name of your app.
@@ -205,7 +205,7 @@ Your DNS records page should look like the following screenshot:
 
 You are now ready to add your configured DNS name to your app.
 
-Back in your app's **Custom domains** page in the Azure portal preview, you need to add the fully qualified custom DNS name (`contoso.com`) to the list.
+Back in your app's **Custom domains** page in the Azure Portal, you need to add the fully qualified custom DNS name (`contoso.com`) to the list.
 
 Click the **+** icon next to **Add hostname**.
 

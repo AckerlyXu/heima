@@ -62,10 +62,10 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a virtual network in the new region](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
-1. [Configure a VNet-to-VNet connection using the Azure portal preview](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. [Configure a VNet-to-VNet connection using the Azure Portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
     >[!NOTE]
-    >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal preview](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+    >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure Portal](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
 1. [Create a domain controller in the new region](../../../active-directory/active-directory-new-forest-virtual-machine.md).
 
@@ -128,7 +128,7 @@ Run the PowerShell script with the cluster network name, IP address, and probe p
 ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal preview.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure Portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters

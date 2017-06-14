@@ -133,7 +133,7 @@ The following examples demonstrate how to create a Network Security Group that a
 > [!IMPORTANT]
 > These addresses are for regions that do not have specific IP addresses listed. To find the IP addresses for your region, use the information in the [Secured Virtual Networks](#secured-virtual-networks) section.
 
-These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure portal preview](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 > [!WARNING]
 > Rules are tested against network traffic in order by __priority__. Once a rule matches the test criteria, it is applied and no more rules are tested for that request. If you have a rule that broadly blocks inbound traffic (such as a **deny all** rule), it __must__ come after the rules that allow traffic.

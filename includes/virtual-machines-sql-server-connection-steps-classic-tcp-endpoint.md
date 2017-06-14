@@ -6,7 +6,7 @@ In order to access SQL Server from the internet, the virtual machine must have a
 > 
 > 
 
-1. On the Azure Portal Preview, select **Virtual machines (classic)**.
+1. On the Azure Portal, select **Virtual machines (classic)**.
 2. Then select you SQL Server virtual machine.
 3. Select **Endpoints**, and then click the **Add** button at the top of the Endpoints blade.
 

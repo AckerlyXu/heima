@@ -37,7 +37,7 @@ Azure Resource Manager relies on different resource providers to provide access 
     * Node.JS SDK
     * Java SDK
     * Azure CLI
-    * Portal Preview
+    * Portal
     * Resource Manager template language
 
 ## Network resources
@@ -79,7 +79,7 @@ You can check the individual properties of resources in the sections below.
 You can manage your Azure networking resources using different interfaces. In this document we will focus on tow of those interfaces: REST API, and templates.
 
 ### REST API
-As mentioned earlier, network resources can be managed via a variety of interfaces, including REST API,.NET SDK, Node.JS SDK, Java SDK, PowerShell, CLI, Azure Portal Preview and templates.
+As mentioned earlier, network resources can be managed via a variety of interfaces, including REST API,.NET SDK, Node.JS SDK, Java SDK, PowerShell, CLI, Azure Portal and templates.
 
 The Rest API's conform to the HTTP 1.1 protocol specification. The general URI structure of the API is presented below:
 
@@ -243,7 +243,7 @@ The sample template above uses the virtual network and subnet resources. There a
 You can deploy services to Azure from a template by using PowerShell, AzureCLI, or by performing a click to deploy from GitHub. To deploy services from a template in GitHub, execute the following steps:
 
 1. Open the template3 file from GitHub. As an example, open [Virtual network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), and take a look at the template. (Do not click the **Deploy to Azure**, because it is for Global Azure)
-2. Click on **[Deploy to Azure](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vnet-two-subnets%2Fazuredeploy.json)** here, and then sign in on to the Azure portal preview with your credentials.
+2. Click on **[Deploy to Azure](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vnet-two-subnets%2Fazuredeploy.json)** here, and then sign in on to the Azure Portal with your credentials.
 3. Verify the template, and then click **Save**.
 4. Click **Edit parameters** and select a location, such as *China North*, for the vnet and subnets.
 5. If necessary, change the **ADDRESSPREFIX** and **SUBNETPREFIX** parameters, and then click **OK**.

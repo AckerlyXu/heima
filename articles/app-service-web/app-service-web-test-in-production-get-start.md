@@ -42,7 +42,7 @@ At the basic level in every TiP scenario, you route a predefined percentage of y
 > 
 > 
 
-1. Log into the [Azure Portal Preview](https://portal.azure.cn/).
+1. Log into the [Azure Portal](https://portal.azure.cn/).
 2. In your web app's blade, click **Settings** > **Traffic Routing**.
    ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Select the slot that you want to route traffic to and the percentage of the total traffic you desire, then click **Save**.

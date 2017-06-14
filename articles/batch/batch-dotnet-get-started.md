@@ -103,7 +103,7 @@ private const string StorageAccountKey  = "";
 >
 >
 
-You can find your Batch and Storage account credentials within the account blade of each service in the [Azure portal Preview][azure_portal]:
+You can find your Batch and Storage account credentials within the account blade of each service in the [Azure Portal][azure_portal]:
 
 ![Batch credentials in the portal][9]
 ![Storage credentials in the portal][10]<br/>
@@ -702,7 +702,7 @@ if (response != "n" && response != "no")
 >
 
 ## Run the *DotNetTutorial* sample
-When you run the sample application, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Azure portal Preview][azure_portal] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal Preview][azure_portal] or the [Azure Storage Explorer][storage_explorers] to view the Storage resources (containers and blobs) that are created by the application.
+When you run the sample application, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Azure Portal][azure_portal] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure Portal][azure_portal] or the [Azure Storage Explorer][storage_explorers] to view the Storage resources (containers and blobs) that are created by the application.
 
 Typical execution time is **approximately 5 minutes** when you run the application in its default configuration.
 

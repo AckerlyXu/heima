@@ -204,7 +204,7 @@ The parameters are self-explanatory. Substitute your particular variables and ru
 > 
 > 
 
-Once you run the command, go to the Azure portal preview and you will see your machine begin to provision.
+Once you run the command, go to the Azure Portal and you will see your machine begin to provision.
 
 ![][13]
 

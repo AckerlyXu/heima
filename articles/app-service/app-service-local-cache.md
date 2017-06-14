@@ -48,16 +48,16 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 ## Enable Local Cache in App Service
 You configure Local Cache by using a combination of reserved app settings. You can configure these app settings by using the following methods:
 
-* [Azure portal preview](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
-### Configure Local Cache by using the Azure portal preview
+### Configure Local Cache by using the Azure Portal
 <a name="Configure-Local-Cache-Portal"></a>
 
 You enable Local Cache on a per-web-app basis by using this app setting:
 `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Azure portal preview app settings: Local Cache](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
+![Azure Portal app settings: Local Cache](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
 
 ### Configure Local Cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>

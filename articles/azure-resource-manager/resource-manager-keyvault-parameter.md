@@ -28,7 +28,7 @@ This topic shows you how to create a key vault and secret, configure access to t
 
 You can deploy a key vault and secret through a Resource Manager template. For an example, see [Key vault template](./resource-manager-template-keyvault.md) and [Key vault secret template](./resource-manager-template-keyvault-secret.md). When creating the key vault, set the **enabledForTemplateDeployment** property to **true** so it can be referenced from other Resource Manager templates. 
 
-Or, you can create the key vault and secret through the Azure portal preview. 
+Or, you can create the key vault and secret through the Azure Portal. 
 
 1. Select **New** -> **Security + Identity** -> **Key Vault**.
 

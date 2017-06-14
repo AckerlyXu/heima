@@ -1,6 +1,6 @@
 ---
-title: Create an Internet-facing load balancer - Azure portal preview | Azure
-description: Learn how to create an Internet-facing load balancer in Resource Manager using the Azure portal preview
+title: Create an Internet-facing load balancer - Azure Portal | Azure
+description: Learn how to create an Internet-facing load balancer in Resource Manager using the Azure Portal
 services: load-balancer
 documentationcenter: na
 author: anavinahar
@@ -19,7 +19,7 @@ wacn.date: ''
 ms.author: v-yeche
 ---
 
-# Creating an Internet-facing load balancer using the Azure portal preview
+# Creating an Internet-facing load balancer using the Azure Portal
 > [!div class="op_single_selector"]
 >- [Portal](./load-balancer-get-started-internet-portal.md)
 >- [PowerShell](./load-balancer-get-started-internet-arm-ps.md)
@@ -48,12 +48,12 @@ You need to create and configure the following objects to deploy a load balancer
 
 You can get more information about load balancer components with Azure Resource Manager at [Azure Resource Manager support for Load Balancer](./load-balancer-arm.md).
 
-## Set up a load balancer in Azure portal preview
+## Set up a load balancer in Azure Portal
 
 > [!IMPORTANT]
 > This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to create VMs.
 
-1. From a browser navigate to the Azure portal preview: [http://portal.azure.cn](http://portal.azure.cn) and login with your Azure account.
+1. From a browser navigate to the Azure Portal: [http://portal.azure.cn](http://portal.azure.cn) and login with your Azure account.
 2. On the top left-hand side of the screen select **New** > **Networking** > **Load Balancer.**
 3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called **myLoadBalancer**.
 4. Under **Type**, select **Public**.

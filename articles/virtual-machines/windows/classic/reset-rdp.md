@@ -1,6 +1,6 @@
 ---
 title: Reset the password or Remote Desktop configuration on a Windows VM in Azure | Azure
-description: Learn how to reset an account password or Remote Desktop services on a Windows VM created using the Classic deployment model using the Azure portal preview or Azure PowerShell.
+description: Learn how to reset an account password or Remote Desktop services on a Windows VM created using the Classic deployment model using the Azure Portal or Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -23,16 +23,16 @@ ms.author: v-dazen
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [perform these steps for VMs created with the Resource Manager deployment model](../reset-rdp.md).
 
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal preview or the VM Access extension in Azure PowerShell to reset the password.
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure Portal or the VM Access extension in Azure PowerShell to reset the password.
 
 ## Ways to reset configuration or credentials
 You can reset Remote Desktop services and credentials in a few different ways, depending on your needs:
 
-- [Reset using the Azure portal preview](#azure-portal)
+- [Reset using the Azure Portal](#azure-portal)
 - [Reset using Azure PowerShell](#vmaccess-extension-and-powershell)
 
-## <a name="azure-portal"></a> Azure portal preview
-You can use the [Azure portal preview](https://portal.azure.cn) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
+## <a name="azure-portal"></a> Azure Portal
+You can use the [Azure Portal](https://portal.azure.cn) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
 
 ![Browse for your Azure VM](./media/reset-rdp/Portal-Select-Classic-VM.png)
 

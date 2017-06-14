@@ -97,9 +97,9 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
     If prompted, enter the name of the web app.
 
     > [!NOTE]
-    > The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Command-Line Interface. You can also enable WebSocket support using the [Azure Portal Preview](https://portal.azure.cn).
+    > The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Command-Line Interface. You can also enable WebSocket support using the [Azure Portal](https://portal.azure.cn).
     > 
-    > To enable WebSockets using the Azure Portal Preview, click the web app from the Web Apps blade, click **All settings** > **Application settings**. Under **Web Sockets**, click **On**. Then click **Save**.
+    > To enable WebSockets using the Azure Portal, click the web app from the Web Apps blade, click **All settings** > **Application settings**. Under **Web Sockets**, click **On**. Then click **Save**.
     > 
     > 
 7. To view the web app on Azure, use the following command to launch your web browser and navigate to the hosted web app:

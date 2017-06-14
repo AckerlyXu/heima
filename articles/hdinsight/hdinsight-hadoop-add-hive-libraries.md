@@ -61,7 +61,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
     > [!NOTE]
     > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
     >
-    > If you have not created a storage account, you can do so through the [Azure portal preview](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
+    > If you have not created a storage account, you can do so through the [Azure Portal](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
 
 ## Create a cluster using the script
 

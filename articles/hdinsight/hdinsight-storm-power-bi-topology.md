@@ -78,7 +78,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 ## Configure the sample
 
-1. From the [Azure portal preview](https://portal.azure.cn), select your SQL database. From the **Essentials** section of the SQL database blade, select **Show database connection strings**. From the list that appears, copy the **ADO.NET (SQL authentication)** information.
+1. From the [Azure Portal](https://portal.azure.cn), select your SQL database. From the **Essentials** section of the SQL database blade, select **Show database connection strings**. From the list that appears, copy the **ADO.NET (SQL authentication)** information.
 
 2. Open the sample in Visual Studio. From **Solution Explorer**, open the **App.config** file, and then find the following entry:
 
@@ -126,7 +126,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 3. Select **Azure SQL Database**, and then select **Connect**.
 
-4. Enter the information to connect to your Azure SQL Database. You can find this information by visiting the [Azure portal preview](https://portal.azure.cn) and selecting your SQL database.
+4. Enter the information to connect to your Azure SQL Database. You can find this information by visiting the [Azure Portal](https://portal.azure.cn) and selecting your SQL database.
 
     > [!NOTE]
     > You can also set the refresh interval and custom filters by using **Enable Advanced Options** from the connect dialog.

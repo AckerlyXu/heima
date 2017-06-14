@@ -34,7 +34,7 @@ Script actions can be applied through the following methods:
 
 | Use this method to apply a script... | During cluster creation... | On a running cluster... |
 | --- |:---:|:---:|
-| Azure portal preview |✓ |✓ |
+| Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure CLI |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
@@ -320,7 +320,7 @@ Here are the steps we took when preparing to deploy these scripts:
 
 You can use script actions to customize HDInsight clusters using the following methods:
 
-* Azure portal preview
+* Azure Portal
 * Azure PowerShell
 * Azure Resource Manager templates
 * The HDInsight .NET SDK.

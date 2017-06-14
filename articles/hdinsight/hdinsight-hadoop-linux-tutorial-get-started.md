@@ -38,7 +38,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
 
 The Resource Manager template used in this tutorial is located in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password/). 
 
-1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal preview. 
+1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure Portal. 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Enter or select the following values:
@@ -108,7 +108,7 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 
 **To delete the cluster and/or the default storage account**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure Portal](https://portal.azure.cn).
 2. From the portal dashboard, click the tile with the resource group name you used when you created the cluster.
 3. Click **Delete** on the resource blade to delete the resource group, which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
 

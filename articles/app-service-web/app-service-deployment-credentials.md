@@ -36,7 +36,7 @@ for each app is generated automatically at app creation, and is found in the app
 
 The user-levelcredentials are created by the Azure user. The user-leveldeployment credentials can be set or reset from the [Azure Classic Management Portal](https://manage.windowsazure.cn) where each App Service app has an editing entry point under **Dashboard > quick glance**. Regardless of the entry point, edits to these user-levelcredentials apply across the entire Azure account. These credentials are frequently used for FTP and Git deployment.
 
-Once you have set your deployment credentials, in the [Azure portal preview](https://portal.azure.cn), you can find the *Git* deployment username in your app's **Overview**,
+Once you have set your deployment credentials, in the [Azure Portal](https://portal.azure.cn), you can find the *Git* deployment username in your app's **Overview**,
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
@@ -54,7 +54,7 @@ For each app in App Service, its app-level credentials are stored in the XML pub
 
 To get the app-level credentials:
 
-1. In the [Azure portal preview](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
+1. In the [Azure Portal](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
 
 2. Click **...More** > **Get publish profile**, and download starts for a .PublishSettings file.
 
@@ -69,7 +69,7 @@ These are the app-level credentials.
 
 To reset the app-level credentials:
 
-1. In the [Azure portal preview](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
+1. In the [Azure Portal](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
 
 2. Click **...More** > **Reset publish profile**. Click **Yes** to confirm the reset.
 

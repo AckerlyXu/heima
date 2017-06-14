@@ -31,7 +31,7 @@ If you need to create, change, or delete NICs, read the [NIC settings and tasks]
 Complete the following tasks before completing any steps in any section of this article:
 
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fnetwork%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for public and private IP addresses.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- Log in to the Azure Portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fnetwork%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
@@ -58,8 +58,8 @@ Public and private IP addresses can be assigned using the following allocation m
 
 You can add as many IP addresses as necessary to a NIC, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fnetwork%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fnetwork%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure Portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fnetwork%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure Portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to add an IP address for.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the NIC you selected.
 5. Click **+ Add** in the blade that opens for IP configurations.
@@ -84,8 +84,8 @@ You can add as many IP addresses as necessary to a NIC, within the limits listed
 
 You may need to change the assignment method of an IP address, change the static IP address, or change the public IP address assigned to a NIC. If you're changing the private IP address of a secondary IP configuration associated with a secondary NIC in a VM (learn more about [primary and secondary NICs](virtual-network-network-interface-vm.md#about)), place the VM into the stopped (deallocated) state before completing the following steps: 
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fnetwork%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure Portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fnetwork%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure Portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to view or change IP address settings for.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the NIC you selected.
 5. Click the IP configuration you want to modify from the list in the blade that opens for IP configurations.
@@ -105,8 +105,8 @@ You may need to change the assignment method of an IP address, change the static
 
 You can remove private and public IP addresses from a NIC, but a NIC must always have at least one private IP address assigned to it.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fnetwork%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure Portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fnetwork%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure Portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to remove IP addresses from.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the NIC you selected.
 5. Right-click a secondary IP configuration (you cannot delete the primary configuration) you want to delete, click **Delete**, then click **Yes** to confirm the deletion. If the configuration had a public IP address resource associated to it, the resource is dissociated from the IP configuration, but the resource is not deleted.

@@ -19,15 +19,15 @@ wacn.date: ''
 ms.author: v-dazen
 
 ---
-# Create a Site-to-Site connection in the Azure portal preview
+# Create a Site-to-Site connection in the Azure Portal
 
-This article shows you how to use the Azure portal preview to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to use the Azure Portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Classic Management Portal](vpn-gateway-site-to-site-create.md)
 > 
 >
@@ -99,7 +99,7 @@ The local network gateway typically refers to your on-premises location. You giv
 Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
 
 - A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
-- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal preview, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal preview, navigate to **Virtual network gateways**, then click the name of your gateway.
+- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure Portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure Portal, navigate to **Virtual network gateways**, then click the name of your gateway.
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
@@ -111,7 +111,7 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 
 ## <a name="VerifyConnection"></a>8. Verify the VPN connection
 
-[!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
+[!INCLUDE [Azure Portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
 ## Next steps
 

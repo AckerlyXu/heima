@@ -26,7 +26,7 @@ In this tutorial, you learn how to create a basic Azure Virtual Network (VNet) w
 
 The sections that follow include steps for deploying a VNet using the Azure [portal](#portal), Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), and Azure Resource Manager [template](#template). The result is the same, regardless of which tool you choose to deploy the VNet with. Clicking the link for any tool takes you directly to that section of the article. To learn more about all VNet and subnet settings, read the [Manage VNets](virtual-network-manage-network.md) and [Manage subnets](virtual-network-manage-subnet.md) articles.
 
-## <a name="portal"></a>Azure portal preview
+## <a name="portal"></a>Azure Portal
 
 1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. In the portal, click **+ New** > **Networking** > **Virtual network**.
@@ -121,7 +121,7 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 ### <a name="template-portal"></a>Portal
 
 1. In your browser, open the template [web page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Click the **Deploy to Azure** button, which opens the Azure portal preview sign-in page.
+2. Click the **Deploy to Azure** button, which opens the Azure Portal sign-in page.
 3. Sign in to the portal with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Enter the following values for the parameters:
 
