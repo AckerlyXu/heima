@@ -353,10 +353,10 @@ The following SAP Notes are related to the topic of SAP on Azure:
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
-You should have a working knowledge about the Azure Architecture and how Azure Virtual Machines are deployed and operated. You can find more information here <https://azure.microsoft.com/documentation/>
+You should have a working knowledge about the Azure Architecture and how Azure Virtual Machines are deployed and operated. You can find more information here <https://docs.azure.cn/>
 
 > [!NOTE]
-> We are **not** discussing Azure Platform as a Service (PaaS) offerings of the Azure Platform. This paper is about running a database management system (DBMS) in Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+> We are **not** discussing Azure Platform as a Service (PaaS) offerings of the Azure Platform. This paper is about running a database management system (DBMS) in Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://www.azure.cn/home/features/sql-database/>
 >
 >
 
@@ -576,7 +576,7 @@ For the details regarding deployment of components that deliver host data to SAP
 Starting with Azure, you can easily migrate your existing SQL Server applications built on Windows Server platform to Azure Virtual Machines. SQL Server in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management and maintenance of enterprise breadth applications by easily migrating these applications to Azure. With SQL Server in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
 > [!IMPORTANT]
-> Please note we are not discussing Azure SQL Database which is a Platform as a Service offer of the Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionalities between these two offers are different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+> Please note we are not discussing Azure SQL Database which is a Platform as a Service offer of the Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionalities between these two offers are different and should not be mixed up with each other. See also: <https://www.azure.cn/home/features/sql-database/>
 >
 >
 
@@ -591,7 +591,7 @@ There is some SQL Server in IaaS specific information you should know before con
 * **SQL Feature Support**: Most SQL Server features are supported on Azure Virtual Machines with some exceptions. **SQL Server Failover Clustering using Shared Disks is not supported**.  Distributed technologies like Database Mirroring, AlwaysOn Availability Groups, Replication, Log Shipping and Service Broker are supported within a single Azure Region. SQL Server AlwaysOn also is supported between different Azure Regions as documented here:  <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Review the [Support Statement](https://support.microsoft.com/kb/956893) for more details. An example on how to deploy an AlwaysOn configuration is shown in [this][virtual-machines-workload-template-sql-alwayson] article. Also, check out the Best Practices documented [here][virtual-machines-sql-server-infrastructure-services]
 * **SQL Performance**: We are confident that Azure hosted Virtual Machines will perform very well in comparison to other public cloud virtualization offerings, but individual results may vary. Check out [this][virtual-machines-sql-server-performance-best-practices] article.
 * **Using Images from Azure Marketplace**: The fastest way to deploy a new Azure VM is to use an image from the Azure Marketplace. There are images in the Azure Marketplace which contain SQL Server. The images where SQL Server already is installed can't be immediately used for SAP NetWeaver applications. The reason is the default SQL Server collation is installed within those images and not the collation required by SAP NetWeaver systems. In order to use such images, please check the steps documented in chapter [Using a SQL Server images out of the Azure Marketplace][dbms-guide-5.6].
-* Check out [Pricing Details](https://azure.microsoft.com/pricing/) for more information. The [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) and [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) are also an important resource.
+* Check out [Pricing Details](https://www.azure.cn/pricing/) for more information. The [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) and [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) are also an important resource.
 
 ### SQL Server configuration guidelines for SAP related SQL Server installations in Azure VMs
 #### Recommendations on VM/VHD structure for SAP related SQL Server deployments
@@ -831,8 +831,6 @@ As for installations on-premises, do not download updates for the SAP ASE server
 * [1590719]
 * [1973241]
 
-General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
-
 ### SAP ASE Configuration Guidelines for SAP related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment
 In accordance with the general description, SAP ASE executables should be located or installed into the system drive of the VM's base VHD (drive c:\). Typically, most of the SAP ASE system and tools databases are not really leveraged hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the C:\drive as well.
@@ -984,8 +982,6 @@ As for installations on-premises, do not download updates for the SAP ASE server
 
 * [1590719]
 * [1973241]
-
-General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
 
 ### SAP ASE Configuration Guidelines for SAP related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment

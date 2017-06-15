@@ -195,7 +195,7 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
     Visual Studio creates controller methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer
-The next task is to enable the [Code First Migrations](http://curah.microsoft.com/55220) feature in order to create the database based on the data model you created.
+The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
 
 1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
 

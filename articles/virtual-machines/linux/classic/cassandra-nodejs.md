@@ -116,7 +116,7 @@ The following software versions are used during the deployment:
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
 <tr><td>JRE    </td><td><a href="http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html">JRE 8</a> </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td><a href="https://github.com/twall/jna">JNA</a> </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td><a href="http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz">Apache Cassandra 2.0.8</a></td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td><a href="https://archive.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz">Apache Cassandra 2.0.8</a></td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td><a href="https://www.azure.cn">Azure</a> </td><td>14.04 LTS</td></tr>
 </table>
 

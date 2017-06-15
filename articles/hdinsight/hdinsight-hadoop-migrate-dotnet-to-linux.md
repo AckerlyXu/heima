@@ -22,7 +22,7 @@ ms.author: v-dazen
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
 
-Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono allows you to use .NET components such as MapReduce applications with Linux-based HDInsight. In this document, learn how to migrate .NET solutions created for Windows-based HDInsight clusters to work with Mono on Linux-based HDInsight.
+Linux-based HDInsight clusters use [Mono (http://mono-project.com)](http://mono-project.com) to run .NET applications. Mono allows you to use .NET components such as MapReduce applications with Linux-based HDInsight. In this document, learn how to migrate .NET solutions created for Windows-based HDInsight clusters to work with Mono on Linux-based HDInsight.
 
 ## Mono compatibility with .NET
 

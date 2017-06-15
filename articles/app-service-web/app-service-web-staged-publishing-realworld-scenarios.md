@@ -310,7 +310,7 @@ Following is a generalized process for any application that has a database:
 ### Umbraco
 In this section, you will learn how the Umbraco CMS uses a custom module to deploy across multiple DevOps environments. This example provides a different approach to managing multiple development environments.
 
-[Umbraco CMS](http://umbraco.com/) is a popular .NET CMS solution that's used by many developers. It provides the [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module to deploy from development to staging to production environments. You can easily create a local development environment for an Umbraco CMS web app by using Visual Studio or WebMatrix.
+[Umbraco CMS](http://umbraco.com/) is a popular .NET CMS solution that's used by many developers. It provides the Courier2 module to deploy from development to staging to production environments. You can easily create a local development environment for an Umbraco CMS web app by using Visual Studio or WebMatrix.
 
 - [Create an Umbraco web app with Visual Studio](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget)
 - [Create an Umbraco web app with WebMatrix](http://umbraco.tv/videos/umbraco-v7/implementor/fundamentals/installation/creating-umbraco-site-from-webmatrix-web-gallery/)
@@ -337,7 +337,7 @@ Always remember to remove the `install` folder under your application, and never
 6. After you successfully publish the Umbraco local web app to the staging web app, browse to your staging web app, and run a few tests to rule out any issues.
 
 #### Set up the Courier2 deployment module
-With the [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module, you can simply right-click to push content, style sheets, and development modules from a staging web app to a production web app. This process reduces the risk of breaking your production web app when you deploy an update.
+With the Courier2 module, you can simply right-click to push content, style sheets, and development modules from a staging web app to a production web app. This process reduces the risk of breaking your production web app when you deploy an update.
 Purchase a license for Courier2 for the `*.chinacloudsites.cn` domain and your custom domain (say http://abc.com). After you purchase the license, place the downloaded license (.LIC file) in the `bin` folder.
 
 ![Drop license file under bin folder](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
@@ -370,7 +370,6 @@ Purchase a license for Courier2 for the `*.chinacloudsites.cn` domain and your c
 4. Under `<repositories>`, enter the production site URL and user information.
     If you are using the default Umbraco membership provider, then add the ID for the Administration user in the &lt;user&gt; section.
     If you are using a custom Umbraco membership provider, use `<login>`,`<password>` in the Courier2 module to connect to the production site.
-    For more details, [review the documentation for the Courier2 module](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation).
 
 5. Similarly, install the Courier2 module on your production site, and configure it to point to the stage web app in its respective courier.config file as shown here.
 

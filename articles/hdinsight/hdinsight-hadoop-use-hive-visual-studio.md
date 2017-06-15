@@ -41,7 +41,7 @@ To complete the steps in this article, you need the following.
 
 * Visual Studio (one of the following versions):
 
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=45326)
 
     * Visual Studio 2015 (any edition)
 

@@ -60,7 +60,7 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResou
 -ResourceName $webappname/staging/web -ApiVersion 2015-08-01 -Force
 
 # Swap the verified/warmed up staging slot into production.
-Swap-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
+Switch-​Azure​Rm​Web​App​Slot -Name $webappname -ResourceGroupName myResourceGroup `
 -SourceSlotName staging -DestinationSlotName production
 ```
 
@@ -84,7 +84,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Set-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/set-azurermappserviceplan) | Modifies an App Service plan to change its pricing tier. |
 | [New-AzureRmWebAppSlot](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebappslot) | Creates a deployment slot for a web app. |
 | [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource in a resource group. |
-| [Swap-AzureRmWebAppSlot](https://docs.microsoft.com/powershell/module/azurerm.websites/swap-azurermwebappslot) | Swaps a web app's deployment slot into production. |
+| [Switch-​Azure​Rm​Web​App​Slot](https://docs.microsoft.com/powershell/module/azurerm.websites/switch-azurermwebappslot) | Swaps a web app's deployment slot into production. |
 
 ## Next steps
 

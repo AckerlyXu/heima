@@ -46,8 +46,8 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 * One of the following versions of Visual Studio:
 
-    * Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
-    * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+    * Visual Studio 2012 with Update 4
+    * Visual Studio 2013 with [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
     * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
     * Visual Studio 2017 (any edition)
 
