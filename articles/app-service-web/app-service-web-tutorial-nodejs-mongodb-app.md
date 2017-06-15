@@ -304,7 +304,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ### Create a web app
 
-Now that an App Service plan has been created, create a web app within the _myAppServicePlan_ App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command to create the web app. 
+Now that an App Service plan has been created, create a web app within the _myAppServicePlan_ App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app. 
 
 In the following command, substitute _&lt;app_name>_ placeholder with your own unique app name. This unique name is used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
@@ -336,7 +336,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 Earlier in the tutorial, you hardcoded the database connection string in _config/env/production.js_. In keeping with security best practice, you want to keep this sensitive data out of your Git repository. For your app running in Azure, you'll use an environment variable instead.
 
-In App Service, you set environment variables as _app settings_ by using the [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) command. 
+In App Service, you set environment variables as _app settings_ by using the [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) command. 
 
 The following example lets you configure a `MONGODB_URI` app setting in your Azure web app. Be sure to replace the placeholders like before.
 
@@ -368,7 +368,7 @@ db: {
 
 You can deploy your application to Azure App Service in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. For FTP and local Git, it is necessary to have a deployment user configured on the server to authenticate your deployment. 
 
-Use the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials. 
+Use the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) command to create your account-level credentials. 
 
 > [!NOTE] 
 > A deployment user is required for FTP and Local Git deployment to App Service. This deployment user is account-level. As such, it is different from your Azure subscription account. You only need to configure this deployment user once.
@@ -379,7 +379,7 @@ az appservice web deployment user set \
     --password <minimum-8-char-capital-lowercase-number>
 ```
 
-Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) command to configure local Git access to the Azure web app. 
+Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) command to configure local Git access to the Azure web app. 
 
 ```azurecli
 az appservice web source-control config-local-git \
@@ -600,7 +600,7 @@ Once the `git push` is complete, navigate to your Azure web app and try out the 
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [az appservice web log tail](https://docs.microsoft.com/cli/azure/appservice/web/log#tail) command.
+To start log streaming, use the [az appservice web log tail](https://docs.microsoft.com/cli/azure/webapp/log#tail) command.
 
 ```azurecli 
 az appservice web log tail \

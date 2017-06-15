@@ -363,7 +363,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ### Create a web app
 
-Now that an App Service plan has been created, create a web app within the _myAppServicePlan_ App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command to create the web app. 
+Now that an App Service plan has been created, create a web app within the _myAppServicePlan_ App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app. 
 
 In the following command, substitute the _&lt;appname>_ placeholder with your own unique app name. This unique name is used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
@@ -393,7 +393,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 ### Set the PHP version
 
-Set the PHP version that your application requires by using the [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) command.
+Set the PHP version that your application requires by using the [az appservice web config update](https://docs.microsoft.com/cli/azure/webapp/config#update) command.
 
 The following command sets the PHP version to _7.0_.
 
@@ -408,7 +408,7 @@ az appservice web config update \
 
 As pointed out previously, you can connect to your Azure MySQL database using environment variables in App Service.
 
-In App Service, you set environment variables as _app settings_ by using the [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) command. 
+In App Service, you set environment variables as _app settings_ by using the [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) command. 
 
 The following command lets you configure the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
 
@@ -442,7 +442,7 @@ Use `php artisan` to generate a new application key without saving it to _.env_.
 php artisan key:generate --show
 ```
 
-Set the application key in your App Service web app by using the [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
+Set the application key in your App Service web app by using the [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli
 az appservice web config appsettings update \
@@ -491,7 +491,7 @@ If you've previously created a deployment username and password, you can use the
 az appservice web deployment user show
 ```
 
-If you don't already have a deployment user, run the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/appservice/web/deployment/user#set) command to create your deployment credentials. 
+If you don't already have a deployment user, run the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) command to create your deployment credentials. 
 
 ```azurecli
 az appservice web deployment user set \
@@ -509,7 +509,7 @@ Record the username and password, as they are used later when you deploy the app
 
 You can deploy your application to Azure App Service in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
 
-Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) command to configure local Git access to the Azure web app. 
+Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) command to configure local Git access to the Azure web app. 
 
 ```azurecli
 az appservice web source-control config-local-git \
@@ -720,7 +720,7 @@ Once the `git push` is complete, navigate to your Azure web app again and try ou
 
 While your PHP application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [az appservice web log tail](https://docs.microsoft.com/cli/azure/appservice/web/log#tail) command.
+To start log streaming, use the [az appservice web log tail](https://docs.microsoft.com/cli/azure/webapp/log#tail) command.
 
 ```azurecli 
 az appservice web log tail \

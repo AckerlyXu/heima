@@ -318,7 +318,7 @@ When the appservice plan is created, the Azure CLI shows information similar to 
 
 ### Create an Azure Web app
 
-Now that an appservice plan has been created, create an Azure Web app within the `myAppServicePlan` appservice plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command to create the web app. 
+Now that an appservice plan has been created, create an Azure Web app within the `myAppServicePlan` appservice plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app. 
 
 In the following command, substitute the `&lt;app_name&gt;` placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
@@ -358,7 +358,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 ### Set the Java version, the Java Application Server type and the Application Server version
 
-Set the Java version, Java App Server (container), and container version by using the [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) command.
+Set the Java version, Java App Server (container), and container version by using the [az appservice web config update](https://docs.microsoft.com/cli/azure/webapp/config#update) command.
 
 The following command sets the Java version to 8, the Java App Server to Jetty, and the Jetty version to Newest Jetty 9.3.
 
@@ -371,7 +371,7 @@ az appservice web config update --name &lt;app_name&gt; --resource-group myResou
 You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
 For this example, we use Maven to compile a .WAR file and FTP to deploy the .WAR file to the Web App
 
-To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command, like this: 
+To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/webapp/deployment#list-publishing-profiles) command, like this: 
 
 ```azurecli
 

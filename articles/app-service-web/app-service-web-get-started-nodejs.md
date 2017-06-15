@@ -124,7 +124,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a web app
 
-Now that an App Service plan has been created, create a [Web App](/app-service-web/app-service-web-overview) within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command to create the Web App.
+Now that an App Service plan has been created, create a [Web App](/app-service-web/app-service-web-overview) within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the Web App.
 
 In the command below substitute your own unique app name where you see the `<app_name>` placeholder. The `<app_name>` is used in the default DNS site for the web app. If `<app_name>` is not unique, you get the friendly error message "Website with given name <app_name> already exists."
 
@@ -170,7 +170,7 @@ We've now created an empty new Web App in Azure.
 
 You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services, and Bitbucket.
 
-Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
+Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) command to configure local git access to the Web App.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv

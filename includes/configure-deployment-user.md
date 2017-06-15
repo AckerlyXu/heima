@@ -7,7 +7,7 @@ For FTP and local Git, you must have a deployment user configured on the server 
 > The `username` and `password` are account-level. They are different from your Azure Subscription credentials.
 >
 
-Run the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/appservice/web/deployment/user#set) command to create your deployment credentials.
+Run the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) command to create your deployment credentials.
 
 ```azurecli
 az appservice web deployment user set --user-name <username> --password <password>

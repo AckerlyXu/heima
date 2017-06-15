@@ -90,7 +90,7 @@ For FTP and local Git it is necessary to have a deployment user configured on th
 > The `username` and `password` are account-level, and as such are different from your Azure Subscription credentials. **These credentials are only required to be created once**.
 >
 
-Use the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
+Use the [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) command to create your account-level credentials.
 
 ```azurecli
 az appservice web deployment user set --user-name <username> --password <password>
@@ -151,7 +151,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a web app
 
-Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command to create the web app.
+Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app.
 
 In the command below please substitute your own unique app name where you see the `<app_name>` placeholder. The `<app_name>` will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
 
@@ -196,10 +196,10 @@ We've now created an empty new web app in Azure. Let's now configure our web app
 
 ## Configure to use Python
 
-Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) command to configure the web app to use Python version `3.4`.
+Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/webapp/config#update) command to configure the web app to use Python version `3.4`.
 
 > [!TIP]
-> Setting the Python version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
+> Setting the Python version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/webapp/config/container#update) command.
 
 ```azurecli
 az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
@@ -209,7 +209,7 @@ az appservice web config update --python-version 3.4 --name <app-name> --resourc
 
 You can deploy to your web app in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket.
 
-Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the web app.
+Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) command to configure local git access to the web app.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
