@@ -41,8 +41,7 @@ The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is ava
             --resource-group myResourceGroup \
             --name myVM \
             --image UbuntuLTS \
-            --generate-ssh-keys \
-            --use-unmanaged-disk
+            --generate-ssh-keys
         ```
 
 * [Create a Linux VM with an Azure template](create-ssh-secured-vm-from-template.md)
@@ -58,10 +57,10 @@ The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is ava
 
 * [Create a load balanced and highly available application on multiple Linux VMs](tutorial-load-balancer.md)
 
-## Azure Portal
-The [Azure Portal](https://portal.azure.cn) allows you to quickly create a VM since there is nothing to install on your system. Use the Azure Portal to create the VM:
+## Azure portal
+The [Azure portal](https://portal.azure.cn) allows you to quickly create a VM since there is nothing to install on your system. Use the Azure portal to create the VM:
 
-* [Create a Linux VM using the Azure Portal](quick-create-portal.md) 
+* [Create a Linux VM using the Azure portal](quick-create-portal.md) 
 
 ## Operating system and image choices
 When creating a VM, you choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools pre-installed. Or, upload one of your own images (see [the following section](#use-your-own-image)).

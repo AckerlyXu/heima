@@ -25,6 +25,8 @@ This topic covers creating a VM from a generalized unmanaged disk that is in a s
 
 If you want to create a VM from a specialized VHD in a storage account, see [Create a VM from a specialized VHD](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
+For information about using Managed Disks instead of disks in a storage account, see [Created a managed VM image](capture-image-resource.md) and [Create a VM from a managed image](create-vm-generalized-managed.md).
+
 ## Prerequisites
 If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
 
@@ -158,7 +160,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 ```
 
 ## Verify that the VM was created
-When complete, you should see the newly created VM in the [Azure Portal](https://portal.azure.cn) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.cn) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
     $vmList = Get-AzureRmVM -ResourceGroupName $rgName

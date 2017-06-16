@@ -45,9 +45,9 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 ## Install diagnostics extension
 
-The basic host metrics are available, but to see more granular and VM-specific metrics, you to need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure Portal as follows:
+The basic host metrics are available, but to see more granular and VM-specific metrics, you to need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure portal as follows:
 
-1. In the Azure Portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
 3. Click the **Enable guest-level monitoring** button.
 
@@ -55,11 +55,11 @@ The basic host metrics are available, but to see more granular and VM-specific m
 
 ## Create alerts
 
-You can create alerts based on specific performance metrics. Alerts can be used to notify you when average CPU usage exceeds a certain threshold or available free disk space drops below a certain amount, for example. Alerts are displayed in the Azure Portal or can be sent via email. You can also trigger Azure Automation runbooks or Azure Logic Apps in response to alerts being generated.
+You can create alerts based on specific performance metrics. Alerts can be used to notify you when average CPU usage exceeds a certain threshold or available free disk space drops below a certain amount, for example. Alerts are displayed in the Azure portal or can be sent via email. You can also trigger Azure Automation runbooks or Azure Logic Apps in response to alerts being generated.
 
 The following example creates an alert for average CPU usage.
 
-1. In the Azure Portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Alert rules** on the VM blade, then click **Add metric alert** across the top of the alerts blade.
 4. Provide a **Name** for your alert, such as *myAlertRule*
 5. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.

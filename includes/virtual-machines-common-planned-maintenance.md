@@ -36,7 +36,7 @@ After a virtual machine is restored, here is an example of what your Windows Eve
 <!--Image reference-->
 ![][image2]
 
-Use the viewer to report the virtual machines that are configured in a multi-instance configuration using the Azure Portal, Azure PowerShell, or Azure CLI. For example, using the Azure Portal, you can add the _Availability Set_ to the **virtual machines (classic)** browse dialog. The virtual machines that report the same availability set are part of a multi-instance configuration. In the following example, the multi-instance configuration consists of virtual machines SQLContoso01 and SQLContoso02.
+Use the viewer to report the virtual machines that are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, using the Azure portal, you can add the _Availability Set_ to the **virtual machines (classic)** browse dialog. The virtual machines that report the same availability set are part of a multi-instance configuration. In the following example, the multi-instance configuration consists of virtual machines SQLContoso01 and SQLContoso02.
 
 <!--Image reference-->
   ![Virtual machines (classic) view from the Azure Portal][image4]

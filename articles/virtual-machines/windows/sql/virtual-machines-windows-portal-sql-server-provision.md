@@ -41,12 +41,12 @@ In this tutorial, you will:
 * [Connect to SQL Server remotely](#connect-to-sql-server-remotely)
 
 ## Select a SQL VM image from the gallery
-1. Log in to the [Azure Portal](https://portal.azure.cn) using your account.
+1. Log in to the [Azure portal](https://portal.azure.cn) using your account.
 
     > [!NOTE]
     > If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-2. On the Azure Portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
+2. On the Azure portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
 3. In the **New** blade, click **Compute** and then click **See all**.
 4. In the **Filter** text box type SQL Server, and press the ENTER key.
 
@@ -254,7 +254,7 @@ You have the option to enable [SQL Server R Services](https://msdn.microsoft.com
 ## 5. Review the summary
 On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
 
-You can monitor the deployment from the azure Portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
+You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
 > [!NOTE]
 > To provide you with an idea on deployment times, I deployed a SQL VM to the China East region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.

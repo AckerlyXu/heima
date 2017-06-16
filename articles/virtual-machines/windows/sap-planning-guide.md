@@ -806,14 +806,14 @@ See example here :
 
 Deployment of the Azure Monitoring Extension for SAP (see chapter [Azure Monitoring Solution for SAP][planning-guide-9.1] in this document) is only possible via PowerShell or CLI. Therefore it is mandatory to setup and configure PowerShell or CLI when deploying or administering an SAP NetWeaver system in Azure.  
 
-As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://review.docs.azure.cn/downloads/> for a new version of the cmdlets. The new version will just be installed on top of the older version.
+As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://docs.azure.cn/downloads/> for a new version of the cmdlets. The new version will just be installed on top of the older version.
 
 For a general list of Azure related PowerShell commands check here: <https://msdn.microsoft.com/library/azure/dn708514.aspx>.
 
 ### Management via Azure CLI commands
 For customers who use Linux and want to manage Azure resources Powershell might not be an option. Microsoft offers Azure CLI as an alternative.
 The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. The Azure CLI provides much of
-the same functionality found in the Azure Portal.
+the same functionality found in the Azure portal.
 
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
@@ -1194,7 +1194,7 @@ You need to decide whether you want to create a new and empty VHD (which would b
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> [How to attach a data disk in the Azure Portal][virtual-machines-windows-attach-disk-portal]
+> [How to attach a data disk in the Azure portal][virtual-machines-windows-attach-disk-portal]
 >
 > If disks are attached, you need to log in into the VM to open the Windows Disk Manager. If automount is not enabled as recommended in chapter [Setting automount for attached disks][planning-guide-5.5.3], the newly attached volume needs to be taken online and initialized.
 >
@@ -1708,7 +1708,8 @@ If you want to customize the URL and/or ports of your SAP Enterprise Portal, ple
 * [Change Portal URL](http://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
 * [Change Default port numbers, Portal port numbers](http://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
 
-## <a name="7cf991a1-badd-40a9-944e-7baae842a058"></a> High Availability (HA) and Disaster Recovery (DR) for SAP NetWeaver running on Azure Virtual Machines
+<a name="7cf991a1-badd-40a9-944e-7baae842a058"></a>
+## High Availability (HA) and Disaster Recovery (DR) for SAP NetWeaver running on Azure Virtual Machines
 ### Definition of terminologies
 The Term **high availability (HA)** is generally related to a set of technologies that minimizes IT disruptions by providing business continuity of IT services through redundant, fault-tolerant or failover protected components inside the **same** data center. In our case, within one Azure Region.
 
@@ -1883,7 +1884,7 @@ Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a ne
 
 The offline backup would basically require a shutdown of the VM through the Azure Portal and a copy of the base VM disk plus all attached VHDs to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the 'backups' into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
 Besides the shutdown using the Azure Portal one can also do it via Powershell or CLI as described here :
-<https://review.docs.azure.cn/virtual-machines/virtual-machines-deploy-rmtemplates-powershell/>
+<https://docs.azure.cn/virtual-machines/virtual-machines-deploy-rmtemplates-powershell/>
 
 A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted VHDs, copying back the saved VHDs to the original Storage Account and then redeploying the system.
 This article shows an example how to script this process in Powershell :
@@ -1910,11 +1911,11 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup
 >
 > To get familiar with Azure Virtual Machine Backup please start here:
-> <https://review.docs.azure.cn/backup/backup-azure-vms/>.
+> <https://docs.azure.cn/backup/backup-azure-vms/>.
 >
 > Other possibilities are to use a combination of Microsoft Data Protection Manager installed in an Azure VM and Azure Backup to
 > backup/restore databases. More information can be found here:
-> <https://review.docs.azure.cn/backup/backup-azure-dpm-introduction/>.  
+> <https://docs.azure.cn/backup/backup-azure-dpm-introduction/>.  
 >
 > ![Linux][Logo_Linux] Linux
 >

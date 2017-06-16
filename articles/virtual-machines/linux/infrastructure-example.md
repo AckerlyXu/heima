@@ -45,7 +45,7 @@ The resulting design must incorporate:
 
 * An Azure subscription and account
 * A single resource group
-* Storage accounts
+* Azure Managed Disks
 * A virtual network with two subnets
 * Availability sets for the VMs with a similar role
 * Virtual machines
@@ -54,8 +54,6 @@ All the above follow these naming conventions:
 
 * Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
     * For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**che**" (China East) is the location
-* Storage accounts use adventureazoschesa**[description]**
-    * 'adventure' was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
 * Virtual networks use AZOS-CHE-VN**[number]**
 * Availability sets use azos-che-as-**[role]**
 * Virtual machine names use azos-che-vm-**[vmname]**
@@ -63,16 +61,16 @@ All the above follow these naming conventions:
 ## Azure subscriptions and accounts
 Adventure Works Cycles is using their Enterprise subscription, named Adventure Works Enterprise Subscription, to provide billing for this IT workload.
 
-## Storage accounts
-Adventure Works Cycles determined that they needed two storage accounts:
+## Storage
+Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both storage available storage tiers are used:
 
-* **adventureazoschesawebapp** for the standard storage of the web servers, application servers, and domain controllers and their data disks.
-* **adventureazoschesadbclust** for the Premium storage of the MongoDB sharded cluster servers and their data disks.
+* **Standard storage** for the web servers, application servers, and domain controllers and their data disks.
+* **Premium storage** for the MongoDB sharded cluster servers and their data disks.
 
 ## Virtual network and subnets
 Because the virtual network does not need ongoing connectivity to the Adventure Work Cycles on-premises network, they decided on a cloud-only virtual network.
 
-They created a cloud-only virtual network with the following settings using the Azure Portal:
+They created a cloud-only virtual network with the following settings using the Azure portal:
 
 * Name: AZOS-CHE-VN01
 * Location: China East
@@ -111,7 +109,7 @@ Here is the resulting configuration.
 This configuration incorporates:
 
 * A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
-* Two storage accounts
+* Azure Managed Disks using both Standard and Premium disks
 * Four availability sets, one for each tier of the on-line store
 * The virtual machines for the four tiers
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers

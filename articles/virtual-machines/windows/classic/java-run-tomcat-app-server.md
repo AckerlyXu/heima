@@ -40,7 +40,7 @@ The completed installation results in Tomcat running on a virtual machine.
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
-1. Sign in to the [Azure Portal](https://portal.azure.cn).  
+1. Sign in to the [Azure portal](https://portal.azure.cn).  
 2. Click **New**, click **Compute**, then click **See all** in the **Featured apps**.
 3. Click **JDK**, click **JDK 8** in the **JDK** pane.  
    Virtual machine images that support **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
@@ -60,7 +60,7 @@ The completed installation results in Tomcat running on a virtual machine.
 10. In the **Summary** blade, click **OK**.
 
 ## To remotely sign in to your virtual machine
-1. Log on to the [Azure Portal](https://portal.azure.cn).
+1. Log on to the [Azure portal](https://portal.azure.cn).
 2. Click **Virtual machines (classic)**. If needed, click **More services** at the bottom left corner under the service categories. The **Virtual machines (classic)** entry is listed in the **Compute** group.
 3. Click the name of the virtual machine that you want to sign in to.
 4. After the virtual machine has started, a menu at the top of the pane allows connections.
@@ -86,7 +86,7 @@ Once Tomcat is running, you can access Tomcat by entering the URL <http://localh
 To see Tomcat running from external machines, you need to create an endpoint and open a port.
 
 ## To create an endpoint for your virtual machine
-1. Sign in to the [Azure Portal](https://portal.azure.cn).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. Click **Virtual machines (classic)**.
 3. Click the name of the virtual machine that is running your Java application server.
 4. Click **Endpoints**.
@@ -131,13 +131,13 @@ At this point, your Tomcat website should be viewable from an external browser. 
 ## Next steps
 You can learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications. View the information available at the [Java Developer Center](/develop/java/).
 
-[virtual_machine_tomcat]: ./media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
+[virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
-[service_automatic_startup]: ./media/java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
+[service_automatic_startup]:media/java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
 
-[NewIBRule]: ./media/java-run-tomcat-app-server/NewInboundRule.png
-[NewRulePort]: ./media/java-run-tomcat-app-server/NewRulePort.png
-[NewRuleProtocol]: ./media/java-run-tomcat-app-server/NewRuleProtocol.png
-[NewRuleAction]: ./media/java-run-tomcat-app-server/NewRuleAction.png
-[NewRuleName]: ./media/java-run-tomcat-app-server/NewRuleName.png
-[NewRuleProfile]: ./media/java-run-tomcat-app-server/NewRuleProfile.png
+[NewIBRule]:media/java-run-tomcat-app-server/NewInboundRule.png
+[NewRulePort]:media/java-run-tomcat-app-server/NewRulePort.png
+[NewRuleProtocol]:media/java-run-tomcat-app-server/NewRuleProtocol.png
+[NewRuleAction]:media/java-run-tomcat-app-server/NewRuleAction.png
+[NewRuleName]:media/java-run-tomcat-app-server/NewRuleName.png
+[NewRuleProfile]:media/java-run-tomcat-app-server/NewRuleProfile.png

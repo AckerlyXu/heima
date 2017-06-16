@@ -41,9 +41,9 @@ When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you wi
 * [Create a UDR in the Azure CLI](../../virtual-network/virtual-network-create-udr-arm-cli.md)
 
 ## Associating a FQDN to your Linux VM
-When you create a virtual machine (VM) in the Azure Portal using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a fully qualified domain name, or FQDN, by default, you can add one once the VM is created.
+When you create a virtual machine (VM) in the Azure portal using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a fully qualified domain name, or FQDN, by default, you can add one once the VM is created.
 
-* [Create a Fully Qualified Domain Name in the Azure Portal](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Network interfaces
 A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.

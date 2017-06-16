@@ -23,16 +23,16 @@ ms.author: v-dazen
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [perform these steps for VMs created with the Resource Manager deployment model](../reset-rdp.md).
 
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure Portal or the VM Access extension in Azure PowerShell to reset the password.
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password.
 
 ## Ways to reset configuration or credentials
 You can reset Remote Desktop services and credentials in a few different ways, depending on your needs:
 
-- [Reset using the Azure Portal](#azure-portal)
+- [Reset using the Azure portal](#azure-portal)
 - [Reset using Azure PowerShell](#vmaccess-extension-and-powershell)
 
-## <a name="azure-portal"></a> Azure Portal
-You can use the [Azure Portal](https://portal.azure.cn) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
+## Azure portal
+You can use the [Azure portal](https://portal.azure.cn) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
 
 ![Browse for your Azure VM](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
@@ -103,6 +103,6 @@ If the Azure VM access extension does not respond and you are unable to reset th
 
 [Azure VM extensions and features](../extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Connect to an Azure virtual machine with RDP or SSH](/azure/virtual-machines/virtual-machines-linux-azure-overview/)
+[Connect to an Azure virtual machine with RDP or SSH](/virtual-machines/virtual-machines-linux-azure-overview/)
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

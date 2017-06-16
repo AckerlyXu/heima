@@ -24,8 +24,8 @@ ms.custom: H1Hack27Feb2017
 
 Azure offers different ways to create a virtual machine because virtual machines are suited for different users and purposes. This means that you need to make some choices about the virtual machine and how to create it. This article gives you a summary of these choices and links to instructions.
 
-## Azure Portal
-Using the Azure Portal is a simple way to try out a virtual machine, especially if you're just starting out with Azure. 
+## Azure portal
+Using the Azure portal is a simple way to try out a virtual machine, especially if you're just starting out with Azure. 
 
 [Create a virtual machine running Windows using the portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 

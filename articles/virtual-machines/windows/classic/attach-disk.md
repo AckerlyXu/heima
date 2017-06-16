@@ -22,12 +22,12 @@ ms.author: v-dazen
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
 <!--
 Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure Portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
-This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure Portal.
+This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
 
-You can also [attach a data disk to a Linux VM in the Azure Portal](../../linux/attach-disk-portal.md).
+You can also [attach a data disk to a Linux VM in the Azure portal](../../linux/attach-disk-portal.md).
 
 Before you attach a disk, review these tips:
 
@@ -43,7 +43,7 @@ You can also [attach a data disk using Powershell](../../virtual-machines-window
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Find the virtual machine
-1. Sign in to the [Azure Portal](https://portal.azure.cn/).
+1. Sign in to the [Azure portal](https://portal.azure.cn/).
 2. Select the virtual machine from the resource listed on the dashboard.
 3. In the left pane under **Settings**, click **Disks**.
 
@@ -111,4 +111,4 @@ fsutil behavior set DisableDeleteNotify 0
 If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](../../virtual-machines-windows-change-drive-letter.md).
 
 ## Additional resources
-[About disks and VHDs for virtual machines](../../../storage/storage-about-disks-and-vhds-linux.md)
+[About disks and VHDs for virtual machines](../../virtual-machines-linux-about-disks-vhds.md)

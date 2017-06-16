@@ -22,7 +22,7 @@ ms.author: v-dazen
 # Upload a Windows VHD from an on-premises VM to Azure
 This article shows you how to create and upload a Windows virtual hard disk (VHD) to be used in creating an Azure Vm. You can upload a VHD from either a generalized VM or a specialized VM. 
 
-For a complete walk-through of how to prepare, upload and create a new VM using unmanaged disks, see [Upload a specialized VHD to create a VM in Azure](upload-specialized.md).
+For a complete walk-through of how to prepare, upload and create a new VM using managed disks, see [Create a new VM from a generalized VHD uploaded to Azure using Managed Disks](upload-generalized-managed.md) or [Upload a specialized VHD to create a VM in Azure](upload-specialized.md).
 
 For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -58,7 +58,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-## <a name="createstorage"></a> Get the storage account
+## Get the storage account
 You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
 To show the available storage accounts, type:

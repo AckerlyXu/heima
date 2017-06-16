@@ -1,6 +1,6 @@
 ---
 title: Install IIS on your first Windows VM | Azure
-description: Experiment with your first Windows virtual machine by installing IIS and opening port 80 using the Azure Portal.
+description: Experiment with your first Windows virtual machine by installing IIS and opening port 80 using the Azure portal.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -21,12 +21,12 @@ ms.author: v-dazen
 
 ---
 # Experiment with installing a role on your Windows VM
-Once you have your first virtual machine (VM) up and running, you can move on to installing software and services. For this tutorial, we are going to use Server Manager on the Windows Server VM to install IIS. Then, we will create a Network Security Group (NSG) using the Azure Portal to open port 80 to IIS traffic. 
+Once you have your first virtual machine (VM) up and running, you can move on to installing software and services. For this tutorial, we are going to use Server Manager on the Windows Server VM to install IIS. Then, we will create a Network Security Group (NSG) using the Azure portal to open port 80 to IIS traffic. 
 
-If you haven't already created your first VM, you should go back to [Create your first Windows virtual machine in the Azure Portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) before continuing with this tutorial.
+If you haven't already created your first VM, you should go back to [Create your first Windows virtual machine in the Azure portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) before continuing with this tutorial.
 
 ## Make sure the VM is running
-1. Open the [Azure Portal](https://portal.azure.cn).
+1. Open the [Azure portal](https://portal.azure.cn).
 2. On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
 3. If the status is **Stopped (Deallocated)**, click the **Start** button on the **Essentials** blade of the VM. If the status is **Running**, you can move on to the next step.
 
@@ -34,7 +34,7 @@ If you haven't already created your first VM, you should go back to [Create your
 1. On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
 2. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
 
-    ![Screenshot of the Azure Portal showing how to connect to your VM](./media/hero-role/connect.png)
+    ![Screenshot of the Azure portal showing how to connect to your VM](./media/hero-role/connect.png)
 3. You get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
 
     ![Screenshot of a warning about an unknown publisher](./media/hero-role/rdp-warn.png)
@@ -72,7 +72,7 @@ Now that you are logged in to the VM, we will install a server role so that you 
 ## Open port 80
 In order for your VM to accept inbound traffic over port 80, you need to add an inbound rule to the network security group. 
 
-1. Open the [Azure Portal](https://portal.azure.cn).
+1. Open the [Azure portal](https://portal.azure.cn).
 2. In **Virtual machines** select the VM that you created.
 3. In the virtual machines settings, select **Network interfaces** and then select the existing network interface.
 
@@ -90,10 +90,10 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
 
     ![Screenshot showing the button to add a security rule](./media/hero-role/port-80.png)
 
-For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure Portal](nsg-quickstart-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure portal](nsg-quickstart-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Connect to the default IIS website
-1. In the Azure Portal, click **Virtual machines** and then select your VM.
+1. In the Azure portal, click **Virtual machines** and then select your VM.
 2. In the **Essentials** blade, copy your **Public IP address**.
 
     ![Screenshot showing where to find the public IP address of your VM](./media/hero-role/ipaddress.png)

@@ -78,7 +78,7 @@ For best performance, create a separate storage account to hold diagnostic logs.
 The public IP address can be dynamic or static. The default is dynamic.
 
 * Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be added to a safe list.
-* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [create a fully qualified domain name in the Azure Portal][fqdn].
+* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [create a fully qualified domain name in the Azure portal][fqdn].
 
 All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
 
@@ -122,7 +122,7 @@ Use the following CLI command to deallocate a VM:
 azure vm deallocate <resource-group> <vm-name>
 ```
 
-In the Azure Portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
+In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 
@@ -155,10 +155,10 @@ A deployment for this reference architecture is available on [GitHub][github-fol
     * Select the region from the **Location** drop down box.
     * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
     * Select **linux** in the **Os Type** drop down box.
-    * Select **Legal terms**, review the terms and conditions, then click the **Purchase** button.
+    * Select **Legal terms**, review the terms and conditions, then click the **Create** button.
     * Click on the **Create** button.
 3. Wait for the deployment to complete.
-4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure Portal. Then, click on **Reset password** in the **Support + troubleshooting** section. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
+4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** section. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
 ## Next steps
 For higher availability, deploy two or more VMs behind a load balancer.

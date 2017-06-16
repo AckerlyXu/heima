@@ -85,11 +85,11 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### Azure Portal
+### Azure portal
 
-VM extensions can be applied to an existing virtual machine through the Azure Portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Select the extension you want from the list of available extensions and follow the instructions in the wizard.
+VM extensions can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Select the extension you want from the list of available extensions and follow the instructions in the wizard.
 
-The following image shows the installation of the Linux Custom Script extension from the Azure Portal.
+The following image shows the installation of the Linux Custom Script extension from the Azure portal.
 
 ![Install custom script extension](./media/extensions-features/installscriptextensionlinux.png)
 
@@ -216,7 +216,7 @@ AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publis
 True                       chinanorth      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
-Extension execution status can also be found in the Azure Portal. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
+Extension execution status can also be found in the Azure portal. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
 
 ### Rerun a VM extension
 
@@ -226,7 +226,7 @@ There may be cases in which a virtual machine extension needs to be rerun. You c
 az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
-You can remove an extension by using the following steps in the Azure Portal:
+You can remove an extension by using the following steps in the Azure portal:
 
 1. Select a virtual machine.
 2. Choose **Extensions**.

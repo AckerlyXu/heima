@@ -47,7 +47,6 @@ az vm availability-set create \
     --resource-group myResourceGroup \
     --name myAvailabilitySet \
     --platform-fault-domain-count 3 \
-    --unmanaged \
     --platform-update-domain-count 2
 ```
 
@@ -220,7 +219,6 @@ for i in `seq 1 3`; do
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
-        --use-unmanaged-disk \
         --no-wait
 done
 ```

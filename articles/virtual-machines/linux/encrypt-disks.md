@@ -71,7 +71,7 @@ Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 
 ```azurecli
 az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-LTS:latest \
   --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-  --use-unmanaged-disk
+  --data-disk-sizes-gb 5
 ```
 
 SSH to your VM. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
@@ -197,7 +197,7 @@ To actually encrypt some virtual disks, lets create a VM and add a data disk. Cr
 
 ```azurecli
 az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-LTS:latest \
-  --use-unmanaged-disk
+  --data-disk-sizes-gb 5
 ```
 
 SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
@@ -256,7 +256,7 @@ Once you have encrypted your data disks, you can later add additional virtual di
 For example, lets add a second virtual disk to your VM as follows:
 
 ```azurecli
-az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
+az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
 Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter, and incrementing the value from our first run as follows:

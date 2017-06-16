@@ -56,7 +56,7 @@ To use Automated Patching, consider the following prerequisites:
 > 
 
 ## Settings
-The following table describes the options that can be configured for Automated Patching. The actual configuration steps vary depending on whether you use the Azure Portal or Azure Windows PowerShell commands.
+The following table describes the options that can be configured for Automated Patching. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
 
 | Setting | Possible values | Description |
 | --- | --- | --- |
@@ -67,14 +67,14 @@ The following table describes the options that can be configured for Automated P
 | **Patch Category** |Important |The category of updates to download and install. |
 
 ## Configuration in the Portal
-You can use the Azure Portal to configure Automated Patching during provisioning or for existing VMs.
+You can use the Azure portal to configure Automated Patching during provisioning or for existing VMs.
 
 ### New VMs
-Use the Azure Portal to configure Automated Patching when you create a new SQL Server Virtual Machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Patching when you create a new SQL Server Virtual Machine in the Resource Manager deployment model.
 
-In the **SQL Server settings** blade, select **Automated patching**. The following Azure Portal screenshot shows the **SQL Automated Patching** blade.
+In the **SQL Server settings** blade, select **Automated patching**. The following Azure portal screenshot shows the **SQL Automated Patching** blade.
 
-![SQL Automated Patching in Azure Portal](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
+![SQL Automated Patching in Azure portal](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
 For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -89,7 +89,7 @@ In the **SQL Server configuration** blade, click the **Edit** button in the Auto
 
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
-If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure Portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed, configured. After that the Azure Portal reflects the new settings.
+If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal reflects the new settings.
 
 > [!NOTE]
 > You can also configure Automated Patching using a template. For more information, see [Azure quickstart template for Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).

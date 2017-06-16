@@ -71,7 +71,7 @@ Alternatively, you can associate your Network Security Group with a virtual netw
 
 ```azurecli
 azure network vnet subnet set \
---resource-group myResourceGroup \
+    --resource-group myResourceGroup \
     --network-security-group-name myNetworkSecurityGroup \
     --vnet-name myVnet --name mySubnet
 ```

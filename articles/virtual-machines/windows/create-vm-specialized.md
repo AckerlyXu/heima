@@ -1,6 +1,6 @@
 ---
 title: Create VM from a specialized disk in Azure | Azure
-description: Create a new VM by attaching a specialized unmanaged disk, in the Resource Manager deployment model.
+description: Create a new VM by attaching a specialized managed disk or unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -21,7 +21,7 @@ ms.author: v-dazen
 ---
 # Create a VM from a specialized disk
 
-Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an exisitng VM that maintains the user accounts, applications and other state data from your original VM. You can use a specialized unmanaged disk to create the new VM.
+Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an exisitng VM that maintains the user accounts, applications and other state data from your original VM. You can use either a specialized [managed disk](../../storage/storage-managed-disks-overview.md) or a specialized unmanaged disk to create the new VM.
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
@@ -115,7 +115,28 @@ or
 - **Option 2**: Use a specialized VHD stored in your own storage account (an unmanaged disk). 
 
 ### Option 1: Create a managed disk from an unmanaged specialized disk
-Azure China does not supporte Managed disk yet.
+
+1. Create a managed disk from the existing specialized VHD in your storage account. This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
+
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
+    -AccountType StandardLRS  -Location $location -CreateOption Import `
+    -SourceUri https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vh.vhd) `
+    -ResourceGroupName $rgName
+    ```
+
+2. Add the OS disk to the configuration. This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
+
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
+
+Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](create-managed-disk-ps.md). 
+
+```powershell
+$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+```
 
 ### Option 2: Attach a VHD that is in an existing storage account
 
@@ -159,7 +180,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ## Verify that the VM was created
-You should see the newly created VM either in the [Azure Portal](https://portal.azure.cn), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+You should see the newly created VM either in the [Azure portal](https://portal.azure.cn), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

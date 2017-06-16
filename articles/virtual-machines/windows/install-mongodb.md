@@ -24,8 +24,8 @@ ms.author: v-dazen
 ## Prerequisites
 Before you install and configure MongoDB, you need to create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
 
-* Create a Windows Server VM using [the Azure Portal](quick-create-portal.md) or [Azure PowerShell](quick-create-powershell.md).
-* Attach a data disk to a Windows Server VM using [the Azure Portal](attach-disk-portal.md) or [Azure PowerShell](attach-disk-ps.md).
+* Create a Windows Server VM using [the Azure portal](quick-create-portal.md) or [Azure PowerShell](quick-create-powershell.md).
+* Attach a data disk to a Windows Server VM using [the Azure portal](attach-disk-portal.md) or [Azure PowerShell](attach-disk-ps.md).
 
 To begin installing and configuring MongoDB, [log on to your Windows Server VM](connect-logon.md) by using Remote Desktop.
 
@@ -152,7 +152,7 @@ New-NetFirewallRule `
 
 You can also create the rule by using the **Windows Firewall with Advanced Security** graphical management tool. Create a new inbound rule to allow TCP port 27017.
 
-If needed, create a Network Security Group rule to allow access to MongoDB from outside of the existing Azure virtual network subnet. You can create the Network Security Group rules by using the [Azure Portal](nsg-quickstart-portal.md) or [Azure PowerShell](nsg-quickstart-powershell.md). As with the Windows Firewall rules, allow TCP port 27017 to the virtual network interface of your MongoDB VM.
+If needed, create a Network Security Group rule to allow access to MongoDB from outside of the existing Azure virtual network subnet. You can create the Network Security Group rules by using the [Azure portal](nsg-quickstart-portal.md) or [Azure PowerShell](nsg-quickstart-powershell.md). As with the Windows Firewall rules, allow TCP port 27017 to the virtual network interface of your MongoDB VM.
 
 > [!NOTE]
 > TCP port 27017 is the default port used by MongoDB. You can change this port by using the `--port` parameter when starting `mongod.exe` manually or from a service. If you change the port, make sure to update the Windows Firewall and Network Security Group rules in the preceding steps.

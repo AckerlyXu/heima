@@ -39,7 +39,7 @@ For this tutorial you'll need:
     * To retrieve your version, type **Get-Module Azure -ListAvailable**.
 
 ## Configure your subscription
-Open Windows PowerShell and establish access to your Azure account by running the following cmdlet. You will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure Portal.
+Open Windows PowerShell and establish access to your Azure account by running the following cmdlet. You will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
     Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 

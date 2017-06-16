@@ -20,7 +20,7 @@ Save the template file after you finish editing it with the tags of your choice.
 
 Next, in the **Edit Parameters** section, you can fill out the values for your tags.
 
-![Edit Tags in Azure Portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+![Edit Tags in Azure portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
 Click **Create** to deploy this template with your tag values.
 
@@ -29,12 +29,12 @@ After creating your resources with tags, you can view, add, and delete tags in t
 
 Select the tags icon to view your tags:
 
-![Tags icon in Azure Portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+![Tags icon in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
 
 Add a new tag through the portal by defining your own Key/Value pair, and save it.
 
-![Add new Tag in Azure Portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+![Add new Tag in Azure portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
 
 Your new tag should now appear in the list of tags for your resource.
 
-![New Tag saved in Azure Portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+![New Tag saved in Azure portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)

@@ -86,7 +86,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
     azure vm image list
     ```
 
-    On the [Azure Portal](http://portal.azure.cn), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking _More services_ at the bottom of the Azure service list, and then looking in the **Compute** services.   
+    On the [Azure portal](http://portal.azure.cn), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking _More services_ at the bottom of the Azure service list, and then looking in the **Compute** services.   
 
     ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
 

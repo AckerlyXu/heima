@@ -1,6 +1,6 @@
 ---
 title: Create an HPC Pack head node in an Azure VM | Azure
-description: Learn how to use the Azure Portal and the Resource Manager deployment model to create a Microsoft HPC Pack 2012 R2 head node in an Azure VM.
+description: Learn how to use the Azure portal and the Resource Manager deployment model to create a Microsoft HPC Pack 2012 R2 head node in an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -20,7 +20,7 @@ ms.author: v-dazen
 
 ---
 # Create the head node of an HPC Pack cluster in an Azure VM with a Marketplace image
-Use a [Microsoft HPC Pack 2012 R2 virtual machine image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) from the Azure Marketplace and the Azure Portal
+Use a [Microsoft HPC Pack 2012 R2 virtual machine image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) from the Azure Marketplace and the Azure portal
 to create the head node of an HPC cluster. This HPC Pack
 VM image is based on Windows Server 2012 R2 Datacenter with HPC
 Pack 2012 R2 Update 3 pre-installed. Use this head node for a proof of concept deployment of HPC Pack in Azure. You can then add compute nodes to the cluster to run HPC workloads.
@@ -42,7 +42,7 @@ As shown in the following figure, you deploy the HPC Pack head node in an Active
 * **Azure virtual network**: When you use the Resource Manager deployment model to deploy the head node, you specify or create an Azure virtual network. You use the virtual network if you need to join the head node to an existing Active Directory domain. You also need it later to add compute node VMs to the cluster.
 
 ## Steps to create the head node
-Following are high-level steps to use the Azure Portal to create an Azure VM for the HPC
+Following are high-level steps to use the Azure portal to create an Azure VM for the HPC
 Pack head node by using the Resource Manager deployment model. 
 
 1. If you want to create a new Active Directory forest in Azure with separate domain controller VMs, one option is to use a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc). For a simple proof of concept deployment, it's fine to omit this step and configure the head node VM itself as a domain controller. This option is described later in this article.
@@ -50,7 +50,7 @@ Pack head node by using the Resource Manager deployment model.
 3. In the portal, on the **HPC Pack 2012 R2 on Windows Server 2012 R2** page, select the **Resource Manager** deployment model and then click **Create**.
 
     ![HPC Pack image][marketplace]
-4. Use the portal to configure the settings and create the VM. If you're new to Azure, follow the tutorial [Create a Windows virtual machine in the Azure Portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For a proof of concept deployment, you can usually accept the default or recommended settings.
+4. Use the portal to configure the settings and create the VM. If you're new to Azure, follow the tutorial [Create a Windows virtual machine in the Azure portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For a proof of concept deployment, you can usually accept the default or recommended settings.
 
     > [!NOTE]
     > If you want to join the head node to an existing Active Directory domain in Azure, make sure you specify the virtual network for that domain when creating the VM.

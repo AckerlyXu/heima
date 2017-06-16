@@ -1,6 +1,6 @@
 ---
-title: Create FQDN for a Windows VM in the Azure Portal | Azure
-description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a Resource Manager based virtual machine in the Azure Portal.
+title: Create FQDN for a Windows VM in the Azure portal | Azure
+description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a Resource Manager based virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -20,9 +20,9 @@ ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create a Fully Qualified Domain Name in the Azure Portal for a Windows VM
+# Create a Fully Qualified Domain Name in the Azure portal for a Windows VM
 
-When you create a virtual machine (VM) in the [Azure Portal](https://portal.azure.cn) using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), or FQDN, by default, you can create one once the VM is created. This article demonstrates the steps to create a DNS name or FQDN.
+When you create a virtual machine (VM) in the [Azure portal](https://portal.azure.cn) using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), or FQDN, by default, you can create one once the VM is created. This article demonstrates the steps to create a DNS name or FQDN.
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 

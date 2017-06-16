@@ -1,6 +1,6 @@
 ---
 title: Create a VM availability set in Azure | Azure
-description: Learn how to create a unmanaged availability set for your virtual machines using Azure PowerShell or the portal in the Resource Manager deployment model.
+description: Learn how to create a managed availability set or unmanaged availability set for your virtual machines using Azure PowerShell or the portal in the Resource Manager deployment model.
 keywords: availability set
 services: virtual-machines-windows
 documentationcenter: ''
@@ -27,7 +27,7 @@ Availability sets provide redundancy to your application. We recommend that you 
 > VMs must be created in the same resource group as the availability set.
 > 
 
-If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set.
+If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. Currently, in Azure China, you can only create unmanaged availability set through Azure portal.
 
 For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -69,7 +69,14 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
-Type:
+If you are using managed disks for your VMs, type:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+	-Name "myAvailabilitySet" -Location "China North" -managed
+```
+
+If you are using your own storage accounts for your VMs, type:
 
 ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '

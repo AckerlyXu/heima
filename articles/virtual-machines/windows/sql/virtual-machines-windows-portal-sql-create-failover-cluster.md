@@ -85,15 +85,15 @@ With these prerequisites in place, you can proceed with building your failover c
 
 ## Step 1: Create virtual machines
 
-1. Log in to the [Azure Portal](http://portal.azure.cn) with your subscription.
+1. Log in to the [Azure portal](http://portal.azure.cn) with your subscription.
 
 1. [Create an Azure availability set](../create-availability-set.md).
 
     The availability set groups virtual machines across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers.
 
-    If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure Portal to create the availability set, do the following steps:
+    If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the availability set, do the following steps:
 
-    - In the Azure Portal, click **+** to open the Azure Marketplace. Search for **Availability set**.
+    - In the Azure portal, click **+** to open the Azure Marketplace. Search for **Availability set**.
     - Click **Availability set**.
     - Click **Create**.
     - On the **Create availability set** blade, set the following values:
@@ -107,7 +107,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 1. Create the virtual machines in the availability set.
 
-    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
     Place both virtual machines:
 
@@ -133,7 +133,7 @@ With these prerequisites in place, you can proceed with building your failover c
     >[!IMPORTANT]
     >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You will use the pre-installed SQL Server media to create the SQL Server FCI after you configure the failover cluster and S2D.
 
-   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the failover cluster and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server.
+    Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the failover cluster and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server.
 
 1. After Azure creates your virtual machines, connect to each virtual machine with RDP.
 
@@ -335,11 +335,11 @@ On Azure virtual machines, clusters use a load balancer to hold an IP address th
 
 [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
-### Create the load balancer in the Azure Portal
+### Create the load balancer in the Azure portal
 
 To create the load balancer:
 
-1. In the Azure Portal, go to the Resource Group with the virtual machines.
+1. In the Azure portal, go to the Resource Group with the virtual machines.
 
 1. Click **+ Add**. Search the Marketplace for **Load Balancer**. Click **Load Balancer**.
 
@@ -377,7 +377,7 @@ To create the load balancer:
 
 1. On the **Choose virtual machines** blade, click **Choose the virtual machines**.
 
-    Your Azure Portal should look like the following picture:
+    Your Azure portal should look like the following picture:
 
     ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
 
@@ -430,7 +430,7 @@ To set the cluster probe port parameter, update variables in the following scrip
 ```PowerShell
    $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure Portal.
+   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <59999>
 
    Import-Module FailoverClusters

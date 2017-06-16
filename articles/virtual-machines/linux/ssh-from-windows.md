@@ -55,9 +55,9 @@ Azure requires at least 2048-bit, **ssh-rsa** formatted public and private keys.
 
 Here are the deployment scenarios, and the types of files you use in each:
 
-1. **ssh-rsa** keys are required for any deployment using the [Azure Portal](https://portal.azure.cn), and Resource Manager deployments using the [Azure CLI](../../cli-install-nodejs.md).
+1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.cn), and Resource Manager deployments using the [Azure CLI](../../cli-install-nodejs.md).
     * These keys are usually all most people need.
-2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure Portal](https://portal.azure.cn) or [Azure CLI](../../cli-install-nodejs.md).
+2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure portal](https://portal.azure.cn) or [Azure CLI](../../cli-install-nodejs.md).
     * You only need to create these additional keys and certificates if you are managing resources created using the Classic deployment model.
 
 ## Install Git for Windows
@@ -143,13 +143,13 @@ The following example creates this additional private key specifically for PuTTY
 
     ![Successfully imported key to PuTTYgen](./media/ssh-from-windows/successfully-imported-key.png)
 6. Click **OK** to close the prompt.
-7. The public key is displayed at the top of the **PuTTYgen** window. You copy and paste this public key into the Azure Portal or Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
+7. The public key is displayed at the top of the **PuTTYgen** window. You copy and paste this public key into the Azure portal or Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
 
     ![Save PuTTY public key file](./media/ssh-from-windows/save-public-key.png)
 
-    The following example shows how you would copy and paste this public key into the Azure Portal when you create a Linux VM. The public key is typically then stored in `~/.ssh/authorized_keys` on your new VM.
+    The following example shows how you would copy and paste this public key into the Azure portal when you create a Linux VM. The public key is typically then stored in `~/.ssh/authorized_keys` on your new VM.
 
-    ![Use public key when you create a VM in the Azure Portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
+    ![Use public key when you create a VM in the Azure portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
 8. Back in **PuTTYgen**, Click **Save private Key**:
 
     ![Save PuTTY Private Key file](./media/ssh-from-windows/save-ppk-file.png)
@@ -166,7 +166,7 @@ The following example creates this additional private key specifically for PuTTY
 Again, PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. The following steps detail how to use your private key to authenticate with your Azure VM using SSH. The steps are similar in other SSH key clients in terms of needing to load your private key to authenticate the SSH connection.
 
 1. Download and run putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. Fill in the host name or IP address of your VM from the Azure Portal:
+2. Fill in the host name or IP address of your VM from the Azure portal:
 
     ![Open new PuTTY connection](./media/ssh-from-windows/putty-new-connection.png)
 3. Before selecting **Open**, click **Connection** > **SSH** > **Auth** tab. Browse to and select your private key:

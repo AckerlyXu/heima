@@ -104,7 +104,6 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --use-unmanaged-disk \
   --generate-ssh-keys      
 ```
 
@@ -186,7 +185,7 @@ az vmss scale \
     --new-capacity 5
 ```
 
-Autoscale rules let you define how to scale up or down the number of VMs in your scale set in response to demand such as network traffic or CPU usage. Currently, these rules cannot be set in Azure CLI 2.0. Use the [Azure Portal](https://portal.azure.cn) to configure autoscale.
+Autoscale rules let you define how to scale up or down the number of VMs in your scale set in response to demand such as network traffic or CPU usage. Currently, these rules cannot be set in Azure CLI 2.0. Use the [Azure portal](https://portal.azure.cn) to configure autoscale.
 
 ### Get connection info
 To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](https://docs.microsoft.com/cli/azure/vmss#list-instance-connection-info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:

@@ -33,7 +33,7 @@ ssh-keygen -t rsa -b 2048
 ```
 
 ## Use the SSH key pair
-The public key that you place on your Linux VM in Azure is by default stored in `~/.ssh/id_rsa.pub`, unless you changed the location when you created them. If you use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure) to create your VM, specify the location of this public key when you use the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) with the `--ssh-key-path` option. If you copy and paste the contents of the public key file to use in the Azure Portal or a Resource Manager template, make sure you don't copy any additional whitespace. For example, if you use OS X, you can pipe the public key file (by default, **~/.ssh/id_rsa.pub**) to **pbcopy** to copy the contents (there are other Linux programs that do the same thing, such as `xclip`). 
+The public key that you place on your Linux VM in Azure is by default stored in `~/.ssh/id_rsa.pub`, unless you changed the location when you created them. If you use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure) to create your VM, specify the location of this public key when you use the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) with the `--ssh-key-path` option. If you copy and paste the contents of the public key file to use in the Azure portal or a Resource Manager template, make sure you don't copy any additional whitespace. For example, if you use OS X, you can pipe the public key file (by default, **~/.ssh/id_rsa.pub**) to **pbcopy** to copy the contents (there are other Linux programs that do the same thing, such as `xclip`). 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -55,8 +55,8 @@ If you provided a passphrase when you created your key pair, enter the passphras
 
 VMs created using SSH keys are by default configured with passwords disabled, to make brute-forced guessing attempts vastly more expensive and therefore difficult. This topic describes creating a simple SSH key pair for quick usage. If you need more assistance in creating your SSH key pair or require additional certificates, such as for use with the Classic Management Portal, see [Detailed steps to create SSH key pairs and certificates](create-ssh-keys-detailed.md).
 
-You can create VMs that use your SSH key pair using the Azure Portal, CLI, and templates:
+You can create VMs that use your SSH key pair using the Azure portal, CLI, and templates:
 
-* [Create a secure Linux VM using the Azure Portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create a secure Linux VM using the Azure CLI 2.0)](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create a secure Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

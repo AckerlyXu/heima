@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 # How to upload a specialized VHD to create a VM in Azure
 
-A specialized VHD maintains the user accounts, applications and other state data from your original VM. You can upload a specialized VHD to Azure and use it to create a VM that uses an unmanaged storage account.
+A specialized VHD maintains the user accounts, applications and other state data from your original VM. You can upload a specialized VHD to Azure and use it to create a VM that uses Managed Disks or an unmanaged storage account. We recommend that you use [Managed Disks](../../storage/storage-managed-disks-overview.md) to take advantage of the simplified management and additional features that Managed Disks offer.
 
 > [!IMPORTANT]
 > Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -46,7 +46,7 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 ## Prepare the VM
 
 If you intend to use the specialized VHD as-is to create a new VM, ensure the following steps are completed. 
-
+* If you are going to use Managed Disks, review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
 * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
 * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
@@ -74,7 +74,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
 ## Get the storage account
 You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
-If you will be using the VHD to create a unmanaged disk for a VM, the storage account location must be same the location where you will be creating the VM.
+If you will be using the VHD to create a managed disk for a VM, the storage account location must be same the location where you will be creating the VM.
 
 To show the available storage accounts, type:
 
@@ -140,7 +140,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 Depending on your network connection and the size of your VHD file, this command may take a while to complete
 
-Save the **Destination URI** path to use later if you are going to create a unmanaged disk or a new VM using the uploaded VHD.
+Save the **Destination URI** path to use later if you are going to create a managed disk or a new VM using the uploaded VHD.
 
 ### Other options for uploading a VHD
 
@@ -241,7 +241,26 @@ or
 
 ### Option 1: Create a managed disk from an unmanaged specialized disk
 
-Azure China does not supporte managed disk yet.
+1. Create a managed disk from the existing specialized VHD in your storage account. This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
+
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
+    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+    -SourceUri $urlOfUploadedImageVhd -ResourceGroupName $rgName
+    ```
+
+2. Add the OS disk to the configuration. This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
+
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
+
+Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](create-managed-disk-ps.md). 
+
+```powershell
+$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+```
 
 ### Option 2: Attach a VHD that is in an existing storage account
 
@@ -284,7 +303,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ## Verify that the VM was created
-You should see the newly created VM either in the [Azure Portal](https://portal.azure.cn), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+You should see the newly created VM either in the [Azure portal](https://portal.azure.cn), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

@@ -60,7 +60,7 @@ When you query the Metadata Service, you must provide the following header *Meta
 The first time you call for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
 
 ### Testing your logic with user initiated operations
-To test your logic, you can use the Azure Portal, API, CLI, or PowerShell to initiate operations resulting in scheduled events. 
+To test your logic, you can use the Azure portal, API, CLI, or PowerShell to initiate operations resulting in scheduled events. 
 Restarting a virtual machine results in a scheduled event with an event type equal to Reboot. Redeploying a virtual machine results in a scheduled event with an event type equal to Redeploy.
 In both cases, the user initiated operation takes longer to complete since scheduled events enable more time for an application to gracefully shut down. 
 

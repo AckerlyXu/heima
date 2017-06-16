@@ -58,7 +58,7 @@ Follow these steps to generate the SSH authentication key.
 5. Select and copy the public key, and save it in a file named publicKey.pem. Don't click **Save public key**, because the saved public key's file format is different from the public key we want.
 6. Click **Save private key**, and save it in a file named privateKey.ppk.
 
-### Step 2: Create the image in the Azure Portal
+### Step 2: Create the image in the Azure portal
 1. In the [portal](https://portal.azure.cn/), click **New** in the task bar to create an image. Then choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
 ![Screenshot of the portal that shows the New button][3]
 
@@ -304,21 +304,21 @@ The following command only changes the permission of the folder directory. The f
 
      sudo chown username:group directory
 
-[1]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-01.png
-[2]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-02.png
-[3]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-03.png
-[4]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-04.png
-[5]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-05.png
-[6]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-06.png
-[7]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-07.png
-[8]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-08.png
-[9]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-09.png
-[10]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-10.png
-[11]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-11.png
-[12]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-12.png
-[13]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-13.png
-[14]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-14.png
-[15]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-15.png
-[16]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
-[17]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
-[18]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
+[1]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-01.png
+[2]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-02.png
+[3]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-03.png
+[4]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-04.png
+[5]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-05.png
+[6]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-06.png
+[7]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-07.png
+[8]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-08.png
+[9]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-09.png
+[10]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-10.png
+[11]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-11.png
+[12]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-12.png
+[13]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-13.png
+[14]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-14.png
+[15]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-15.png
+[16]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
+[17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
+[18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png

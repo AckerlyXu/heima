@@ -35,9 +35,9 @@ There are a couple of different ways to deploy Windows VMs with the Azure Hybrid
 2. You can [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-an-uploaded-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## Deploy a VM using the Azure Marketplace
-Following images are available in the Marketplace pre-configured with Azure Hybrid Use Benefit: Windows Server 2016, Windows Server 2012R2, Windows Server 2012 and Windows Server 2008SP1. These images can be deployed directly from the Azure Portal, Resource Manager templates, or Azure PowerShell.
+Following images are available in the Marketplace pre-configured with Azure Hybrid Use Benefit: Windows Server 2016, Windows Server 2012R2, Windows Server 2012 and Windows Server 2008SP1. These images can be deployed directly from the Azure portal, Resource Manager templates, or Azure PowerShell.
 
-You can deploy these images directly from the Azure Portal. For use in Resource Manager templates and with Azure PowerShell, view the list of images as follows:
+You can deploy these images directly from the Azure portal. For use in Resource Manager templates and with Azure PowerShell, view the list of images as follows:
 
 For Windows Server:
 

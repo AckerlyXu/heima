@@ -34,7 +34,7 @@ ms.author: v-dazen
 ### PowerShell deployment script
 * [Create an HPC cluster with the HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-### Manual deployment with the Azure Portal
+### Manual deployment with the Azure portal
 * [Set up the head node of an HPC Pack cluster in an Azure VM](hpcpack-cluster-headnode.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Cluster management

@@ -26,7 +26,7 @@ ms.author: v-dazen
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
 ## Working with images
-You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to manage the images available to your Azure subscription. You also can use the Azure Portal for some image tasks, but the command line gives you more options.
+You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to manage the images available to your Azure subscription. You also can use the Azure portal for some image tasks, but the command line gives you more options.
 
 For examples of using the tools, see [Common Azure CLI commands on Linux and Mac](../cli-manage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 

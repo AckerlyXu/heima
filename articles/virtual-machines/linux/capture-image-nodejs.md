@@ -20,7 +20,7 @@ ms.author: v-dazen
 
 ---
 # Capture a Linux virtual machine running on Azure
-Follow the steps in this article to generalize and capture your Azure Linux virtual machine (VM) in the Resource Manager deployment model. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image. You then capture a generalized virtual hard disk (VHD) image for the OS, VHDs for attached data disks, and a [Resource Manager template](../../azure-resource-manager/resource-group-overview.md) for new VM deployments. This article details how to capture a VM image with the Azure CLI 1.0 for a VM using unmanaged disks.
+Follow the steps in this article to generalize and capture your Azure Linux virtual machine (VM) in the Resource Manager deployment model. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image. You then capture a generalized virtual hard disk (VHD) image for the OS, VHDs for attached data disks, and a [Resource Manager template](../../azure-resource-manager/resource-group-overview.md) for new VM deployments. This article details how to capture a VM image with the Azure CLI 1.0 for a VM using unmanaged disks. You can also [capture a VM using Azure Managed Disks with the Azure CLI 2.0](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). 
 
 To create VMs using the image, set up network resources for each new VM, and use the template (a JavaScript Object Notation, or JSON, file) to deploy it from the captured VHD images. In this way, you can replicate a VM with its current software configuration, similar to the way you use images in the Azure Marketplace.
 
@@ -31,7 +31,7 @@ To create VMs using the image, set up network resources for each new VM, and use
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#before-you-begin) - our CLI for the classic and resource management deployment models (this article)
-- Azure CLI 2.0 - Currectly, Azure China does not support capturing image with CLI 2.0
+- [Azure CLI 2.0](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Before you begin
 Ensure that you meet the following prerequisites:
@@ -181,7 +181,7 @@ To use the captured image and template, follow these steps (detailed in the prec
 * Using the modified template JSON file, create a deployment in the resource group in which you set up the virtual network.
 
 ### Use a quickstart template
-If you want the network set up automatically when you create a VM from the image, you can specify those resources in a template. For example, see the [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) from GitHub. This template creates a VM from your custom image and the necessary virtual network, public IP address, and NIC resources. For a walkthrough of using the template in the Azure Portal, see [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
+If you want the network set up automatically when you create a VM from the image, you can specify those resources in a template. For example, see the [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) from GitHub. This template creates a VM from your custom image and the necessary virtual network, public IP address, and NIC resources. For a walkthrough of using the template in the Azure portal, see [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
 
 ### Use the azure vm create command
 Usually it's easiest to use a Resource Manager template to create a VM from the image. However, you can create the VM *imperatively* by using the **azure vm create** command with the **-Q** (**--image-urn**) parameter. If you use this method, you also pass the **-d** (**--os-disk-vhd**) parameter to specify the location of the OS .vhd file for the new VM. This file must be in the vhds container of the storage account where the image VHD file is stored. The command copies the VHD for the new VM automatically to the **vhds** container.

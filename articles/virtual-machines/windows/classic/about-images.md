@@ -27,7 +27,7 @@ ms.author: v-dazen
 
 ## Working with images
 
-You can use the Azure PowerShell module and the Azure Portal to manage the images available to your Azure subscription. The Azure PowerShell module provides more command options, so you can pinpoint exactly what you want to see or do. The Azure Portal provides a GUI for many of the everyday administrative tasks.
+You can use the Azure PowerShell module and the Azure portal to manage the images available to your Azure subscription. The Azure PowerShell module provides more command options, so you can pinpoint exactly what you want to see or do. The Azure portal provides a GUI for many of the everyday administrative tasks.
 
 Here are some examples that use the Azure PowerShell module.
 
@@ -44,4 +44,4 @@ Here are some examples that use the Azure PowerShell module.
 * **Delete an image**: `Remove-AzureVMImage -ImageName "MyOldVmImage"`
 
 ## Next Steps
-You can also [create a Windows machine using the Azure Portal](tutorial.md).
+You can also [create a Windows machine using the Azure portal](tutorial.md).

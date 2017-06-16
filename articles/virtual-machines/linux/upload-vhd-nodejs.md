@@ -105,7 +105,9 @@ azure config mode arm
 
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `myimages`.
 
-## <a id="prepimage"></a> Prepare the image to be uploaded
+<a id="prepimage"> </a>
+
+## Prepare the image to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
 
 * **[CentOS-based Distributions](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**

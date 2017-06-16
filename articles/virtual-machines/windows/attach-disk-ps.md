@@ -22,10 +22,7 @@ ms.author: v-dazen
 
 # Attach a data disk to a Windows VM using PowerShell
 
-This article shows you how to attach both new and existing disks to a Windows virtual machine using PowerShell. You can attach unmanaged data disks to a VM that uses unmanaged disks in a storage account.
-
->[!NOTE]
-> Azure China does not support Managed Disk yet.
+This article shows you how to attach both new and existing disks to a Windows virtual machine using PowerShell. If your VM uses managed disks, you can attach additional managed data disks. You can also attach unmanaged data disks to a VM that uses unmanaged disks in a storage account.
 
 Before you do this, review these tips:
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -43,6 +40,26 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 ## Add an empty data disk to a virtual machine
 
 This example shows how to add an empty data disk to an existing virtual machine.
+
+### Using managed disks
+
+```powershell
+$rgName = 'myResourceGroup'
+$vmName = 'myVM'
+$location = 'West China North' 
+$storageType = 'PremiumLRS'
+$dataDiskName = $vmName + '_datadisk1'
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+
+$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+```
 
 ### Using unmanaged disks in a storage account
 
@@ -86,10 +103,27 @@ The script file can contain something like this code to initialize the disks:
 
 You can also attach an existing VHD as a managed data disk to a virtual machine. 
 
-### Using unmanaged disks
+### Using managed disks
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.chinacloudapi.cn/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Attach
-Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+$rgName = 'myRG'
+$vmName = 'ContosoMdPir3'
+$location = 'West China North' 
+$storageType = 'PremiumLRS'
+$dataDiskName = $vmName + '_datadisk2'
+$dataVhdUri = 'https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/managed_data_disk.vhd' 
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $dataVhdUri -DiskSizeGB 128
+
+$dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk2.Id -Lun 2
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
+
+## Next steps
+
+Create a [snapshot](snapshot-copy-managed-disk.md).

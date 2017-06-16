@@ -40,7 +40,7 @@ It is for this reason that we recommend that you start with one of our [Linux on
 
 The rest of this article will focus on general guidance for running your Linux distribution on Azure.
 
-## <a id="linuxinstall" name="general-linux-installation-notes"></a> General Linux Installation Notes
+## General Linux Installation Notes
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet. If you are using VirtualBox this means selecting **Fixed size** as opposed to the default dynamically allocated when creating the disk.
 * Azure only supports generation 1 virtual machines. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * The maximum size allowed for the VHD is 1,023 GB.

@@ -37,7 +37,9 @@ This article assumes that you have the following items:
 
 * **Azure Command-line Interface** - Install the latest [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to upload the VHD.
 
-## <a id="prepimage"></a> Step 1: Prepare the image to be uploaded
+<a id="prepimage"> </a>
+
+## Step 1: Prepare the image to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure. After you complete the steps in the following guides, come back here once you have a VHD file that is ready to upload to Azure:
 
 * **[CentOS-based Distributions](../create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -55,14 +57,18 @@ Azure supports various Linux distributions (see [Endorsed Distributions](../endo
 
 Also see the **[Linux Installation Notes](../create-upload-generic.md#general-linux-installation-notes)** for more general tips on preparing Linux images for Azure.
 
-## <a id="connect"></a> Step 2: Prepare the connection to Azure
+<a id="connect"> </a>
+
+## Step 2: Prepare the connection to Azure
 Make sure you are using the Azure CLI in the classic deployment model (`azure config mode asm`), then log in to your account:
 
 ```azurecli
 azure login -e AzureChinaCloud
 ```
 
-## <a id="upload"></a> Step 3: Upload the image to Azure
+<a id="upload"> </a>
+
+## Step 3: Upload the image to Azure
 You need a storage account to upload your VHD file to. You can either pick an existing storage account or [create a new one](../../../storage/storage-create-storage-account.md).
 
 Use the Azure CLI to upload the image by using the following command:

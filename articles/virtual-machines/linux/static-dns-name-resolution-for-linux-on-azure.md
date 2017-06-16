@@ -48,7 +48,7 @@ az network nic create \
 ```
 
 ### Deploy a VM and connect the vNic
-Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The `--nics` flag connects the vNic to the VM during the deployment to Azure. The following example creates a VM named `myVM` with Azure Unmanaged Disks and attaches the vNic named `myNic` from the preceding step:
+Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The `--nics` flag connects the vNic to the VM during the deployment to Azure. The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
 
 ```azurecli
 az vm create \
@@ -57,8 +57,7 @@ az vm create \
     --nics myNic \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --use-unmanaged-disk
+    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 ## Detailed walkthrough
@@ -148,7 +147,7 @@ az network nic create \
 ## Deploy the VM into the virtual network infrastructure
 We now have a virtual network and subnet, a Network Security Group acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH, and a vNic. You can now deploy a VM inside this existing network infrastructure.
 
-Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named `myVM` with Azure Unmanaged Disks and attaches the vNic named `myNic` from the preceding step:
+Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
 
 ```azurecli
 az vm create \
@@ -157,8 +156,7 @@ az vm create \
     --nics myNic \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --use-unmanaged-disk
+    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 By using the CLI flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network. To reiterate, once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.  

@@ -1304,7 +1304,9 @@ Here you have two options:
    2. Configure Azure ExpressRoute, which offers a high-speed and low-latency dedicated network connection between on-premises datacenter and Azure datacenter.
 
 ![Option to install SAP Cache Server on-premises][dbms-guide-figure-900]
-#### <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a> Backup / Restore
+<a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
+
+#### Backup / Restore
 If you configure the SAP Content Server to store files in the SAP MaxDB database, the backup/restore procedure and performance considerations are already described in SAP MaxDB chapter [Backup and Restore][dbms-guide-8.4.2] and chapter [Performance Considerations for Backup and Restore][dbms-guide-8.4.3].
 
 If you configure the SAP Content Server to store files in the file system, one option is to execute manual backup/restore of the whole file structure where the documents are located. Similar to SAP MaxDB backup/restore, it is recommended to have a dedicated disk volume for backup purpose.
