@@ -269,7 +269,8 @@ The next example shows a variable that is a complex JSON type, and variables tha
 ```
 
 ## <a name="resources"></a>Resources
-In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you are deploying to provide the right values. For the resource-specific values (apiVersion, type, and properties) that you need to set, see [Define resources in Azure Resource Manager templates](/templates/). 
+In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you are deploying to provide the right values.
+<!-- Not Available [Define resources in Azure Resource Manager templates](/templates/). --> 
 
 You define resources with the following structure:
 

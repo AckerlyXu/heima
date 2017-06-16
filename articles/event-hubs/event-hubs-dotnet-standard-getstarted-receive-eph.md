@@ -71,145 +71,145 @@ Add the following NuGet packages to the project:
 
 2. Open the SimpleEventProcessor.cs file and add the following `using` statements to the top of the file.
 
-        ```csharp
-        using Microsoft.Azure.EventHubs;
-        using Microsoft.Azure.EventHubs.Processor;
-        using System.Threading.Tasks;
-        ```
+    ```csharp
+    using Microsoft.Azure.EventHubs;
+    using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
+    ```
 
 3. Implement the `IEventProcessor` interface. Replace the entire contents of the `SimpleEventProcessor` class with the following code:
 
-        ```csharp
-        public class SimpleEventProcessor : IEventProcessor
+    ```csharp
+    public class SimpleEventProcessor : IEventProcessor
+    {
+        public Task CloseAsync(PartitionContext context, CloseReason reason)
         {
-            public Task CloseAsync(PartitionContext context, CloseReason reason)
-            {
-                Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
-                return Task.CompletedTask;
-            }
-
-            public Task OpenAsync(PartitionContext context)
-            {
-                Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
-                return Task.CompletedTask;
-            }
-
-            public Task ProcessErrorAsync(PartitionContext context, Exception error)
-            {
-                Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
-                return Task.CompletedTask;
-            }
-
-            public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-            {
-                foreach (var eventData in messages)
-                {
-                    var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
-                    Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
-                }
-
-                return context.CheckpointAsync();
-            }
+            Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
+            return Task.CompletedTask;
         }
-        ```
+
+        public Task OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessErrorAsync(PartitionContext context, Exception error)
+        {
+            Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (var eventData in messages)
+            {
+                var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+                Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
+            }
+
+            return context.CheckpointAsync();
+        }
+    }
+    ```
 
 ## Write a main console method that uses the SimpleEventProcessor class to receive messages
 
 1. Add the following `using` statements to the top of the Program.cs file.
 
-        ```csharp
-        using Microsoft.Azure.EventHubs;
-        using Microsoft.Azure.EventHubs.Processor;
-        using System.Threading.Tasks;
-        ```
+    ```csharp
+    using Microsoft.Azure.EventHubs;
+    using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
+    ```
 
 2. Add constants to the `Program` class for the Event Hubs connection string, Event Hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
 
-        ```csharp
-        private const string EhConnectionString = "{Event Hubs connection string}";
-        private const string EhEntityPath = "{Event Hub path/name}";
-        private const string StorageContainerName = "{Storage account container name}";
-        private const string StorageAccountName = "{Storage account name}";
-        private const string StorageAccountKey = "{Storage account key}";
+    ```csharp
+    private const string EhConnectionString = "{Event Hubs connection string}";
+    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string StorageContainerName = "{Storage account container name}";
+    private const string StorageAccountName = "{Storage account name}";
+    private const string StorageAccountKey = "{Storage account key}";
 
-        private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
-        ```
+    private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+    ```
 
 3. Add a new method named `MainAsync` to the `Program` class, as follows:
 
-        ```csharp
-        private static async Task MainAsync(string[] args)
-        {
-            Console.WriteLine("Registering EventProcessor...");
+    ```csharp
+    private static async Task MainAsync(string[] args)
+    {
+        Console.WriteLine("Registering EventProcessor...");
 
-            var eventProcessorHost = new EventProcessorHost(
-                EhEntityPath,
-                PartitionReceiver.DefaultConsumerGroupName,
-                EhConnectionString,
-                StorageConnectionString,
-                StorageContainerName);
+        var eventProcessorHost = new EventProcessorHost(
+            EhEntityPath,
+            PartitionReceiver.DefaultConsumerGroupName,
+            EhConnectionString,
+            StorageConnectionString,
+            StorageContainerName);
 
-            // Registers the Event Processor Host and starts receiving messages
-            await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
+        // Registers the Event Processor Host and starts receiving messages
+        await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-            Console.WriteLine("Receiving. Press ENTER to stop worker.");
-            Console.ReadLine();
+        Console.WriteLine("Receiving. Press ENTER to stop worker.");
+        Console.ReadLine();
 
-            // Disposes of the Event Processor Host
-            await eventProcessorHost.UnregisterEventProcessorAsync();
-        }
-        ```
+        // Disposes of the Event Processor Host
+        await eventProcessorHost.UnregisterEventProcessorAsync();
+    }
+    ```
 
 3. Add the following line of code to the `Main` method:
 
-        ```csharp
-        MainAsync(args).GetAwaiter().GetResult();
-        ```
+    ```csharp
+    MainAsync(args).GetAwaiter().GetResult();
+    ```
 
     Here is what your Program.cs file should look like:
 
-        ```csharp
-        namespace SampleEphReceiver
+    ```csharp
+    namespace SampleEphReceiver
+    {
+
+        public class Program
         {
+            private const string EhConnectionString = "{Event Hubs connection string}";
+            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string StorageContainerName = "{Storage account container name}";
+            private const string StorageAccountName = "{Storage account name}";
+            private const string StorageAccountKey = "{Storage account key}";
 
-            public class Program
+            private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+
+            public static void Main(string[] args)
             {
-                private const string EhConnectionString = "{Event Hubs connection string}";
-                private const string EhEntityPath = "{Event Hub path/name}";
-                private const string StorageContainerName = "{Storage account container name}";
-                private const string StorageAccountName = "{Storage account name}";
-                private const string StorageAccountKey = "{Storage account key}";
+                MainAsync(args).GetAwaiter().GetResult();
+            }
 
-                private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+            private static async Task MainAsync(string[] args)
+            {
+                Console.WriteLine("Registering EventProcessor...");
 
-                public static void Main(string[] args)
-                {
-                    MainAsync(args).GetAwaiter().GetResult();
-                }
+                var eventProcessorHost = new EventProcessorHost(
+                    EhEntityPath,
+                    PartitionReceiver.DefaultConsumerGroupName,
+                    EhConnectionString,
+                    StorageConnectionString,
+                    StorageContainerName);
 
-                private static async Task MainAsync(string[] args)
-                {
-                    Console.WriteLine("Registering EventProcessor...");
+                // Registers the Event Processor Host and starts receiving messages
+                await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-                    var eventProcessorHost = new EventProcessorHost(
-                        EhEntityPath,
-                        PartitionReceiver.DefaultConsumerGroupName,
-                        EhConnectionString,
-                        StorageConnectionString,
-                        StorageContainerName);
+                Console.WriteLine("Receiving. Press ENTER to stop worker.");
+                Console.ReadLine();
 
-                    // Registers the Event Processor Host and starts receiving messages
-                    await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
-
-                    Console.WriteLine("Receiving. Press ENTER to stop worker.");
-                    Console.ReadLine();
-
-                    // Disposes of the Event Processor Host
-                    await eventProcessorHost.UnregisterEventProcessorAsync();
-                }
+                // Disposes of the Event Processor Host
+                await eventProcessorHost.UnregisterEventProcessorAsync();
             }
         }
-        ```
+    }
+    ```
 
 4. Run the program, and ensure that there are no errors.
 
