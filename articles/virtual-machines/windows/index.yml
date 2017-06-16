@@ -61,15 +61,3 @@ sections:
     items:
     - html: <a href="/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a>
     - html: <a href="/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/compute">Compute REST API Reference</a></p>

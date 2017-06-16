@@ -94,53 +94,6 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
     </li>
 </ul>
 
----
- 
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://doc.microsoft.com/dotnet/api/microsoft.azure.devices">.NET (Service)</a></p>
-                        <p><a href="https://doc.microsoft.com/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p>
-                        <p><a href="https://doc.microsoft.com/java/api/com.microsoft.azure.iot.service.auth">Java (Service)</a></p>
-                        <p><a href="https://doc.microsoft.com/java/api/com.microsoft.azure.iothub">Java (Devices)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://doc.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API (Resource Provider)</a></p>
-                        <p><a href="https://doc.microsoft.com/rest/api/iothub/device-identities-rest">REST API (Device Identities)</a></p>
-                        <p><a href="https://doc.microsoft.com/rest/api/iothub/device-messaging-rest-apis">REST API (Device Messaging)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
