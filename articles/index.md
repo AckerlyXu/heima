@@ -388,13 +388,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://www.visualstudio.com/docs/overview">
+                                            <a target="_blank" href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
                                                 <p>Visual Studio Team Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://support.hockeyapp.net/kb">
+                                            <a target="_blank" href="https://support.hockeyapp.net/kb">
                                                 <img src="media/index/HockeyApp.svg" alt="" />
                                                 <p>HockeyApp</p>
                                             </a>
@@ -1476,7 +1476,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/docs/overview">
+                                <a target="_blank" href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1495,7 +1495,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="https://support.hockeyapp.net/kb">
+                                <a target="_blank" href="https://support.hockeyapp.net/kb">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
