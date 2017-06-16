@@ -182,21 +182,3 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
 </ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>

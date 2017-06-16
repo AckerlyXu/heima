@@ -150,38 +150,3 @@ Learn how to use DocumentDB in high-performance applications for web, mobile, ga
         </a>
     </li>
 </ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/documentdb/documentdb-sdk-dotnet">.NET</a></p>
-                        <p><a href="/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
-                        <p><a href="/documentdb/documentdb-sdk-java">Java</a></p>
-                        <p><a href="/documentdb/documentdb-sdk-node">Node.js</a></p>
-                        <p><a href="/documentdb/documentdb-sdk-java">Python</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/documentdb/">REST API</a></p>
-                        <p><a href="https://docs.microsoft.com/rest/api/documentdbresourceprovider/">Resource Provider REST API</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>

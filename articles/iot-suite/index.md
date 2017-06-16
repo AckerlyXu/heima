@@ -61,27 +61,6 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
 
 ---
 
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Resources</h3>
-                        <p><a href="/iot-suite/iot-security-architecture">Security architecture</a></p>
-                        <p><a href="/iot-suite/iot-security-best-practices">Security best practices</a></p>
-                        <p><a href="/iot-suite/iot-suite-security-deployment">Secure your IoT deployment</a></p>
-                        <p><a href="/iot-suite/securing-iot-ground-up">Security from the ground up</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-suite.pdf">
         <div class="img"></div>
