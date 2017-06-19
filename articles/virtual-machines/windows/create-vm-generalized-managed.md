@@ -38,11 +38,11 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 
 ## Collect information about the image
 
-First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West China North** location. 
+First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **China North** location. 
 
 ```powershell
 $rgName = "myResourceGroup"
-$location = "West China North"
+$location = "China North"
 $imageName = "myImage"
 $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ```
@@ -134,9 +134,9 @@ $cred = Get-Credential
 
 3. Add the VM name and size to the VM configuration.
 
-```powershell
-$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-```
+    ```powershell
+    $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+    ```
 
 ## Set the VM image as source image for the new VM
 

@@ -42,7 +42,7 @@ The managed disk will be created in the **West-US** location, in a resource grou
 
     ```powershell
     $rgName = "myResourceGroup"
-    $location = "West China North"
+    $location = "China North"
     $diskName = "myDisk"
     $vhdUri = "https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myDisk.vhd"
     ```
@@ -56,7 +56,7 @@ The managed disk will be created in the **West-US** location, in a resource grou
 
 In the example we create an empty data disk as managed disk and assign it to the parameter **$dataDisk2** to use later. An empty data disk will need to be initialized logging in to the VM and using diskmgmt.msc or [remotely using WinRM and a script](attach-disk-ps.md#initialize-the-disk), once it is attached to a running VM.
 
-The empty data disk will be created in the **West China North** location, in a resource group named **myResourceGroup**. The disk will be named **myEmptyDataDisk**. The empty disk will be created in premium locally-redundant storage (LRS). StandardLRS and PremiumLRS are the only **-AccountType** options available for managed disks.
+The empty data disk will be created in the **China North** location, in a resource group named **myResourceGroup**. The disk will be named **myEmptyDataDisk**. The empty disk will be created in premium locally-redundant storage (LRS). StandardLRS and PremiumLRS are the only **-AccountType** options available for managed disks.
 
 The disk size in this example is 128GB, but you should choose a size that meets the needs of any applications running on your VM.
 
@@ -64,7 +64,7 @@ The disk size in this example is 128GB, but you should choose a size that meets 
 
     ```powershell
     $rgName = "myResourceGroup"
-    $location = "West China North"
+    $location = "China North"
     $dataDiskName = "myEmptyDataDisk"
     ```
 

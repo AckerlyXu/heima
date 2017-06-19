@@ -32,50 +32,39 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 ## Copy the VHD with a snapshot
-Use either the Azure portal or PowerShell to take a snapshot of the Managed Disk.
-
-### Use Azure portal to take a snapshot 
-
-1. Sign in to the [Azure portal](https://portal.azure.cn).
-2. Starting in the upper left, click **New** and search for **snapshot**.
-3. In the Snapshot blade, click **Create**.
-4. Enter a **Name** for the snapshot.
-5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
-6. Select an Azure datacenter Location.  
-7. For **Source disk**, select the Managed Disk to snapshot.
-8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
-9. Click **Create**.
+Use PowerShell to take a snapshot of the Managed Disk.
 
 ### Use PowerShell to take a snapshot
 The following steps show you how to get the VHD disk to be copied, create the snapshot configurations, and take a snapshot of the disk by using the New-AzureRmSnapshot cmdlet<!--Add link to cmdlet when available-->. 
 
 1. Set some parameters. 
 
- ```powershell
-$resourceGroupName = 'myResourceGroup' 
-$location = 'chinaeast' 
-$dataDiskName = 'ContosoMD_datadisk1' 
-$snapshotName = 'ContosoMD_datadisk1_snapshot1'  
-```
-  Replace the parameter values:
-  -  "myResourceGroup" with the VM's resource group.
-  -  "chinaeast" with the geographic location where you want your Managed Snapshot stored. <!---How do you look these up? -->
-  -  "ContosoMD_datadisk1" with the name of the VHD disk that you want to copy.
-  -  "ContosoMD_datadisk1_snapshot1" with the name you want to use for the new snapshot.
+    ```powershell
+    $resourceGroupName = 'myResourceGroup' 
+    $location = 'chinaeast' 
+    $dataDiskName = 'ContosoMD_datadisk1' 
+    $snapshotName = 'ContosoMD_datadisk1_snapshot1'  
+    ```
+    Replace the parameter values:
+
+    -  "myResourceGroup" with the VM's resource group.
+    -  "chinaeast" with the geographic location where you want your Managed Snapshot stored. <!---How do you look these up? -->
+    -  "ContosoMD_datadisk1" with the name of the VHD disk that you want to copy.
+    -  "ContosoMD_datadisk1_snapshot1" with the name you want to use for the new snapshot.
 
 2. Get the VHD disk to be copied.
 
- ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
-```
+    ```powershell
+    $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
+    ```
 3. Create the snapshot configurations. 
 
- ```powershell
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
-```
+    ```powershell
+    $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
+    ```
 4. Take the snapshot.
 
- ```powershell
-New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
-```
+    ```powershell
+    New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
+    ```
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.

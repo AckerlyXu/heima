@@ -46,7 +46,7 @@ This example shows how to add an empty data disk to an existing virtual machine.
 ```powershell
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'West China North' 
+$location = 'China North' 
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
@@ -108,7 +108,7 @@ You can also attach an existing VHD as a managed data disk to a virtual machine.
 ```powershell
 $rgName = 'myRG'
 $vmName = 'ContosoMdPir3'
-$location = 'West China North' 
+$location = 'China North' 
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk2'
 $dataVhdUri = 'https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/managed_data_disk.vhd' 

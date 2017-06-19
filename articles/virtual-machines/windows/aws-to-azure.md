@@ -185,7 +185,7 @@ Create a managed image using your generalized OS VHD.
     ```powershell
     $rgName = "myResourceGroupName"
     $vmName = "myVM"
-    $location = "West China North" 
+    $location = "China North" 
     $imageName = "yourImageName"
     $osVhdUri = "https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd"
     ```
@@ -200,11 +200,11 @@ Create a managed image using your generalized OS VHD.
 
 ## Create VM from image
 
-First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West China North** location. 
+First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **China North** location. 
 
 ```powershell
 $rgName = "myResourceGroup"
-$location = "West China North"
+$location = "China North"
 $imageName = "myImage"
 $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ```
