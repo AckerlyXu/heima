@@ -174,10 +174,12 @@ A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/
 
 With Visual Studio, you can create an Azure resource group project and add a virtual machine scale set template to it. You can choose whether you want to import it from GitHub or the Azure Web Application Gallery. A deployment PowerShell script is also generated for you. For more information, see [How to create a virtual machine scale set with Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
-## Create from the Azure Portal
+## Create from the Azure portal
 
-The Azure Portal provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure Portal](virtual-machine-scale-sets-portal-create.md).
+The Azure portal provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 ## Next steps
+
+Learn more about [data disks](virtual-machine-scale-sets-attached-disks.md).
 
 Learn how to [manage your apps](virtual-machine-scale-sets-deploy-app.md).

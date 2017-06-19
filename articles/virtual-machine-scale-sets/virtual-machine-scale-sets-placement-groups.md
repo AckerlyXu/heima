@@ -39,12 +39,9 @@ To decide whether your application can make effective use of large scale sets, c
 - Layer-7 load balancing with the Azure Application Gateway is supported for all scale sets.
 - A scale set is defined with a single subnet - make sure your subnet has an address space large enough for all the VMs you need. By default a scale set overprovisions (creates extra VMs at deployment time or when scaling out, which you are not charged for) to improve deployment reliability and performance. Allow for an address space 20% greater than the number of VMs you plan to scale to.
 - If you are planning to deploy many VMs, your Compute core quota limits may need to be increased.
-- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does means that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Fault domain and placement group ID are shown in the _instance view_ of a scale set VM. You can view the instance view of a scale set VM in the [Azure Resource Explorer](https://resources.azure.com/).
+- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does means that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Fault domain and placement group ID are shown in the _instance view_ of a scale set VM.
 
 ## Creating a large scale set
-When you create a scale set in the Azure portal, you can allow it to scale to multiple placement groups by setting the _Limit to a single placement group_ option to _False_ in the _Basics_ blade. With this option set to _False_, you can specify an _Instance count_ value of up to 1,000.
-
-![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 You can create a large VM scale set using the [Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ command. This command sets intelligent defaults such as subnet size based on the _instance-count_ argument:
 
@@ -77,7 +74,7 @@ If you are creating a large scale set by composing an Azure Resource Manager tem
 For a complete example of a large scale set template, refer to [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## Converting an existing scale set to span multiple placement groups
-To make an existing VM scale set capable of scaling to more than 100 VMs, you need to change the _singplePlacementGroup_ property to _false_ in the scale set model. You can test changing this property with the [Azure Resource Explorer](https://resources.azure.com/). Find an existing scale set, select _Edit_ and change the _singlePlacementGroup_ property. If you do not see this property, you may be viewing the scale set with an older version of the Microsoft.Compute API.
+To make an existing VM scale set capable of scaling to more than 100 VMs, you need to change the _singplePlacementGroup_ property to _false_ in the scale set model. Find an existing scale set, select _Edit_ and change the _singlePlacementGroup_ property. If you do not see this property, you may be viewing the scale set with an older version of the Microsoft.Compute API.
 
 >[!NOTE] 
 You can change a scale set from supporting a single placement group only (the default behavior) to a supporting multiple placement groups, but you cannot convert the other way around. Therefore make sure you understand the properties of large scale sets before converting. In particular, make sure you do not need layer-4 load balancing with the Azure Load Balancer.

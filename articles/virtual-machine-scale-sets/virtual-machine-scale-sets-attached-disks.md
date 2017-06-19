@@ -73,7 +73,7 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
 > [!NOTE]
 > Different VM sizes have different limits on the numbers of attached drives they support. Check the [virtual machine size characteristics](../virtual-machines/windows/sizes.md) before adding a new disk.
 
-You can also add a disk by adding a new entry to the _dataDisks_ property in the _storageProfile_ of a scale set definition and applying the change. To test this, find an existing scale set definition in the [Azure Resource Explorer](https://resources.azure.com/). Select _Edit_ and add a new disk to the list of data disks. E.g. using the example above:
+You can also add a disk by adding a new entry to the _dataDisks_ property in the _storageProfile_ of a scale set definition and applying the change. Select _Edit_ and add a new disk to the list of data disks. E.g. using the example above:
 ```json
 "dataDisks": [
     {
