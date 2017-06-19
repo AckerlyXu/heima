@@ -152,8 +152,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">Computer Vision API</a></li>
-                                                    <li><a class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">Face API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">Computer Vision API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">Face API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
