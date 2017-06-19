@@ -182,8 +182,17 @@
         href: oracle-create-upload-vhd.md
   - name: Manage VM storage
     items:
+    - name: Azure Managed Disks
+      href: ../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: FAQs
+        href: ../../storage/storage-faq-for-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - name: Copy files to a Linux VM
       href: copy-files-to-linux-vm-using-scp.md
+    - name: Convert a VM to Managed Disks
+      href: convert-unmanaged-to-managed-disks.md
+    - name: Take a snapshot of a Managed Disk
+      href: snapshot-copy-managed-disk.md
     - name: Add a disk
       items:
       - name: Azure CLI
@@ -333,15 +342,7 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+    href: https://www.azure.cn/pricing/details/virtual-machines
   - name: FAQ
     href: faq.md
