@@ -22,7 +22,7 @@ wacn.date: ''
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Overview
+## Overview
 
 > [!NOTE]
 > To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure 1rmb-trial](https://www.azure.cn/pricing/1rmb-trial/).
@@ -37,7 +37,7 @@ When you're finished, you'll be able to use your notification hub to broadcast p
 
 The completed code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
 
-##Prerequisites
+## Prerequisites
 
 This tutorial requires the following:
 
@@ -53,7 +53,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-##Configure your Notification Hub for iOS push notifications
+## Configure your Notification Hub for iOS push notifications
 
 This section walks you through creating a new notification hub and configuring authentication with APNS using the **.p12** push certificate that you created. If you want to use a notification hub that you have already created, you can skip to step 5.
 
@@ -65,13 +65,14 @@ This section walks you through creating a new notification hub and configuring a
 <p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
 </li>
 </ol>
+
 &emsp;&emsp;![Configure APNS in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
 &emsp;&emsp;![Configure APNS certification in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send push notifications.
 
-##Connect your iOS app to Notification Hubs
+## Connect your iOS app to Notification Hubs
 
 1. In Xcode, create a new iOS project and select the **Single View Application** template.
 
@@ -85,14 +86,14 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
     If you don't see the new provisioning profile that you created in Xcode, try refreshing the profiles for your signing identity. Click **Xcode** on the menu bar, click **Preferences**, click the **Account** tab, click the **View Details** button, click your signing identity, and then click the refresh button in the bottom-right corner.
 
-       ![Xcode - provisioning profile][9]
+    ![Xcode - provisioning profile][9]
 
 4. Download the [Mobile Services iOS SDK version 1.2.4] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Copy items if needed**, and then click **Add**.
 
     >[!NOTE]
     > The notification hubs SDK does not currently support bitcode on Xcode 7.  You must set **Enable Bitcode** to **No** in the **Build Options** for your project.
 
-       ![Unzip Azure SDK][10]
+    ![Unzip Azure SDK][10]
 
 5. Add a new header file to your project named `HubInfo.h`. This file will hold the constants for your notification hub.  Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
 
@@ -458,7 +459,7 @@ If you want to send push notifications from within an app, this section provides
 
 You can find all the possible notification payloads in the Apple [Local and Push Notification Programming Guide].
 
-##Checking if your app can receive push notifications
+## Checking if your app can receive push notifications
 
 To test push notifications on iOS, you must deploy the app to a physical iOS device. You cannot send Apple push notifications by using the iOS Simulator.
 

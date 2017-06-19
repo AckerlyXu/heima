@@ -19,11 +19,11 @@ ms.author: v-junlch
 > [!div class="op_single_selector"]
 >- [iOS](./notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
-##Overview
+## Overview
 
 This topic shows you how to request push notification registration with Azure Notification Hubs when registration is performed by ASP.NET Web API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].
 
-##Update your app  
+## Update your app  
 
 1. In your MainStoryboard_iPhone.storyboard, add the following components from the object library:
 
@@ -37,13 +37,13 @@ This topic shows you how to request push notification registration with Azure No
 
     At this point, your storyboard looks like the following:
 
-       ![][0]
+    ![][0]
 
 2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
 
-       ![][1]
+    ![][1]
 
-       Your BreakingNewsViewController.h file should now contain the following code:
+    Your BreakingNewsViewController.h file should now contain the following code:
 
         @property (weak, nonatomic) IBOutlet UILabel *installationId;
         @property (weak, nonatomic) IBOutlet UITextField *User;

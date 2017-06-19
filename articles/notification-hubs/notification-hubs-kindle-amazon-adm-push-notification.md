@@ -18,19 +18,19 @@ ms.author: v-junlch
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Overview
+## Overview
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Kindle application.
 You'll create a blank Kindle app that receives push notifications by using Amazon Device Messaging (ADM).
 
-##Prerequisites
+## Prerequisites
 
 This tutorial requires the following:
 
 + Get the Android SDK (we assume that you will use Eclipse) from the <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>.
 + Follow the steps in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Setting Up Your Development Environment</a> to set up your development environment for Kindle.
 
-##Add a new app to the developer portal
+## Add a new app to the developer portal
 
 1. First, create an app in the [Amazon developer portal].
 
@@ -216,21 +216,21 @@ Edit your app manifest to support ADM:
 5. Add the following code to the `OnRegistered` method:
 
     ```
-        try {
-    getNotificationHub(getApplicationContext()).register(registrationId);
-        } catch (Exception e) {
-    Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
-        }
+    try {
+        getNotificationHub(getApplicationContext()).register(registrationId);
+    } catch (Exception e) {
+        Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
+    }
     ```
 
 6. Add the following code to the `OnUnregistered` method:
 
     ```
-        try {
-            getNotificationHub(getApplicationContext()).unregister();
-        } catch (Exception e) {
-            Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
-        }
+    try {
+        getNotificationHub(getApplicationContext()).unregister();
+    } catch (Exception e) {
+        Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
+    }
     ```
 
 7. In the `MainActivity` method, add the following import statement:
@@ -276,7 +276,7 @@ Edit your app manifest to support ADM:
 > If a problem occurs, check the time of the emulator (or device). The time value must be accurate. To change the time of the Kindle emulator, you can run the following command from your Android SDK platform-tools directory:
 
 ```
-    adb shell  date -s "yyyymmdd.hhmmss"
+adb shell  date -s "yyyymmdd.hhmmss"
 ```
 
 ## Send a message
@@ -284,12 +284,12 @@ Edit your app manifest to support ADM:
 To send a message by using .NET:
 
 ```
-    static void Main(string[] args)
-    {
-        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
+static void Main(string[] args)
+{
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
-        hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
-    }
+    hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
+}
 ```
 
 ![][7]
