@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: aglick
+ms.author: v-yeche
 ---
 
 #Azure resiliency technical guidance: recovery from data corruption or accidental deletion
