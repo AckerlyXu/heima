@@ -154,12 +154,11 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --size $VmSize \
     --nics $Nic1Name $Nic2Name \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue \
-    --use-unmanaged-disk
+    --ssh-key-value $SshKeyValue
     ```
 
 In addition to creating a VM with two NICs, the script creates:
-- Use unmanaged disk, and an Azure Storage Account will be created automatically. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) article for details.
+- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) article for details.
 - A virtual network with two subnets and a single public IP address. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
 ## <a name = "validate"></a>Validate VM creation and NICs
