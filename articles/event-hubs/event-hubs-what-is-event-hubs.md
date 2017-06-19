@@ -54,9 +54,9 @@ Event Hubs ensures that all events sharing a partition key value are delivered i
 ### Publisher policy
 Event Hubs enables granular control over event publishers through *publisher policies*. Publisher policies are run-time features designed to facilitate large numbers of independent event publishers. With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:
 
-    ```
-    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
-    ```
+```
+//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
+```
 
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
 
@@ -97,10 +97,10 @@ In a stream processing architecture, each downstream application equates to a co
 
 The following are examples of the consumer group URI convention:
 
-    ```http
-    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #1]
-    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #2]
-    ```
+```http
+//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #1]
+//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #2]
+```
 The following figure shows the Event Hubs stream processing architecture:
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)

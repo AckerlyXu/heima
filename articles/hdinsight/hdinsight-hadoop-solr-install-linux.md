@@ -319,8 +319,6 @@ Use the following steps to back up Solr data to the default storage for your clu
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
-
 ## Next steps
 
 * [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.

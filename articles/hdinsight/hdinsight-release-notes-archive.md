@@ -1247,8 +1247,6 @@ This hotfix release fixed a memory leak in Templeton that affected the heavy use
 <tr><td>tez.am.resource.memory</td><td>1536 MB (unchanged)</td></tr>
 </table>
 
-For more information about the memory configuration settings used by YARN and MapReduce on the Hortonworks Data Platform that is used by HDInsight, see [Determine HDP Memory Configuration Settings](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks also provided a tool to calculate proper memory settings.
-
 Regarding the Azure PowerShell and the HDInsight SDK error message: "*Cluster is not configured for HTTP services access*":
 
 * This error is a known [compatibility issue](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) that may occur due to a difference in the version of the  HDInsight SDK or Azure PowerShell and the version of the cluster. Clusters created on 8/15 or later have support for new provisioning capability into virtual networks. But this capability is not correctly interpreted by older versions of the  HDInsight SDK or Azure PowerShell. The result is a failure in some job submission operations. If you use  HDInsight SDK APIs or Azure PowerShell cmdlets (**Use-AzureRmHDInsightCluster** or **Invoke-AzureRmHDInsightHiveJob**) to submit jobs, those operations may fail with the error message "*Cluster <clustername> is not configured for HTTP services access*." Or (depending on the operation), you may get other error messages, such as "*Cannot connect to cluster*".
@@ -1480,7 +1478,7 @@ Release notes for the Hortonworks Data Platforms (HDPs) that are used by HDInsig
 * HDInsight version 3.1 uses a Hadoop distribution that is based on the [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. This is the default Hadoop cluster created when using the Azure Portal after 11/7/2014. HDInsight 3.1 clusters created before 11/7/2014 were based on the [Hortonworks Data Platform 2.1.1][hdp-2-1-1]
 * HDInsight version 3.0 uses a Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * HDInsight version 2.1 uses a Hadoop distribution that is based on the [Hortonworks Data Platform 1.3][hdp-1-3-0].
-* HDInsight version 1.6 uses a Hadoop distribution that is based on the [Hortonworks Data Platform 1.1][hdp-1-1-0].
+* HDInsight version 1.6 uses a Hadoop distribution that is based on the Hortonworks Data Platform 1.1.
 
 [hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
@@ -1489,8 +1487,6 @@ Release notes for the Hortonworks Data Platforms (HDPs) that are used by HDInsig
 [hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 
 [hdp-1-3-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
-
-[hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
 
 [nuget-link]: https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/
 

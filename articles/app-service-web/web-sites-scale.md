@@ -101,7 +101,6 @@ Depending on the pricing tier, the following developer-oriented features are ava
     [App Service Pricing Details](https://www.azure.cn/pricing/details/app-service/)
 
     [App Service Pricing Details - SSL Connections](https://www.azure.cn/pricing/details/app-service/)
-* For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/

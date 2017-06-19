@@ -582,8 +582,6 @@ For more information about the Azure VM Agent, see the following resources.
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> <http://blogs.msdn.com/b/wats/archive/2014/02/17/bginfo-guest-agent-extension-for-azure-vms.aspx>
->
 > ![Linux][Logo_Linux] Linux
 >
 > [Azure Linux Agent User Guide][virtual-machines-linux-agent-user-guide]

@@ -22,7 +22,7 @@ ms.custom: hdinsightactive
 
 # Install or update Mono on HDInsight
 
-Learn how to install a specific version of [Mono](https://www.mono-project.com) on HDInsight 3.4 or higher.
+Learn how to install a specific version of [Mono](http://www.mono-project.com) on HDInsight 3.4 or higher.
 
 Mono is installed on HDInsight 3.4 and higher, and is used to run .NET applications. For information on the version of Mono included with each HDInsight version, see [HDInsight component versioning](hdinsight-component-versioning.md). To install a different version on your cluster, use the script action in this document. 
 

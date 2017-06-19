@@ -96,7 +96,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 ## <a name="samples"></a>Sample WebJob applications
 * [Sample applications provided by the WebJobs team on GitHub](https://github.com/azure/azure-webjobs-sdk-samples)
 * [Simple Azure Web App with WebJobs Backend using the WebJobs SDK](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)
-* [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77). Demonstrates use of scheduled and event-driven WebJobs. See the blog post [Rebuilding the SiteMonitR using Azure WebJobs SDK](http://www.bradygaster.com/post/rebuilding-the-sitemonitr-using-windows-azure-webjobs).
+* [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77). Demonstrates use of scheduled and event-driven WebJobs.
 
 ## <a name="blogs"></a>Blogs
 * [Azure blog](https://www.azure.cn/blog)

@@ -37,7 +37,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 
 ## Attach an unmanaged disk
 
-Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM. Type `azure vm disk attach-new` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
+Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM. Type `az vm unmanaged-disk attach` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \

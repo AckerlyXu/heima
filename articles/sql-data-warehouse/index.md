@@ -57,38 +57,3 @@ Learn how to use SQL Data Warehouse, which combines the SQL Server relational da
         </a>
     </li>
 </ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlet</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Capacity limits</a></p>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">T-SQL language elements</a></p>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">T-SQL statements</a></p>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">T-SQL system views</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-

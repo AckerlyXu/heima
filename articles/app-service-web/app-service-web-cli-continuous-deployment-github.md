@@ -79,9 +79,9 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Creates a web app. |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associates a web app with a Git or Mercurial repository. |
-| [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | Open a web app in a browser. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | Creates a web app. |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/source-control#config) | Associates a web app with a Git or Mercurial repository. |
+| [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | Open a web app in a browser. |
 
 ## Next steps
 

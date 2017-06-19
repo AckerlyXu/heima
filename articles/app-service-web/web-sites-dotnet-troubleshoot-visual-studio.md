@@ -38,14 +38,14 @@ You'll learn:
 * How to view web server logs, including detailed error messages and failed request tracing.
 * How to send diagnostic logs to an Azure Storage account and view them there.
 
-If you have Visual Studio Ultimate, you can also use [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) for debugging. IntelliTrace is not covered in this tutorial.
+If you have Visual Studio Ultimate, you can also use [IntelliTrace](http://msdn.microsoft.com/library/dd264915.aspx) for debugging. IntelliTrace is not covered in this tutorial.
 
 ## <a name="prerequisites"></a>Prerequisites
 This tutorial works with the development environment, web project, and Azure web app that you set up in [Get started with Azure and ASP.NET][GetStarted]. For the WebJobs sections, you'll need the application that you create in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
 
 The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
-The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Visual Studio 2013, the WebJobs features require [Update 4](http://go.microsoft.com/fwlink/?LinkID=510314) or later.
+The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Visual Studio 2013, the WebJobs features require [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or later.
 
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
@@ -72,8 +72,6 @@ Visual Studio provides access to a subset of the web app management functions an
     ![Azure Web App window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
     In this tutorial you'll be using the logging and tracing drop-downs. You'll also use remote debugging but you'll use a different method to enable it.
-
-    For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Apps: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
     If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure Portal.
 
@@ -219,9 +217,9 @@ If your function [wrote logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.
           <compilation debug="true" targetFramework="4.5" />
           <httpRuntime targetFramework="4.5" />
         </system.web>
-* If you find that the debugger won't step into code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Restrict stepping to Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* If you find that the debugger won't step into code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Restrict stepping to Just My Code](http://msdn.microsoft.com/library/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * A timer starts on the server when you enable the remote debugging feature, and after 48 hours the feature is automatically turned off. This 48 hour limit is done for security and performance reasons. You can easily turn the feature back on as many times as you like. We recommend leaving it disabled when you are not actively debugging.
-* You can manually attach the debugger to any process, not only the web app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* You can manually attach the debugger to any process, not only the web app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/library/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Diagnostic logs overview
 An ASP.NET application that runs in an Azure web app can create the following kinds of logs:
@@ -303,7 +301,7 @@ For information about how to create application logs in WebJobs, see [How to wor
           </system.diagnostics>
 
     The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
-3. Add a <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
+3. Add a <a href="http://msdn.microsoft.com/library/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
 
         <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 4. Press CTRL+F5 to run the application.
@@ -580,7 +578,7 @@ For help with a specific troubleshooting question, start a thread in one of the 
 * [CSDN](http://azure.csdn.net/).
 
 ### Debugging in Visual Studio
-For more information about how to use debug mode in Visual Studio, see the [Debugging in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) MSDN topic and [Debugging Tips with Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+For more information about how to use debug mode in Visual Studio, see the [Debugging in Visual Studio](http://msdn.microsoft.com/library/sc65sadd.aspx) MSDN topic and [Debugging Tips with Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### Remote debugging in Azure
 For more information about remote debugging for Azure web apps and WebJobs, see the following resources:

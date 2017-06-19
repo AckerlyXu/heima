@@ -54,7 +54,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Cisco              |ASA       |8.3 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Not compatible |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Configuration samples*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Citrix |NetScaler MPX, SDX, VPX |10.1 and above |[Configuration guide](https://docs.citrix.com/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
+| Citrix |NetScaler MPX, SDX, VPX |10.1 and above | |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuration guide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |[Configuration guide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Configuration guide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |SEIL Series |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Configuration guide](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Not compatible |

@@ -1,4 +1,4 @@
-Use the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command to create the Web App. In the following command, substitute a unique app name where you see the `<app_name>` placeholder. The `<app_name>` is used in the default DNS site for the web app. If `<app_name>` is not unique, you get the friendly error message "Website with given name <app_name> already exists."
+Use the [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the Web App. In the following command, substitute a unique app name where you see the `<app_name>` placeholder. The `<app_name>` is used in the default DNS site for the web app. If `<app_name>` is not unique, you get the friendly error message "Website with given name <app_name> already exists."
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -44,7 +44,7 @@ App Service supports several ways to deploy content to a web app, such as FTP, l
 
 For this quickstart, you deploy by using local Git. That means you deploy by using a Git command to push from a local repository to a repository in Azure. 
 
-Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) command to configure local Git access to the web app.
+Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) command to configure local Git access to the web app.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv

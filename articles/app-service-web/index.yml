@@ -68,15 +68,3 @@ sections:
     items:
     - html: <a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
-    - title: Languages
-      html: <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>

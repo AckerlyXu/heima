@@ -229,7 +229,7 @@ The Azure CLI provides cross-platform commands for working with Azure, including
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 > [!NOTE] 
-> For [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands for deployment slots, see [az appservice web deployment slot](https://docs.microsoft.com/cli/azure/appservice/web/deployment/slot).
+> For [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands for deployment slots, see [az appservice web deployment slot](https://docs.microsoft.com/cli/azure/webapp/deployment/slot).
 
 - - -
 ### azure site list

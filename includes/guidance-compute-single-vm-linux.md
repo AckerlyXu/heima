@@ -148,7 +148,7 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window."
-    [![Deploy to Azure](./media/guidance-compute-single-vm-linux/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
+    [![Deploy to Azure](./media/guidance-compute-single-vm-linux/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fsingle-vm%2Fazuredeploy.json)
 2. Once the link has opened in the Azure Portal, you must enter values for some of the settings: 
 
     * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
@@ -178,7 +178,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md

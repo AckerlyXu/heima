@@ -72,7 +72,7 @@ The following systems have been tested and are known to work with the Azure Linu
 
 > [!NOTE]
 > This list may differ from the official list of supported systems on the Azure Platform, as described here:
-> [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> [https://docs.azure.cn/virtual-machines/linux/endorsed-distros](https://docs.azure.cn/virtual-machines/linux/endorsed-distros)
 > 
 > 
 

@@ -30,7 +30,7 @@ sections:
       href: /virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: /virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal Preview
+      text: Azure Portal
       href: /virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: /virtual-machines/linux/media/index/logo_powershell.svg
@@ -61,15 +61,3 @@ sections:
     items:
     - html: <a href="/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
     - html: <a href="/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p><p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/compute">REST API Reference</a></p>

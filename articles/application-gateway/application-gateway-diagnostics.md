@@ -27,8 +27,6 @@ Azure provides the capability to monitor resources with logging and metrics. App
 
 [**Logging**](#enable-logging-with-powershell) - Logging allows for access and other logs to be saved or consumed from a resource for monitoring purposes.
 
-[**Metrics**](#metrics) - Application gateway currently has one metric. This metric measures the throughput of the application gateway in Bytes per second.
-
 ## Backend health
 
 Application gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and CLI. The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the backend can be served traffic to, it is considered healthy, otherwise it is considered unhealthy.

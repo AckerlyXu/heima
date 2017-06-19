@@ -43,45 +43,45 @@ When creating an Azure Event Hubs namespace, the service generates a 256-bit SAS
 
 The following example creates a send-only key when creating the Event Hub:
 
-    ```csharp
-    // Create namespace manager.
-    string serviceNamespace = "YOUR_NAMESPACE";
-    string namespaceManageKeyName = "RootManageSharedAccessKey";
-    string namespaceManageKey = "YOUR_ROOT_MANAGE_SHARED_ACCESS_KEY";
-    Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.Empty);
-    TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
-    NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
+```csharp
+// Create namespace manager.
+string serviceNamespace = "YOUR_NAMESPACE";
+string namespaceManageKeyName = "RootManageSharedAccessKey";
+string namespaceManageKey = "YOUR_ROOT_MANAGE_SHARED_ACCESS_KEY";
+Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.Empty);
+TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
+NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-    // Create Event Hub with a SAS rule that enables sending to that Event Hub
-    EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
-    string eventHubSendKeyName = "EventHubSendKey";
-    string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
-    SharedAccessAuthorizationRule eventHubSendRule = new SharedAccessAuthorizationRule(eventHubSendKeyName, eventHubSendKey, new[] { AccessRights.Send });
-    ed.Authorization.Add(eventHubSendRule); 
-    nm.CreateEventHub(ed);
-    ```
+// Create Event Hub with a SAS rule that enables sending to that Event Hub
+EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
+string eventHubSendKeyName = "EventHubSendKey";
+string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
+SharedAccessAuthorizationRule eventHubSendRule = new SharedAccessAuthorizationRule(eventHubSendKeyName, eventHubSendKey, new[] { AccessRights.Send });
+ed.Authorization.Add(eventHubSendRule); 
+nm.CreateEventHub(ed);
+```
 
 ### Generate tokens
 
 You can generate tokens using the SAS key. You must produce only one token per client. Tokens can then be produced using the following method. All tokens are generated using the **EventHubSendKey** key. Each token is assigned a unique URI.
 
-    ```csharp
-    public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
-    ```
+```csharp
+public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
+```
 
 When calling this method, the URI should be specified as `//<NAMESPACE>.servicebus.chinacloudapi.cn/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. For all tokens, the URI is identical, with the exception of `PUBLISHER_NAME`, which should be different for each token. Ideally, `PUBLISHER_NAME` represents the ID of the client that receives that token.
 
 This method generates a token with the following structure:
 
-    ```csharp
-    SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
-    ```
+```csharp
+SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
+```
 
 The token expiration time is specified in seconds from Jan 1, 1970. The following is an example of a token:
 
-    ```csharp
-    SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
-    ```
+```csharp
+SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
+```
 
 Typically, the tokens have a lifespan that resembles or exceeds the lifespan of the client. If the client has the capability to obtain a new token, tokens with a shorter lifespan can be used.
 

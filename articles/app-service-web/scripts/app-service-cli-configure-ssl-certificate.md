@@ -81,10 +81,10 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Creates an Azure web app. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Maps a custom domain to a web app. |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#upload) | Uploads an SSL certificate to a web app. |
-| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#bind) | Binds an uploaded SSL certificate to a web app. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | Creates an Azure web app. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#add) | Maps a custom domain to a web app. |
+| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/webapp/config/ssl#upload) | Uploads an SSL certificate to a web app. |
+| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/webapp/config/ssl#bind) | Binds an uploaded SSL certificate to a web app. |
 
 ## Next steps
 

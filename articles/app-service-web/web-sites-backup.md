@@ -32,7 +32,7 @@ App Service can backup the followin information to an Azure storage account and 
 * Database connected to your app
 
 The following database solutions are supported with backup feature: 
-   - [SQL Database](https://azure.microsoft.com/services/sql-database/)
+   - [SQL Database](https://www.azure.cn/home/features/sql-database/)
    - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/services/mysql)
    - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/services/postgres)
    - [ClearDB MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)

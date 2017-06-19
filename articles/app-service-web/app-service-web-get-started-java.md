@@ -37,7 +37,7 @@ In order to simplify the process of publishing Java web apps to Azure, the steps
 > You could also use [IntelliJ IDEA](https://www.jetbrains.com/idea/) from JetBrains to complete the steps in this tutorial. A few of the steps might be slightly different for that development environment, although there is also an [Azure Toolkit for IntelliJ](/azure-toolkit-for-intellij) which you can use to simplify your publishing process for that IDE.
 >
 
-You will also need an Azure subscription to complete the steps in this tutorial. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [trial Azure account](https://www.azure.cn/pricing/1rmb-trial/).
+You will also need an Azure subscription to complete the steps in this tutorial. If you don't already have an Azure subscription, you can sign up for a [trial Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
 ## Create a Dynamic Web Project in Eclipse
 

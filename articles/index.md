@@ -14,7 +14,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                        <img data-hoverimage="media/index/aog.png" src="media/index/aog.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -32,11 +32,29 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="media/index/developer.png" src="media/index/developer.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
                                     <span class="likeAnH3">Developer Notes for Azure in China Applications</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+                        <li>
+                <a href="/references">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/developer.png" src="media/index/developer.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">Tools and API References</span>
                                 </div>
                             </div>
                         </div>
@@ -388,13 +406,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://www.visualstudio.com/docs/overview">
+                                            <a target="_blank" href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
                                                 <p>Visual Studio Team Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://support.hockeyapp.net/kb">
+                                            <a target="_blank" href="https://support.hockeyapp.net/kb">
                                                 <img src="media/index/HockeyApp.svg" alt="" />
                                                 <p>HockeyApp</p>
                                             </a>
@@ -1476,7 +1494,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/docs/overview">
+                                <a target="_blank" href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1495,7 +1513,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="https://support.hockeyapp.net/kb">
+                                <a target="_blank" href="https://support.hockeyapp.net/kb">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
