@@ -126,8 +126,6 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 5. VM is running at High CPU/Memory.<br>
    If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and will eventually gets timed-out. Try on-demand backup in such situations.
 
-<br>
-
 ## Networking
 Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in various ways:
 
