@@ -2,7 +2,7 @@
 
 2. Click on **New**, then **Web + Mobile**. Scroll down if necessary and click **Notification Hub**.
 
-       ![Azure Portal - Create Notification Hubs](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+    ![Azure Portal - Create Notification Hubs](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
 3. Make sure you specify a unique name in the **Notification Hub** field. Select your desired **Region**, **Subscription** and **Resource Group** (if you have one already). 
 
@@ -10,12 +10,12 @@
 
     Once ready, click **Create**.
 
-       ![Azure Portal - Set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+    ![Azure Portal - Set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
 4. Once the namespace and notification hub are created, you will be taken to the respective portal page. 
 
-       ![Azure Portal - Notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+    ![Azure Portal - Notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
 
 5. Click on **Settings** and then **Access Policies** - take note of the two connection strings that are made available to you, as you will need them to handle push notifications later.
 
-       ![Azure Portal - Notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+    ![Azure Portal - Notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)

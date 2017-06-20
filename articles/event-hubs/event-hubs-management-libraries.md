@@ -44,39 +44,39 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
 
 1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
 
-        ```csharp
-        var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
+    ```csharp
+    var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
-        var result = await context.AcquireTokenAsync(
-            "https://management.core.chinacloudapi.cn/",
-            new ClientCredential(clientId, clientSecret)
-        );
-        ```
+    var result = await context.AcquireTokenAsync(
+        "https://management.core.chinacloudapi.cn/",
+        new ClientCredential(clientId, clientSecret)
+    );
+    ```
 
 2. Create the `EventHubManagementClient` object.
 
-        ```csharp
-        var creds = new TokenCredentials(token);
-        var ehClient = new EventHubManagementClient(creds)
-        {
-            SubscriptionId = SettingsCache["SubscriptionId"]
-        };
-        ```
+    ```csharp
+    var creds = new TokenCredentials(token);
+    var ehClient = new EventHubManagementClient(creds)
+    {
+        SubscriptionId = SettingsCache["SubscriptionId"]
+    };
+    ```
 
 3. Set the CreateOrUpdate parameters to your specified values.
 
-        ```csharp
-        var ehParams = new EventHubCreateOrUpdateParameters()
-        {
-            Location = SettingsCache["DataCenterLocation"]
-        };
-        ```
+    ```csharp
+    var ehParams = new EventHubCreateOrUpdateParameters()
+    {
+        Location = SettingsCache["DataCenterLocation"]
+    };
+    ```
 
 4. Execute the call.
 
-        ```csharp
-        await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
-        ```
+    ```csharp
+    await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
+    ```
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/event-hubs-dotnet-management/)

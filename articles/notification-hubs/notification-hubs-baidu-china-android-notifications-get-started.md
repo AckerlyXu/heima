@@ -21,11 +21,11 @@ wacn.date: ''
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Overview
+## Overview
 
 Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices. This service is particularly useful in China, where delivering push notifications to Android is complex because of the presence of different app stores and push services, in addition to the availability of Android devices that are not typically connected to GCM (Google Cloud Messaging).
 
-##Prerequisites
+## Prerequisites
 
 This tutorial requires the following:
 
@@ -36,99 +36,99 @@ This tutorial requires the following:
 >[!NOTE]
 > To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-##Create a Baidu account
+## Create a Baidu account
 
 To use Baidu, you must have a Baidu account. If you already have one, log in to the [Baidu portal] and skip to the next step. Otherwise, see the instructions below on how to create a Baidu account.  
 
 1. Go to the [Baidu portal] and click the **登录** (**Login**) link. Click **立即注册** to start the account registration process.
 
-       ![][1]
+    ![][1]
 
 2. Enter the required details—phone/email address, password, and verification code—and click **Signup**.
 
-       ![][2]
+    ![][2]
 
 3. You will be sent an email to the email address that you entered with a link to activate your Baidu account.
 
-       ![][3]
+    ![][3]
 
 4. Log in to your email account, open the Baidu activation mail, and click the activation link to activate your Baidu account.
 
-       ![][4]
+    ![][4]
 
 Once you have an activated Baidu account, log in to the [Baidu portal].
 
-##Register as a Baidu developer
+## Register as a Baidu developer
 
 1. Once you have logged in to the [Baidu portal], click **更多>>** (**more**).
 
-      ![][5]
+    ![][5]
 
 2. Scroll down in the **站长与开发者服务 (Webmaster and Developer Services)** section and click **百度开放云平台** (**Baidu open cloud platform**).
 
-      ![][6]
+    ![][6]
 
 3. On the next page, click **开发者服务** (**Developer Services**) on the top-right corner.
 
-      ![][7]
+    ![][7]
 
 4. On the next page, click **注册开发者** (**Registered Developers**) from the menu on the top-right corner.
 
-      ![][8]
+    ![][8]
 
 5. Enter your name, a description, and a mobile phone number for receiving a verification text message, and then click **送验证码** (**Send Verification Code**). Note that for international phone numbers, you need to enclose the country code in parentheses. For example, for a United States number, it will be **(1)1234567890**.
 
-      ![][9]
+    ![][9]
 
 6. You should then receive a text message with a verification number, as shown in the following example:
 
-      ![][10]
+    ![][10]
 
 7. Enter the verification number from the message in **验证码** (**Confirmation code**).
 
 8. Finally, complete the developer registration by accepting the Baidu agreement and clicking **提交** (**Submit**). You will see the following page on successful completion of registration:
 
-      ![][11]
+    ![][11]
 
-##Create a Baidu cloud push project
+## Create a Baidu cloud push project
 
 When you create a Baidu cloud push project, you receive your app ID, API key, and secret key.
 
 1. Once you have logged in to the [Baidu portal], click **更多>>** (**more**).
 
-      ![][5]
+    ![][5]
 
 2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度开放云平台** (**Baidu open cloud platform**).
 
-      ![][6]
+    ![][6]
 
 3. On the next page, click **开发者服务** (**Developer Services**) on the top-right corner.
 
-      ![][7]
+    ![][7]
 
 4. On the next page, click **云推送** (**Cloud Push**) from the **云服务** (**Cloud Services**) section.
 
-      ![][12]
+    ![][12]
 
 5. Once you are a registered developer, you will see **管理控制台** (**Management Console**) at the top menu. Click **开发者服务管理** (**Developers Service Management**).
 
-      ![][13]
+    ![][13]
 
 6. On the next page, click **创建工程** (**Create Project**).
 
-      ![][14]
+    ![][14]
 
 7. Enter an application name and click **创建** (**Create**).
 
-      ![][15]
+    ![][15]
 
 8. Upon successful creation of a Baidu cloud push project, you will see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we will use later.
 
-      ![][16]
+    ![][16]
 
 9. Configure the project for push notifications by clicking **云推送** (**Cloud Push**) on the left pane.
 
-      ![][31]
+    ![][31]
 
 10. On the next page, click the **推送设置** (**Push settings**) button.
 
@@ -140,7 +140,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
 You will see the **保存成功！** (**Successfully saved!**) message.
 
-##Configure your notification hub
+## Configure your notification hub
 
 1. Sign in to the [Azure Classic Management Portal], and then click **+NEW** at the bottom of the screen.
 
@@ -170,7 +170,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 
     ![][22]
 
-##Connect your app to the notification hub
+## Connect your app to the notification hub
 
 1. In Eclipse ADT, create a new Android project (**File** > **New** > **Android Application Project**).
 
@@ -402,18 +402,18 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 13. Open **MainActivity.java**, and add the following to the **onCreate** method:
 
     ```
-        PushManager.startWork(getApplicationContext(),
-                PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
+    PushManager.startWork(getApplicationContext(),
+            PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
     ```
 
 14. Open the following import statements at the top:
 
     ```
-        import com.baidu.android.pushservice.PushConstants;
-        import com.baidu.android.pushservice.PushManager;
+    import com.baidu.android.pushservice.PushConstants;
+    import com.baidu.android.pushservice.PushManager;
     ```
 
-##Send notifications to your app
+## Send notifications to your app
 
 You can quickly test receiving notifications in your app by sending notifications in the [Azure Portal](https://portal.azure.cn/) using the **Test Send** button on the notification hub, as shown in the screen below.
 
@@ -431,7 +431,7 @@ In this tutorial, we will keep it simple and just demonstrate testing your clien
 
 * **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](./notification-hubs-java-push-notification-tutorial.md) | [PHP](./notification-hubs-php-push-notification-tutorial.md)).
 
-##(Optional) Send notifications from a .NET console app.
+## (Optional) Send notifications from a .NET console app.
 
 In this section, we show sending a notification using a .NET console app.
 
@@ -473,7 +473,7 @@ In this section, we show sending a notification using a .NET console app.
      Console.ReadLine();
     ```
 
-##Test your app
+## Test your app
 
 To test this app with an actual phone, just connect the phone to your computer by using a USB cable. This loads your app onto the attached phone.
 

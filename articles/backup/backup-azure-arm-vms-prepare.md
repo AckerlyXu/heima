@@ -121,7 +121,7 @@ The example image below shows the three configuration steps necessary to use an 
 
 To use an HTTP proxy to communicating to the public Internet, follow these steps:
 
-#### Step 1. Configure outgoing network connections
+#### Step 1 - Configure outgoing network connections
 ###### For Windows machines
 This will setup proxy server configuration for Local System Account.
 
@@ -168,7 +168,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### Step 2. Allow incoming connections on the proxy server:
+#### Step 2 - Allow incoming connections on the proxy server:
 1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
 
     ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
@@ -187,7 +187,7 @@ HttpProxy.Port=<proxy port>
 
      For the rest of the wizard, click all the way to the end and give this rule a name.
 
-#### Step 3. Add an exception rule to the NSG:
+#### Step 3 - Add an exception rule to the NSG:
 In an Azure PowerShell command prompt, enter the following command:
 
 The following command adds an exception to the NSG. This exception allows TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you require a specific port in the public Internet, be sure to add that port to the ```-DestinationPortRange``` as well.
