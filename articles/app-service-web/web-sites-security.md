@@ -80,11 +80,11 @@ a *publish settings* file or a *publishing profile*. Both file types authenticat
 
 * A **publish settings** file contains
 
-    * Your Azure subscription ID
-    * A management certificate that allows you to perform management tasks for your subscription *without having to provide an account name or password*.
+  * Your Azure subscription ID
+  * A management certificate that allows you to perform management tasks for your subscription *without having to provide an account name or password*.
 * A **publishing profile** file contains
 
-    * Information for publishing to your app
+  * Information for publishing to your app
 
 If you use a utility that uses a publish settings file or publish profile file, import the file containing the publish settings or profile into the utility and then **delete** the file. If you must keep the file, to share with 
 others working on the project for example, store it in a secure location such as an *encrypted* directory with restricted permissions.

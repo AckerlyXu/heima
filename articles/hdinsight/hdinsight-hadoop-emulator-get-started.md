@@ -52,9 +52,9 @@ To download an older HDP version sandbox, expand the archive:
 
 1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
 
-    > [!NOTE]
-    > If you do not have an SSH client installed, you can use the web-based SSH provided at by the virtual machine at **http://localhost:4200/**.
-    > 
+   > [!NOTE]
+   > If you do not have an SSH client installed, you can use the web-based SSH provided at by the virtual machine at **http://localhost:4200/**.
+   > 
 
     The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you login using SSH in the future.
 2. Once logged in, enter the following command:

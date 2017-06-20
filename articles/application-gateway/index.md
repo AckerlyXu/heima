@@ -48,7 +48,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Application Gateway using the Azure Portal</h3>
+                        <h3>Get Started with Application Gateway using the Azure portal</h3>
                     </div>
                 </div>
             </div>

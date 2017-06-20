@@ -56,20 +56,20 @@ This section provides instructions about how to use the script when provisioning
 
 1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
 
-    > [!NOTE]
-    > To install Hue on HDInsight clusters, the recommended headnode size is at least A4 (8 cores, 14 GB memory).
-    >
-    >
+   > [!NOTE]
+   > To install Hue on HDInsight clusters, the recommended headnode size is at least A4 (8 cores, 14 GB memory).
+   >
+   >
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information as shown below:
 
     ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Provide script action parameters for Hue")
 
-    * **NAME**: Enter a friendly name for the script action.
-    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
-    * **HEAD**: Check this option
-    * **WORKER**: Leave this blank.
-    * **ZOOKEEPER**: Leave this blank.
-    * **PARAMETERS**: Leave this blank.
+   * **NAME**: Enter a friendly name for the script action.
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **HEAD**: Check this option
+   * **WORKER**: Leave this blank.
+   * **ZOOKEEPER**: Leave this blank.
+   * **PARAMETERS**: Leave this blank.
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -99,10 +99,10 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
     This is the hostname of the primary headnode where the Hue website is located.
 4. Use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
 
-    > [!NOTE]
-    > When you log in for the first time, you will be prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
-    >
-    >
+   > [!NOTE]
+   > When you log in for the first time, you will be prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
+   >
+   >
 
     ![Login to the Hue portal](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Specify credentials for Hue portal")
 
@@ -138,9 +138,9 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 4. With Linux clusters, you can have a scenario where your services are running on the primary headnode while the Resource Manager could be running on the secondary. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
-    ![Hue portal error](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue portal error")
+   ![Hue portal error](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue portal error")
 
-    This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on the primary headnode.
+   This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on the primary headnode.
 5. Hue understands WebHDFS while HDInsight clusters use Azure Storage using `wasbs://`. So, the custom script used with script action installs WebWasb, which is a WebHDFS-compatible service for talking to WASB. So, even though the Hue portal says HDFS in places (like when you move your mouse over the **File Browser**), it should be interpreted as WASB.
 
 ## Next steps

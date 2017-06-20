@@ -68,7 +68,7 @@ The following steps should be performed from a command-prompt, shell, or termina
 
     * Replace **location** with the geographic region that you want to create the group in.
 
-        For a list of valid locations, use the `azure location list` command, and then use one of the locations from the **Name** column.
+       For a list of valid locations, use the `azure location list` command, and then use one of the locations from the **Name** column.
 
 4. Create a storage account. This storage account is used as the default storage for the HDInsight cluster.
 
@@ -90,7 +90,7 @@ The following steps should be performed from a command-prompt, shell, or termina
     * Replace **groupname** with the resource group name.
     * Replace **storagename** with the name of the storage account.
 
-    In the data that is returned, save the **key** value for **key1**.
+     In the data that is returned, save the **key** value for **key1**.
 
 6. Create an HDInsight cluster.
 
@@ -100,8 +100,8 @@ The following steps should be performed from a command-prompt, shell, or termina
 
     * Replace **Hadoop** with the cluster type that you wish to create. For example, Hadoop, HBase, Storm, or Spark.
 
-    > [!IMPORTANT]
-    > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
+     > [!IMPORTANT]
+     > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 
     * Replace **location** with the same location used in previous steps.
 

@@ -100,10 +100,10 @@ Without further ado, let's set up autoscaling.
 
     You're done scaling up.
 
-    > [!IMPORTANT]
-    > This tier expends your trial credits. If you have a pay-per-use account, it incurs charges to your account.
-    > 
-    > 
+   > [!IMPORTANT]
+   > This tier expends your trial credits. If you have a pay-per-use account, it incurs charges to your account.
+   > 
+   > 
 3. Next, let's configure autoscaling. In the portal blade of your app, click **Settings** > **Scale Out (App Service Plan)**.  
     ![Scale out - settings blade](./media/app-service-web-get-started/scale-out-settings.png)
 4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown update accordingly. Then, define an **Instances** range between

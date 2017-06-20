@@ -39,7 +39,9 @@ Before following this tutorial, make sure that you have done the following:
 - [Map a custom DNS name to your web app](web-sites-custom-domain-name.md)
 - Acquire an SSL certificate from a trusted certificate authority
 
-### <a name="requirements"></a> Requirements for your SSL certificate
+<a name="requirements"></a>
+
+### Requirements for your SSL certificate
 
 To use your certificate in App Service, your certificate must meet all the following requirements:
 
@@ -59,7 +61,7 @@ To bind a custom SSL certificate to your web app, your [App Service plan](https:
 
 ### Log in to Azure
 
-Open the Azure Portal. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
+Open the Azure portal. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
 
 ### Navigate to your web app
 From the left menu, click **App Services**, then click the name of your web app.
@@ -92,7 +94,9 @@ When you see the notification below, the scale operation is complete.
 
 ![Scale up notification](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
 
-## <a name="upload"></a> Bind your SSL certificate
+<a name="upload"></a>
+
+## Bind your SSL certificate
 
 You are ready to upload your SSL certificate to your web app. 
 
@@ -155,7 +159,9 @@ If you have mapped an A record to your web app, update your domain registry with
 
 Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#create-a) to this new IP address.
 
-## <a name="test"></a> Test HTTPS
+<a name="test"></a>
+
+## Test HTTPS
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
 to `https://<your.custom.domain>` to see that it serves up your web app.
 
@@ -168,7 +174,9 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 >
 >
 
-## <a name="bkmk_enforce"></a> Enforce HTTPS
+<a name="bkmk_enforce"></a>
+
+## Enforce HTTPS
 If you still want to allow HTTP access to your web app, skip this step. 
 
 App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.

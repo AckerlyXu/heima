@@ -92,8 +92,8 @@ Before you begin this tutorial, you must have the following:
     <tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL database to which Sqoop will export data. </td></tr>
     </table>
 
-    > [!NOTE]
-    > By default an Azure SQL database allows connections from Azure Services, such as Azure HDInsight. If this firewall setting is disabled, you must enable it from the Azure Portal. For instruction about creating a SQL Database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-get-started].
+  > [!NOTE]
+  > By default an Azure SQL database allows connections from Azure Services, such as Azure HDInsight. If this firewall setting is disabled, you must enable it from the Azure Portal. For instruction about creating a SQL Database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-get-started].
 
 > [!NOTE]
 > Fill-in the values in the tables. It will be helpful for going through this tutorial.
@@ -121,11 +121,11 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
     There are three variables used in the script:
 
-    * ${hiveTableName}
-    * ${hiveDataFolder}
-    * ${hiveOutputFolder}
+   * ${hiveTableName}
+   * ${hiveDataFolder}
+   * ${hiveOutputFolder}
 
-    The workflow definition file (workflow.xml in this tutorial) will pass these values to this HiveQL script at run time.
+     The workflow definition file (workflow.xml in this tutorial) will pass these values to this HiveQL script at run time.
 2. Save the file as **C:\Tutorials\UseOozie\useooziewf.hql** by using ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.) This script file will be deployed to the HDInsight cluster later in the tutorial.
 
 **To define a workflow**
@@ -240,13 +240,13 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
     There are five variables used in the definition file:
 
-    | Variable | Description |
-    | --- | --- |
-    | ${coordFrequency} |Job pause time. Frequency is always expressed in minutes. |
-    | ${coordStart} |Job start time. |
-    | ${coordEnd} |Job end time. |
-    | ${coordTimezone} |Oozie processes coordinator jobs in a fixed time zone with no daylight saving time (typically represented by using UTC). This time zone is referred as the "Oozie processing timezone." |
-    | ${wfPath} |The path for the workflow.xml.  If the workflow file name is not the default file name (workflow.xml), you must specify it. |
+   | Variable | Description |
+   | --- | --- |
+   | ${coordFrequency} |Job pause time. Frequency is always expressed in minutes. |
+   | ${coordStart} |Job start time. |
+   | ${coordEnd} |Job end time. |
+   | ${coordTimezone} |Oozie processes coordinator jobs in a fixed time zone with no daylight saving time (typically represented by using UTC). This time zone is referred as the "Oozie processing timezone." |
+   | ${wfPath} |The path for the workflow.xml.  If the workflow file name is not the default file name (workflow.xml), you must specify it. |
 2. Save the file as **C:\Tutorials\UseOozie\coordinator.xml** by using the ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.)
 
 ## Deploy the Oozie project and prepare the tutorial
@@ -305,8 +305,8 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
     You will be prompted to enter your Azure account credentials. This method of adding a subscription connection times out, and after 12 hours, you will have to run the cmdlet again.
 
-    > [!NOTE]
-    > If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select a subscription.
+   > [!NOTE]
+   > If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select a subscription.
 
 3. Copy the following script into the script pane, and then set the first six variables:
 
@@ -541,8 +541,8 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     "@
     ```
 
-    > [!NOTE]
-    > The major difference compared to the workflow submission payload file is the variable **oozie.coord.application.path**. When you submit a workflow job, you use **oozie.wf.application.path** instead.
+   > [!NOTE]
+   > The major difference compared to the workflow submission payload file is the variable **oozie.coord.application.path**. When you submit a workflow job, you use **oozie.wf.application.path** instead.
 
 4. Append the following to the script. This part checks the Oozie web service status:
 
@@ -584,8 +584,8 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     }
     ```
 
-    > [!NOTE]
-    > When you submit a workflow job, you must make another web service call to start the job after the job is created. In this case, the coordinator job is triggered by time. The job will start automatically.
+   > [!NOTE]
+   > When you submit a workflow job, you must make another web service call to start the job after the job is created. In this case, the coordinator job is triggered by time. The job will start automatically.
 
 6. Append the following to the script. This part checks the Oozie job status:
 
@@ -673,7 +673,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 
 **To check the job error log**
 
-To troubleshoot a workflow, the Oozie log file can be found at C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log from the cluster headnode. For information on RDP, see [Administering HDInsight clusters using the Azure Portal][hdinsight-admin-portal].
+To troubleshoot a workflow, the Oozie log file can be found at C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log from the cluster headnode. For information on RDP, see [Administering HDInsight clusters using the Azure portal][hdinsight-admin-portal].
 
 **To rerun the tutorial**
 

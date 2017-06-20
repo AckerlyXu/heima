@@ -22,7 +22,7 @@ ms.author: v-dazen
 
 This quickstart tutorial walks through how to develop and deploy a PHP app to Azure. We'll run the app using an [Azure App Service plan](/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), and create and configure a new Web App within it using the Azure CLI. We'll then use git to deploy our PHP app to Azure.
 
-![hello-world-in-browser](./media/app-service-web-get-started-php/hello-world-in-browser.png)
+![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
 
@@ -66,7 +66,7 @@ http://localhost:8080
 
 You can see the **Hello World** message from the sample app displayed in the page.
 
-![localhost-hello-world-in-browser](./media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
+![localhost-hello-world-in-browser](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
@@ -163,7 +163,7 @@ Browse to the site to see your newly created Web App.
 http://<app_name>.chinacloudsites.cn
 ```
 
-![app-service-web-service-created](./media/app-service-web-get-started-php/app-service-web-service-created.png)
+![app-service-web-service-created](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
 We've now created an empty new Web App in Azure.
 
@@ -191,7 +191,7 @@ Add an Azure remote to your local Git repository.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Push to the Azure remote to deploy your app. You are prompted for the password you supplied earlier when you created the deployment user. Make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure Portal.
+Push to the Azure remote to deploy your app. You are prompted for the password you supplied earlier when you created the deployment user. Make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
 
 ```bash
 git push azure master
@@ -251,11 +251,11 @@ git push azure master
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-![hello-world-in-browser](./media/app-service-web-get-started-php/hello-world-in-browser.png)
+![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 ## Manage your new Azure web app
 
-Go to the Azure Portal to take a look at the web app you just created.
+Go to the Azure portal to take a look at the web app you just created.
 
 To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn).
 
@@ -267,7 +267,7 @@ You have landed in your web app's _blade_ (a portal page that opens horizontally
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open.
 
-![App Service blade in Azure Portal](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+![App Service blade in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 

@@ -40,8 +40,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [A Linux-based Azure HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
 
-    > [!NOTE]
-    > The steps in this document have been tested with HDInsight cluster versions 3.2, 3.3, 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
+  > [!NOTE]
+  > The steps in this document have been tested with HDInsight cluster versions 3.2, 3.3, 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
 
 * **Familiarity with SSH and SCP** or **Azure PowerShell**. This document provides steps for using both SSH/SCP and Azure PowerShell when running this example.
 
@@ -59,8 +59,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     This command creates a directory with the same name as the **artifactID** parameter (**hbaseapp** in this example.) This directory contains the following items:
 
-    * **pom.xml**:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
-    * **src**: The directory that contains the **main/java/com/microsoft/examples** directory, where you author the application.
+   * **pom.xml**:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
+   * **src**: The directory that contains the **main/java/com/microsoft/examples** directory, where you author the application.
 
 3. Delete the **src/test/java/com/microsoft/examples/apptest.java** file because it is not be used in this example.
 
@@ -68,41 +68,41 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 1. Edit the **pom.xml** file and add the following code inside the `<dependencies>` section:
 
-    ```xml
+   ```xml
     <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-client</artifactId>
         <version>1.1.2</version>
     </dependency>
-    ```
+   ```
 
     This section indicates that the project needs **hbase-client** version **1.1.2**. At compile time, this dependency is downloaded from the default Maven repository. You can use the [Maven Central Repository Search](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
 
-    > [!IMPORTANT]
-    > The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
+   > [!IMPORTANT]
+   > The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
 
-    | HDInsight cluster version | HBase version to use |
-    | --- | --- |
-    | 3.2 |0.98.4-hadoop2 |
-    | 3.3, 3.4 and 3.5 |1.1.2 |
+   | HDInsight cluster version | HBase version to use |
+   | --- | --- |
+   | 3.2 |0.98.4-hadoop2 |
+   | 3.3, 3.4 and 3.5 |1.1.2 |
 
     For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](hdinsight-component-versioning.md).
 
 2. If you are using an HDInsight 3.3, 3.4 or 3.5 cluster, you must also add the following to the `<dependencies>` section:
 
-    ```xml
+   ```xml
     <dependency>
         <groupId>org.apache.phoenix</groupId>
         <artifactId>phoenix-core</artifactId>
         <version>4.4.0-HBase-1.1</version>
     </dependency>
-    ```
+   ```
 
     This section loads the phoenix-core components, which are needed with Hbase version 1.1.x.
 
 3. Add the following code to the **pom.xml** file. This text must be inside the `<project>...</project>` tags in the file, for example, between `</dependencies>` and `</project>`.
 
-    ```xml
+   ```xml
     <build>
         <sourceDirectory>src</sourceDirectory>
         <resources>
@@ -145,12 +145,12 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
         </plugin>
         </plugins>
     </build>
-    ```
+   ```
 
     This section configures a resource (**conf/hbase-site.xml**) that contains configuration information for HBase.
 
-    > [!NOTE]
-    > You can also set configuration values via code. See the comments in the **CreateTable** example.
+   > [!NOTE]
+   > You can also set configuration values via code. See the comments in the **CreateTable** example.
 
     This section also configures the [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. This plugin is used to prevent a "duplicate license files" error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents the error.
 
@@ -164,10 +164,10 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
         scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-    > [!NOTE]
-    > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    >
-    > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
+   > [!NOTE]
+   > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
+   >
+   > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
 ## Create the application
 
@@ -175,7 +175,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 2. Open the **CreateTable.java** file and replace the existing contents with the following text:
 
-    ```java
+   ```java
     package com.microsoft.examples;
     import java.io.IOException;
 
@@ -243,7 +243,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
         table.close();
         }
     }
-    ```
+   ```
 
     This code is the **CreateTable** class, which creates a table named **people** and populate it with some predefined users.
 
@@ -251,7 +251,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 4. In the **hbaseapp/src/main/java/com/microsoft/examples** directory, create a file named **SearchByEmail.java**. Use the following text as the contents of this file:
 
-    ```java
+   ```java
     package com.microsoft.examples;
     import java.io.IOException;
 
@@ -322,7 +322,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
         table.close();
         }
     }
-    ```
+   ```
 
     The **SearchByEmail** class can be used to query for rows by email address. Because it uses a regular expression filter, you can provide either a string or a regular expression when using the class.
 
@@ -330,7 +330,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 6. In the **hbaseapp/src/main/hava/com/microsoft/examples** directory, create a file named **DeleteTable.java**. Use the following text as the contents of this file:
 
-    ```java
+   ```java
     package com.microsoft.examples;
     import java.io.IOException;
 
@@ -350,7 +350,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
         admin.deleteTable("people");
         }
     }
-    ```
+   ```
 
     This class cleans up the HBase tables created in this example by disabling and dropping the table created by the **CreateTable** class.
 
@@ -366,8 +366,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 2. When the command completes, the **hbaseapp/target** directory contains a file named **hbaseapp-1.0-SNAPSHOT.jar**.
 
-    > [!NOTE]
-    > The **hbaseapp-1.0-SNAPSHOT.jar** file is an uber jar. It contains all the dependencies required to run the application.
+   > [!NOTE]
+   > The **hbaseapp-1.0-SNAPSHOT.jar** file is an uber jar. It contains all the dependencies required to run the application.
 
 ## Upload the JAR and run jobs (SSH)
 
@@ -379,19 +379,19 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
     This command uploads the file to the home directory for your SSH user account.
 
-    > [!NOTE]
-    > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    >
-    > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar`
+   > [!NOTE]
+   > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
+   >
+   > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar`
 
 2. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
-    > [!NOTE]
-    > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    >
-    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
+   > [!NOTE]
+   > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
+   >
+   > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. Once connected, use the following to create an HBase table using the Java application:
 
@@ -418,7 +418,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
 
 1. After installing and configuring Azure PowerShell, create a file named **hbase-runner.psm1**. Use the following text as the contents of this file:
 
-    ```powershell
+   ```powershell
     <#
     .SYNOPSIS
     Copies a file to the primary storage of an HDInsight cluster.
@@ -613,12 +613,12 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     }
     # Only export the verb-phrase things
     export-modulemember *-*
-    ```
+   ```
 
     This file contains two modules:
 
-    * **Add-HDInsightFile** - used to upload files to HDInsight
-    * **Start-HBaseExample** - used to run the classes created earlier
+   * **Add-HDInsightFile** - used to upload files to HDInsight
+   * **Start-HBaseExample** - used to run the classes created earlier
 
 2. Save the **hbase-runner.psm1** file.
 

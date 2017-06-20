@@ -28,10 +28,10 @@ The Tez UI is a web page that can be used to understand and debug jobs that use 
 ## Prerequisites
 * A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
-    > [!IMPORTANT]
-    > The Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
-    >
-    >
+  > [!IMPORTANT]
+  > The Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
+  >
+  >
 * A Windows-based Remote Desktop client.
 
 ## Understanding Tez
@@ -73,17 +73,17 @@ Use the following steps to run a Hive query that will execute using Tez.
 >
 >
 
-1. From the [Azure Portal](https://portal.azure.cn), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This will display the remote desktop blade
+1. From the [Azure portal](https://portal.azure.cn), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This will display the remote desktop blade
 
     ![Remote desktop icon](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 2. From the Remote Desktop blade, select **Connect** to connect to the cluster head node. When prompted, use the cluster Remote Desktop user name and password to authenticate the connection.
 
     ![Remote desktop connect icon](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-    > [!NOTE]
-    > If you have not enabled Remote Desktop connectivity, provide a user name, password, and expiration date, then select **Enable** to enable Remote Desktop. Once it has been enabled, use the previous steps to connect.
-    >
-    >
+   > [!NOTE]
+   > If you have not enabled Remote Desktop connectivity, provide a user name, password, and expiration date, then select **Enable** to enable Remote Desktop. Once it has been enabled, use the previous steps to connect.
+   >
+   >
 3. Once connected, open Internet Explorer on the remote desktop, select the gear icon in the upper right of the browser, and then select **Compatibility View Settings**.
 4. From the bottom of **Compatibility View Settings**, clear the check box for **Display intranet sites in Compatibility View** and **Use Microsoft compatibility lists**, and then select **Close**.
 5. In Internet Explorer, browse to http://headnodehost:8188/tezui/#/. This will display the Tez UI
@@ -98,18 +98,18 @@ Use the following steps to run a Hive query that will execute using Tez.
     ![DAG Details](./media/hdinsight-debug-tez-ui/dagdetails.png)
 7. Above the **DAG Details** are several links that can be used to display information about the DAG.
 
-    * **DAG Counters** displays counters information for this DAG.
-    * **Graphical View** displays a graphical representation of this DAG.
-    * **All Vertices** displays a list of the vertices in this DAG.
-    * **All Tasks** displays a list of the tasks for all vertices in this DAG.
-    * **All TaskAttempts** displays information about the attempts to run tasks for this DAG.
+   * **DAG Counters** displays counters information for this DAG.
+   * **Graphical View** displays a graphical representation of this DAG.
+   * **All Vertices** displays a list of the vertices in this DAG.
+   * **All Tasks** displays a list of the tasks for all vertices in this DAG.
+   * **All TaskAttempts** displays information about the attempts to run tasks for this DAG.
 
-    > [!NOTE]
-    > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
-    >
-    >
+     > [!NOTE]
+     > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
+     >
+     >
 
-    If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
+     If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
 8. Select **Graphical View**. This displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
 
     ![Graphical view](./media/hdinsight-debug-tez-ui/dagdiagram.png)
@@ -128,10 +128,10 @@ Use the following steps to run a Hive query that will execute using Tez.
     * **Task Attempts** displays information about attempts to run tasks for this vertex.
     * **Sources & Sinks** displays data sources and sinks for this vertex.
 
-        > [!NOTE]
-        > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
-        >
-        >
+      > [!NOTE]
+      > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
+      >
+      >
 11. Select **Tasks**, and then select the item named **00_000000**. This will display **Task Details** for this task. From this screen, you can view **Task Counters** and **Task Attempts**.
 
     ![Task details](./media/hdinsight-debug-tez-ui/taskdetails.png)

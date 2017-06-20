@@ -73,7 +73,7 @@ If you want to update an existing App Service plan to use this feature:
 - modifying the property locally ```$newASP.PerSiteScaling = $true```
 - posting your changes back to azure ```Set-AzureRmAppServicePlan``` 
 
-    ```
+```
     # Get the new App Service Plan and modify the "PerSiteScaling" property.
     $newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
     $newASP
@@ -84,7 +84,7 @@ If you want to update an existing App Service plan to use this feature:
 
     #Post updated app service plan back to azure
     Set-AzureRmAppServicePlan $newASP
-    ```
+```
 
 Once you have a plan that has been configured, you can set the maximum number 
 of instances that each of the apps.

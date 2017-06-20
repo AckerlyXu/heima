@@ -44,8 +44,8 @@ App Service supports applications created in a variety of programming languages.
 
 1. If your repository already includes content skip this point and move to point 2 below. If your repository does not already include content simply populate with a static .html file as follows: 
 
-    * Using a text editor, create a new file named **index.html** at the root of the Git repository
-    * Add the following text as the contents for the index.html file and save it: *Hello Git!*
+   * Using a text editor, create a new file named **index.html** at the root of the Git repository
+   * Add the following text as the contents for the index.html file and save it: *Hello Git!*
 2. From the command-line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
 
         git add -A 
@@ -74,10 +74,10 @@ Use the following steps to publish your app to App Service using Local Git.
 3. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command will look similar to the following:
 
         git remote add azure https://<username>@localgitdeployment.scm.chinacloudsites.cn:443/localgitdeployment.git         
-    > [!NOTE]
-    > The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
-    > 
-    > 
+   > [!NOTE]
+   > The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
+   > 
+   > 
 4. Push your content to App Service using the new **azure** remote you just created.
 
         git push azure master
@@ -142,10 +142,10 @@ The following are errors or problems commonly encountered when using Git to publ
 * **Malformed package.json file**: npm ERR! Couldn't read dependencies.
 * **Native module that does not have a binary distribution for Windows**:
 
-    * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+  * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
 
-        OR
-    * npm ERR! [modulename@version] preinstall: \`make || gmake\`
+      OR
+  * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
 ## Additional Resources
 * [Git documentation](http://git-scm.com/documentation)
@@ -154,12 +154,12 @@ The following are errors or problems commonly encountered when using Git to publ
 * [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
-[Azure App Service]: /app-service-web/app-service-changes-existing-services
+[Azure App Service]: /app-service-web/app-service-changes-existing-services/
 [Azure Developer Center]: /develop/overview/
 [Azure Portal]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure Command-Line Interface]: /xplat-cli-azure-resource-manager
+[Azure Command-Line Interface]: /xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

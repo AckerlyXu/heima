@@ -36,7 +36,9 @@ Business needs change monthly, weekly, daily. Businesses are looking for instant
 
 Development teams are looking to deliver immediate business benefit, delivering new features on a frequent basis. They are looking for a cost effective, reliable platform which integrates with their existing tools and practices - development, test, release; and working together with IT departments automates deployment, management and alerting, all with the goal of zero downtime.
 
-## <a name="highlevel" id="high-level-solution"></a> High Level Solution
+<a name="highlevel"></a>
+
+## High Level Solution
 Web platforms and frameworks are increasingly being used to develop, test and host line of business applications.  With a typical line of business application, such as an internal employee expense system, often consisting solely of a web app with a backing database to store the data connected with the application.
 
 App Service Web Apps is a good option for hosting such applications, offering scalable and reliable infrastructure which is managed and patched with near zero manual intervention and downtime. The Azure platform provides many data storage options to support web applications hosted on Web Apps from Azure SQL Database, a managed scalable relational database-as-a-service, to popular services from our partners such as ClearDB MySQL Database and MongoDB.
@@ -90,7 +92,7 @@ In Azure China, App Service Web Apps offers one option for connecting to on prem
 #### Scale and Resiliency
 As a business grows its workforce, via acquisitions or natural organic growth, so too must web applications scale to meet these new demands. Indeed today it is common to see an even greater spread of co-located teams and remote employees, for example companies with offices in the United States, Europe and Asia, with a mobile sales force in many more territories. Web Apps has the capability to handle elastic changes in scale comfortably and automatically.
 
-App Service Web Apps allows web applications to be configured to scale automatically via the Azure Portal, depending on two vectors - scheduled times or by CPU usage. Web Apps Auto Scaling provides a cost effective and extremely flexible way to cater for greater changes in usage for all business applications, from web applications like our expense reporting system to marketing websites, which experience a high burst of traffic for a short duration of promotion. For more information and guidance on scaling your web applications using Web Apps, see [How to Scale Websites](web-sites-scale.md).
+App Service Web Apps allows web applications to be configured to scale automatically via the Azure portal, depending on two vectors - scheduled times or by CPU usage. Web Apps Auto Scaling provides a cost effective and extremely flexible way to cater for greater changes in usage for all business applications, from web applications like our expense reporting system to marketing websites, which experience a high burst of traffic for a short duration of promotion. For more information and guidance on scaling your web applications using Web Apps, see [How to Scale Websites](web-sites-scale.md).
 
 In addition to the scaling flexibility of Web Apps, the overall platform enables business continuity and resiliency through the possible distribution of web applications and their assets across multiple datacenters and geographic regions.
 

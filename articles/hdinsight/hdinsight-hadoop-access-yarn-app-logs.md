@@ -64,9 +64,9 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 ## YARN ResourceManager UI
-The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure Portal dashboard:
+The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal dashboard:
 
-1. Sign in to [Azure Portal](https://portal.azure.cn/).
+1. Sign in to [Azure portal](https://portal.azure.cn/).
 2. On the left menu, click **Browse**, click **HDInsight Clusters**, click a Windows-based cluster that you want to access the YARN application logs.
 3. On the top menu, click **Dashboard**. You will see a page opened on a new browser tab called **HDInsight Query Console**.
 4. From **HDInsight Query Console**, click **Yarn UI**.

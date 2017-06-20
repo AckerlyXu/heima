@@ -185,8 +185,8 @@ You can download a complete version of the project created in this tutorial from
 
 * Java JDK 1.7 greater on your development environment. JDK downloads are available from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-    * The **JAVA_HOME** environment variable must point to the directory that contains Java.
-    * The **%JAVA_HOME%/bin** directory must be in the path
+  * The **JAVA_HOME** environment variable must point to the directory that contains Java.
+  * The **%JAVA_HOME%/bin** directory must be in the path
 
 ## Download the Event Hub components
 
@@ -200,12 +200,12 @@ Create a directory named `eventhubspout` and save the file into the directory.
 
 Event Hubs is the data source for this example. Use the information in the **Create an Event Hub** section of the [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) document.
 
-1. After the event hub has been created, view the EventHub blade in the Azure Portal and select **Shared access Policies**. Select **+ Add** to add the following policies:
+1. After the event hub has been created, view the EventHub blade in the Azure portal and select **Shared access Policies**. Select **+ Add** to add the following policies:
 
-    | Name | Permissions |
-    | --- | --- |
-    | writer |Send |
-    | reader |Listen |
+   | Name | Permissions |
+   | --- | --- |
+   | writer |Send |
+   | reader |Listen |
 
     ![policies](./media/hdinsight-storm-develop-csharp-event-hub-topology/sas.png)
 
@@ -219,13 +219,13 @@ Event Hubs is the data source for this example. Use the information in the **Cre
 
 3. In the **EventHubWriter** project, open the **App.config** file. Use the information from the Event Hub you configured earlier to fill in the value for the following keys:
 
-    | Key | Value |
-    | --- | --- |
-    | EventHubPolicyName |writer (If you used a different name for the policy with *Send* permission, use it instead.) |
-    | EventHubPolicyKey |The key for the writer policy |
-    | EventHubNamespace |The namespace that contains your Event Hub |
-    | EventHubName |Your Event Hub name |
-    | EventHubPartitionCount |The number of partitions in your Event Hub |
+   | Key | Value |
+   | --- | --- |
+   | EventHubPolicyName |writer (If you used a different name for the policy with *Send* permission, use it instead.) |
+   | EventHubPolicyKey |The key for the writer policy |
+   | EventHubNamespace |The namespace that contains your Event Hub |
+   | EventHubName |Your Event Hub name |
+   | EventHubPartitionCount |The number of partitions in your Event Hub |
 
 4. Save and close the **App.config** file.
 
@@ -235,13 +235,13 @@ Event Hubs is the data source for this example. Use the information in the **Cre
 
 2. Open the **App.config** for the **EventHubReader**. Use the information from the Event Hub you configured earlier to fill in the value for the following keys:
 
-    | Key | Value |
-    | --- | --- |
-    | EventHubPolicyName |reader (If you used a different name for the policy with *listen* permission, use it instead.) |
-    | EventHubPolicyKey |The key for the reader policy |
-    | EventHubNamespace |The namespace that contains your Event Hub |
-    | EventHubName |Your Event Hub name |
-    | EventHubPartitionCount |The number of partitions in your Event Hub |
+   | Key | Value |
+   | --- | --- |
+   | EventHubPolicyName |reader (If you used a different name for the policy with *listen* permission, use it instead.) |
+   | EventHubPolicyKey |The key for the reader policy |
+   | EventHubNamespace |The namespace that contains your Event Hub |
+   | EventHubName |Your Event Hub name |
+   | EventHubPartitionCount |The number of partitions in your Event Hub |
 
 3. Save and close the **App.config** file.
 

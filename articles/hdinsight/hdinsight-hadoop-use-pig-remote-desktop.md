@@ -81,10 +81,10 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
 
         STORE RESULT into 'wasbs:///example/data/pigout'
 
-    > [!NOTE]
-    > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
-    >
-    >
+   > [!NOTE]
+   > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
+   >
+   >
 7. To exit the grunt prompt, enter the following statement.
 
         QUIT;

@@ -21,7 +21,7 @@ ms.author: v-dazen
 # Create an application gateway by using the Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
@@ -61,27 +61,27 @@ You can download the existing Azure Resource Manager template to create a virtua
 1. Open the file that you saved and look at the contents under **parameters** in line
 1. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
-    | Parameter | Description |
-    | --- | --- |
-    | **subnetPrefix** |CIDR block for the application gateway subnet. |
-    | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
-    | **backendIpaddress1** |IP address of the first web server. |
-    | **backendIpaddress2** |IP address of the second web server. |
-    | **wafEnabled** | Setting to determine if WAF is enabled.|
-    | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
-    | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
-    | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
+  | Parameter | Description |
+  | --- | --- |
+  | **subnetPrefix** |CIDR block for the application gateway subnet. |
+  | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
+  | **backendIpaddress1** |IP address of the first web server. |
+  | **backendIpaddress2** |IP address of the second web server. |
+  | **wafEnabled** | Setting to determine if WAF is enabled.|
+  | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
+  | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
+  | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
 1. Check the content under **resources** and notice the following properties:
 
-    * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
-    * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
-    * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
+   * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
+   * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
+   * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
-    > [!NOTE]
-    > For more information on templates visit: [Resource Manager templates reference](https://github.com/Azure/azure-quickstart-templates/)
+   > [!NOTE]
+   > For more information on templates visit: [Resource Manager templates reference](https://github.com/Azure/azure-quickstart-templates/)
 
-1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Click **azuredeploy-parameters.json**, and then click **RAW**.
 1. Save the file to a local folder on your computer.
 1. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
@@ -190,7 +190,7 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
 
 ## Deploy the Azure Resource Manager template by using click-to-deploy
 
-Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure Portal.
+Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure portal.
 
 1. Go to [Create an application gateway with web application firewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf/).
 

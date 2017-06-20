@@ -62,7 +62,7 @@ App Service can prevent anonymous HTTP requests from reaching your API app, it c
 
     This option leaves the tasks of authentication and authorization entirely up to your application code.
 
-In the [Azure Portal](https://portal.azure.cn/), you select the option you want on the **Authentication / Authorization** blade.
+In the [Azure portal](https://portal.azure.cn/), you select the option you want on the **Authentication / Authorization** blade.
 
 ![](./media/app-service-api-authentication/authblade.png)
 
@@ -87,8 +87,6 @@ For more information about authentication and authorization in Azure App Service
 
 * [Expanding App Service authentication / authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
 * [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Includes links for other authentication providers at the top of the page.) 
-
-<a name="oauth"></a>
 
 For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.
 

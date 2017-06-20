@@ -41,27 +41,27 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 * [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
 
-    * The **JAVA_HOME** environment variable must point to the directory that contains Java.
-    * The **%JAVA_HOME%/bin** directory must be in the path
+  * The **JAVA_HOME** environment variable must point to the directory that contains Java.
+  * The **%JAVA_HOME%/bin** directory must be in the path
 
 * One of the following versions of Visual Studio:
 
-    * Visual Studio 2012 with Update 4
-    * Visual Studio 2013 with [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-    * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
-    * Visual Studio 2017 (any edition)
+  * Visual Studio 2012 with Update 4
+  * Visual Studio 2013 with [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+  * Visual Studio 2017 (any edition)
 
 * Azure SDK 2.9.5 or later
 
 * HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
 
-    > [!NOTE]
-    > HDInsight Tools for Visual Studio are not supported on Visual Studio Express
+  > [!NOTE]
+  > HDInsight Tools for Visual Studio are not supported on Visual Studio Express
 
 * Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Templates
 
@@ -105,13 +105,13 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 4. After the project has been created, you should have the following files:
 
-    * **Program.cs**: This file defines the topology for your project. A default topology that consists of one spout and one bolt is created by default.
+   * **Program.cs**: This file defines the topology for your project. A default topology that consists of one spout and one bolt is created by default.
 
-    * **Spout.cs**: An example spout that emits random numbers.
+   * **Spout.cs**: An example spout that emits random numbers.
 
-    * **Bolt.cs**: An example bolt that keeps a count of numbers emitted by the spout.
+   * **Bolt.cs**: An example bolt that keeps a count of numbers emitted by the spout.
 
-        As part of project creation, the latest [SCP.NET package](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) is downloaded from NuGet.
+     As part of project creation, the latest [SCP.NET package](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) is downloaded from NuGet.
 
 [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
@@ -121,11 +121,11 @@ In the next sections, you modify the project into a basic WordCount application.
 
 1. Open **Spout.cs**. Spouts are used to read data in a topology from an external source. The main components for a spout are:
 
-    * **NextTuple**: Called by Storm when the spout is allowed to emit new tuples.
+   * **NextTuple**: Called by Storm when the spout is allowed to emit new tuples.
 
-    * **Ack** (transactional topology only): Handles acknowledgements initiated by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
+   * **Ack** (transactional topology only): Handles acknowledgements initiated by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
 
-    * **Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. Implementing a Fail method allows you to re-emit the tuple so that it can be processed again.
+   * **Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. Implementing a Fail method allows you to re-emit the tuple so that it can be processed again.
 
 2. Replace the contents of the **Spout** class with the following text. This spout randomly emits a sentence into the topology.
 
@@ -195,12 +195,12 @@ In the next sections, you modify the project into a basic WordCount application.
 
 2. In **Solution Explorer**, right-click the project and select **Add** > **New item**. From the list, select **Storm Bolt**, and enter **Splitter.cs** as the name. Repeat this process to create a second bolt named **Counter.cs**.
 
-    * **Splitter.cs**: Implements a bolt that splits sentences into individual words and emits a new stream of words.
+   * **Splitter.cs**: Implements a bolt that splits sentences into individual words and emits a new stream of words.
 
-    * **Counter.cs**: Implements a bolt that counts each word and emits a new stream of words and the count for each word.
+   * **Counter.cs**: Implements a bolt that counts each word and emits a new stream of words and the count for each word.
 
-        > [!NOTE]
-        > These bolts read and write to streams, but you can also use a bolt to communicate with sources such as a database or service.
+     > [!NOTE]
+     > These bolts read and write to streams, but you can also use a bolt to communicate with sources such as a database or service.
 
 3. Open **Splitter.cs**. It has only one method by default: **Execute**. The Execute method is called when the bolt receives a tuple for processing. Here, you can read and process incoming tuples, and emit outbound tuples.
 
@@ -383,22 +383,22 @@ Take a moment to read through the comments to understand what this code does.
 
 1. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
-    > [!NOTE]
-    > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
+   > [!NOTE]
+   > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
 2. Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor if the submission is successful by using the **Output** window.
 
 3. When the topology has been successfully submitted, the **Storm Topologies** for the cluster should appear. Select the **WordCount** topology from the list to view information about the running topology.
 
-    > [!NOTE]
-    > You can also view **Storm Topologies** from **Server Explorer**: Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then select **View Storm Topologies**.
+   > [!NOTE]
+   > You can also view **Storm Topologies** from **Server Explorer**: Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then select **View Storm Topologies**.
 
     To view information about the components in the topology, double-click the component in the diagram.
 
 4. From the **Topology Summary** view, click **Kill** to stop the topology.
 
-    > [!NOTE]
-    > Storm topologies continue to run until they are deactivated, or the cluster is deleted.
+   > [!NOTE]
+   > Storm topologies continue to run until they are deactivated, or the cluster is deleted.
 
 ## Transactional topology
 
@@ -434,8 +434,8 @@ For an example hybrid topology, create a project and select **Storm Hybrid Sampl
 
     * A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**
 
-    > [!NOTE]
-    > This version also demonstrates how to use Clojure code from a text file as a Java component.
+  > [!NOTE]
+  > This version also demonstrates how to use Clojure code from a text file as a Java component.
 
 To switch between the topology that is used when the project is submitted, simply move the `[Active(true)]` statement to the topology you want to use before submitting it to the cluster.
 
@@ -543,8 +543,8 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
 
     ![output type](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
-    > [!NOTE]
-    > Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.
+   > [!NOTE]
+   > Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.
 
 2. In **Solution Explorer**, right-click the project, then select **Add** > **New Item**. Select **Class** and enter **LocalTest.cs** as the class name. Finally, click **Add**.
 
@@ -660,8 +660,8 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
 
 3. Use **Windows Explorer** to locate the directory that contains your project, for example, **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then click **Debug**. You should see the text files that were produced when the tests ran: sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
 
-    > [!NOTE]
-    > String data is persisted as an array of decimal values in these files. For example, \[[97,103,111]] in the **splitter.txt** file is the word 'and'.
+   > [!NOTE]
+   > String data is persisted as an array of decimal values in these files. For example, \[[97,103,111]] in the **splitter.txt** file is the word 'and'.
 
 > [!NOTE]
 > Be sure to set the **Project type** back to **Class Library** before deploying to a Storm on HDInsight cluster.

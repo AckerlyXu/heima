@@ -46,7 +46,7 @@ Additionally, if you are creating an HDInsight cluster, someone with at least **
 
 For more information on working with access management, see the following documents:
 
-* [Get started with access management in the Azure Portal](../active-directory/role-based-access-control-what-is.md)
+* [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
 * [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
 
 ## Understanding Script Actions
@@ -75,19 +75,19 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
     A persisted script might also apply changes to another node type, such as a head node, but from a functionality perspective the only reason to persist a script is so it applies to new worker nodes created when a cluster is scaled out.
 
-    > [!IMPORTANT]
-    > Persisted script actions must have a unique name.
+  > [!IMPORTANT]
+  > Persisted script actions must have a unique name.
 
     **Ad hoc** scripts are not persisted; however, you can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
 
-    > [!IMPORTANT]
-    > Script actions used during cluster creation are automatically persisted.
-    >
-    > Scripts that fail are not persisted, even if you specifically indicate that they should be.
+  > [!IMPORTANT]
+  > Script actions used during cluster creation are automatically persisted.
+  >
+  > Scripts that fail are not persisted, even if you specifically indicate that they should be.
 
 * Can accept **parameters** that are used by the script during execution.
 * Run with **root level privileges** on the cluster nodes.
-* Can be used through the **Azure Portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
+* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
 
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
 
@@ -138,7 +138,7 @@ When applying a script to a cluster, the cluster state changes to from **Running
 
 ## Example Script Action scripts
 
-Script Action scripts can be used from the Azure Portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK. HDInsight provides scripts to install the following components on HDInsight clusters:
+Script Action scripts can be used from the Azure portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK. HDInsight provides scripts to install the following components on HDInsight clusters:
 
 | Name | Script |
 | --- | --- |
@@ -151,9 +151,9 @@ Script Action scripts can be used from the Azure Portal, Azure PowerShell, Azure
 
 ## Use a Script Action during cluster creation
 
-This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure Portal, using an Azure Resource Manager template, using PowerShell CMDlets, and using the .NET SDK.
+This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure portal, using an Azure Resource Manager template, using PowerShell CMDlets, and using the .NET SDK.
 
-### Use a Script Action during cluster creation from the Azure Portal
+### Use a Script Action during cluster creation from the Azure portal
 
 1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. Under **Optional Configuration**, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:
@@ -460,18 +460,18 @@ The HDInsight .NET SDK provides client libraries that makes it easier to work wi
 
 ## Apply a Script Action to a running cluster
 
-This section provides examples on the different ways you can apply script actions to a running HDInsight cluster; from the Azure Portal, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK. The persisted script action used in this section adds an existing Azure storage account to a running cluster. You can also use other script actions, See [Example Script Action scripts](#example-script-action-scripts).
+This section provides examples on the different ways you can apply script actions to a running HDInsight cluster; from the Azure portal, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK. The persisted script action used in this section adds an existing Azure storage account to a running cluster. You can also use other script actions, See [Example Script Action scripts](#example-script-action-scripts).
 
-### Apply a Script Action to a running cluster from the Azure Portal
+### Apply a Script Action to a running cluster from the Azure portal
 
-1. From the [Azure Portal](https://portal.azure.cn), select your HDInsight cluster.
+1. From the [Azure portal](https://portal.azure.cn), select your HDInsight cluster.
 
 2. From the HDInsight cluster blade, select the **Script Actions** tile.
 
     ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-    > [!NOTE]
-    > You can also select **All settings** and then select **Script Actions** from the Settings blade.
+   > [!NOTE]
+   > You can also select **All settings** and then select **Script Actions** from the Settings blade.
 
 3. From the top of the Script Actions blade, select **Submit new**.
 
@@ -479,19 +479,19 @@ This section provides examples on the different ways you can apply script action
 
 4. From the Add Script Action blade, enter the following information.
 
-    * **Name**: The friendly name to use for this Script Action. In this example, `Add Storage account`.
+   * **Name**: The friendly name to use for this Script Action. In this example, `Add Storage account`.
 
-    * **SCRIPT URI**: The URI to the script. In this example, `https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`
+   * **SCRIPT URI**: The URI to the script. In this example, `https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`
 
-    * **Head**, **Worker**, and **Zookeeper**: Check the nodes that this script should be applied to. In this example, Head, Worker and Zookeeper are checked.
+   * **Head**, **Worker**, and **Zookeeper**: Check the nodes that this script should be applied to. In this example, Head, Worker and Zookeeper are checked.
 
-    * **PARAMETERS**: If the script accepts parameters, enter them here. In this example, enter the storage account name, and the storage account key:
+   * **PARAMETERS**: If the script accepts parameters, enter them here. In this example, enter the storage account name, and the storage account key:
 
-        ![hdinsight persisted script action acc storage account to running clusters](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-persisted-script-action-add-storage-account.png)
+       ![hdinsight persisted script action acc storage account to running clusters](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-persisted-script-action-add-storage-account.png)
 
-        On the screenshot, `contosodata` is an existing Azure Storage account, the second line is the Storage account key.
+       On the screenshot, `contosodata` is an existing Azure Storage account, the second line is the Storage account key.
 
-    * **PERSISTED**: Check this entry if you want to persist the script so it is applied to new worker nodes when you scale up the cluster.
+   * **PERSISTED**: Check this entry if you want to persist the script so it is applied to new worker nodes when you scale up the cluster.
 
 5. Finally, use the **Create** button to apply the script to the cluster.
 
@@ -570,9 +570,9 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 ## View history, promote, and demote Script Actions
 
-### Using the Azure Portal
+### Using the Azure portal
 
-1. From the [Azure Portal](https://portal.azure.cn), select your HDInsight cluster.
+1. From the [Azure portal](https://portal.azure.cn), select your HDInsight cluster.
 
 2. From the HDInsight cluster blade, select **Settings**.
 

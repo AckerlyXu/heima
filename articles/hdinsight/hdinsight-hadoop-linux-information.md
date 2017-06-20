@@ -143,9 +143,9 @@ This command returns a value similar to the following URIs:
 
     The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
 
-You can also find the storage information using the Azure Portal by using the following steps:
+You can also find the storage information using the Azure portal by using the following steps:
 
-1. In the [Azure Portal](https://portal.azure.cn/), select your HDInsight cluster.
+1. In the [Azure portal](https://portal.azure.cn/), select your HDInsight cluster.
 
 2. From the **Properties** section, select **Storage Accounts**. The storage information for the cluster is displayed.
 
@@ -201,7 +201,7 @@ The different cluster types are affected by scaling as follows:
 
 For specific information on scaling your HDInsight cluster, see:
 
-* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Manage Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## How do I install Hue (or other Hadoop component)?

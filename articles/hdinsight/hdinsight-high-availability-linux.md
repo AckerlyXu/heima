@@ -216,9 +216,9 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 The size of a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight on the [HDInsight pricing page](https://www.azure.cn/pricing/details/hdinsight/).
 
-When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
+When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 
-* **Azure Portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
+* **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
     ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 

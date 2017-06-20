@@ -53,10 +53,10 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 
     ![Create Maven project](./media/hdinsight-apache-spark-create-standalone-application/create-maven-project.png)
 
-    * Select **Maven** as the project type.
-    * Specify a **Project SDK**. Click New and navigate to the Java installation directory, typically `C:\Program Files\Java\jdk1.8.0_66`.
-    * Select the **Create from archetype** option.
-    * From the list of archetypes, select **org.scala-tools.archetypes:scala-archetype-simple**. This will create the right directory structure and download the required default dependencies to write Scala program.
+   * Select **Maven** as the project type.
+   * Specify a **Project SDK**. Click New and navigate to the Java installation directory, typically `C:\Program Files\Java\jdk1.8.0_66`.
+   * Select the **Create from archetype** option.
+   * From the list of archetypes, select **org.scala-tools.archetypes:scala-archetype-simple**. This will create the right directory structure and download the required default dependencies to write Scala program.
 2. Provide relevant values for **GroupId**, **ArtifactId**, and **Version**. Click **Next**.
 3. In the next dialog box, where you specify Maven home directory and other user settings, accept the defaults and click **Next**.
 4. In the last dialog box, specify a project name and location and then click **Finish**.
@@ -68,10 +68,10 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 
     ![Configure Maven for automatic downloads](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
-    1. From the **File** menu, click **Settings**.
-    2. In the **Settings** dialog box, navigate to **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
-    3. Select the option to **Import Maven projects automatically**.
-    4. Click **Apply**, and then click **OK**.
+   1. From the **File** menu, click **Settings**.
+   2. In the **Settings** dialog box, navigate to **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+   3. Select the option to **Import Maven projects automatically**.
+   4. Click **Apply**, and then click **OK**.
 8. Update the Scala source file to include your application code. Open and replace the existing sample code with the following code and save the changes. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the sixth column, and writes the output to **/HVACOut** under the default storage container for the cluster.
 
         package com.microsoft.spark.example
@@ -97,12 +97,12 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
         }
 9. Update the pom.xml.
 
-    1. Within `<project>\<properties>` add the following:
+   1. Within `<project>\<properties>` add the following:
 
             <scala.version>2.10.4</scala.version>
             <scala.compat.version>2.10.4</scala.compat.version>
             <scala.binary.version>2.10</scala.binary.version>
-    2. Within `<project>\<dependencies>` add the following:
+   2. Within `<project>\<dependencies>` add the following:
 
             <dependency>
               <groupId>org.apache.spark</groupId>
@@ -110,7 +110,7 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
               <version>1.4.1</version>
             </dependency>
 
-        Save changes to pom.xml.
+      Save changes to pom.xml.
 10. Create the .jar file. IntelliJ IDEA enables creation of JAR as an artifact of a project. Perform the following steps.
 
     1. From the **File** menu, click **Project Structure**.

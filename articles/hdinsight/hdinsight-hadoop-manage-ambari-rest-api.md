@@ -274,23 +274,23 @@ The return value is similar to one of the following examples:
 
     This example returns a JSON document containing the current configuration (identified by the *tag* value) for the components installed on the cluster. The following example is an excerpt from the data returned from a Spark cluster type.
 
-    ```json
-    "spark-metrics-properties" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    },
-    "spark-thrift-fairscheduler" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    },
-    "spark-thrift-sparkconf" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    }
-    ```
+   ```json
+   "spark-metrics-properties" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-fairscheduler" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-sparkconf" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   }
+   ```
 
 2. Get the configuration for the component that you are interested in. In the following example, replace `INITIAL` with the tag value returned from the previous request.
 
@@ -371,7 +371,7 @@ The return value is similar to one of the following examples:
 
     Finally, the data is saved to the `newconfig.json` document. The document structure should appear similar to the following example:
 
-    ```json
+     ```json
     {
         "Clusters": {
             "desired_config": {
@@ -514,7 +514,6 @@ At this point, if you look at the Ambari web UI, the Spark service indicates tha
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}'
     ```
-
     The service is now using the new configuration.
 
 4. Finally, use the following to turn off maintenance mode.

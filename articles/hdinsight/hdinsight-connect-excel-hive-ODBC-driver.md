@@ -60,25 +60,25 @@ The following steps show you how to create a Hive ODBC Data Source.
 4. Select **Microsoft Hive ODBC Driver**, and then click **Finish**. You shall see the **Microsoft Hive ODBC Driver DNS Setup** dialog.
 5. Type or select the following values:
 
-    | Property | Description |
-    | --- | --- |
-    |  Data Source Name |Give a name to your data source |
-    |  Host |Enter &lt;HDInsightClusterName>.azurehdinsight.cn. For example, myHDICluster.azurehdinsight.cn |
-    |  Port |Use <strong>443</strong>. (This port has been changed from 563 to 443.) |
-    |  Database |Use <strong>Default</strong>. |
-    |  Hive Server Type |Select <strong>Hive Server 2</strong> |
-    |  Mechanism |Select <strong>Azure HDInsight Service</strong> |
-    |  HTTP Path |Leave it blank. |
-    |  User Name |Enter HDInsight cluster HTTP user username. The default username is <strong>admin</strong>. |
-    |  Password |Enter HDInsight cluster user password. |
+   | Property | Description |
+   | --- | --- |
+   |  Data Source Name |Give a name to your data source |
+   |  Host |Enter &lt;HDInsightClusterName>.azurehdinsight.cn. For example, myHDICluster.azurehdinsight.cn |
+   |  Port |Use <strong>443</strong>. (This port has been changed from 563 to 443.) |
+   |  Database |Use <strong>Default</strong>. |
+   |  Hive Server Type |Select <strong>Hive Server 2</strong> |
+   |  Mechanism |Select <strong>Azure HDInsight Service</strong> |
+   |  HTTP Path |Leave it blank. |
+   |  User Name |Enter HDInsight cluster HTTP user username. The default username is <strong>admin</strong>. |
+   |  Password |Enter HDInsight cluster user password. |
 
     There are some important parameters to be aware of when you click **Advanced Options**:
 
-    | Parameter | Description |
-    | --- | --- |
-    |  Use Native Query |When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
-    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
-    |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned due to loss of precision and/or truncation. |
+   | Parameter | Description |
+   | --- | --- |
+   |  Use Native Query |When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
+   |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
+   |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned due to loss of precision and/or truncation. |
 
     ![Advanced options](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "Advanced DSN configuration options")
 

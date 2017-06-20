@@ -136,10 +136,10 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
     Don't close the command prompt.  You will need it in the next procedure.
 
-    > [!NOTE]
-    > Because you have created a root certificate from which client certificates will be generated, you may want to export this certificate along with its private key and save it to a safe location where it may be recovered.
-    >
-    >
+   > [!NOTE]
+   > Because you have created a root certificate from which client certificates will be generated, you may want to export this certificate along with its private key and save it to a safe location where it may be recovered.
+   >
+   >
 
 **To create a client certificate**
 
@@ -196,10 +196,10 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 3. Click **Next** twice.
 4. Specify a path where you have the write permission, and then click **Next**.
 
-    > [!NOTE]
-    > The default installation folder is in the C:\Program Files\squirrel-sql-3.6 folder.  In order to write to this path, the installer must be granted the administrator privilege. You can open a command prompt as administrator, navigate to Java's bin folder, and then run:
-    >
-    >`java.exe -jar [the path of the SQuirreL jar file]`
+  > [!NOTE]
+  > The default installation folder is in the C:\Program Files\squirrel-sql-3.6 folder.  In order to write to this path, the installer must be granted the administrator privilege. You can open a command prompt as administrator, navigate to Java's bin folder, and then run:
+  >
+  >     java.exe -jar [the path of the SQuirreL jar file]
 5. Click **OK** to confirm creating the target directory.
 6. The default setting is to install the Base and Standard packages.  Click **Next**.
 7. Click **Next** twice, and then click **Done**.
@@ -218,16 +218,16 @@ You need to copy it to your workstation under the [SQuirreL installation folder]
 3. From the **Drivers** menu, click **New Driver**.
 4. Enter the following information:
 
-    * **Name**: Phoenix
-    * **Example URL**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.chinacloudapp.cn
-    * **Class Name**: org.apache.phoenix.jdbc.PhoenixDriver
+   * **Name**: Phoenix
+   * **Example URL**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.chinacloudapp.cn
+   * **Class Name**: org.apache.phoenix.jdbc.PhoenixDriver
 
-        > [!WARNING]
-        > User all lower case in the Example URL. You can use they full zookeeper quorum in case one of them is down.  The hostnames are zookeeper0, zookeeper1, and zookeeper2.
-        >
-        >
+     > [!WARNING]
+     > User all lower case in the Example URL. You can use they full zookeeper quorum in case one of them is down.  The hostnames are zookeeper0, zookeeper1, and zookeeper2.
+     >
+     >
 
-        ![HDInsight HBase Phoenix SQuirreL driver][img-squirrel-driver]
+     ![HDInsight HBase Phoenix SQuirreL driver][img-squirrel-driver]
 5. Click **OK**.
 
 **To create an alias to the HBase cluster**
@@ -236,13 +236,13 @@ You need to copy it to your workstation under the [SQuirreL installation folder]
 2. From the **Aliases** menu, click **New Alias**.
 3. Enter the following information:
 
-    * **Name**: The name of the HBase cluster or any name you prefer.
-    * **Driver**: Phoenix.  This must match the driver name you created in the last procedure.
-    * **URL**: The URL is copied from your driver configuration. Make sure to user all lower case.
-    * **User name**: It can be any text.  Because you use VPN connectivity here, the user name is not used at all.
-    * **Password**: It can be any text.
+   * **Name**: The name of the HBase cluster or any name you prefer.
+   * **Driver**: Phoenix.  This must match the driver name you created in the last procedure.
+   * **URL**: The URL is copied from your driver configuration. Make sure to user all lower case.
+   * **User name**: It can be any text.  Because you use VPN connectivity here, the user name is not used at all.
+   * **Password**: It can be any text.
 
-        ![HDInsight HBase Phoenix SQuirreL driver][img-squirrel-alias]
+     ![HDInsight HBase Phoenix SQuirreL driver][img-squirrel-alias]
 4. Click **Test**.
 5. Click **Connect**. When it makes the connection, SQuirreL looks like:
 

@@ -85,10 +85,10 @@ To build and run the app locally, follow the steps below. Note that these steps 
         echo "<h3>Table created.</h3>";
         ?>
 
-    > [!NOTE]
-    > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
-    > 
-    > 
+   > [!NOTE]
+   > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+   > 
+   > 
 4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
 5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
 
@@ -138,10 +138,10 @@ To build and run the app locally, follow the steps below. Note that these steps 
             die(var_dump($e));
         }
 
-    > [!NOTE]
-    > Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
-    > 
-    > 
+   > [!NOTE]
+   > Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+   > 
+   > 
 7. Following the database connection code, add code for inserting registration information into the database.
 
         if(!empty($_POST)) {

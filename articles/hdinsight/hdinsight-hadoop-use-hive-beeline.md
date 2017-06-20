@@ -43,8 +43,8 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 * A Linux-based Hadoop on HDInsight cluster.
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight version deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight version deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [use Beeline remotely](#remote) section.
 
@@ -130,10 +130,10 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that we should only return data from files ending in .log.
 
-    > [!NOTE]
-    > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
-    >
-    > Dropping an external table does **not** delete the data, only the table definition.
+  > [!NOTE]
+  > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
+  >
+  > Dropping an external table does **not** delete the data, only the table definition.
 
     The output of this command is similar to the following text:
 

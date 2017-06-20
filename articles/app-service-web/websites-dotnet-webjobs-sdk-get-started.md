@@ -108,7 +108,9 @@ In a real-world application, you typically create separate accounts for applicat
     By default, Visual Studio automatically restores the NuGet package content, which was not included in the *.zip* file. If the packages don't restore, install them manually by going to the **Manage NuGet Packages for Solution** dialog and clicking the **Restore** button at the top right.
 5. In **Solution Explorer**, make sure that **ContosoAdsWeb** is selected as the startup project.
 
-## <a id="configurestorage" name="configure-storage"></a> <a name="configure-the-web-app-to-use-your-azure-sql-database-and-storage-account"></a>Configure the application to use your storage account
+<a id="configurestorage"></a>
+
+## Configure the application to use your storage account
 1. Open the application *Web.config* file in the ContosoAdsWeb project.
 
     The file contains a SQL connection string and an Azure storage connection string for working with blobs and queues.
@@ -275,16 +277,16 @@ In this section you use **Server Explorer** to set connection string values in A
 5. In **Server Explorer**, right-click the web app, and then click **Stop**.
 6. After the web app stops, right-click the web app again, and then click **Start**.
 
-    The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the web app or restart the WebJob in the [Azure Portal](/app-service-web/app-service-web-app-azure-portal). It's generally recommended to restart the web app after a configuration change.
+   The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the web app or restart the WebJob in the [Azure Portal](/app-service-web/app-service-web-app-azure-portal). It's generally recommended to restart the web app after a configuration change.
 7. Refresh the browser window that has the web app URL in its address bar.
 
     The home page appears.
 8. Create an ad, as you did when you ran the application locally.
 
-    The Index page shows without a thumbnail at first.
+   The Index page shows without a thumbnail at first.
 9. Refresh the page after a few seconds, and the thumbnail appears.
 
-    If the thumbnail doesn't appear, you may have to wait a minute or so for the WebJob to restart. If after a a while you still don't see the thumbnail when you refresh the page, the WebJob may not have started automatically. In that case, go to the WebJobs tab in the [Classic Management Portal](https://manage.windowsazure.cn) page for your web app, and then click **Start**.
+   If the thumbnail doesn't appear, you may have to wait a minute or so for the WebJob to restart. If after a a while you still don't see the thumbnail when you refresh the page, the WebJob may not have started automatically. In that case, go to the WebJobs tab in the [Classic Management Portal](https://manage.windowsazure.cn) page for your web app, and then click **Start**.
 
 ### View the WebJobs SDK dashboard
 1. In the [Classic Management Portal](https://manage.windowsazure.cn), select your web app.
@@ -349,13 +351,13 @@ In this section you'll do the following tasks:
 2. In the **Add Azure WebJob** dialog, enter ContosoAdsWebJob as both the **Project name** and the **WebJob name**. Leave **WebJob run mode** set to **Run Continuously**.
 3. Click **OK**.
 
-    Visual Studio creates a Console application that is configured to deploy as a WebJob whenever you deploy the web project. To do that, it performed the following tasks after creating the project:
+   Visual Studio creates a Console application that is configured to deploy as a WebJob whenever you deploy the web project. To do that, it performed the following tasks after creating the project:
 
-    * Added a *webjob-publish-settings.json* file in the WebJob project Properties folder.
-    * Added a *webjobs-list.json* file in the web project Properties folder.
-    * Installed the Microsoft.Web.WebJobs.Publish NuGet package in the WebJob project.
+   * Added a *webjob-publish-settings.json* file in the WebJob project Properties folder.
+   * Added a *webjobs-list.json* file in the web project Properties folder.
+   * Installed the Microsoft.Web.WebJobs.Publish NuGet package in the WebJob project.
 
-    For more information about these changes, see [How to deploy WebJobs by using Visual Studio](websites-dotnet-deploy-webjobs.md).
+   For more information about these changes, see [How to deploy WebJobs by using Visual Studio](websites-dotnet-deploy-webjobs.md).
 
 ### Add NuGet packages
 The new-project template for a WebJob project automatically installs the WebJobs SDK NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) and its dependencies.
@@ -387,22 +389,22 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 1. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the following files from the downloaded project.
 
-    * *Ad.cs*
-    * *ContosoAdscontext.cs*
-    * *BlobInformation.cs*<br/><br/>
+   * *Ad.cs*
+   * *ContosoAdscontext.cs*
+   * *BlobInformation.cs*<br/><br/>
 2. In the ContosoAdsWeb project, add the following files from the downloaded project.
 
-    * *Web.config*
-    * *Global.asax.cs*  
-    * In the *Controllers* folder: *AdController.cs*
-    * In the *Views\Shared* folder: *_Layout.cshtml* file
-    * In the *Views\Home* folder: *Index.cshtml*
-    * In the *Views\Ad* folder (create the folder first): five *.cshtml* files<br/><br/>
+   * *Web.config*
+   * *Global.asax.cs*  
+   * In the *Controllers* folder: *AdController.cs*
+   * In the *Views\Shared* folder: *_Layout.cshtml* file
+   * In the *Views\Home* folder: *Index.cshtml*
+   * In the *Views\Ad* folder (create the folder first): five *.cshtml* files<br/><br/>
 3. In the ContosoAdsWebJob project, add the following files from the downloaded project.
 
-    * *App.config* (change the file type filter to **All Files**)
-    * *Program.cs*
-    * *Functions.cs*
+   * *App.config* (change the file type filter to **All Files**)
+   * *Program.cs*
+   * *Functions.cs*
 
 You can now build, run, and deploy the application as instructed earlier in the tutorial. Before you do that, however, stop the WebJob that is still running in the first web app you deployed to. Otherwise that WebJob will process queue messages created locally or by the app running in a new web app, since all are using the same storage account.
 
@@ -535,7 +537,7 @@ The *Views\Home\Index.cshtml* file displays category links on the home page. The
         <li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
         <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 
-### <a name="ResolveBlobName" id="resolveblobname"></a> ContosoAdsWeb - AdController.cs
+### ContosoAdsWeb - AdController.cs
 In the *AdController.cs* file the constructor calls the `InitializeStorage` method to create Azure Storage Client Library objects that provide an API for working with blobs and queues.
 
 Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that, it sets a default [retry policy](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could hang the web app for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits 3 seconds after each try for up to 3 tries.

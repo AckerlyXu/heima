@@ -22,7 +22,7 @@ ms.author: v-dazen
 
 This quickstart walks through how to and deploy a basic HTML+CSS site to Azure. You'll run the app using an [Azure App Service plan](/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), and create a web app in it using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). You use Git to deploy the app to Azure. It takes about five minutes to complete the tutorial once the prerequisites are installed.
 
-![hello-world-in-browser](./media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 Navigate to the directory that contains the sample HTML. Open the *index.html* file in your browser.
 
-![hello-world-in-browser](./media/app-service-web-get-started-html/hello-world-in-browser.png)
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
 
 [!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
 [!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
@@ -61,7 +61,7 @@ The web app provides a hosting space for your code and provides a URL for to vie
 
 The page is running as an Azure App Service web app:
 
-![hello-world-in-browser](./media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
 ## Update and redeploy the app
 

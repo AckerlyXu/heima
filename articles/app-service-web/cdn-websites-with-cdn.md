@@ -57,44 +57,44 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 1. In Visual Studio 2015, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
 
-    ![](./media/cdn-websites-with-cdn/1-new-project.png)
+    ![](media/cdn-websites-with-cdn/1-new-project.png)
 2. Select **MVC** and click **OK**.
 
-    ![](./media/cdn-websites-with-cdn/2-webapp-template.png)
+    ![](media/cdn-websites-with-cdn/2-webapp-template.png)
 3. If you haven't logged into your Azure account yet, click the account icon in the upper-right corner and follow the dialog to log into your Azure account. Once you're done, configure your app as shown below, then click **New** to create a new App Service plan for your app.  
 
-    ![](./media/cdn-websites-with-cdn/3-configure-webapp.png)
+    ![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 4. Configure a new App Service plan in the dialog as shown below and click **OK**. 
 
-    ![](./media/cdn-websites-with-cdn/4-app-service-plan.png)
+    ![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 5. Click **Create** to create the web app.
 
-    ![](./media/cdn-websites-with-cdn/5-create-website.png)
+    ![](media/cdn-websites-with-cdn/5-create-website.png)
 6. Once your ASP.NET application is created, publish it to Azure in the Azure App Service Activity pane by clicking **Publish `<app name>` to this Web App now**. Click **Publish** to complete the process.
 
-    ![](./media/cdn-websites-with-cdn/6-publish-website.png)
+    ![](media/cdn-websites-with-cdn/6-publish-website.png)
 
     You will see your published web app in the browser when publishing is complete. 
-7. To create a CDN endpoint, log into the [Azure Portal](https://portal.azure.cn). 
+7. To create a CDN endpoint, log into the [Azure portal](https://portal.azure.cn). 
 8. Click **+ New** > **Media + CDN** > **CDN**.
 
-    ![](./media/cdn-websites-with-cdn/create-cdn-profile.png)
+    ![](media/cdn-websites-with-cdn/create-cdn-profile.png)
 9. Specify the **CDN**, **Location**, **Resource group**,  **Pricing tier**, then click **Create**
 
-    ![](./media/cdn-websites-with-cdn/7-create-cdn.png)    
+    ![](media/cdn-websites-with-cdn/7-create-cdn.png)    
 10. In the **CDN Profile** blade click on **+ Endpoint** button. Give it a name, select **Web App** in the **Origin Type** dropdown and your web app in the **Origin hostname** dropdown, then click **Add**.  
 
-     ![](./media/cdn-websites-with-cdn/cdn-profile-blade.png)
+     ![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
 
     > [!NOTE]
     > Once your CDN endpoint is created, the **Endpoint** blade will show you its CDN URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 1. Back in the **Endpoint** blade, click the name of the CDN endpoint you just created.
 
-    ![](./media/cdn-websites-with-cdn/8-select-cdn.png)
+    ![](media/cdn-websites-with-cdn/8-select-cdn.png)
 2. Click the **Configure** button. In the **Configure** blade, select **Cache every unique URL** in **Query string caching behavior** dropdown, then click the **Save** button.
 
-    ![](./media/cdn-websites-with-cdn/9-enable-query-string.png)
+    ![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
 Once you enable this, the same link accessed with different query strings will be cached as separate entries.
 
@@ -105,7 +105,7 @@ Once you enable this, the same link accessed with different query strings will b
 
 1. Now, navigate to the CDN endpoint address. If the endpoint is ready, you should see your web app displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
 
-    ![](./media/cdn-websites-with-cdn/11-access-success.png)
+    ![](media/cdn-websites-with-cdn/11-access-success.png)
 2. Next, try to access the **~/Content/bootstrap.css** file in your ASP.NET project. In the browser window, navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. In my setup, this URL is:
 
         http://az673227.azureedge.net/Content/bootstrap.css
@@ -116,7 +116,7 @@ Once you enable this, the same link accessed with different query strings will b
 
     When you navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your web app in Azure. 
 
-    ![](./media/cdn-websites-with-cdn/12-file-access.png)
+    ![](media/cdn-websites-with-cdn/12-file-access.png)
 
 You can similarly access any publicly accessible URL at **http://*&lt;serviceName>*.chinacloudapp.cn/**, straight from your CDN endpoint. For example:
 
@@ -166,7 +166,7 @@ When you integrate Web Apps with Azure CDN, it is relatively easy to serve conte
 
 Suppose in your web app you want to generate memes based on a young Chuck Norris image (photo by [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) like this:
 
-![](./media/cdn-websites-with-cdn/cdn-5-memegenerator.PNG)
+![](media/cdn-websites-with-cdn/cdn-5-memegenerator.PNG)
 
 You have a simple `Index` action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action. Since it's Chuck Norris, you would expect this page to become wildly popular globally. This is a good example of serving semi-dynamic content with Azure CDN. 
 
@@ -271,10 +271,10 @@ Follow the steps above to setup this controller action:
 
 1. Right-click in the default `Index()` action and select **Add View**.
 
-    ![](./media/cdn-websites-with-cdn/cdn-6-addview.PNG)
+    ![](media/cdn-websites-with-cdn/cdn-6-addview.PNG)
 2. Accept the settings below and click **Add**.
 
-    ![](./media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
+   ![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 3. Open the new *Views\MemeGenerator\Index.cshtml* and replace the content with the following simple HTML for submitting the superlatives:
 
         <h2>Meme Generator</h2>
@@ -476,14 +476,14 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
     When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
 
-    * `window.jquery` is defined in jquery-{version}.js
-    * `$.validator` is defined in jquery.validate.js
-    * `window.Modernizr` is defined in modernizer-{version}.js
-    * `$.fn.modal` is defined in bootstrap.js
+   * `window.jquery` is defined in jquery-{version}.js
+   * `$.validator` is defined in jquery.validate.js
+   * `window.Modernizr` is defined in modernizer-{version}.js
+   * `$.fn.modal` is defined in bootstrap.js
 
-    You might have noticed that I did not set CdnFallbackExpression for the `~/Cointent/css` bundle. This is because currently there is a [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) that injects a `<script>` tag for the fallback CSS instead of the expected `<link>` tag.
+     You might have noticed that I did not set CdnFallbackExpression for the `~/Cointent/css` bundle. This is because currently there is a [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) that injects a `<script>` tag for the fallback CSS instead of the expected `<link>` tag.
 
-    There is, however, a good [Style Bundle Fallback](https://github.com/EmberConsultingGroup/StyleBundleFallback) offered by [Ember Consulting Group](https://github.com/EmberConsultingGroup). 
+     There is, however, a good [Style Bundle Fallback](https://github.com/EmberConsultingGroup/StyleBundleFallback) offered by [Ember Consulting Group](https://github.com/EmberConsultingGroup). 
 2. To use the workaround for CSS, create a new .cs file in your ASP.NET project's *App_Start* folder called *StyleBundleExtensions.cs*, and replace its content with the [code from GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs). 
 3. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your ASP.NET application's namespace (e.g. **cdnwebapp**). 
 4. Go back to `App_Start\BundleConfig.cs` and replace the last `bundles.Add` statement with the following code:  
@@ -538,7 +538,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
     But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 7. To test whether the fallback script is working, go back to the your CDN endpoint's blade and click **Stop**.
 
-    ![](./media/cdn-websites-with-cdn/13-test-fallback.png)
+    ![](media/cdn-websites-with-cdn/13-test-fallback.png)
 8. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
 ## More Information

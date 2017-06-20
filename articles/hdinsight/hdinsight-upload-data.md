@@ -82,10 +82,10 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
         azure storage container list -a <storage-account-name> -k <primary-key>
 6. Use the following commands to upload and download files to the blob:
 
-    * To upload a file:
+   * To upload a file:
 
             azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-    * To download a file:
+   * To download a file:
 
             azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 

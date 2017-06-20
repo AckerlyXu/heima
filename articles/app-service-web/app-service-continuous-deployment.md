@@ -50,7 +50,7 @@ To enable continuous deployment,
     ```
 5. In the page of you GitHub Repo, click **Settings**, choose **Webhooks & services**, and then click **Add webhook**
 6. In **Payload URL**, enter `https://$<YOUR_WEB_APP>:<SOME_BIG_RANDOM_TOKEN>@<YOUR_WEB_APP>.scm.chinacloudsites.cn/deploy`, leave everything else as what it was, and click **Add webhook** to save the new webhook.
-5. To verify the app is successfully deployed, click the **URL** at the top of the app's blade in the Azure Portal.
+5. To verify the app is successfully deployed, click the **URL** at the top of the app's blade in the Azure portal.
 6. To verify that continuous deployment is occurring from the repository of your choice, push a change to the repository. Your app should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update in the **Deployment options** blade of your app.
 
 ## <a name="VSsolution"></a>Continuous deployment of a Visual Studio solution
@@ -63,7 +63,7 @@ The steps for pushing your Visual Studio solution to App Service are the same as
 
 * Use the Visual Studio source control option to generate a `.gitignore` file such as the image below or manually add a `.gitignore` file in your repository root with content similar to this [.gitignore sample](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-    ![](./media/app-service-continuous-deployment/VS_source_control.png)
+  ![](./media/app-service-continuous-deployment/VS_source_control.png)
 * Add the entire solution's directory tree to your repository, with the .sln file in the repository root.
 
 Once you have set up your repository as described, and configured your app in Azure for continuous publishing from one of the online Git repositories, you can develop your ASP.NET application locally in Visual Studio and continuously deploy your code simply by pushing your changes to your online Git repository.
@@ -71,7 +71,7 @@ Once you have set up your repository as described, and configured your app in Az
 ## <a name="disableCD"></a>Disable continuous deployment
 To disable continuous deployment,
 
-1. In your app's menu blade in the [Azure Portal], click **APP DEPLOYMENT > Deployment options**. Then click **Disconnect** in the **Deployment options** blade.
+1. In your app's menu blade in the [Azure portal], click **APP DEPLOYMENT > Deployment options**. Then click **Disconnect** in the **Deployment options** blade.
 
     ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 2. After answering **Yes** to the confirmation message, you can return to your app's blade and click **APP DEPLOYMENT > Deployment options** if you would like to set up publishing from another source.
@@ -85,7 +85,7 @@ To disable continuous deployment,
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure App Service]: /app-service-web/app-service-changes-existing-services/
-[Azure Portal]: https://portal.azure.cn
+[Azure portal]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
 [How to use PowerShell for Azure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs

@@ -64,9 +64,9 @@ You will also use the typical branching strategy, with code moving from the dev 
 * Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session 
 * Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) bits
 * Basic understanding of the following:
-    * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) template deployment (also see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
-    * [Git](http://git-scm.com/documentation)
-    * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
+  * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) template deployment (also see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
+  * [Git](http://git-scm.com/documentation)
+  * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:
@@ -76,14 +76,14 @@ You will also use the typical branching strategy, with code moving from the dev 
 > 
 
 ## Set up your production environment
-> [!NOTE] 
+> [!NOTE]
 > Currently, in Azure China, you cannot enter GitHub Credential in the new portal; hence, only public GitHub repo is going to work for continuous publishing, and you have to configure it through Kudu. 
 
 In a typical DevOps scenario, you have an application that's running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you have a template that you developed, tested, and used to deploy the production environment. You will set it up in this section.
 
 1. Create your own fork of the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository. For information on creating your fork, see [Fork a Repo](https://help.github.com/articles/fork-a-repo/). Once your fork is created, you can see it in your browser.
 
-    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
+   ![](./media/app-service-agile-software-development/production-1-private-repo.png)
 2. Open a Git Shell session. If you don't have Git Shell yet, install [GitHub for Windows](https://windows.github.com/) now.
 3. Create a local clone of your fork by executing the following command:
 
@@ -103,25 +103,25 @@ In a typical DevOps scenario, you have an application that's running live in Azu
 
 5. When prompted, type in the desired username and password for database access.
 
-    You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
+   You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
 
-    ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
+   ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
 
-    > [!TIP]
-    > Take a look at *&lt;repository_root>*\ARMTemplates\Deploy.ps1, to see how it generates resources with unique IDs. You can use the same approach to create clones of the same deployment without worrying about conflicting resource names.
-    > 
-    > 
+   > [!TIP]
+   > Take a look at *&lt;repository_root>*\ARMTemplates\Deploy.ps1, to see how it generates resources with unique IDs. You can use the same approach to create clones of the same deployment without worrying about conflicting resource names.
+   > 
+   > 
 6. Back in your Git Shell session, run:
 
         .\swap -Name ToDoApp<unique_string>master
 
-    ![](./media/app-service-agile-software-development/production-4-swap.png)
+   ![](./media/app-service-agile-software-development/production-4-swap.png)
 7. When the script finishes, go back to browse to the frontend's address (http://ToDoApp*&lt;unique_string>*master.chinacloudsites.cn/) to see the application running in production.
 8. Log into the [Azure Portal](https://portal.azure.cn/) and take a look at what's created.
 
-    You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
+   You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
 
-    ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
+   ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
 You have now set up the production environment. Next, you will kick off a new update to the application.
 
@@ -141,13 +141,13 @@ Now that you have a complex application running in production in Azure, you will
 
 2. When prompted, type in the desired username and password for database access. 
 
-    When deployment completes, the script will launch the application in the browser and give you a friendly beep. And just like that, you now have a new branch with its own test environment. Take a moment to review a few things about this test environment:
+   When deployment completes, the script will launch the application in the browser and give you a friendly beep. And just like that, you now have a new branch with its own test environment. Take a moment to review a few things about this test environment:
 
-    * You can create it in any Azure subscription. That means the production environment can be managed separately from your test environment.
-    * Your test environment is running live in Azure.
-    * Your test environment is identical to the production environment, except for the staging slots and the scaling settings. You can know this because these are the only differences between ProdandStage.json and Dev.json.
-    * You can manage your test environment in its own App Service plan, with a different price tier (such as **Free**).
-    * Deleting this test environment will be as simple as deleting the resource group. You will find out how to do this [later](#delete).
+   * You can create it in any Azure subscription. That means the production environment can be managed separately from your test environment.
+   * Your test environment is running live in Azure.
+   * Your test environment is identical to the production environment, except for the staging slots and the scaling settings. You can know this because these are the only differences between ProdandStage.json and Dev.json.
+   * You can manage your test environment in its own App Service plan, with a different price tier (such as **Free**).
+   * Deleting this test environment will be as simple as deleting the resource group. You will find out how to do this [later](#delete).
 3. Go on to create a dev branch by running the following commands:
 
         git checkout -b Dev
@@ -155,12 +155,12 @@ Now that you have a complex application running in production in Azure, you will
         .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
 4. When prompted, type in the desired username and password for database access. 
 
-    Take a moment to review a few things about this dev environment: 
+   Take a moment to review a few things about this dev environment: 
 
-    * Your dev environment has a configuration identical to the test environment because it's deployed using the same template.
-    * Each dev environment can be created in the developer's own Azure subscription, leaving the test environment to be separately managed.
-    * Your dev environment is running live in Azure.
-    * Deleting the dev environment is as simple as deleting the resource group. You will find out how to do this [later](#delete).
+   * Your dev environment has a configuration identical to the test environment because it's deployed using the same template.
+   * Each dev environment can be created in the developer's own Azure subscription, leaving the test environment to be separately managed.
+   * Your dev environment is running live in Azure.
+   * Deleting the dev environment is as simple as deleting the resource group. You will find out how to do this [later](#delete).
 
 > [!NOTE]
 > When you have multiple developers working on the new update, each of them can easily create a branch and dedicated dev environment by doing the following:
@@ -192,15 +192,15 @@ The template files ProdAndStage.json and Dev.json already specify the source con
         git checkout Dev
 2. Make a simple change to the app's UI layer by changing the code to use [Bootstrap](http://getbootstrap.com/components/) lists. Open *&lt;repository_root>*\src\MultiChannelToDo.Web\index.cshtml and make the highlighted change below:
 
-    ![](./media/app-service-agile-software-development/commit-1-changes.png)
+   ![](./media/app-service-agile-software-development/commit-1-changes.png)
 
-    > [!NOTE]
-    > If you can't read the image above: 
-    > 
-    > * In line 18, change `check-list` to `list-group`.
-    > * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
-    > 
-    > 
+   > [!NOTE]
+   > If you can't read the image above: 
+   > 
+   > * In line 18, change `check-list` to `list-group`.
+   > * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
+   > 
+   > 
 3. Save the change. Back in Git Shell, run the following commands:
 
         cd <repository_root>
@@ -208,15 +208,15 @@ The template files ProdAndStage.json and Dev.json already specify the source con
         git commit -m "changed to bootstrap style"
         git push origin Dev
 
-    These git commands are similar to "checking in your code" in another source control system like TFS. When you run `git push`, the new commit triggers an automatic code push to Azure, which then rebuilds the application to reflect the change in the dev environment.
+   These git commands are similar to "checking in your code" in another source control system like TFS. When you run `git push`, the new commit triggers an automatic code push to Azure, which then rebuilds the application to reflect the change in the dev environment.
 4. To verify that this code push to your dev environment has occurred, go to your dev environment's web app blade and look at the **Deployment** part. You should be able to see your latest commit message there.
 
-    ![](./media/app-service-agile-software-development/commit-2-deployed.png)
+   ![](./media/app-service-agile-software-development/commit-2-deployed.png)
 5. From there, click **Browse** to see the new change in the live application in Azure.
 
-    ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
+   ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
 
-    This is a pretty minor change to the application. However, many times new changes to a complex web application has unintended and undesirable side effects. Being able to easily test every commit in live builds enables you to catch these issues before your customers see them.
+   This is a pretty minor change to the application. However, many times new changes to a complex web application has unintended and undesirable side effects. Being able to easily test every commit in live builds enables you to catch these issues before your customers see them.
 
 By now, you should be comfortable with the realization that, as a developer on the **NewUpdate** project, you will be able to easily create a dev environment for yourself, then build every commit and test every build.
 
@@ -260,7 +260,9 @@ And now, after you've verified the update in the staging slot, the only thing le
 
 Congratulations! You've successfully published a new update to your production web application. What's more is that you've just done it by easily creating dev and test environments, and building and testing every commit. These are crucial building blocks for agile software development.
 
-## <a name="delete"></a> Delete dev and test enviroments
+<a name="delete"></a>
+
+## Delete dev and test enviroments
 Because you have purposely architected your dev and test environments to be self-contained resource groups, it is very easy to delete them. To delete the ones you created in this tutorial, both the GitHub branches and Azure artifacts, just run the following commands in Git Shell:
 
     git branch -d Dev

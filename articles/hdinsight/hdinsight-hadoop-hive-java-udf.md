@@ -51,8 +51,8 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [!NOTE]
-    > If you are using PowerShell, you must put quotes around the parameters. For example, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > [!NOTE]
+   > If you are using PowerShell, you must put quotes around the parameters. For example, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
     This command creates a directory named **exampleudf**, which contains the Maven project.
 

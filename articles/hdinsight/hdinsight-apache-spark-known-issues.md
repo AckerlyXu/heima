@@ -103,8 +103,8 @@ When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jup
 
 1. Free up some resources in your Spark cluster by:
 
-    * Stopping other Spark notebooks by going to the Close and Halt menu or clicking Shutdown in the notebook explorer.
-    * Stopping other Spark applications from YARN.
+   * Stopping other Spark notebooks by going to the Close and Halt menu or clicking Shutdown in the notebook explorer.
+   * Stopping other Spark applications from YARN.
 2. Restart the notebook you were trying to start up. Enough resources should be available for you to create a session now.
 
 ## See also

@@ -154,7 +154,7 @@ When Visual Studio is finished, it launches the updated Azure web app in your br
 
 ## Manage your new Azure web app
 
-Go to the Azure Portal to take a look at the web app you just created. 
+Go to the Azure portal to take a look at the web app you just created. 
 
 To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn).
 
@@ -166,7 +166,7 @@ You have landed in your web app's _blade_ (a portal page that opens horizontally
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete.  
 
-![App Service blade in Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 The tabs on the left side of the blade show the different configuration pages you can open. The following list gives you just a few of the possibilities:
 
@@ -186,7 +186,7 @@ In the resource group blade, you can see both the App Service plan and the App S
 
 At the top of the blade, click **Delete**. 
 
-<!--![Delete resource group in Azure Portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)-->
+<!--![Delete resource group in Azure portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)-->
 
 In the confirmation blade, confirm by typing the resource group name **myResourceGroup** into the text box and click **Delete**.
 

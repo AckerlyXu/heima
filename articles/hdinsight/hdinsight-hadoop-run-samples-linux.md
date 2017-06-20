@@ -103,8 +103,8 @@ Learn about MapReduce examples that are included with HDInsight.
 
     Input for this job is read from `/example/data/gutenberg/davinci.txt`. Output for this example is stored in `/example/data/davinciwordcount`. Both paths are located on default storage for the cluster, not the local file system.
 
-    > [!NOTE]
-    > As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
+   > [!NOTE]
+   > As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
 
 5. Once the job completes, use the following command to view the output:
 

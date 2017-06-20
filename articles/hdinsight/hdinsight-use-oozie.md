@@ -182,14 +182,14 @@ The PowerShell script in this section performs the following steps:
     The table name is *log4jLogCount*.
 4. Create an HDInsight cluster used to run Oozie jobs.
 
-    To examine the cluster, you can use the Azure Portal or Azure PowerShell.
+    To examine the cluster, you can use the Azure portal or Azure PowerShell.
 5. Copy the oozie workflow file and the HiveQL script file to the default file system.
 
     Both files are stored in a public Blob container.
 
-    * Copy the HiveQL script (useoozie.hql) to Azure Storage (wasbs:///tutorials/useoozie/useoozie.hql).
-    * Copy workflow.xml to wasbs:///tutorials/useoozie/workflow.xml.
-    * Copy the data file (/example/data/sample.log) to wasbs:///tutorials/useoozie/data/sample.log.
+   * Copy the HiveQL script (useoozie.hql) to Azure Storage (wasbs:///tutorials/useoozie/useoozie.hql).
+   * Copy workflow.xml to wasbs:///tutorials/useoozie/workflow.xml.
+   * Copy the data file (/example/data/sample.log) to wasbs:///tutorials/useoozie/data/sample.log.
 6. Submit an Oozie job.
 
     To examine the OOzie job results, use Visual Studio or other tools to connect to the Azure SQL Database.

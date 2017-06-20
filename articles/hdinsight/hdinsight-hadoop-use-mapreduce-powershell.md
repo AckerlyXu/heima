@@ -32,8 +32,8 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 * **An Azure HDInsight (Hadoop on HDInsight) cluster**
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * **A workstation with Azure PowerShell**.
 

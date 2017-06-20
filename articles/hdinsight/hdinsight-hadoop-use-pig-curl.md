@@ -33,8 +33,8 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [Curl](http://curl.haxx.se/)
 
@@ -63,7 +63,7 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
     * **-u**: The user name and password used to authenticate the request
     * **-G**: Indicates that this request is a GET request
 
-    The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return the status of WebHCat (also known as Templeton) for the server.
+     The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return the status of WebHCat (also known as Templeton) for the server.
 
 2. Use the following code to submit a Pig Latin job to the cluster:
 

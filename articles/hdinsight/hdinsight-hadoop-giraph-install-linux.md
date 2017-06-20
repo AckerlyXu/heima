@@ -56,7 +56,7 @@ A sample script to install Giraph on an HDInsight cluster is available at the fo
 
     https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-This section provides instructions on how to use the sample script while creating the cluster by using the Azure Portal.
+This section provides instructions on how to use the sample script while creating the cluster by using the Azure portal.
 
 > [!NOTE]
 > A script action can be applied using any of the following methods:
@@ -71,17 +71,17 @@ This section provides instructions on how to use the sample script while creatin
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the following information:
 
-    * **NAME**: Enter a friendly name for the script action.
+   * **NAME**: Enter a friendly name for the script action.
 
-    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-    * **HEAD**: Check this entry
+   * **HEAD**: Check this entry
 
-    * **WORKER**: Leave this entry unchecked
+   * **WORKER**: Leave this entry unchecked
 
-    * **ZOOKEEPER**: Leave this entry unchecked
+   * **ZOOKEEPER**: Leave this entry unchecked
 
-    * **PARAMETERS**: Leave this field blank
+   * **PARAMETERS**: Leave this field blank
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
@@ -135,17 +135,17 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
     The parameters used with this command are described in the following table:
 
-    | Parameter | What it does |
-    | --- | --- |
-    | `jar` |The jar file containing the examples. |
-    | `org.apache.giraph.GiraphRunner` |The class used to start the examples. |
-    | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |The example that is used. In this example, it computes the shortest path between ID 1 and all other IDs in the graph. |
-    | `-ca mapred.job.tracker` |The headnode for the cluster. |
-    | `-vif` |The input format to use for the input data. |
-    | `-vip` |The input data file. |
-    | `-vof` |The output format. In this example, ID and value as plain text. |
-    | `-op` |The output location. |
-    | `-w 2` |The number of workers to use. In this example, 2. |
+   | Parameter | What it does |
+   | --- | --- |
+   | `jar` |The jar file containing the examples. |
+   | `org.apache.giraph.GiraphRunner` |The class used to start the examples. |
+   | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |The example that is used. In this example, it computes the shortest path between ID 1 and all other IDs in the graph. |
+   | `-ca mapred.job.tracker` |The headnode for the cluster. |
+   | `-vif` |The input format to use for the input data. |
+   | `-vip` |The input data file. |
+   | `-vof` |The output format. In this example, ID and value as plain text. |
+   | `-op` |The output location. |
+   | `-w 2` |The number of workers to use. In this example, 2. |
 
     For more information on these, and other parameters used with Giraph samples, see the [Giraph quickstart](http://giraph.apache.org/quick_start.html).
 

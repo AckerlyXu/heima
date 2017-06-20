@@ -105,11 +105,10 @@ To set up your development environment, you must install Visual Studio 2013 Upda
     ![_Layout.cshtml in Solution Explorer][newapp004]
 2. Replace the ActionLink in the *Layout.cshtml* file with the following code.
 
-    ```
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-    ```
-
-    Make sure you change the third parameter from "Home" to "Contacts". The markup above will create a "Contacts" link on each page to the Index method of the Contacts controller. Change the application name in the header and the footer from "My ASP.NET Application" and "Application name" to "Contact Manager" and "CM Demo". 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Make sure you change the third parameter from "Home" to "Contacts". The markup above will create a "Contacts" link on each page to the Index method of the Contacts controller. Change the application name in the header and the footer from "My ASP.NET Application" and "Application name" to "Contact Manager" and "CM Demo". 
 
 ### Run the application locally
 1. Press CTRL+F5 to run the app.
@@ -198,7 +197,7 @@ You begin by creating a simple data model in code.
                 public string Email { get; set; }
             }
         }
-    The **Contact** class defines the data that you will store for each contact, plus a primary key, *ContactID*, that is needed by the database.
+   The **Contact** class defines the data that you will store for each contact, plus a primary key, *ContactID*, that is needed by the database.
 
 ### Create web pages that enable app users to work with the contacts
 The ASP.NET MVC scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions. 
@@ -217,7 +216,7 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 
 1. Click **Add**.
 
-    Visual Studio creates a controller with methods and views for CRUD database operations for **Contact** objects.
+   Visual Studio creates a controller with methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer
 The next task is to enable the [Code First Migrations](http://msdn.microsoft.com/library/hh770484.aspx) feature in order to create database tables based on the data model that you created.
@@ -373,7 +372,7 @@ In this section you will temporarily modify the **ExternalLoginConfirmation** me
 
         await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-    The code above adds the newly registered user to the "canEdit" role, which gives them access to action methods that change (edit) data. The following snippet shows the new line of code in context.
+   The code above adds the newly registered user to the "canEdit" role, which gives them access to action methods that change (edit) data. The following snippet shows the new line of code in context.
 
           // POST: /Account/ExternalLoginConfirmation
           [HttpPost]

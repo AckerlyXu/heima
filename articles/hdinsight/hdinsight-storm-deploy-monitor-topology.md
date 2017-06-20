@@ -45,14 +45,14 @@ The Storm Dashboard and the Storm features in the HDInsight Tools rely on the St
 
     One of the following versions of Visual Studio:
 
-    * Visual Studio 2012 with Update 4
+  * Visual Studio 2012 with Update 4
 
-    * Visual Studio 2013 with [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-    * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 with [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
-    * Visual Studio 2015 (any edition)
+  * Visual Studio 2015 (any edition)
 
-    * Visual Studio 2017 (any edition)
+  * Visual Studio 2017 (any edition)
 
 ## Storm Dashboard
 
@@ -91,15 +91,15 @@ Selecting a link from the **Topology summary** section displays the following in
 
 * **Topology actions**: Management actions that you can perform for the topology.
 
-    * **Activate**: Resumes processing of a deactivated topology.
+  * **Activate**: Resumes processing of a deactivated topology.
 
-    * **Deactivate**: Pauses a running topology.
+  * **Deactivate**: Pauses a running topology.
 
-    * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
+  * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
 
-        For more information, see [Understanding the parallelism of a Storm topology (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      For more information, see [Understanding the parallelism of a Storm topology (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    * **Kill**: Terminates a Storm topology after the specified timeout.
+  * **Kill**: Terminates a Storm topology after the specified timeout.
 
 * **Topology stats**: Statistics about the topology. Use the links in the **Window** column to set the timeframe for the remaining entries on the page.
 
@@ -141,8 +141,8 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
 
 4. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
-    > [!NOTE]
-    > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
+   > [!NOTE]
+   > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
 5. Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor whether the submission is successful by using the **Output** window.
 
@@ -150,18 +150,18 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
 
     ![visual studio monitor](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
-    > [!NOTE]
-    > You can also view **Storm Topologies** from **Server Explorer** by expanding **Azure** > **HDInsight**, and then right-clicking a Storm on HDInsight cluster, and selecting **View Storm Topologies**.
+   > [!NOTE]
+   > You can also view **Storm Topologies** from **Server Explorer** by expanding **Azure** > **HDInsight**, and then right-clicking a Storm on HDInsight cluster, and selecting **View Storm Topologies**.
 
     Select the shape for the spouts or bolts to view information about these components. A new window opens for each item selected.
 
-    > [!NOTE]
-    > The name of the topology is the class name of the topology (in this case, `HelloWord`,) with a timestamp appended.
+   > [!NOTE]
+   > The name of the topology is the class name of the topology (in this case, `HelloWord`,) with a timestamp appended.
 
 7. From the **Topology Summary** view, select **Kill** to stop the topology.
 
-    > [!NOTE]
-    > Storm topologies continue running until they are stopped or the cluster is deleted.
+   > [!NOTE]
+   > Storm topologies continue running until they are stopped or the cluster is deleted.
 
 ## REST API
 

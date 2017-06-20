@@ -81,7 +81,7 @@ HBase replication uses IP addresses of the ZooKeeper VMs. You must configure sta
 
 **To configure static IP addresses**
 
-1. Sign in to the [Azure Portal](https://portal.azure.cn).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. From the left menu, click **Resource Groups**.
 3. Click your resource group that contains the destination HBase cluster. This is the resource group that you specified when you used the Resource Manager template to create the environment. You can use the filter to narrow down the list. You can see a list of resources that contains the two virtual networks.
 4. Click the virtual network that contains the destination HBase cluster. For example, click **xxxx-vnet2**. You can see three devices with names that start with **nic-zookeepermode-**. Those devices are the three ZooKeeper VMs.
@@ -90,7 +90,7 @@ HBase replication uses IP addresses of the ZooKeeper VMs. You must configure sta
 7. Click **ipConfig1** from the list.
 8. Click **Static**, and write down the actual IP address. You will need the IP address when you run the script action to enable replication.
 
-    ![HDInsight HBase Replication ZooKeeper static IP](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
+  ![HDInsight HBase Replication ZooKeeper static IP](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
 9. Repeat step 6 to set the static IP address for the other two ZooKeeper nodes.
 
@@ -119,20 +119,20 @@ Follow the instructions in [HBase tutorial: Get started using Apache HBase with 
 
 ## Enable replication
 
-The following steps show how to call the script action script from the Azure Portal. For running a script action by using Azure PowerShell and the Azure command-line interface (CLI), see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
+The following steps show how to call the script action script from the Azure portal. For running a script action by using Azure PowerShell and the Azure command-line interface (CLI), see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
 
-**To enable HBase replication from the Azure Portal**
+**To enable HBase replication from the Azure portal**
 
-1. Sign in to the [Azure Portal](https://portal.azure.cn).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. Open the source HBase cluster.
 3. From the cluster menu, click **Script Actions**.
 4. Click **Submit New** from the top of the blade.
 5. Select or enter the following information:
 
-    - **Name**: Enter **Enable replication**.
-    - **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-    - **Head**: Selected. Clear the other node types.
-    - **Parameters**: The following sample parameters enable replication for all the existing tables and copy all the data from the source cluster to the destination cluster:
+  - **Name**: Enter **Enable replication**.
+  - **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  - **Head**: Selected. Clear the other node types.
+  - **Parameters**: The following sample parameters enable replication for all the existing tables and copy all the data from the source cluster to the destination cluster:
 
             -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
 
@@ -203,7 +203,7 @@ The print_usage() section of the [script](https://github.com/Azure/hbase-utils/b
 - **Copy specific tables (test1, test2, and test3) for all rows edited till now (current time stamp)**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-    or
+  or
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 
@@ -224,7 +224,7 @@ The print_usage() section of the [script](https://raw.githubusercontent.com/Azur
 - **Disable replication on all tables**:
 
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
-    or
+  or
 
         --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari username> --src-ambari-password=<source cluster Ambari password>
 

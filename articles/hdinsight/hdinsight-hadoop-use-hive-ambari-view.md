@@ -38,7 +38,7 @@ Learn how to run Hive queries using Ambari Hive View. Ambari is a management and
 
 ## Open the Hive view
 
-You can Ambari Views from the Azure Portal; select your HDInsight cluster and then select **Ambari Views** from the **Quick Links** section.
+You can Ambari Views from the Azure portal; select your HDInsight cluster and then select **Ambari Views** from the **Quick Links** section.
 
 ![quick links section](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
@@ -77,24 +77,24 @@ To run a hive query, use the following steps from the Hive view.
 
     These statements perform the following actions:
 
-    * `DROP TABLE` - Deletes the table and the data file, in case the table already exists.
+   * `DROP TABLE` - Deletes the table and the data file, in case the table already exists.
 
-    * `CREATE EXTERNAL TABLE` - Creates a new "external" table in Hive.
-    External tables store only the table definition in Hive. The data is left in the original location.
+   * `CREATE EXTERNAL TABLE` - Creates a new "external" table in Hive.
+   External tables store only the table definition in Hive. The data is left in the original location.
 
-    * `ROW FORMAT` - How the data is formatted. In this case, the fields in each log are separated by a space.
+   * `ROW FORMAT` - How the data is formatted. In this case, the fields in each log are separated by a space.
 
-    * `STORED AS TEXTFILE LOCATION` - Where the data is stored, and that it is stored as text.
+   * `STORED AS TEXTFILE LOCATION` - Where the data is stored, and that it is stored as text.
 
-    * `SELECT` - Selects a count of all rows where column t4 contains the value [ERROR].
+   * `SELECT` - Selects a count of all rows where column t4 contains the value [ERROR].
 
-    > [!NOTE]
-    > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or by another MapReduce operation. Dropping an external table does *not* delete the data, only the table definition.
+     > [!NOTE]
+     > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or by another MapReduce operation. Dropping an external table does *not* delete the data, only the table definition.
 
 2. To start the query, use the **Execute** button at the bottom of the Query Editor. It turns orange and the text changes to **Stop execution**. A **Query Process Results** section should appear beneath the Query Editor and display information about the job.
 
-    > [!IMPORTANT]
-    > Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
+   > [!IMPORTANT]
+   > Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
 
 3. Once the query has finished, The **Query Process Results** section displays the results of the operation. The **Stop execution** button also changes back to a green **Execute** button when the query completes. The **Results** tab should contain the following information:
 
@@ -103,8 +103,8 @@ To run a hive query, use the following steps from the Hive view.
 
     The **Logs** tab can be used to view the logging information created by the job.
 
-    > [!TIP]
-    > The **Save results** drop-down dialog in the upper left of the **Query Process Results** section allows you to download or save results.
+   > [!TIP]
+   > The **Save results** drop-down dialog in the upper left of the **Query Process Results** section allows you to download or save results.
 
 4. Select the first four lines of this query, then select **Execute**. Notice that there are no results when the job completes. Using the **Execute** button when part of the query is selected only runs the selected statements. In this case, the selection didn't include the final statement that retrieves rows from the table. If you select just that line and use **Execute**, you should see the expected results.
 
@@ -115,15 +115,15 @@ To run a hive query, use the following steps from the Hive view.
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
 
-    These statements perform the following actions:
+  These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, an internal table is created. An internal table is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table deletes the underlying data as well.
+   * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, an internal table is created. An internal table is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table deletes the underlying data as well.
 
-    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
+   * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
 
-    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain `[ERROR]`, and then inserts the data into the **errorLogs** table.
+   * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain `[ERROR]`, and then inserts the data into the **errorLogs** table.
 
-    Use the **Execute** button to run this query. The **Results** tab does not contain any information when the query returns zero rows. The status should show as **SUCCEEDED** once the query completes.
+     Use the **Execute** button to run this query. The **Results** tab does not contain any information when the query returns zero rows. The status should show as **SUCCEEDED** once the query completes.
 
 ### Hive settings
 

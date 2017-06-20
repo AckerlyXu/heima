@@ -33,7 +33,7 @@ HDInsight clusters can be customized in a variety of other ways as well, such as
 additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml,
 hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common locations
 in the cluster. These customizations can be done through Azure PowerShell, the Azure
-HDInsight .NET SDK, or the Azure Portal. For more information, see
+HDInsight .NET SDK, or the Azure portal. For more information, see
 [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster].
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
@@ -78,8 +78,8 @@ HDInsight provides several scripts to install the following components on HDInsi
 | - **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
 | **Pre-load Hive libraries** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. See [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
-## Call scripts using the Azure Portal
-**From the Azure Portal**
+## Call scripts using the Azure portal
+**From the Azure portal**
 
 1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. Under Optional Configuration, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:

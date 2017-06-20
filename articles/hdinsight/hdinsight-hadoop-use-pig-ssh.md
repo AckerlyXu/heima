@@ -81,8 +81,8 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
 
         STORE RESULT into '/example/data/pigout';
 
-    > [!NOTE]
-    > The data is stored in the specified directory in files named `part-nnnnn`. If the directory already exists, you receive an error.
+   > [!NOTE]
+   > The data is stored in the specified directory in files named `part-nnnnn`. If the directory already exists, you receive an error.
 
 6. To exit the grunt prompt, enter the following statement:
 

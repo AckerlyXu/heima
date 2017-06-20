@@ -26,17 +26,17 @@ size fits all" solution. To correctly scale your application there are 3 key
 areas that will contribute to your applications success:
 
 1. Understanding your application architecture and its weaknesses.
-    * Is your Application Stateful? Stateless?
-    * What are all the components of your application?
-        * Where are the bottlenecks in the application?
-    * When load is applied to your app, what will break first?
+   * Is your Application Stateful? Stateless?
+   * What are all the components of your application?
+     * Where are the bottlenecks in the application?
+   * When load is applied to your app, what will break first?
 2. Understanding the expected load and performance requirements.
-    * Does the application need to serve one thousand users? or one million?
-    * Will traffic come from a single geographic location or nationally?
-    * Are there seasonal variations? traffic peaks?
-    * How fast should the app respond? 1 second? 1 millisecond?
+   * Does the application need to serve one thousand users? or one million?
+   * Will traffic come from a single geographic location or nationally?
+   * Are there seasonal variations? traffic peaks?
+   * How fast should the app respond? 1 second? 1 millisecond?
 3. Understanding and correctly leverage the platform hosting your app.
-    * What features should I leverage to achieve my scale goals?
+   * What features should I leverage to achieve my scale goals?
 
 This section will help you understand all the factors and help you devise a
 strategy that takes advantage of the necessary App Service features to achieve

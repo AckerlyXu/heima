@@ -40,6 +40,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 
 > [!NOTE]
 > Some properties are hard-coded into the template. For example:
+>
 > * **Location**: China East
 > * __Cluster version: 3.5
 > * **Cluster worker node count**: 4
@@ -53,7 +54,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 >
 >
 
-1. Click the following image to open the template in the Azure Portal. The template is located in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux-vnet/).
+1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -62,55 +63,55 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 
 2. From the **Custom deployment** blade, enter the following:
 
-    * **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
-    * **Resource group**: Select **Create new**, and specify a new resource group name.
-    * **Location**: Select a location for the resource group.
-    * **ClusterName**: Enter a name for the Hadoop cluster to be created.
-    * **Cluster login name and password**: The default login name is **admin**.
-    * **SSH username and password**: The default username is **sshuser**.  You can rename it.
-    * **I agree to the terms and the conditions stated above**: (Select)
+   * **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
+   * **Resource group**: Select **Create new**, and specify a new resource group name.
+   * **Location**: Select a location for the resource group.
+   * **ClusterName**: Enter a name for the Hadoop cluster to be created.
+   * **Cluster login name and password**: The default login name is **admin**.
+   * **SSH username and password**: The default username is **sshuser**.  You can rename it.
+   * **I agree to the terms and the conditions stated above**: (Select)
 3. Click **Purchase**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
-After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
+After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ## Connect to the HBase cluster using HBase Java RPC APIs
 1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
 
-    * **Virtual network**: &lt;Cluster name>-vnet
-    * **Subnet**: subnet1
+   * **Virtual network**: &lt;Cluster name>-vnet
+   * **Subnet**: subnet1
 
-    > [!IMPORTANT]
-    > Replace &lt;Cluster name> with the name you used when creating the HDInsight cluster in previous steps.
-    >
-    >
+   > [!IMPORTANT]
+   > Replace &lt;Cluster name> with the name you used when creating the HDInsight cluster in previous steps.
+   >
+   >
 
-    Using these values, the virtual machine is placed in the same virtual network and subnet as the HDInsight cluster. This configuration allows them to directly communicate with each other. There is a way to create an HDInsight cluster with an empty edge node. The edge node can be used to manage the cluster.  For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+   Using these values, the virtual machine is placed in the same virtual network and subnet as the HDInsight cluster. This configuration allows them to directly communicate with each other. There is a way to create an HDInsight cluster with an empty edge node. The edge node can be used to manage the cluster.  For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
 2. When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine this, you must get the connection-specific DNS suffix of the HBase cluster. To do that, you can use one of the following methods:
 
-    * Use a Web browser to make an Ambari call:
+   * Use a Web browser to make an Ambari call:
 
-        Browse to https://&lt;ClusterName>.azurehdinsight.cn/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true. It turns a JSON file with the DNS suffixes.
-    * Use the Ambari website:
+     Browse to https://&lt;ClusterName>.azurehdinsight.cn/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true. It turns a JSON file with the DNS suffixes.
+   * Use the Ambari website:
 
-        1. Browse to  https://&lt;ClusterName>.azurehdinsight.cn.
-        2. Click **Hosts** from the top menu.
-    * Use Curl to make REST calls:
+     1. Browse to  https://&lt;ClusterName>.azurehdinsight.cn.
+     2. Click **Hosts** from the top menu.
+   * Use Curl to make REST calls:
 
             curl -u <username>:<password> -k https://<clustername>.azurehdinsight.cn/ambari/api/v1/clusters/<clustername>.azurehdinsight.cn/services/hbase/components/hbrest
 
-        In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. This contains the FQDN for the nodes in the cluster. For example:
+     In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. This contains the FQDN for the nodes in the cluster. For example:
 
             ...
             "host_name": "wordkernode0.<clustername>.b1.chinacloudapp.cn
             ...
 
-        The portion of the domain name beginning with the cluster name is the DNS suffix. For example, mycluster.b1.chinacloudapp.cn.
-    * Use Azure PowerShell
+     The portion of the domain name beginning with the cluster name is the DNS suffix. For example, mycluster.b1.chinacloudapp.cn.
+   * Use Azure PowerShell
 
-        Use the following Azure PowerShell script to register the **Get-ClusterDetail** function, which can be used to return the DNS suffix:
+     Use the following Azure PowerShell script to register the **Get-ClusterDetail** function, which can be used to return the DNS suffix:
 
             function Get-ClusterDetail(
                 [String]

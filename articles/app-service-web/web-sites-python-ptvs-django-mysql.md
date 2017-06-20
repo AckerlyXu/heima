@@ -116,11 +116,11 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 3. Click on **New** to create a new web app.
 4. Fill in the following fields and click **Create**:
 
-    * **Web App name**
-    * **App Service plan**
-    * **Resource group**
-    * **Region**
-    * Leave **Database server** set to **No database**
+   * **Web App name**
+   * **App Service plan**
+   * **Resource group**
+   * **Region**
+   * Leave **Database server** set to **No database**
 5. Accept all other defaults and click **Publish**.
 6. Your web browser will open automatically to the published web app. You should see the web app working as expected, using the **MySQL** database hosted on Azure.
 
@@ -132,9 +132,9 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 Follow these links to learn more about Python Tools for Visual Studio, Django and MySQL.
 
 * [Python Tools for Visual Studio Documentation]
-    * [Web Projects]
-    * [Cloud Service Projects]
-    * [Remote Debugging on Azure]
+  * [Web Projects]
+  * [Cloud Service Projects]
+  * [Remote Debugging on Azure]
 * [Django Documentation]
 * [MySQL]
 
