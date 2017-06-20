@@ -9,7 +9,7 @@ editor:
 tags: azure-service-management
 
 ms.assetid: afd7f6e0-9297-4c98-a95e-597be939cef7
-ms.service: cache-redis
+ms.service: redis-cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na

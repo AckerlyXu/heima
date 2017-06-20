@@ -152,8 +152,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">Computer Vision API</a></li>
-                                                    <li><a class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">Face API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">Computer Vision API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">Face API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -188,7 +188,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <li></li>
                             <li></li>
                             <li class="bottomRightItem">
-                                <a href="https://aka.ms/j3wr7y">
+                                <a href="https://aka.ms/aapw0h">
                                 <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
                                 </a>
                             </li>
