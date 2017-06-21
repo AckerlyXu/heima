@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
-wacn.date: ''
+origin.date: 04/14/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -58,10 +58,10 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
 * The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named **libs** on a storage account named **mystorage**, the parameter would be **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**.
 
-    > [!NOTE]
-    > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
-    >
-    > If you have not created a storage account, you can do so through the [Azure Portal](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
+  > [!NOTE]
+  > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
+  >
+  > If you have not created a storage account, you can do so through the [Azure portal](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
 
 ## Create a cluster using the script
 
@@ -74,17 +74,17 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the following information:
 
-    * **NAME**: Enter a friendly name for the script action.
+   * **NAME**: Enter a friendly name for the script action.
 
-    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
-    * **HEAD**: Check this option.
+   * **HEAD**: Check this option.
 
-    * **WORKER**: Check this option.
+   * **WORKER**: Check this option.
 
-    * **ZOOKEEPER**: Leave this blank.
+   * **ZOOKEEPER**: Leave this blank.
 
-    * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**.
+   * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration.
 

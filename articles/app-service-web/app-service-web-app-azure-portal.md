@@ -1,5 +1,5 @@
 ---
-title: Reference for navigating the Azure Portal
+title: Reference for navigating the Azure portal
 description: Learn the different user experiences for App Service Web between the management portal and the Azure Portal
 services: app-service
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2016
-wacn.date: ''
+origin.date: 02/26/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 
 ---
-# Reference for navigating the Azure Portal
-Azure Websites are now called [App Service Web Apps](/app-service-web/app-service-changes-existing-services). We're updating all of our documentation to reflect this name change and to provide instructions for the Azure Portal. Until that process is done, you can use this document as a guide for working with Web Apps in the Azure Portal.
+# Reference for navigating the Azure portal
+Azure Websites are now called [App Service Web Apps](/app-service-web/app-service-changes-existing-services). We're updating all of our documentation to reflect this name change and to provide instructions for the Azure Portal. Until that process is done, you can use this document as a guide for working with Web Apps in the Azure portal.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -29,7 +29,7 @@ While you will notice the branding changes on the Azure Classic Management Porta
 ## Layout differences between the Azure Classic Management Portal and Azure Portal
 In the Classic Management Portal, all the Azure services are listed on the left hand side. Navigation in the Classic Management Portal follows a tree structure, where you start from the service and navigate into each element. This structure works well when managing independent components. However, applications built on Azure are a collection of interconnected services, and this tree structure isn't ideal for working with collections of services. 
 
-The Azure Portal makes it easy to build applications end-to-end with components from multiple services. The portal is organized as *journeys*. A *journey* is a series of *blades*, which are containers for the different components. For example, setting up auto-scaling for a web app is a *journey* which takes you several blades as shown in the following example: the **web-site** blade (that blade title has not yet been updated to use the new terminology), the **Settings** blade, and the **Scale out** blade. In the example, auto scaling is being set up to depend on CPU usage, so there is also a **CPU Percentage** blade. The components within the *blades* are called *parts*, which look like tiles. 
+The Azure portal makes it easy to build applications end-to-end with components from multiple services. The portal is organized as *journeys*. A *journey* is a series of *blades*, which are containers for the different components. For example, setting up auto-scaling for a web app is a *journey* which takes you several blades as shown in the following example: the **web-site** blade (that blade title has not yet been updated to use the new terminology), the **Settings** blade, and the **Scale out** blade. In the example, auto scaling is being set up to depend on CPU usage, so there is also a **CPU Percentage** blade. The components within the *blades* are called *parts*, which look like tiles. 
 
 ![](./media/app-service-web-app-azure-portal/AutoScaling.png)
 

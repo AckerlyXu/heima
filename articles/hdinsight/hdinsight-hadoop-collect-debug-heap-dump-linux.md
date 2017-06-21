@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
-wacn.date: ''
+origin.date: 04/14/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -93,8 +93,8 @@ To modify the configuration for a service, use the following steps:
 
     When prompted, authenticate to the site using the HTTP account name (default: admin) and password for your cluster.
 
-    > [!NOTE]
-    > You may be prompted a second time by Ambari for the user name and password. If so, enter the same account name and password
+   > [!NOTE]
+   > You may be prompted a second time by Ambari for the user name and password. If so, enter the same account name and password
 
 2. Using the list of on the left, select the service area you want to modify. For example, **HDFS**. In the center area, select the **Configs** tab.
 
@@ -108,8 +108,8 @@ To modify the configuration for a service, use the following steps:
 
     ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-    > [!NOTE]
-    > When enabling heap dumps for the map or reduce child process, look for the fields named **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
+   > [!NOTE]
+   > When enabling heap dumps for the map or reduce child process, look for the fields named **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
 
     Use the **Save** button to save the changes. You can enter a short note describing the changes.
 
@@ -125,7 +125,7 @@ To modify the configuration for a service, use the following steps:
 
     ![Restart All Affected entry](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [!NOTE]
-    > the entries for the **Restart** button may be different for other services.
+   > [!NOTE]
+   > the entries for the **Restart** button may be different for other services.
 
 8. Once the services have been restarted, use the **Service Actions** button to **Turn Off Maintenance Mode**. This Ambari to resume monitoring for alerts for the service.

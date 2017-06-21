@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
-wacn.date: ''
+origin.date: 05/03/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
 # Configure web application firewall on a new or existing Application Gateway
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
+> * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
 Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.
@@ -74,7 +74,7 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 
 1. Configure the WAF settings as defined in the following example:
 
-    For **FirewallMode**, the available values are Prevention and Detection.
+   For **FirewallMode**, the available values are Prevention and Detection.
 
     ```powershell
     $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention

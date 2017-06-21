@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
-wacn.date: ''
+origin.date: 02/05/2017
+ms.date: 03/10/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
 
@@ -47,8 +47,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     This command creates a directory in the current location, with the name specified by the **artifactID** parameter (**hbaseapp** in this example.) This directory contains the following items:
 
-    * **pom.xml**:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
-    * **src**: The directory that contains the **main\java\com\microsoft\examples** directory, where you will author the application.
+   * **pom.xml**:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
+   * **src**: The directory that contains the **main\java\com\microsoft\examples** directory, where you will author the application.
 3. Delete the **src\test\java\com\microsoft\examples\apptest.java** file because it is not used in this example.
 
 ## Update the Project Object Model
@@ -62,15 +62,15 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     This section tells Maven that the project requires **hbase-client** version **1.1.2**. At compile time, this dependency is downloaded from the default Maven repository. You can use the [Maven Central Repository Search](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
 
-    > [!IMPORTANT]
-    > The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
-    >
-    >
+   > [!IMPORTANT]
+   > The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
+   >
+   >
 
-    | HDInsight cluster version | HBase version to use |
-    | --- | --- |
-    | 3.2 |0.98.4-hadoop2 |
-    | 3.3 |1.1.2 |
+   | HDInsight cluster version | HBase version to use |
+   | --- | --- |
+   | 3.2 |0.98.4-hadoop2 |
+   | 3.3 |1.1.2 |
 
     For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](hdinsight-component-versioning.md).
 2. If you are using an HDInsight 3.3 cluster, you must also add the following to the `<dependencies>` section:
@@ -129,10 +129,10 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     The `<resources>` section configures a resource (**conf\hbase-site.xml**) that contains configuration information for HBase.
 
-    > [!NOTE]
-    > You can also set configuration values via code. See the comments in the **CreateTable** example that follows for how to do this.
-    >
-    >
+   > [!NOTE]
+   > You can also set configuration values via code. See the comments in the **CreateTable** example that follows for how to do this.
+   >
+   >
 
     This `<plugins>` section configures the [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 
@@ -180,8 +180,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     This file will be used to load the HBase configuration for an HDInsight cluster.
 
-    > [!NOTE]
-    > This is a minimal hbase-site.xml file, and it contains the bare minimum settings for the HDInsight cluster.
+   > [!NOTE]
+   > This is a minimal hbase-site.xml file, and it contains the bare minimum settings for the HDInsight cluster.
 
 6. Save the **hbase-site.xml** file.
 
@@ -364,8 +364,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
     This cleans any previous build artifacts, downloads any dependencies that have not already been installed, then builds and packages the application.
 3. When the command completes, the **hbaseapp\target** directory contains a file named **hbaseapp-1.0-SNAPSHOT.jar**.
 
-    > [!NOTE]
-    > The **hbaseapp-1.0-SNAPSHOT.jar** file is an uber jar (sometimes called a fat jar,) which contains all the dependencies required to run the application.
+   > [!NOTE]
+   > The **hbaseapp-1.0-SNAPSHOT.jar** file is an uber jar (sometimes called a fat jar,) which contains all the dependencies required to run the application.
 
 ## Upload the JAR file and start a job
 There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md). The following steps use Azure PowerShell.
@@ -571,8 +571,8 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
 
     This file contains two modules:
 
-    * **Add-HDInsightFile** - used to upload files to HDInsight
-    * **Start-HBaseExample** - used to run the classes created earlier
+   * **Add-HDInsightFile** - used to upload files to HDInsight
+   * **Start-HBaseExample** - used to run the classes created earlier
 2. Save the **hbase-runner.psm1** file.
 3. Open a new Azure PowerShell window, change directories to the **hbaseapp** directory, and then run the following command.
 

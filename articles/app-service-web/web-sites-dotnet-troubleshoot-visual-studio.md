@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2016
-wacn.date: ''
+origin.date: 08/29/2016
+ms.date: 02/21/2017
 ms.author: v-dazen
 
 ---
@@ -56,10 +56,10 @@ Visual Studio provides access to a subset of the web app management functions an
 
     An alternative is to install a management certificate that enables access to your account. If you choose to install a certificate, right-click the **Azure** node in **Server Explorer**, and then click **Manage and Filter Subscriptions** in the context menu. In the **Manage Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Azure account.
 
-    > [!NOTE]
-    > If you download a subscription file, save it to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.
-    >
-    >
+   > [!NOTE]
+   > If you download a subscription file, save it to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.
+   >
+   >
 
     For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](/active-directory/role-based-access-control-configure).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
@@ -73,7 +73,7 @@ Visual Studio provides access to a subset of the web app management functions an
 
     In this tutorial you'll be using the logging and tracing drop-downs. You'll also use remote debugging but you'll use a different method to enable it.
 
-    If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure Portal.
+    If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure portal.
 
 ## <a name="remoteview"></a>Access web app files in Server Explorer
 You typically deploy a web project with the `customErrors` flag in the Web.config file set to `On` or `RemoteOnly`, which means you don't get a helpful error message when something goes wrong. For many errors all you get is a page like one of the following ones.
@@ -391,7 +391,7 @@ Web server logs record all HTTP activity for the web app. In order to see them i
 
     ![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
-By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the Azure Portal to specify that web server logs should be written to a blob container in a storage account.
+By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the Azure portal to specify that web server logs should be written to a blob container in a storage account.
 
 If you use the portal to enable web server logging to an Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored.
 
@@ -429,11 +429,11 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
     ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-    * Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
-    * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
-    * Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
+   * Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
+   * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
+   * Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
 
-        (The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
+     (The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
 
 ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Classic Management Portal, and view them in the **Logs** tab of the **Azure Web App** window.

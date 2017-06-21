@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
-wacn.date: ''
+origin.date: 11/11/2016
+ms.date: 05/31/2017
 ms.author: v-junlch
 ---
 # Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs

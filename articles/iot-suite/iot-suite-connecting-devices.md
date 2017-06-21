@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+origin.date: 03/08/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 03/28/2017
 ---
 
 # Connect your device to the remote monitoring preconfigured solution (Windows)

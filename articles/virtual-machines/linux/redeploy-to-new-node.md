@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/16/2016
-wacn.date: ''
+origin.date: 12/16/2016
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---

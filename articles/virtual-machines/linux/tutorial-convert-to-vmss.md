@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/05/2017
-wacn.date: ''
+origin.date: 04/05/2017
+ms.date: 06/20/2017
 ms.author: v-dazen
 ---
 

@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/17/2017
-wacn.date: ''
+origin.date: 02/17/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -46,11 +46,11 @@ The following environment variables may be set when you install Java and the JDK
 
 * `PATH` - should contain the following paths:
 
-    * `JAVA_HOME` (or the equivalent path)
+  * `JAVA_HOME` (or the equivalent path)
 
-    * `JAVA_HOME\bin` (or the equivalent path)
+  * `JAVA_HOME\bin` (or the equivalent path)
 
-    * The directory where Maven is installed
+  * The directory where Maven is installed
 
 ## Create a Maven project
 
@@ -58,15 +58,15 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Use the `mvn` command, which is installed with Maven, to generate the scaffolding for the project.
 
-    ```
-    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-    ```
+   ```
+   mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+   ```
 
     This command creates a directory with the name specified by the **artifactID** parameter (**wordcountjava** in this example.) This directory contains the following items:
 
-    * `pom.xml` - The [Project Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) that contains information and configuration details used to build the project.
+   * `pom.xml` - The [Project Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) that contains information and configuration details used to build the project.
 
-    * `src` - The directory that contains the application.
+   * `src` - The directory that contains the application.
 
 3. Delete the `src/test/java/org/apache/hadoop/examples/apptest.java` file, as it is not used in this example.
 
@@ -74,7 +74,7 @@ The following environment variables may be set when you install Java and the JDK
 
 1. Edit the `pom.xml` file and add the following text inside the `<dependencies>` section:
 
-    ```xml
+   ```xml
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-examples</artifactId>
@@ -93,7 +93,7 @@ The following environment variables may be set when you install Java and the JDK
         <version>2.5.1</version>
         <scope>provided</scope>
     </dependency>
-    ```
+   ```
 
     This defines required libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, these dependencies are downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
 
@@ -101,7 +101,7 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Add the following to the `pom.xml` file. This text must be inside the `<project>...</project>` tags in the file; for example, between `</dependencies>` and `</project>`.
 
-    ```xml
+   ```xml
     <build>
         <plugins>
         <plugin>
@@ -133,7 +133,7 @@ The following environment variables may be set when you install Java and the JDK
         </plugin>
         </plugins>
     </build>
-    ```
+   ```
 
     The first plugin configures the [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application. It also prevents duplication of licenses within the jar package, which can cause problems on some systems.
 
@@ -150,76 +150,76 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Open the `WordCount.java` file in a text editor and replace the contents with the following text:
 
-    ```java
-    package org.apache.hadoop.examples;
+   ```java
+   package org.apache.hadoop.examples;
 
-    import java.io.IOException;
-    import java.util.StringTokenizer;
-    import org.apache.hadoop.conf.Configuration;
-    import org.apache.hadoop.fs.Path;
-    import org.apache.hadoop.io.IntWritable;
-    import org.apache.hadoop.io.Text;
-    import org.apache.hadoop.mapreduce.Job;
-    import org.apache.hadoop.mapreduce.Mapper;
-    import org.apache.hadoop.mapreduce.Reducer;
-    import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-    import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-    import org.apache.hadoop.util.GenericOptionsParser;
+   import java.io.IOException;
+   import java.util.StringTokenizer;
+   import org.apache.hadoop.conf.Configuration;
+   import org.apache.hadoop.fs.Path;
+   import org.apache.hadoop.io.IntWritable;
+   import org.apache.hadoop.io.Text;
+   import org.apache.hadoop.mapreduce.Job;
+   import org.apache.hadoop.mapreduce.Mapper;
+   import org.apache.hadoop.mapreduce.Reducer;
+   import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+   import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+   import org.apache.hadoop.util.GenericOptionsParser;
 
-    public class WordCount {
+   public class WordCount {
 
-        public static class TokenizerMapper
-            extends Mapper<Object, Text, Text, IntWritable>{
+       public static class TokenizerMapper
+           extends Mapper<Object, Text, Text, IntWritable>{
 
-        private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text();
+       private final static IntWritable one = new IntWritable(1);
+       private Text word = new Text();
 
-        public void map(Object key, Text value, Context context
-                        ) throws IOException, InterruptedException {
-          StringTokenizer itr = new StringTokenizer(value.toString());
-          while (itr.hasMoreTokens()) {
-            word.set(itr.nextToken());
-            context.write(word, one);
-          }
-        }
-    }
+       public void map(Object key, Text value, Context context
+                       ) throws IOException, InterruptedException {
+           StringTokenizer itr = new StringTokenizer(value.toString());
+           while (itr.hasMoreTokens()) {
+           word.set(itr.nextToken());
+           context.write(word, one);
+           }
+       }
+   }
 
-    public static class IntSumReducer
-            extends Reducer<Text,IntWritable,Text,IntWritable> {
-        private IntWritable result = new IntWritable();
+   public static class IntSumReducer
+           extends Reducer<Text,IntWritable,Text,IntWritable> {
+       private IntWritable result = new IntWritable();
 
-        public void reduce(Text key, Iterable<IntWritable> values,
-                            Context context
-                            ) throws IOException, InterruptedException {
-            int sum = 0;
-            for (IntWritable val : values) {
-            sum += val.get();
-            }
-           result.set(sum);
-           context.write(key, result);
-        }
-    }
+       public void reduce(Text key, Iterable<IntWritable> values,
+                           Context context
+                           ) throws IOException, InterruptedException {
+           int sum = 0;
+           for (IntWritable val : values) {
+           sum += val.get();
+           }
+          result.set(sum);
+          context.write(key, result);
+       }
+   }
 
-    public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-        if (otherArgs.length != 2) {
-            System.err.println("Usage: wordcount <in> <out>");
-            System.exit(2);
-        }
-        Job job = new Job(conf, "word count");
-        job.setJarByClass(WordCount.class);
-        job.setMapperClass(TokenizerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
-        job.setReducerClass(IntSumReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
-        }
-    }
-    ```
+   public static void main(String[] args) throws Exception {
+       Configuration conf = new Configuration();
+       String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+       if (otherArgs.length != 2) {
+           System.err.println("Usage: wordcount <in> <out>");
+           System.exit(2);
+       }
+       Job job = new Job(conf, "word count");
+       job.setJarByClass(WordCount.class);
+       job.setMapperClass(TokenizerMapper.class);
+       job.setCombinerClass(IntSumReducer.class);
+       job.setReducerClass(IntSumReducer.class);
+       job.setOutputKeyClass(Text.class);
+       job.setOutputValueClass(IntWritable.class);
+       FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+       FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+       System.exit(job.waitForCompletion(true) ? 0 : 1);
+       }
+   }
+   ```
 
     Notice the package name is `org.apache.hadoop.examples` and the class name is `WordCount`. You use these names when you submit the MapReduce job.
 
@@ -231,16 +231,16 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Use the following command to build a JAR file containing the application:
 
-    ```
-    mvn clean package
-    ```
+   ```
+   mvn clean package
+   ```
 
     This command cleans any previous build artifacts, downloads any dependencies that have not already been installed, and then builds and package the application.
 
 3. Once the command finishes, the `wordcountjava/target` directory contains a file named `wordcountjava-1.0-SNAPSHOT.jar`.
 
-    > [!NOTE]
-    > The `wordcountjava-1.0-SNAPSHOT.jar` file is an uberjar, which contains not only the WordCount job, but also dependencies that the job requires at runtime.
+   > [!NOTE]
+   > The `wordcountjava-1.0-SNAPSHOT.jar` file is an uberjar, which contains not only the WordCount job, but also dependencies that the job requires at runtime.
 
 ## <a id="upload"></a>Upload the jar
 
@@ -263,17 +263,17 @@ This command copies the files from the local system to the head node.
 
 2. From the SSH session, use the following command to run the MapReduce application:
 
-    ```bash
-    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
-    ```
+   ```bash
+   yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
+   ```
 
     This command starts the WordCount MapReduce application. The input file is **/example/data/gutenberg/davinci.txt**, and the output is stored in **/example/data/wordcountout**. Both the input file and output are stored to the default storage for the cluster.
 
 3. Once the job completes, use the following command to view the results:
 
-    ```bash
-    hdfs dfs -cat /example/data/wordcountout/*
-    ```
+   ```bash
+   hdfs dfs -cat /example/data/wordcountout/*
+   ```
 
     You should receive a list of words and counts, with values similar to the following text:
 

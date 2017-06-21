@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2017
-wacn.date: ''
+origin.date: 05/19/2017
+ms.date: 10/25/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 

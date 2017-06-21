@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 10/31/2016
-wacn.date: ''
+origin.date: 10/31/2016
+ms.date: 01/17/2017
 ms.author: v-yeche
 ---
 

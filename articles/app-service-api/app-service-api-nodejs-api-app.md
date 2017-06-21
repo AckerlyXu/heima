@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: get-started-article
-ms.date: 05/26/2016
-wacn.date: ''
+origin.date: 05/26/2016
+ms.date: 03/24/2017
 ms.author: v-dazen
 
 ---
@@ -163,7 +163,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
     ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
 ## <a id="createapiapp"></a> Create a new API App
-In this section you use the Azure Portal to create a new API App in Azure. This API app represents the compute resources that Azure will provide to run your code. In later sections you'll deploy your code to the new API app.
+In this section you use the Azure portal to create a new API App in Azure. This API app represents the compute resources that Azure will provide to run your code. In later sections you'll deploy your code to the new API app.
 
 1. Browse to the [Azure Portal](https://portal.azure.cn/). 
 2. Click **New > Web + Mobile > API App**. 
@@ -225,7 +225,7 @@ In this section you create a local Git repository that contains your server code
 
          touch .gitignore
 
-    Open the .gitignore file and add `node_modules` to the first line of the file. You can confirm the `node_modules` folder is being ignored by source control if you run `git status` and do not see the directory in the list. There is a (GitHub project)[https://github.com/github/gitignore/blob/master/Node.gitignore] for recommended files to ignore in a NodeJS project if you want to add more rules.
+   Open the .gitignore file and add `node_modules` to the first line of the file. You can confirm the `node_modules` folder is being ignored by source control if you run `git status` and do not see the directory in the list. There is a (GitHub project)[https://github.com/github/gitignore/blob/master/Node.gitignore] for recommended files to ignore in a NodeJS project if you want to add more rules.
 
 4. Execute the following command to add a Git remote for your API app's repository. 
 
@@ -238,7 +238,7 @@ In this section you create a local Git repository that contains your server code
         git commit -m "initial revision"
 
     ![Git Commit Output](media/app-service-api-nodejs-api-app/git-commit-output.png)
-6. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure Portal.
+6. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure portal.
 
         git push azure master
 

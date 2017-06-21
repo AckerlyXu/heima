@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/02/2016
+origin.date: 09/02/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 
 # Troubleshoot Cloud Service roles that fail to start

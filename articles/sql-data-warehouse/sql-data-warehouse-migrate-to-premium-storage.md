@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 11/29/2016
-wacn.date: ''
+origin.date: 11/29/2016
+ms.date: 01/13/2017
 ms.author: v-yeche
 ---
 

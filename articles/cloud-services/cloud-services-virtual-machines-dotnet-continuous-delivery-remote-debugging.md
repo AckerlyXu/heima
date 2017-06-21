@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: cloud-services
 ms.topic: article
-ms.date: 11/18/2016
-wacn.date: 05/17/2016
+origin.date: 11/18/2016
+ms.date: 04/24/2017
 ms.author: v-yiso
 ---
 

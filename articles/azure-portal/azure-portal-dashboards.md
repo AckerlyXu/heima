@@ -12,9 +12,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/06/2016
+origin.date: 09/06/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 10/17/2016
 ---
 
 # Creating and sharing dashboards in the Azure portal

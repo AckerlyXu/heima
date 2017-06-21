@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: landing-page
 ms.tgt_pltfrm: na
 ms.workload: na
+origin.date: 10/21/2016
 ms.date: 10/21/2016
-wacn.date: ''
 ms.author: v-yeche
 
 ---

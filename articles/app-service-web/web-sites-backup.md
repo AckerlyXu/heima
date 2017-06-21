@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
-wacn.date: ''
+origin.date: 07/06/2016
+ms.date: 12/12/2016
 ms.author: v-dazen
 
 ---
@@ -24,7 +24,9 @@ create app backups manually or on a schedule. You can restore the app to a snaps
 
 For information on restoring an app from backup, see [Restore an app in Azure](web-sites-restore.md).
 
-## <a name="whatsbackedup"></a> What gets backed up
+<a name="whatsbackedup"></a>
+
+## What gets backed up
 App Service can backup the followin information to an Azure storage account and container that you have configured your app to use. 
 
 * App configuration
@@ -42,7 +44,9 @@ The following database solutions are supported with backup feature:
 >  Each backup is a complete offline copy of your app, not an incremental update.
 >  
 
-## <a name="requirements"></a> Requirements and restrictions
+<a name="requirements"></a>
+
+## Requirements and restrictions
 * The Back up and Restore feature requires the App Service plan to be in the **Standard** tier or **Premium** tier. For more information 
   about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](web-sites-scale.md).  
   **Premium** tier allows a greater number of daily back ups than **Standard** tier.
@@ -51,17 +55,19 @@ The following database solutions are supported with backup feature:
   [links](#moreaboutstorage) at the end of this article.
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error .
 
-## <a name="manualbackup" id="create-a-manual-backup"></a> Create a manual backup
-1. In the [Azure Portal](https://portal.azure.cn), navigate to your app's blade, select **Settings**, then **Backups**. The **Backups** blade is displayed.
+<a name="manualbackup"></a>
+
+## Create a manual backup
+1. In the [Azure portal](https://portal.azure.cn), navigate to your app's blade, select **Settings**, then **Backups**. The **Backups** blade is displayed.
 
     ![Backups page][ChooseBackupsPage]
 
-    > [!NOTE]
-    > If you see this message, click it to upgrade your App Service plan before you can proceed with backups.
-    > For more information, see [Scale up an app in Azure](web-sites-scale.md).  
-    > ![Choose storage account](./media/web-sites-backup/01UpgradePlan.png)
-    > 
-    > 
+   > [!NOTE]
+   > If you see this message, click it to upgrade your App Service plan before you can proceed with backups.
+   > For more information, see [Scale up an app in Azure](web-sites-scale.md).  
+   > ![Choose storage account](./media/web-sites-backup/01UpgradePlan.png)
+   > 
+   > 
 2. In the **Backups** blade, click **Storage: Not configured** to configure a storage account.
 
     ![Choose storage account][ChooseStorageAccount]
@@ -72,10 +78,10 @@ The following database solutions are supported with backup feature:
 
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
 
-    > [!NOTE]
-    > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
-    > 
-    > 
+   > [!NOTE]
+   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
+   > 
+   > 
 5. In the **Configure Backup Settings** blade, click **Save**.    
 6. In the command bar of the **Backups** blade, click **Backup Now**.
 
@@ -85,7 +91,9 @@ The following database solutions are supported with backup feature:
 
 Once the storage account and container is configured you can initiate a manual backup at any time.  
 
-## <a name="automatedbackups" id="configure-automated-backups"></a> Configure automated backups
+<a name="automatedbackups"></a>
+
+## Configure automated backups
 1. In the **Backups** blade, click **Schedule: Not configured**. 
 
     ![Choose storage account](./media/web-sites-backup/05ScheduleBackup.png)
@@ -99,13 +107,15 @@ Once the storage account and container is configured you can initiate a manual b
 
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
 
-    > [!NOTE]
-    > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
-    > If you are using [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), you won't see any databases listed since the connection string is not exposed in the portal under **Application settings**
-    > 
+   > [!NOTE]
+   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
+   >  If you are using [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), you won't see any databases listed since the connection string is not exposed in the portal under **Application settings**
+   > 
 5. In the **Configure Backup Settings** blade, click **Save**.    
 
-## <a name="partialbackups"></a> Configure Partial Backups
+<a name="partialbackups"></a>
+
+## Configure Partial Backups
 Sometimes you don't want to backup everything on your app. Here are a few examples:
 
 * You [set up weekly backups](web-sites-backup.md#configure-automated-backups) of your app that contains static content that never changes, such as old blog posts or images.
@@ -142,7 +152,9 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 > When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site, but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
 > 
 
-## <a name="aboutbackups" id="moreaboutstorage"></a> How backups are stored
+<a name="aboutbackups"></a>
+
+## How backups are stored
 After you have made one or more backups for your app, the backups are visible on the **Containers** blade of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
 The database backup for the app is stored in the root of the.zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a SQL database based on the BACPAC export, see [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
@@ -152,7 +164,9 @@ The database backup for the app is stored in the root of the.zip file. For a SQL
 > 
 > 
 
-## <a name="nextsteps"></a> Next Steps
+<a name="nextsteps"></a>
+
+## Next Steps
 For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). You can also backup and restore App Service apps
 using REST API (see [Use REST to backup and restore App Service apps](websites-csm-backup.md)).
 

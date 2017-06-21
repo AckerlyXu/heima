@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -23,7 +23,9 @@ The popular Node fork [io.js] features various differences to Joyent's Node.js p
 
 While [Azure App Service](/app-service-web/app-service-changes-existing-services) Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary. This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
 
-## <a id="deploymentscript"></a> Using a Deployment Script
+<a id="deploymentscript"></a>
+
+## Using a Deployment Script
 Upon deployment of a Node.js app, App Service Web Apps runs a number of small commands to ensure that the environment is configured properly. Using a deployment script, this process can be customized to include the download and configuration of io.js.
 
 The [io.js Deployment Script](https://github.com/felixrieseberg/iojs-azure) is available on GitHub. To enable io.js on your web app, simply copy **.deployment**, **deploy.cmd** and **IISNode.yml** to the root of your application folder and deploy to Web Apps.  
@@ -35,14 +37,18 @@ The first file, **.deployment**, instructs Web Apps to run **deploy.cmd** upon d
 > 
 > 
 
-## <a id="manualinstallation"></a> Using Manual Installation
+<a id="manualinstallation"></a>
+
+## Using Manual Installation
 The manual installation of a custom io.js version includes only two steps. First, download the **win-x64** binary directly from the [io.js distribution]. Required are two files - **iojs.exe** and **iojs.lib**. Save both files to a folder inside your web app, for example in **bin/iojs**.
 
 To configure Web Apps to use **iojs.exe** instead of a pre-installed Node version, create a **IISNode.yml** file at the root of your application and add the following line.
 
     nodeProcessCommandLine: "D:\home\site\wwwroot\bin\iojs\iojs.exe"
 
-## <a id="nextsteps"></a> Next Steps
+<a id="nextsteps"></a>
+
+## Next Steps
 In this article you learned how to use io.js with App Service Web Apps, using both provided deployment scripts as well as manual installation. 
 
 > [!NOTE]

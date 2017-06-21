@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 11/16/2016
+origin.date: 11/16/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 04/24/2017
 ---
 
 # Python web and worker roles with Python Tools for Visual Studio

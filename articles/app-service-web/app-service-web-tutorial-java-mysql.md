@@ -12,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/06/2017
-wacn.date: ''
+origin.date: 05/06/2017
+ms.date: 06/21/2017
 ms.author: v-dazen
 ---
 # Build a Java and MySQL web app in Azure
@@ -412,7 +412,7 @@ To update the app, repeat the maven clean package command and redeploy the app v
 
 ## Manage your Azure web app
 
-Go to the Azure Portal to see the web app you created by signing in to [https://portal.azure.cn](https://portal.azure.cn).
+Go to the Azure portal to see the web app you created by signing in to [https://portal.azure.cn](https://portal.azure.cn).
 
 From the left menu, click **appservice**, then click the name of your Azure web app.
 

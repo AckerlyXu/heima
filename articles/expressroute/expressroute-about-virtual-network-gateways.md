@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+origin.date: 03/20/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 04/24/2017
 ---
 
 # About virtual network gateways for ExpressRoute

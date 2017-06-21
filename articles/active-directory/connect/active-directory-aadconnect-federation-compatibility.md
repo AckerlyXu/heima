@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+origin.date: 05/01/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 06/12/2017
 
 ---
 # Azure AD federation compatibility list

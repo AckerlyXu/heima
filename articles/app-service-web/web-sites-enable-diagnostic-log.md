@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2016
-wacn.date: ''
+origin.date: 06/06/2016
+ms.date: 03/17/2017
 ms.author: v-dazen
 
 ---
@@ -266,4 +266,4 @@ The web server logs are formatted using the [W3C extended log file format](http:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure Portal](/app-service-web/app-service-web-app-azure-portal)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal](/app-service-web/app-service-web-app-azure-portal)

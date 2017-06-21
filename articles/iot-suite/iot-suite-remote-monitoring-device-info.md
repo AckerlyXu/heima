@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+origin.date: 05/15/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 06/13/2017
 ---
 
 # Device information metadata in the remote monitoring preconfigured solution

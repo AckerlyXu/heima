@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/07/2017
-wacn.date: ''
+origin.date: 04/07/2017
+ms.date: 02/07/2017
 ms.author: v-junlch
 
 ---

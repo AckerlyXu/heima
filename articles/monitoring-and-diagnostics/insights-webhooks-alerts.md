@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+origin.date: 04/03/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/02/2017
 ---
 
 # Configure a webhook on an Azure metric alert

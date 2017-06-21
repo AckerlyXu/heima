@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
-> * Manage the app in the Azure Portal
+> * Manage the app in the Azure portal
 
 ## Prerequisites
 
@@ -60,7 +60,9 @@ If your connection is successful, then your MongoDB database is already running.
 
 When you are done testing your MongoDB database, type `Ctrl`+`C` in the terminal. 
 
-## <a name="step2"></a> Create local Node.js app
+<a name="step2"></a>
+
+## Create local Node.js app
 In this step, you set up the local Node.js project.
 
 ### Clone the sample application
@@ -202,7 +204,9 @@ The Azure CLI outputs information similar to the following example:
 
 Copy the value of `primaryMasterKey` to a text editor. You need this information in the next step.
 
-### <a name="devconfig"></a> Configure the connection string in your Node.js application
+<a name="devconfig"></a>
+
+### Configure the connection string in your Node.js application
 
 In your MEAN.js repository, open _config/env/production.js_.
 
@@ -589,7 +593,7 @@ git push azure master
 
 Once the `git push` is complete, navigate to your Azure web app and try out the new functionality again.
 
-![Model and database changes published to Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
+![Model and database changes published to Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 > [!NOTE]
 > If you added any articles earlier, you still can see them. Existing data in your DocumentDb is not lost. Also, your updates to the data schema and leaves your existing data intact.
@@ -614,7 +618,7 @@ Stop log streaming at any time by typing `Ctrl`+`C`.
 
 ## Manage your Azure web app
 
-Go to the Azure Portal to see the web app you created.
+Go to the Azure portal to see the web app you created.
 
 To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn).
 
@@ -626,7 +630,7 @@ You have landed in your web app's _blade_ (a portal page that opens horizontally
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
 
-![App Service blade in Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service blade in Azure portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
@@ -644,7 +648,9 @@ If you don't need these resources for another tutorial (see [Next steps](#next))
 az group delete --name myResourceGroup 
 ``` 
 
-## <a name="next"></a> Next steps
+<a name="next"></a>
+
+## Next steps
 
 In this tutorial, you learned how to:
 
@@ -654,7 +660,7 @@ In this tutorial, you learned how to:
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
-> * Manage the app in the Azure Portal
+> * Manage the app in the Azure portal
 
 Advance to the next tutorial to learn how to map a custom DNS name to it.
 

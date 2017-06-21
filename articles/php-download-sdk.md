@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: app-service-web
 ms.topic: article
-ms.date: 06/01/2016
-wacn.date: ''
+origin.date: 06/01/2016
+ms.date: 07/04/2016
 ms.author: v-junlch
 ---
 

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 10/24/2016
-wacn.date: ''
+origin.date: 10/24/2016
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -236,7 +236,7 @@ require_once(ABSPATH. 'wp-settings.php');
 ```
 
 #### Set up a staging environment
-1. If you already have a WordPress web app running on your Azure subscription, sign in to the [Azure Portal](http://portal.azure.cn), and then go to your WordPress web app. If you don't have a WordPress web app, you can create one.
+1. If you already have a WordPress web app running on your Azure subscription, sign in to the [Azure portal](http://portal.azure.cn), and then go to your WordPress web app. If you don't have a WordPress web app, you can create one.
 Click **Settings** > **Deployment slots** > **Add** to create a deployment slot with the name *stage*. A deployment slot is another web application that shares the same resources as the primary web app that you created previously.
 
     ![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
@@ -281,7 +281,7 @@ Make sure that you add the following app settings for your production web app an
     ![Swap preview changes for WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
     > [!NOTE]
-    > If your scenario needs to only push files (no database updates), then check **Slot Setting** for all the database-related *app settings* and *connection strings settings* in the **Web App Settings** blade within the Azure Portal before doing the **Swap**. In this case, DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, and default connection string settings should not show up in preview changes when you do a **Swap**. At this time, when you complete the **Swap** operation, the WordPress web app will have the updates files only.
+    > If your scenario needs to only push files (no database updates), then check **Slot Setting** for all the database-related *app settings* and *connection strings settings* in the **Web App Settings** blade within the Azure portal before doing the **Swap**. In this case, DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, and default connection string settings should not show up in preview changes when you do a **Swap**. At this time, when you complete the **Swap** operation, the WordPress web app will have the updates files only.
     >
     >
 
