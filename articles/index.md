@@ -18,7 +18,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure Operations Guide</span>
+                                    <span class="likeAnH3">Operations Guide of Azure in China</span>
                                 </div>
                             </div>
                         </div>
