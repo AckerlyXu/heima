@@ -42,6 +42,14 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
     ![Connect icon for the virtual machine](./media/connect-logon/virtualmachine_dashboard_connect.png)
 
+<!-- Don't know if this still applies
+     I think we can zap this.
+> [!TIP]
+> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
+>
+>
+-->
+
 ## Log on to the virtual machine
 [!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
 

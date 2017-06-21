@@ -46,12 +46,12 @@ The completed installation results in Tomcat running on a virtual machine.
    Virtual machine images that support **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
 4. In the JDK 8 pane, select **Classic**, then click **Create**.
 5. In the **Basics** blade:
-    1. Specify a name for the virtual machine.
-    2. Enter a name for the administrator in the **User Name** field. Remember this name and the associated password that follows in the next field. You need them when you remotely sign in to the virtual machine.
-    3. Enter a password in the **New password** field, and reenter it in the **Confirm password** field. This password is for the Administrator account.
-    4. Select the appropriate **Subscription**.
-    5. For the **Resource group**, click **Create new** and enter the name of a new resource group. Or, click **Use existing** and select one of the available resource groups.
-    6. Select a location where the virtual machine resides, such as **China East**.
+   1. Specify a name for the virtual machine.
+   2. Enter a name for the administrator in the **User Name** field. Remember this name and the associated password that follows in the next field. You need them when you remotely sign in to the virtual machine.
+   3. Enter a password in the **New password** field, and reenter it in the **Confirm password** field. This password is for the Administrator account.
+   4. Select the appropriate **Subscription**.
+   5. For the **Resource group**, click **Create new** and enter the name of a new resource group. Or, click **Use existing** and select one of the available resource groups.
+   6. Select a location where the virtual machine resides, such as **China East**.
 6. Click **Next**.
 7. In the **Virtual machine image size** blade, select **A1 Standard** or another appropriate image.
 8. Click **Select**.
@@ -92,13 +92,13 @@ To see Tomcat running from external machines, you need to create an endpoint and
 4. Click **Endpoints**.
 5. Click **Add**.
 6. In the **Add endpoint** dialog box:
-    1. Specify a name for the endpoint; for example, **HttpIn**.
-    2. Select **TCP** for the protocol.
-    3. Specify **80** for the public port.
-    4. Specify **8080** for the private port.
-    5. Select **Disabled** for the floating IP address.
-    6. Leave the access control list as is.
-    7. Click the **OK** button to close the dialog box and create the endpoint.
+   1. Specify a name for the endpoint; for example, **HttpIn**.
+   2. Select **TCP** for the protocol.
+   3. Specify **80** for the public port.
+   4. Specify **8080** for the private port.
+   5. Select **Disabled** for the floating IP address.
+   6. Leave the access control list as is.
+   7. Click the **OK** button to close the dialog box and create the endpoint.
 
 ## To open a port in the firewall for your virtual machine
 1. Sign in to your virtual machine.
@@ -110,7 +110,7 @@ To see Tomcat running from external machines, you need to create an endpoint and
 6. For the **Rule Type**, select **Port**, and then click **Next**.  
    ![New inbound rule port][NewRulePort]
 7. On the **Protocol and Ports** screen, select **TCP**, specify **8080** as the **Specific local port**, and then click **Next**.  
-   ![New inbound rule ][NewRuleProtocol]
+  ![New inbound rule ][NewRuleProtocol]
 8. On the **Action** screen, select **Allow the connection**, and then click **Next**.
    ![New inbound rule action][NewRuleAction]
 9. On the **Profile** screen, ensure that **Domain**, **Private**, and **Public** are selected, and then click **Next**.
@@ -141,3 +141,9 @@ You can learn about other services (such as Azure Storage, service bus, and SQL 
 [NewRuleAction]:media/java-run-tomcat-app-server/NewRuleAction.png
 [NewRuleName]:media/java-run-tomcat-app-server/NewRuleName.png
 [NewRuleProfile]:media/java-run-tomcat-app-server/NewRuleProfile.png
+
+<!-- Deleted from the "To create an ednpoint for your virtual mache" 3/17/2017,
+     to use the new portal.
+6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
+7. In the **New endpoint details** dialog box:
+-->

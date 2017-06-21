@@ -99,7 +99,6 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
     ```bash
     dmesg | grep SCSI
     ```
-
     The output is similar to the following example:
 
     ```bash

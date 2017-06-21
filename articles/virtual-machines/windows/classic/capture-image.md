@@ -47,19 +47,19 @@ Prior to capturing an image of an Azure virtual machine, it is recommended the t
 3. Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
 4. The **System Preparation Tool** dialog box appears. Do the following:
 
-    * In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][How to Use Sysprep: An Introduction].
-    * In **Shutdown Options**, select **Shutdown**.
-    * Click **OK**.
+   * In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][How to Use Sysprep: An Introduction].
+   * In **Shutdown Options**, select **Shutdown**.
+   * Click **OK**.
 
-    ![Run Sysprep](./media/capture-image/SysprepGeneral.png)
+   ![Run Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure Classic Management Portal to **Stopped**.
 6. In the Azure portal, click **Virtual Machines (classic)** and select the virtual machine you want to capture. The **VM images (classic)** group is listed under **Compute** when you view **More services**.
 
 7. On the command bar, click **Capture**.
 
-    ![Capture virtual machine](./media/capture-image/CaptureVM.png)
+   ![Capture virtual machine](./media/capture-image/CaptureVM.png)
 
-    The **Capture the Virtual Machine** dialog box appears.
+   The **Capture the Virtual Machine** dialog box appears.
 
 8. In **Image name**, type a name for the new image. In **Image label**, type a label for the new image.
 

@@ -46,7 +46,7 @@ From the virtual machine that the operating system was installed to, complete th
     ![Open a Command Prompt window](./media/createupload-vhd/sysprep_commandprompt.png)
 3. The **System Preparation Tool** dialog box appears.
 
-    ![Start Sysprep](./media/createupload-vhd/sysprepgeneral.png)
+   ![Start Sysprep](./media/createupload-vhd/sysprepgeneral.png)
 4. In the **System Preparation Tool**, select **Enter System Out of Box Experience (OOBE)** and make sure that **Generalize** is checked.
 5. In **Shutdown Options**, select **Shutdown**.
 6. Click **OK**.

@@ -108,7 +108,7 @@ To test your remote connection to the Azure VM running the MySQL Server service,
 1. In the Azure portal, click **Virtual Machines (classic)**, click the name of your MySQL server virtual machine, and then click **Overview**.
 2. From the virtual machine dashboard, note the **DNS Name** value. Here is an example:
 
-    ![](media/mysql-2008r2/MySQL_DNSName.png)
+   ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.
 
         mysql -u <yourMysqlUsername> -p -h <yourDNSname>

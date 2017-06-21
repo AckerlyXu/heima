@@ -33,8 +33,8 @@ After each troubleshooting step, try reconnecting to the VM.
 1. Reset the SSH configuration.
 2. Reset the credentials for the user.
 3. Verify the [Network Security Group](../../virtual-network/virtual-networks-nsg.md) rules permit SSH traffic.
-    * Ensure that a Network Security Group rule exists to permit SSH traffic (by default, TCP port 22).
-    * You cannot use port redirection / mapping without using an Azure load balancer.
+   * Ensure that a Network Security Group rule exists to permit SSH traffic (by default, TCP port 22).
+   * You cannot use port redirection / mapping without using an Azure load balancer.
 5. Restart the VM.
 6. Redeploy the VM.
 
@@ -228,9 +228,9 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
     After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 * Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](classic/reset-access.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to:
 
-    * Reset the password or SSH key.
-    * Create a *sudo* user account.
-    * Reset the SSH configuration.
+  * Reset the password or SSH key.
+  * Create a *sudo* user account.
+  * Reset the SSH configuration.
 * Check the VM's resource health for any platform issues.<br>
      Select your VM and scroll down **Settings** > **Check Health**.
 
