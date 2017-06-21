@@ -43,14 +43,14 @@ In this tutorial, you will:
 ## Select a SQL VM image from the gallery
 1. Log in to the [Azure portal](https://portal.azure.cn) using your account.
 
-    > [!NOTE]
-    > If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
+   > [!NOTE]
+   > If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 2. On the Azure portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
 3. In the **New** blade, click **Compute** and then click **See all**.
 4. In the **Filter** text box type SQL Server, and press the ENTER key.
 
-    ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+   ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
 5. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system. 
 6. Select the image for SQL Server 2016 SP1 Developer on Windows Server 2016.
@@ -86,10 +86,10 @@ On the **Basics** blade, provide the following information:
 * If you have multiple subscriptions, verify that the subscription is correct for the new VM.
 * In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Use existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.).
 
-    > [!NOTE]
-    > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
-    > 
-    > 
+  > [!NOTE]
+  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
+  > 
+  > 
 * Select a **Location** for this deployment.
 * Click **OK** to save the settings.
 

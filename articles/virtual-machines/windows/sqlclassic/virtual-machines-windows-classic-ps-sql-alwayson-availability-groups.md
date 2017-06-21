@@ -55,8 +55,8 @@ This tutorial is intended to show you the steps that are required to set up the 
 
     The **Get-AzurePublishSettingsFile** command automatically generates a management certificate with Azure and downloads it to your machine. A browser is automatically opened, and you're prompted to enter the Microsoft account credentials for your Azure subscription. The downloaded **.publishsettings** file contains all the information that you need to manage your Azure subscription. After saving this file to a local directory, import it by using the **Import-AzurePublishSettingsFile** command.
 
-    > [!NOTE]
-    > The .publishsettings file contains your credentials (unencoded) that are used to administer your Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example, in the Libraries\Documents folder), and then delete it after the import has finished. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Azure services.
+   > [!NOTE]
+   > The .publishsettings file contains your credentials (unencoded) that are used to administer your Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example, in the Libraries\Documents folder), and then delete it after the import has finished. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Azure services.
 
 2. Define a series of variables that you'll use to create your cloud IT infrastructure.
 
@@ -80,10 +80,10 @@ This tutorial is intended to show you the steps that are required to set up the 
 
     Pay attention to the following to ensure that your commands will succeed later:
 
-    * Variables **$storageAccountName** and **$dcServiceName** must be unique because they're used to identify your cloud storage account and cloud server, respectively, on the Internet.
-    * The names that you specify for variables **$affinityGroupName** and **$virtualNetworkName** are configured in the virtual network configuration document that you'll use later.
-    * **$sqlImageName** specifies the updated name of the VM image that contains SQL Server 2012 Service Pack 1 Enterprise Edition.
-    * For simplicity, **Contoso!000** is the same password that's used throughout the entire tutorial.
+   * Variables **$storageAccountName** and **$dcServiceName** must be unique because they're used to identify your cloud storage account and cloud server, respectively, on the Internet.
+   * The names that you specify for variables **$affinityGroupName** and **$virtualNetworkName** are configured in the virtual network configuration document that you'll use later.
+   * **$sqlImageName** specifies the updated name of the VM image that contains SQL Server 2012 Service Pack 1 Enterprise Edition.
+   * For simplicity, **Contoso!000** is the same password that's used throughout the entire tutorial.
 
 3. Create an affinity group.
 
@@ -151,10 +151,10 @@ This tutorial is intended to show you the steps that are required to set up the 
 
     These piped commands do the following things:
 
-    * **New-AzureVMConfig** creates a VM configuration.
-    * **Add-AzureProvisioningConfig** gives the configuration parameters of a standalone Windows server.
-    * **Add-AzureDataDisk** adds the data disk that you'll use for storing Active Directory data, with the caching option set to None.
-    * **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service.
+   * **New-AzureVMConfig** creates a VM configuration.
+   * **Add-AzureProvisioningConfig** gives the configuration parameters of a standalone Windows server.
+   * **Add-AzureDataDisk** adds the data disk that you'll use for storing Active Directory data, with the caching option set to None.
+   * **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service.
 
 7. Wait for the new VM to be fully provisioned, and download the remote desktop file to your working directory. Because the new Azure VM takes a long time to provision, the `while` loop continues to poll the new VM until it's ready for use.
 
@@ -283,10 +283,10 @@ The domain controller server is now successfully provisioned. Next, you'll confi
 
     Note the following regarding the command above:
 
-    * **New-AzureVMConfig** creates a VM configuration with the desired availability set name. The subsequent VMs will be created with the same availability set name so that they're joined to the same availability set.
-    * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain that you created.
-    * **Set-AzureSubnet** places the VM in the back subnet.
-    * **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service. The **DnsSettings** parameter specifies that the DNS server for the servers in the new cloud service has the IP address **10.10.0.4**. This is the IP address of the domain controller server. This parameter is needed to enable the new VMs in the cloud service to join to the Active Directory domain successfully. Without this parameter, you must manually set the IPv4 settings in your VM to use the domain controller server as the primary DNS server after the VM is provisioned, and then join the VM to the Active Directory domain.
+   * **New-AzureVMConfig** creates a VM configuration with the desired availability set name. The subsequent VMs will be created with the same availability set name so that they're joined to the same availability set.
+   * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain that you created.
+   * **Set-AzureSubnet** places the VM in the back subnet.
+   * **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service. The **DnsSettings** parameter specifies that the DNS server for the servers in the new cloud service has the IP address **10.10.0.4**. This is the IP address of the domain controller server. This parameter is needed to enable the new VMs in the cloud service to join to the Active Directory domain successfully. Without this parameter, you must manually set the IPv4 settings in your VM to use the domain controller server as the primary DNS server after the VM is provisioned, and then join the VM to the Active Directory domain.
 3. Run the following piped commands to create the SQL Server VMs, named **ContosoSQL1** and **ContosoSQL2**.
 
         # Create ContosoSQL1...
@@ -347,11 +347,11 @@ The domain controller server is now successfully provisioned. Next, you'll confi
 
     Note the following regarding the commands above:
 
-    * **New-AzureVMConfig** uses the same availability set name as the domain controller server, and uses the SQL Server 2012 Service Pack 1 Enterprise Edition image in the virtual machine gallery. It also sets the operating system disk to read-caching only (no write caching). We recommend that you migrate the database files to a separate data disk that you attach to the VM, and configure it with no read or write caching. However, the next best thing is to remove write caching on the operating system disk because you can't remove read caching on the operating system disk.
-    * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain that you created.
-    * **Set-AzureSubnet** places the VM in the back subnet.
-    * **Add-AzureEndpoint** adds access endpoints so that client applications can access these SQL Server services instances on the Internet. Different ports are given to ContosoSQL1 and ContosoSQL2.
-    * **New-AzureVM** creates the new SQL Server VM in the same cloud service as ContosoQuorum. You must place the VMs in the same cloud service if you want them to be in the same availability set.
+   * **New-AzureVMConfig** uses the same availability set name as the domain controller server, and uses the SQL Server 2012 Service Pack 1 Enterprise Edition image in the virtual machine gallery. It also sets the operating system disk to read-caching only (no write caching). We recommend that you migrate the database files to a separate data disk that you attach to the VM, and configure it with no read or write caching. However, the next best thing is to remove write caching on the operating system disk because you can't remove read caching on the operating system disk.
+   * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain that you created.
+   * **Set-AzureSubnet** places the VM in the back subnet.
+   * **Add-AzureEndpoint** adds access endpoints so that client applications can access these SQL Server services instances on the Internet. Different ports are given to ContosoSQL1 and ContosoSQL2.
+   * **New-AzureVM** creates the new SQL Server VM in the same cloud service as ContosoQuorum. You must place the VMs in the same cloud service if you want them to be in the same availability set.
 4. Wait for each VM to be fully provisioned and for each VM to download its remote desktop file to your working directory. The `for` loop cycles through the three new VMs and executes the commands inside the top-level curly brackets for each of them.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
@@ -382,9 +382,9 @@ In this section, you need to modify the three servers that you'll use in the fai
 * ContosoSQL1 and ContosoSQL2 only: You need to add **CORP\Install** as a **sysadmin** role in the default database.
 * ContosoSQL1 and ContosoSQL2 only: You need to add **NT AUTHORITY\System** as a sign-in with the following permissions:
 
-    * Alter any availability group
-    * Connect SQL
-    * View server state
+  * Alter any availability group
+  * Connect SQL
+  * View server state
 * ContosoSQL1 and ContosoSQL2 only: The **TCP** protocol is already enabled on the SQL Server VM. However, you still need to open the firewall for remote access of SQL Server.
 
 Now, you're ready to start. Beginning with **ContosoQuorum**, follow the steps below:

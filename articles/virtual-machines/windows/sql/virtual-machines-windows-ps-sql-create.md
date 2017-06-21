@@ -36,7 +36,7 @@ For this tutorial you'll need:
 
 * An Azure account and subscription before you start. If you don't have one, sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 * [Azure PowerShell)](https://docs.microsoft.com/powershell/azure/overview), minimum version of 1.4.0 or later (this tutorial written using version 1.5.0).
-    * To retrieve your version, type **Get-Module Azure -ListAvailable**.
+  * To retrieve your version, type **Get-Module Azure -ListAvailable**.
 
 ## Configure your subscription
 Open Windows PowerShell and establish access to your Azure account by running the following cmdlet. You will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.

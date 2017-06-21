@@ -36,9 +36,9 @@ Following is a list of security recommendations to consider when configuring and
 * Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Tips for creating a strong passwords](http://windows.microsoft.com/windows-vista/Tips-for-creating-a-strong-password) article .
 * By default, Azure selects Windows Authentication during SQL Server Virtual Machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should be not be used or enabled. The following are alternative strategies if a SQL Login is desired:
 
-    * Create a SQL account that has sysadmin membership.
-    * If you must use a **SA** login, enable the login and rename it and assign a new password.
-    * Both the options that were mentioned earlier require a change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](https://msdn.microsoft.com/library/ms188670.aspx).
+  * Create a SQL account that has sysadmin membership.
+  * If you must use a **SA** login, enable the login and rename it and assign a new password.
+  * Both the options that were mentioned earlier require a change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](https://msdn.microsoft.com/library/ms188670.aspx).
 
 ## Considerations for Securing Connections to Azure Virtual Machine:
 * Consider using [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) to administer the virtual machines instead of public RDP ports.

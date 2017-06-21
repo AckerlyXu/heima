@@ -39,7 +39,7 @@ SQL Server running on Azure VMs is one option for storing your relational data i
 * [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) provides a detailed comparison between SQL Database and SQL Server running on a VM.
 
 ## Create a new SQL VM
-The following sections provide direct links to the Azure Portal for the SQL Server virtual machine gallery images.
+The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images.
 
 Find step-by-step guidance for creating a new SQL VM in the tutorial, [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). Also, review the [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md), which explains how to select the appropriate machine size and other features available during provisioning.
 

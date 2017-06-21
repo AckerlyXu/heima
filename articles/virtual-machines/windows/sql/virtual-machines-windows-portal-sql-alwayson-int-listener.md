@@ -58,17 +58,17 @@ First, create the load balancer.
 
 5. In the **Create load balancer** dialog box, configure the load balancer as follows:
 
-    | Setting | Value |
-    | --- | --- |
-    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
-    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
-    | **Virtual network** |Select the virtual network that the SQL Server intances are in. |
-    | **Subnet** |Select the subnet that the SQL Server instances are in. |
-    | **IP address assignment** |**Static** |
-    | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
-    | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
-    | **Resource group** |Select the resource group that the SQL Server instances are in. |
-    | **Location** |Select the Azure location that the SQL Server instances are in. |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
+   | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
+   | **Virtual network** |Select the virtual network that the SQL Server intances are in. |
+   | **Subnet** |Select the subnet that the SQL Server instances are in. |
+   | **IP address assignment** |**Static** |
+   | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
+   | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
+   | **Resource group** |Select the resource group that the SQL Server instances are in. |
+   | **Location** |Select the Azure location that the SQL Server instances are in. |
 
 6. Click **Create**. 
 
@@ -104,13 +104,13 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 
 3. Configure the probe on the **Add probe** blade. Use the following values to configure the probe:
 
-    | Setting | Value |
-    | --- | --- |
-    | **Name** |A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
-    | **Protocol** |**TCP** |
-    | **Port** |You can use any available port. For example, *59999*. |
-    | **Interval** |*5* |
-    | **Unhealthy threshold** |*2* |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
+   | **Protocol** |**TCP** |
+   | **Port** |You can use any available port. For example, *59999*. |
+   | **Interval** |*5* |
+   | **Unhealthy threshold** |*2* |
 
 4.  Click **OK**. 
 
@@ -130,20 +130,20 @@ The load balancing rules configure how the load balancer routes traffic to the S
 
 3. On the **Add load balancing rules** blade, configure the load balancing rule. Use the following settings: 
 
-    | Setting | Value |
-    | --- | --- |
-    | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
-    | **Protocol** |**TCP** |
-    | **Port** |*1433* |
-    | **Backend Port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
-    | **Probe** |Use the name of the probe that you created for this load balancer. |
-    | **Session persistence** |**None** |
-    | **Idle timeout (minutes)** |*4* |
-    | **Floating IP (direct server return)** |**Enabled** |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+   | **Protocol** |**TCP** |
+   | **Port** |*1433* |
+   | **Backend Port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
+   | **Probe** |Use the name of the probe that you created for this load balancer. |
+   | **Session persistence** |**None** |
+   | **Idle timeout (minutes)** |*4* |
+   | **Floating IP (direct server return)** |**Enabled** |
 
-    > [!NOTE]
-    > You might have to scroll down the blade to view all the settings.
-    > 
+   > [!NOTE]
+   > You might have to scroll down the blade to view all the settings.
+   > 
 
 4. Click **OK**. 
 5. Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
