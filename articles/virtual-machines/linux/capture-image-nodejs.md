@@ -50,9 +50,8 @@ First, run the **waagent** command with the **deprovision** parameter on the Lin
     ```bash
     sudo waagent -deprovision+user
     ```
-
-    > [!NOTE]
-    > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution.
+   > [!NOTE]
+   > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution.
 
 3. Type **y** to continue. You can add the **-force** parameter to avoid this confirmation step.
 4. After the command completes, type **exit**. This step closes the SSH client.
@@ -82,8 +81,8 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
     azure vm capture -g myResourceGroup -n myVM -p myVHDNamePrefix -t myTemplate.json
     ```
 
-    > [!IMPORTANT]
-    > The image VHD files get created by default in the same storage account that the original VM used. Use the *same storage account* to store the VHDs for any new VMs you create from the image. 
+   > [!IMPORTANT]
+   > The image VHD files get created by default in the same storage account that the original VM used. Use the *same storage account* to store the VHDs for any new VMs you create from the image. 
 
 6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the URI of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 

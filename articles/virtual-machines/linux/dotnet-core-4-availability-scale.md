@@ -58,7 +58,6 @@ Follow this link to see the JSON sample within the Resource Manager template - [
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
   }
 ```
-
 The availability set as seen from the Azure portal. Each virtual machine and details about the configuration are detailed here.
 
 ![Availability Set](./media/dotnet-core-4-availability-scale/aset.png)

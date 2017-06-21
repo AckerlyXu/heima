@@ -69,9 +69,9 @@ Create an SSH connection with the virtual machine.
 
 2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
 
-    ```bash 
-    ssh azureuser@40.112.21.50
-    ```
+```bash 
+ssh azureuser@40.112.21.50
+```
 
 ## Install NGINX
 

@@ -40,21 +40,21 @@ These steps assume that you've already created an Azure VM using the Classic dep
 
     The preceding command attempts to clean the system and make it suitable for reprovisioning. This operation performs the following tasks:
 
-    * Removes SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
-    * Clears nameserver configuration in /etc/resolv.conf
-    * Removes the `root` user password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
-    * Removes cached DHCP client leases
-    * Resets host name to localhost.localdomain
-    * Deletes the last provisioned user account (obtained from /var/lib/waagent) **and associated data**.
+   * Removes SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
+   * Clears nameserver configuration in /etc/resolv.conf
+   * Removes the `root` user password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
+   * Removes cached DHCP client leases
+   * Resets host name to localhost.localdomain
+   * Deletes the last provisioned user account (obtained from /var/lib/waagent) **and associated data**.
 
-    > [!NOTE]
-    > Deprovisioning deletes files and data to "generalize" the image. Only run this command on a VM that you intend to capture as a new image template. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.
+     > [!NOTE]
+     > Deprovisioning deletes files and data to "generalize" the image. Only run this command on a VM that you intend to capture as a new image template. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.
 
 3. Type **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
 4. Type **Exit** to close the SSH client.
 
-    > [!NOTE]
-    > The remaining steps assume you have already [installed the Azure CLI](../../../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure Classic Management Portal][Azure Classic Management Portal].
+   > [!NOTE]
+   > The remaining steps assume you have already [installed the Azure CLI](../../../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure Classic Management Portal][Azure Classic Management Portal].
 
 5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../../../xplat-cli-connect.md).
 6. Make sure you are in Service Management mode:
@@ -69,8 +69,8 @@ These steps assume that you've already created an Azure VM using the Classic dep
     azure vm shutdown myVM
     ```
 
-    > [!NOTE]
-    > You can view a list all the VMs created in your subscription by using `azure vm list`
+   > [!NOTE]
+   > You can view a list all the VMs created in your subscription by using `azure vm list`
 
 8. When the VM is stopped, capture the image. The following example captures the VM named `myVM` and creates a generalized image named `myNewVM`:
 
@@ -82,13 +82,13 @@ These steps assume that you've already created an Azure VM using the Classic dep
 
 9. The new image is now available in the list of images that can be used to configure any new VM. You can view it with the command:
 
-    ```azurecli
-    azure vm image list
-    ```
+   ```azurecli
+   azure vm image list
+   ```
 
-    On the [Azure portal](http://portal.azure.cn), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking _More services_ at the bottom of the Azure service list, and then looking in the **Compute** services.   
+   On the [Azure portal](http://portal.azure.cn), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking _More services_ at the bottom of the Azure service list, and then looking in the **Compute** services.   
 
-    ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
+   ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## Next steps
 The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. For more information, see [Using the Azure CLI with Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).

@@ -140,11 +140,11 @@ The process for encrypting a VM is as follows:
 Disk encryption relies on the following additional components:
 
 * **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process.
-    * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
-    * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
+  * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
+  * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
 * **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions.
-    * You can typically use an existing Azure Active Directory instance for housing your application.
-    * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
+  * You can typically use an existing Azure Active Directory instance for housing your application.
+  * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
 
 ## Requirements and limitations
 Supported scenarios and requirements for disk encryption:

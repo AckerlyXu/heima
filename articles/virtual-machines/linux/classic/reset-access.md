@@ -44,7 +44,6 @@ You will need to do the following:
 
 * You will need to [install the Azure CLI](../../../cli-install-nodejs.md) and [connect to your subscription](../../../xplat-cli-connect.md) to use Azure resources associated with your account.
 * Set the correct mode for the classic deployment model by typing the following at the command prompt:
-
     ``` 
         azure config mode asm
     ```

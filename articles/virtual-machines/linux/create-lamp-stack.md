@@ -29,12 +29,12 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 1. Save and edit the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your preference on your local machine.
 2. Run the following two commands to create a resource group and then deploy your template:
 
-    ```azurecli
-    az group create -l chinanorth -n myResourceGroup
-    az group deployment create -g myResourceGroup \
-        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-        --parameters @filepathToParameters.json
-    ```
+```azurecli
+az group create -l chinanorth -n myResourceGroup
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
+```
 
 ### Deploy LAMP on existing VM
 The following commands updates packages, then installs Apache, MySQL, and PHP:

@@ -97,7 +97,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 ## General Links
-The following links are for Microsoft blogs, Technet pages, and external sites rather than Azure.cn documentation as above. As both Azure and the open-source computing world are fast-moving targets, it is almost certain that the following links are out of date, *despite* the fact that we shall do our best to continually add newer topics and remove out-of-date ones. If we've missed one, please let us know in the comments, or submit a pull request to our [GitHub repo](https://github.com/wacn/techcontent/).
+The following links are for Microsoft blogs, Technet pages, and external sites rather than Azure.cn documentation as above. As both Azure and the open-source computing world are fast-moving targets, it is almost certain that the following links are out of date, *despite* the fact that we shall do our best to continually add newer topics and remove out-of-date ones. If we've missed one, please let us know in the comments.
 
 * [Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 * [How to Deploy a CentOS VM Image from OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)

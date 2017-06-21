@@ -83,13 +83,13 @@ TCP port 8080 is the default port number that Tomcat uses to listen. If this por
    ![Screenshot that shows the Endpoints box][6]
 3. Click **Add**.  
 
-    1. For the endpoint, enter a name for the endpoint in **Endpoint**, and then enter 80 in **Public Port**.  
+   1. For the endpoint, enter a name for the endpoint in **Endpoint**, and then enter 80 in **Public Port**.  
 
-        If you set it to 80, you don't need to include the port number in the URL that is used to access Tomcat. For example, http://tomcatdemo.chinacloudapp.cn.    
+      If you set it to 80, you don't need to include the port number in the URL that is used to access Tomcat. For example, http://tomcatdemo.chinacloudapp.cn.    
 
-        If you set it to another value, such as 81, you need to add the port number to the URL to access Tomcat. For example,  http://tomcatdemo.chinacloudapp.cn:81/.
-    2. Enter 8080 in **Private Port**. By default, Tomcat listens on TCP port 8080. If you changed the default listen port of Tomcat, you should update **Private Port** to be the same as the Tomcat listen port.  
-        ![Screenshot of UI that shows Add command, Public Port, and Private Port][7]
+      If you set it to another value, such as 81, you need to add the port number to the URL to access Tomcat. For example,  http://tomcatdemo.chinacloudapp.cn:81/.
+   2. Enter 8080 in **Private Port**. By default, Tomcat listens on TCP port 8080. If you changed the default listen port of Tomcat, you should update **Private Port** to be the same as the Tomcat listen port.  
+      ![Screenshot of UI that shows Add command, Public Port, and Private Port][7]
 4. Click **OK** to add the endpoint to your virtual machine.
 
 ### Step 2: Connect to the image you created
@@ -268,8 +268,8 @@ After connecting, you should see something similar to the following:
 
         -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
-    > [!IMPORTANT]
-    > Make sure the previous lines are positioned above any lines that would globally restrict access, such as the following: -A INPUT -j REJECT --reject-with icmp-host-prohibited
+     > [!IMPORTANT]
+     > Make sure the previous lines are positioned above any lines that would globally restrict access, such as the following: -A INPUT -j REJECT --reject-with icmp-host-prohibited
 
 To reload the iptables, run the following command:
 

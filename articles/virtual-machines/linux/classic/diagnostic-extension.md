@@ -50,9 +50,9 @@ This article focuses on how to enable and configure the extension by using Azure
   Note that most Azure VM Linux gallery images include version 2.0.6 or later. You can run **WAAgent -version** to confirm which version is installed on the VM. If the VM is running a version that's earlier than 2.0.6, you can follow [these instructions on GitHub](https://github.com/Azure/WALinuxAgent "instructions") to update it.
 * **Azure CLI**. Follow [this guidance for installing CLI](../../../cli-install-nodejs.md) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
 
-    * Run **azure vm extension set --help** for detailed help information.
-    * Run **azure login -e AzureChinaCloud** to sign in to Azure.
-    * Run **azure vm list** to list all the virtual machines that you have on Azure.
+  * Run **azure vm extension set --help** for detailed help information.
+  * Run **azure login -e AzureChinaCloud** to sign in to Azure.
+  * Run **azure vm list** to list all the virtual machines that you have on Azure.
 * A storage account to store the data. You will need a storage account name that was created previously and an access key to upload the data to your storage.
 
 ## Use the Azure CLI command to enable the Linux Diagnostic Extension

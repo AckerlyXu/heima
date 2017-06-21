@@ -78,5 +78,5 @@ The latest builds of [jedis](https://github.com/xetorthio/jedis) provide support
     }
 
 ## Next steps
-* [Enable cache diagnostics](cache-how-to-monitor.md#EnableDiagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache.
+* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache.
 * Read the official [Redis documentation](http://redis.io/documentation).

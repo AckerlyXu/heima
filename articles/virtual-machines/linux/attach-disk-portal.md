@@ -49,17 +49,17 @@ Azure China does not support adding Managed Disk in Azure portal yet.
 1. On the **Disks** blade, click **+ Add data disk**.
 2. Review the default settings, update as necessary, and then click **OK**.
 
-    ![Review disk settings](./media/attach-disk-portal/attach-new.png)
+   ![Review disk settings](./media/attach-disk-portal/attach-new.png)
 3. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
 
 ### Attach an existing disk
 1. On the **Disks** blade, click **+ Add data disk**.
 2. Under **Attach existing disk**, click **VHD File**.
 
-    ![Attach existing disk](./media/attach-disk-portal/attach-existing.png)
+   ![Attach existing disk](./media/attach-disk-portal/attach-existing.png)
 3. Under **Storage accounts**, select the account and container that holds the .vhd file.
 
-    ![Find VHD location](./media/attach-disk-portal/find-storage-container.png)
+   ![Find VHD location](./media/attach-disk-portal/find-storage-container.png)
 4. Select the .vhd file.
 5. Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
 6. After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.

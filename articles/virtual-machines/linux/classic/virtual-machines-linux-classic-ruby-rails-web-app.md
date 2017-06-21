@@ -99,14 +99,14 @@ You should see output similar to the following.
     ![new endpoint dialog][new-endpoint1]
 4. In the next dialog page, enter the following information:
 
-    * **NAME**: HTTP
-    * **PROTOCOL**: TCP
-    * **PUBLIC PORT**: 80
-    * **PRIVATE PORT**: 3000
+   * **NAME**: HTTP
+   * **PROTOCOL**: TCP
+   * **PUBLIC PORT**: 80
+   * **PRIVATE PORT**: 3000
 
-    This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
+     This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
 
-    ![new endpoint dialog][new-endpoint]
+     ![new endpoint dialog][new-endpoint]
 5. Click the check mark to save the endpoint.
 6. A message should appear that states **UPDATE IN PROGRESS**. Once this message disappears, the endpoint is active. You may now test your application by navigating to the DNS name of your virtual machine. The website should appear similar to the following:
 

@@ -100,7 +100,7 @@ To remedy this you can resize the VM using either the Hyper-V Manager console or
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
-    Or, with qemu version **2.6+** include the `force_size` option:
+   Or, with qemu version **2.6+** include the `force_size` option:
 
         # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
@@ -177,9 +177,9 @@ The [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2
         # export HISTSIZE=0
         # logout
 
-    > [!NOTE]
-    > On Virtualbox you may see the following error after running 'waagent -force -deprovision': `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
-    > 
-    > 
+  > [!NOTE]
+  > On Virtualbox you may see the following error after running 'waagent -force -deprovision': `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
+  > 
+  > 
 
 * You will then need to shut down the virtual machine and upload the VHD to Azure.

@@ -66,19 +66,19 @@ Some Linux distros do not include caching by default.  It is recommended you add
 There are several different DNS caching packages available, for example dnsmasq, here are the steps to install dnsmasq on the most common distros:
 
 * **Ubuntu (uses resolvconf)**:
-    * install the dnsmasq package ("sudo apt-get install dnsmasq").
+  * install the dnsmasq package ("sudo apt-get install dnsmasq").
 * **SUSE (uses netconf)**:
-    * install the dnsmasq package ("sudo zypper install dnsmasq") 
-    * enable the dnsmasq service ("systemctl enable dnsmasq.service") 
-    * start the dnsmasq service ("systemctl start dnsmasq.service") 
-    * edit "/etc/sysconfig/network/config" and change NETCONFIG_DNS_FORWARDER="" to "dnsmasq"
-    * update resolv.conf ("netconfig update") to set the cache as the local DNS resolver
+  * install the dnsmasq package ("sudo zypper install dnsmasq") 
+  * enable the dnsmasq service ("systemctl enable dnsmasq.service") 
+  * start the dnsmasq service ("systemctl start dnsmasq.service") 
+  * edit "/etc/sysconfig/network/config" and change NETCONFIG_DNS_FORWARDER="" to "dnsmasq"
+  * update resolv.conf ("netconfig update") to set the cache as the local DNS resolver
 * **CentOS by Rogue Wave Software (formerly OpenLogic; uses NetworkManager)**:
-    * install the dnsmasq package ("sudo yum install dnsmasq")
-    * enable the dnsmasq service ("systemctl enable dnsmasq.service")
-    * start the dnsmasq service ("systemctl start dnsmasq.service")
-    * add "prepend domain-name-servers 127.0.0.1;" to "/etc/dhclient-eth0.conf"
-    * restart the network service ("service network restart") to set the cache as the local DNS resolver
+  * install the dnsmasq package ("sudo yum install dnsmasq")
+  * enable the dnsmasq service ("systemctl enable dnsmasq.service")
+  * start the dnsmasq service ("systemctl start dnsmasq.service")
+  * add "prepend domain-name-servers 127.0.0.1;" to "/etc/dhclient-eth0.conf"
+  * restart the network service ("service network restart") to set the cache as the local DNS resolver
 
 > [!NOTE]
 > : The 'dnsmasq' package is only one of the many DNS caches available for Linux.  Before using it, check its suitability for your particular needs and that no other cache is installed.
@@ -99,14 +99,14 @@ To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at 
 The resolv.conf file is auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
 
 * **Ubuntu** (uses resolvconf):
-    * add the options line to '/etc/resolveconf/resolv.conf.d/head' 
-    * run 'resolvconf -u' to update
+  * add the options line to '/etc/resolveconf/resolv.conf.d/head' 
+  * run 'resolvconf -u' to update
 * **SUSE** (uses netconf):
-    * add 'timeout:1 attempts:5' to the NETCONFIG_DNS_RESOLVER_OPTIONS="" parameter in '/etc/sysconfig/network/config' 
-    * run 'netconfig update' to update
+  * add 'timeout:1 attempts:5' to the NETCONFIG_DNS_RESOLVER_OPTIONS="" parameter in '/etc/sysconfig/network/config' 
+  * run 'netconfig update' to update
 * **CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager):
-    * add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient' 
-    * run 'service network restart' to update
+  * add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+  * run 'service network restart' to update
 
 ## Name resolution using your own DNS server
 There are several situations where your name resolution needs may go beyond the features provided by Azure, for example when you require DNS resolution between virtual networks (vnets).  To cover this scenario, Azure provides the ability for you to use your own DNS servers.  
