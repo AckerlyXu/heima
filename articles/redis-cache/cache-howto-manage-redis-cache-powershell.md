@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
-wacn.date: ''
+origin.date: 04/03/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---

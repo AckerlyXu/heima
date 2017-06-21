@@ -14,8 +14,8 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
-wacn.date: ''
+origin.date: 03/21/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---

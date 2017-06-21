@@ -12,9 +12,9 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 08/19/2016
+origin.date: 08/19/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 10/27/2016
 ---
 
 # Get started with Notification Hubs using Baidu

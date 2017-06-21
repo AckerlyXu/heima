@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/05/2017
-wacn.date: ''
+origin.date: 04/05/2017
+ms.date: ''
 ms.author: v-dazen
 ---
 

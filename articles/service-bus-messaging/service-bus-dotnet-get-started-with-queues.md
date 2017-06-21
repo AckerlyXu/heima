@@ -12,9 +12,9 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/30/2016
+origin.date: 11/30/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 
 # Get started with Service Bus Queues

@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
-wacn.date: ''
+origin.date: 05/05/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 ---
 # Create a Node.js Application on Web App

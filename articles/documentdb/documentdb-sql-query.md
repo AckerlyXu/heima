@@ -14,9 +14,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2017
+origin.date: 04/08/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/31/2017
 
 ---
 # SQL query and SQL syntax in Azure Cosmos DB

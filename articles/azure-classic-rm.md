@@ -10,8 +10,8 @@ tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-network
 ms.topic: article
-ms.date: 02/11/2016
-wacn.date: ''
+origin.date: 02/11/2016
+ms.date: 05/30/2016
 ms.author: v-junlch
 ---
 

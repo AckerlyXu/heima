@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/29/2016
-wacn.date: ''
+origin.date: 08/29/2016
+ms.date: 11/21/2016
 ms.author: v-dazen
 
 ---

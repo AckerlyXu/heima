@@ -12,8 +12,8 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
+origin.date: 01/23/2017
 ms.date: 01/23/2017
-wacn.date: ''
 ms.author: v-junlch
 ---
 

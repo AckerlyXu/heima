@@ -10,8 +10,8 @@ ms.service: application-gateway
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 06/20/2017
 ms.author: v-dazen
 ---
 # Application Gateway Documentation

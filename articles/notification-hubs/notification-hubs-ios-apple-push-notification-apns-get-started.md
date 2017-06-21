@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/03/2016
+origin.date: 10/03/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 11/22/2016
 ---
 
 # Sending push notifications to iOS with Azure Notification Hubs

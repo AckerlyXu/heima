@@ -10,8 +10,8 @@ tags: azure-service-management,hpc-pack
 
 ms.service: cloud-services
 ms.topic: article
-ms.date: 02/06/2017
-wacn.date: 04/20/2016
+origin.date: 02/06/2017
+ms.date: 03/24/2017
 ms.author: v-yiso
 ---
 

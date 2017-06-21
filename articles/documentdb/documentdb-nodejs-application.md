@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 12/16/2016
-wacn.date: ''
+origin.date: 12/16/2016
+ms.date: 05/31/2017
 ms.author: v-junlch
 
 ---

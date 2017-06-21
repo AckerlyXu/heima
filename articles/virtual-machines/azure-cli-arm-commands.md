@@ -14,8 +14,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
-wacn.date: ''
+origin.date: 04/18/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
 
 ---

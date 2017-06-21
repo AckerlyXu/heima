@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: python
 ms.topic: article
-ms.date: 11/10/2015
-wacn.date: ''
+origin.date: 11/10/2015
+ms.date: 05/24/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
