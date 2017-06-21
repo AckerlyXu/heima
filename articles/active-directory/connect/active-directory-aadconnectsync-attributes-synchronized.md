@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 01/23/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 03/07/2017
 ---
 
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory

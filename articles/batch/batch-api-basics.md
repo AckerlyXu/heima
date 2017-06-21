@@ -13,10 +13,10 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+origin.date: 03/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: ''
+ms.date: 05/15/2017
 
 ---
 # Develop large-scale parallel compute solutions with Batch

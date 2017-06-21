@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
-wacn.date: ''
+origin.date: 08/23/2016
+ms.date: 10/25/2016
 ms.author: v-dazen
 
 ---

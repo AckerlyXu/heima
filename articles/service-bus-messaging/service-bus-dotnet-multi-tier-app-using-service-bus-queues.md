@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+origin.date: 04/11/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 # .NET multi-tier application using Azure Service Bus queues
 ## Introduction

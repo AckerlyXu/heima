@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
-wacn.date: ''
+origin.date: 10/14/2016
+ms.date: 12/26/2016
 ms.author: v-dazen
 
 ---

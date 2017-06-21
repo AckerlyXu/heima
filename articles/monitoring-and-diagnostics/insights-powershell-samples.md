@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+origin.date: 12/08/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/02/2017
 ---
 
 # Azure Monitor PowerShell quick start samples

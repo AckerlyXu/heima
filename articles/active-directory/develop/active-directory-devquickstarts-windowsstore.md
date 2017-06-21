@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+origin.date: 09/16/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 01/09/2017
 ---
 
 # Integrate Azure AD with a Windows Store App

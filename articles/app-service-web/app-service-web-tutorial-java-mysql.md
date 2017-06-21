@@ -12,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/06/2017
-wacn.date: ''
+origin.date: 05/06/2017
+ms.date: 06/21/2017
 ms.author: v-dazen
 ---
 # Build a Java and MySQL web app in Azure

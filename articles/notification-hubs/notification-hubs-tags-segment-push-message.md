@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 06/29/2016
-wacn.date: ''
+origin.date: 06/29/2016
+ms.date: 01/09/2017
 ms.author: v-junlch
 ---
 

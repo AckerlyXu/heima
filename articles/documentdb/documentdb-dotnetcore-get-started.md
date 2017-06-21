@@ -13,9 +13,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+origin.date: 03/28/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/31/2017
 
 ---
 # Azure Cosmos DB: Getting started with the DocumentDB API and .NET Core

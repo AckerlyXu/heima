@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 09/21/2016
-wacn.date: ''
+origin.date: 09/21/2016
+ms.date: 02/20/2017
 ms.author: v-yeche
 ---
 ss

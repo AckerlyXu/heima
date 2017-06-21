@@ -9,8 +9,8 @@ documentationCenter: monitoring-and-diagnostics
 
 ms.service: azure-portal
 ms.topic: article
-ms.date: 04/28/2015
-wacn.date: ''
+origin.date: 04/28/2015
+ms.date: 12/05/2016
 ms.author: v-yiso
 ---
 

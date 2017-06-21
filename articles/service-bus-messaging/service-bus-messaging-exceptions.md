@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+origin.date: 03/03/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 04/17/2017
 ---
 
 # Service Bus messaging exceptions

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+origin.date: 04/12/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 # Best practices for insulating applications against Service Bus outages and disasters
 Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This topic describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
