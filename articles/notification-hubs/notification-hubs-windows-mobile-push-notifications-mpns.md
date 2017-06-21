@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
+origin.date: 10/03/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 11/22/2016
 ---
 
 # Sending push notifications with Azure Notification Hubs on Windows Phone

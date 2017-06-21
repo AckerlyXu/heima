@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
+origin.date: 05/10/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: ''
+ms.date: 05/31/2017
 
 ---
 # DocumentDB .NET SDK: Download and release notes

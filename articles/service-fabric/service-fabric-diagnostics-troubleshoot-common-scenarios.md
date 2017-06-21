@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: service-fabric
 ms.topic: article
-ms.date: 03/31/2016
-wacn.date: ''
+origin.date: 03/31/2016
+ms.date: 01/25/2017
 ms.author: v-johch
 ---
 

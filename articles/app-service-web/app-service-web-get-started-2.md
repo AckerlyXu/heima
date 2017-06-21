@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2016
-wacn.date: ''
+origin.date: 05/12/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 
 ---
@@ -100,10 +100,10 @@ Without further ado, let's set up autoscaling.
 
     You're done scaling up.
 
-    > [!IMPORTANT]
-    > This tier expends your trial credits. If you have a pay-per-use account, it incurs charges to your account.
-    > 
-    > 
+   > [!IMPORTANT]
+   > This tier expends your trial credits. If you have a pay-per-use account, it incurs charges to your account.
+   > 
+   > 
 3. Next, let's configure autoscaling. In the portal blade of your app, click **Settings** > **Scale Out (App Service Plan)**.  
     ![Scale out - settings blade](./media/app-service-web-get-started/scale-out-settings.png)
 4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown update accordingly. Then, define an **Instances** range between

@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -240,7 +240,7 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
 ## Publish the output to Azure App Service
 In this section you'll learn how to create a new API App using the Azure Portal, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
 
-1. Create a new API app in the [Azure Portal], by clicking the **New -> Web + Mobile -> API app** menu item, entering your app details, and then clicking **Create**.
+1. Create a new API app in the [Azure portal], by clicking the **New -> Web + Mobile -> API app** menu item, entering your app details, and then clicking **Create**.
 
     ![Create a new API App][create-api-app]
 2. Once your API app has been created, open your app's **Settings** blade, and then click the **Application settings** menu item. Select the latest Java versions from the available options, then select the latest Tomcat from the **Web container** menu, and then click **Save**.
@@ -280,7 +280,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [App Service API CORS]: app-service-api-cors-consume-javascript.md
-[Azure Portal]: https://portal.azure.cn/
+[Azure portal]: https://portal.azure.cn/
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Git]: http://www.git-scm.com/

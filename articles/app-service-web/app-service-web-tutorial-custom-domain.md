@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -50,7 +50,7 @@ To map a custom DNS name, your [App Service plan](https://www.azure.cn/pricing/d
 
 ### Sign in to Azure
 
-Open the Azure Portal. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
+Open the Azure portal. To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn) with your Azure account.
 
 ### Navigate to your app
 From the left menu, click **App Services**, then click the name of your app.
@@ -83,7 +83,9 @@ When you see the notification below, the scale operation is complete.
 
 ![Scale operation confirmation](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-## <a name="cname"></a> Map a CNAME record
+<a name="cname"></a>
+
+## Map a CNAME record
 
 In the tutorial example, you want to add a CNAME record for the `www` subdomain (`www.contoso.com`). 
 
@@ -148,11 +150,15 @@ If you missed a step or made a typo somewhere earlier, you see a verification er
 
 ![Verification error](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-## <a name="a"></a> Map an A record
+<a name="a"></a>
+
+## Map an A record
 
 In the tutorial example, you want to add an A record for the root domain, `contoso.com`. 
 
-### <a name="info"></a> Copy your app's IP address
+<a name="info"></a>
+
+### Copy your app's IP address
 
 To map an A record, you need your app's external IP address. You can find this IP address in the **Custom domains** blade.
 
@@ -183,7 +189,9 @@ In the example screenshot, you click **Add** to create a record. Some providers 
 >
 >
 
-### <a name="create-a"></a> Create the A record
+<a name="create-a"></a>
+
+### Create the A record
 
 To map an A record to your app, App Service actually requires **two** DNS records:
 
@@ -205,7 +213,7 @@ Your DNS records page should look like the following screenshot:
 
 You are now ready to add your configured DNS name to your app.
 
-Back in your app's **Custom domains** page in the Azure Portal, you need to add the fully qualified custom DNS name (`contoso.com`) to the list.
+Back in your app's **Custom domains** page in the Azure portal, you need to add the fully qualified custom DNS name (`contoso.com`) to the list.
 
 Click the **+** icon next to **Add hostname**.
 
@@ -229,7 +237,9 @@ If you missed a step or made a typo somewhere earlier, you see a verification er
 
 ![Verification error](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-## <a name="wildcard"></a> Map a wildcard domain
+<a name="wildcard"></a>
+
+## Map a wildcard domain
 
 You can also map a [wildcard DNS](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (for example, `*.contoso.com`) to your App Service app. 
 

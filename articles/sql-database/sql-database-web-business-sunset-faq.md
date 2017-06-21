@@ -9,8 +9,8 @@ editor: monicar
 
 ms.service: sql-database
 ms.topic: article
-ms.date: 08/08/2016
-wacn.date: 06/02/2016
+origin.date: 08/08/2016
+ms.date: 12/19/2016
 ms.author: v-johch
 ---
 

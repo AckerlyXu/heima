@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
@@ -29,8 +29,8 @@ Learn how to use DataFu with HDInsight. DataFu is a collection of Open Source li
 
 * An Azure HDInsight cluster (Linux or Windows based)
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
 

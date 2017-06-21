@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/20/2017
-wacn.date: ''
+origin.date: 04/20/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -36,6 +36,7 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 * Azure CLI 2.0: For more information, see [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+
 * Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 > [!NOTE]
@@ -64,7 +65,7 @@ The following are a list of considerations when using HDInsight in a virtual net
 
 ### Connect cloud resources together in a private network (cloud-only)
 
-![diagram of cloud-only configuration](./media/hdinsight-extend-hadoop-virtual-network/cloud-only.png)
+![diagram of cloud-only configuration](media/hdinsight-extend-hadoop-virtual-network/cloud-only.png)
 
 Using Virtual Network to link Azure services with Azure HDInsight enables the following scenarios:
 
@@ -78,11 +79,11 @@ Using Virtual Network to link Azure services with Azure HDInsight enables the fo
 
 Site-to-site configuration allows you to connect multiple resources in your datacenter to the Azure virtual network. The connection can be made using a hardware VPN device or the Routing and Remote Access service.
 
-![diagram of site-to-site configuration](./media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
+![diagram of site-to-site configuration](media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
 
 Point-to-site configuration allows you to connect a specific resource to the Azure virtual network by using software VPN.
 
-![diagram of point-to-site configuration](./media/hdinsight-extend-hadoop-virtual-network/point-to-site.png)
+![diagram of point-to-site configuration](media/hdinsight-extend-hadoop-virtual-network/point-to-site.png)
 
 Using Virtual Network to link the cloud and your datacenter enables similar scenarios to the cloud-only configuration. But instead of being limited to working with resources in the cloud, you can also work with resources in your datacenter.
 
@@ -133,7 +134,7 @@ The following examples demonstrate how to create a Network Security Group that a
 > [!IMPORTANT]
 > These addresses are for regions that do not have specific IP addresses listed. To find the IP addresses for your region, use the information in the [Secured Virtual Networks](#secured-virtual-networks) section.
 
-These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 > [!WARNING]
 > Rules are tested against network traffic in order by __priority__. Once a rule matches the test criteria, it is applied and no more rules are tested for that request. If you have a rule that broadly blocks inbound traffic (such as a **deny all** rule), it __must__ come after the rules that allow traffic.

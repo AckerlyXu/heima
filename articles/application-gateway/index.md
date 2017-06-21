@@ -10,8 +10,8 @@ ms.service: application-gateway
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 06/20/2017
 ms.author: v-dazen
 ---
 # Application Gateway Documentation
@@ -48,7 +48,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Application Gateway using the Azure Portal</h3>
+                        <h3>Get Started with Application Gateway using the Azure portal</h3>
                     </div>
                 </div>
             </div>

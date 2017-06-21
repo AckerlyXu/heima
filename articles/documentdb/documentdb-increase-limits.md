@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
-wacn.date: ''
+origin.date: 12/13/2016
+ms.date: 05/31/2017
 ms.author: v-junlch
 
 ---

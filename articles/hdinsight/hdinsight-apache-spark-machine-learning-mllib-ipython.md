@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -54,12 +54,12 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
 1. From the [Azure Portal](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    > [!NOTE]
-    > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    >
-    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
-    >
-    >
+   > [!NOTE]
+   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+   >
+   > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
+   >
+   >
 1. Create a new notebook. Click **New**, and then click **PySpark**.
 
     ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
@@ -198,13 +198,13 @@ We can use `sqlContext` to perform transformations on structured data. The first
     ![Result output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
 1. You can see that there are 5 distinct results that an inspection can have:
 
-    * Business not located
-    * Fail
-    * Pass
-    * Pss w/ conditions, and
-    * Out of Business
+   * Business not located
+   * Fail
+   * Pass
+   * Pss w/ conditions, and
+   * Out of Business
 
-    Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when we train the model, we will consider the two results equivalent. Data with the other results ("Business Not Located", "Out of Business") are not useful so we will remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
+     Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when we train the model, we will consider the two results equivalent. Data with the other results ("Business Not Located", "Out of Business") are not useful so we will remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
 1. Let us go ahead and convert our existing dataframe(`df`) into a new dataframe where each inspection is represented as a label-violations pair. In our case, a label of `0.0` represents a failure, a label of `1.0` represents a success, and a label of `-1.0` represents some results besides those two. We will filter those other results out when computing the new data frame.
 
         def labelForResults(s):

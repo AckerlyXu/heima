@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
-wacn.date: ''
+origin.date: 03/17/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -22,7 +22,7 @@ ms.author: v-dazen
 
 This quickstart tutorial walks through how to develop and deploy a Python app to Azure. We'll run the app using Azure App Service, and create and configure a new web app within it using the Azure CLI. We'll then use git to deploy our Python app to Azure.
 
-![hello-world-in-browser](./media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
 
@@ -67,7 +67,7 @@ http://localhost:5000
 
 You can see the **Hello World** message from the sample app displayed in the page.
 
-![localhost-hello-world-in-browser](./media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
+![localhost-hello-world-in-browser](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
@@ -190,7 +190,7 @@ Browse to the site to see your newly created web app.
 http://<app_name>.chinacloudsites.cn
 ```
 
-![app-service-web-service-created](./media/app-service-web-get-started-python/app-service-web-service-created.png)
+![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 We've now created an empty new web app in Azure. Let's now configure our web app to use Python and deploy our app to it.
 
@@ -289,7 +289,7 @@ http://<app_name>.chinacloudsites.cn
 
 This time, the page that displays the Hello World message is running using our Python code running as an Azure App Service web app.
 
-![hello-world-in-browser](./media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## Updating and Deploying the Code
 
@@ -308,11 +308,11 @@ git push azure master
 
 Once deployment has completed, switch back to the browser window that opened in the Browse to the app step, and hit refresh.
 
-![hello-azure-in-browser](./media/app-service-web-get-started-python/hello-azure-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## Manage your new Azure web app
 
-Go to the Azure Portal to take a look at the web app you just created.
+Go to the Azure portal to take a look at the web app you just created.
 
 To do this, sign in to [https://portal.azure.cn](https://portal.azure.cn).
 
@@ -324,7 +324,7 @@ You have landed in your web app's _blade_ (a portal page that opens horizontally
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open.
 
-![App Service blade in Azure Portal](./media/app-service-web-get-started-python/app-service-detail.png)
+![App Service blade in Azure portal](media/app-service-web-get-started-python/app-service-detail.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 

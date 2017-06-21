@@ -5,8 +5,8 @@ services: App-Service
 keywords:
 author: btardif
 ms.author: v-dazen
-ms.date: 04/04/2017
-wacn.date: ''
+origin.date: 04/04/2017
+ms.date: 05/02/2017
 ms.topic: article
 ms.service: app-service-web
 ---
@@ -33,7 +33,7 @@ Each section of this document goes over a specific feature. Using the features t
 - App performance
 - Resource consumption
 
-When investigating an application issue, reviewing metrics is a good place to start. Azure Portal has a quick way to visually inspect the metrics of your app using **Azure Monitor**.
+When investigating an application issue, reviewing metrics is a good place to start. Azure portal has a quick way to visually inspect the metrics of your app using **Azure Monitor**.
 
 Metrics provide a historical view across several key aggregations for your app. For any app hosted in app service, you should monitor both the Web App and the App Service plan.
 
@@ -49,14 +49,14 @@ Metrics provide a historical view across several key aggregations for your app. 
 To review metrics for your Web App, go to the **Overview** blade of the app you want to monitor. From here, you can view a chart for your app's metrics as a **Monitoring tile**. Click the tile to edit and configure what metrics to view and the time range to display.
 
 By default the resource blade provides a view for the Application Requests and errors for the last hour.
-![Monitor App](./media/app-service-web-tutorial-monitoring/app-service-monitor.png)
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor.png)
 
 As you can see in the example, we have an application that is generating many **HTTP Server Errors**. The high volume of errors is the first indication we need to investigate this application.
 
 > [!TIP]
 > Learn more about Azure Monitor with the following links:
-> - [Get started with Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)
-> - [Azure Dashboards](../azure-portal/azure-portal-dashboards.md)
+> - [Get started with Azure Monitor](..\monitoring-and-diagnostics\monitoring-overview.md)
+> - [Azure Dashboards](..\azure-portal\azure-portal-dashboards.md)
 
 ## <a name="alerts"></a> Step 2 - Configure Alerts
 **Alerts** can be configured to trigger on specific conditions for your app.
@@ -67,7 +67,7 @@ Lets configure an alert to automatically get notified when errors occur. In this
 
 To create an alert, navigate to **Monitoring** > **Alerts** and click **[+] Add Alert**.
 
-![Alerts](./media/app-service-web-tutorial-monitoring/app-service-monitor-alerts.png)
+![Alerts](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts.png)
 
 Provide values for the Alert configuration:
 - **Resource:** The site to monitor with the alert.
@@ -80,14 +80,14 @@ Provide values for the Alert configuration:
 - **Period:** Alerts operate over the average value of a metric. Smaller periods of time yield more sensitive alerts. in this case we are looking at *5 Minutes*.
 - **Email Owners and contributors:** in this case: *Enabled*.
 
-Now that the alert is created an email is sent every time the app goes over the configured threshold. Active alerts can also be reviewed in the Azure Portal.
+Now that the alert is created an email is sent every time the app goes over the configured threshold. Active alerts can also be reviewed in the Azure portal.
 
-![Triggered Alerts](./media/app-service-web-tutorial-monitoring/app-service-monitor-alerts-triggered.png)
+![Triggered Alerts](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts-triggered.png)
 
 > [!TIP]
 > Learn more about Azure Alerts with the following links:
-> - [Take Action On Metrics](../monitoring-and-diagnostics/monitoring-overview.md)
-> - [Create metric alerts](../monitoring-and-diagnostics/insights-alerts-portal.md)
+> - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md)
+> - [Create metric alerts](..\monitoring-and-diagnostics\insights-alerts-portal.md)
 
 ## <a name="logging"></a> Step 3 - Logging
 Now that we have narrowed down the failures to an application issue, we can look at the application and server logs to get more information.
@@ -122,7 +122,7 @@ public ActionResult Delete(Guid? id)
 ```
 To enable Application logging Go to **Monitoring** > **Diagnostic Logs** and Enable Application Logging using the toggles.
 
-![Monitor App](./media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
 
 Application logs can be stored to your Web App's file system or pushed out to blob storage. For production scenarios, it's recommended to use blob storage.
 
@@ -147,7 +147,7 @@ To enable Server logging:
 - go to **Monitoring** > **Diagnostic Logs**.
 - Enable the different types of Web Server Diagnostics using the toggles.
 
-![Monitor App](./media/app-service-web-tutorial-monitoring/app-service-monitor-serverlogs.png)
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-serverlogs.png)
 
 > [!IMPORTANT]
 > Enabling logging has an impact on your application performance and resource utilization. For Production Scenarios, Error logs are recommended, Only Enable more verbose logging when investigating issues.
@@ -174,7 +174,7 @@ App Service can stream **Application Logs** and **Web Server Logs** as they are 
 
 To stream logs, go to **Monitoring**> **Log Stream**. Select **Application Logs** or **Web server logs** depending what information you are looking for. From here, you can also pause, restart, and clear the buffer.
 
-![Streaming Logs](./media/app-service-web-tutorial-monitoring/app-service-monitor-logstream.png)
+![Streaming Logs](media/app-service-web-tutorial-monitoring/app-service-monitor-logstream.png)
 
 > [!TIP]
 > Logs are only generated when there is traffic on the app, you can also increase the verbosity of logs to get more events or information.
@@ -193,7 +193,7 @@ To attach the debugger to your app running in the cloud:
 - Find the app you want to debug
 - Select **Attach Debugger** form the **Actions** pane.
 
-![Remote Debugging](./media/app-service-web-tutorial-monitoring/app-service-monitor-vsdebug.png)
+![Remote Debugging](media/app-service-web-tutorial-monitoring/app-service-monitor-vsdebug.png)
 
 Visual Studio configures your application for remote debugging and launches a browser window that navigates to your app. Browse through your app to trigger break points and step through the code.
 
@@ -212,4 +212,4 @@ Use **Process Explorer** to:
 
 Process Explorer can be found under **Monitoring** > **Process Explorer**.
 
-![Process Explorer](./media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
+![Process Explorer](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)

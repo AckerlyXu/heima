@@ -15,8 +15,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
-wacn.date: ''
+origin.date: 07/06/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 
 ---
@@ -44,7 +44,9 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service Web Apps](https://www.azure.cn/home/features/app-service/web-apps/) gives you various options at each step.
 
-### <a name="observe"></a> 1. Observe and monitor application behavior
+<a name="observe" />
+
+### 1. Observe and monitor application behavior
 #### Track Service health
 Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
@@ -65,7 +67,9 @@ For more information, see:
 
 * [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
 
-### <a name="collect"></a> 2. Collect data
+<a name="collect" />
+
+### 2. Collect data
 #### Use the Azure App Service Support Portal
 Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.chinacloudsites.cn/Support**
 
@@ -100,7 +104,9 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-### <a name="mitigate"></a> 3. Mitigate the issue
+<a name="mitigate" />
+
+### 3. Mitigate the issue
 #### Scale the web app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 

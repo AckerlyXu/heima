@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/05/2016
-wacn.date: ''
+origin.date: 01/05/2016
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -54,7 +54,7 @@ For each app in App Service, its app-level credentials are stored in the XML pub
 
 To get the app-level credentials:
 
-1. In the [Azure Portal](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
+1. In the [Azure portal](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
 
 2. Click **...More** > **Get publish profile**, and download starts for a .PublishSettings file.
 
@@ -69,7 +69,7 @@ These are the app-level credentials.
 
 To reset the app-level credentials:
 
-1. In the [Azure Portal](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
+1. In the [Azure portal](https://portal.azure.cn), click App Service > **&lt;any_app>** > **Overview**.
 
 2. Click **...More** > **Reset publish profile**. Click **Yes** to confirm the reset.
 

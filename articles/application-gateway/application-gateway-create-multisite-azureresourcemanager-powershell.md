@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
-wacn.date: ''
+origin.date: 12/12/2016
+ms.date: 02/21/2017
 ms.author: v-dazen
 
 ---
 # Create an application gateway for hosting multiple web applications
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-multisite-portal.md)
+> * [Azure portal](application-gateway-create-multisite-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 
 Multiple site hosting allows you to deploy more than one web application on the same application gateway. It relies on presence of host header in the incoming HTTP request, to determine which listener would receive traffic. The listener then directs traffic to appropriate backend pool as configured in the rules definition of the gateway. In SSL enabled web applications, application gateway relies on the Server Name Indication (SNI) extension to choose the correct listener for the web traffic. A common use for multiple site hosting is to load balance requests for different web domains to different back-end server pools. Similarly multiple subdomains of the same root domain could also be hosted on the same application gateway.
@@ -65,7 +65,6 @@ Log in to Azure
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
-
 You are prompted to authenticate with your credentials.
 
 ### Step 2

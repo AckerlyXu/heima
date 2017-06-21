@@ -10,8 +10,8 @@ tags: ''
 
 ms.service: cloud-services
 ms.topic: article
-ms.date: 07/30/2016
-wacn.date: 04/20/2016
+origin.date: 07/30/2016
+ms.date: 01/03/2017
 ms.author: v-yiso
 ---
 

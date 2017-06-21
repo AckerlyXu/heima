@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -36,12 +36,12 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
 ## Launch a Zeppelin notebook
 1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    > [!NOTE]
-    > You may also reach the Zeppelin Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > 
-    > `https://CLUSTERNAME.azurehdinsight.cn/zeppelin`
-    > 
-    > 
+   > [!NOTE]
+   > You may also reach the Zeppelin Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+   > 
+   > `https://CLUSTERNAME.azurehdinsight.cn/zeppelin`
+   > 
+   > 
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
 
     ![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.createnewnote.png "Create a new Zeppelin notebook")

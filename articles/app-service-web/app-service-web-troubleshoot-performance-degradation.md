@@ -15,8 +15,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
-wacn.date: ''
+origin.date: 07/06/2016
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -44,7 +44,9 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service Web Apps](https://www.azure.cn/home/features/app-service/web-apps/) gives you various options at each step.
 
-### <a name="observe"></a> 1. Observe and monitor application behavior
+<a name="observe" />
+
+### 1. Observe and monitor application behavior
 #### Track Service health
 Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
@@ -82,7 +84,9 @@ You can also monitor your application performance by leveraging *site extensions
 
 Each App Service web app provides an extensible management end point that allows you to leverage a powerful set of tools deployed as site extensions. These tools range from source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) to management tools for connected resources such as a MySQL database connected to a web app.
 
-### <a name="collect"></a> 2. Collect data
+<a name="collect" />
+
+### 2. Collect data
 #### Enable diagnostics logging for your web app
 The Web Apps environment provides diagnostic functionality for logging information from both the web server and the web application. These are logically separated into web server diagnostics and application diagnostics.
 
@@ -137,7 +141,9 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-### <a name="mitigate"></a> 3. Mitigate the issue
+<a name="mitigate" />
+
+### 3. Mitigate the issue
 #### Scale the web app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 

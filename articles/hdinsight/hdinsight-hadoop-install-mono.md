@@ -13,8 +13,8 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 05/01/2017
-wacn.date: ''
+origin.date: 05/01/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 ms.custom: hdinsightactive
 
@@ -48,7 +48,7 @@ __Requirements__:
 
 ## To use the script
 
-For information on how to use this script with HDInsight, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. You can use the script through the Azure Portal, Azure PowerShell, or the Azure CLI.
+For information on how to use this script with HDInsight, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. You can use the script through the Azure portal, Azure PowerShell, or the Azure CLI.
 
 While following the script action document, use the following URI:
 

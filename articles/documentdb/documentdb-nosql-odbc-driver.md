@@ -14,9 +14,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/27/2017
+origin.date: 03/27/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/31/2017
 ---
 
 # Connect to Azure Cosmos DB using BI analytics tools with the ODBC driver

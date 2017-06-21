@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2016
-wacn.date: ''
+origin.date: 02/02/2016
+ms.date: 06/21/2017
 ms.author: v-dazen
 
 ---
@@ -58,9 +58,9 @@ In this tutorial, you will learn how to bring the following scenarios together t
 * Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session
 * Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) bits
 * Basic understanding of the following:
-    * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
-    * [Git](http://git-scm.com/documentation)
-    * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
+  * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
+  * [Git](http://git-scm.com/documentation)
+  * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [!NOTE]
 > You need an Azure account to complete this tutorial:
@@ -81,7 +81,7 @@ In a typical DevOps scenario, you have an application that's running live in Azu
 
 1. Create your own fork of the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository. For information on creating your fork, see [Fork a Repo](https://help.github.com/articles/fork-a-repo/). Once your fork is created, you can see it in your browser.
 
-    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
+   ![](./media/app-service-agile-software-development/production-1-private-repo.png)
 2. Open a Git Shell session. If you don't have Git Shell yet, install [GitHub for Windows](https://windows.github.com/) now.
 3. Create a local clone of your fork by executing the following command:
 
@@ -91,19 +91,19 @@ In a typical DevOps scenario, you have an application that's running live in Azu
         .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/todoapp.git -ResourceGroupSuffix <your_suffix>
 5. When prompted, type in the desired username and password for database access. Remember your database credentials because you will need to specify them again when updating the resource group.
 
-    You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
-    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.1-app-in-browser.png)
+   You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
+   ![](./media/app-service-web-test-in-production-controlled-test-flight/00.1-app-in-browser.png)
 6. Back in your Git Shell session, run:
 
         .\swap -Name ToDoApp<your_suffix>
 
-    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
+   ![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 7. When the script finishes, go back to browse to the frontend's address (http://ToDoApp*&lt;your_suffix>*.chinacloudsites.cn/) to see the application running in production.
 8. Log into the [Azure Portal](https://portal.azure.cn/) and take a look at what's created.
 
-    You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
+   You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
 
-    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.3-resource-group-view.png)
+   ![](./media/app-service-web-test-in-production-controlled-test-flight/00.3-resource-group-view.png)
 
 You have set up the production app.  Now, let's imagine that you receive feedback that usability is poor for the app. So you decide to investigate. You're going to instrument your app to give you feedback.
 
@@ -133,7 +133,7 @@ You have set up the production app.  Now, let's imagine that you receive feedbac
             });
         </script>
 
-    This JavaScript snippet sends a custom event to Application Insights every time a user clicks anywhere in the web app.
+   This JavaScript snippet sends a custom event to Application Insights every time a user clicks anywhere in the web app.
 7. In Git Shell, commit and push your changes to your fork in GitHub. Then, wait for clients to refresh browser.
 
         git add -A :/
@@ -144,9 +144,9 @@ You have set up the production app.  Now, let's imagine that you receive feedbac
         .\swap -Name ToDoApp<your_suffix>
 9. Browse to the Application Insights resource that you configured. Click Custom events.
 
-    ![](./media/app-service-web-test-in-production-controlled-test-flight/01-custom-events.png)
+   ![](./media/app-service-web-test-in-production-controlled-test-flight/01-custom-events.png)
 
-    If you don't see metrics for custom events, wait a few minutes and click **Refresh**.
+   If you don't see metrics for custom events, wait a few minutes and click **Refresh**.
 
 Suppose you see a chart like below:
 
@@ -272,10 +272,10 @@ Again, for completeness you will set up the server-side app. Unlike the client a
 
     Once the script finishes, all your resources in the original resource group are retained, but a new slot named "beta" is created in it with the same configuration as the "Staging" slot that was created in the beginning.
 
-    > [!NOTE]
-    > This method of creating different deployment environments is different from the method in [Agile software development with Azure App Service](app-service-agile-software-development.md). Here, you create deployment environments with deployment slots, where as there you create deployment environments with resource groups. Managing deployment environments with resource groups enables you to keep the production environment off-limits to developers, but it's not easy to do testing in production, which you can do easily with slots.
-    >
-    >
+   > [!NOTE]
+   > This method of creating different deployment environments is different from the method in [Agile software development with Azure App Service](app-service-agile-software-development.md). Here, you create deployment environments with deployment slots, where as there you create deployment environments with resource groups. Managing deployment environments with resource groups enables you to keep the production environment off-limits to developers, but it's not easy to do testing in production, which you can do easily with slots.
+   >
+   >
 
 If you wish, you can also create an alpha app by running
 
@@ -313,14 +313,14 @@ In this section, you will route traffic to the beta app. For sake of clarity of 
         $rule.Name = "beta"
         Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
 
-    The `ReroutePercentage=50` property specifies that 50% of the production traffic will be routed to the beta app's URL (specified by the `ActionHostName` property).
+   The `ReroutePercentage=50` property specifies that 50% of the production traffic will be routed to the beta app's URL (specified by the `ActionHostName` property).
 2. Now navigate to http://ToDoApp*&lt;your_suffix>*.chinacloudsites.cn. 50% of the traffic should now be redirected to the beta slot.
 3. In your Application Insights resource, filter the metrics by environment="beta".
 
-    > [!NOTE]
-    > If you save this filtered view as another favorite, then you can easily flip the metric explorer views between production and beta views.
-    >
-    >
+   > [!NOTE]
+   > If you save this filtered view as another favorite, then you can easily flip the metric explorer views between production and beta views.
+   >
+   >
 
 Suppose in Application Insights you see something similar to the following:
 

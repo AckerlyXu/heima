@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
-wacn.date: ''
+origin.date: 12/08/2016
+ms.date: 05/31/2017
 ms.author: v-junlch
-wacn.date: ''
 
 ---
 # Deploy Azure Cosmos DB and Azure App Service Web Apps using an Azure Resource Manager Template

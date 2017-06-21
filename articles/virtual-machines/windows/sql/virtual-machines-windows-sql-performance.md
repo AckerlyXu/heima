@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/28/2017
-wacn.date: ''
+origin.date: 04/28/2017
+ms.date: 02/24/2017
 ms.author: v-dazen
 
 ---
