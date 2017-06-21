@@ -12,8 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 02/24/2017
-wacn.date: ''
+origin.date: 02/24/2017
+ms.date: 06/20/2017
 ms.author: v-dazen
 
 ---
@@ -25,9 +25,9 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
 ## Service Bus updates
 * Event Hubs: 
 
-    * Now allows targeted access control when sending events by exposing additional publisher endpoint for Event Hubs.
-    * Additional stability and improvement added to Event Hubs feature.
-    * Adding support of Amqp protocol over WebSocket for messaging and Event Hubs.
+  * Now allows targeted access control when sending events by exposing additional publisher endpoint for Event Hubs.
+  * Additional stability and improvement added to Event Hubs feature.
+  * Adding support of Amqp protocol over WebSocket for messaging and Event Hubs.
 
 ## HDInsight Tools for Visual Studio updates
 * **IntelliSense enhancement**: remote metadata suggestion
@@ -42,9 +42,9 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
 
     Now HDInsight Tools for Visual Studio support generic Hadoop clusters, so you can use HDInsight Tools for Visual Studio to do the following:
 
-    * connect to your cluster, 
-    * write Hive query with enhanced IntelliSense/auto-completion support, 
-    * view all the jobs in your cluster with an intuitive UI. 
+  * connect to your cluster, 
+  * write Hive query with enhanced IntelliSense/auto-completion support, 
+  * view all the jobs in your cluster with an intuitive UI. 
 
     For more information, refer to [this manual](/hdinsight/hdinsight-hadoop-emulator-get-started).
 
@@ -86,8 +86,8 @@ The Diagnostics storage account can now be specified in the service configuratio
 * Collecting diagnostics logs in the emulator requires a 64-bit operating system. Diagnostics logs will not be collected when running on a 32-bit operating system. This does not affect any other emulator functionality. 
 * Azure SDK 2.6 released on 4/29/2015 had two issues: 
 
-    * Universal App could not be loaded in Visual Studio 2015 when Azure SDK 2.6 was installed on the machine.
-    * Debugging a Cloud Service project would fail in Visual Studio 2013 and Visual Studio 2015 where Visual Studio becomes unresponsive and crashes while displaying a dialog box with the message "Configuring diagnostics for emulator".
+  * Universal App could not be loaded in Visual Studio 2015 when Azure SDK 2.6 was installed on the machine.
+  * Debugging a Cloud Service project would fail in Visual Studio 2013 and Visual Studio 2015 where Visual Studio becomes unresponsive and crashes while displaying a dialog box with the message "Configuring diagnostics for emulator".
 
     An update to Azure SDK 2.6 was released on 5/18/2015. The updated version is 2.6.30508.1601; it contains fixes for two issues described above. You can identify the build of the SDK from Control Panel -> Programs and Features -> Microsoft Azure Tools for Microsoft Visual Studio 2013 - v 2.6. The Version column will display the build number.
 

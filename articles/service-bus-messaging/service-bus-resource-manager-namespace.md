@@ -12,9 +12,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/15/2016
+origin.date: 04/15/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 
 # Create a Service Bus namespace using an Azure Resource Manager template

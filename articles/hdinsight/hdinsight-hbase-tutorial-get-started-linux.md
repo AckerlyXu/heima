@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/09/2017
-wacn.date: ''
+origin.date: 05/09/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
@@ -36,7 +36,7 @@ Before you begin this HBase tutorial, you must have the following items:
 ## Create HBase cluster
 The following procedure uses an Azure Resource Manager template to create a version 3.5 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Click the following image to open the template in the Azure Portal. The template is located in a public blob container. 
+1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -45,16 +45,16 @@ The following procedure uses an Azure Resource Manager template to create a vers
 
 2. From the **Custom deployment** blade, enter the following values:
 
-    * **Subscription**: Select your Azure subscription that is used to create the cluster.
-    * **Resource group**: Create an Azure Resource Management group or use an existing one.
-    * **Location**: Specify the location of the resource group. 
-    * **ClusterName**: Enter a name for the HBase cluster.
-    * **Cluster login name and password**: The default login name is **admin**.
-    * **SSH username and password**: The default username is **sshuser**.  You can rename it.
+   * **Subscription**: Select your Azure subscription that is used to create the cluster.
+   * **Resource group**: Create an Azure Resource Management group or use an existing one.
+   * **Location**: Specify the location of the resource group. 
+   * **ClusterName**: Enter a name for the HBase cluster.
+   * **Cluster login name and password**: The default login name is **admin**.
+   * **SSH username and password**: The default username is **sshuser**.  You can rename it.
 
-        Other parameters are optional.  
+     Other parameters are optional.  
 
-        Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
+     Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
 3. Click **Legal terms**, and then click **Purchase**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
 
 > [!NOTE]
@@ -183,11 +183,11 @@ The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/
 
     You must base64 encode the values specified in the -d switch.  In the example:
 
-    * MTAwMA==: 1000
-    * UGVyc29uYWw6TmFtZQ==: Personal:Name
-    * Sm9obiBEb2xl: John Dole
+   * MTAwMA==: 1000
+   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * Sm9obiBEb2xl: John Dole
 
-        [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) allows you to insert multiple (batched) value.
+     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) allows you to insert multiple (batched) value.
 5. Use the following command to get a row:
 
         curl -u <UserName>:<Password> \
@@ -219,15 +219,15 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 2. Click **HBase** from the left menu.
 3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in another browser tab:
 
-    ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+  ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-    The HBase Master UI contains the following sections:
+  The HBase Master UI contains the following sections:
 
-    - region servers
-    - backup masters
-    - tables
-    - tasks
-    - software attributes
+  - region servers
+  - backup masters
+  - tables
+  - tasks
+  - software attributes
 
 ## Delete the cluster
 To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.

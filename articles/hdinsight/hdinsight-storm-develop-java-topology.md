@@ -15,8 +15,8 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
-wacn.date: ''
+origin.date: 05/12/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -51,11 +51,11 @@ The following environment variables may be set when you install Java and the JDK
 
 * **PATH** - should contain the following paths:
 
-    * **JAVA_HOME** (or the equivalent path)
+  * **JAVA_HOME** (or the equivalent path)
 
-    * **JAVA_HOME\bin** (or the equivalent path)
+  * **JAVA_HOME\bin** (or the equivalent path)
 
-    * The directory where Maven is installed
+  * The directory where Maven is installed
 
 ## Create a Maven project
 
@@ -129,13 +129,13 @@ HDInsight is based on the Hortonworks Data Platform (HDP), so we recommend using
 Maven allows you to define project-level values called properties. In the __pom.xml__, add the following text after the `</repositories>` line:
 
 ```xml
-<Properties>
+<properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
     This is a version of Storm from the Hortonworks repository that is compatible with HDInsight.
     -->
     <storm.version>1.0.1.2.5.3.0-37</storm.version>
-</Properties>
+</properties>
 ```
 
 You can now use this value in other sections of the `pom.xml`. For example, when specifying the version of Storm components, you can use `${storm.version}` instead of hard coding a value.
@@ -647,7 +647,7 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
 
 3. Make the following changes to the `pom.xml` file.
 
-    * Add the following new dependency in the `<dependencies>` section:
+   * Add the following new dependency in the `<dependencies>` section:
 
         ```xml
         <!-- Add a dependency on the Flux framework -->
@@ -657,7 +657,7 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
             <version>${storm.version}</version>
         </dependency>
         ```
-    * Add the following plugin to the `<plugins>` section. This plugin handles the creation of a package (jar file) for the project, and applies some transformations specific to Flux when creating the package.
+   * Add the following plugin to the `<plugins>` section. This plugin handles the creation of a package (jar file) for the project, and applies some transformations specific to Flux when creating the package.
 
         ```xml
         <!-- build an uber jar -->
@@ -698,9 +698,9 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
         </plugin>
         ```
 
-    * In the **exec-maven-plugin** `<configuration>` section, change the value for `<mainClass>` to `org.apache.storm.flux.Flux`. This setting allows Flux to handle running the topology locally in development.
+   * In the **exec-maven-plugin** `<configuration>` section, change the value for `<mainClass>` to `org.apache.storm.flux.Flux`. This setting allows Flux to handle running the topology locally in development.
 
-    * In the `<resources>` section, add the following to the `<includes>`. This XML includes the YAML file that defines the topology as part of the project.
+   * In the `<resources>` section, add the following to the `<includes>`. This XML includes the YAML file that defines the topology as part of the project.
 
         ```xml
         <include>topology.yaml</include>

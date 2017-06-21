@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -38,7 +38,9 @@ By following this tutorial, you will build a simple registration web app in PHP.
 ## Set up the development environment
 This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer.
 
-## <a id="create-web-site-and-set-up-git"></a> Create a web app and set up Git publishing
+<a id="create-web-site-and-set-up-git"></a>
+
+## Create a web app and set up Git publishing
 Follow these steps to create a web app and a MySQL database:
 
 1. Login to the [Azure Portal][management-portal].
@@ -222,11 +224,13 @@ To publish changes to your app, follow these steps:
 
     ![Azure PHP web site][running-app]
 
-## <a name="composer"></a> Enable Composer automation with the Composer extension
+<a name="composer"></a>
+
+## Enable Composer automation with the Composer extension
 By default, the git deployment process in App Service doesn't do anything with composer.json, if you have one in your PHP
 project. You can enable composer.json processing during `git push` by enabling the Composer extension.
 
-1. In your PHP web app's blade in the [Azure Portal][management-portal], click **Tools** > **Extensions**.
+1. In your PHP web app's blade in the [Azure portal][management-portal], click **Tools** > **Extensions**.
 
     ![Composer Extension Settings][composer-extension-settings]
 2. Click **Add**, then click **Composer**.
@@ -235,7 +239,6 @@ project. You can enable composer.json processing during `git push` by enabling t
 3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
 
     The **Installed extensions** blade will now show the Composer extension.  
-
     ![Composer Extension View][composer-extension-view]
 4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
    is installing dependencies defined in composer.json.
@@ -254,7 +257,7 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [management-portal]: https://portal.azure.cn
-[sql-database-editions]: /pricing/details/sql-database/
+[sql-database-editions]: https://www.azure.cn/pricing/details/sql-database/
 
 <!-- IMG List -->
 

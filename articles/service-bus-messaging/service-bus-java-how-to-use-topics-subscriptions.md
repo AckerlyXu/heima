@@ -13,9 +13,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/23/2017
+origin.date: 03/23/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 
 # How to use Service Bus topics and subscriptions

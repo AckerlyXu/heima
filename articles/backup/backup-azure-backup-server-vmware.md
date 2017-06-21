@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/28/2017
+origin.date: 03/28/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/15/2017
 ---
 # Back up VMware server to Azure
 

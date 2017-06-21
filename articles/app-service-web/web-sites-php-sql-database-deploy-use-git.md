@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -47,8 +47,8 @@ Follow these steps to create an Azure web app and a SQL Database:
 5. After reading the description of the Web app, select **Create**.
 6. Click on each part (**Resource Group**, **Web App**, and **Subscription**) and enter or select values for the required fields:
 
-    * Enter a URL name of your choice    
-    * Select the region closest to you
+   * Enter a URL name of your choice    
+   * Select the region closest to you
 
 7. When finished defining the web app, click **Create**.
 

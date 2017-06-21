@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
-wacn.date: ''
+origin.date: 08/29/2016
+ms.date: 02/21/2017
 ms.author: v-dazen
 
 ---
@@ -161,19 +161,19 @@ Use this method to specify response codes if your Swashbuckle version is earlier
         }
 2. Add instructions in the *SwaggerConfig.cs* file to direct Swashbuckle to make use of the XML documentation file.
 
-    * Open *SwaggerConfig.cs* and create a method on the *SwaggerConfig* class to specify the path to the documentation XML file. 
+   * Open *SwaggerConfig.cs* and create a method on the *SwaggerConfig* class to specify the path to the documentation XML file. 
 
-            private static string GetXmlCommentsPath()
-            {
-                return string.Format(@"{0}\XmlComments.xml", 
-                    System.AppDomain.CurrentDomain.BaseDirectory);
-            }
-    * Scroll down in the *SwaggerConfig.cs* file until you see the commented-out line of code resembling the screen shot below. 
+           private static string GetXmlCommentsPath()
+           {
+               return string.Format(@"{0}\XmlComments.xml", 
+                   System.AppDomain.CurrentDomain.BaseDirectory);
+           }
+   * Scroll down in the *SwaggerConfig.cs* file until you see the commented-out line of code resembling the screen shot below. 
 
-        ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-commented-out.png)
-    * Uncomment the line to enable the XML comments processing during Swagger generation. 
+       ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-commented-out.png)
+   * Uncomment the line to enable the XML comments processing during Swagger generation. 
 
-        ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-uncommented.png)
+       ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-uncommented.png)
 3. In order to generate the XML documentation file, go into the project's properties and enable the XML documentation file as shown in the screenshot below. 
 
     ![](./media/app-service-api-dotnet-swashbuckle-customize/enable-xml-documentation-file.png) 

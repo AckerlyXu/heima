@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/29/2016
-wacn.date: ''
+origin.date: 02/29/2016
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -134,9 +134,9 @@ This is all you need to do for now to create the application that you'll deploy 
 
 1. The default browser automatically opens to the URL of the deployed site.
 
-    The application you created is now running in the cloud.
+   The application you created is now running in the cloud.
 
-    ![To Do List home page running in Azure][rxz2]
+   ![To Do List home page running in Azure][rxz2]
 
 ## Add a database to the application
 Next, you'll update the MVC application to add the ability to display and update contacts and store the data in a database. The application will use the Entity Framework to create the database and to read and update data in the database.
@@ -187,7 +187,7 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
     ![Add Controller in Controllers folder context menu][addcode001]
 4. In the **Add Scaffold** dialog box, select **MVC Controller with views, using Entity Framework** and click **Add**.
 
-    ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+   ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
 5. Set the controller name to **HomeController**. Select **Contact** as your model class. Click the **New data context** button and accept the default "ContactManager.Models.ContactManagerContext" for the **New data context type**. Click **Add**.
 
     A dialog box will prompt you: "A file with the name HomeController already exits. Do you want to replace it?". Click **Yes**. We are overwriting the Home Controller that was created with the new project. We will use the new Home Controller for our contact list.
@@ -452,7 +452,7 @@ The application shows the seed data and provides edit, details and delete links.
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-    To:
+   To:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",

@@ -15,8 +15,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
-wacn.date: ''
+origin.date: 03/01/2017
+ms.date: 03/31/2017
 ms.author: v-dazen
 
 ---
@@ -40,15 +40,15 @@ Power BI allows you to visually display data as reports. This document provides 
 * An Azure Active Directory user with [Power BI](https://powerbi.com) access.
 * An HDInsight cluster. For more information, see [Get started with Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio (one of the following versions)
 
-    * Visual Studio 2012 with update 4
-    * Visual Studio 2013 with [update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
-    * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-    * Visual Studio 2017 (any edition)
+  * Visual Studio 2012 with update 4
+  * Visual Studio 2013 with [update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
+  * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+  * Visual Studio 2017 (any edition)
 
 * The HDInsight Tools for Visual Studio: See [Get started using the HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) for information on installation information.
 
@@ -78,7 +78,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 ## Configure the sample
 
-1. From the [Azure Portal](https://portal.azure.cn), select your SQL database. From the **Essentials** section of the SQL database blade, select **Show database connection strings**. From the list that appears, copy the **ADO.NET (SQL authentication)** information.
+1. From the [Azure portal](https://portal.azure.cn), select your SQL database. From the **Essentials** section of the SQL database blade, select **Show database connection strings**. From the list that appears, copy the **ADO.NET (SQL authentication)** information.
 
 2. Open the sample in Visual Studio. From **Solution Explorer**, open the **App.config** file, and then find the following entry:
 
@@ -92,10 +92,10 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 1. From **Solution Explorer**, right-click the **StormToSQL** project and select **Submit to Storm on HDInsight**. Select the HDInsight cluster from the **Storm Cluster** dropdown dialog.
 
-    > [!NOTE]
-    > It may take a few seconds for the **Storm Cluster** dropdown to populate with server names.
-    >
-    > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
+   > [!NOTE]
+   > It may take a few seconds for the **Storm Cluster** dropdown to populate with server names.
+   >
+   > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
 2. When the topology has been submitted, the __Topology Viewer__ appears. To view this topology, select the SqlAzureWriterTopology entry from the list.
 
@@ -126,10 +126,10 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 3. Select **Azure SQL Database**, and then select **Connect**.
 
-4. Enter the information to connect to your Azure SQL Database. You can find this information by visiting the [Azure Portal](https://portal.azure.cn) and selecting your SQL database.
+4. Enter the information to connect to your Azure SQL Database. You can find this information by visiting the [Azure portal](https://portal.azure.cn) and selecting your SQL database.
 
-    > [!NOTE]
-    > You can also set the refresh interval and custom filters by using **Enable Advanced Options** from the connect dialog.
+   > [!NOTE]
+   > You can also set the refresh interval and custom filters by using **Enable Advanced Options** from the connect dialog.
 
 5. After you've connected, you will see a new dataset with the same name as the database you connected to. Select the dataset to begin designing a report.
 

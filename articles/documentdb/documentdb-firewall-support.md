@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+origin.date: 04/05/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/31/2017
 
 ---
 # Azure Cosmos DB firewall support

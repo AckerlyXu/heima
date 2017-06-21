@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/29/2017
-wacn.date: ''
+origin.date: 03/29/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -123,7 +123,7 @@ From the JSON output, `defaultHostName` shows your web app's default domain name
 http://<app_name>.chinacloudsites.cn 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
 
 ## Step 2 - Configure DNS mapping
 
@@ -159,13 +159,13 @@ The custom domain now is fully mapped to your web app. In your browser, navigate
 http://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
 
 ## Step 4 - Bind a custom SSL certificate to your web app
 
 You now have an Azure web app, with the domain name you want in the browser's address bar. However, if you navigate to the `https://<your_custom_domain>` now, you get a certificate error. 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
 
 This error occurs because your web app doesn't yet have an SSL certificate binding that matches your custom domain name. However, you don't get an error if you navigate to `https://<app_name>.chinacloudsites.cn`. This is because your app, as well as all Azure App Service apps, is secured with the SSL certificate for the `*.chinacloudsites.cn` wildcard domain by default. 
 
@@ -310,4 +310,4 @@ In your browser, navigate to HTTPS endpoint of your custom domain name. For exam
 https://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)  

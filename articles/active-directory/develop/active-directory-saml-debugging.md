@@ -8,8 +8,8 @@ manager: stevenpo
 
 ms.service: active-directory
 ms.topic: article
-ms.date: 02/09/2016
-wacn.date: ''
+origin.date: 02/09/2016
+ms.date: 02/06/2017
 ms.author: v-junlch
 ---
 

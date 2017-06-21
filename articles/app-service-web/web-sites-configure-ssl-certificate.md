@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
-wacn.date: ''
+origin.date: 08/08/2016
+ms.date: 03/24/2017
 ms.author: v-dazen
 
 ---
@@ -41,7 +41,9 @@ the default certificate is not as secure as using a custom domain and a certific
 > 
 > 
 
-## <a name="bkmk_domainname"></a> What you need
+<a name="bkmk_domainname"></a>
+
+## What you need
 To secure your custom domain name with HTTPS, you bind a custom SSL certificate to that custom domain in Azure. Before binding
 a custom certificate, you need to do the following:
 
@@ -53,17 +55,19 @@ a custom certificate, you need to do the following:
   [certificate authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). The certificate must meet all the
   following requirements:
 
-    * It is signed by a trusted CA (no private CA servers).
-    * It contains a private key.
-    * It is created for key exchange, and exported to a .PFX file.
-    * It uses a minimum of 2048-bit encryption.
-    * Its subject name matches the custom domain it needs to secure. To secure multiple domains with one 
-      certificate, you need to use a wildcard name (e.g. **\*.contoso.com**) or specify subjectAltName 
-      values.
-    * It is merged with all **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** 
-      used by your CA. Otherwise, you may run into irreproducible interoperability problems on some clients.
+  * It is signed by a trusted CA (no private CA servers).
+  * It contains a private key.
+  * It is created for key exchange, and exported to a .PFX file.
+  * It uses a minimum of 2048-bit encryption.
+  * Its subject name matches the custom domain it needs to secure. To secure multiple domains with one 
+    certificate, you need to use a wildcard name (e.g. **\*.contoso.com**) or specify subjectAltName 
+    values.
+  * It is merged with all **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** 
+    used by your CA. Otherwise, you may run into irreproducible interoperability problems on some clients.
 
-## <a name="bkmk_getcert"></a> Step 1. Get an SSL certificate
+<a name="bkmk_getcert"></a>
+
+## Step 1. Get an SSL certificate
 Because CAs provide the various SSL certificate types at different price points, you should start by deciding what type 
 of SSL certificate to buy. To secure a single domain name (**www.contoso.com**), 
 you just need a basic certificate. To secure multiple domain names (**contoso.com** *and* **www.contoso.com** 
@@ -88,7 +92,9 @@ to generate it:
 * [Self-signed certificate, Certreq.exe steps](#bkmk_sscertreq)
 * [Self-signed certificate, OpenSSL steps](#bkmk_ssopenssl)
 
-### <a name="bkmk_certreq"></a> Get a certificate using Certreq.exe
+<a name="bkmk_certreq"></a>
+
+### Get a certificate using Certreq.exe
 1. Create a file (e.g. **myrequest.txt**), and copy into it the following text, and save it in a working directory. 
    Replace the `<your-domain>` placeholder with the custom domain name of your app.
 
@@ -141,17 +147,19 @@ to generate it:
 8. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and 
    **Export all extended properties**. Then, click **Next**.
 
-    ![include all certs and extended properties][certwiz2]
+   ![include all certs and extended properties][certwiz2]
 9. Select **Password**, and then enter and confirm the password. Click **Next**.
 
-    ![specify a password][certwiz3]
+   ![specify a password][certwiz3]
 10. Provide a path and filename for the exported certificate, with the extension **.pfx**. Click **Next** to finish.
 
     ![provide a file path][certwiz4]
 
 You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
-### <a name="bkmk_iismgr"></a> Get a certificate using the IIS Manager
+<a name="bkmk_iismgr"></a>
+
+### Get a certificate using the IIS Manager
 1. Generate a CSR with IIS Manager to send to the CA. For more information on generating a CSR, see 
    [Request an Internet Server Certificate (IIS 7)][iiscsr].
 2. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
@@ -166,21 +174,23 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 5. Export the SSL certificate from IIS Manager. For more information on exporting the certificate, see 
    [Export a Server Certificate (IIS 7)][exportcertiis]. 
 
-    > [!IMPORTANT]
-    > In the **Certificate Export Wizard**, make sure that you select **Yes, export the private key**  
-    > 
-    > ![Export the private key][certwiz1]  
-    > 
-    > and also select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and 
-    > **Export all extended properties**.
-    > 
-    > ![include all certs and extended properties][certwiz2]
-    > 
-    > 
+   > [!IMPORTANT]
+   > In the **Certificate Export Wizard**, make sure that you select **Yes, export the private key**  
+   > 
+   > ![Export the private key][certwiz1]  
+   > 
+   > and also select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and 
+   > **Export all extended properties**.
+   > 
+   > ![include all certs and extended properties][certwiz2]
+   > 
+   > 
 
 You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
-### <a name="bkmk_openssl"></a> Get a certificate using OpenSSL
+<a name="bkmk_openssl"></a>
+
+### Get a certificate using OpenSSL
 1. In a command-line terminal, `CD` into a working directory generate a private key and CSR by running the 
    following command:
 
@@ -231,21 +241,23 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 
     When prompted, define a password to secure the .pfx file.
 
-    > [!NOTE]
-    > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually 
-    > come as a separate download from your CA, and in several formats for different 
-    > web server types. Select the version with the `.pem` extension.
-    > 
-    > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
-    > intermediate certificates from the **intermediate-cets.pem** file:
-    > 
-    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
-    > 
-    > 
+   > [!NOTE]
+   > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually 
+   > come as a separate download from your CA, and in several formats for different 
+   > web server types. Select the version with the `.pem` extension.
+   > 
+   > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
+   > intermediate certificates from the **intermediate-cets.pem** file:
+   > 
+   > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+   > 
+   > 
 
 You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
-### <a name="bkmk_subjectaltname"></a> Get a SubjectAltName certificate using OpenSSL
+<a name="bkmk_subjectaltname"></a>
+
+### Get a SubjectAltName certificate using OpenSSL
 1. Create a file named **sancert.cnf**, copy the following text into it, and save it in a working directory:
 
         # -------------- BEGIN custom sancert.cnf -----
@@ -323,21 +335,23 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 
     When prompted, define a password to secure the .pfx file.
 
-    > [!NOTE]
-    > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They 
-    > usually come as a separate download from your CA, and in several formats for different 
-    > web server types. Select the version with the `.pem` extension).
-    > 
-    > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
-    > intermediate certificates from the **intermediate-cets.pem** file:
-    > 
-    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
-    > 
-    > 
+   > [!NOTE]
+   > If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They 
+   > usually come as a separate download from your CA, and in several formats for different 
+   > web server types. Select the version with the `.pem` extension).
+   > 
+   > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the 
+   > intermediate certificates from the **intermediate-cets.pem** file:
+   > 
+   > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+   > 
+   > 
 
 You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
-### <a name="bkmk_sscertreq"></a> Generate a self-signed certificate using Certreq.exe
+<a name="bkmk_sscertreq"></a>
+
+### Generate a self-signed certificate using Certreq.exe
 > [!IMPORTANT]
 > Self-signed certificates are for test purposes only. Most browsers return errors when 
 > visiting a website that's secured by a self-signed certificate. Some browsers may even refuse to navigate to the site. 
@@ -383,17 +397,19 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 5. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and 
    **Export all extended properties**. Then, click **Next**.
 
-    ![include all certs and extended properties][certwiz2]
+   ![include all certs and extended properties][certwiz2]
 6. Select **Password**, and then enter and confirm the password. Click **Next**.
 
-    ![specify a password][certwiz3]
+   ![specify a password][certwiz3]
 7. Provide a path and filename for the exported certificate, with the extension **.pfx**. Click **Next** to finish.
 
-    ![provide a file path][certwiz4]
+   ![provide a file path][certwiz4]
 
 You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
-### <a name="bkmk_ssopenssl"></a> Generate a self-signed certificate using OpenSSL
+<a name="bkmk_ssopenssl"></a>
+
+### Generate a self-signed certificate using OpenSSL
 > [!IMPORTANT]
 > Self-signed certificates are for test purposes only. Most browsers return errors when 
 > visiting a website that's secured by a self-signed certificate. Some browsers may even refuse to navigate to the site. 
@@ -447,7 +463,9 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 
 You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
 
-## <a name="bkmk_configuressl"></a> Step 2. Upload and bind the custom SSL certificate
+<a name="bkmk_configuressl"></a>
+
+## Step 2. Upload and bind the custom SSL certificate
 Before you move on, review the [What you need](#bkmk_domainname) section and verify that:
 
 * you have a custom domain that maps to your Azure app,
@@ -488,10 +506,10 @@ further if:
   you just added an **IP based SSL** binding. In this scenario, you need to remap the existing A record to point 
   to the dedicated IP address by following these steps:
 
-    1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
+  1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
 
-        ![Virtual IP address](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
-    2. [Remap the A record for your custom domain name to this new IP address](web-sites-custom-domain-name.md#a).
+      ![Virtual IP address](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
+  2. [Remap the A record for your custom domain name to this new IP address](web-sites-custom-domain-name.md#a).
 * You already have one or more **SNI SSL** bindings in your app, and you just added an **IP based SSL** binding. 
   Once the binding is complete, your *&lt;appname>*.chinacloudsites.cn domain name points to the new IP address. 
   Therefore, any existing [CNAME mapping from the custom domain](web-sites-custom-domain-name.md#cname) to
@@ -499,10 +517,10 @@ further if:
   on the new address, which is created for the **IP based SSL** only. In this scenario, you need to send the
   **SNI SSL** traffic back to the original shared IP address by following these steps:
 
-    1. Identify all [CNAME mappings of custom domains](web-sites-custom-domain-name.md#cname) to your app that 
-       has an **SNI SSL** binding.
-    2. Remap each CNAME record to **sni.**&lt;appname>.chinacloudsites.cn instead of 
-       &lt;appname>.chinacloudsites.cn.
+  1. Identify all [CNAME mappings of custom domains](web-sites-custom-domain-name.md#cname) to your app that 
+     has an **SNI SSL** binding.
+  2. Remap each CNAME record to **sni.**&lt;appname>.chinacloudsites.cn instead of 
+     &lt;appname>.chinacloudsites.cn.
 
 ## Step 4. Test HTTPS for your custom domain
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
@@ -512,7 +530,9 @@ to `https://<your.custom.domain>` to see that it serves up your app.
 * If that's not the case, you may have left out intermediate certificates when you export your .pfx certificate. Go back
   to [What you need](#bkmk_domainname) to verify that your CSR meets all the requirements by App Service.
 
-## <a name="bkmk_enforce"></a> Enforce HTTPS on your app
+<a name="bkmk_enforce"></a>
+
+## Enforce HTTPS on your app
 If you still want to allow HTTP access to your app, skip this step. App Service does *not* 
 enforce HTTPS, so visitors can still access your app using HTTP. If you want to enforce HTTPS for your app, 
 you can define a rewrite rule in the `web.config` file for your app. Every App Service app has this file,
@@ -563,11 +583,11 @@ Follow these steps:
     This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user requests a page 
     using HTTP. It redirects from http://contoso.com to https://contoso.com.
 
-    > [!IMPORTANT]
-    > If there are already other `<rule>` tags in your `web.config`, then place
-    > the copied `<rule>` tag before the other `<rule>` tags.
-    > 
-    > 
+   > [!IMPORTANT]
+   > If there are already other `<rule>` tags in your `web.config`, then place
+   > the copied `<rule>` tag before the other `<rule>` tags.
+   > 
+   > 
 5. Save the file in the Kudu debug console. It should take effect immediately redirect all requests to HTTPS.
 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.

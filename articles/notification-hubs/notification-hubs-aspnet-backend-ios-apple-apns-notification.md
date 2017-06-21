@@ -12,9 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/03/2016
+origin.date: 10/03/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 01/19/2017
 ---
 
 #Azure Notification Hubs Notify Users for iOS with .NET backend

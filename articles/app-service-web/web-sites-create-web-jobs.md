@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2016
-wacn.date: ''
+origin.date: 11/27/2016
+ms.date: 03/17/2017
 ms.author: v-dazen
 
 ---
@@ -138,7 +138,7 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [Cl
 
 1. On the WebJobs page, click the job's **schedule** link to navigate to the Azure Scheduler portal page. 
 
-    ![Link to Azure Scheduler][LinkToScheduler]
+   ![Link to Azure Scheduler][LinkToScheduler]
 2. On the Scheduler page, click the job.
 
     ![Job on the Scheduler portal page][SchedulerPortal]

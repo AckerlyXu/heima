@@ -4,7 +4,7 @@ description: Get a basic understanding of Azure identity solution terms, concept
 keywords:
 author: jeffgilb
 manager: femila
-ms.date: 05/12/2017
+origin.date: 05/12/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -12,7 +12,7 @@ ms.technology:
 ms.assetid:
 ms.reviewer: jsnow
 ms.custom: it-pro
-wacn.date: ''
+ms.date: 06/12/2017
 ms.author: v-junlch
 
 ---

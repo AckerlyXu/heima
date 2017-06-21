@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
-wacn.date: ''
+origin.date: 07/05/2016
+ms.date: 12/05/2016
 ms.author: v-dazen
 
 ---
@@ -40,8 +40,10 @@ For information about the pricing and features of individual App Service plans, 
 > 
 
 <a name="scalingsharedorbasic"></a>
-## <a name="scalingstandard"></a> Scale up your pricing tier
-1. In your browser, open the [Azure Portal][portal].
+<a name="scalingstandard"></a>
+
+## Scale up your pricing tier
+1. In your browser, open the [Azure portal][portal].
 2. In your app's blade, click **All settings**, and then click **Scale Up**.
 
     ![Navigate to scale up your Azure app.][ChooseWHP]
@@ -49,7 +51,9 @@ For information about the pricing and features of individual App Service plans, 
 
     The **Notifications** tab will flash a green **SUCCESS** after the operation is complete.
 
-## <a name="ScalingSQLServer"></a> Scale related resources
+<a name="ScalingSQLServer"></a>
+
+## Scale related resources
 If your app depends on other services, such as Azure SQL Database or Azure Storage, you can also scale up those resources
 based on your needs. These resources are not scaled with the App Service plan and must be scaled separately.
 
@@ -70,7 +74,9 @@ based on your needs. These resources are not scaled with the App Service plan an
 
     ![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
 
-## <a name="devfeatures"></a> Learn about developer features
+<a name="devfeatures"></a>
+
+## Learn about developer features
 Depending on the pricing tier, the following developer-oriented features are available:
 
 ### Bitness
@@ -81,10 +87,14 @@ Depending on the pricing tier, the following developer-oriented features are ava
 * Debugger support is available for the **Free**, **Shared**, and **Basic** modes at one connection per App Service plan.
 * Debugger support is available for the **Standard** and **Premium** modes at five concurrent connections per App Service plan.
 
-## <a name="OtherFeatures"></a> Learn about other features
+<a name="OtherFeatures"></a>
+
+## Learn about other features
 * For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](https://www.azure.cn/pricing/details/app-service/).
 
-## <a name="Next Steps"></a> Next steps
+<a name="Next Steps"></a>
+
+## Next steps
 * To get started with Azure, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
 * For information about pricing, support, and SLA, visit the following links.
 

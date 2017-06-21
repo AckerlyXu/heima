@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
@@ -29,7 +29,7 @@ In this article, you do the following steps.
 
 ## Prerequisites
 
-* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://www.azure.cn/pricing/1rmb-trial/).
+* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://www.azure.cn/pricing/1rmb-trial).
 
 * **Azure HDInsight Spark cluster**. For this article, create a Spark 2.0 cluster. For instructions, see [Create Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -43,14 +43,14 @@ This solution is divided between this article and a Jupyter notebook that you up
 The following remaining steps are covered in the Jupyter notebook.
 
 - Load sample images into a Spark Resiliant Distributed Dataset or RDD
-    - Load modules and define presets
-    - Download the dataset locally on the Spark cluster
-    - Convert the dataset into an RDD
+   - Load modules and define presets
+   - Download the dataset locally on the Spark cluster
+   - Convert the dataset into an RDD
 - Score the images using a trained Cognitive Toolkit model
-    - Download the trained Cognitive Toolkit model to the Spark cluster
-    - Define functions to be used by worker nodes
-    - Score the images on worker nodes
-    - Evaluate model accuracy
+   - Download the trained Cognitive Toolkit model to the Spark cluster
+   - Define functions to be used by worker nodes
+   - Score the images on worker nodes
+   - Evaluate model accuracy
 
 ## Install Microsoft Cognitive Toolkit
 

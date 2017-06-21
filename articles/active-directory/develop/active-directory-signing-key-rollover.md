@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: active-directory
 ms.topic: article
-ms.date: 07/18/2016
-wacn.date: ''
+origin.date: 07/18/2016
+ms.date: 01/19/2017
 ms.author: v-junlch
 ---
 

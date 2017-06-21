@@ -9,8 +9,8 @@ authors: tmullaney
 
 ms.service: sql-database
 ms.topic: article
-ms.date: 05/27/2016
-wacn.date: 06/01/2016
+origin.date: 05/27/2016
+ms.date: 12/19/2016
 ms.author: v-johch
 ---
 

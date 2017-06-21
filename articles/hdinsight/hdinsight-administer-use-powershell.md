@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: ''
+origin.date: 02/22/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 
 ---
@@ -94,8 +94,8 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Rebalancing can be accomplished in two ways:
 
-    * Storm web UI
-    * Command-line interface (CLI) tool
+  * Storm web UI
+  * Command-line interface (CLI) tool
 
     Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
 
@@ -147,7 +147,7 @@ To grant:
 > 
 > 
 
-This can also be done via the Portal. See [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal].
+This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
 It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
@@ -198,7 +198,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
 * [HDInsight cmdlet reference documentation][hdinsight-powershell-reference]
-* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
+* [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]

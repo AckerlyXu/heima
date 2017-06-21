@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -48,12 +48,12 @@ In this application we use a Spark ML pipeline to perform a document classificat
 1. From the [Azure Portal](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    > [!NOTE]
-    > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    >
-    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
-    > 
-    > 
+   > [!NOTE]
+   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+   > 
+   > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
+   > 
+   > 
 3. Create a new notebook. Click **New**, and then click **PySpark**.
 
     ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
@@ -161,7 +161,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
 
 1. Prepare a data set to run the trained model against. To do so, we would pass on a system ID and system age (denoted as **SystemInfo** in the training output), and the model would predict whether the building with that system ID and system age would be hotter (denoted by 1.0) or cooler (denoted by 0.0).
 
-    Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
+   Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
         # SystemInfo here is a combination of system ID followed by system age
         Document = Row("id", "SystemInfo")
@@ -188,7 +188,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
         Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
         Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
 
-    From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building will be hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
+   From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building will be hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
 4. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
 
 ## <a name="anaconda"></a>Use Anaconda scikit-learn library for Machine Learning

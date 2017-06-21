@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 04/03/2017
+origin.date: 04/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: ''
+ms.date: 05/15/2017
 ---
 # Create an automatic scaling formula for scaling compute nodes in a Batch pool
 

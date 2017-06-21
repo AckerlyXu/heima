@@ -14,9 +14,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2016
+origin.date: 04/18/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/31/2017
 ---
 # Azure Cosmos DB Python examples
 > [!div class="op_single_selector"]

@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/25/2016
-wacn.date: ''
+origin.date: 02/25/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 
 ---
@@ -116,13 +116,13 @@ In this section you create a workspace and a Maven project for the web app creat
 1. Create a new Maven project. Click **File > New > Maven Project**. In **New Maven Project**, select **Create a simple project** and **Use default workspace location**.
 2. On the second page of **New Maven Project**, specify the following:
 
-    * Group ID: `com.<username>.azure.webdemo`
-    * Artifact ID: AzureWebDemo
-    * Version: 0.0.1-SNAPSHOT
-    * Packaging: jar
-    * Name: AzureWebDemo
+   * Group ID: `com.<username>.azure.webdemo`
+   * Artifact ID: AzureWebDemo
+   * Version: 0.0.1-SNAPSHOT
+   * Packaging: jar
+   * Name: AzureWebDemo
 
-    Click **Finish**.
+     Click **Finish**.
 3. Open the new project's pom.xml file in Project Explorer. Select the **Dependencies** tab. As this is a new project, no packages are listed yet.
 4. Open the Maven Repositories view. **Click Window > Show View > Other > Maven > Maven Repositories** and click **OK**. The **Maven Repositories** view will appear at the bottom of the IDE.
 5. Open **Global Repositories**, right-click the **central** repository, and select **Rebuild Index**.
@@ -135,12 +135,12 @@ In this section you create a workspace and a Maven project for the web app creat
         com.microsoft.azure  azure-management
         com.microsoft.azure  azure-management-websites
 
-    > **Note:** If you are updating the dependencies after a new version
-    > release, you need to re-add each of the dependencies in this list.
-    > After you click **Add** and select each dependency, it appears
-    > with the new version number in the **Dependencies** list.
-    > 
-    > 
+   > **Note:** If you are updating the dependencies after a new version
+   > release, you need to re-add each of the dependencies in this list.
+   > After you click **Add** and select each dependency, it appears
+   > with the new version number in the **Dependencies** list.
+   > 
+   > 
 
 Click **OK**. The Azure packages then appear in the **Dependencies** list.
 
@@ -451,7 +451,7 @@ One way to publish the application is to use the Kudu debug console built into A
     `cd webapps`
 5. Drag JSPHello.war from `<project-path>/JSPHello/src/` and drop it into the Kudu directory view under `/site/wwwroot/webapps`. Do not drag it to the "Drag here to upload and zip" area, because Tomcat will unzip it.
 
-    ![][8]
+   ![][8]
 
 At first JSPHello.war appears in the directory area by itself:
 
@@ -469,15 +469,15 @@ Another tool you can use to publish the application is FileZilla, a popular thir
 
     On the **General** tab, specify the following settings:
 
-    * **Host:** Enter the **FTP Host Name** that you copied from the dashboard.
-    * **Port:** (Leave this blank, as this is a passive transfer and the server will determine the port to use.)
-    * **Protocol:** FTP File Transfer Protocol
-    * **Encryption:** Use plain FTP
-    * **Logon Type:** Normal
-    * **User:** Enter the Deployment / FTP user that you copied from the dashboard. This is the full FTP username, which has the form *webappname\username*.
-    * **Password:** Enter the password that you specified when you set the deployment credentials.
+   * **Host:** Enter the **FTP Host Name** that you copied from the dashboard.
+   * **Port:** (Leave this blank, as this is a passive transfer and the server will determine the port to use.)
+   * **Protocol:** FTP File Transfer Protocol
+   * **Encryption:** Use plain FTP
+   * **Logon Type:** Normal
+   * **User:** Enter the Deployment / FTP user that you copied from the dashboard. This is the full FTP username, which has the form *webappname\username*.
+   * **Password:** Enter the password that you specified when you set the deployment credentials.
 
-    On the **Transfer Settings** tab, select **Passive**.
+     On the **Transfer Settings** tab, select **Passive**.
 3. Click **Connect**. If successful, FileZilla's console will display a `Status: Connected` message and issue a `LIST` command to list the directory contents.
 4. In the **Local** site panel, select the source directory in which the JSPHello.war file resides; the path will be similar to the following:
 
@@ -489,12 +489,12 @@ Another tool you can use to publish the application is FileZilla, a popular thir
 #### Run the Hello World application on the Web App
 1. After you have uploaded the WAR file and verified that Tomcat server has created an unpacked `JSPHello` directory, browse to `http://webdemowebapp.chinacloudsites.cn/JSPHello` to run the application.
 
-    > **Note:** If you click **Browse** from the Classic Management Portal, you might
-    > get the default webpage, saying "This Java based web application has
-    > been successfully created." You might have to refresh the webpage in
-    > order to view the application output instead of the default webpage.
-    > 
-    > 
+   > **Note:** If you click **Browse** from the Classic Management Portal, you might
+   > get the default webpage, saying "This Java based web application has
+   > been successfully created." You might have to refresh the webpage in
+   > order to view the application output instead of the default webpage.
+   > 
+   > 
 2. When the application runs, you should see a web page with the following output:
 
     `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`

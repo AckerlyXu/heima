@@ -14,8 +14,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -75,10 +75,10 @@ In this section you will create a new Node application and use npm to add module
         ├── mkdirp@0.3.5
         └── commander@1.3.2 (keypress@0.1.0)
 
-    > [!NOTE]
-    > The '-g' parameter installs the module globally. That way, we can use **express** to generate web app scaffolding without having to type in additional path information.
-    > 
-    > 
+   > [!NOTE]
+   > The '-g' parameter installs the module globally. That way, we can use **express** to generate web app scaffolding without having to type in additional path information.
+   > 
+   > 
 3. To create the scaffolding for the application, enter the **express** command:
 
         express
@@ -306,10 +306,10 @@ A *controller* handles HTTP requests and renders the HTML response.
         var accountName = nconf.get("STORAGE_NAME");
         var accountKey = nconf.get("STORAGE_KEY");
 
-    > [!NOTE]
-    > nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
-    > 
-    > 
+   > [!NOTE]
+   > nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
+   > 
+   > 
 3. In the app.js file, scroll down to where you see the following line:
 
         app.use('/', routes);
@@ -492,10 +492,10 @@ In this step, you will download a file containing information about your subscri
         info:   Executing `git remote add azure https://username@tabletasklist.chinacloudsites.cn/TableTasklist.git`
         info:   site create command OK
 
-    > [!NOTE]
-    > If this is the first App Service web app for your subscription, you will be instructed to use the Azure Portal to create the web app. For more information, see [Build and deploy a Node.js web app in Azure App Service].
-    > 
-    > 
+   > [!NOTE]
+   > If this is the first App Service web app for your subscription, you will be instructed to use the Azure Portal to create the web app. For more information, see [Build and deploy a Node.js web app in Azure App Service].
+   > 
+   > 
 
 ### Set environment variables
 In this step, you will add environment variables to your web app configuration on Azure.

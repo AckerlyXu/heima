@@ -14,7 +14,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/aog.png" src="media/index/aog.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -32,7 +32,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/developer.png" src="media/index/developer.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -50,7 +50,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/developer.png" src="media/index/developer.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted_pluralsight.svg" src="media/index/getstarted_pluralsight.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -1662,7 +1662,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h1>Languages &amp; Frameworks</h1>
+                                    <h2>Languages &amp; Frameworks</h2>
                                 </div>
                             </li>
                             <li>
@@ -1823,7 +1823,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                             <li>
                                 <div class="container">
-                                    <h1>Command Line Interface (CLI)</h1>
+                                    <h2>Command-Line Interface (CLI)</h2>
                                 </div>
                             </li>
                             <li>
@@ -1836,7 +1836,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 Preview
+                                                <h3>Azure CLI 2.0
                                                 </h3>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/cli/azure/get-started/">Get Started</a>
@@ -1902,7 +1902,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a target="_blank" href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/virtual-machines/azure-cli-arm-commands/">Reference</a>
+                                                    <a href="/virtual-machines/azure-cli-arm-commands?toc=%2fvirtual-machines%2flinux%2ftoc.json">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1911,7 +1911,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                             <li>
                                 <div class="container">
-                                    <h1>Tools &amp; Extensions</h1>
+                                    <h2>Tools &amp; Extensions</h2>
                                 </div>
                             </li>
                             <li>
@@ -2000,7 +2000,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a target="_blank" href="http://storageexplorer.com/">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer">Get Started</a>
                                                 </p>
                                                 <p>
                                                      <a  target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
@@ -2058,7 +2058,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </div>
                             </li>
                             <li>
-                                <a target="_blank" href="http://aka.ms/cloud-fundamentals">
+                                <a href="https://docs.microsoft.com/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2069,7 +2069,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Fundamentals</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
+                                                    <p>Fundamental knowledge to be successful in the cloud. If you're new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2077,7 +2077,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="http://aka.ms/architecture">
+                                <a href="https://docs.microsoft.com/azure/architecture/reference-architectures/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2096,7 +2096,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="http://aka.ms/cloud-design-patterns">
+                                <a href="https://docs.microsoft.com/azure/architecture/patterns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2115,7 +2115,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="http://aka.ms/practices">
+                                <a href="https://docs.microsoft.com/azure/architecture/best-practices/api-design">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2134,8 +2134,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a target="_blank" href="http://aka.ms/cloud-scenarios">
+<!--                            <li>
+                                <a href="https://docs.microsoft.com/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2154,7 +2154,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-                        </ul>
+-->                     </ul>
                     </li>
                 </ul>
             </li>
