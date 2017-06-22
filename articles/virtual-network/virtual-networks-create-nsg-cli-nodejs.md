@@ -80,9 +80,9 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
     Parameters:
 
-    * **-g (or --resource-group)**. Name of the resource group where the NSG will be created. For our scenario, *TestRG*.
-    * **-l (or --location)**. Azure region where the new NSG will be created. For our scenario, *chinanorth*.
-    * **-n (or --name)**. Name for the new NSG. For our scenario, *NSG-FrontEnd*.
+   * **-g (or --resource-group)**. Name of the resource group where the NSG will be created. For our scenario, *TestRG*.
+   * **-l (or --location)**. Azure region where the new NSG will be created. For our scenario, *chinanorth*.
+   * **-n (or --name)**. Name for the new NSG. For our scenario, *NSG-FrontEnd*.
 4. Run the **azure network nsg rule create** command to create a rule that allows access to port 3389 (RDP) from the Internet.
 
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
@@ -111,16 +111,16 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
     Parameters:
 
-    * **-a (or --nsg-name)**. Name of the NSG in which the rule will be created. For our scenario, *NSG-FrontEnd*.
-    * **-n (or --name)**. Name for the new rule. For our scenario, *rdp-rule*.
-    * **-c (or --access)**. Access level for the rule (Deny or Allow).
-    * **-p (or --protocol)**. Protocol (Tcp, Udp, or *) for the rule.
-    * **-r (or --direction)**. Direction of connection (Inbound or Outbound).
-    * **-y (or --priority)**. Priority for the rule.
-    * **-f (or --source-address-prefix)**. Source address prefix in CIDR or using default tags.
-    * **-o (or --source-port-range)**. Source port, or port range.
-    * **-e (or --destination-address-prefix)**. Destination address prefix in CIDR or using default tags.
-    * **-u (or --destination-port-range)**. Destination port, or port range.    
+   * **-a (or --nsg-name)**. Name of the NSG in which the rule will be created. For our scenario, *NSG-FrontEnd*.
+   * **-n (or --name)**. Name for the new rule. For our scenario, *rdp-rule*.
+   * **-c (or --access)**. Access level for the rule (Deny or Allow).
+   * **-p (or --protocol)**. Protocol (Tcp, Udp, or *) for the rule.
+   * **-r (or --direction)**. Direction of connection (Inbound or Outbound).
+   * **-y (or --priority)**. Priority for the rule.
+   * **-f (or --source-address-prefix)**. Source address prefix in CIDR or using default tags.
+   * **-o (or --source-port-range)**. Source port, or port range.
+   * **-e (or --destination-address-prefix)**. Destination address prefix in CIDR or using default tags.
+   * **-u (or --destination-port-range)**. Destination port, or port range.    
 5. Run the **azure network nsg rule create** command to create a rule that allows access to port 80 (HTTP) from the Internet.
 
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80

@@ -278,7 +278,6 @@ Before you migrate the storage account, please perform preceding prerequisite ch
         Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
 
     ```
-
     If above command returns disks then delete these disks using following command:
 
     ```powershell
@@ -287,23 +286,18 @@ Before you migrate the storage account, please perform preceding prerequisite ch
 * **Delete VM images stored in the storage account**
 
     Preceding command returns all the VM images with OS disk stored in the storage account.
-
-    ```powershell
+     ```powershell
         Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
                                 } | Select-Object -Property ImageName, ImageLabel
-    ```
-
-    Preceding command returns all the VM images with data disks stored in the storage account.
-
-    ```powershell
+     ```
+     Preceding command returns all the VM images with data disks stored in the storage account.
+     ```powershell
 
         Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
                                          -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
                                         } | Select-Object -Property ImageName, ImageLabel
-    ```
-
+     ```
     Delete all the VM images returned by above commands using preceding command:
-
     ```powershell
     Remove-AzureVMImage -ImageName 'yourImageName'
     ```

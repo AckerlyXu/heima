@@ -222,28 +222,28 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 1. To delete the resource group, add this method to the Program class:
 
-    ```
-    public static async void DeleteResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId)
-    {
-      Console.WriteLine("Deleting resource group...");
-      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
-        { SubscriptionId = subscriptionId };
-      await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-    }
-    ```
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
 
 2. To call the method that you just added, add this code to the Main method:
 
-    ```
-    DeleteResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId);
-    Console.ReadLine();
-    ```
+   ```
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## Step 8: Run the console application
 

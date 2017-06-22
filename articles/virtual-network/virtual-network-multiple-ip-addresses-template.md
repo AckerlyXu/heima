@@ -57,11 +57,11 @@ Each of the resources deployed by the template is configured with several defaul
 - **View the template on GitHub:** If you're familiar with templates, you can view the settings within the [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json).
 - **View the settings after deploying:** If you're not familiar with templates, you can deploy the template using steps in one of the following sections and then view the settings after deployment.
 
-You can use the Azure Portal, PowerShell, or the Azure command-line interface (CLI) to deploy the template. All methods produce the same result. To deploy the template, complete the steps in one of the following sections :
+You can use the Azure portal, PowerShell, or the Azure command-line interface (CLI) to deploy the template. All methods produce the same result. To deploy the template, complete the steps in one of the following sections :
 
-## Deploy using the Azure Portal
+## Deploy using the Azure portal
 
-To deploy the template using the Azure Portal, complete the following steps:
+To deploy the template using the Azure portal, complete the following steps:
 
 1. Modify the template, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-network%2ftoc.json)article.
 2. Deploy the template with one of the following methods:

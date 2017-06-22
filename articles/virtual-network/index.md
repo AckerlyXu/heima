@@ -48,7 +48,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Virtual Network using the Azure Portal</h3>
+                        <h3>Get Started with Virtual Network using the Azure portal</h3>
                     </div>
                 </div>
             </div>

@@ -31,8 +31,8 @@ Scheduled Events is one of the subservices under Azure Metadata Service that sur
 
 With Scheduled Events, you can take steps to limit the impact on your service. Multi-instance workloads, which use replication techniques to maintain state, may be vulnerable to frequent outages happening across multiple instances. Such outages may result in expensive tasks (for example, rebuilding indexes) or even a replica loss. In many other cases, using graceful shutdown sequence improves the overall service availability. For example, completing (or canceling) in-flight transactions, reassigning other tasks to other VMs in the cluster (manual failover), remove the Virtual Machine from a load balancer pool. There are cases where notifying an administrator about upcoming event or even just logging such an event help improving the serviceability of applications hosted in the cloud.
 Azure Metadata Service surfaces Scheduled Events in the following use cases:
-- Platform initiated maintenance (for example, Host OS rollout)
-- User initiated calls (for example, user restarts or redeploy a VM)
+-	Platform initiated maintenance (for example, Host OS rollout)
+-	User initiated calls (for example, user restarts or redeploy a VM)
 
 ## Scheduled Events - The Basics  
 
@@ -207,7 +207,6 @@ The following sample is of a client surfacing APIs to communicate with the Metad
     }
 
 ```
-
 Scheduled Events could be parsed using the following data structures 
 
 ```csharp

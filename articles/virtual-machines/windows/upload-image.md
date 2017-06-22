@@ -31,13 +31,13 @@ You can upload both generalized and specialized VHDs to Azure. Each type require
 
 * **Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should:
 
-    * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
-    * [Generalize the virtual machine using Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
+  * [Generalize the virtual machine using Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). 
 * **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
 
-    * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
-    * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
-    * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
+  * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
+  * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
 
 ## Log in to Azure
 If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -92,11 +92,11 @@ If you need to create a storage account, follow these steps:
 
     Valid values for -SkuName are:
 
-    * **Standard_LRS** - Locally redundant storage. 
-    * **Standard_ZRS** - Zone redundant storage.
-    * **Standard_GRS** - Geo redundant storage. 
-    * **Standard_RAGRS** - Read access geo redundant storage. 
-    * **Premium_LRS** - Premium locally redundant storage. 
+   * **Standard_LRS** - Locally redundant storage. 
+   * **Standard_ZRS** - Zone redundant storage.
+   * **Standard_GRS** - Geo redundant storage. 
+   * **Standard_RAGRS** - Read access geo redundant storage. 
+   * **Premium_LRS** - Premium locally redundant storage. 
 
 ## Upload the VHD to your storage account
 Use the [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.

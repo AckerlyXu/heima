@@ -134,6 +134,19 @@ Your Azure subscription information is used by the tool to connect to your accou
 
     config mode [options] <modename>
 
+## azure feature: commands to manage account features
+**List all features available for your subscription**
+
+    feature list [options]
+
+**Shows a feature**
+
+    feature show [options] <providerName> <featureName>
+
+**Registers a previewed feature of a resource provider**
+
+    feature register [options] <providerName> <featureName>
+
 ## azure group: Commands to manage your resource groups
 **Creates a resource group**
 

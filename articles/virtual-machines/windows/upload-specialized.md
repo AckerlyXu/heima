@@ -107,11 +107,11 @@ If you need to create a storage account, follow these steps:
 
     Valid values for -SkuName are:
 
-    * **Standard_LRS** - Locally redundant storage. 
-    * **Standard_ZRS** - Zone redundant storage.
-    * **Standard_GRS** - Geo redundant storage. 
-    * **Standard_RAGRS** - Read access geo redundant storage. 
-    * **Premium_LRS** - Premium locally redundant storage. 
+   * **Standard_LRS** - Locally redundant storage. 
+   * **Standard_ZRS** - Zone redundant storage.
+   * **Standard_GRS** - Geo redundant storage. 
+   * **Standard_RAGRS** - Read access geo redundant storage. 
+   * **Premium_LRS** - Premium locally redundant storage. 
 
 ## Upload the VHD to your storage account
 
@@ -152,9 +152,9 @@ You can also upload a VHD to your storage account using one of the following:
 
 -   [Storage Import/Export Service REST API Reference](https://docs.microsoft.com/rest/api/storageimportexport/)
 
-    We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
+	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 
-    Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
+	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
 ## Create the subNet and vNet
 

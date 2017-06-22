@@ -55,24 +55,24 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
     Use the following PowerShell commands:
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+  ```powershell
+  Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location chinanorth -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
+  Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location chinanorth -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
+  ```
 
-    This command gives you the input for the Azure Resource Manager template.
+  This command gives you the input for the Azure Resource Manager template.
 
-    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security).
+  For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/service-fabric-cluster-security/).
 
 2.  Change the Resource Manager template.
 
-    Add this property to **virtualMachineProfile**, as part of the virtual machine scale set resource:
+  Add this property to **virtualMachineProfile**, as part of the virtual machine scale set resource:
 
-    ```json 
-    "osProfile": {
+  ```json 
+  "osProfile": {
               "computerNamePrefix": "[variables('namingInfix')]",
               "adminUsername": "[parameters('adminUsername')]",
               "adminPassword": "[parameters('adminPassword')]",
@@ -90,7 +90,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
                 }
               ]
             }
-    ```
+  ```
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?  
 

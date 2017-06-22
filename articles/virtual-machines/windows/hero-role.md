@@ -43,7 +43,7 @@ If you haven't already created your first VM, you should go back to [Create your
     ![Screenshot of entering the VM name, user name, and password](./media/hero-role/credentials.png)
 5. You get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
-    ![Screenshot showing a message abut verifying the identity of the VM](./media/hero-role/cert-warning.png)
+   ![Screenshot showing a message abut verifying the identity of the VM](./media/hero-role/cert-warning.png)
 
 If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 

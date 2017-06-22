@@ -1745,14 +1745,14 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-More details can be found in this documentation: </virtual-machines/virtual-machines-manage-availability>
+More details can be found in this documentation: <https://docs.azure.cn/virtual-machines/virtual-machines-manage-availability>
 
 #### Azure Storage Redundancy
 The data in your Azure Storage Account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures
 
 Since Azure Storage is keeping 3 images of the data by default, RAID5 or RAID1 across multiple Azure disks are not necessary.
 
-More details can be found in this article: <https://review.docs.azure.cn/storage/storage-redundancy/>
+More details can be found in this article: <https://docs.azure.cn/storage/storage-redundancy/>
 
 #### Utilizing Azure Infrastructure VM Restart to Achieve "Higher Availability" of SAP Applications
 If you decide not to use functionalities like Windows Server Failover Clustering (WSFC) or a Linux equivalent ( the latter one is not supported yet on Azure in combination with SAP software ), Azure VM Restart is utilized to protect a SAP System against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
@@ -1799,7 +1799,7 @@ Deploying a few SAP application server instances in their dedicated VMs and assu
 
 ![HA of SAP Application Servers in Azure][planning-guide-figure-3000]
 
-More details can be found in this documentation: </virtual-machines/virtual-machines-manage-availability>
+More details can be found in this documentation: <https://docs.azure.cn/virtual-machines/virtual-machines-manage-availability>
 
 #### High Availability for the SAP (A)SCS instance on Windows
 Windows Server Failover Cluster (WSFC) is a frequently used solution to protect the SAP (A)SCS instance. It is also integrated into sapinst in form of a "HA installation". At this point in time the Azure infrastructure is not able to provide the functionality to set up the required Windows Server Failover Cluster the same way as it's done on-premises.
@@ -1827,7 +1827,7 @@ High Availability and Disaster recovery functionality for DBMS in general as wel
 
 #### End-to-End High Availability for the Complete SAP System
 Here are two examples of a complete SAP NetWeaver HA architecture in Azure - one for Windows and one for Linux.
-The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind ( </storage/storage-scalability-targets> )
+The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind ( <https://docs.azure.cn/storage/storage-scalability-targets> )
 
 ##### ![Windows][Logo_Windows] HA on Windows
 ![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3200]

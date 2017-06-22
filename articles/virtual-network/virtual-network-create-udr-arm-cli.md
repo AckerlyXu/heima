@@ -102,7 +102,6 @@ To create the route table and route needed for the front end subnet based on the
     "resourceGroup": "testrg"
     }
     ```
-
     Parameters:
 
     * **--route-table-name**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.

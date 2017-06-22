@@ -123,10 +123,10 @@ Next, configure SQL Server 2014 to use the F: drive for new databases and for us
 3. In the Object Explorer tree pane, right-click **SQL1**, and then click **Properties**.
 4. In the **Server Properties** window, click **Database Settings**.
 5. Locate the **Database default locations** and set these values: 
-    * For **Data**, type the path **f:\Data**.
-    * For **Log**, type the path **f:\Log**.
-    * For **Backup**, type the path **f:\Backup**.
-    * Note: Only new databases use these locations.
+   * For **Data**, type the path **f:\Data**.
+   * For **Log**, type the path **f:\Log**.
+   * For **Backup**, type the path **f:\Backup**.
+   * Note: Only new databases use these locations.
 6. Click the **OK** to close the window.
 7. In the **Object Explorer** tree pane, open **Security**.
 8. Right-click **Logins** and then click **New Login**.

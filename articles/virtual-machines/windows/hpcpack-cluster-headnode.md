@@ -52,15 +52,15 @@ Pack head node by using the Resource Manager deployment model.
     ![HPC Pack image][marketplace]
 4. Use the portal to configure the settings and create the VM. If you're new to Azure, follow the tutorial [Create a Windows virtual machine in the Azure portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For a proof of concept deployment, you can usually accept the default or recommended settings.
 
-    > [!NOTE]
-    > If you want to join the head node to an existing Active Directory domain in Azure, make sure you specify the virtual network for that domain when creating the VM.
-    > 
-    > 
+   > [!NOTE]
+   > If you want to join the head node to an existing Active Directory domain in Azure, make sure you specify the virtual network for that domain when creating the VM.
+   > 
+   > 
 5. After you create the VM and the VM is running, [connect to the VM](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) by Remote Desktop. 
 6. Join the VM to an Active Directory domain forest by choosing one of the following options:
 
-    * If you created the VM in an Azure virtual network with an existing domain forest, join the VM to the forest by using standard Server Manager or Windows PowerShell tools. Then restart.
-    * If you created the VM in a new virtual network (without an existing domain forest), then promote the VM as a domain controller. Use standard steps to install and configure the Active Directory Domain Services role on the head node. For detailed steps, see [Install a New Windows Server 2012 Active Directory Forest](https://technet.microsoft.com/library/jj574166.aspx).
+   * If you created the VM in an Azure virtual network with an existing domain forest, join the VM to the forest by using standard Server Manager or Windows PowerShell tools. Then restart.
+   * If you created the VM in a new virtual network (without an existing domain forest), then promote the VM as a domain controller. Use standard steps to install and configure the Active Directory Domain Services role on the head node. For detailed steps, see [Install a New Windows Server 2012 Active Directory Forest](https://technet.microsoft.com/library/jj574166.aspx).
 7. After the VM is running and is joined to an Active Directory forest, start the HPC Pack services as follows:
 
     a. Connect to the head node VM using a domain account that is a member of the local Administrators group. For example, use the administrator account you set up when you created the head node VM.

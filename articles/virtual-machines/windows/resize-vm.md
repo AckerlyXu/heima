@@ -72,29 +72,29 @@ If the new size for a VM in an availability set is not available on the hardware
 3. If the desired size is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
 4. Stop all VMs in the availability set.
 
-    ```powershell
-    $rg = "<resourceGroupName>"
-    $as = Get-AzureRmAvailabilitySet -ResourceGroupName $rg
-    $vmIds = $as.VirtualMachinesReferences
-    foreach ($vmId in $vmIDs){
-        $string = $vmID.Id.Split("/")
-        $vmName = $string[8]
-        Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
-    } 
-    ```
+   ```powershell
+   $rg = "<resourceGroupName>"
+   $as = Get-AzureRmAvailabilitySet -ResourceGroupName $rg
+   $vmIds = $as.VirtualMachinesReferences
+   foreach ($vmId in $vmIDs){
+     $string = $vmID.Id.Split("/")
+     $vmName = $string[8]
+     Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
+   } 
+   ```
 5. Resize and restart the VMs in the availability set.
 
-    ```powershell
-    $rg = "<resourceGroupName>"
-    $newSize = "<newVmSize>"
-    $as = Get-AzureRmAvailabilitySet -ResourceGroupName $rg
-    $vmIds = $as.VirtualMachinesReferences
-    foreach ($vmId in $vmIDs){
-        $string = $vmID.Id.Split("/")
-        $vmName = $string[8]
-        $vm = Get-AzureRmVM -ResourceGroupName $rg -Name $vmName
-        $vm.HardwareProfile.VmSize = $newSize
-        Update-AzureRmVM -ResourceGroupName $rg -VM $vm
-        Start-AzureRmVM -ResourceGroupName $rg -Name $vmName
-    }
-    ```
+   ```powershell
+   $rg = "<resourceGroupName>"
+   $newSize = "<newVmSize>"
+   $as = Get-AzureRmAvailabilitySet -ResourceGroupName $rg
+   $vmIds = $as.VirtualMachinesReferences
+   foreach ($vmId in $vmIDs){
+     $string = $vmID.Id.Split("/")
+     $vmName = $string[8]
+     $vm = Get-AzureRmVM -ResourceGroupName $rg -Name $vmName
+     $vm.HardwareProfile.VmSize = $newSize
+     Update-AzureRmVM -ResourceGroupName $rg -VM $vm
+     Start-AzureRmVM -ResourceGroupName $rg -Name $vmName
+   }
+   ```

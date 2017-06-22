@@ -30,12 +30,12 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 5. Select **Download** and save the .zip file to your local computer.
 6. Open the .zip file and extract the files to a folder. The .zip file will contain:
 
-    * deploy.ps1
-    * deploy.sh 
-    * deployer.rb
-    * DeploymentHelper.cs
-    * parameters.json
-    * template.json
+   * deploy.ps1
+   * deploy.sh 
+   * deployer.rb
+   * DeploymentHelper.cs
+   * parameters.json
+   * template.json
 
 The template.json file is the template.
 

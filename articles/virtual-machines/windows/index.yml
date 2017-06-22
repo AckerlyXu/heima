@@ -13,7 +13,7 @@ metadata:
   ms.topic: landing-page
   origin.date: 01/23/2017
   ms.date: 06/20/2017
-  ms.author: carolz
+  ms.author: v-dazen
 abstract:
   description: Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
 sections:

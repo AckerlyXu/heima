@@ -44,7 +44,6 @@ For Windows Server:
 ```powershell
 Get-AzureRmVMImagesku -Location chinanorth -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-
 - 2016-Datacenter version 2016.127.20170406 or above
 
 - 2012-R2-Datacenter version 4.127.20170406 or above

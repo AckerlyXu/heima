@@ -134,6 +134,6 @@ The following passwords are not allowed:
     </tr>
 </table>
 
-## 我的 windows 虚拟机为何会被自动重启？
+## Why my Windows Virtual Machines restart automatically?
 
-答：通过 Azure 平台部署的 windows 虚拟机，依照最佳实践方案，默认启用了 windows 自动更新，来保证系统的更新和安全。遇到重大更新的时候，虚拟机会自动重启虚拟机，使之生效。如果您不希望自动更新影响到您的在线运行，可以在部署完毕以后，选择自动下载更新但是手动安装。
+Answer: According to the best practice scenario, the Windows Virtual Machines deployed through Azure Platform, enable Windows automatic updates by default to ensure the system updates and security. When there is a significant update, the virtual machines will restart automatically to active the update. If you don't this affect your Virtual Machine, you can choose automatic download updates but manual installation after the VM Deployment is completed.

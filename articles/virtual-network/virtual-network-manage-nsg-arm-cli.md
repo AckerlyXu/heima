@@ -333,7 +333,7 @@ In the output, the `networkSecurityGroup` key has something similar for the valu
     "tags": null,
     "type": null
   }
-```
+  ```
 
 ## Delete an NSG
 You can only delete an NSG if it's not associated to any resource. To delete an NSG, follow the steps below.

@@ -39,32 +39,31 @@ The following steps show you how to get the VHD disk to be copied, create the sn
 
 1. Set some parameters. 
 
-    ```powershell
-    $resourceGroupName = 'myResourceGroup' 
-    $location = 'chinaeast' 
-    $dataDiskName = 'ContosoMD_datadisk1' 
-    $snapshotName = 'ContosoMD_datadisk1_snapshot1'  
-    ```
-    Replace the parameter values:
-
-    -  "myResourceGroup" with the VM's resource group.
-    -  "chinaeast" with the geographic location where you want your Managed Snapshot stored. <!---How do you look these up? -->
-    -  "ContosoMD_datadisk1" with the name of the VHD disk that you want to copy.
-    -  "ContosoMD_datadisk1_snapshot1" with the name you want to use for the new snapshot.
+  ```powershell
+  $resourceGroupName = 'myResourceGroup' 
+  $location = 'chinaeast' 
+  $dataDiskName = 'ContosoMD_datadisk1' 
+  $snapshotName = 'ContosoMD_datadisk1_snapshot1'  
+  ```
+  Replace the parameter values:
+  -  "myResourceGroup" with the VM's resource group.
+  -  "chinaeast" with the geographic location where you want your Managed Snapshot stored. <!---How do you look these up? -->
+  -  "ContosoMD_datadisk1" with the name of the VHD disk that you want to copy.
+  -  "ContosoMD_datadisk1_snapshot1" with the name you want to use for the new snapshot.
 
 2. Get the VHD disk to be copied.
 
-    ```powershell
-    $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
-    ```
+  ```powershell
+  $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
+  ```
 3. Create the snapshot configurations. 
 
-    ```powershell
-    $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
-    ```
+  ```powershell
+  $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
+  ```
 4. Take the snapshot.
 
-    ```powershell
-    New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
-    ```
+  ```powershell
+  New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
+  ```
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.

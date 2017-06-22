@@ -41,61 +41,61 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
 
 1. Delete the affected VM in Azure portal. Deleting the VM only deletes the metadata, the reference of the VM within Azure. The virtual disks are retained when the VM is deleted:
 
-    * Select the VM in the Azure portal, click *Delete*:
+   * Select the VM in the Azure portal, click *Delete*:
 
-        ![Delete existing VM](./media/reset-local-password-without-agent/delete_vm.png)
+     ![Delete existing VM](./media/reset-local-password-without-agent/delete_vm.png)
 2. Attach the source VM's OS disk to the troubleshooting VM. The troubleshooting VM must be in the same region as the source VM's OS disk (such as `China North`):
 
-    * Select the troubleshooting VM in the Azure portal. Click *Disks* | *Attach existing*:
+   * Select the troubleshooting VM in the Azure portal. Click *Disks* | *Attach existing*:
 
-        ![Attach existing disk](./media/reset-local-password-without-agent/disks_attach_existing.png)
+     ![Attach existing disk](./media/reset-local-password-without-agent/disks_attach_existing.png)
 
-        Select *VHD File* and then select the storage account that contains your source VM:
+     Select *VHD File* and then select the storage account that contains your source VM:
 
-        ![Select storage account](./media/reset-local-password-without-agent/disks_select_storageaccount.png)
+     ![Select storage account](./media/reset-local-password-without-agent/disks_select_storageaccount.PNG)
 
-        Select the source container. The source container is typically *vhds*:
+     Select the source container. The source container is typically *vhds*:
 
-        ![Select storage container](./media/reset-local-password-without-agent/disks_select_container.png)
+     ![Select storage container](./media/reset-local-password-without-agent/disks_select_container.png)
 
-        Select the OS vhd to attach. Click *Select* to complete the process:
+     Select the OS vhd to attach. Click *Select* to complete the process:
 
-        ![Select source virtual disk](./media/reset-local-password-without-agent/disks_select_source_vhd.png)
+     ![Select source virtual disk](./media/reset-local-password-without-agent/disks_select_source_vhd.png)
 3. Connect to the troubleshooting VM using Remote Desktop and ensure the source VM's OS disk is visible:
 
-    * Select the troubleshooting VM in the Azure portal and click *Connect*.
-    * Open the RDP file that downloads. Enter the username and password of the troubleshooting VM.
-    * In File Explorer, look for the data disk you attached. If the source VM's VHD is the only data disk attached to the troubleshooting VM, it should be the F: drive:
+   * Select the troubleshooting VM in the Azure portal and click *Connect*.
+   * Open the RDP file that downloads. Enter the username and password of the troubleshooting VM.
+   * In File Explorer, look for the data disk you attached. If the source VM's VHD is the only data disk attached to the troubleshooting VM, it should be the F: drive:
 
-        ![View attached data disk](./media/reset-local-password-without-agent/troubleshooting_vm_fileexplorer.png)
+     ![View attached data disk](./media/reset-local-password-without-agent/troubleshooting_vm_fileexplorer.png)
 4. Create `gpt.ini` in `\Windows\System32\GroupPolicy` on the source VM's drive (if gpt.ini exists, rename to gpt.ini.bak):
 
-    > [!WARNING]
-    > Make sure that you do not accidentally create the following files in C:\Windows, the OS drive for the troubleshooting VM. Create the following files in the OS drive for your source VM that is attached as a data disk.
-    > 
-    > 
+   > [!WARNING]
+   > Make sure that you do not accidentally create the following files in C:\Windows, the OS drive for the troubleshooting VM. Create the following files in the OS drive for your source VM that is attached as a data disk.
+   > 
+   > 
 
-    * Add the following lines into the `gpt.ini` file you created:
+   * Add the following lines into the `gpt.ini` file you created:
 
-        ```
-        [General]
-        gPCFunctionalityVersion=2
-        gPCMachineExtensionNames=[{42B5FAAE-6536-11D2-AE5A-0000F87571E3}{40B6664F-4972-11D1-A7CA-0000F87571E3}]
-        Version=1
-        ```
+     ```
+     [General]
+     gPCFunctionalityVersion=2
+     gPCMachineExtensionNames=[{42B5FAAE-6536-11D2-AE5A-0000F87571E3}{40B6664F-4972-11D1-A7CA-0000F87571E3}]
+     Version=1
+     ```
 
-        ![Create gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
+     ![Create gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
 5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
 
-    * Add the following lines the `scripts.ini` file you created:
+   * Add the following lines the `scripts.ini` file you created:
 
-        ```
-        [Startup]
-        0CmdLine=C:\Windows\System32\FixAzureVM.cmd
-        0Parameters=
-        ```
+     ```
+     [Startup]
+     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0Parameters=
+     ```
 
-        ![Create scripts.ini](./media/reset-local-password-without-agent/create_scripts_ini.png)
+     ![Create scripts.ini](./media/reset-local-password-without-agent/create_scripts_ini.png)
 6. Create `FixAzureVM.cmd` in `\Windows\System32` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
 
     ```
@@ -110,27 +110,27 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
     You must meet the configured password complexity requirements for your VM when defining the new password.
 7. In Azure portal, detach the disk from the troubleshooting VM:
 
-    * Select the troubleshooting VM in the Azure portal, click *Disks*.
-    * Select the data disk attached in step 2, click *Detach*:
+   * Select the troubleshooting VM in the Azure portal, click *Disks*.
+   * Select the data disk attached in step 2, click *Detach*:
 
-        ![Detach disk](./media/reset-local-password-without-agent/detach_disk.png)
+     ![Detach disk](./media/reset-local-password-without-agent/detach_disk.png)
 8. Before you create a VM, obtain the URI to your source OS disk:
 
-    * Select the storage account in the Azure portal, click *Blobs*.
-    * Select the container. The source container is typically *vhds*:
+   * Select the storage account in the Azure portal, click *Blobs*.
+   * Select the container. The source container is typically *vhds*:
 
-        ![Select storage account blob](./media/reset-local-password-without-agent/select_storage_details.png)
+     ![Select storage account blob](./media/reset-local-password-without-agent/select_storage_details.png)
 
-        Select your source VM OS VHD and click the *Copy* button next to the *URL* name:
+     Select your source VM OS VHD and click the *Copy* button next to the *URL* name:
 
-        ![Copy disk URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
+     ![Copy disk URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Create a VM from the source VM's OS disk:
 
-    * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
-    * If you want to retain all the previous settings for the VM, select *Edit template* to provide your existing VNet, subnet, network adapter, or public IP.
-    * In the `OSDISKVHDURI` parameter text box, paste the URI of your source VHD obtain in the preceding step:
+   * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
+   * If you want to retain all the previous settings for the VM, select *Edit template* to provide your existing VNet, subnet, network adapter, or public IP.
+   * In the `OSDISKVHDURI` parameter text box, paste the URI of your source VHD obtain in the preceding step:
 
-        ![Create a VM from template](./media/reset-local-password-without-agent/create_new_vm_from_template.png)
+     ![Create a VM from template](./media/reset-local-password-without-agent/create_new_vm_from_template.png)
 10. After the new VM is running, connect to the VM using Remote Desktop with the new password you specified in the `FixAzureVM.cmd` script.
 11. From your remote session to the new VM, remove the following files to clean up the environment:
 

@@ -49,7 +49,7 @@ All resources must be deployed in a [resource group](../../azure-resource-manage
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
     ```
 
-    You should see something like this example:
+  You should see something like this example:
 
     ```powershell 
     ResourceGroupName : myResourceGroup
@@ -65,7 +65,6 @@ Deploy the template and provide parameter values when prompted. This example dep
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json" 
 ```
-
 You're asked to provide the name of the administrator account on the VM, the password of the account, and the DNS prefix.
 
 You should see something like this example:

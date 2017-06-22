@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with a static public IP address using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Template](virtual-network-deploy-static-pip-arm-template.md)

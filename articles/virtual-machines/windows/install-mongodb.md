@@ -37,11 +37,11 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 2. Select **Use recommended security, privacy, and compatibility settings** when Internet Explorer first opens, and click **OK**.
 3. Internet Explorer enhanced security configuration is enabled by default. Add the MongoDB website to the list of allowed sites:
 
-    * Select the **Tools** icon in the upper-right corner.
-    * In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon.
-    * Click the **Sites** button. Add *https://\*.mongodb.org* to the list of trusted sites, and then close the dialog box.
+   * Select the **Tools** icon in the upper-right corner.
+   * In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon.
+   * Click the **Sites** button. Add *https://\*.mongodb.org* to the list of trusted sites, and then close the dialog box.
 
-        ![Configure Internet Explorer security settings](./media/install-mongodb/configure-internet-explorer-security.png)
+     ![Configure Internet Explorer security settings](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Browse to the [MongoDB - Downloads](http://www.mongodb.org/downloads) page (http://www.mongodb.org/downloads).
 5. If needed, select the **Community Server** edition and then select the latest current stable release for Windows Server 2008 R2 64-bit and later. To download the installer, click **DOWNLOAD (msi)**.
 
@@ -54,20 +54,20 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 ## Configure the VM and MongoDB
 1. The path variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your path variable, you need to specify the full path each time you use a MongoDB executable. To add the location to your path variable:
 
-    * Right-click the **Start** menu, and select **System**.
-    * Click **Advanced system settings**, and then click **Environment Variables**.
-    * Under **System variables**, select **Path**, and then click **Edit**.
+   * Right-click the **Start** menu, and select **System**.
+   * Click **Advanced system settings**, and then click **Environment Variables**.
+   * Under **System variables**, select **Path**, and then click **Edit**.
 
-        ![Configure PATH variables](./media/install-mongodb/configure-path-variables.png)
+     ![Configure PATH variables](./media/install-mongodb/configure-path-variables.png)
 
-        Add the path to your MongoDB `bin` folder. MongoDB is typically installed in *C:\Program Files\MongoDB*. Verify the installation path on your VM. The following example adds the default MongoDB install location to the `PATH` variable:
+     Add the path to your MongoDB `bin` folder. MongoDB is typically installed in *C:\Program Files\MongoDB*. Verify the installation path on your VM. The following example adds the default MongoDB install location to the `PATH` variable:
 
-        ```
-        ;C:\Program Files\MongoDB\Server\3.2\bin
-        ```
+     ```
+     ;C:\Program Files\MongoDB\Server\3.2\bin
+     ```
 
-        > [!NOTE]
-        > Be sure to add the leading semicolon (`;`) to indicate that you are adding a location to your `PATH` variable.
+     > [!NOTE]
+     > Be sure to add the leading semicolon (`;`) to indicate that you are adding a location to your `PATH` variable.
 
 2. Create MongoDB data and log directories on your data disk. From the **Start** menu, select **Command Prompt**. The following examples create the directories on drive F:
 
@@ -83,8 +83,8 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 
     It may take several minutes for MongoDB to allocate the journal files and start listening for connections. All log messages are directed to the *F:\MongoLogs\mongolog.log* file as `mongod.exe` server starts and allocates journal files.
 
-    > [!NOTE]
-    > The command prompt stays focused on this task while your MongoDB instance is running. Leave the command prompt window open to continue running MongoDB. Or, install MongoDB as service, as detailed in the next step.
+   > [!NOTE]
+   > The command prompt stays focused on this task while your MongoDB instance is running. Leave the command prompt window open to continue running MongoDB. Or, install MongoDB as service, as detailed in the next step.
 
 4. For a more robust MongoDB experience, install the `mongod.exe` as a service. Creating a service means you don't need to leave a command prompt running each time you want to use MongoDB. Create the service as follows, adjusting the path to your data and log directories accordingly:
 
@@ -95,11 +95,11 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 
     The preceding command creates a service named MongoDB, with a description of "Mongo DB". The following parameters are also specified:
 
-    * The `--dbpath` option specifies the location of the data directory.
-    * The `--logpath` option must be used to specify a log file, because the running service does not have a command window to display output.
-    * The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.
+   * The `--dbpath` option specifies the location of the data directory.
+   * The `--logpath` option must be used to specify a log file, because the running service does not have a command window to display output.
+   * The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.
 
-    To start the MongoDB service, run the following command:
+   To start the MongoDB service, run the following command:
 
     ```
     net start MongoDB

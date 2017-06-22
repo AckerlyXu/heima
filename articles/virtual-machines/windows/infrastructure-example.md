@@ -34,8 +34,8 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
 * Two Microsoft SQL Server instances with AlwaysOn availability groups (two SQL Servers and a majority node witness) for storing product data and orders in a database tier
 * Two Active Directory domain controllers for customer accounts and suppliers in an authentication tier
 * All the servers are located in two subnets:
-    * a front-end subnet for the web servers 
-    * a back-end subnet for the application servers, SQL cluster, and domain controllers
+  * a front-end subnet for the web servers 
+  * a back-end subnet for the application servers, SQL cluster, and domain controllers
 
 ![Diagram of different tiers for application infrastructure](./media/infrastructure-example/example-tiers.png)
 
@@ -76,11 +76,11 @@ They created a cloud-only virtual network with the following settings using the 
 * Location: China East
 * Virtual network address space: 10.0.0.0/8
 * First subnet:
-    * Name: FrontEnd
-    * Address space: 10.0.1.0/24
+  * Name: FrontEnd
+  * Address space: 10.0.1.0/24
 * Second subnet:
-    * Name: BackEnd
-    * Address space: 10.0.2.0/24
+  * Name: BackEnd
+  * Address space: 10.0.2.0/24
 
 ## Availability sets
 To maintain high availability of all four tiers of their on-line store, Adventure Works Cycles decided on four availability sets:

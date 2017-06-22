@@ -134,9 +134,9 @@ $cred = Get-Credential
 
 3. Add the VM name and size to the VM configuration.
 
-    ```powershell
-    $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-    ```
+```powershell
+$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+```
 
 ## Set the VM image as source image for the new VM
 

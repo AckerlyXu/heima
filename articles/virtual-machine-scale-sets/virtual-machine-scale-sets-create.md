@@ -22,7 +22,7 @@ ms.author: v-dazen
 # Create and deploy a virtual machine scale set
 Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual machine scale sets](virtual-machine-scale-sets-overview.md).
 
-This tutorial shows you how to create a virtual machine scale set **without** using the Azure Portal. For information about how to use the Azure Portal, see [How to create a virtual machine scale set with the Azure Portal](virtual-machine-scale-sets-portal-create.md).
+This tutorial shows you how to create a virtual machine scale set **without** using the Azure portal. For information about how to use the Azure portal, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 >[!NOTE]
 >For more information about Azure Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -168,7 +168,7 @@ You can deploy a virtual machine scale set by using an Azure Resource Manager te
 >[!NOTE]
 >To create your own template, you create a JSON text file. For general information about how to create and customize a template, see [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
-A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information about how to create and use that sample, see [Minimum viable scale set](./virtual-machine-scale-sets-mvss-start.md).
+A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information about how to create and use that sample, see [Minimum viable scale set](.\virtual-machine-scale-sets-mvss-start.md).
 
 ## Create from Visual Studio
 
