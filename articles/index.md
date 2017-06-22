@@ -1664,6 +1664,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <li>
                                 <div class="container">
                                     <h2>Languages &amp; Frameworks</h2>
+                                    <p>The content of this page comes from Global Microsoft AZURE Site, for the supportibility differences of SDK/Tools for Azure in China, please refer to <a href="/articles/developerdifferences">Developer Notes for Azure in China.</a></p>
                                 </div>
                             </li>
                             <li>
