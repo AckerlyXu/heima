@@ -1,11 +1,12 @@
 ---
 layout: HubPage
 hide_bc: true
-title: Microsoft Azure Documentation | Microsoft Docs
+title: Azure Documentation | Microsoft Docs
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
     <div class="container">
+        <h1 class="screenReader">Azure Documentation</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/articles/">
@@ -18,7 +19,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure Operations Guide</span>
+                                    <span class="likeAnH3">Operations Guide of Azure in China</span>
                                 </div>
                             </div>
                         </div>
@@ -1676,16 +1677,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Get the .NET SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/net/">Get started</a>
+                                                    <a target="_blank" href="https://azure.microsoft.com/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/net/">Learn more</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1757,16 +1755,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-java#download">Get the Java SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/java/">Get started</a>
+                                                    <a target="_blank" href="https://azure.microsoft.com/develop/java/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/java/api/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/java/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1903,137 +1898,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </p>
                                                 <p>
                                                     <a href="/virtual-machines/azure-cli-arm-commands?toc=%2fvirtual-machines%2flinux%2ftoc.json">Reference</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container">
-                                    <h2>Tools &amp; Extensions</h2>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-9.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Download</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-10.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://github.com/Microsoft/DockerToolsDocs">Docker Tools</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780680">Download for Visual Studio</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780681">Download for Visual Studio Code</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780682">Download for Team Services</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-8.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Download</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-11.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="http://storageexplorer.com/">Storage Explorer</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer">Get Started</a>
-                                                </p>
-                                                <p>
-                                                     <a  target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708342">Download for Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708343">Download for Windows</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-2.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://www.visualstudio.com/vs/python">Python Tools</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Get Started with Visual Studio</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Get Started with Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
