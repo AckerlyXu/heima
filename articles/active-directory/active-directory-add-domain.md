@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2016
+origin.date: 05/16/2016
 ms.author: v-junlch
-ms.date: 06/12/2017
+ms.date: 06/21/2017
 ---
 # Add a custom domain name to Azure Active Directory
 
