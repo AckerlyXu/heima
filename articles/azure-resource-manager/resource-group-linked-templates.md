@@ -4,7 +4,7 @@ description: Describes how to use linked templates in an Azure Resource Manager 
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2

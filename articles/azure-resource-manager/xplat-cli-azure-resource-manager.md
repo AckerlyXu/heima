@@ -2,7 +2,7 @@
 title: Manage resources with the Azure CLI | Azure
 description: Use the Azure Command-Line Interface (CLI) to manage Azure resources and groups
 editor: ''
-manager: timlt
+manager: digimobile
 documentationcenter: ''
 author: tfitzmac
 services: azure-resource-manager

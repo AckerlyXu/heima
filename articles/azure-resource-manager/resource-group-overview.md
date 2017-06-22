@@ -4,7 +4,7 @@ description: Describes how to use Azure Resource Manager for deployment, managem
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961

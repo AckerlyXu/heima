@@ -4,7 +4,7 @@ description: Describes the resource providers that support Resource Manager, the
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b

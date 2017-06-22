@@ -4,7 +4,7 @@ description: Describes how to use Azure PowerShell to create an Azure Active Dir
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff

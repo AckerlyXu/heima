@@ -4,7 +4,7 @@ description: Use copy operation and arrays in an Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: ''
 
 ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca

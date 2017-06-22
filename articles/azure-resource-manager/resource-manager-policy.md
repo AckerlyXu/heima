@@ -4,7 +4,7 @@ description: Describes how to use Azure Resource Manager policies to ensure cons
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: abde0f73-c0fe-4e6d-a1ee-32a6fce52a2d

@@ -4,7 +4,7 @@ description: Shows best practices for designing Azure Resource Manager templates
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: ce1141d6-ece7-4976-acea-1db1f775409e

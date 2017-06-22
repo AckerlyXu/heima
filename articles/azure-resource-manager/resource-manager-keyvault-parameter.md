@@ -4,7 +4,7 @@ description: Shows how to pass a secret from a key vault as a parameter during d
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: c582c144-4760-49d3-b793-a3e1e89128e2

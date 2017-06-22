@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b

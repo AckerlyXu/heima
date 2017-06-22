@@ -4,7 +4,7 @@ description: Describes a scaffold that enterprises can use to ensure a secure an
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 8692f37e-4d33-4100-b472-a8da37ce628f

@@ -4,7 +4,7 @@ description: Describes the structure and properties of Azure Resource Manager te
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5

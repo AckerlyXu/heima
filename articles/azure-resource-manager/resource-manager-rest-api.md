@@ -4,7 +4,7 @@ description: An overview of the Resource Manager REST APIs authentication and us
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
-manager: timlt
+manager: digimobile
 editor: ''
 
 ms.assetid: e8d7a1d2-1e82-4212-8288-8697341408c5

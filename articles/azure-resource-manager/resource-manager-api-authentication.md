@@ -4,7 +4,7 @@ description: A developer's guide to authentication with the Azure Resource Manag
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088

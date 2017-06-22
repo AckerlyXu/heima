@@ -4,7 +4,7 @@ description: Sample script for deploying an Azure Resource Manager template.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 

@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd

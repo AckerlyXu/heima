@@ -4,7 +4,7 @@ description: A step-by-step guide to creating your first Azure Resource Manager 
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 

@@ -4,7 +4,7 @@ description: Describes the differences between the Resource Manager deployment m
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 7ae0ffa3-c8da-4151-bdcc-8f4f69290fb4

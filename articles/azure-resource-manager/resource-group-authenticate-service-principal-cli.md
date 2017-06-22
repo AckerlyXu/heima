@@ -4,7 +4,7 @@ description: Describes how to use Azure CLI to create an Azure Active Directory 
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: c224a189-dd28-4801-b3e3-26991b0eb24d

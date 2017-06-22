@@ -4,7 +4,7 @@ description: Describes how to create a new Azure Active Directory application an
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6

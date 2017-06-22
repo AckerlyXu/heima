@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Azure CLI to deploy resources to Azu
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 

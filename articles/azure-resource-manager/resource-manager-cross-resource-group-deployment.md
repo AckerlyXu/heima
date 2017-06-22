@@ -4,7 +4,7 @@ description: Shows how to target more than one Azure resource group during deplo
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: ''
 
 ms.service: azure-resource-manager

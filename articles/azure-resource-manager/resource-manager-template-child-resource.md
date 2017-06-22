@@ -4,7 +4,7 @@ description: Shows how to set the resource type and name for child resource in a
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 
