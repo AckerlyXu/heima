@@ -15,6 +15,7 @@ ms.workload: identity
 origin.date: 06/07/2017
 ms.author: v-junlch
 ms.date: 06/21/2017
+
 ---
 # Azure Active Directory certificate-based authentication on iOS
 

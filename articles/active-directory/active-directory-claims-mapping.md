@@ -12,6 +12,7 @@ ms.topic: article
 origin.date: 06/14/2017
 ms.author: v-junlch
 ms.date: 06/21/2017
+
 ---
 
 # Claims mapping in Azure Active Directory (Public preview)

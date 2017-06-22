@@ -12,8 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+origin.date: 06/15/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
+
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Technical deep dive

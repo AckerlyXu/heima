@@ -59,7 +59,6 @@ If your organization uses multiple custom domain names, such as â€˜contoso.comâ€
 ## Next steps
 - [Manage custom domain names](active-directory-add-manage-domain-names.md)
 - [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)
-- [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
 - [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
 
