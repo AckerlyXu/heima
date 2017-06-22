@@ -32,9 +32,6 @@ In this tutorial, you learn how to:
 > * Enforce HTTPS for your app
 > * Automate SSL certificate binding with scripts
 
-> [!NOTE]
-> If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md).
-
 ## Prerequisites
 
 To complete this tutorial:
@@ -277,6 +274,3 @@ In this tutorial, you learned how to:
 > * Automate SSL certificate binding with scripts
 
 Advance to the next tutorial to learn how to use Azure Content Delivery Network.
-
-> [!div class="nextstepaction"]
-> [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
