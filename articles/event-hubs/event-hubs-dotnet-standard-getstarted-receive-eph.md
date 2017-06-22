@@ -3,8 +3,8 @@ title: Receive events from Azure Event Hubs using .NET Standard | Azure
 description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
-manager: timlt
+author: sethmanheim
+manager: digimobile
 editor: ''
 
 ms.assetid: ''
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2017
-ms.date: 05/08/2017
+ms.date: 06/26/2017
 ms.author: v-yeche
 ---
 
@@ -23,25 +23,21 @@ ms.author: v-yeche
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-This tutorial shows how to write a .NET Core console application that receives messages from an Event Hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your Event Hub and storage account values. Or you can follow the steps in this tutorial to create your own. 
+This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
 * [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017, but Visual Studio 2015 is also supported.
-
 * [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
-
 * An Azure subscription.
-
 * An Azure Event Hubs namespace.
-
 * An Azure storage account.
 
-## Create an Event Hubs namespace and an Event Hub  
+## Create an Event Hubs namespace and an event hub  
 
-The first step is to use the [Azure portal](https://portal.azure.cn) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](./event-hubs-create.md), and then proceed with the following steps.  
+The first step is to use the [Azure portal](https://portal.azure.cn) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.  
 
-## Create an Azure Storage account  
+## Create an Azure storage account  
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).  
 2. In the left navigation pane of the portal, click **New**, click **Storage**, and then click **Storage Account**.  
@@ -61,7 +57,6 @@ Start Visual Studio. From the **File** menu, click **New**, and then click **Pro
 ## Add the Event Hubs NuGet package
 
 Add the following NuGet packages to the project:
-
 * [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
 * [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
 
@@ -123,7 +118,7 @@ Add the following NuGet packages to the project:
     using System.Threading.Tasks;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string, Event Hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
+2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -219,7 +214,7 @@ Congratulations! You have now received messages from an Event Hub by using the E
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png

@@ -4,8 +4,8 @@ description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
-manager: timlt
+author: sethmanheim
+manager: digimobile
 
 ms.assetid: ''
 ms.service: event-hubs
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/10/2017
-ms.date: 05/08/2017
+ms.date: 06/26/2017
 ms.author: v-yeche
 ---
 
@@ -43,7 +43,6 @@ These tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `C
 The pattern to manipulate any Event Hubs resource follows a common protocol:
 
 1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
-
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -80,4 +79,4 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.EventHub Reference](http://docs.microsoft.com/zh-cn/dotnet/api/Microsoft.Azure.Management.EventHub)
+* [Microsoft.Azure.Management.EventHub Reference](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.EventHub)
