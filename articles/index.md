@@ -1,11 +1,12 @@
 ---
 layout: HubPage
 hide_bc: true
-title: Microsoft Azure Documentation | Microsoft Docs
+title: Azure Documentation | Microsoft Docs
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
     <div class="container">
+        <h1 class="screenReader">Azure Documentation</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/articles/">
@@ -1676,16 +1677,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Get the .NET SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/net/">Get started</a>
+                                                    <a target="_blank" href="https://azure.microsoft.com/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/net/">Learn more</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1757,16 +1755,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-java#download">Get the Java SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/java/">Get started</a>
+                                                    <a target="_blank" href="https://azure.microsoft.com/develop/java/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/java/api/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/java/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
