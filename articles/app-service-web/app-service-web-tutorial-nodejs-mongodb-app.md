@@ -218,7 +218,7 @@ db: {
 },
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 
