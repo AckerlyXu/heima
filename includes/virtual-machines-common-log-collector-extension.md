@@ -10,11 +10,11 @@ There are two modes of collection dependent on the types of files to be collecte
 * Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
 * All Logs (Full). This collection mode will collect all files in GA mode plus:
 
-    * system and application event logs
-    * HTTP error logs
-    * IIS Logs
-    * Setup logs
-    * other system logs
+  * system and application event logs
+  * HTTP error logs
+  * IIS Logs
+  * Setup logs
+  * other system logs
 
 In both collection modes, additional data collection folders can be specified by using a collection of the following structure:
 
@@ -101,10 +101,10 @@ You can follow one of the two following steps to add the AzureLogCollector to on
         $AdditionalDataList+= $a1
               #more locations can be added....
 
-    > [!NOTE]
-    > You can use token `%roleroot%` to specify the role root drive since it doesn't use a fixed drive.
-    > 
-    > 
+   > [!NOTE]
+   > You can use token `%roleroot%` to specify the role root drive since it doesn't use a fixed drive.
+   > 
+   > 
 4. Provide the Azure storage account name and key to which collected files will be uploaded.
 
         $StorageAccountName = 'YourStorageAccountName'

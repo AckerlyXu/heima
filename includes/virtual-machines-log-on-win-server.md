@@ -11,4 +11,4 @@
     **Domain controller** - if the VM is a domain controller, type the user name and password of a domain administrator account for that domain.
 4. Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
-    ![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-log-on-win-server/cert-warning.png)
+   ![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-log-on-win-server/cert-warning.png)

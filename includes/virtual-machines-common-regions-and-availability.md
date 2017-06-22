@@ -13,13 +13,13 @@ Understanding Azure regions and geographies becomes important when you consider 
 
 **Storage account-based disks**
 * Locally redundant storage (LRS)
-    * Replicates your data three times within the region in which you created your storage account.
+  * Replicates your data three times within the region in which you created your storage account.
 * Zone redundant storage (ZRS)
-    * Replicates your data three times across two to three facilities, either within a single region or across two regions.
+  * Replicates your data three times across two to three facilities, either within a single region or across two regions.
 * Geo-redundant storage (GRS)
-    * Replicates your data to a secondary region that is hundreds of miles away from the primary region.
+  * Replicates your data to a secondary region that is hundreds of miles away from the primary region.
 * Read-access geo-redundant storage (RA-GRS)
-    * Replicates your data to a secondary region, as with GRS, but also then provides read-only access to the data in the secondary location.
+  * Replicates your data to a secondary region, as with GRS, but also then provides read-only access to the data in the secondary location.
 
 The following table provides a quick overview of the differences between the storage replication types:
 
@@ -40,7 +40,7 @@ Prices vary depending on the storage type and availability that you select.
 **Unmanaged disks**
 * Premium storage is backed by Solid State Drives (SSDs) and is charged based on the capacity of the disk.
 * Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
-    * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
+  * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
 
 See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for pricing information on the different storage types and availability options.
 

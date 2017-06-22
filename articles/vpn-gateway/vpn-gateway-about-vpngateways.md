@@ -33,12 +33,12 @@ A VPN gateway connection relies on multiple resources that are configured with s
 The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). You'll find information to help you understand gateway types, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
 
 ###Deployment tools
-You can start out creating and configuring resources using one configuration tool, such as the Azure Portal. You can then later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure Portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed. 
+You can start out creating and configuring resources using one configuration tool, such as the Azure portal. You can then later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed. 
 
 ###Deployment model
 When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="diagrams" id="a-namediagramsaconnection-topology-diagrams"></a>Connection topology diagrams
+## <a name="diagrams"></a>Connection topology diagrams
 It's important to know that there are different configurations available for VPN gateway connections. You need to determine which configuration best fits your needs. In the sections below, you can view information and topology diagrams about the following VPN gateway connections:
 The following sections contain tables which list:
 
@@ -48,7 +48,7 @@ The following sections contain tables which list:
 
 Use the diagrams and descriptions to help select the connection topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline.
 
-## <a name="site-to-site-and-multi-site" id="site-to-site-and-multi-site-connections"></a> Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
+## Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
 ### <a name="S2S"></a>Site-to-Site
 A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. S2S connections can be used for cross-premises and hybrid configurations.   
 
