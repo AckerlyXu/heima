@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/11/2017
-ms.date: 04/24/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -34,7 +34,7 @@ The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is ava
     az group create --name myResourceGroup --location chinaeast
     ```
 
-  * Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) named *myVM* using the latest *UbuntuLTS* image and generate SSH keys if they do already exist in *~/.ssh*:
+  * Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) named *myVM* using the latest *UbuntuLTS* image and generate SSH keys if they do not already exist in *~/.ssh*:
 
     ```azurecli
     az vm create \

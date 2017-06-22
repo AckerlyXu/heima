@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 05/15/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with the Azure portal
@@ -100,13 +101,13 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
 6. Click **OK**.
 
-## View the NGIX welcome page
+## View the NGINX welcome page
 
 With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. the public IP address can be found on the VM blade in the Azure portal.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
 
