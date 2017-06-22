@@ -46,9 +46,6 @@ To complete this tutorial:
 
   For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 
-  > [!NOTE]
-  > If you don't have an existing domain name, consider [purchasing a domain using the Azure portal](custom-dns-web-site-buydomains-web-app.md). 
-
 ## Prepare the app
 
 To map a custom DNS name to a web app, the web app's [App Service plan](https://www.azure.cn/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the App Service app is in the supported pricing tier.
