@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2017
-ms.date: 04/24/2017
+origin.date: 05/30/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
 # Create a virtual machine running Windows in the Azure portal
 > [!div class="op_single_selector"]
-> * [Azure Classic Management Portal](tutorial.md)
+> * [Azure Portal](tutorial.md)
 > * [PowerShell: Classic deployment](create-powershell.md)
 >
 >

@@ -246,7 +246,7 @@ Now, create your VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#
 az vm create --resource-group myResourceGroup --location chinanorth \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk https://vhdstoragezw9.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk myUMDiskFromVHD
 ```
 
 ### Azure 2.0 - unmanaged disks

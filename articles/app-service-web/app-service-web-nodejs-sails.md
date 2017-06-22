@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 05/02/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -40,7 +40,7 @@ You should have working knowledge of Sails.js. This tutorial is not intended to 
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)
 * A Azure account. If you don't have an account, you can
   [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
 

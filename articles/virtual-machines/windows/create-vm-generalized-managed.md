@@ -14,16 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 02/07/2017
-ms.date: 06/20/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
-# Create a VM from a generalized managed VM image
+# Create a VM from a managed image
 
 You can create multiple VMs from a managed VM image in Azure. A managed VM image contains the information necessary to create a VM, including the OS and data disks. The VHDs that make up the image, including both the OS disks and any data disks, are stored as managed disks. 
-
-A generalized VM has had all of your personal account information removed using [Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VM by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM, and then [capturing an image of the VM](capture-image-resource.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Prerequisites
 
@@ -177,4 +175,4 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 ```
 
 ## Next steps
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+To manage your new virtual machine with Azure PowerShell, see [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

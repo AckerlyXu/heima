@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 02/27/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Secure network traffic between virtual machines
@@ -77,7 +78,7 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNetwork
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

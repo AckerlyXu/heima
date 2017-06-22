@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 09/27/2016
-ms.date: 11/21/2016
+origin.date: 06/09/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -27,7 +27,7 @@ All Windows virtual machines that you create in Azure using the classic deployme
 
 In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Allow external access to your VM using the Azure Portal](../nsg-quickstart-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-When you create a Windows virtual machine in the Azure Classic Management Portal, common endpoints like those for Remote Desktop and Windows PowerShell Remoting are typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+When you create a Windows virtual machine in the Azure Portal, common endpoints like those for Remote Desktop and Windows PowerShell Remoting are typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 03/29/2017
-ms.date: 05/02/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -55,15 +55,7 @@ To see what possible values you can use for `--location`, use the `az appservice
 
 Create an App Service plan with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command. 
 
-> [!NOTE] 
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-> 
-> App Service plans define: 
-> * Region (China North, China East) 
-> * Instance Size (Small, Medium, Large) 
-> * Scale Count (one, two or three instances, etc.) 
-> * SKU (Free, Shared, Basic, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 The following example creates an App Service plan named `myAppServicePlan` using the **Basic** pricing tier.
 
@@ -310,4 +302,4 @@ In your browser, navigate to HTTPS endpoint of your custom domain name. For exam
 https://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)

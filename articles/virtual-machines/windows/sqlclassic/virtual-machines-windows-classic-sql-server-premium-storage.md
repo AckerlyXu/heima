@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 11/28/2016
-ms.date: 02/24/2017
+origin.date: 06/01/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -1060,7 +1060,7 @@ For information for individual blobs:
     $pubport=1433
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
 
-    #STOP!!! CHECK in the Azure Classic Management Portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure Portal or Machine Endpoints through powershell that these Endpoints are created!
 
     #SET ACLs or Azure Network Security Groups & Windows FWs
 

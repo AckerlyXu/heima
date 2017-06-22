@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2016
-ms.date: 08/23/2016
+origin.date: 06/09/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -27,7 +27,7 @@ All Linux virtual machines that you create in Azure using the classic deployment
 
 In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Opening ports and endpoints](../nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-When you create a Linux virtual machine in the Azure Classic Management Portal, an endpoint for Secure Shell (SSH) is typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+When you create a Linux virtual machine in the Azure Portal, an endpoint for Secure Shell (SSH) is typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 

@@ -427,5 +427,3 @@ authorize users with the `[Authorize]` decoration.
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 * [Azure Active Directory Supported Token and Claim Types](/active-directory/develop/active-directory-token-and-claims/)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

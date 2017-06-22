@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 03/09/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a VM with a virtual hard disk
@@ -72,7 +73,7 @@ echo "You can now connect using 'ssh deploy@${IP_ADDRESS}'"
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 

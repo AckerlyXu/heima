@@ -3,7 +3,7 @@ title: Impactful maintenance for Windows VMs in Azure | Azure
 description: Impactful maintenance for Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: 
+author: zivr
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager

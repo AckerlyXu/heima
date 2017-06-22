@@ -42,8 +42,8 @@ Use the [Azure Portal](https://portal.azure.cn/) to set various configuration op
 
 In addition to these basic configuration settings, you may want to configure the following:
 
-* **Secure Socket Layer (SSL)** encryption. To use SSL with a custom domain name, you must get an SSL certificate and configure your web app to use it. See [Enable HTTPS for a web app in Azure App Service](web-sites-configure-ssl-certificate.md).
-* **Custom domain name.** Your web app automatically has a subdomain under chinacloudsites.cn. You can associate a custom domain name, such as contoso.com. See [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md).
+* **Secure Socket Layer (SSL)** encryption. To use SSL with a custom domain name, you must get an SSL certificate and configure your web app to use it. See [Enable HTTPS for a web app in Azure App Service](app-service-web-tutorial-custom-ssl.md).
+* **Custom domain name.** Your web app automatically has a subdomain under chinacloudsites.cn. You can associate a custom domain name, such as contoso.com. See [Configure a custom domain name in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Language-specific configuration:
 

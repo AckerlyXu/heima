@@ -101,7 +101,7 @@ Deployments of Azure Nodes with Microsoft HPC
 Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
-* If you want to
+* If you want to 
   automatically grow or shrink the Azure computing resources according to
   the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](hpcpack-cluster-node-autogrowshrink.md).
 

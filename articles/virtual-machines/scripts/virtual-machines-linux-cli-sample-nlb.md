@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 02/27/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a highly available VM
@@ -41,15 +42,15 @@ az network vnet create --resource-group myResourceGroup --location chinanorth --
 # Create a public IP address.
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
-# Create an Azure Network Load Balancer.
+# Create an Azure Load Balancer.
 az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP \
   --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool
 
-# Creates an NLB probe on port 80.
+# Creates an LB probe on port 80.
 az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
   --name myHealthProbe --protocol tcp --port 80
 
-# Creates an NLB rule for port 80.
+# Creates an LB rule for port 80.
 az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
   --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
@@ -105,7 +106,7 @@ done
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

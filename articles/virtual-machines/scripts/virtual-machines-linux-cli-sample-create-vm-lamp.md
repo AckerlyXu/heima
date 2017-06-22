@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 04/05/2017
 ms.date: ''
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Deploy the LAMP stack in a load-balanced virtual machine scale set
@@ -86,7 +87,7 @@ echo "You can now reach the scale set by opening your browser to: 'http://${FQDN
 
 Run the following command to remove the resource group, the scale set and VMs, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 05/04/2017
 ms.date: 06/21/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Monitor a Windows Virtual Machine with Azure PowerShell
