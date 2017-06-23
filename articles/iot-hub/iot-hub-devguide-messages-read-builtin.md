@@ -3,7 +3,7 @@ title: Understand the Azure IoT Hub built-in endpoint | Azure
 description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint toread device-to-cloud messages.
 services: iot-hub
 documentationcenter: .net
-author: dominicbetts
+author: Derek1101
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.date: 07/03/2017
 ---
 # Read device-to-cloud messages from the built-in endpoint

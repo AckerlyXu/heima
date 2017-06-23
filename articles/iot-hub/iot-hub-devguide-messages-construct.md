@@ -3,7 +3,7 @@ title: Understand Azure IoT Hub message format | Azure
 description: Developer guide - descibes the format and expected content of IoT Hub messages.
 services: iot-hub
 documentationcenter: .net
-author: dominicbetts
+author: Derek1101
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.date: 07/03/2017
 
 ---
