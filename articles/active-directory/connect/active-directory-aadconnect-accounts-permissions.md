@@ -102,7 +102,7 @@ If you use express settings, then an account is created in Active Directory that
 
 If you use custom settings, then you are responsible for creating the account before you start the installation.
 
-### Azure AD Connect sync service account <a name="azure-ad-connect-sync-service-accounts"></a>
+### Azure AD Connect sync service account <a name="azure-ad-connect-sync-service-accounts"></a><a name="azure-ad-connect-sync-service-account"></a>
 The sync service can run under different accounts. It can run under a **Virtual Service Account** (VSA), a **Group Managed Service Account** (gMSA/sMSA), or a regular user account. The supported options were changed with the 2017 April release of Connect when you do a fresh installation. If you upgrade from an earlier release of Azure AD Connect, these additional options are not available.
 
 | Type of account | Installation option | Description |
