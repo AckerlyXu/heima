@@ -135,7 +135,7 @@ These are some of the features of the DS-series, DSv2-series and Fs-series VMs:
     For more information about premium storage disks and their IOPS and throughput limits, see the table in the next section.
 
 
-##<a name="premium-storage-scalability-and-performance-targets"></a> Scalability and performance targets
+##<a name="premium-storage-scalability-and-performance-targets"></a><a name="scalability-and-performance-targets"></a> Scalability and performance targets
 
 In this section, we describe the scalability and performance targets to consider when you use Premium Storage.
 
