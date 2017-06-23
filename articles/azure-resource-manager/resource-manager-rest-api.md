@@ -3,7 +3,7 @@ title: Resource Manager REST APIs| Azure
 description: An overview of the Resource Manager REST APIs authentication and usage examples
 services: azure-resource-manager
 documentationcenter: na
-author: navalev
+author: rockboyfor
 manager: digimobile
 editor: ''
 

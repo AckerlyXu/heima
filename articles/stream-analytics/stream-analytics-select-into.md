@@ -4,7 +4,7 @@ description: Sample data mid-query by using SELECT INTO statements in Stream Ana
 keywords: 
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

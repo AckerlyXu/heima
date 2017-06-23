@@ -4,7 +4,7 @@ description: Learn how to update the credentials for Stream Analytics inputs and
 keywords: login credentials
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

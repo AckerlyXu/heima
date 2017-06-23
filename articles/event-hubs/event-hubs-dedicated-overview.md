@@ -3,7 +3,7 @@ title: Overview of Azure Event Hubs Dedicated capacity | Azure
 description: Overview of Azure Event Hubs Dedicated capacity.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

@@ -3,7 +3,7 @@ title: All topics for SQL Data Warehouse service | Azure
 description: Table of all topics for the Azure service named SQL Data Warehouse that exist on /azure/, Title and description.
 services: sql-data-warehouse
 documentationcenter: ''
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

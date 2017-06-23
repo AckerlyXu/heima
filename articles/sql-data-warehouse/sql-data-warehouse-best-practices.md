@@ -3,7 +3,7 @@ title: Best practices for Azure SQL Data Warehouse | Azure
 description: Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

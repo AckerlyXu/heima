@@ -4,7 +4,7 @@ description: Learn how to scale Stream Analytics jobs by configuring input parti
 keywords: data streaming, streaming data processing, tune analytics
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

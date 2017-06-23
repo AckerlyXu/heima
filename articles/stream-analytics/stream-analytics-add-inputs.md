@@ -4,7 +4,7 @@ description: Learn how to hook up a data source to your Stream Analytics job as 
 keywords: data input, streaming data
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

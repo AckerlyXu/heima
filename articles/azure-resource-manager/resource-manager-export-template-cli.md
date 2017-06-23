@@ -3,7 +3,7 @@ title: Export Resource Manager template with Azure CLI | Azure
 description: Use Azure Resource Manager and Azure CLI to export a template from a resource group.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Deploy template | Azure
 description: Sample script for deploying an Azure Resource Manager template.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

@@ -4,7 +4,7 @@ description: Use reference data in a Stream Analytics query
 keywords: lookup table, reference data
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

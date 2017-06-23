@@ -3,7 +3,7 @@ title: SQL Data Warehouse capacity limits | Azure
 description: Maximum values for connections, databases, tables and queries for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

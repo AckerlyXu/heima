@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse Documentation - Tutorials, API Reference | Azure
 description: Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
 services: sql-data-warehouse
-author: carolz
+author: rockboyfor
 manager: carolz
 layout: LandingPage
 ms.assetid: 

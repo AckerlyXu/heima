@@ -3,7 +3,7 @@ title: Azure resource location in template | Azure
 description: Shows how to set a location for a resource in an Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

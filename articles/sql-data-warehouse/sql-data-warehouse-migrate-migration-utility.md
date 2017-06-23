@@ -3,7 +3,7 @@ title: 'Migrate: Data Warehouse Migration Utility | Azure'
 description: Migrate to SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

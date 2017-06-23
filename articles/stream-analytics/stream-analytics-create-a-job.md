@@ -4,7 +4,7 @@ description: Create a data analytics processing job for Stream Analytics | learn
 keywords: data analytics processing
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

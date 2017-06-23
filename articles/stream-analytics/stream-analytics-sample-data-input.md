@@ -4,7 +4,7 @@ description: Pinpoint issues when you troubleshoot Stream Analytics jobs.
 keywords: troubleshoot input, input sampling
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

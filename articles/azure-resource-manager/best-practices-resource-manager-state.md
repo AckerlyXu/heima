@@ -3,7 +3,7 @@ title: Pass complex values between Azure templates | Azure
 description: Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
