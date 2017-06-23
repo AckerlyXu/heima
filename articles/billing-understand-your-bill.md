@@ -97,7 +97,7 @@ The Daily usage section of the file shows usage details that affect the billing 
 |Consumed Quantity |The amount of the resource that has been consumed for that day. |
 |Resource Location |Identifies the datacenter where the resource is running. |
 |Consumed Service |The Azure platform service that you used. |
-|Resource Group |The resource group in which the deployed resource is running in. For more information, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md). |
+|Resource Group |The resource group in which the deployed resource is running in. For more information, see [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md). |
 |Instance ID |The identifier for the resource. The identifier contains the name you specify for the resource when it was created. It's either the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
 |Tags |Tag you assign to the resource. Use tags to group billing records. For example, you can use tags to distribute costs by the department that uses the resource. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Additional Info |Service-specific metadata. For example, an image type for a virtual machine. |
