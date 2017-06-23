@@ -114,7 +114,6 @@ In this article, we reviewed how manual and automatic failovers work in Document
 ## <a id="NextSteps"></a>Next Steps
 - Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
 - Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
-- Develop with multiple regions using DocumentDB's [DocumentDB SDK](./documentdb-portal-global-replication.md)
 - Learn how to build [Multi-region writer architectures](documentdb-multi-region-writers.md) with Azure DocumentDB
 
 

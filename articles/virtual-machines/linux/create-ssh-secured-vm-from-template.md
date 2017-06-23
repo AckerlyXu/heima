@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/12/2017
-ms.date: 12/20/2016
+ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 

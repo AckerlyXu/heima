@@ -1,6 +1,7 @@
 # Overview
 
 ## [Introduction](storage-introduction.md)
+## [Choose Blobs, Files, or Data Disks](storage-decide-blobs-files-disks.md)
 
 # Get Started
 
@@ -50,6 +51,8 @@
 ### [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Using managed disks in Resource Manager templates](storage-using-managed-disks-template-deployments.md)
+
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
@@ -65,7 +68,8 @@
 ### [Table design guide](storage-table-design-guide.md)
 ## Use files
 ### [Overview](https://docs.microsoft.com/rest/api/storageservices/File-Service-Concepts)
-### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Troubleshoot Azure Files - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Troubleshoot Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
 ### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
@@ -110,6 +114,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
+### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
 #### [Enable and view metrics](storage-enable-and-view-metrics.md)
@@ -122,7 +127,8 @@
 ### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
-### [AzCopy command-line utility](storage-use-azcopy.md)
+### [AzCopy on Windows](storage-use-azcopy.md)
+### [AzCopy on Linux](storage-use-azcopy-linux.md)
 ### [Using the Import/Export service](storage-import-export-service.md)
 ### [Using the Import/Export Tool](storage-import-export-tool-how-to.md)
 #### [Setting up the Import/Export Tool](storage-import-export-tool-setup.md)

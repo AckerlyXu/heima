@@ -1,10 +1,10 @@
 ---
-title: Copy or move data to Storage with AzCopy | Azure
-description: Use the AzCopy utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
+title: Copy or move data to Azure Storage with AzCopy on Windows| Microsoft Docs
+description: Use the AzCopy on Windows utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
 documentationcenter: ''
-author: seguler
-manager: jahogg
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
@@ -13,24 +13,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2017
-ms.date: 03/20/2017
+origin.date: 05/14/2017
+ms.date: 06/26/2017
 ms.author: v-johch
+
 ---
+# Transfer data with the AzCopy on Windows
+AzCopy is a command-line utility designed for copying data to and from Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
-# Transfer data with the AzCopy Command-Line Utility
-## Overview
-AzCopy is a Windows command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
-
-> [!NOTE]
-> This guide assumes that you are already familiar with [Azure Storage](https://www.azure.cn/home/features/storage/). If not, reading the [Introduction to Azure Storage](./storage-introduction.md) documentation will be helpful. Most importantly, you will need to [create a Storage account](./storage-create-storage-account.md#create-a-storage-account) in order to start using AzCopy.
+There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
 ## Download and install AzCopy
-### Windows
-Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
+### AzCopy on Windows
+Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
 
-### Mac/Linux
-AzCopy is not available for Mac/Linux OSs. However, Azure CLI is a suitable alternative for copying data to and from Azure Storage. Read [Using the Azure CLI with Azure Storage](./storage-azure-cli.md) to learn more.
+#### Installation on Windows
+After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
@@ -39,12 +37,11 @@ The basic syntax for AzCopy commands is:
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
 
-Open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
-
 The following examples demonstrate a variety of scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
 ## Blob: Download
 ### Download single blob
+
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
@@ -52,6 +49,7 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:
 Note that if the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
 
 ### Download single blob from secondary region
+
 ```azcopy
 AzCopy /Source:https://myaccount-secondary.blob.core.chinacloudapi.cn/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
@@ -59,29 +57,26 @@ AzCopy /Source:https://myaccount-secondary.blob.core.chinacloudapi.cn/mynewconta
 Note that you must have read-access geo-redundant storage enabled.
 
 ### Download all blobs
+
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:key /S
 ```
 
 Assume the following blobs reside in the specified container:  
 
-```
-abc.txt
-abc1.txt
-abc2.txt
-vd1\a.txt
-vd1\abcd.txt
-```
+    abc.txt
+    abc1.txt
+    abc2.txt
+    vd1\a.txt
+    vd1\abcd.txt
 
 After the download operation, the directory `C:\myfolder` will include the following files:
 
-```
-C:\myfolder\abc.txt
-C:\myfolder\abc1.txt
-C:\myfolder\abc2.txt
-C:\myfolder\vd1\a.txt
-C:\myfolder\vd1\abcd.txt
-```
+    C:\myfolder\abc.txt
+    C:\myfolder\abc1.txt
+    C:\myfolder\abc2.txt
+    C:\myfolder\vd1\a.txt
+    C:\myfolder\vd1\abcd.txt
 
 If you do not specify option `/S`, no blobs will be downloaded.
 
@@ -93,22 +88,18 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:
 
 Assume the following blobs reside in the specified container. All blobs beginning with the prefix `a` will be downloaded:
 
-```
-abc.txt
-abc1.txt
-abc2.txt
-xyz.txt
-vd1\a.txt
-vd1\abcd.txt
-```
+    abc.txt
+    abc1.txt
+    abc2.txt
+    xyz.txt
+    vd1\a.txt
+    vd1\abcd.txt
 
 After the download operation, the folder `C:\myfolder` will include the following files:
 
-```
-C:\myfolder\abc.txt
-C:\myfolder\abc1.txt
-C:\myfolder\abc2.txt
-```
+    C:\myfolder\abc.txt
+    C:\myfolder\abc1.txt
+    C:\myfolder\abc2.txt
 
 The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not downloaded. In addition, if the option `\S` is not specified, AzCopy will not download any blobs.
 
@@ -131,7 +122,6 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:
 ```
 
 ## Blob: Upload
-
 ### Upload single file
 
 ```azcopy
@@ -156,31 +146,25 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/my
 
 Specifying option `/S` uploads the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files will be uploaded as well. For instance, assume the following files reside in folder `C:\myfolder`:
 
-```
-C:\myfolder\abc.txt
-C:\myfolder\abc1.txt
-C:\myfolder\abc2.txt
-C:\myfolder\subfolder\a.txt
-C:\myfolder\subfolder\abcd.txt
-```
+    C:\myfolder\abc.txt
+    C:\myfolder\abc1.txt
+    C:\myfolder\abc2.txt
+    C:\myfolder\subfolder\a.txt
+    C:\myfolder\subfolder\abcd.txt
 
 After the upload operation, the container will include the following files:
 
-```
-  abc.txt
-abc1.txt
-abc2.txt
-subfolder\a.txt
-subfolder\abcd.txt
-```
+    abc.txt
+    abc1.txt
+    abc2.txt
+    subfolder\a.txt
+    subfolder\abcd.txt
 
 If you do not specify option `/S`, AzCopy will not upload recursively. After the upload operation, the container will include the following files:
 
-```
-abc.txt
-abc1.txt
-abc2.txt
-```
+    abc.txt
+    abc1.txt
+    abc2.txt
 
 ### Upload files matching specified pattern
 
@@ -190,35 +174,28 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/my
 
 Assume the following files reside in folder `C:\myfolder`:
 
-```
-C:\myfolder\abc.txt
-C:\myfolder\abc1.txt
-C:\myfolder\abc2.txt
-C:\myfolder\xyz.txt
-C:\myfolder\subfolder\a.txt
-C:\myfolder\subfolder\abcd.txt
-```
+    C:\myfolder\abc.txt
+    C:\myfolder\abc1.txt
+    C:\myfolder\abc2.txt
+    C:\myfolder\xyz.txt
+    C:\myfolder\subfolder\a.txt
+    C:\myfolder\subfolder\abcd.txt
 
 After the upload operation, the container will include the following files:
 
-```
-abc.txt
-abc1.txt
-abc2.txt
-subfolder\a.txt
-subfolder\abcd.txt
-```
+    abc.txt
+    abc1.txt
+    abc2.txt
+    subfolder\a.txt
+    subfolder\abcd.txt
 
 If you do not specify option `/S`, AzCopy will only upload blobs that don't reside in a virtual directory:
 
-```
-C:\myfolder\abc.txt
-C:\myfolder\abc1.txt
-C:\myfolder\abc2.txt
-```
+    C:\myfolder\abc.txt
+    C:\myfolder\abc1.txt
+    C:\myfolder\abc2.txt
 
 ### Specify the MIME content type of a destination blob
-
 By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `/SetContentType:[content-type]`. This syntax sets the content type for all blobs in an upload operation.
 
 ```azcopy
@@ -265,11 +242,9 @@ AzCopy /Source:https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 /De
 
 After the copy operation, the target container will include the blob and its snapshots. Assuming the blob in the example above has two snapshots, the container will include the following blob and snapshots:
 
-```
-abc.txt
-abc (2013-02-25 080757).txt
-abc (2014-02-21 150331).txt
-```
+    abc.txt
+    abc (2013-02-25 080757).txt
+    abc (2014-02-21 150331).txt
 
 ### Synchronously copy blobs across Storage accounts
 AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation will run in the background using spare bandwidth capacity that has no SLA in terms of how fast a blob will be copied, and AzCopy will periodically check the copy status until the copying is completed or failed.
@@ -283,7 +258,6 @@ AzCopy /Source:https://myaccount1.blob.core.chinacloudapi.cn/myContainer/ /Dest:
 `/SyncCopy` might generate additional egress cost compared to asynchronous copy, the recommended approach is to use this option in an Azure VM that is in the same region as your source storage account to avoid egress cost.
 
 ## File: Download
-
 ### Download single file
 
 ```azcopy
@@ -301,7 +275,6 @@ AzCopy /Source:https://myaccount.file.core.chinacloudapi.cn/myfileshare/ /Dest:C
 Note that any empty folders will not be downloaded.
 
 ## File: Upload
-
 ### Upload single file
 
 ```azcopy
@@ -323,30 +296,30 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.chinacloudapi.cn/my
 ```
 
 ## File: Copy
-
 ### Copy across file shares
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.chinacloudapi.cn/myfileshare1/ /Dest:https://myaccount2.file.core.chinacloudapi.cn/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
+When you copy a file across file shares, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Copy from file share to blob
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.chinacloudapi.cn/myfileshare/ /Dest:https://myaccount2.blob.core.chinacloudapi.cn/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
+When you copy a file from file share to blob, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
-Note that asynchronous copying from File Storage to Page Blob is not supported.
 
 ### Copy from blob to file share
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.chinacloudapi.cn/mycontainer/ /Dest:https://myaccount2.file.core.chinacloudapi.cn/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
+When you copy a file from blob to file share, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Synchronously copy files
-
-You can specify the `/SyncCopy` option to copy data from File Storage to File Storage, from File Storage to Blob Storage and from Blob Storage to File Storage synchronously, AzCopy does this by downloading the source data to local memory and upload it again to destination.
+You can specify the `/SyncCopy` option to copy data from File Storage to File Storage, from File Storage to Blob Storage and from Blob Storage to File Storage synchronously, AzCopy does this by downloading the source data to local memory and upload it again to destination. Standard egress cost will apply.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.chinacloudapi.cn/myfileshare1/ /Dest:https://myaccount2.file.core.chinacloudapi.cn/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
@@ -357,7 +330,6 @@ When copying from File Storage to Blob Storage, the default blob type is block b
 Note that `/SyncCopy` might generate additional egress cost comparing to asynchronous copy, the recommended approach is to use this option in the Azure VM which is in the same region as your source storage account to avoid egress cost.
 
 ## Table: Export
-
 ### Export table
 
 ```azcopy
@@ -366,9 +338,7 @@ AzCopy /Source:https://myaccount.table.core.chinacloudapi.cn/myTable/ /Dest:C:\m
 
 AzCopy writes a manifest file to the specified destination folder. The manifest file is used in the import process to locate the necessary data files and perform data validation. The manifest file uses the following naming convention by default:
 
-```
-<account name>_<table name>_<timestamp>.manifest
-```
+    <account name>_<table name>_<timestamp>.manifest
 
 User can also specify the option `/Manifest:<manifest file name>` to set the manifest file name.
 
@@ -388,15 +358,12 @@ The partition key range index will be 0 if user does not specify option `/PKRS`.
 
 For instance, suppose AzCopy generates two data files after the user specifies option `/SplitSize`. The resulting data file names might be:
 
-```
-myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
-myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
-```
+    myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
+    myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
 Note that the minimum possible value for option `/SplitSize` is 32MB. If the specified destination is Blob storage, AzCopy will split the data file once its sizes reaches the blob size limitation (200GB), regardless of whether option `/SplitSize` has been specified by the user.
 
 ### Export table to JSON or CSV data file format
-
 AzCopy by default exports tables to JSON data files. You can specify the option `/PayloadFormat:JSON|CSV` to export the tables as JSON or CSV.
 
 ```azcopy
@@ -423,16 +390,13 @@ AzCopy /Source:https://myaccount.table.core.chinacloudapi.cn/myTable/ /Dest:http
 
 AzCopy will generate a JSON data file into the blob container with following naming convention:
 
-```
-<account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
-```
+    <account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
 
-The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/zh-cn/library/azure/dn535600.aspx).
+The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Note that when exporting tables to blobs, AzCopy will download the Table entities to local temporary data files and then upload those entities to the blob. These temporary data files are put into the journal file folder with the default path “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”, you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files’ size is decided by your table entities’ size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the blob, please make sure you have enough local disk space to store these temporary data files before they are deleted.
+Note that when exporting tables to blobs, AzCopy will download the Table entities to local temporary data files and then upload those entities to the blob. These temporary data files are put into the journal file folder with the default path "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files' size is decided by your table entities' size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the blob, please make sure you have enough local disk space to store these temporary data files before they are deleted.
 
 ## Table: Import
-
 ### Import table
 
 ```azcopy
@@ -441,22 +405,19 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.chinacloudapi.cn/
 
 The option `/EntityOperation` indicates how to insert entities into the table. Possible values are:
 
-- `InsertOrSkip`: Skips an existing entity or inserts a new entity if it does not exist in the table.
-- `InsertOrMerge`: Merges an existing entity or inserts a new entity if it does not exist in the table.
-- `InsertOrReplace`: Replaces an existing entity or inserts a new entity if it does not exist in the table.
+* `InsertOrSkip`: Skips an existing entity or inserts a new entity if it does not exist in the table.
+* `InsertOrMerge`: Merges an existing entity or inserts a new entity if it does not exist in the table.
+* `InsertOrReplace`: Replaces an existing entity or inserts a new entity if it does not exist in the table.
 
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import a table. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
 
-Note that AzCopy only supports importing for JSON, not CSV. AzCopy does not support table imports from user-created JSON and manifest files. Both of these files must come from an AzCopy table export. To avoid errors, please do not modify the exported JSON or manifest file. 
+Note that AzCopy only supports importing for JSON, not CSV. AzCopy does not support table imports from user-created JSON and manifest files. Both of these files must come from an AzCopy table export. To avoid errors, please do not modify the exported JSON or manifest file.
 
 ### Import entities to table using blobs
-
 Assume a Blob container contains the following: A JSON file representing an Azure Table and its accompanying manifest file.
 
-```
-myaccount_mytable_20140103T112020.manifest
-myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
-```
+    myaccount_mytable_20140103T112020.manifest
+    myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
 
 You can run the following command to import entities into a table using the manifest file in that blob container:
 
@@ -465,9 +426,7 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:ht
 ```
 
 ## Other AzCopy features
-
 ### Only copy data that doesn't exist in the destination
-
 The `/XO` and `/XN` parameters allow you to exclude older or newer source resources from being copied, respectively. If you only want to copy source resources that don't exist in the destination, you can specify both parameters in the AzCopy command:
 
 ```
@@ -478,7 +437,7 @@ The `/XO` and `/XN` parameters allow you to exclude older or newer source resour
 /Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:http://myaccount.blob.core.chinacloudapi.cn/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 ```
 
-Note: This is not supported when either the source or destination is a table.
+Note that this is not supported when either the source or destination is a table.
 
 ### Use a response file to specify command-line parameters
 
@@ -516,7 +475,6 @@ http://myaccount.blob.core.chinacloudapi.cn/mycontainer
 ```
 
 ### Use multiple response files to specify command-line parameters
-
 Assume a response file named `source.txt` that specifies a source container:
 
 ```azcopy
@@ -560,7 +518,6 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer1/?Source
 ```
 
 ### Journal file folder
-
 Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
 
 If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation.
@@ -606,12 +563,10 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/my
 Note that if you specify a relative path following option `/V`, such as `/V:test/azcopy1.log`, then the verbose log is created in the current working directory within a subfolder named `test`.
 
 ### Specify the number of concurrent operations to start
-
 Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. For Table operations, the number of concurrent operations is equal to the number of processors you have. For Blob and File operations, the number of concurrent operations is equal 8 times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for /NC to avoid failure caused by resource competition.
 
 ### Run AzCopy against Azure Storage Emulator
-
-You can run AzCopy against the [Azure Storage Emulator](./storage-use-emulator.md) for Blobs:
+You can run AzCopy against the [Azure Storage Emulator](storage-use-emulator.md) for Blobs:
 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
@@ -624,27 +579,23 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 ```
 
 ## AzCopy Parameters
-
 Parameters for AzCopy are described below. You can also type one of the following commands from the command line for help in using AzCopy:
 
-- For detailed command-line help for AzCopy: `AzCopy /?`
-- For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
-- For command-line examples: `AzCopy /?:Samples`
+* For detailed command-line help for AzCopy: `AzCopy /?`
+* For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
+* For command-line examples: `AzCopy /?:Samples`
 
 ### /Source:"source"
-
 Specifies the source data from which to copy. The source can be a file system directory, a blob container, a blob virtual directory, a storage file share, a storage file directory, or an Azure table.
 
 **Applicable to:** Blobs, Files, Tables
 
 ### /Dest:"destination"
-
 Specifies the destination to copy to. The destination can be a file system directory, a blob container, a blob virtual directory, a storage file share, a storage file directory, or an Azure table.
 
 **Applicable to:** Blobs, Files, Tables
 
 ### /Pattern:"file-pattern"
-
 Specifies a file pattern that indicates which files to copy. The behavior of the /Pattern parameter is determined by the location of the source data, and the presence of the recursive mode option. Recursive mode is specified via option /S.
 
 If the specified source is a directory in the file system, then standard wildcards are in effect, and the file pattern provided is matched against files within the directory. If option /S is specified, then AzCopy also matches the specified pattern against all files in any subfolders beneath the directory.
@@ -660,13 +611,11 @@ The default file pattern used when no file pattern is specified is *.* for a fil
 **Applicable to:** Blobs, Files
 
 ### /DestKey:"storage-key"
-
 Specifies the storage account key for the destination resource.
 
 **Applicable to:** Blobs, Files, Tables
 
 ### /DestSAS:"sas-token"
-
 Specifies a Shared Access Signature (SAS) with READ and WRITE permissions for the destination (if applicable). Surround the SAS with double quotes, as it may contains special command-line characters.
 
 If the destination resource is a blob container, file share or table, you can either specify this option followed by the SAS token, or you can specify the SAS as part of the destination blob container, file share or table's URI, without this option.
@@ -676,13 +625,11 @@ If the source and destination are both blobs, then the destination blob must res
 **Applicable to:** Blobs, Files, Tables
 
 ### /SourceKey:"storage-key"
-
 Specifies the storage account key for the source resource.
 
 **Applicable to:** Blobs, Files, Tables
 
 ### /SourceSAS:"sas-token"
-
 Specifies a Shared Access Signature with READ and LIST permissions for the source (if applicable). Surround the SAS with double quotes, as it may contains special command-line characters.
 
 If the source resource is a blob container, and neither a key nor a SAS is provided, then the blob container will be read via anonymous access.
@@ -692,19 +639,16 @@ If the source is a file share or table, a key or a SAS must be provided.
 **Applicable to:** Blobs, Files, Tables
 
 ### /S
-
 Specifies recursive mode for copy operations. In recursive mode, AzCopy will copy all blobs or files that match the specified file pattern, including those in subfolders.
 
 **Applicable to:** Blobs, Files
 
 ### /BlobType:"block" | "page" | "append"
-
 Specifies whether the destination blob is a block blob, a page blob, or an append blob. This option is applicable only when you are uploading a blob. Otherwise, an error is generated. If the destination is a blob and this option is not specified, by default, AzCopy creates a block blob.
 
 **Applicable to:** Blobs
 
 ### /CheckMD5
-
 Calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob or file's Content-MD5 property matches the calculated hash. The MD5 check is turned off by default, so you must specify this option to perform the MD5 check when downloading data.
 
 Note that Azure Storage doesn't guarantee that the MD5 hash stored for the blob or file is up-to-date. It is client's responsibility to update the MD5 whenever the blob or file is modified.
@@ -714,7 +658,6 @@ AzCopy always sets the Content-MD5 property for an Azure blob or file after uplo
 **Applicable to:** Blobs, Files
 
 ### /Snapshot
-
 Indicates whether to transfer snapshots. This option is only valid when the source is a blob.
 
 The transferred blob snapshots are renamed in this format: blob-name (snapshot-time).extension
@@ -724,7 +667,6 @@ By default, snapshots are not copied.
 **Applicable to:** Blobs
 
 ### /V:[verbose-log-file]
-
 Outputs verbose status messages into a log file.
 
 By default, the verbose log file is named AzCopyVerbose.log in `%LocalAppData%\Microsoft\Azure\AzCopy`. If you specify an existing file location for this option, the verbose log will be appended to that file.  
@@ -732,7 +674,6 @@ By default, the verbose log file is named AzCopyVerbose.log in `%LocalAppData%\M
 **Applicable to:** Blobs, Files, Tables
 
 ### /Z:[journal-file-folder]
-
 Specifies a journal file folder for resuming an operation.
 
 AzCopy always supports resuming if an operation has been interrupted.
@@ -750,7 +691,6 @@ Note that resuming an operation from a journal file created by a previous versio
 **Applicable to:** Blobs, Files, Tables
 
 ### /@:"parameter-file"
-
 Specifies a file that contains parameters. AzCopy processes the parameters in the file just as if they had been specified on the command line.
 
 In a response file, you can either specify multiple parameters on a single line, or specify each parameter on its own line. Note that an individual parameter cannot span multiple lines.
@@ -762,13 +702,11 @@ You can specify multiple response files. However, note that AzCopy does not supp
 **Applicable to:** Blobs, Files, Tables
 
 ### /Y
-
 Suppresses all AzCopy confirmation prompts.
 
 **Applicable to:** Blobs, Files, Tables
 
 ### /L
-
 Specifies a listing operation only; no data is copied.
 
 AzCopy will interpret the using of this option as a simulation for running the command line without this option /L and count how many objects will be copied, you can specify option /V at the same time to check which objects will be copied in the verbose log.
@@ -780,69 +718,62 @@ AzCopy requires LIST and READ permission of this source location when using this
 **Applicable to:** Blobs, Files
 
 ### /MT
-
 Sets the downloaded file's last-modified time to be the same as the source blob or file's.
 
 **Applicable to:** Blobs, Files
 
 ### /XN
-
 Excludes a newer source resource. The resource will not be copied if the last modified time of the source is the same or newer than destination.
 
 **Applicable to:** Blobs, Files
 
 ### /XO
-
 Excludes an older source resource. The resource will not be copied if the last modified time of the source is the same or older than destination.
 
 **Applicable to:** Blobs, Files
 
 ### /A
-
 Uploads only files that have the Archive attribute set.
 
 **Applicable to:** Blobs, Files
 
 ### /IA:[RASHCNETOI]
-
 Uploads only files that have any of the specified attributes set.
 
 Available attributes include:
 
-- R = Read-only files
-- A = Files ready for archiving
-- S = System files
-- H = Hidden files
-- C = Compressed files
-- N = Normal files
-- E = Encrypted files
-- T = Temporary files
-- O = Offline files
-- I = Non-indexed files
+* R = Read-only files
+* A = Files ready for archiving
+* S = System files
+* H = Hidden files
+* C = Compressed files
+* N = Normal files
+* E = Encrypted files
+* T = Temporary files
+* O = Offline files
+* I = Non-indexed files
 
 **Applicable to:** Blobs, Files
 
 ### /XA:[RASHCNETOI]
-
 Excludes files that have any of the specified attributes set.
 
 Available attributes include:
 
-- R = Read-only files
-- A = Files ready for archiving
-- S = System files
-- H = Hidden files
-- C = Compressed files
-- N = Normal files
-- E = Encrypted files
-- T = Temporary files
-- O = Offline files
-- I = Non-indexed files
+* R = Read-only files
+* A = Files ready for archiving
+* S = System files
+* H = Hidden files
+* C = Compressed files
+* N = Normal files
+* E = Encrypted files
+* T = Temporary files
+* O = Offline files
+* I = Non-indexed files
 
 **Applicable to:** Blobs, Files
 
 ### /Delimiter:"delimiter"
-
 Indicates the delimiter character used to delimit virtual directories in a blob name.
 
 By default, AzCopy uses / as the delimiter character. However, AzCopy supports using any common character (such as @, #, or %) as a delimiter. If you need to include one of these special characters on the command line, enclose the file name with double quotes.
@@ -852,7 +783,6 @@ This option is only applicable for downloading blobs.
 **Applicable to:** Blobs
 
 ### /NC:"number-of-concurrent-operations"
-
 Specifies the number of concurrent operations.
 
 AzCopy by default starts a certain number of concurrent operations to increase the data transfer throughput. Note that large number of concurrent operations in a low-bandwidth environment may overwhelm the network connection and prevent the operations from fully completing. Throttle concurrent operations based on actual available network bandwidth.
@@ -862,19 +792,16 @@ The upper limit for concurrent operations is 512.
 **Applicable to:** Blobs, Files, Tables
 
 ### /SourceType:"Blob" | "Table"
-
 Specifies that the `source` resource is a blob available in the local development environment, running in the storage emulator.
 
 **Applicable to:** Blobs, Tables
 
 ### /DestType:"Blob" | "Table"
-
 Specifies that the `destination` resource is a blob available in the local development environment, running in the storage emulator.
 
 **Applicable to:** Blobs, Tables
 
 ### /PKRS:"key1#key2#key3#..."
-
 Splits the partition key range to enable exporting table data in parallel, which increases the speed of the export operation.
 
 If this option is not specified, then AzCopy uses a single thread to export table entities. For example, if the user specifies /PKRS:"aa#bb", then AzCopy starts three concurrent operations.
@@ -890,7 +817,6 @@ Each operation exports one of three partition key ranges, as shown below:
 **Applicable to:** Tables
 
 ### /SplitSize:"file-size"
-
 Specifies the exported file split size in MB, the minimal value allowed is 32.
 
 If this option is not specified, AzCopy will export table data to single file.
@@ -900,19 +826,15 @@ If the table data is exported to a blob, and the exported file size reaches the 
 **Applicable to:** Tables
 
 ### /EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
-
 Specifies the table data import behavior.
 
-- InsertOrSkip - Skips an existing entity or inserts a new entity if it does not exist in the table.
-
-- InsertOrMerge - Merges an existing entity or inserts a new entity if it does not exist in the table.
-
-- InsertOrReplace - Replaces an existing entity or inserts a new entity if it does not exist in the table.
+* InsertOrSkip - Skips an existing entity or inserts a new entity if it does not exist in the table.
+* InsertOrMerge - Merges an existing entity or inserts a new entity if it does not exist in the table.
+* InsertOrReplace - Replaces an existing entity or inserts a new entity if it does not exist in the table.
 
 **Applicable to:** Tables
 
 ### /Manifest:"manifest-file"
-
 Specifies the manifest file for the table export and import operation.
 
 This option is optional during the export operation, AzCopy will generate a manifest file with predefined name if this option is not specified.
@@ -922,7 +844,6 @@ This option is required during the import operation for locating the data files.
 **Applicable to:** Tables
 
 ### /SyncCopy
-
 Indicates whether to synchronously copy blobs or files between two Azure Storage endpoints.
 
 AzCopy by default uses server-side asynchronous copy. Specify this option to perform a synchronous copy, which downloads blobs or files to local memory and then uploads them to Azure Storage.
@@ -932,7 +853,6 @@ You can use this option when copying files within Blob storage, within File stor
 **Applicable to:** Blobs, Files
 
 ### /SetContentType:"content-type"
-
 Specifies the MIME content type for destination blobs or files.
 
 AzCopy sets the content type for a blob or file to application/octet-stream by default. You can set the content type for all blobs or files by explicitly specifying a value for this option.
@@ -942,7 +862,6 @@ If you specify this option without a value, then AzCopy will set each blob or fi
 **Applicable to:** Blobs, Files
 
 ### /PayloadFormat:"JSON" | "CSV"
-
 Specifies the format of the table exported data file.
 
 If this option is not specified, by default AzCopy exports table data file in JSON format.
@@ -950,9 +869,7 @@ If this option is not specified, by default AzCopy exports table data file in JS
 **Applicable to:** Tables
 
 ## Known Issues and Best Practices
-
 ### Limit concurrent writes while copying data
-
 When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. A good way to do this is by leasing the resource to be copied. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
 
 If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
@@ -965,39 +882,37 @@ AzCopy by default uses .NET MD5 implementation to calculate the MD5 when copying
 
 You can create an app.config file `AzCopy.exe.config` with property `AzureStorageUseV1MD5` and put it aside with AzCopy.exe.
 
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <appSettings>
-    <add key="AzureStorageUseV1MD5" value="false"/>
-  </appSettings>
-</configuration>
-```
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+      <appSettings>
+        <add key="AzureStorageUseV1MD5" value="false"/>
+      </appSettings>
+    </configuration>
 
-For property “AzureStorageUseV1MD5”
+For property "AzureStorageUseV1MD5"
 • True - The default value, AzCopy will use .NET MD5 implementation.
 • False – AzCopy will use FIPS compliant MD5 algorithm.
 
 Note that FIPS compliant algorithms is disabled by default on your Windows machine, you can type secpol.msc in your Run window and check this switch at Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing.
 
 ## Next steps
-
 For more information about Azure Storage and AzCopy, refer to the following resources.
 
 ### Azure Storage documentation:
-
-- [Introduction to Azure Storage](./storage-introduction.md)
-- [How to use Blob storage from .NET](./storage-dotnet-how-to-use-blobs.md)
-- [How to use File storage from .NET](./storage-dotnet-how-to-use-files.md)
-- [How to use Table storage from .NET](./storage-dotnet-how-to-use-tables.md)
-- [How to create, manage, or delete a storage account](./storage-create-storage-account.md)
+* [Introduction to Azure Storage](storage-introduction.md)
+* [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md)
+* [How to use File storage from .NET](storage-dotnet-how-to-use-files.md)
+* [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md)
+* [How to create, manage, or delete a storage account](storage-create-storage-account.md)
+* [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md)
 
 ### Azure Storage blog posts:
-- [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-- [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-- [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy: Optimized for Large-Scale Copy Scenarios](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/08/08/azcopy-2-5-release.aspx)
-- [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-- [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-- [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-- [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+

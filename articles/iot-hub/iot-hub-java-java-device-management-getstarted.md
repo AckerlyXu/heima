@@ -3,7 +3,7 @@ title: Get started with Azure IoT Hub device management (Java) | Azure
 description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure IoT device SDK for Java to implement a simulated device app that includes a direct method and the Azure IoT service SDK for Java to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: .java
-author: dominicbetts
+author: Derek1101
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/12/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.date: 07/03/2017
 ---
 

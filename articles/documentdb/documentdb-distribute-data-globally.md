@@ -93,7 +93,7 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in DocumentDB
 DocumentDB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
 
-You can find information on how to configure read preferences for the [DocumentDB](./documentdb-portal-global-replication.md), Graph, Table, and MongoDB APIs in their respective linked articles.
+You can find information on how to configure read preferences for the DocumentDB, Graph, Table, and MongoDB APIs in their respective linked articles.
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 DocumentDB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. DocumentDB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
@@ -222,7 +222,6 @@ DocumentDB transparently exposes the throughput, latency, consistency and availa
 ![DocumentDB customer-visible SLA metrics](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>Next Steps
-- To implement global replication on your DocumentDB account using the Azure portal, see [How to perform DocumentDB global database replication using the Azure portal](./documentdb-portal-global-replication.md).
 - To learn about how to implement multi-master architectures with DocumentDB, see [Multi-master database architectures with DocumentDB](documentdb-multi-region-writers.md).
 - To learn more about how automatic and manual failovers work in DocumentDB, see [Regional Failovers in DocumentDB](documentdb-regional-failovers.md).
 

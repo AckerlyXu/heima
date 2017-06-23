@@ -3,8 +3,8 @@ title: How to create, manage, or delete a storage account in the Azure portal | 
 description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
-author: robinsh
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
@@ -13,46 +13,43 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords: 
+  - "sql13.swb.windowsazurestorage.connect.f1"
 origin.date: 01/23/2017
-ms.date: 03/20/2017
+ms.date: 06/26/2017
 ms.author: v-johch
+
 ---
-
 # About Azure storage accounts
-
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 <br/>
 [!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Overview
-
 An Azure storage account provides a unique namespace to store and access your Azure Storage data objects. All objects in a storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
 ## Storage account billing
-
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
 > When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](../virtual-machines/index.md) for more details.
 
 ## Storage account endpoints
-
 Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
 
 For example, if your storage account is named *mystorageaccount*, then the default endpoints for your storage account are:
 
-- Blob service: http://*mystorageaccount*.blob.core.chinacloudapi.cn
-
-- Table service: http://*mystorageaccount*.table.core.chinacloudapi.cn
-
-- Queue service: http://*mystorageaccount*.queue.core.chinacloudapi.cn
-
-- File service: http://*mystorageaccount*.file.core.chinacloudapi.cn
+* Blob service: http://*mystorageaccount*.blob.core.chinacloudapi.cn
+* Table service: http://*mystorageaccount*.table.core.chinacloudapi.cn
+* Queue service: http://*mystorageaccount*.queue.core.chinacloudapi.cn
+* File service: http://*mystorageaccount*.file.core.chinacloudapi.cn
 
 > [!NOTE]
 > A Blob storage account only exposes the Blob service endpoint.
+> 
+> 
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.chinacloudapi.cn/*mycontainer*/*myblob*.
 
@@ -82,7 +79,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
     If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](./storage-blob-storage-tiers.md) for more details.
 
-6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](./storage-redundancy.md).
+6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 
 7. Select the subscription in which you want to create the new storage account.
 
@@ -96,20 +93,24 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ### Change your account configuration
 
-After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure Portal](https://portal.azure.cn), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration.
+After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.cn), navigate to your storage account, find and click **Configuration** under **SETTINGS** to view and/or change the account configuration.
 
 > [!NOTE]
 > Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
+> 
+> 
 
 Changing the replication option will change your pricing. For more details, see [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) page.
 
-For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. Please see the [Blob storage accounts - Pricing and Billing](./storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. Please see the [Blob storage accounts - Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) for more details.
 
 ### Manage your storage access keys
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
 > [!NOTE]
-> We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](./storage-dotnet-shared-access-signature-part-1.md) for more information.
+> We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
+> 
+> 
 
 #### View and copy storage access keys
 
@@ -120,12 +121,14 @@ We recommend that you change the access keys to your storage account periodicall
 
 > [!WARNING]
 > Regenerating your access keys can affect services in Azure as well as your own applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
+> 
+> 
 
 **Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
 
 **Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.
 
-**Storage Explorers** - If you are using any [storage explorer applications](./storage-explorers.md), you will probably need to update the storage key used by those applications.
+**Storage Explorers** - If you are using any [storage explorer applications](storage-explorers.md), you will probably need to update the storage key used by those applications.
 
 Here is the process for rotating your storage access keys:
 
@@ -152,7 +155,7 @@ Failed to delete storage account <vm-storage-account-name>. Unable to delete sto
 
 If the storage account uses the Classic deployment model, you can remove the virtual machine disk by following these steps in the [Azure Management portal](https://manage.windowsazure.cn):
 
-1. Navigate to the [Azure Management Portal](https://manage.windowsazure.cn).
+1. Navigate to the [classic Azure portal](https://manage.windowsazure.cn).
 2. Navigate to the Virtual Machines tab.
 3. Click the Disks tab.
 4. Select your data disk, then click Delete Disk.
@@ -161,9 +164,9 @@ If the storage account uses the Classic deployment model, you can remove the vir
 For more information, see the [Azure Virtual Machine documentation](../virtual-machines/index.md).
 
 ## Next steps
-
-- [Azure Blob Storage: Cool and Hot tiers](./storage-blob-storage-tiers.md)
-- [Azure Storage replication](./storage-redundancy.md)
-- [Configure Azure Storage Connection Strings](./storage-configure-connection-string.md)
-- [Transfer data with the AzCopy Command-Line Utility](./storage-use-azcopy.md)
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md)
+* [Azure Storage replication](storage-redundancy.md)
+* [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)
+* [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+* Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).

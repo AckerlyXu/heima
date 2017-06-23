@@ -3,7 +3,7 @@ title: Azure AD Java command line getting started | Azure
 description: How to build a Java command line app that signs users in to access an API.
 services: active-directory
 documentationcenter: java
-author: xerners
+author: alexchen2016
 manager: mbaldwin
 editor: ''
 

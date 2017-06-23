@@ -13,7 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+origin.date: 05/16/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
 
 ---
