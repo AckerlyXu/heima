@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
-wacn.date: ''
+origin.date: 08/23/2016
+ms.date: 10/25/2016
 ms.author: v-dazen
 
 ---
 # Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
 > [!div class="op_single_selector"]
-> * [PowerShell](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)        
+> * [PowerShell](ps-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)        
 > * [CLI](cli-deploy-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)        
 > 
 > 

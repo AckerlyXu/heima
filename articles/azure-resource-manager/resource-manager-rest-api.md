@@ -4,7 +4,7 @@ description: An overview of the Resource Manager REST APIs authentication and us
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
-manager: timlt
+manager: digimobile
 editor: ''
 
 ms.assetid: e8d7a1d2-1e82-4212-8288-8697341408c5
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
-wacn.date: ''
+origin.date: 01/13/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,7 @@ Azure AD to receive an authentication token that you can pass on to every reques
 APIs, we assume that you don't want to authenticate by being prompted for a username and password. We also assume you are not using two factor authentication mechanisms. 
 Therefore, we create what is called an Azure AD Application and a service principal that are used to log in. 
 But remember that Azure AD support several authentication procedures and all of them could be used to retrieve that authentication token that we need for subsequent API requests.
-Follow [Create Azure AD Application and Service Principle](resource-group-create-service-principal-portal.md) for step by step instructions.
+Follow [Create Azure AD Application and Service Principal](resource-group-create-service-principal-portal.md) for step by step instructions.
 
 ### Generating an Access Token
 Authentication against Azure AD is done by calling out to Azure AD, located at login.chinacloudapi.cn. 

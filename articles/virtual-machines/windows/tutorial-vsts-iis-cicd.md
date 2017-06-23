@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/12/2017
-wacn.date: ''
+origin.date: 05/12/2017
+ms.date: 06/21/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a continuous integration pipeline with Visual Studio Team Services and IIS
@@ -48,11 +49,11 @@ In the previous step, you created a project in Team Services. The final step ope
 
 1. Select **Clone** to create a local git repo of your Team Services project.
 
-    ![Clone repo from Team Services project](./media/tutorial-vsts-iis-cicd/clone_repo.png)
+    ![Clone repo from Team Services project](media/tutorial-vsts-iis-cicd/clone_repo.png)
 
 2. Under **Solutions**, select **New**.
 
-    ![Create web application solution](./media/tutorial-vsts-iis-cicd/new_solution.png)
+    ![Create web application solution](media/tutorial-vsts-iis-cicd/new_solution.png)
 
 3. Select **Web** templates, and then choose the **ASP.NET Web Application** template.
     1. Enter a name for your application, such as *myWebApp*, and uncheck the box for **Create directory for solution**.
@@ -63,7 +64,7 @@ In the previous step, you created a project in Team Services. The final step ope
     2. Select **OK** to create your solution.
 5. In the **Team Explorer** window, choose **Changes**.
 
-    ![Commit local changes to Team Services git repo](./media/tutorial-vsts-iis-cicd/commit_changes.png)
+    ![Commit local changes to Team Services git repo](media/tutorial-vsts-iis-cicd/commit_changes.png)
 
 6. In the commit text box, enter a message such as *Initial commit*. Choose **Commit All and Sync** from the drop-down menu.
 
@@ -75,14 +76,14 @@ In Team Services, you use a build definition to outline how your application sho
 4. Choose the **ASP.NET (PREVIEW)** template and select **Apply**.
 5. Leave all the default task values. Under **Get sources**, ensure that the *myWebApp* repository and *master* branch are selected.
 
-    ![Create build definition in Team Services project](./media/tutorial-vsts-iis-cicd/create_build_definition.png)
+    ![Create build definition in Team Services project](media/tutorial-vsts-iis-cicd/create_build_definition.png)
 
 6. On the **Triggers** tab, move the slider for **Enable this trigger** to *Enabled*.
 7. Save the build definition and queue a new build by selecting **Save & queue** , then **Save & queue** again. Leave the defaults and select **Queue**.
 
 Watch as the build is scheduled on a hosted agent, then begins to build. The output is similar to the following example:
 
-![Successful build of Team Services project](./media/tutorial-vsts-iis-cicd/successful_build.png)
+![Successful build of Team Services project](media/tutorial-vsts-iis-cicd/successful_build.png)
 
 ## Create virtual machine
 To provide a platform to run your ASP.NET web app, you need a Windows virtual machine that runs IIS. Team Services uses an agent to interact with the IIS instance as you commit code and builds are triggered.
@@ -142,7 +143,7 @@ With the deployment group created, add each IIS instance to the group. Team Serv
 4. Wait for the script to finish with a message *Service vstsagent.account.computername started successfully*.
 5. In the **Deployment groups** page of the **Build & Release** menu, open the *myIIS* deployment group. On the **Machines** tab, verify that your VM is listed.
 
-    ![VM successfully added to Team Services deployment group](./media/tutorial-vsts-iis-cicd/deployment_group.png)
+    ![VM successfully added to Team Services deployment group](media/tutorial-vsts-iis-cicd/deployment_group.png)
 
 ## Create release definition
 To publish your builds, you create a release definition in Team Services. This definition is triggered automatically by a successful build of your application. You choose the deployment group to push your web deploy package to, and define the appropriate IIS settings.
@@ -155,14 +156,14 @@ To publish your builds, you create a release definition in Team Services. This d
 6. Select the **Continuous deployment** check box, then select **Create**.
 7. Select the drop-down box next to **+ Add tasks** and choose *Add a deployment group phase*.
 
-    ![Add task to release definition in Team Services](./media/tutorial-vsts-iis-cicd/add_release_task.png)
+    ![Add task to release definition in Team Services](media/tutorial-vsts-iis-cicd/add_release_task.png)
 
 8. Choose **Add** next to **IIS Web App Deploy(Preview)**, then select **Close**.
 9. Select the **Run on deployment group** parent task.
     1. For **Deployment Group**, select the deployment group you created earlier, such as *myIIS*.
     2. In the **Machine tags** box, select **Add** and choose the *web* tag.
 
-    ![Release definition deployment group task for IIS](./media/tutorial-vsts-iis-cicd/release_definition_iis.png)
+    ![Release definition deployment group task for IIS](media/tutorial-vsts-iis-cicd/release_definition_iis.png)
 
 11. Select the **Deploy: IIS Web App Deploy** task to configure your IIS instance settings as follows:
     1. For **Website Name**, enter *Default Web Site*.
@@ -177,11 +178,11 @@ You can now push your web deploy package as a new release. This step communicate
 3. A small banner appears across the top of your release definition, such as *Release 'Release-1' has been created*. Select the release link.
 4. Open the **Logs** tab to watch the release progress.
 
-    ![Successful Team Services release and web deploy package push](./media/tutorial-vsts-iis-cicd/successful_release.png)
+    ![Successful Team Services release and web deploy package push](media/tutorial-vsts-iis-cicd/successful_release.png)
 
 5. After the release is complete, open a web browser and enter the public IIP address of your VM. Your ASP.NET web application is running.
 
-    ![ASP.NET web app running on IIS VM](./media/tutorial-vsts-iis-cicd/running_web_app.png)
+    ![ASP.NET web app running on IIS VM](media/tutorial-vsts-iis-cicd/running_web_app.png)
 
 ## Test the whole CI/CD pipeline
 With your web application running on IIS, now try the whole CI/CD pipeline. After you make a change in Visual Studio and commit your code, a build is triggered which then triggers a release of your updated web deploy package to IIS:
@@ -203,7 +204,7 @@ With your web application running on IIS, now try the whole CI/CD pipeline. Afte
     - Select the **Refresh** icon to update the status. When the *Environments* column shows a green check mark, the release has successfully deployed to IIS.
 11. To see your changes applied, refresh your IIS website in a browser.
 
-    ![ASP.NET web app running on IIS VM from CI/CD pipeline](./media/tutorial-vsts-iis-cicd/running_web_app_cicd.png)
+    ![ASP.NET web app running on IIS VM from CI/CD pipeline](media/tutorial-vsts-iis-cicd/running_web_app_cicd.png)
 
 ## Next steps
 

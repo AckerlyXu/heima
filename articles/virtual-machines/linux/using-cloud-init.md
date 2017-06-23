@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 05/11/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -55,8 +55,7 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --use-unmanaged-disk
+    --custom-data cloud-init.txt
 ```
 
 ## Detailed walkthrough
@@ -107,8 +106,7 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --use-unmanaged-disk
+    --custom-data cloud-init.txt
 ```
 
 ## Create a cloud-init script to set the hostname of a Linux VM
@@ -129,8 +127,7 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --use-unmanaged-disk
+    --custom-data cloud-init.txt
 ```
 
 Login and verify the hostname of the new VM.
@@ -159,8 +156,7 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud_config_apt_upgrade.txt \
-    --use-unmanaged-disk
+    --custom-data cloud_config_apt_upgrade.txt
 ```
 
 Login and verify all packages are updated.
@@ -201,8 +197,7 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud_config_add_users.txt \
-    --use-unmanaged-disk
+    --custom-data cloud_config_add_users.txt
 ```
 
 Login and verify the newly created user.

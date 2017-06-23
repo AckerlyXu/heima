@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -26,7 +26,7 @@ This tutorial shows you how to create a PHP-MySQL web app and how to deploy it u
 
 You will learn:
 
-* How to create a web app and a MySQL database using the Azure Portal Preview. Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.
+* How to create a web app and a MySQL database using the Azure Portal. Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.
 * How to publish your application to Azure using FTP.
 
 By following this tutorial, you will build a simple registration web app in PHP. The application will be hosted in a Web App. A screenshot of the completed application is below:
@@ -36,8 +36,8 @@ By following this tutorial, you will build a simple registration web app in PHP.
 ## Create a web app and set up FTP publishing
 Follow these steps to create a web app and a MySQL database:
 
-1. Login to the [Azure Portal Preview][management-portal].
-2. Click the **+ New** icon on the top left of the Azure Portal Preview.
+1. Login to the [Azure Portal][management-portal].
+2. Click the **+ New** icon on the top left of the Azure Portal.
 
     ![Create New Azure Web Site][new-website]
 3. In the search type **Web app** and click on **Web app**.
@@ -85,10 +85,10 @@ To build and run the app locally, follow the steps below. Note that these steps 
         echo "<h3>Table created.</h3>";
         ?>
 
-    > [!NOTE]
-    > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
-    > 
-    > 
+   > [!NOTE]
+   > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+   > 
+   > 
 4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
 5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
 
@@ -138,10 +138,10 @@ To build and run the app locally, follow the steps below. Note that these steps 
             die(var_dump($e));
         }
 
-    > [!NOTE]
-    > Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
-    > 
-    > 
+   > [!NOTE]
+   > Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+   > 
+   > 
 7. Following the database connection code, add code for inserting registration information into the database.
 
         if(!empty($_POST)) {

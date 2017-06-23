@@ -21,7 +21,7 @@ ms.tgt_pltfrm: NA
 # Import a BACPAC file to a new Azure SQL Database
 
 This article discusses importing a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file to a new Azure SQL database. This article discusses using the following methods:
-- The [Azure portal preview](https://portal.azure.cn)
+- The [Azure Portal](https://portal.azure.cn)
 - the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility
 - the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) cmdlet
 
@@ -36,11 +36,11 @@ When you need to import a database from an archive or when migrating from anothe
 > To import a BACPAC to a new database, you must first create an Azure SQL Database logical server. For a tutorial showing you how to migrate a SQL Server database to Azure SQL Database using SQLPackage, see [Migrate a SQL Server Database](sql-database-migrate-your-sql-server-database.md)
 >
 
-## Azure portal preview
+## Azure Portal
 
-This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure portal preview](https://portal.azure.cn). Import using the Azure portal preview only supports importing a BACPAC file from Azure blob storage.
+This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure Portal](https://portal.azure.cn). Import using the Azure Portal only supports importing a BACPAC file from Azure blob storage.
 
-To import a database using the Azure portal preview, open the page for your database and click **Import** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the bacpac, and provide the credentials to connect to the source database.  
+To import a database using the Azure Portal, open the page for your database and click **Import** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the bacpac, and provide the credentials to connect to the source database.  
 
    ![Database import](./media/sql-database-import/import.png)
 

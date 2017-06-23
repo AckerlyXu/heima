@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/31/2017
-wacn.date: ''
+origin.date: 01/31/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -67,8 +67,8 @@ The following SQL Server components are used when backing up to the Azure Blob s
 1. Create an Azure account if you don't already have one. If you are evaluating Azure, consider the [trial](https://www.azure.cn/pricing/1rmb-trial/).
 2. Then go through one of the following tutorials that walk you through creating a storage account and performing a restore.
 
-    * **SQL Server 2014**: [Tutorial: SQL Server 2014 Backup and Restore to Azure Blob Storage Service](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-    * **SQL Server 2016**: [Tutorial: Using the Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
+   * **SQL Server 2014**: [Tutorial: SQL Server 2014 Backup and Restore to Azure Blob Storage Service](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2016**: [Tutorial: Using the Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Review additional documentation starting with [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx).
 
 If you have any problems, review the topic [SQL Server Backup to URL Best Practices and Troubleshooting](https://msdn.microsoft.com/library/jj919149.aspx).

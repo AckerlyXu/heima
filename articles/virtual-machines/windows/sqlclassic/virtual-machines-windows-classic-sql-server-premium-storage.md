@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/28/2016
-wacn.date: ''
+origin.date: 06/01/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -399,10 +399,10 @@ You should provision time where you can perform manual failover and chaos testin
 3. Copy over 'out of user DB' dependent objects, such as logins etc.
 4. Create new a new Internal Load Balancer (ILB) or use an External Load Balancer (ELB), and then set up Load Balanced Endpoints on both new nodes.
 
-    > [!NOTE]
-    > Check all Nodes have the correct Endpoint configuration before you continue
-    >
-    >
+   > [!NOTE]
+   > Check all Nodes have the correct Endpoint configuration before you continue
+   >
+   >
 5. Stop User/Application Access to the SQL Server (if using Storage Pools).
 6. Stop SQL Server Engine Services on All Nodes (if using Storage Pools).
 7. Add new Nodes to cluster and run full validation.
@@ -474,9 +474,9 @@ One strategy for minimal downtime is to take an existing cloud secondary and rem
 * There is a temporary loss of HA and DR during migration.
 * As this is a 1:1 migration, you will have to use a minimum VM size that will support your number of VHDs, so you might not be able to downsize your VMs.
 * This scenario would use the Azure **Start-AzureStorageBlobCopy** commandlet, which is asynchronous. There is no SLA on copy completion. The time of the copies varies, while this depends on wait in queue it will also depend on the amount of data to transfer. The copy time increases if the transfer is going to another Azure data center that supports Premium Storage in another region. If you just have 2 nodes, consider a possible mitigation in case the copy takes longer than in testing. This could include the following ideas.
-    * Add a temporary 3rd SQL Server node for HA before the migration with agreed downtime.
-    * Run the migration outside of Azure scheduled maintenance.
-    * Ensure you have configured your cluster quorum correctly.  
+  * Add a temporary 3rd SQL Server node for HA before the migration with agreed downtime.
+  * Run the migration outside of Azure scheduled maintenance.
+  * Ensure you have configured your cluster quorum correctly.  
 
 ##### High-level steps
 This document does not demonstrate a complete end to end example, however the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) provides details that can be leveraged to perform this.
@@ -488,8 +488,8 @@ This document does not demonstrate a complete end to end example, however the [A
 * Create new cloud service and redeploy the SQL2 VM in that cloud service. Create the VM using the copied original OS VHD and attaching the copied VHDs.
 * Configure ILB / ELB and add Endpoints.
 * Update Listener by either:
-    * Taking the Always On Group offline and updating the Always On Listener with new ILB / ELB IP address.
-    * Or adding the IP address resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the 'Adding IP Address Resource on Same Subnet' section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+  * Taking the Always On Group offline and updating the Always On Listener with new ILB / ELB IP address.
+  * Or adding the IP address resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the 'Adding IP Address Resource on Same Subnet' section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 * Check DNS configuration/propogation to the clients.
 * Migrate SQL1 VM, and go through steps 2 - 4.
 * If using steps 5ii, then add SQL1 as a Possible Owner for the added IP Address Resource
@@ -517,9 +517,9 @@ Consider the following example of a hybrid Always On configuration:
 * Depending on client access to SQL Server, there might be increased latency when SQL Server is running in an alternative DC to the application.
 * The copy time of VHDs to Premium storage could be long. This might affect your decision on whether to keep the node in the Availability Group. Consider this for when log intensive work loads are running during the migration is required, since the Primary node will have to keep the unreplicated transactions in its transaction log. Therefore this could grow significantly.
 * This scenario would use the Azure **Start-AzureStorageBlobCopy** commandlet, which is asynchronous. There is no SLA on completion. The time of the copies varies, while this depends on wait in queue, it will also depend on the amount of data to transfer. Therefore you just have one node in your 2nd data center, you should take mitigation steps in case the copy takes longer than in testing. This could include the following ideas.
-    * Add a temporary 2nd SQL node for HA before the migration with agreed downtime.
-    * Run the migration outside of Azure scheduled maintenance.
-    * Ensure you have configured your cluster quorum correctly.
+  * Add a temporary 2nd SQL node for HA before the migration with agreed downtime.
+  * Run the migration outside of Azure scheduled maintenance.
+  * Ensure you have configured your cluster quorum correctly.
 
 This scenario assumes that you have documented your install and know how the storage is mapped in order to make changes for optimal disk cache settings.
 
@@ -1060,7 +1060,7 @@ For information for individual blobs:
     $pubport=1433
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
 
-    #STOP!!! CHECK in the Azure Classic Management Portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure portal or Machine Endpoints through PowerShell that these Endpoints are created!
 
     #SET ACLs or Azure Network Security Groups & Windows FWs
 

@@ -1,6 +1,6 @@
 ---
 title: Monitor Apps in Azure App Service | Azure
-description: Learn how to monitor Apps in Azure App Service by using the Azure Portal Preview.
+description: Learn how to monitor Apps in Azure App Service by using the Azure Portal.
 services: app-service
 documentationcenter: ''
 author: btardif
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
-wacn.date: ''
+origin.date: 09/07/2016
+ms.date: 01/05/2017
 ms.author: v-dazen
 
 ---
 # How to: Monitor Apps in Azure App Service
 [App Service](/app-service-web/app-service-changes-existing-services) provides
-built in monitoring functionality in the [Azure Portal Preview](https://portal.azure.cn).
+built in monitoring functionality in the [Azure Portal](https://portal.azure.cn).
 This includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
 automatically based on these metrics.
@@ -43,18 +43,18 @@ Medium, Large) and **instance count** (1, 2, 3, ...) of the **App Service plan**
 **Quotas** for **Free** or **Shared** apps are:
 
 * **CPU(Short)**
-    * Amount of CPU allowed for this application in a 3-minute interval. This
-      quota re-sets every 3 minutes.
+  * Amount of CPU allowed for this application in a 3-minute interval. This
+    quota re-sets every 3 minutes.
 * **CPU(Day)**
-    * Total amount of CPU allowed for this application in a day. This quota
-      re-sets every 24 hours at midnight UTC.
+  * Total amount of CPU allowed for this application in a day. This quota
+    re-sets every 24 hours at midnight UTC.
 * **Memory**
-    * Total amount of memory allowed for this application.
+  * Total amount of memory allowed for this application.
 * **Bandwidth**
-    * Total amount of outgoing bandwidth allowed for this application in a day.
-      This quota re-sets every 24 hours at midnight UTC.
+  * Total amount of outgoing bandwidth allowed for this application in a day.
+    This quota re-sets every 24 hours at midnight UTC.
 * **Filesystem**
-    * Total amount of storage allowed.
+  * Total amount of storage allowed.
 
 The only quota applicable to apps hosted on **Basic**, **Standard** and
 **Premium** plans is **Filesystem**.
@@ -83,36 +83,36 @@ Quotas can be increased or removed from your app by upgrading your App Service p
 For an **Application**, the available metrics are:
 
 * **Average Response Time**
-    * The average time taken for the app to serve requests in ms.
+  * The average time taken for the app to serve requests in ms.
 * **Average memory working set**
-    * The average amount of memory in MiBs used by the app.
+  * The average amount of memory in MiBs used by the app.
 * **CPU Time**
-    * The amount of CPU in seconds consumed by the app. For more information
-      about this metric see: [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage)
+  * The amount of CPU in seconds consumed by the app. For more information
+    about this metric see: [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage)
 * **Data In**
-    * The amount of incoming bandwidth consumed by the app in MiBs.
+  * The amount of incoming bandwidth consumed by the app in MiBs.
 * **Data Out**
-    * The amount of outgoing bandwidth consumed by the app in MiBs.
+  * The amount of outgoing bandwidth consumed by the app in MiBs.
 * **Http 2xx**
-    * Count of requests resulting in a http status code >= 200 but < 300.
+  * Count of requests resulting in a http status code >= 200 but < 300.
 * **Http 3xx**
-    * Count of requests resulting in a http status code >= 300 but < 400.
+  * Count of requests resulting in a http status code >= 300 but < 400.
 * **Http 401**
-    * Count of requests resulting in HTTP 401 status code.
+  * Count of requests resulting in HTTP 401 status code.
 * **Http 403**
-    * Count of requests resulting in HTTP 403 status code.
+  * Count of requests resulting in HTTP 403 status code.
 * **Http 404**
-    * Count of requests resulting in HTTP 404 status code.
+  * Count of requests resulting in HTTP 404 status code.
 * **Http 406**
-    * Count of requests resulting in HTTP 406 status code.
+  * Count of requests resulting in HTTP 406 status code.
 * **Http 4xx**
-    * Count of requests resulting in a http status code >= 400 but < 500.
+  * Count of requests resulting in a http status code >= 400 but < 500.
 * **Http Server Errors**
-    * Count of requests resulting in a http status code >= 500 but < 600.
+  * Count of requests resulting in a http status code >= 500 but < 600.
 * **Memory working set**
-    * Current amount of memory used by the app in MiBs.
+  * Current amount of memory used by the app in MiBs.
 * **Requests**
-    * Total number of requests regardless of their resulting HTTP status code.
+  * Total number of requests regardless of their resulting HTTP status code.
 
 For an **App Service plan**, the available metrics are:
 
@@ -122,21 +122,21 @@ For an **App Service plan**, the available metrics are:
 > 
 
 * **CPU Percentage**
-    * The average CPU used across all instances of the plan.
+  * The average CPU used across all instances of the plan.
 * **Memory Percentage**
-    * The average memory used across all instances of the plan.
+  * The average memory used across all instances of the plan.
 * **Data In**
-    * The average incoming bandwidth used across all instances of the plan.
+  * The average incoming bandwidth used across all instances of the plan.
 * **Data Out**
-    * The average outgoing bandwidth used across all instances of the plan.
+  * The average outgoing bandwidth used across all instances of the plan.
 * **Disk Queue Length**
-    * The average number of both read and write requests that were queued
-      on storage. A high disk queue length is an indication of an application
-      that might be slowing down due to excessive disk I/O.
+  * The average number of both read and write requests that were queued
+    on storage. A high disk queue length is an indication of an application
+    that might be slowing down due to excessive disk I/O.
 * **Http Queue Length**
-    * The average number of HTTP requests that had to sit on the queue before
-      being fulfilled. A high or increasing HTTP Queue length is a symptom of
-      a plan under heavy load.
+  * The average number of HTTP requests that had to sit on the queue before
+    being fulfilled. A high or increasing HTTP Queue length is a symptom of
+    a plan under heavy load.
 
 ### CPU time vs CPU percentage
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
@@ -159,9 +159,9 @@ the service with the following granularities and retention policies:
 * **Hour** granularity metrics are retained for **30 days**
 * **Day** granularity metrics are retained for **90 days**
 
-## Monitoring Quotas and Metrics in the Azure Portal Preview.
+## Monitoring Quotas and Metrics in the Azure Portal.
 You can review the status of the different **quotas** and **metrics**
-affecting an application in the [Azure Portal Preview](https://portal.azure.cn).
+affecting an application in the [Azure Portal](https://portal.azure.cn).
 
 ![][quotas]
 **Quotas** can be found under Settings>**Quotas**. The UX allows you to

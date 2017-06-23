@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: ''
+origin.date: 02/22/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 
 ---
@@ -85,7 +85,7 @@ To change the Hadoop cluster size:
 ## Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
-* [Administer HDInsight by using the Azure Portal Preview][hdinsight-admin-portal]
+* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
 * [Administer HDInsight by using Azure PowerShell][hdinsight-admin-powershell]
 * [Get started with Azure HDInsight][hdinsight-get-started]
 * [How to use the Azure CLI][azure-command-line-tools]

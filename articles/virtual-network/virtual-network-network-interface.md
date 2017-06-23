@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
 
 # Create, change, or delete network interfaces
 
-Learn how to create, change settings for, and delete network interfaces (NIC). A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. When creating a VM using the Azure portal preview, the portal creates one NIC with default settings for you. You may instead choose to create NICs with custom settings and add one or more to VMs when you create them. You may also want to change default NIC settings for existing NICs. This article explains how to create NICs with custom settings, change existing NIC settings, such as network filter assignment (network security groups), subnet assignment, DNS server settings, and IP forwarding, and delete NICs. 
+Learn how to create, change settings for, and delete network interfaces (NIC). A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. When creating a VM using the Azure portal, the portal creates one NIC with default settings for you. You may instead choose to create NICs with custom settings and add one or more to VMs when you create them. You may also want to change default NIC settings for existing NICs. This article explains how to create NICs with custom settings, change existing NIC settings, such as network filter assignment (network security groups), subnet assignment, DNS server settings, and IP forwarding, and delete NICs. 
 
 If you need to add, change, or remove IP addresses for a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article. If you need to add NICs to, or remove NICs from VMs, read the [Add or remove NICs](virtual-network-network-interface-vm.md) article. 
 
@@ -31,17 +31,17 @@ If you need to add, change, or remove IP addresses for a NIC, read the [Add, cha
 Complete the following tasks before completing any steps in any section of this article:
 
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for NICs.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
+- Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-nic"></a>Create a NIC
-When creating a VM using the Azure portal preview, the portal creates a NIC with default settings for you. If you'd rather specify all your NIC settings, you can create a NIC with custom settings and attach the NIC to a VM when creating a VM. You can also create a NIC and add it to an existing VM. To learn how to create a VM with an existing NIC or to add to, or remove NICs from existing VMs, read the [Add or remove NICs](virtual-network-network-interface-vm.md) article. Before creating a NIC, you must have an existing virtual network (VNet) in the same location and subscription you create a NIC in. To learn how to create a VNet, read the [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) article.
+When creating a VM using the Azure portal, the portal creates a NIC with default settings for you. If you'd rather specify all your NIC settings, you can create a NIC with custom settings and attach the NIC to a VM when creating a VM. You can also create a NIC and add it to an existing VM. To learn how to create a VM with an existing NIC or to add to, or remove NICs from existing VMs, read the [Add or remove NICs](virtual-network-network-interface-vm.md) article. Before creating a NIC, you must have an existing virtual network (VNet) in the same location and subscription you create a NIC in. To learn how to create a VNet, read the [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) article.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click **+ Add**.
 4. In the **Create network interface** blade that appears, enter, or select values for the following settings, then click **Create**:
 
@@ -72,13 +72,13 @@ The portal doesn't provide the option to assign a public IP address to the NIC w
 
 You can view and change most settings for a NIC.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to view or change settings for.
 4. The following settings are listed in the blade that appears for the NIC you selected:
     - **Overview:** Provides information about the NIC, such as the IP addresses assigned to it, the VNet/subnet the NIC is connected to, and the VM the NIC is attached to (if it's attached to one). The following picture shows the overview settings for a NIC named **mywebserver256**:
         ![Network interface overview](./media/virtual-network-network-interface/nic-overview.png)
-    You can move a NIC to a different resource group or subscription by clicking (**change**) next to the **Resource group** or **Subscription name**. If you move the NIC, you must move all resources related to the NIC with it. If the NIC is attached to a VM, for example, you must also move the VM, and other VM-related resources. To move a NIC, read the [Move resource to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=%2fvirtual-network%2ftoc.json#use-portal) article. The article lists prerequisites, and how to move resources using the Azure portal preview, PowerShell, and the Azure CLI.
+    You can move a NIC to a different resource group or subscription by clicking (**change**) next to the **Resource group** or **Subscription name**. If you move the NIC, you must move all resources related to the NIC with it. If the NIC is attached to a VM, for example, you must also move the VM, and other VM-related resources. To move a NIC, read the [Move resource to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=%2fvirtual-network%2ftoc.json#use-portal) article. The article lists prerequisites, and how to move resources using the Azure portal, PowerShell, and the Azure CLI.
     - **IP configurations:** Public and private IP addresses are assigned to one or more IP configurations for a NIC. To learn more about the maximum number of IP configurations supported for a NIC, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. Each IP configuration has one assigned private IP address, and may have one public IP address associated to it. To add, change, or delete IP configurations from the NIC, complete the steps in the [Add a secondary IP configuration to a NIC](virtual-network-network-interface-addresses.md#create-ip-config), [Change an IP configuration](virtual-network-network-interface-addresses.md#change-ip-config), or [Delete an IP configuration](virtual-network-network-interface-addresses.md#delete-ip-config) sections of the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article. IP forwarding and subnet assignment are also configured in this section. To learn more about these settings, read the [Enable-disable IP forwarding](#ip-forwarding) and [Change subnet assignment](#subnet) sections of this article.
     - **DNS servers:** You can specify which DNS server a NIC is assigned by the Azure DHCP servers. The NIC can inherit the setting from the VNet the NIC is connected to, or have a custom setting that overrides the setting for the VNet it's connected to. To modify what's displayed, complete the steps in the [Change DNS servers](#dns) section of this article.
     - **Network security group (NSG):** Displays which NSG is associated to the NIC (if any). An NSG contains inbound and outbound rules to filter network traffic for the NIC. If an NSG is associated to the NIC, the name of the associated NSG is displayed.
@@ -98,8 +98,8 @@ You can view and change most settings for a NIC.
 
 The DNS server is assigned by the Azure DHCP server to the NIC within the VM operating system. The DNS server assigned is whatever the DNS server setting is for a NIC. To learn more about name resolution settings for a NIC, read the [Name resolution for VMs](virtual-networks-name-resolution-for-vms-and-role-instances.md) article. The NIC can inherit the settings from the VNet, or use its own unique settings that override the setting for the VNet.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to view or change settings for.
 4. In the blade for the NIC you selected, click **DNS servers** under **SETTINGS**.
 5. Click either:
@@ -122,8 +122,8 @@ IP forwarding enables the VM a NIC is attached to:
 
 The setting must be enabled for every NIC attached to the VM that receives traffic that the VM needs to forward. A VM can forward traffic whether it has multiple NICs or a single NIC attached to it. While IP forwarding is an Azure setting, the VM must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. When a VM is running network applications, the VM is often referred to as a network virtual appliance (NVA). You can view a list of ready to deploy NVAs in the Azure Marketplace. IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to enable or disable IP forwarding for.
 4. In the blade for the NIC you selected, click **IP configurations** in the **SETTINGS** section.
 5. Click **Enabled** or **Disabled** (default setting) to change the setting.
@@ -140,8 +140,8 @@ The setting must be enabled for every NIC attached to the VM that receives traff
 
 You can change the subnet, but not the VNet, that a NIC is connected to.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to view or change settings for.
 4. Click **IP configurations** under **SETTINGS** in the blade for the NIC you selected. If any private IP addresses for any IP configurations listed have **(Static)** next to them, you must change the IP address assignment method to dynamic by completing the steps that follow. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the NIC. If the addresses are assigned with the dynamic method, continue to step five. If any addresses are assigned with the static assignment method, complete the following steps to change the assignment method to dynamic:
     - Click the IP configuration you want to change the IP address assignment method for from the list of IP configurations.
@@ -161,8 +161,8 @@ You can change the subnet, but not the VNet, that a NIC is connected to.
 
 You can delete a NIC as long as it's not attached to a VM. If it is attached to a VM, you must first place the VM in the stopped (deallocated) state, then detach the NIC from the VM, before you can delete the NIC. To detach a NIC from a VM, complete the steps in the [Detach a NIC from a virtual machine](virtual-network-network-interface-vm.md#vm-remove-nic) section of the [Add or remove network interfaces](virtual-network-network-interface-vm.md) article. Deleting a VM detaches all NICs attached to it, but does not delete the NICs.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. Right-click the NIC you want to delete and click **Delete**.
 4. Click **Yes** to confirm deletion of the NIC.
 

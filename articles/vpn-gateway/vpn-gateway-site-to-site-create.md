@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
-wacn.date: ''
+origin.date: 04/24/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -24,10 +24,10 @@ ms.author: v-dazen
 This article shows you how to use the Classic Management Portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic - Azure portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Classic Management Portal](vpn-gateway-site-to-site-create.md)
 > 
 >
@@ -96,4 +96,4 @@ Click the checkmark on the bottom of the page to create your virtual network. Wh
 Configure the virtual network gateway to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure Classic Management Portal](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Next steps
- Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/virtual-machines/).
+ Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).

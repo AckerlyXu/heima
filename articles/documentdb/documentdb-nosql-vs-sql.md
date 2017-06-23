@@ -1,27 +1,27 @@
 ---
-title: NoSQL vs SQL and Azure Cosmos DB | Microsoft Docs
-description: Compare the benefits of using NoSQL non-relational solutions versus SQL solutions and Azure Cosmos DB. Learn how Azure Cosmos DB provides the benefits of NoSQL and SQL.
+title: NoSQL vs SQL and DocumentDB | Microsoft Docs
+description: Compare the benefits of using NoSQL non-relational solutions versus SQL solutions and DocumentDB. Learn how DocumentDB provides the benefits of NoSQL and SQL.
 keywords: nosql vs sql, when to use NoSQL, sql vs nosql
-services: cosmosdb
+services: documentdb
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
-ms.service: cosmosdb
+ms.service: documentdb
 ms.custom: overview
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2017
-wacn.date: ''
+origin.date: 03/14/2017
+ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: https://aka.ms/cosmosdb
+redirect_url: https://aka.ms/documentdb
 ROBOTS: NOINDEX, NOFOLLOW
 ---
-# NoSQL vs SQL and Azure Cosmos DB
+# NoSQL vs SQL and DocumentDB
 SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes, velocities, and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. For most developers, relational databases are the default or go-to option because a table structure is easy to understand and is familiar, but there are many reasons to explore beyond relational databases.
 
 NoSQL is a category of databases distinctly different from SQL databases. NoSQL is often used to refer to data management systems that are “Not SQL” or an approach to data management that includes “Not only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, column family stores, and graph databases, which are popular with gaming, social, and IoT apps.
@@ -39,7 +39,7 @@ So how do you store this data? If you're familiar with SQL, you might start draw
 
 So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
 
-Now you could use a relational solution like SQL Server to store the data and query it using joins, as SQL supports dynamic data [formatted as JSON](https://msdn.microsoft.com/library/dn921897.aspx) - but there's another option, a NoSQL option that simplifies the approach for this specific scenario. By using a single document like the following and storing it in Azure Cosmos DB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
+Now you could use a relational solution like SQL Server to store the data and query it using joins, as SQL supports dynamic data [formatted as JSON](https://msdn.microsoft.com/library/dn921897.aspx) - but there's another option, a NoSQL option that simplifies the approach for this specific scenario. By using a single document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
 
     {
         "id":"ew12-res2-234e-544f",
@@ -66,7 +66,7 @@ You can then build on this solution using other Azure services:
 - [Azure Blob Storage](https://www.azure.cn/home/features/storage/) can be used to store full user profiles including images.
 - [Azure SQL Database](https://www.azure.cn/home/features/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
 
-This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for Azure Cosmos DB in social media applications, see [Going social with Azure Cosmos DB](documentdb-social-media-apps.md). 
+This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-apps.md). 
 
 ## NoSQL vs SQL comparison
 The following table compares the main differences between NoSQL and SQL. 
@@ -85,11 +85,11 @@ Azure has four fully-managed NoSQL services:
 
 The following comparison chart maps out the key differentiators for each service. Which one most accurately describes the needs of your application? 
 
-![NoSQL vs SQL diagram showing when to use NoSQL offerings from Azure, including Azure Cosmos DB, Table Storage, HBase as a part of HDInsight, and Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
+![NoSQL vs SQL diagram showing when to use NoSQL offerings from Azure, including DocumentDB, Table Storage, HBase as a part of HDInsight, and Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
 If one or more of these services might meet the needs of your application, learn more with the following resources: 
 
-- [Azure Cosmos DB use cases](documentdb-use-cases.md)
+- [DocumentDB use cases](documentdb-use-cases.md)
 - [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
 - [What is HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
 

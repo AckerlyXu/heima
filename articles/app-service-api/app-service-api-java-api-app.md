@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -238,9 +238,9 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
           cd deploy
 
 ## Publish the output to Azure App Service
-In this section you'll learn how to create a new API App using the Azure Portal Preview, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
+In this section you'll learn how to create a new API App using the Azure Portal, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
 
-1. Create a new API app in the [Azure portal preview], by clicking the **New -> Web + Mobile -> API app** menu item, entering your app details, and then clicking **Create**.
+1. Create a new API app in the [Azure portal], by clicking the **New -> Web + Mobile -> API app** menu item, entering your app details, and then clicking **Create**.
 
     ![Create a new API App][create-api-app]
 2. Once your API app has been created, open your app's **Settings** blade, and then click the **Application settings** menu item. Select the latest Java versions from the available options, then select the latest Tomcat from the **Web container** menu, and then click **Save**.
@@ -248,7 +248,7 @@ In this section you'll learn how to create a new API App using the Azure Portal 
     ![Set up Java in the API App blade][set-up-java]
 3. Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
 
-4. Back to [Azure portal Preview]. Click the **Deployment source** settings menu item. Once there, click the **Choose source** button, select the **Local Git Repository** option, and then click **OK**. This will create a Git repository running in Azure, that has an association with your API App. Each time you commit code to the *master* branch of your Git repository, your code will be published into your live running API App instance. 
+4. Back to [Azure Portal]. Click the **Deployment source** settings menu item. Once there, click the **Choose source** button, select the **Local Git Repository** option, and then click **OK**. This will create a Git repository running in Azure, that has an association with your API App. Each time you commit code to the *master* branch of your Git repository, your code will be published into your live running API App instance. 
 
     ![Set up a new local Git repository][select-git-repo]
 5. Copy the new Git repository's URL to your clipboard. Save this as it will be important in a moment. 
@@ -280,13 +280,13 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [App Service API CORS]: app-service-api-cors-consume-javascript.md
-[Azure portal preview]: https://portal.azure.cn/
+[Azure portal]: https://portal.azure.cn/
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Git]: http://www.git-scm.com/
 [Azure Java Developer Center]: /develop/java/
 [Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[Jax-RS]: https://jax-rs-spec.java.net/
+[Jax-RS]: http://docs.oracle.com/javaee/6/tutorial/doc/giepu.html
 [Maven]: https://maven.apache.org/
 [Azure]: https://www.azure.cn/
 [Online Swagger Editor]: http://editor.swagger.io/

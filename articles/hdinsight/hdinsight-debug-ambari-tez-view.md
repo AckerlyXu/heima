@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
-wacn.date: ''
+origin.date: 04/14/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -93,18 +93,18 @@ Use the following steps to run a Hive query that uses Tez:
 
 5. Above the **DAG Details** are several links that can be used to display information about the DAG.
 
-    * **DAG Counters**: Displays counters information for this DAG.
-    * **Graphical View**: Displays a graphical representation of this DAG.
-    * **All Vertices**: Displays a list of the vertices in this DAG.
-    * **All Tasks**: Displays a list of the tasks for all vertices in this DAG.
-    * **All TaskAttempts**: Displays information about the attempts to run tasks for this DAG.
+   * **DAG Counters**: Displays counters information for this DAG.
+   * **Graphical View**: Displays a graphical representation of this DAG.
+   * **All Vertices**: Displays a list of the vertices in this DAG.
+   * **All Tasks**: Displays a list of the tasks for all vertices in this DAG.
+   * **All TaskAttempts**: Displays information about the attempts to run tasks for this DAG.
 
-    > [!NOTE]
-    > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
+     > [!NOTE]
+     > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
 
-    If there was a failure with the job, the DAG Details display a status of FAILED, along with links to information about the failed task. Diagnostics information is displayed beneath the DAG details.
+     If there was a failure with the job, the DAG Details display a status of FAILED, along with links to information about the failed task. Diagnostics information is displayed beneath the DAG details.
 
-    ![A DAG Details screen detailing a failure](./media/hdinsight-debug-ambari-tez-view/faileddag.png)
+     ![A DAG Details screen detailing a failure](./media/hdinsight-debug-ambari-tez-view/faileddag.png)
 
 6. Select **Graphical View**. This view displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
 
@@ -116,20 +116,20 @@ Use the following steps to run a Hive query that uses Tez:
 
 8. You now have links at the top of the page that are related to vertices and tasks.
 
-    > [!NOTE]
-    > You can also arrive at this page by going back to **DAG Details**, selecting **Vertex Details**, and then selecting the **Map 1** vertex.
+   > [!NOTE]
+   > You can also arrive at this page by going back to **DAG Details**, selecting **Vertex Details**, and then selecting the **Map 1** vertex.
 
-    * **Vertex Counters**: Displays counter information for this vertex.
-    * **Tasks**: Displays tasks for this vertex.
-    * **Task Attempts**: Displays information about attempts to run tasks for this vertex.
-    * **Sources & Sinks**: Displays data sources and sinks for this vertex.
+   * **Vertex Counters**: Displays counter information for this vertex.
+   * **Tasks**: Displays tasks for this vertex.
+   * **Task Attempts**: Displays information about attempts to run tasks for this vertex.
+   * **Sources & Sinks**: Displays data sources and sinks for this vertex.
 
-    > [!NOTE]
-    > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
+     > [!NOTE]
+     > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
 
 9. Select **Tasks**, and then select the item named **00_000000**. The **Task Details** for this task appear. From this screen, you can view **Task Counters** and **Task Attempts**.
 
-    ![Task details](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
+   ![Task details](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
 
 ## Next Steps
 

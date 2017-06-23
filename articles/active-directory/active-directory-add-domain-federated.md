@@ -1,6 +1,6 @@
 ---
-title: Add your custom domain name and set up federated sign-on to Azure Active Directory | Microsoft Docs
-description: How to add your company's domain names to Azure Active Directory, and how set up federated sign-on between Azure Active Directory and your on-premises federation solution.
+title: Add your custom domain name and set up federated sign-in to Azure Active Directory | Microsoft Docs
+description: How to add your company's domain names to Azure Active Directory to set up federated sign-in between Azure Active Directory and your on-premises federation solution
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2016
+origin.date: 05/16/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 06/21/2017
 ---
 # Add your custom domain name to Azure Active Directory
 You can configure a custom domain name, such as ‘contoso.com,’ so that users in contoso.com can have a federated single sign-on experience from your corporate network. If you already have Active Directory Federation Services (AD FS) or a different federation server running on your corporate network, you can configure Azure AD to use your custom domain name using the Azure AD Connect tool. You can also use Azure AD Connect to deploy a new AD FS environment, and configure that for federated single sign-on to Azure AD.
@@ -59,7 +59,6 @@ If your organization uses multiple custom domain names, such as ‘contoso.com�
 ## Next steps
 - [Manage custom domain names](active-directory-add-manage-domain-names.md)
 - [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)
-- [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
 - [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
 

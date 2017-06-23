@@ -14,10 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+origin.date: 03/23/2017
 ms.author: v-junlch
 ms.custom: end-user
-wacn.date: ''
+ms.date: 05/15/2017
 
 ---
 # Manage your settings for two-step verification

@@ -64,11 +64,11 @@ These are the Azure requirements for this migration scenario.
 
 You can use Site Recovery to migrate Azure IaaS VMs between regions or within same region. The following instructions have been tailored for this migration scenario from the article [Replicate VMware VMs or physical servers to Azure](../site-recovery/site-recovery-vmware-to-azure.md). Please follow the links for detailed steps in additional to the instructions in this article.
 
-1. **Create a Recovery Services vault**. Create and manage the Site Recovery vault through the [Azure portal preview](https://portal.azure.cn). Click **New** > **Management** > **Backup** and **Site Recovery (OMS)**. Alternatively you can click **Browse** > **Recovery Services Vault** > **Add**. VMs will be replicated to the region you specify in this step. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. Note that migration to Premium storage accounts is only supported in the [Azure portal preview](https://portal.azure.cn), not the [classic manamgement portal](https://manage.windowsazure.cn).
+1. **Create a Recovery Services vault**. Create and manage the Site Recovery vault through the [Azure Portal](https://portal.azure.cn). Click **New** > **Management** > **Backup** and **Site Recovery (OMS)**. Alternatively you can click **Browse** > **Recovery Services Vault** > **Add**. VMs will be replicated to the region you specify in this step. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. Note that migration to Premium storage accounts is only supported in the [Azure Portal](https://portal.azure.cn), not the [classic manamgement portal](https://manage.windowsazure.cn).
 
 2. The following steps help you **choose your protection goals**.
 
-    2a. On the VM where you want to install the configuration server, open the [Azure portal preview](https://portal.azure.cn). Go to **Recovery Services vaults** > **Settings**. Under **Settings**, select **Site Recovery**. Under **Site Recovery**, select **Step 1: Prepare Infrastructure**. Under **Prepare infrastructure**, select **Protection goal**.
+    2a. On the VM where you want to install the configuration server, open the [Azure Portal](https://portal.azure.cn). Go to **Recovery Services vaults** > **Settings**. Under **Settings**, select **Site Recovery**. Under **Site Recovery**, select **Step 1: Prepare Infrastructure**. Under **Prepare infrastructure**, select **Protection goal**.
 
     ![][2]
 

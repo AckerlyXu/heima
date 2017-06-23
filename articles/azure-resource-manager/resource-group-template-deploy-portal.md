@@ -1,5 +1,5 @@
 ---
-title: Use Azure portal preview to deploy Azure resources | Azure
+title: Use Azure Portal to deploy Azure resources | Azure
 description: Use Azure portal and Azure Resource Manage to deploy your resources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
-wacn.date: ''
+origin.date: 12/19/2016
+ms.date: 05/02/2017
 ms.author: v-yeche
 ---
 

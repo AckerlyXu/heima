@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-wacn.date: ''
+origin.date: 04/28/2017
+ms.date: 05/15/2017
 ms.author: v-dazen
 
 ---
@@ -166,7 +166,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
+   This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -234,7 +234,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
         > <fs> vi /etc/shadow
         > <fs> exit
 
-    Change the second field of the root user from "!!" to the encrypted password.
+   Change the second field of the root user from "!!" to the encrypted password.
 
 3. Create a virtual machine in KVM from the qcow2 image. Set the disk type to **qcow2**, and set the virtual network interface device model to **virtio**. Then, start the virtual machine, and sign in as root.
 
@@ -375,7 +375,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
         > <fs> vi /etc/shadow
         > <fs> exit
 
-    Change the second field of root user from "!!" to the encrypted password.
+   Change the second field of root user from "!!" to the encrypted password.
 
 3. Create a virtual machine in KVM from the qcow2 image. Set the disk type to **qcow2**, and set the virtual network interface device model to **virtio**. Then, start the virtual machine, and sign in as root.
 
@@ -407,7 +407,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    This command also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. The command also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
+   This command also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. The command also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -421,7 +421,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
     Edit `/etc/dracut.conf` and add content:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Rebuild initramfs:
 
@@ -545,7 +545,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, we recommend that you remove the following parameters:
+   This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -641,7 +641,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    This configuration also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
+   This configuration also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 

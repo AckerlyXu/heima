@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/25/2016
-wacn.date: ''
+origin.date: 02/25/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 
 ---
 # Create a Web App in Azure App Service using the Azure SDK for Java
-<!-- Azure Active Directory workflow is not yet available on the Azure Portal Preview -->
+<!-- Azure Active Directory workflow is not yet available on the Azure Portal -->
 
 ## Overview
 This walkthrough shows you how to create an Azure SDK for Java application that creates a Web App in [Azure App Service][Azure App Service], then deploy an application to it. It consists of two parts:
@@ -116,13 +116,13 @@ In this section you create a workspace and a Maven project for the web app creat
 1. Create a new Maven project. Click **File > New > Maven Project**. In **New Maven Project**, select **Create a simple project** and **Use default workspace location**.
 2. On the second page of **New Maven Project**, specify the following:
 
-    * Group ID: `com.<username>.azure.webdemo`
-    * Artifact ID: AzureWebDemo
-    * Version: 0.0.1-SNAPSHOT
-    * Packaging: jar
-    * Name: AzureWebDemo
+   * Group ID: `com.<username>.azure.webdemo`
+   * Artifact ID: AzureWebDemo
+   * Version: 0.0.1-SNAPSHOT
+   * Packaging: jar
+   * Name: AzureWebDemo
 
-    Click **Finish**.
+     Click **Finish**.
 3. Open the new project's pom.xml file in Project Explorer. Select the **Dependencies** tab. As this is a new project, no packages are listed yet.
 4. Open the Maven Repositories view. **Click Window > Show View > Other > Maven > Maven Repositories** and click **OK**. The **Maven Repositories** view will appear at the bottom of the IDE.
 5. Open **Global Repositories**, right-click the **central** repository, and select **Rebuild Index**.
@@ -135,12 +135,12 @@ In this section you create a workspace and a Maven project for the web app creat
         com.microsoft.azure  azure-management
         com.microsoft.azure  azure-management-websites
 
-    > **Note:** If you are updating the dependencies after a new version
-    > release, you need to re-add each of the dependencies in this list.
-    > After you click **Add** and select each dependency, it appears
-    > with the new version number in the **Dependencies** list.
-    > 
-    > 
+   > **Note:** If you are updating the dependencies after a new version
+   > release, you need to re-add each of the dependencies in this list.
+   > After you click **Add** and select each dependency, it appears
+   > with the new version number in the **Dependencies** list.
+   > 
+   > 
 
 Click **OK**. The Azure packages then appear in the **Dependencies** list.
 
@@ -210,7 +210,7 @@ where:
 
 > **Note:** Each time you run this application, you need to change the value 
 > of `webAppName` and `appServicePlanName` (or delete the web app on the Azure 
-> Portal Preview) before running the application again. Otherwise, execution will 
+> Portal) before running the application again. Otherwise, execution will 
 > fail because the same resource already exists on Azure.
 > 
 > 
@@ -398,7 +398,7 @@ Make sure you have run the **AzureWebDemo** application to create a web app. You
 #### Get FTP connection information
 To use FTP to deploy application files to the newly created web app, you need to obtain connection information. There are two ways to obtain connection information. One way is to visit the web app's **Dashboard** page; the other way is to download the web app's publish profile. The publish profile is an XML file that provides information such as FTP host name and logon credentials for your web apps in Azure App Service. You can use this username and password to deploy to any web app in all subscriptions associated with the Azure account, not only this one.
 
-To obtain FTP connection information from the web app's blade in the [Azure Portal Preview][Azure Portal Preview]:
+To obtain FTP connection information from the web app's blade in the [Azure Portal][Azure Portal]:
 
 1. Under **Essentials**, find and copy the **FTP hostname**. This is a URI similar to `ftp://waws-prod-bay-NNN.ftp.azurewebsites.chinacloudapi.cn`.
 2. Under **Essentials**, find and copy **FTP/Deployment username**. This will have the form *webappname\deployment-username*; for example `WebDemoWebApp\deployer77`.
@@ -451,7 +451,7 @@ One way to publish the application is to use the Kudu debug console built into A
     `cd webapps`
 5. Drag JSPHello.war from `<project-path>/JSPHello/src/` and drop it into the Kudu directory view under `/site/wwwroot/webapps`. Do not drag it to the "Drag here to upload and zip" area, because Tomcat will unzip it.
 
-    ![][8]
+   ![][8]
 
 At first JSPHello.war appears in the directory area by itself:
 
@@ -469,15 +469,15 @@ Another tool you can use to publish the application is FileZilla, a popular thir
 
     On the **General** tab, specify the following settings:
 
-    * **Host:** Enter the **FTP Host Name** that you copied from the dashboard.
-    * **Port:** (Leave this blank, as this is a passive transfer and the server will determine the port to use.)
-    * **Protocol:** FTP File Transfer Protocol
-    * **Encryption:** Use plain FTP
-    * **Logon Type:** Normal
-    * **User:** Enter the Deployment / FTP user that you copied from the dashboard. This is the full FTP username, which has the form *webappname\username*.
-    * **Password:** Enter the password that you specified when you set the deployment credentials.
+   * **Host:** Enter the **FTP Host Name** that you copied from the dashboard.
+   * **Port:** (Leave this blank, as this is a passive transfer and the server will determine the port to use.)
+   * **Protocol:** FTP File Transfer Protocol
+   * **Encryption:** Use plain FTP
+   * **Logon Type:** Normal
+   * **User:** Enter the Deployment / FTP user that you copied from the dashboard. This is the full FTP username, which has the form *webappname\username*.
+   * **Password:** Enter the password that you specified when you set the deployment credentials.
 
-    On the **Transfer Settings** tab, select **Passive**.
+     On the **Transfer Settings** tab, select **Passive**.
 3. Click **Connect**. If successful, FileZilla's console will display a `Status: Connected` message and issue a `LIST` command to list the directory contents.
 4. In the **Local** site panel, select the source directory in which the JSPHello.war file resides; the path will be similar to the following:
 
@@ -489,12 +489,12 @@ Another tool you can use to publish the application is FileZilla, a popular thir
 #### Run the Hello World application on the Web App
 1. After you have uploaded the WAR file and verified that Tomcat server has created an unpacked `JSPHello` directory, browse to `http://webdemowebapp.chinacloudsites.cn/JSPHello` to run the application.
 
-    > **Note:** If you click **Browse** from the Classic Management Portal, you might
-    > get the default webpage, saying "This Java based web application has
-    > been successfully created." You might have to refresh the webpage in
-    > order to view the application output instead of the default webpage.
-    > 
-    > 
+   > **Note:** If you click **Browse** from the Classic Management Portal, you might
+   > get the default webpage, saying "This Java based web application has
+   > been successfully created." You might have to refresh the webpage in
+   > order to view the application output instead of the default webpage.
+   > 
+   > 
 2. When the application runs, you should see a web page with the following output:
 
     `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
@@ -524,4 +524,4 @@ This procedure creates an App Service web app. You will be billed for the resour
 [Key and Certificate Management Tool (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
 [WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn

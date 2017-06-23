@@ -125,7 +125,7 @@ You can monitor the progress of the deployment process in the Visual Studio outp
 > 
 > 
 
-If there are any errors, go to the [Azure portal preview](https://portal.azure.cn/) and open the resource group that you deployed to. Click **All settings**, then click **Deployments** on the settings blade. A failed resource-group deployment leaves detailed diagnostic information there.
+If there are any errors, go to the [Azure Portal](https://portal.azure.cn/) and open the resource group that you deployed to. Click **All settings**, then click **Deployments** on the settings blade. A failed resource-group deployment leaves detailed diagnostic information there.
 
 > [!NOTE]
 > Service Fabric clusters require a certain number of nodes to be up to maintain availability and preserve state - referred to as "maintaining quorum." Therefore, it is not safe to shut down all of the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
@@ -133,7 +133,7 @@ If there are any errors, go to the [Azure portal preview](https://portal.azure.c
 > 
 
 ## Next steps
-* [Learn about setting up Service Fabric cluster using the Azure portal preview](service-fabric-cluster-creation-via-portal.md)
+* [Learn about setting up Service Fabric cluster using the Azure Portal](service-fabric-cluster-creation-via-portal.md)
 * [Learn how to manage and deploy Service Fabric applications using Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 <!--Image references-->

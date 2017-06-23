@@ -4,7 +4,7 @@ description: Describes how to create a new Azure Active Directory application an
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
@@ -13,18 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
-wacn.date: ''
+origin.date: 05/15/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 
 ---
 # Use portal to create an Azure Active Directory application and service principal that can access resources
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [Azure CLI](resource-group-authenticate-service-principal-cli.md)
-> * [Portal](resource-group-create-service-principal-portal.md)
->
->
 
 When you have an application that needs to access or modify resources, you must set up an Azure Active Directory (AD) application and assign the required permissions to it. This approach is preferable to running the app under your own credentials because:
 
@@ -38,7 +32,7 @@ This topic shows you how to perform those steps through the portal. It focuses o
 To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
 
 ### Check Azure Active Directory permissions
-1. Log in to your Azure Account through the [Azure portal preview](https://portal.azure.cn).
+1. Log in to your Azure Account through the [Azure Portal](https://portal.azure.cn).
 2. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -83,7 +77,7 @@ To check your subscription permissions:
     ![show permissions](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## Create an Azure Active Directory application
-1. Log in to your Azure Account through the [Azure portal preview](https://portal.azure.cn).
+1. Log in to your Azure Account through the [Azure Portal](https://portal.azure.cn).
 2. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -204,3 +198,4 @@ The following sample applications show how to log in as the AD application.
 ## Next Steps
 * To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 * To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+* For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).

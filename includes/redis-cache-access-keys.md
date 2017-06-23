@@ -1,9 +1,9 @@
-To connect to an Azure Redis Cache instance, cache clients need the host name, ports, and keys of the cache. Some clients may refer to these items by slightly different names. You can retrieve this information in the Azure portal preview or by using command-line tools such as Azure CLI.
+To connect to an Azure Redis Cache instance, cache clients need the host name, ports, and keys of the cache. Some clients may refer to these items by slightly different names. You can retrieve this information in the Azure portal or by using command-line tools such as Azure CLI.
 
-### Retrieve host name, ports, and access keys using the Azure Portal Preview
-To retrieve host name, ports, and access keys using the Azure Portal Preview, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal preview](https://portal.azure.cn) and click **Access keys** and **Properties** in the **Resource menu**. 
+### Retrieve host name, ports, and access keys using the Azure Portal
+To retrieve host name, ports, and access keys using the Azure Portal, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.cn) and click **Access keys** and **Properties** in the **Resource menu**. 
 
-![Redis cache settings](./media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
+![Redis cache settings](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### Retrieve host name, ports, and access keys using Azure CLI
 To retrieve the host name and ports using Azure CLI 2.0 you can call [az redis show](https://docs.microsoft.com/cli/azure/redis#show), and to retrieve the keys you can call [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). The following script calls these two commands and echos the hostname, ports, and keys to the console.

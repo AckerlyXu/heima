@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/01/2017
-wacn.date: ''
+origin.date: 05/01/2017
+ms.date: 06/21/2017
 ms.author: v-yeche
 
 ---
 
 # Data-driven debugging by using the job diagram
 
-The job diagram on the **Monitoring** blade in the Azure portal preview can help you visualize your job pipeline. It shows inputs, outputs, and query steps. You can use the job diagram to examine the metrics for each step, to more quickly isolate the source of a problem when you troubleshoot issues.
+The job diagram on the **Monitoring** blade in the Azure Portal can help you visualize your job pipeline. It shows inputs, outputs, and query steps. You can use the job diagram to examine the metrics for each step, to more quickly isolate the source of a problem when you troubleshoot issues.
 
 ## Using the job diagram
 
-In the Azure portal preview, while in a Stream Analytics job, under **SUPPORT + TROUBLESHOOTING**, select **Job diagram**:
+In the Azure Portal, while in a Stream Analytics job, under **SUPPORT + TROUBLESHOOTING**, select **Job diagram**:
 
 ![Job diagram with metrics - location](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
-wacn.date: ''
+origin.date: 03/15/2016
+ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -69,9 +69,9 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
         data:    Idle timeout                    : 4
         info:    network public-ip create command OK
 
-    * **-g (or --resource-group)**. Name of the resource group the public IP will be created in.
-    * **-n (or --name)**. Name of the public IP.
-    * **-l (or --location)**. Azure region where the public IP will be created. For our scenario, *chinaeast*.
+   * **-g (or --resource-group)**. Name of the resource group the public IP will be created in.
+   * **-n (or --name)**. Name of the public IP.
+   * **-l (or --location)**. Azure region where the public IP will be created. For our scenario, *chinaeast*.
 4. Run the **azure network nic create** command to create a NIC with a static private IP. The list shown after the output explains the parameters used.
 
         azure network nic create -g TestRG -n TestNIC -l chinaeast -a 192.168.1.101 -m TestVNet -k FrontEnd
@@ -97,9 +97,9 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
         data:
         info:    network nic create command OK
 
-    * **-a (or --private-ip-address)**. Static private IP address for the NIC.
-    * **-m (or --subnet-vnet-name)**. Name of the VNet where the NIC will be created.
-    * **-k (or --subnet-name)**. Name of the subnet where the NIC will be created.
+   * **-a (or --private-ip-address)**. Static private IP address for the NIC.
+   * **-m (or --subnet-vnet-name)**. Name of the VNet where the NIC will be created.
+   * **-k (or --subnet-name)**. Name of the subnet where the NIC will be created.
 5. Run the **azure vm create** command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
 
         azure vm create -g TestRG -n DNS01 -l chinaeast -y Windows -f TestNIC -i TestPIP -F TestVNet -j FrontEnd -o vnetstorage -q bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 -u adminuser -p AdminP@ssw0rd
@@ -124,11 +124,11 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
         + Creating VM "DNS01"
         info:    vm create command OK
 
-    * **-y (or --os-type)**. Type of operating system for the VM, either *Windows* or *Linux*.
-    * **-f (or --nic-name)**. Name of the NIC the VM will use.
-    * **-i (or --public-ip-name)**. Name of the public IP the VM will use.
-    * **-F (or --vnet-name)**. Name of the VNet where the VM will be created.
-    * **-j (or --vnet-subnet-name)**. Name of the subnet where the VM will be created.
+   * **-y (or --os-type)**. Type of operating system for the VM, either *Windows* or *Linux*.
+   * **-f (or --nic-name)**. Name of the NIC the VM will use.
+   * **-i (or --public-ip-name)**. Name of the public IP the VM will use.
+   * **-F (or --vnet-name)**. Name of the VNet where the VM will be created.
+   * **-j (or --vnet-subnet-name)**. Name of the subnet where the VM will be created.
 
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the script above, run the following Azure CLI command and observe the values for *Private IP alloc-method* and *Private IP address*:

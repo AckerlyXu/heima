@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-wacn.date: ''
+origin.date: 03/17/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -95,7 +95,7 @@ In case a VM is created from a .vhd image file that already contains an operatin
 We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
 ## Storage account names
-For unmanaged disks, storage accounts have special rules governing their names. You can only use lowercase letters and numbers. For more information, see [Create a storage account](../../storage/storage-create-storage-account.md#create-a-storage-account). Additionally, the storage account name, along with core.chinacloudapi.cn, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+This section does not apply to [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json), as you do not create a separate storage account. For unmanaged disks, storage accounts have special rules governing their names. You can only use lowercase letters and numbers. For more information, see [Create a storage account](../../storage/storage-create-storage-account.md#create-a-storage-account). Additionally, the storage account name, along with core.chinacloudapi.cn, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 * mystorageaccount.blob.core.chinacloudapi.cn
 * mystorageaccount.table.core.chinacloudapi.cn

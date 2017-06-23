@@ -1,6 +1,6 @@
 ---
 title: View Azure activity logs to monitor resources | Azure
-description: Use the activity logs to review user actions and errors. Shows Azure Portal Preview PowerShell, Azure CLI, and REST.
+description: Use the activity logs to review user actions and errors. Shows Azure Portal PowerShell, Azure CLI, and REST.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
-wacn.date: ''
+origin.date: 01/09/2017
+ms.date: 03/03/2017
 ms.author: v-yeche
 ---
 

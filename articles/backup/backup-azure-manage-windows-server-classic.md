@@ -12,16 +12,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+origin.date: 09/27/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 11/15/2016
 ---
 
 # Manage Azure Backup vaults and servers using the classic deployment model
 
 In this article you'll find an overview of the backup management tasks available through the Azure Classic Management Portal and the Azure Backup agent.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Management portal tasks
 1. Sign in to the [Management Portal](https://manage.windowsazure.cn).

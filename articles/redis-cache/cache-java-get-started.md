@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/13/2017
-wacn.date: ''
+origin.date: 04/13/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -78,5 +78,5 @@ The latest builds of [jedis](https://github.com/xetorthio/jedis) provide support
     }
 
 ## Next steps
-* [Enable cache diagnostics](cache-how-to-monitor.md#EnableDiagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache.
+* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache.
 * Read the official [Redis documentation](http://redis.io/documentation).

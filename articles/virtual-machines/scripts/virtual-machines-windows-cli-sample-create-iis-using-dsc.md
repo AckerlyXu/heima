@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/23/2017
-wacn.date: ''
+origin.date: 02/23/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a VM with IIS using DSC
@@ -67,7 +68,7 @@ az vm extension set \
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

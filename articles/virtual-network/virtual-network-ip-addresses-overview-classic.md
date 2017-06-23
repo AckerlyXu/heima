@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/11/2016
-wacn.date: ''
+origin.date: 02/11/2016
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -44,7 +44,7 @@ A public IP address is associated with the following resource types:
 When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. In case of a cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#Cloud-services)).
 
 > [!NOTE]
-> The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=42064).
+> The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
 > 
 > 
 

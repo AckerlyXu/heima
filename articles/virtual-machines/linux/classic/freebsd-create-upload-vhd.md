@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/08/2017
-wacn.date: ''
+origin.date: 05/08/2017
+ms.date: 01/05/2017
 ms.author: v-dazen
 
 ---
@@ -28,7 +28,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ## Prerequisites
 This article assumes that you have the following items:
 
-* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. See [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
+* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. Learn how to [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
 * **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](/downloads/). A tutorial that describes how to install and configure the module is available here. Use the [Azure Downloads](/downloads/) cmdlet to upload the VHD.
 * **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -92,10 +92,10 @@ On the virtual machine where you installed the FreeBSD operating system, complet
         # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
         # ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
 
-    > [!IMPORTANT]
-    > After you install Azure Agent, it's a good idea to verify that it's running:
-    >
-    >
+   > [!IMPORTANT]
+   > After you install Azure Agent, it's a good idea to verify that it's running:
+   >
+   >
 
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
@@ -122,11 +122,11 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
     ![Quick create a storage account](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
 4. Fill out the fields as follows:
 
-    * In the **URL** field, type a subdomain name to use in the storage account URL. The entry can contain from 3-24 numbers and lowercase letters. This name becomes the host name within the URL that is used to address Azure Blob storage, Azure Queue storage, or Azure Table storage resources for the subscription.
-    * In the **Location/Affinity Group** drop-down menu, choose the **location or affinity group** for the storage account. An affinity group lets you put your cloud services and storage in the same data center.
-    * In the **Replication** field, decide whether to use **Geo-Redundant** replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details about managing geo-replication of storage accounts can be found here: [Azure Storage replication](../../../storage/storage-redundancy.md).
+   * In the **URL** field, type a subdomain name to use in the storage account URL. The entry can contain from 3-24 numbers and lowercase letters. This name becomes the host name within the URL that is used to address Azure Blob storage, Azure Queue storage, or Azure Table storage resources for the subscription.
+   * In the **Location/Affinity Group** drop-down menu, choose the **location or affinity group** for the storage account. An affinity group lets you put your cloud services and storage in the same data center.
+   * In the **Replication** field, decide whether to use **Geo-Redundant** replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details about managing geo-replication of storage accounts can be found here: [Azure Storage replication](../../../storage/storage-redundancy.md).
 
-    ![Enter storage account details](./media/freebsd-create-upload-vhd/Storage-create-account.png)
+     ![Enter storage account details](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. Select **Create Storage Account**. The account now appears under **storage**.
 
     ![Storage account successfully created](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
@@ -140,10 +140,10 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
 
     ![Container name](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [!NOTE]
-    > By default, the container is private and can only be accessed by the account owner. To allow public read access to the blobs in the container, but not to the container properties and metadata, use the **Public Blob** option. To allow full public read access for the container and blobs, use the **Public Container** option.
-    >
-    >
+   > [!NOTE]
+   > By default, the container is private and can only be accessed by the account owner. To allow public read access to the blobs in the container, but not to the container properties and metadata, use the **Public Blob** option. To allow full public read access for the container and blobs, use the **Public Container** option.
+   >
+   >
 
 ## Step 3: Prepare the connection to Azure
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your Azure subscription. You can use the Azure Active Directory (Azure AD) method or the certificate method to do it.
@@ -170,9 +170,9 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
     `Import-AzurePublishSettingsFile <PathToFile>`, where
    `<PathToFile>` is the full path to the .publishsettings file.
 
-    For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/azure/jj554332.aspx).
+   For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/azure/jj554332.aspx).
 
-    For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+   For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 ## Step 4: Upload the .vhd file
 When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you will use when you upload the file:
@@ -193,10 +193,10 @@ After you upload the .vhd file, you can add it as an image to the list of custom
 
         Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    > [!NOTE]
-    > Use Linux as the OS type. The current Azure PowerShell version accepts only "Linux" or "Windows" as a parameter.
-    >
-    >
+   > [!NOTE]
+   > Use Linux as the OS type. The current Azure PowerShell version accepts only "Linux" or "Windows" as a parameter.
+   >
+   >
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure Classic Management Portal.  
 
     ![Choose an image](./media/freebsd-create-upload-vhd/addfreebsdimage.png)

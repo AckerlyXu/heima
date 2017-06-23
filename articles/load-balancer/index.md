@@ -10,8 +10,8 @@ ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 06/20/2017
 ms.author: v-yeche
 ---
 
@@ -75,52 +75,3 @@ Learn how to configure Load Balancer to deliver high availability and network pe
         </a>
     </li>
 </ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="https://docs.microsoft.com/cli/azure/network/lb">Azure CLI 2​.0</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node​.js</a></p>
-                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html">Python</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-

@@ -1,7 +1,7 @@
 
 ---
-title: Create Service Fabric cluster in the Azure portal preview | Microsoft Docs
-description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure portal preview and Azure Key Vault.
+title: Create Service Fabric cluster in the Azure Portal | Microsoft Docs
+description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure Portal and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -18,17 +18,17 @@ ms.date: 02/21/2017
 ms.author: v-johch
 
 ---
-# Create a Service Fabric cluster in Azure using the Azure portal preview
+# Create a Service Fabric cluster in Azure using the Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal preview](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
-This is a step-by-step guide that walks you through the steps of setting up a secure Service Fabric cluster in Azure using the Azure portal preview. This guide walks you through the following steps:
+This is a step-by-step guide that walks you through the steps of setting up a secure Service Fabric cluster in Azure using the Azure Portal. This guide walks you through the following steps:
 
 * Set up Key Vault to manage keys for cluster security.
-* Create a secured cluster in Azure through the Azure portal preview.
+* Create a secured cluster in Azure through the Azure Portal.
 * Authenticate administrators using certificates.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ This is a step-by-step guide that walks you through the steps of setting up a se
 
 A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
 
-The concepts are the same for creating secure clusters, whether the clusters are Linux clusters or Windows clusters. The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure portal preview](#create-cluster-portal).
+The concepts are the same for creating secure clusters, whether the clusters are Linux clusters or Windows clusters. The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure Portal](#create-cluster-portal).
 
 ## Log in to Azure
 This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerShell session, log in to your Azure account and select your subscription before executing Azure commands.
@@ -152,7 +152,7 @@ Any number of additional certificates can be installed on a cluster for applicat
 * Encryption and decryption of application configuration values
 * Encryption of data across nodes during replication 
 
-Application certificates cannot be configured when creating a cluster through the Azure portal preview. To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
+Application certificates cannot be configured when creating a cluster through the Azure Portal. To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
 
 ### Formatting certificates for Azure resource provider use
 Private key files (.pfx) can be added and used directly through Key Vault. However, the Azure resource provider requires keys to be stored in a special JSON format that includes the .pfx as a base-64 encoded string and the private key password. To accommodate these requirements, keys must be placed in a JSON string and then stored as *secrets* in Key Vault.
@@ -196,11 +196,11 @@ These are all the Key Vault prerequisites for configuring a Service Fabric clust
 
 <a name="create-cluster-portal" ></a>
 
-## Create cluster in the Azure portal preview
+## Create cluster in the Azure Portal
 ### Search for the Service Fabric cluster resource
-![search for Service Fabric cluster template on the Azure portal preview.][SearchforServiceFabricClusterTemplate]
+![search for Service Fabric cluster template on the Azure Portal.][SearchforServiceFabricClusterTemplate]
 
-1. Sign in to the [Azure portal preview][azure-portal].
+1. Sign in to the [Azure Portal][azure-portal].
 2. Click **New** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
 3. Select **Service Fabric Cluster** from the list.
 4. Navigate to the **Service Fabric Cluster** blade, click **Create**,
@@ -247,7 +247,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 > 
 
 #### 3. Security
-![Screen shot of security configurations on Azure portal preview.][SecurityConfigs]
+![Screen shot of security configurations on Azure Portal.][SecurityConfigs]
 
 The final step is to provide certificate information to secure the cluster using the Key Vault and certificate information created earlier.
 

@@ -14,9 +14,10 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: sample
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 # Create a web app with deployment from GitHub
 
@@ -24,12 +25,15 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## Create app sample
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## Sample script
 
 ```azurecli-interactive
 #!/bin/bash
 
-gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
+# Replace the following URL with a public GitHub repo URL
+gitrepo=https://github.com/Azure-Samples/php-docs-hello-world
 webappname=mywebapp$RANDOM
 
 # Create a resource group.
@@ -39,14 +43,15 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
+az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname
 
 # Deploy code from a public GitHub repository. 
-az appservice web source-control config --name $webappname --resource-group myResourceGroup \
+az webapp deployment source config --name $webappname --resource-group myResourceGroup \
 --repo-url $gitrepo --branch master --manual-integration
 
 # Browse to the web app.
-az appservice web browse --name $webappname --resource-group myResourceGroup
+az webapp browse --name $webappname --resource-group myResourceGroup
+
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -59,9 +64,9 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Creates an Azure web app. |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associates an Azure web app with a Git or Mercurial repository. |
-| [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | Open an Azure web app in a browser. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | Creates an Azure web app. |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/source-control#config) | Associates an Azure web app with a Git or Mercurial repository. |
+| [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | Open an Azure web app in a browser. |
 
 ## Next steps
 

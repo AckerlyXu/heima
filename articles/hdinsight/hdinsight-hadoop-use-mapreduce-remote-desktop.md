@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
-wacn.date: ''
+origin.date: 01/12/2017
+ms.date: 01/25/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
 
@@ -46,20 +46,20 @@ When you are connected to the desktop for the HDInsight cluster, use the followi
 
 1. From the HDInsight desktop, start the **Hadoop Command Line**. This opens a new command prompt in the **c:\apps\dist\hadoop-&lt;version number>** directory.
 
-    > [!NOTE]
-    > The version number changes as Hadoop is updated. The **HADOOP_HOME** environment variable can be used to find the path. For example, `cd %HADOOP_HOME%` changes directories to the Hadoop directory, without requiring you to know the version number.
-    >
-    >
+   > [!NOTE]
+   > The version number changes as Hadoop is updated. The **HADOOP_HOME** environment variable can be used to find the path. For example, `cd %HADOOP_HOME%` changes directories to the Hadoop directory, without requiring you to know the version number.
+   >
+   >
 2. To use the **Hadoop** command to run an example MapReduce job, use the following command:
 
         hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
 
     This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file in the current directory. As input, it uses the **wasbs://example/data/gutenberg/davinci.txt** document, and output is stored at: **wasbs:///example/data/WordCountOutput**.
 
-    > [!NOTE]
-    > for more information about this MapReduce job and the example data, see <a href="hdinsight-use-mapreduce.md">Use MapReduce in HDInsight Hadoop</a>.
-    >
-    >
+   > [!NOTE]
+   > for more information about this MapReduce job and the example data, see <a href="hdinsight-use-mapreduce.md">Use MapReduce in HDInsight Hadoop</a>.
+   >
+   >
 3. The job emits details as it is processed, and it returns information similar to the following when the job is complete:
 
         File Input Format Counters
@@ -72,10 +72,10 @@ When you are connected to the desktop for the HDInsight cluster, use the followi
 
     This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
 
-    > [!NOTE]
-    > Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
-    >
-    >
+   > [!NOTE]
+   > Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
+   >
+   >
 5. To view the output, use the following command:
 
         hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000

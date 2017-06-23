@@ -2,18 +2,19 @@
 documentType: LandingData
 title: Windows Virtual Machines Documentation
 metadata:
+  document_id: 1d98d530-28c7-635f-d41b-8da3ae02970c
   title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference
   meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
-  author: apexprodleads
+  author: bbetstcw
   manager: carolz
-  ms.service: virtual-machines\windows
+  ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  wacn.date: ''
-  ms.author: carolz
+  origin.date: 01/23/2017
+  ms.date: 06/20/2017
+  ms.author: v-dazen
 abstract:
   description: Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
 sections:
@@ -26,7 +27,7 @@ sections:
     items: 
     - image: 
         src: /virtual-machines/windows/media/index/portal.svg
-      text: Azure Portal Preview
+      text: Azure Portal
       href: /virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - image: 
         src: /virtual-machines/windows/media/index/logo_powershell.svg
@@ -61,15 +62,3 @@ sections:
     items:
     - html: <a href="/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a>
     - html: <a href="/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/compute">Compute REST API Reference</a></p>

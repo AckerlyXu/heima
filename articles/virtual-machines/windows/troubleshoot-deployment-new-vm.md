@@ -4,7 +4,7 @@ description: Troubleshoot Resource Manager deployment issues when you create a n
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
-manager: felixwu
+manager: willchen
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-wacn.date: ''
+origin.date: 05/26/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -67,10 +67,10 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 * Retry the request using a smaller VM size.
 * If the size of the requested VM cannot be changed:
-    * Stop all the VMs in the availability set.
-      Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
-    * After all the VMs stop, create the new VM in the desired size.
-    * Start the new VM first, and then select each of the stopped VMs and click **Start**.
+  * Stop all the VMs in the availability set.
+    Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
+  * After all the VMs stop, create the new VM in the desired size.
+  * Start the new VM first, and then select each of the stopped VMs and click **Start**.
 
 **Cause 2:** The cluster does not have free resources.
 
@@ -78,8 +78,8 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 * Retry the request at a later time.
 * If the new VM can be part of a different availability set
-    * Create a new VM in a different availability set (in the same region).
-    * Add the new VM to the same virtual network.
+  * Create a new VM in a different availability set (in the same region).
+  * Add the new VM to the same virtual network.
 
 ## Next steps
 If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

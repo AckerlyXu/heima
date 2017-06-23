@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 05/11/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
 
 ---
@@ -26,7 +26,7 @@ The default virtual hard disk size for the operating system (OS) is typically 30
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#prerequisites) - our CLI for the classic and resource management deployment models (this article)
-- Azure CLI 2.0 - Since Managed Disk is not supported yet in Azure China, you can not expand a disk with CLI 2.0
+- [Azure CLI 2.0](expand-disks.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 You need the [latest Azure CLI 1.0](../../cli-install-nodejs.md) installed and logged in to an [Azure account](https://www.azure.cn/pricing/1rmb-trial/) using the Resource Manager mode as follows:

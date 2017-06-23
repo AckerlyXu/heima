@@ -1,6 +1,6 @@
 ---
 title: Create a custom Linux virtual machine | Azure
-description: Learn how to create a custom Linux virtual machine from the Azure Classic Management Portal using the classic deployment model.
+description: Learn how to create a custom Linux virtual machine from the Azure portal using the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-wacn.date: ''
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---

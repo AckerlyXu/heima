@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/05/2017
-wacn.date: ''
+origin.date: 04/05/2017
+ms.date: 06/20/2017
 ms.author: v-dazen
 ---
 
@@ -177,7 +177,7 @@ This extension automatically runs on all current instances, and any instances la
 
 ## Step 7 - Configure autoscale rules
 
-Currently, autoscale rules cannot be set in Azure CLI. Use the [Azure portal preview](https://portal.azure.cn) to configure autoscale.
+Currently, autoscale rules cannot be set in Azure CLI. Use the [Azure portal](https://portal.azure.cn) to configure autoscale.
 
 ## Step 8 - Management tasks
 

@@ -31,7 +31,7 @@ When you're running an Azure Service Fabric cluster, it's a good idea to collect
 * **Application events**: Emitted from your service's code. You can use any logging solution that writes text-based log files--for example, LTTng. For more information, see the LTTng documentation on tracing your application.  
 
 ## Deploy the Diagnostics extension
-The first step in collecting logs is to deploy the Diagnostics extension on each of the VMs in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account that you specify. The steps vary based on whether you use the Azure portal preview or Azure Resource Manager.
+The first step in collecting logs is to deploy the Diagnostics extension on each of the VMs in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account that you specify. The steps vary based on whether you use the Azure Portal or Azure Resource Manager.
 
 To deploy the Diagnostics extension to the VMs in the cluster as part of cluster creation, set **Diagnostics** to **On**. After you create the cluster, you can't change this setting by using the portal.
 

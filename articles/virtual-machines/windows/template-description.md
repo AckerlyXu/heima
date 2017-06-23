@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: ''
+origin.date: 03/07/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
 
 ---
@@ -59,11 +59,7 @@ This example shows a typical resource section of a template for creating a speci
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]", 
-          "vhd": { 
-            "uri": "[concat('https://', variables('storageName'), 
-              '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
-          }, 
+          "name": "[concat('myOSDisk', copyindex())]" 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -72,10 +68,6 @@ This example shows a typical resource section of a template for creating a speci
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
-            "vhd": {
-              "uri": "[concat('https://', variables('storageName'), 
-                '.blob.core.chinacloudapi.cn/vhds/myDataDisk', copyindex(),'.vhd')]"
-            },  
             "createOption": "Empty"
           }
         ] 
@@ -238,12 +230,17 @@ When you need more than one virtual machine for your application, you can use a 
 Also, notice in the example that the loop index is used when specifying some of the values for the resource. For example, if you entered an instance count of three, the names of the operating system disks are myOSDisk1, myOSDisk2, and myOSDisk3:
 
 ```
-"vhd": { 
-  "uri": "[concat('https://', variables('storageName'), 
-    '.blob.core.chinacloudapi.cn/vhds/myOSDisk', 
-    copyindex(),'.vhd')]" 
-},
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
 ```
+
+> [!NOTE] 
+>This example uses managed disks for the virtual machines.
+>
+>
 
 Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can't use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
 
@@ -278,20 +275,6 @@ How do you know if a dependency is required? Look at the values you set in the t
 ```
 
 To set this property, the network interface must exist. Therefore, you need a dependency. You also need to set a dependency when one resource (a child) is defined within another resource (a parent). For example, the diagnostic settings and custom script extensions are both defined as child resources of the virtual machine. They cannot be created until the virtual machine exists. Therefore, both resources are marked as dependent on the virtual machine.
-
-You may be wondering why the virtual machine resource does not have a dependency on the storage account. The virtual machine contains elements that point to the storage account.
-
-    "osDisk": { 
-      "name": "[concat('myOSDisk', copyindex())]" 
-      "vhd": { 
-        "uri": "[concat('https://', variables('storageName'), 
-          '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
-      }, 
-      "caching": "ReadWrite", 
-      "createOption": "FromImage" 
-    }
-
-In this case, we are assuming the storage account already exists. If the storage account is deployed in the same template, you need to set a dependency on the storage account.
 
 ## Profiles
 
@@ -331,83 +314,64 @@ If you want to create a Linux operating system, you might use this definition:
 },
 ```
 
-Configuration settings for the disk are assigned with the osDisk element. The example defines the location in storage of the disks, the caching mode of the disks, and that the disks are being created from a [platform image](cli-ps-findimage.md):
+Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](cli-ps-findimage.md):
 
 ```
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### Create new virtual machines from existing disks
+### Create new virtual machines from existing managed disks
 
 If you want to create virtual machines from existing disks, remove the imageReference and the osProfile elements and define these disk settings:
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "vhd": { 
-    "[concat('https://', variables('storageName'),
-      '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  },
+  "managedDisk": { 
+    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
+  }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-In this example, the uri points to existing vhd files instead of a location for new files. The createOption is set to attach the existing disks.
+### Create new virtual machines from a managed image
 
-### Create new virtual machines from a custom image
-
-If you want to create a virtual machine from a [custom image](upload-image.md), remove the imageReference element and define these disk settings:
+If you want to create a virtual machine from a managed image, change the imageReference element and define these disk settings:
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]",
-  "osType": "Windows", 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]"
+"storageProfile": { 
+  "imageReference": {
+    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
   },
-  "image": {
-    "uri": "[concat('https://', variables('storageName'), 
-      'blob.core.chinacloudapi.cn/images/myImage.vhd"
-  },
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
+  "osDisk": { 
+    "name": "[concat('myOSDisk', copyindex())]",
+    "osType": "Windows",
+    "caching": "ReadWrite", 
+    "createOption": "FromImage" 
+  }
 }
 ```
 
-In this example, the vhd uri points to a location where the new disks are stored, and the image uri points to the custom image to use.
-
 ### Attach data disks
 
-You can optionally add data disks to the VMs. The [number of disks](sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one data disk is being added to each VM:
+You can optionally add data disks to the VMs. The [number of disks](sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0,
-    "vhd": {
-      "uri": "[concat('https://', variables('storageName'), 
-        '.blob.core.chinacloudapi.cn/vhds/myDataDisk', copyindex(),'.vhd')]"
-    },  
+    "lun": 0, 
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
-
-The vhd in this example is a new file that is created for the disk. You could set the uri to an existing vhd and set the createOption to **Attach**.
 
 ## Extensions
 
@@ -485,7 +449,7 @@ You can also get extension information by using the **Get-AzureRmVMExtension** P
 
 When you deploy a template, Azure tracks the resources that you deployed as a group and automatically assigns a name to this deployed group. The name of the deployment is the same as the name of the template.
 
-If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal preview:
+If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal:
 
 ![Get deployment information](./media/template-description/virtual-machines-deployment-info.png)
 

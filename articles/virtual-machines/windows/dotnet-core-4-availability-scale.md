@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
-wacn.date: ''
+origin.date: 05/12/2017
+ms.date: 12/20/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -58,7 +58,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
   }
 ```
-The availability set as seen from the Azure portal preview. Each virtual machine and details about the configuration are detailed here.
+The availability set as seen from the Azure portal. Each virtual machine and details about the configuration are detailed here.
 
 ![Availability Set](./media/dotnet-core-4-availability-scale/ase-win.png)
 
@@ -99,7 +99,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 ]
 ```
 
-From the Azure portal preview, the network load balancer overview shows the association with the public IP address.
+From the Azure portal, the network load balancer overview shows the association with the public IP address.
 
 ![Network Load Balancer](./media/dotnet-core-4-availability-scale/nlb-win.png)
 
@@ -155,7 +155,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 ]
 ```
 
-The load balancer probe seen from the Azure portal preview.
+The load balancer probe seen from the Azure portal.
 
 ![Network Load Balancer Probe](./media/dotnet-core-4-availability-scale/lbprobe-win.png)
 
@@ -194,7 +194,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 }
 ```
 
-One example inbound NAT rule as seen in the Azure portal preview. An RDP NAT rule is created for each virtual machine in the deployment.
+One example inbound NAT rule as seen in the Azure portal. An RDP NAT rule is created for each virtual machine in the deployment.
 
 ![Inbound NAT Rule](./media/dotnet-core-4-availability-scale/natrule-win.png)
 

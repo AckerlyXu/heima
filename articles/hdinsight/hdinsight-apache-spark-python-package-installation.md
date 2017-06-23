@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: ''
+origin.date: 03/07/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 
 ---
@@ -44,22 +44,22 @@ You must have the following:
 * An Azure subscription. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-    > [!NOTE]
-    > If you do not already have a Spark cluster on HDInsight Linux, you can run script actions during cluster creation. Visit the documentation on [how to use custom script actions](/hdinsight/hdinsight-hadoop-customize-cluster-linux).
-    > 
-    > 
+   > [!NOTE]
+   > If you do not already have a Spark cluster on HDInsight Linux, you can run script actions during cluster creation. Visit the documentation on [how to use custom script actions](/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+   > 
+   > 
 
 ## Use external packages with Jupyter notebooks
 
-1. From the [Azure Portal Preview](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Script Actions** under **Usage**. Run the custom action that installs TensorFlow in the head nodes and the worker nodes. The bash script can be referenced from: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh
 Visit the documentation on [how to use custom script actions](/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-    > [!NOTE]
-    > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin`. Reference that installation in your custom actions via `/usr/bin/anaconda/bin/pip` and `/usr/bin/anaconda/bin/conda`.
-    > 
-    > 
+   > [!NOTE]
+   > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin`. Reference that installation in your custom actions via `/usr/bin/anaconda/bin/pip` and `/usr/bin/anaconda/bin/conda`.
+   > 
+   > 
 
 3. Open a PySpark Jupyter notebook
 

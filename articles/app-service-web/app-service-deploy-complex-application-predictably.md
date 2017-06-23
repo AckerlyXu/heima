@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
-wacn.date: ''
+origin.date: 01/06/2016
+ms.date: 02/21/2017
 ms.author: v-dazen
 
 ---
@@ -64,12 +64,12 @@ If you use GitHub for source control, you can put a [Deploy to Azure button](htt
 So now let's get right to it.
 
 1. Please read [Agile software development with Azure App Service](app-service-agile-software-development.md)to know about how to deploy the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service sample.
-6. Login to the Azure Portal Preview. Note that the web app is already connected to the GitHub repository under **External Project**. 
+6. Login to the Azure Portal. Note that the web app is already connected to the GitHub repository under **External Project**. 
 
-    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. In the resource group blade, note that there are already two web apps and one SQL Database in the resource group.
 
-    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
+   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
 
 Everything that you just saw in a few short minutes is a fully deployed two-microservice application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager. All this was done by two things:
 
@@ -83,10 +83,10 @@ Now let's look at how the GitHub repository was set up. You will be using the JS
 
 1. Clone the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository using your favorite git tool. In the screenshot below, I'm doing this in the Team Explorer in Visual Studio 2013.
 
-    ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+   ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
 2. From the repository root, open azuredeploy.json in Visual Studio. If you don't see the JSON Outline pane, you need to install Azure .NET SDK.
 
-    ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
+   ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
 
 I'm not going to describe every detail of the JSON format, but the [More Resources](#resources) section has links for learning the resource group template language. Here, I'm just going to show you the interesting features that can help you get started in making your own custom template for app deployment.
 
@@ -119,10 +119,10 @@ Note the following about the highlighted JSON code:
 * The SQLServer resource has two nested resources, each has a different value for `type`.
 * The nested resources inside `"resources": […]`, where the database and the firewall rules are defined, have a `dependsOn` element that specifies the resource ID of the root-level SQLServer resource. This tells Azure Resource Manager, "before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first".
 
-    > [!NOTE]
-    > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
-    > 
-    > 
+  > [!NOTE]
+  > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
+  > 
+  > 
 * The effect of the `dependsOn` element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially. 
 
 #### Web app
@@ -176,26 +176,26 @@ The **Deploy to Azure** button is great, but it allows you to deploy the resourc
 1. In Visual Studio, click **File** > **New** > **Project**.
 2. Click **Visual C#** > **Cloud** > **Azure Resource Group**, then click **OK**.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
+   ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. In **Select Azure Template**, select **Blank Template** and click **OK**.
 4. Drag azuredeploy.json into the **Template** folder of your new project.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+   ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. From Solution Explorer, open the copied azuredeploy.json.
 6. Just for the sake of the demonstration, let's add some standard Application Insight resources to our JSON file, by clicking **Add Resource**. If you're just interested in deploying the JSON file, skip to the deploy steps.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+   ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 7. Select **Application Insights for Web Apps**, then make sure an existing App Service plan and web app is selected, and then click **Add**.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
+   ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
 
-    You'll now be able to see several new resources that, depending on the resource and what it does, have dependencies on either the App Service plan or the web app. These resources are not enabled by their existing definition and you're going to change that.
+   You'll now be able to see several new resources that, depending on the resource and what it does, have dependencies on either the App Service plan or the web app. These resources are not enabled by their existing definition and you're going to change that.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+   ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
 8. In the JSON Outline, click **appInsights AutoScale** to highlight its JSON code. This is the scaling setting for your App Service plan.
 9. In the highlighted JSON code, locate the `location` and `enabled` properties and set them as shown below.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+   ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 10. In the JSON Outline, click **CPUHigh appInsights** to highlight its JSON code. This is an alert.
 11. Locate the `location` and `isEnabled` properties and set them as shown below. Do the same for the other three alerts (purple bulbs).
 
@@ -221,7 +221,7 @@ The **Deploy to Azure** button is great, but it allows you to deploy the resourc
     > 
 16. Click **Deploy**. If you selected **Save passwords**, the password will be saved in the parameter file **in plain text**. Otherwise, you'll be asked to input the database password during the deployment process.
 
-That's it! Now you just need to go to the [Azure Portal Preview](https://portal.azure.cn/) to see the new alerts and autoscale settings added to your JSON deployed application.
+That's it! Now you just need to go to the [Azure Portal](https://portal.azure.cn/) to see the new alerts and autoscale settings added to your JSON deployed application.
 
 Your steps in this section mainly accomplished the following:
 
@@ -241,7 +241,9 @@ In DevOps, repeatability and predictability are keys to any successful deploymen
 ## Next Steps
 Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md).
 
-## <a name="resources"></a> More resources
+<a name="resources"></a>
+
+## More resources
 * [Azure Resource Manager Template Language](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md)

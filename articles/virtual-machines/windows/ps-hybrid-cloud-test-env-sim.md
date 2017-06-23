@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
-wacn.date: ''
+origin.date: 09/30/2016
+ms.date: 11/21/2016
 ms.author: v-dazen
 
 ---
@@ -92,7 +92,7 @@ Next, create your gateway.
 
 Keep in mind that new gateways can take 20 minutes or more to create.
 
-From the Azure portal preview on your local computer, connect to DC1 with the CORP\User1 credentials. To configure the CORP domain so that computers and users use their local domain controller for authentication, run these commands from an administrator-level Windows PowerShell command prompt on DC1.
+From the Azure portal on your local computer, connect to DC1 with the CORP\User1 credentials. To configure the CORP domain so that computers and users use their local domain controller for authentication, run these commands from an administrator-level Windows PowerShell command prompt on DC1.
 
     New-ADReplicationSite -Name "TestLab" 
     New-ADReplicationSite -Name "TestVNET"
@@ -168,7 +168,7 @@ First, create a virtual machine for DC2. Run these commands at the Azure PowerSh
     $vm=Set-AzureRMVMOSDisk -VM $vm -Name DC2-TestVNET-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
     New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Next, connect to the new DC2 virtual machine from the Azure portal preview.
+Next, connect to the new DC2 virtual machine from the Azure portal.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on DC2, run these commands.
 
@@ -199,7 +199,7 @@ Note that you are prompted to supply both the CORP\User1 password and a Director
 
 Now that the TestVNET virtual network has its own DNS server (DC2), you must configure the TestVNET virtual network to use this DNS server.
 
-1. In the left pane of the Azure portal preview, click the virtual networks icon, and then click **TestVNET**.
+1. In the left pane of the Azure portal, click the virtual networks icon, and then click **TestVNET**.
 2. On the **Settings** tab, click **DNS servers**.
 3. In **Primary DNS server**, type **192.168.0.4** to replace 10.0.0.4.
 4. Click **Save**.

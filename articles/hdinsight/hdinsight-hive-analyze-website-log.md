@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2016
-wacn.date: ''
+origin.date: 05/17/2016
+ms.date: 03/10/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
 
@@ -41,7 +41,7 @@ In this sample, you will use an HDInsight cluster to analyze website log files t
 * You must have [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886) to import data from Hive into Excel.
 
 ## To run the sample
-1. From the [Azure Portal Preview](https://portal.azure.cn/), from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.
+1. From the [Azure Portal](https://portal.azure.cn/), from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**, and then from the **Cluster Dashboard** blade, click **HDInsight Cluster Dashboard**. Alternatively, you can directly open the dashboard by using the following URL:
 
          https://<clustername>.azurehdinsight.cn

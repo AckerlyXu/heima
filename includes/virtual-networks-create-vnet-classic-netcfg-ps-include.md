@@ -34,7 +34,7 @@ To create a VNet using a netcfg file using PowerShell, follow the steps below.
 
         Set-AzureVNetConfig -ConfigurationPath c:\NetworkConfig.xml
 
-    Here is the expected output for the command above:
+   Here is the expected output for the command above:
 
         OperationDescription OperationId                          OperationStatus
         -------------------- -----------                          ---------------
@@ -43,7 +43,7 @@ To create a VNet using a netcfg file using PowerShell, follow the steps below.
 
         Get-AzureVNetSite -VNetName TestVNet
 
-    Here is the expected output for the command above:
+   Here is the expected output for the command above:
 
         AddressSpacePrefixes : {192.168.0.0/16}
         Location             : China North

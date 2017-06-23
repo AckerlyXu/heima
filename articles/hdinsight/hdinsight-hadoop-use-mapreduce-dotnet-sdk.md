@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
-wacn.date: ''
+origin.date: 03/03/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 
 ---
@@ -132,7 +132,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".
 
-When the job completes successfully, the output is blank. To see the result of the MapReduce job, use the Azure portal preview to explore the default storage container in the Blob storage.  The file name is "part-r-00000".
+When the job completes successfully, the output is blank. To see the result of the MapReduce job, use the Azure portal to explore the default storage container in the Blob storage.  The file name is "part-r-00000".
 
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:

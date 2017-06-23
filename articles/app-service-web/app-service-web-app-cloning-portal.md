@@ -1,6 +1,6 @@
 ---
-title: Web App Cloning using Azure Portal Preview
-description: Learn how to clone your Web Apps to new Web Apps using Azure Portal Preview.
+title: Web App Cloning using Azure Portal
+description: Learn how to clone your Web Apps to new Web Apps using Azure Portal.
 services: app-service\web
 documentationcenter: ''
 author: ahmedelnably
@@ -13,12 +13,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2016
-wacn.date: ''
+origin.date: 03/08/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 
 ---
-# Azure App Service App Cloning Using Azure Portal Preview
+# Azure App Service App Cloning Using Azure Portal
 The cloning feature in [Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services) lets you easily clone existing web apps to a newly created app in a different region or in the same region. This will enable customers to deploy a number of apps across different regions quickly and easily.
 
 App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as Web Apps Backup feature, see [Back up a web app in Azure App Service](web-sites-backup.md).
@@ -28,22 +28,22 @@ App cloning is currently only supported for premium tier app service plans. The 
 ## Cloning an existing App
 The web app must be running in the **Premium** mode in order for you to create a clone for the web app.
 
-1. In the [Azure Portal Preview](https://portal.azure.cn/), open your web app's blade.
+1. In the [Azure Portal](https://portal.azure.cn/), open your web app's blade.
 2. Click **Tools**. Then, in the **Tools** blade, click **Clone App**.
 
     ![][1]
 
-    > [!NOTE]
-    > If the web app is not already in the **Premium** mode, you will receive a message indicating the supported modes for app cloning. At this point, you have the option to select **Upgrade**.
-    > 
-    > 
+   > [!NOTE]
+   > If the web app is not already in the **Premium** mode, you will receive a message indicating the supported modes for app cloning. At this point, you have the option to select **Upgrade**.
+   > 
+   > 
 3. In the **Clone App** blade provide a name of the new web app, Resource Group, and App Service Plan. Also the user will be able to choose whether to clone a number of source web app settings or not.
 
     ![][2]
 4. After clicking **create** the platform will start working on creating a clone of the source web app.
 
 ## Current Restrictions
-This feature is currently in preview, we are working to add new capabilities over time, the following list are the known restrictions on the current support of app cloning in Azure Portal Preview:
+This feature is currently in preview, we are working to add new capabilities over time, the following list are the known restrictions on the current support of app cloning in Azure Portal:
 
 * Azure Traffic Manager settings are not cloned
 * Auto scale settings are not cloned

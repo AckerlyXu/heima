@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2016
-wacn.date: ''
+origin.date: 02/01/2016
+ms.date: 03/28/2016
 ms.author: v-dazen
 
 ---
@@ -42,13 +42,13 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
         # sudo su -
 2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
 
-    * Red Hat base Linux:
+   * Red Hat base Linux:
 
             # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
-    * Debian base Linux:
+   * Debian base Linux:
 
             # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
-    * SUSE Linux:
+   * SUSE Linux:
 
             # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 3. Download PostgreSQL into the root directory, and then unzip the package:
@@ -86,10 +86,10 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
         # su - postgres
 
-    > [!NOTE]
-    > For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
-    > 
-    > 
+   > [!NOTE]
+   > For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
+   > 
+   > 
 4. Edit the *bash_profile* file by entering the commands below. These lines will be added to the end of the *bash_profile* file:
 
         cat >> ~/.bash_profile <<EOF

@@ -4,7 +4,7 @@ description: Shows how to pass a secret from a key vault as a parameter during d
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: c582c144-4760-49d3-b793-a3e1e89128e2
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
-wacn.date: ''
+origin.date: 12/09/2016
+ms.date: 07/03/2017
 ms.author: v-yeche
 ---
 
@@ -26,9 +26,9 @@ This topic shows you how to create a key vault and secret, configure access to t
 
 ## Deploy a key vault and secret
 
-You can deploy a key vault and secret through a Resource Manager template. For an example, see [Key vault template](./resource-manager-template-keyvault.md) and [Key vault secret template](./resource-manager-template-keyvault-secret.md). When creating the key vault, set the **enabledForTemplateDeployment** property to **true** so it can be referenced from other Resource Manager templates. 
+You can deploy a key vault and secret through a Resource Manager template. For an example, see [Key vault template](resource-manager-template-keyvault.md) and [Key vault secret template](resource-manager-template-keyvault-secret.md). When creating the key vault, set the **enabledForTemplateDeployment** property to **true** so it can be referenced from other Resource Manager templates. 
 
-Or, you can create the key vault and secret through the Azure portal preview. 
+Or, you can create the key vault and secret through the Azure portal. 
 
 1. Select **New** -> **Security + Identity** -> **Key Vault**.
 
@@ -183,5 +183,4 @@ To dynamically generate the resource ID for a key vault secret, you must move th
 
 ## Next steps
 * For general information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
-* For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](./best-practices-resource-manager-security.md).
 * For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

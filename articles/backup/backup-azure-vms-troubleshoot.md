@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-wacn.date: ''
+origin.date: 04/05/2017
+ms.date: 05/22/2017
 ms.author: v-junlch
 
 ---
@@ -125,8 +125,6 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 4. If more than four VMs share the same cloud service, configure multiple backup policies to stage the backup times so no more than four VM backups are started at the same time. Try to spread the backup start times an hour apart between policies.
 5. VM is running at High CPU/Memory.<br>
    If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and will eventually gets timed-out. Try on-demand backup in such situations.
-
-<br>
 
 ## Networking
 Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in various ways:

@@ -1,5 +1,5 @@
 ---
-title: Configure SSL offload - Azure Application Gateway - Azure Portal Preview | Azure
+title: Configure SSL offload - Azure Application Gateway - Azure Portal | Azure
 description: This page provides instructions to create an application gateway with SSL offload by using the portal
 documentationcenter: na
 services: application-gateway
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 05/22/2017
 ms.author: v-dazen
 
 ---
 # Configure an application gateway for SSL offload by using the portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-ssl-portal.md)
+> * [Azure portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
 
@@ -41,7 +41,7 @@ The HTTPS listener looks for traffic based on its configuration and helps route 
 
 ### Step 1
 
-Navigate to the Azure portal preview and select an existing application gateway
+Navigate to the Azure portal and select an existing application gateway
 
 ### Step 2
 

@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 02/19/2016
-wacn.date: ''
+origin.date: 02/19/2016
+ms.date: 03/29/2017
 ms.author: v-dazen
 
 ---
@@ -51,9 +51,9 @@ We also recommend installing [Python Tools 2.2 for Visual Studio]. This is optio
 You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.
 
 ## Web App Creation on Portal
-The first step in creating your app is to create the web app via the [Azure Portal Preview](https://portal.azure.cn).
+The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.cn).
 
-1. Log into the Azure Portal Preview and click the **NEW** button in the bottom left corner.
+1. Log into the Azure Portal and click the **NEW** button in the bottom left corner.
 2. Click "Web + Mobile".
 3. Click "Web App"
 4. Configure the new Django app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
@@ -135,7 +135,7 @@ The next 3 sections describe how to proceed with the web app development under 3
 
 ## Web app development - Windows - Python Tools for Visual Studio
 ### Clone the repository
-First, clone the repository using the URL provided on the Azure Portal Preview. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
+First, clone the repository using the URL provided on the Azure Portal. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
 Open the solution file (.sln) that is included in the root of the repository.
 
@@ -145,7 +145,7 @@ Open the solution file (.sln) that is included in the root of the repository.
 Now we'll create a virtual environment for local development. Right-click on **Python Environments** select **Add Virtual Environment...**.
 
 * Make sure the name of the environment is `env`.
-* Select the base interpreter. Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Portal Preview).
+* Select the base interpreter. Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Portal).
 * Make sure the option to download and install packages is checked.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-add-virtual-env-27.png)
@@ -201,7 +201,7 @@ Browse to the Azure URL to view your changes.
 
 ## Web app development - Windows - command line
 ### Clone the repository
-First, clone the repository using the URL provided on the Azure Portal Preview, and add the Azure repository as a remote. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -210,7 +210,7 @@ First, clone the repository using the URL provided on the Azure Portal Preview, 
 ### Create virtual environment
 We'll create a new virtual environment for development purposes (do not add it to the repository). Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal Preview).
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).
 
 For Python 2.7:
 
@@ -281,7 +281,7 @@ Browse to the Azure URL to view your changes.
 
 ## Web app development - Mac/Linux - command line
 ### Clone the repository
-First, clone the repository using the URL provided on the Azure Portal Preview, and add the Azure repository as a remote. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -290,7 +290,7 @@ First, clone the repository using the URL provided on the Azure Portal Preview, 
 ### Create virtual environment
 We'll create a new virtual environment for development purposes (do not add it to the repository). Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal Preview).
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).
 
 For Python 2.7:
 
@@ -413,7 +413,7 @@ or to enable any:
 
 In practice, you may want to do something more complex to deal with switching between debug and release mode, and getting the host name.
 
-You can set environment variables through the Azure portal preview **CONFIGURE** page, in the **app settings** section.  This can be useful for setting values that you may not want to appear in the sources (connection strings, passwords, etc), or that you want to set differently between Azure and your local machine. In `settings.py`, you can query the environment variables using `os.getenv`.
+You can set environment variables through the Azure portal **CONFIGURE** page, in the **app settings** section.  This can be useful for setting values that you may not want to appear in the sources (connection strings, passwords, etc), or that you want to set differently between Azure and your local machine. In `settings.py`, you can query the environment variables using `os.getenv`.
 
 ## Using a Database
 The database that is included with the application is a sqlite database. This is a convenient and useful default database to use for development, as it requires almost no setup. The database is stored in the db.sqlite3 file in the project folder.

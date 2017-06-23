@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: ''
+origin.date: 02/22/2017
+ms.date: 03/31/2017
 ms.author: v-dazen
 
 ---
@@ -82,7 +82,7 @@ A complete working PowerShell script can be found in [Appendix-A](#appx-a:-power
 
 **To verify the change:**
 
-1. Sign on to the [Azure portal preview](https://portal.azure.cn).
+1. Sign on to the [Azure portal](https://portal.azure.cn).
 2. From the left menu, click **HDInsight clusters**. If you don't see it, click **More services** first.
 3. Click the cluster you just created using the PowerShell script.
 4. Click **Dashboard** from the top of the blade to open the Ambari UI.

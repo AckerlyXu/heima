@@ -13,9 +13,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Bind a custom SSL certificate to a web app
@@ -52,7 +53,7 @@ Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsi
 Read-Host "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://www.azure.cn/documentation/articles/web-sites-custom-domain-name/#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Upgrade App Service plan to Basic tier (minimum required by custom SSL certificates)

@@ -11,11 +11,11 @@ tags: azure-resource-manager
 ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: article 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 05/11/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -32,38 +32,38 @@ The Azure CLI 1.0 is available across platforms via an npm package, distro-provi
 
 * [Create a Linux VM from the Azure CLI for dev and test](quick-create-cli-nodejs.md)
 
-    * The following example creates a CoreOS VM using a public key named *azure_id_rsa.pub*:
+  * The following example creates a CoreOS VM using a public key named *azure_id_rsa.pub*:
 
-        ```azurecli
-        azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
-          --image-urn CoreOS
-        ```
+    ```azurecli
+    azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+      --image-urn CoreOS
+    ```
 * [Create a secured Linux VM using an Azure template](create-ssh-secured-vm-from-template.md)
 
-    * The following example creates a VM using a template stored on GitHub:
+  * The following example creates a VM using a template stored on GitHub:
 
-        ```azurecli
-        azure group create --name myResourceGroup --location chinaeast 
-          --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
-        ```
+    ```azurecli
+    azure group create --name myResourceGroup --location chinaeast 
+      --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    ```
 * [Create a complete Linux environment using the Azure CLI](create-cli-complete-nodejs.md)
 
-    * Includes creating a load balancer and multiple VMs in an availability set.
+  * Includes creating a load balancer and multiple VMs in an availability set.
 * [Add a disk to a Linux VM](add-disk.md)
 
-    * The following example adds a *5* Gb disk to an existing VM named *myVM*:
+  * The following example adds a *5* Gb disk to an existing VM named *myVM*:
 
-        ```azurecli
-        azure vm disk attach-new \
-            --resource-group myResourceGroup \
-            --vm-name myVM \
-            --size-in-GB 5
-        ```
+    ```azurecli
+    azure vm disk attach-new \
+        --resource-group myResourceGroup \
+        --vm-name myVM \
+        --size-in-GB 5
+    ```
 
-## Azure portal preview
-The [Azure portal preview](https://portal.azure.cn) allows you to quickly create a VM since there is nothing to install on your system. Use the Azure portal preview to create the VM:
+## Azure portal
+The [Azure portal](https://portal.azure.cn) allows you to quickly create a VM since there is nothing to install on your system. Use the Azure portal to create the VM:
 
-* [Create a Linux VM using the Azure portal preview](quick-create-portal.md) 
+* [Create a Linux VM using the Azure portal](quick-create-portal.md) 
 
 ## Operating system and image choices
 When creating a VM, you choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools pre-installed. Or, upload one of your own images (see [the following section](#use-your-own-image)).
@@ -116,13 +116,13 @@ If you require specific customizations, you can use an image based on an existin
 * [Upload and create a Linux VM from custom disk image](upload-vhd.md)
 * [How to capture a Linux virtual machine as a Resource Manager template](capture-image.md).
 
-    * Quick-start example commands to capture an existing VM:
+  * Quick-start example commands to capture an existing VM:
 
-        ```azurecli
-        azure vm deallocate --resource-group myResourceGroup --vm-name myVM
-        azure vm generalize --resource-group myResourceGroup --vm-name myVM
-        azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
-        ```
+    ```azurecli
+    azure vm deallocate --resource-group myResourceGroup --vm-name myVM
+    azure vm generalize --resource-group myResourceGroup --vm-name myVM
+    azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
+    ```
 
 ## Next steps
 * Create a Linux VM from the [portal](quick-create-portal.md), with the [CLI](quick-create-cli.md), or using an [Azure Resource Manager template](../windows/cli-deploy-templates.md).

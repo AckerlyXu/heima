@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+origin.date: 09/06/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 01/25/2017
 ---
 
 # Customize the Lifecycle of a Web or Worker role in .NET

@@ -211,7 +211,7 @@ The retry interval, specified with the **retryInterval** object, is the interval
 ## See also
  [What is Scheduler?](scheduler-intro.md)
 
- [Get started using Scheduler in the Azure portal preview](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure Portal](scheduler-get-started-portal.md)
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 

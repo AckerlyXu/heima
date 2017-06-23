@@ -12,8 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 02/24/2017
-wacn.date: ''
+origin.date: 02/24/2017
+ms.date: 06/20/2017
 ms.author: v-dazen
 
 ---
@@ -73,7 +73,7 @@ Cloud explorer supports the following:
 * Integrated Properties panel which shows developer-focused properties commonly needed during dev/test 
 * Quick switching of the account to use when enumerating resources (use Settings command on toolbar) 
 * Filtering of subscriptions to use when enumerating resources (use Settings command on toolbar) 
-* Deep links to the Azure Portal Preview for management of resources and resource groups 
+* Deep links to the Azure Portal for management of resources and resource groups 
 
 ### Azure Resource Manager Tools
 The Azure Resource Manager Tools have been updated to work with Role Based Access Control (RBAC) and new subscription types.  Included with these changes is the ability to use new storage accounts, in addition to classic storage, to store artifacts during deployment.  
@@ -99,7 +99,7 @@ For more detailed explanation about HDInsight tools updates, see [this blog](htt
 * Storm Topology Graph (a new feature)
 
     Visualizing is very important when you want to see if your topology is working as expected. In this release we added visualization for Storm graphs. You can visualize the important metrics for your topology (for example, a color indicates weather a certain Bolt is "busy" or not). You can also double click the Bolt/Spout to view more details.
-* Support for HDInsight clusters that were created in the Azure Portal Preview (a bug fix)
+* Support for HDInsight clusters that were created in the Azure Portal (a bug fix)
 
     You can now use Visual Studio to view and submit jobs to all your HDInsight clusters no matter where the cluster were created.
 * More IntelliSense Support& Faster Hive Metadata Loading (an improvement)

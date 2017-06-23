@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+origin.date: 02/27/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 04/24/2017
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal

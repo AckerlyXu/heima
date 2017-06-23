@@ -17,12 +17,12 @@ After you create an endpoint, you can use an access control list (ACL) to define
 2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3. Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
 
-    ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
+   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 4. In the taskbar, click **Add**.
 5. On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
 
-    * If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
-    * Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
+   * If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
+   * Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
 6. On the **Specify the details of the endpoint** page, type a name for the endpoint in **Name**. You can also choose a network protocol name from the list, which will fill in initial values for the **Protocol**, **Public Port**, and **Private Port**.
 7. For a customized endpoint, in **Protocol**, choose either **TCP** or **UDP**.
 8. For customized ports, in **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.
@@ -47,10 +47,10 @@ If the virtual machine is in an Azure virtual network, we recommend network secu
 2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3. Click **Endpoints**. From the list, select the appropriate endpoint.
 
-    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+   ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 4. In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
 
-    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
+   ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 5. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
 
 You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.

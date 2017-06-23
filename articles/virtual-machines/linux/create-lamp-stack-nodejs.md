@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: NA
 ms.topic: article
-ms.date: 02/21/2017
-wacn.date: ''
+origin.date: 02/21/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
 
 ---
@@ -28,8 +28,6 @@ You can complete the task using one of the following CLI versions:
 - Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI 2.0](create-lamp-stack.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
-<br/>
-
 ```
 # One command to create a resource group holding a VM with LAMP already on it
 $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
@@ -37,11 +35,11 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 
 * Deploy LAMP on existing VM
 
-    ```
-    # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
-    user@ubuntu$ sudo apt-get update
-    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
-    ```
+```
+# Two commands: one updates packages, the other installs Apache, MySQL, and PHP
+user@ubuntu$ sudo apt-get update
+user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+```
 
 ## Deploy LAMP on new VM walkthrough
 You can start by creating a [resource group](../../azure-resource-manager/resource-group-overview.md) that will contain the new VM:

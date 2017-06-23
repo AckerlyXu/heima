@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/24/2017
-wacn.date: ''
+origin.date: 04/24/2017
+ms.date: 03/20/2017
 ms.author: v-dazen
 ---
 
@@ -56,7 +56,7 @@ To use Automated Backup, consider the following prerequisites:
 
 ## Settings
 
-The following table describes the options that can be configured for Automated Backup. The actual configuration steps vary depending on whether you use the Azure portal preview or Azure Windows PowerShell commands.
+The following table describes the options that can be configured for Automated Backup. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
 
 | Setting | Range (Default) | Description |
 | --- | --- | --- |
@@ -68,15 +68,15 @@ The following table describes the options that can be configured for Automated B
 
 ## Configuration in the Portal
 
-You can use the Azure portal preview to configure Automated Backup during provisioning or for existing SQL Server 2014 VMs.
+You can use the Azure portal to configure Automated Backup during provisioning or for existing SQL Server 2014 VMs.
 
 ### New VMs
 
-Use the Azure portal preview to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
 
-In the **SQL Server settings** blade, select **Automated backup**. The following Azure portal preview screenshot shows the **SQL Automated Backup** blade.
+In the **SQL Server settings** blade, select **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** blade.
 
-![SQL Automated Backup configuration in Azure portal preview](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
+![SQL Automated Backup configuration in Azure portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -92,7 +92,7 @@ In the **SQL Server configuration** blade, click the **Edit** button in the Auto
 
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
-If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal preview might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal preview will reflect the new settings.
+If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
 
 > [!NOTE]
 > You can also configure Automated Backup using a template. For more information, see [Azure quickstart template for Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
@@ -105,7 +105,7 @@ You can use PowerShell to configure Automated Backup. Before you begin, you must
 - Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
 
 ### Install the SQL IaaS Extension
-If you provisioned a SQL Server virtual machine from the Azure portal preview, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
+If you provisioned a SQL Server virtual machine from the Azure portal, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
 
 ```powershell
 $vmname = "vmname"

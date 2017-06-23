@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-wacn.date: ''
+origin.date: 03/17/2017
+ms.date: 05/15/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -51,6 +51,8 @@ Each hardware cluster is divided in to multiple update domains and fault domains
 When designing your application infrastructure, plan out the application tiers to use. Group VMs that serve the same purpose in to availability sets, such as an availability set for your front-end VMs running nginx or Apache. Create a separate availability set for your back-end VMs running MongoDB or MySQL. The goal is to ensure that each component of your application is protected by an availability set and at least once instance always remains running.
 
 Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end user may not be able to resolve them if the primary VM is unavailable.
+
+Design your application for high availability at storage layer. The best practice is to [use Managed Disks for VMs in an Availability Set](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). If you are currently using unmanaged disks, we highly recommend you to [convert VMs in Availability Set to use Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
 
 ## Next steps
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

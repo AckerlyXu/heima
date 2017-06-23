@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
-wacn.date: ''
+origin.date: 03/14/2017
+ms.date: 06/21/2017
 ms.author: v-dazen
 
 ---
@@ -24,10 +24,10 @@ You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios 
 ## Subscription eligibility
 Active Visual Studio subscribers (people who have acquired a Visual Studio subscription license) can use Windows client for development and testing purposes. Windows client can be used on your own hardware and Azure virtual machines running in any type of Azure subscription. Windows client may not be deployed to or used on Azure for normal production use, or used by people who are not active Visual Studio subscribers.
 
-For your convenience, we have made certain Windows 10 images available from the Azure Gallery within [eligible dev/test offers](#eligible-offers). Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). The use remains limited to dev/test by active Visual Studio subscribers.
+For your convenience, we have made certain Windows 10 images available from the Azure Gallery within [eligible dev/test offers](#eligible-offers). Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
 ## Eligible offers
-The following table details the offer IDs that are eligible to deploy Windows 10 through the Azure Gallery. The Windows 10 images are only visible to the following offers. Visual Studio subscribers who need to run Windows client in a different offer type require you to [adequately prepare and create](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) a 64-bit Windows 7, Windows 8, or Windows 10 image and [then upload to Azure](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+The following table details the offer IDs that are eligible to deploy Windows 10 through the Azure Gallery. The Windows 10 images are only visible to the following offers. Visual Studio subscribers who need to run Windows client in a different offer type require you to [adequately prepare and create](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) a 64-bit Windows 7, Windows 8, or Windows 10 image and [then upload to Azure](upload-generalized-managed.md).
 
 | Offer Name | Offer Number | Available client images |
 |:--- |:---:|:---:|
@@ -41,11 +41,11 @@ The following table details the offer IDs that are eligible to deploy Windows 10
 | [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## Check your Azure subscription
-If you do not know your offer ID, you can obtain it through the Azure portal preview in one of these two ways:  
+If you do not know your offer ID, you can obtain it through the Azure portal in one of these two ways:  
 
 - On the 'Subscriptions' blade:
 
-![Offer ID details from the Azure portal preview](./media/client-images/offer-id-azure-portal.png) 
+  ![Offer ID details from the Azure portal](./media/client-images/offer-id-azure-portal.png) 
 
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the Billing blade.
 

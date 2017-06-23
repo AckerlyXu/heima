@@ -1,25 +1,25 @@
 ---
-title: Request increased Azure Cosmos DB account quotas | Microsoft Docs
-description: Learn how to request an adjustment to Azure Cosmos DB database quotas such as document storage and throughput per collection.
-services: cosmosdb
+title: Request increased DocumentDB account quotas | Microsoft Docs
+description: Learn how to request an adjustment to DocumentDB database quotas such as document storage and throughput per collection.
+services: documentdb
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: 68f7dc8d-534f-4301-a42c-bcd1bb1b77fe
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
-wacn.date: ''
+origin.date: 12/13/2016
+ms.date: 05/31/2017
 ms.author: v-junlch
 
 ---
-# Request increased Azure Cosmos DB account quotas
-[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale Azure Cosmos DB provides, please send an email to askdocdb@microsoft.com.
+# Request increased DocumentDB account quotas
+[DocumentDB](https://www.azure.cn/home/features/documentdb/) is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale DocumentDB provides, please send an email to askdocdb@microsoft.com.
 
 This article shows how to request a quota increase by Azure support.
 
@@ -32,7 +32,7 @@ The following steps show how to request a quota adjustment.
 2. In the **Help + support** blade, click **New support request**.
    
     ![Screenshot of creating a support ticket](./media/documentdb-increase-limits/getsupport.png)
-3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your Azure Cosmos DB account, **Quota type** to **Azure Cosmos DB**, and **Support plan** to **Quota SUPPORT - Included**. Then, click **Next**.
+3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Quota type** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Then, click **Next**.
    
     ![Screenshot of support ticket request type](./media/documentdb-increase-limits/supportrequest1.png)
 4. In the **Problem** blade, choose a severity and include information about your quota increase in **Details**. Click **Next**.

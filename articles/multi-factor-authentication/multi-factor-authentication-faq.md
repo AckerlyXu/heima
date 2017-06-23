@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+origin.date: 04/26/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 06/12/2017
 ms.custom: H1Hack27Feb2017
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication

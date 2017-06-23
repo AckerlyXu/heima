@@ -13,9 +13,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code from a local Git repository
@@ -51,7 +52,7 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResou
 -ApiVersion 2015-08-01 -Force
 
 # Get app-level deployment credentials
-$xml = (Get-AzureRmWebAppPublishingProfile -Name $webappname -ResourceGroupName myResourceGroup `
+$xml = [xml](Get-AzureRmWebAppPublishingProfile -Name $webappname -ResourceGroupName myResourceGroup `
 -OutputFile null)
 $username = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@userName").value
 $password = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@userPWD").value

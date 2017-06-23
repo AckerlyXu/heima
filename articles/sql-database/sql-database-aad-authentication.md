@@ -97,7 +97,7 @@ Azure Active Directory authentication supports the following methods of connecti
 * SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure AD users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase cannot authenticate by using Azure AD authentication.   
-* Azure AD authentication is supported for SQL Database by the Azure portal preview **Import Database** and **Export Database** blades. Import and export using Azure AD authentication is also supported from the PowerShell command.   
+* Azure AD authentication is supported for SQL Database by the Azure Portal **Import Database** and **Export Database** blades. Import and export using Azure AD authentication is also supported from the PowerShell command.   
 
 ## Next steps
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Azure portal preview: Create a SQL database | Azure'
-description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal preview. You also learn to query an Azure SQL database using the Azure portal preview.
+title: 'Azure Portal: Create a SQL database | Azure'
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure Portal. You also learn to query an Azure SQL database using the Azure Portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
@@ -19,15 +19,15 @@ ms.date: 05/03/2017
 ms.author: v-johch
 
 ---
-# Create an Azure SQL database in the Azure portal preview
+# Create an Azure SQL database in the Azure Portal
 
-This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal preview.
+This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure Portal.
 
 If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
-## Log in to the Azure portal preview
+## Log in to the Azure Portal
 
-Log in to the [Azure portal preview](https://portal.azure.cn/).
+Log in to the [Azure Portal](https://portal.azure.cn/).
 
 ## Create a SQL database
 
@@ -35,7 +35,7 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a SQL database containing the Adventure Works LT sample data. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal preview.
+1. Click the **New** button found on the upper left-hand corner of the Azure Portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page.
 
@@ -142,7 +142,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 If you don't need these resources for another quickstart/tutorial (see [Next steps](#next-steps)), you can delete them by doing the following:
 
 
-1. From the left-hand menu in the Azure portal preview, click **Resource groups** and then click **myResourceGroup**. 
+1. From the left-hand menu in the Azure Portal, click **Resource groups** and then click **myResourceGroup**. 
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps

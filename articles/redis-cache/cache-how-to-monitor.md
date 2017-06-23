@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-wacn.date: ''
+origin.date: 02/14/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -25,24 +25,24 @@ When cache diagnostics are enabled, metrics for Azure Redis Cache instances are 
 
 Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal preview](https://portal.azure.cn). Metrics for Azure Redis Cache instances are accessed on the **Redis metrics** blade.
+To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.cn). Metrics for Azure Redis Cache instances are accessed on the **Redis metrics** blade.
 
 ![Redis metrics][redis-cache-redis-metrics-blade]
 
 > [!IMPORTANT]
 > If the following message is displayed in the **Redis metrics** blade, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
->
+> 
 > `Monitoring may not be enabled. Click here to turn on Diagnostics.`
 > 
 > 
 
 The **Redis metrics** blade has **Monitoring** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. For viewing and configuring operations and alerts, the **Redis Cache** blade has an **Operations** section that displays cache **Events** and **Alert rules**.
 
-## <a name="enable-cache-diagnostics" id="EnableDiagnostics"></a> Enable cache diagnostics
+## Enable cache diagnostics
 >[!NOTE]
 > If you want to enable cache diagnostics in Azure China, you need to set the `rdb-storage-connection-string` with Azure PowerShell or Azure CLI.
 
-Azure Redis Cache provides you the ability to have diagnostics data stored in a storage account so you can use any tools you want to access and process the data directly. In order for cache diagnostics to be collected, stored, and displayed in the Azure portal preview, a storage account must be configured. Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
+Azure Redis Cache provides you the ability to have diagnostics data stored in a storage account so you can use any tools you want to access and process the data directly. In order for cache diagnostics to be collected, stored, and displayed in the Azure portal, a storage account must be configured. Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
 
 To enable and configure cache diagnostics, navigate to the **Redis Cache** blade for your cache instance. If diagnostics are not yet enabled, a message is displayed instead of a diagnostics chart.
 
@@ -65,10 +65,10 @@ Once the diagnostic settings are configured, click **Save** to save the configur
 > 
 > 
 
-To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure portal preview, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
+To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
 
 > [!NOTE]
-> Only metrics that are stored in the selected storage account are displayed in the Azure portal preview. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal preview.  
+> Only metrics that are stored in the selected storage account are displayed in the Azure portal. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
 > 
 > 
 

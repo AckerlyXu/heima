@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/11/2017
-wacn.date: ''
+origin.date: 04/11/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -54,10 +54,10 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
     The parameters used in this command are as follows:
 
-    * **-u**: Indicates the user name and password used to authenticate the request
-    * **-G**: Indicates that this operation is a GET request
+   * **-u**: Indicates the user name and password used to authenticate the request
+   * **-G**: Indicates that this operation is a GET request
 
-        The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests.
+     The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests.
 
 2. To submit a MapReduce job, use the following command:
 
@@ -67,13 +67,13 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
     The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
-    * **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
+   * **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
     * **user.name**: The user who is running the command
     * **jar**: The location of the jar file that contains class to be ran
     * **class**: The class that contains the MapReduce logic
     * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
-    This command should return a job ID that can be used to check the status of the job:
+     This command should return a job ID that can be used to check the status of the job:
 
     ```
     {"id":"job_1415651640909_0026"}
@@ -89,8 +89,8 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
     If the job is complete, the state returned is `SUCCEEDED`.
 
-    > [!NOTE]
-    > This Curl request returns a JSON document with information about the job. Jq is used to retrieve only the state value.
+   > [!NOTE]
+   > This Curl request returns a JSON document with information about the job. Jq is used to retrieve only the state value.
 
 4. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 

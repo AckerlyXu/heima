@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: python
 ms.topic: article
-ms.date: 11/17/2015
-wacn.date: ''
+origin.date: 11/17/2015
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -72,11 +72,11 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
         $ cd /var/www
         $ sudo django-admin.py startproject helloworld
 
-    The **django-admin.py** script generates a basic structure for Django-based websites:
+   The **django-admin.py** script generates a basic structure for Django-based websites:
 
-    * **helloworld/manage.py** helps you to start hosting and stop hosting your Django-based website
-    * **helloworld/helloworld/settings.py** contains Django settings for your application.
-    * **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
+   * **helloworld/manage.py** helps you to start hosting and stop hosting your Django-based website
+   * **helloworld/helloworld/settings.py** contains Django settings for your application.
+   * **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
 3. Create a new file named **views.py** in the **/var/www/helloworld/helloworld** directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 
         from django.http import HttpResponse
@@ -106,7 +106,7 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
         $ sudo service apache2 reload
 4. Finally, load the web page in your browser:
 
-    ![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
+   ![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
 
 ## Shutting down your Azure virtual machine
 When you're done with this tutorial, shutdown and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.

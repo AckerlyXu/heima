@@ -1,7 +1,7 @@
 ## Use the portal to move a VM to a different subscription
 You can move a VM and it's associated resources to a different subscription using the portal.
 
-1. Open the [Azure portal preview](https://portal.azure.cn).
+1. Open the [Azure portal](https://portal.azure.cn).
 2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
 
     ![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
@@ -16,7 +16,7 @@ You can move a VM and it's associated resources to a different subscription usin
 ## Use the portal to move a VM to another resource group
 You can move a VM and it's associated resources to another resource group using the portal.
 
-1. Open the [Azure portal preview](https://portal.azure.cn).
+1. Open the [Azure portal](https://portal.azure.cn).
 2. Click **Browse** > **Resource groups** and select the resource group that contains the VM.
 3. In the **Resource group** blade, select **Move** from the menu.
 

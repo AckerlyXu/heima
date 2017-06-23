@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
-wacn.date: ''
+origin.date: 02/01/2017
+ms.date: 03/24/2017
 ms.author: v-dazen
 
 ---
@@ -30,9 +30,9 @@ A VM using Receive Side Scaling (RSS) can reach higher maximal throughput than a
 1. Enter the `Get-NetAdapterRss` PowerShell command to see if RSS is enabled for a network adapter. In the following example output returned from the `Get-NetAdapterRss`, RSS is not enabled.
 
     ```powershell
-    Name                    : Ethernet
-    InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : False
+    Name					: Ethernet
+    InterfaceDescription	: Microsoft Hyper-V Network Adapter
+    Enabled				 : False
     ```
 2. Enter the following command to enable RSS:
 
@@ -43,9 +43,9 @@ A VM using Receive Side Scaling (RSS) can reach higher maximal throughput than a
 3. Confirm that RSS is enabled in the VM by entering the `Get-NetAdapterRss` command again. If successful, the following example output is returned:
 
     ```powershell
-    Name                    :Ethernet
-    InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : True
+    Name					:Ethernet
+    InterfaceDescription	: Microsoft Hyper-V Network Adapter
+    Enabled				 : True
     ```
 
 ## Linux VM
@@ -62,7 +62,6 @@ In order to get the optimization, first update to the latest supported version, 
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-
 After the update is complete, enter the following commands to get the latest kernel:
 
 ```bash
@@ -87,7 +86,6 @@ In order to get the optimization, first update to the latest supported version, 
 "Sku": "7.3",
 "Version": "latest"
 ```
-
 After the update is complete, install the latest Linux Integration Services (LIS).
 The throughput optimization is in LIS, starting from 4.1.3. Enter the following
 commands to install LIS:

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
-wacn.date: ''
+origin.date: 05/01/2017
+ms.date: 02/20/2017
 ms.author: v-dazen
 
 ---
@@ -30,12 +30,12 @@ Related topics include:
 * [Configure Always On availability groups in Azure VM (Manually)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-By walking through this article, you create and configure a load balancer in the Azure portal preview. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
+By walking through this article, you create and configure a load balancer in the Azure portal. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
 
-## Create and configure the load balancer in the Azure portal preview
+## Create and configure the load balancer in the Azure portal
 In this portion of the task, do the following:
 
-1. In the Azure portal preview, create the load balancer and configure the IP address.
+1. In the Azure portal, create the load balancer and configure the IP address.
 2. Configure the back-end pool.
 3. Create the probe. 
 4. Set the load balancing rules.
@@ -48,7 +48,7 @@ In this portion of the task, do the following:
 ### Step 1: Create the load balancer and configure the IP address
 First, create the load balancer. 
 
-1. In the Azure portal preview, open the resource group that contains the SQL Server virtual machines. 
+1. In the Azure portal, open the resource group that contains the SQL Server virtual machines. 
 
 2. In the resource group, click **Add**.
 
@@ -58,17 +58,17 @@ First, create the load balancer.
 
 5. In the **Create load balancer** dialog box, configure the load balancer as follows:
 
-    | Setting | Value |
-    | --- | --- |
-    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
-    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
-    | **Virtual network** |Select the virtual network that the SQL Server intances are in. |
-    | **Subnet** |Select the subnet that the SQL Server instances are in. |
-    | **IP address assignment** |**Static** |
-    | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
-    | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
-    | **Resource group** |Select the resource group that the SQL Server instances are in. |
-    | **Location** |Select the Azure location that the SQL Server instances are in. |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
+   | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
+   | **Virtual network** |Select the virtual network that the SQL Server intances are in. |
+   | **Subnet** |Select the subnet that the SQL Server instances are in. |
+   | **IP address assignment** |**Static** |
+   | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
+   | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
+   | **Resource group** |Select the resource group that the SQL Server instances are in. |
+   | **Location** |Select the Azure location that the SQL Server instances are in. |
 
 6. Click **Create**. 
 
@@ -104,13 +104,13 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 
 3. Configure the probe on the **Add probe** blade. Use the following values to configure the probe:
 
-    | Setting | Value |
-    | --- | --- |
-    | **Name** |A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
-    | **Protocol** |**TCP** |
-    | **Port** |You can use any available port. For example, *59999*. |
-    | **Interval** |*5* |
-    | **Unhealthy threshold** |*2* |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
+   | **Protocol** |**TCP** |
+   | **Port** |You can use any available port. For example, *59999*. |
+   | **Interval** |*5* |
+   | **Unhealthy threshold** |*2* |
 
 4.  Click **OK**. 
 
@@ -130,20 +130,20 @@ The load balancing rules configure how the load balancer routes traffic to the S
 
 3. On the **Add load balancing rules** blade, configure the load balancing rule. Use the following settings: 
 
-    | Setting | Value |
-    | --- | --- |
-    | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
-    | **Protocol** |**TCP** |
-    | **Port** |*1433* |
-    | **Backend Port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
-    | **Probe** |Use the name of the probe that you created for this load balancer. |
-    | **Session persistence** |**None** |
-    | **Idle timeout (minutes)** |*4* |
-    | **Floating IP (direct server return)** |**Enabled** |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+   | **Protocol** |**TCP** |
+   | **Port** |*1433* |
+   | **Backend Port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
+   | **Probe** |Use the name of the probe that you created for this load balancer. |
+   | **Session persistence** |**None** |
+   | **Idle timeout (minutes)** |*4* |
+   | **Floating IP (direct server return)** |**Enabled** |
 
-    > [!NOTE]
-    > You might have to scroll down the blade to view all the settings.
-    > 
+   > [!NOTE]
+   > You might have to scroll down the blade to view all the settings.
+   > 
 
 4. Click **OK**. 
 5. Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
@@ -197,9 +197,9 @@ The SQLCMD connection automatically connects to the SQL Server instance that hos
 
 Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. After you create an availability group, add the IP address to the load balancer, and then configure the listener.
 
-To add an IP address to a load balancer with the Azure portal preview, do the following:
+To add an IP address to a load balancer with the Azure portal, do the following:
 
-1. In the Azure portal preview, open the resource group that contains the load balancer, and then click the load balancer. 
+1. In the Azure portal, open the resource group that contains the load balancer, and then click the load balancer. 
 
 2. Under **SETTINGS**, click **Frontend IP pool**, and then click **Add**. 
 
@@ -210,7 +210,7 @@ To add an IP address to a load balancer with the Azure portal preview, do the fo
 5. Set the IP address for the listener. 
 
    >[!TIP]
-   >You can set the IP address to static and type an address that is not currently used in the subnet. Alternatively, you can set the IP address to dynamic and save the new front-end IP pool. When you do so, the Azure portal preview automatically assigns an available IP address to the pool. You can then reopen the front-end IP pool and change the assignment to static. 
+   >You can set the IP address to static and type an address that is not currently used in the subnet. Alternatively, you can set the IP address to dynamic and save the new front-end IP pool. When you do so, the Azure portal automatically assigns an available IP address to the pool. You can then reopen the front-end IP pool and change the assignment to static. 
 
 6. Save the IP address for the listener. 
 

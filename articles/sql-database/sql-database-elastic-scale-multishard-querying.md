@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/12/2016
-wacn.date: 04/22/2016
+origin.date: 04/12/2016
+ms.date: 12/19/2016
 ms.author: v-johch
 ---
 

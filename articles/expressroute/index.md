@@ -10,8 +10,8 @@ ms.service: expressroute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 06/20/2017
 ms.author: v-yiso
 ---
 
@@ -73,37 +73,6 @@ Learn how to use ExpressRoute to set up a fast, private connection to Microsoft 
             </div>
         </div>
         </a>
-    </li>
-</ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </li>
 </ul>
 

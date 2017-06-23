@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 01/23/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 03/03/2017
 ---
 
 # Call a webhook on Azure Activity Log alerts

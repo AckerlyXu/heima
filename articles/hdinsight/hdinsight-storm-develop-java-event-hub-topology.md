@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
-wacn.date: ''
+origin.date: 04/03/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -274,9 +274,9 @@ The following environment variables may be set when you install Java and the JDK
 * **JAVA_HOME** - should point to the directory where the Java runtime environment (JRE) is installed. For example, in a Unix or Linux distribution, it should have a value similar to `/usr/lib/jvm/java-7-oracle`. In Windows, it would have a value similar to `c:\Program Files (x86)\Java\jre1.7`
 * **PATH** - should contain the following paths:
 
-    * **JAVA_HOME** (or the equivalent path)
-    * **JAVA_HOME\bin** (or the equivalent path)
-    * The directory where Maven is installed
+  * **JAVA_HOME** (or the equivalent path)
+  * **JAVA_HOME\bin** (or the equivalent path)
+  * The directory where Maven is installed
 
 ## Download and register the EventHub components
 
@@ -300,8 +300,8 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
     ![wizard page 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-    > [!NOTE]
-    > Select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
+   > [!NOTE]
+   > Select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
 
 3. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you need this value later.
 
@@ -372,8 +372,8 @@ The jar created by this project contains two topologies; **com.microsoft.example
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
 
-    > [!NOTE]
-    > Some files may show a size of 0, as they have been created by the EventHubReader, but data has not been stored to them yet.
+   > [!NOTE]
+   > Some files may show a size of 0, as they have been created by the EventHubReader, but data has not been stored to them yet.
 
     You can view the contents of these files by using the following command:
 

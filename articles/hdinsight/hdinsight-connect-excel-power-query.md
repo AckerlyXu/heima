@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-wacn.date: ''
+origin.date: 02/06/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -73,7 +73,7 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]
 * [Upload Data to HDInsight][hdinsight-upload-data]
 
-[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-odbc-driver.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 

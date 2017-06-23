@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
-wacn.date: ''
+origin.date: 03/01/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 
 ---
@@ -55,7 +55,7 @@ This table shows some of the ways you can get a list of available locations.
 
 | Method | Description |
 | --- | --- |
-| Azure portal preview |Select a location from the list when you create a VM. |
+| Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) command. |
 | REST API |Use the [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) operation. |
 
@@ -76,7 +76,7 @@ This table shows some ways that you can find the information for an image.
 
 | Method | Description |
 | --- | --- |
-| Azure portal preview |The values are automatically specified for you when you select an image to use. |
+| Azure portal |The values are automatically specified for you when you select an image to use. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST APIs |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
@@ -110,7 +110,7 @@ This table provides information to get you started creating your VM.
 
 | Method | Article |
 | --- | --- |
-| Azure portal preview |[Create a virtual machine running Windows using the portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure portal |[Create a virtual machine running Windows using the portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Templates |[Create a Windows virtual machine with a Resource Manager template](ps-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Create a Windows VM using PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Client SDKs |[Deploy Azure Resources using C#](csharp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
@@ -126,13 +126,13 @@ This table shows you some of the ways that you can get information about a VM.
 
 | Method | Description |
 | --- | --- |
-| Azure portal preview |On the hub menu, click **Virtual Machines** and then select the VM from the list. On the blade for the VM, you have access to overview information, setting values, and monitoring metrics. |
+| Azure portal |On the hub menu, click **Virtual Machines** and then select the VM from the list. On the blade for the VM, you have access to overview information, setting values, and monitoring metrics. |
 | Azure PowerShell |For information about using PowerShell to manage VMs, see [Manage Azure Virtual Machines using Resource Manager and PowerShell](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). |
 | REST API |Use the [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) operation to get information about a VM. |
 | Client SDKs |For information about using C# to manage VMs, see [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### Log on to the VM
-You use the Connect button in the Azure portal preview to [start a Remote Desktop (RDP) session](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). Things can sometimes go wrong when trying to use a remote connection. If this situation happens to you, check out the help information in [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) session](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). Things can sometimes go wrong when trying to use a remote connection. If this situation happens to you, check out the help information in [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Manage availability
 It's important for you to understand how to [ensure high availability](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for your application. This configuration involves creating multiple VMs to ensure that at least one is running.

@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2016
-wacn.date: ''
+origin.date: 02/26/2016
+ms.date: 12/26/2016
 ms.author: v-dazen
 
 ---
@@ -77,10 +77,10 @@ Now that you have created the web app and retrieved all the NuGet packages for t
     ![Local web app in a browser](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 3. Close your browser. In the **Command Window**, press **Ctrl+C** to shut down the application and close the **Command Window**. 
 
-## Create a web app in the Azure Portal Preview
-The following steps will guide you through creating a web app in the Azure Portal Preview.
+## Create a web app in the Azure Portal
+The following steps will guide you through creating a web app in the Azure Portal.
 
-1. Log in to the [Azure Portal Preview](https://portal.azure.cn).
+1. Log in to the [Azure Portal](https://portal.azure.cn).
 2. Click **NEW** at the top left of the Portal.
 3. Click **Web Apps > Web App**.
 
@@ -96,7 +96,7 @@ The following steps will guide you through creating a web app in the Azure Porta
 ## Enable Git publishing for the new web app
 Git is a distributed version control system that you can use to deploy your Azure App Service web app. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository.   
 
-1. Log into the [Azure Portal Preview](https://portal.azure.cn).
+1. Log into the [Azure Portal](https://portal.azure.cn).
 2. Click **Browse**.
 3. Click **Web Apps** to view a list of the web apps associated with your Azure subscription.
 4. Select the web app you created in this tutorial.
@@ -110,7 +110,7 @@ Git is a distributed version control system that you can use to deploy your Azur
 8. If you have not previously set up deployment credentials for publishing a web app or other App Service app, set them up now:
 
     Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
-9. Back to [Azure portal Preview](https://portal.azure.cn), click **Settings > Properties**. The URL of the remote Git repository that you'll deploy to is shown under **GIT URL**.
+9. Back to [Azure Portal](https://portal.azure.cn), click **Settings > Properties**. The URL of the remote Git repository that you'll deploy to is shown under **GIT URL**.
 10. Copy the **GIT URL** value for later use in the tutorial.
 
     ![Azure Git URL](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
@@ -169,7 +169,7 @@ This can be done in two ways:
 * Open a browser and enter the name of your web app as follows.   
 
         http://SampleWebAppDemo.chinacloudsites.cn
-* In the Azure Portal Preview, locate the web app blade for your web app, and click **Browse** to view your app 
+* In the Azure Portal, locate the web app blade for your web app, and click **Browse** to view your app 
 * in your default browser.
 
 ![Azure web app](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)

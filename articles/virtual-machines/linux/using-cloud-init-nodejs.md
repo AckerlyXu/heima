@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
-wacn.date: ''
+origin.date: 10/26/2016
+ms.date: 04/17/2017
 ms.author: v-dazen
 
 ---
@@ -47,7 +47,6 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
-
 Create a resource group to launch VMs into.
 
 ```azurecli

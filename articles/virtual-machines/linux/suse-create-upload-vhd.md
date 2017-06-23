@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
-wacn.date: ''
+origin.date: 08/24/2016
+ms.date: 12/26/2016
 ms.author: v-dazen
 
 ---
@@ -136,7 +136,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-    This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
+   This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
 
         libata.atapi_enabled=0 reserve=0x1f0,0x8
 7. It is recommended to edit the file "/etc/sysconfig/network/dhcp" and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:

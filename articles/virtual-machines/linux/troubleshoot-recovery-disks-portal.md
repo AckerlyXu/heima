@@ -1,7 +1,7 @@
 ---
 
-title: Use a Linux troubleshooting VM in the Azure portal preview | Azure
-description: Learn how to troubleshoot Linux virtual machine issues by connecting the OS disk to a recovery VM using the Azure portal preview
+title: Use a Linux troubleshooting VM in the Azure portal | Azure
+description: Learn how to troubleshoot Linux virtual machine issues by connecting the OS disk to a recovery VM using the Azure portal
 services: virtual-machines-linux
 documentationCenter: ''
 authors: iainfoulds
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
-wacn.date: ''
+origin.date: 11/14/2016
+ms.date: 01/20/2017
 ms.author: v-dazen
 
 ---
 
-# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal preview
-If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure portal preview to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM.
+# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal
+If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM.
 
 ## Recovery process overview
 The troubleshooting process is as follows:
@@ -99,7 +99,6 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
     ```bash
     dmesg | grep SCSI
     ```
-
     The output is similar to the following example:
 
     ```bash
@@ -156,7 +155,7 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 [![Deploy VM from template from GitHub](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F201-vm-specialized-vhd-existing-vnet%2Fazuredeploy.json)
 
-The template is loaded into the Azure portal preview for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk.
+The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk.
 
 ## Re-enable boot diagnostics
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:

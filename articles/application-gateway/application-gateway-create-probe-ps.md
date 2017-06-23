@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2017
-wacn.date: ''
+origin.date: 04/26/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -39,27 +39,27 @@ In this article, you add a custom probe to an existing application gateway with 
 
 1. Use `Login-AzureRmAccount` to authenticate.
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  ```
 
 1. Get the subscriptions for the account.
 
-    ```powershell
-    Get-AzureRmSubscription
-    ```
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 
 1. Choose which of your Azure subscriptions to use.
 
-    ```powershell
-    Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
-    ```
+  ```powershell
+  Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
+  ```
 
 1. Create a resource group. You can skip this step if you have an existing resource group.
 
-    ```powershell
-    New-AzureRmResourceGroup -Name appgw-rg -Location 'China North'
-    ```
+  ```powershell
+  New-AzureRmResourceGroup -Name appgw-rg -Location 'China North'
+  ```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 

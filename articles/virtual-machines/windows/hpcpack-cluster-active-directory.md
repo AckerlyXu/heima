@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
-wacn.date: ''
+origin.date: 11/14/2016
+ms.date: 01/20/2017
 ms.author: v-dazen
 
 ---
@@ -44,8 +44,8 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
 
-    > [!NOTE]
-    > Azure Active Directory integration is not supported in versions of HPC Pack before HPC Pack 2016.
+  > [!NOTE]
+  > Azure Active Directory integration is not supported in versions of HPC Pack before HPC Pack 2016.
 
 * **Client computer** - You need a Windows or Windows Server client computer to  run HPC Pack client utilities. If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
 
@@ -124,7 +124,6 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 
     Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.chinacloudapi.cn/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
-
     where
 
     * `AADTenant` specifies the Azure AD tenant name, such as `hpclocal.partner.onmschina.cn`
@@ -205,18 +204,18 @@ Sometimes, you may want to run the job under the HPC cluster user (for a domain-
     Submit-HpcJob -Job $job -Scheduler https://<Azure load balancer DNS name> -Credential $emptycreds
     ```
 
-    If `-Credential` is not specified with `Submit-HpcJob`, the job or task runs under a local mapped user as the Azure AD account. (The HPC cluster creates a local user with the same name as the Azure AD account to run the task.)
+   If `-Credential` is not specified with `Submit-HpcJob`, the job or task runs under a local mapped user as the Azure AD account. (The HPC cluster creates a local user with the same name as the Azure AD account to run the task.)
 
 3. Set extended data for the Azure AD account. This is useful when running an MPI job on Linux nodes using the Azure AD account.
 
-    * Set extended data for the Azure AD account itself
+   * Set extended data for the Azure AD account itself
 
-        ```powershell
-        Set-HpcJobCredential -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data> -AadUser
-        ```
+      ```powershell
+      Set-HpcJobCredential -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data> -AadUser
+      ```
 
-    * Set extended data and run as HPC cluster user
+   * Set extended data and run as HPC cluster user
 
-        ```powershell
-        Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data>
-        ```
+      ```powershell
+      Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data>
+      ```

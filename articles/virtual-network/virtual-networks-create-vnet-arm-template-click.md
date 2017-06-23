@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
-wacn.date: ''
+origin.date: 03/15/2016
+ms.date: 03/28/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017 
 
@@ -52,25 +52,25 @@ You can download the existing template for creating a VNet and two subnets from 
 4. If you are familiar with templates, skip to step 7.
 5. Open the file you just saved and look at the contents under **parameters** in line 5. ARM template parameters provide a placeholder for values that can be filled out during deployment.
 
-    | Parameter | Description |
-    | --- | --- |
-    | **location** |Azure region where the VNet will be created |
-    | **vnetName** |Name for the new VNet |
-    | **addressPrefix** |Address space for the VNet, in CIDR format |
-    | **subnet1Name** |Name for the first VNet |
-    | **subnet1Prefix** |CIDR block for the first subnet |
-    | **subnet2Name** |Name for the second VNet |
-    | **subnet2Prefix** |CIDR block for the second subnet |
+   | Parameter | Description |
+   | --- | --- |
+   | **location** |Azure region where the VNet will be created |
+   | **vnetName** |Name for the new VNet |
+   | **addressPrefix** |Address space for the VNet, in CIDR format |
+   | **subnet1Name** |Name for the first VNet |
+   | **subnet1Prefix** |CIDR block for the first subnet |
+   | **subnet2Name** |Name for the second VNet |
+   | **subnet2Prefix** |CIDR block for the second subnet |
 
-    > [!IMPORTANT]
-    > Azure Resource Manager templates maintained in GitHub can change over time. Make sure you check the template before using it.
-    > 
-    > 
+   > [!IMPORTANT]
+   > Azure Resource Manager templates maintained in GitHub can change over time. Make sure you check the template before using it.
+   > 
+   > 
 6. Check the content under **resources** and notice the following:
 
-    * **type**. Type of resource being created by the template. In this case, **Microsoft.Network/virtualNetworks**, which represent a VNet.
-    * **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
-    * **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
+   * **type**. Type of resource being created by the template. In this case, **Microsoft.Network/virtualNetworks**, which represent a VNet.
+   * **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
+   * **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
 7. Navigate back to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
 9. Save the file to a a local folder on your computer.
@@ -223,11 +223,11 @@ You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub 
 8. Click **Legal terms**, read the terms, and click **Buy** to agree. 
 9. Click **Create** to create the VNet.
 
-    ![Submitting deployment tile in Portal Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+    ![Submitting deployment tile in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Once the deployment is complete, in the Azure portal preview click **More services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
+10. Once the deployment is complete, in the Azure portal click **More services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
 
-     ![Create VNet in Portal Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
+     ![Create VNet in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
 ## Next steps
 

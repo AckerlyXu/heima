@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
-wacn.date: ''
+origin.date: 01/03/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017 
 
@@ -88,9 +88,9 @@ To create a virtual network using PowerShell, complete the following steps:
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
     ```
 
-    > [!TIP]
-    > You can combine steps 3 and 4 by running `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location chinaeast`.
-    > 
+   > [!TIP]
+   > You can combine steps 3 and 4 by running `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location chinaeast`.
+   > 
 
 5. Add a subnet to the new VNet variable:
 

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
-wacn.date: ''
+origin.date: 03/17/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
@@ -27,7 +27,7 @@ This topic provides answers to some of the most common questions about running [
 ## Frequently Asked Questions
 1. **How do I create an Azure virtual machine with SQL Server?**
 
-    The easiest solution is to create a Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL VM from the portal, see [Provision a SQL Server virtual machine in the Azure Portal Preview](virtual-machines-windows-portal-sql-server-provision.md). You can select a virtual machine image that uses pay-per-minute SQL Server licensing, or you can use an image that allows you to bring your own SQL Server license. You also have the option of manually installing SQL Server on a VM and reusing an on-premises license. If you bring your own license, you must have [License Mobility through Software Assurance on Azure](https://www.azure.cn/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+    The easiest solution is to create a Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL VM from the portal, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). You can select a virtual machine image that uses pay-per-minute SQL Server licensing, or you can use an image that allows you to bring your own SQL Server license. You also have the option of manually installing SQL Server on a VM and reusing an on-premises license. If you bring your own license, you must have [License Mobility through Software Assurance on Azure](https://www.azure.cn/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 2. **What is the difference between SQL VMs and the SQL Database service?**
 
@@ -72,7 +72,7 @@ For an overview of SQL Server on Azure Virtual Machines, watch the video [Azure 
 
 Other resources include:
 
-* [Provision a SQL Server virtual machine in the Azure Portal Preview](virtual-machines-windows-portal-sql-server-provision.md)
+* [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
 * [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
 * [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
 * [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)

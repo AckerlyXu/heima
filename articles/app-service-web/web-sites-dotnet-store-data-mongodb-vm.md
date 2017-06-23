@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/29/2016
-wacn.date: ''
+origin.date: 02/29/2016
+ms.date: 03/17/2017
 ms.author: v-dazen
 
 ---
@@ -49,7 +49,9 @@ This tutorial assumes you have created a virtual machine in Azure. After creatin
 
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.chinacloudapp.cn", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
 
-## <a id="createapp"></a> Create the application
+<a id="createapp"></a>
+
+## Create the application
 In this section you will create an ASP.NET application called "My Task List" by using Visual Studio and perform an initial deployment to Azure App Service Web Apps. You will run the application locally, but it will connect to your virtual machine on Azure and use the MongoDB instance that you created there.
 
 1. In Visual Studio, click **New Project**.
@@ -405,7 +407,7 @@ In **Solution Explorer**, open the *DAL/Dal.cs* file. Find the following line of
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][Create a virtual machine and install MongoDB] step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure Portal Preview, select **Virtual Machines**, and find **DNS Name**.
+Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][Create a virtual machine and install MongoDB] step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure Portal, select **Virtual Machines**, and find **DNS Name**.
 
 If the DNS name of the virtual machine is "testlinuxvm.chinacloudapp.cn" and MongoDB is listening on the default port 27017, the connection string line of code will look like:
 
@@ -433,7 +435,7 @@ In this section you will publish your changes to Azure App Service Web Apps.
 ## Summary
 You have now successfully deployed your ASP.NET application to Azure App Service Web Apps. To view the web app:
 
-1. Log into the Azure Portal Preview.
+1. Log into the Azure Portal.
 2. Click **Web apps**. 
 3. Select your web app in the **Web Apps** list.
 

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
-wacn.date: ''
+origin.date: 01/17/2017
+ms.date: 02/20/2017
 ms.author: v-dazen
 
 ---
@@ -25,7 +25,7 @@ ms.author: v-dazen
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../extensions-customscript.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal preview at extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal preview, or the Azure Virtual Machine REST API.
+The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
 This document details how to use the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and details troubleshooting steps on Windows systems.
 
@@ -104,7 +104,7 @@ $vm | Update-AzureVM
 
 ### Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal preview, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command.
+Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command.
 
 ```powershell
 Get-AzureVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName

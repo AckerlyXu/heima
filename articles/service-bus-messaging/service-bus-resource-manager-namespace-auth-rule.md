@@ -12,9 +12,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+origin.date: 10/14/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template

@@ -20,7 +20,7 @@ ms.tgt_pltfrm: NA
 ---
 # Copy an Azure SQL database
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database using the Azure portal preview, PowerShell, or T-SQL. 
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database using the Azure Portal, PowerShell, or T-SQL. 
 
 ## Overview
 
@@ -36,9 +36,9 @@ If you use [Azure Active Directory](../active-directory/active-directory-whatis.
 
 After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database. To resolve logins after the copy operation completes, see [Resolve logins](sql-database-copy.md#resolve-logins)
 
-## Database copy using the Azure portal preview
+## Database copy using the Azure Portal
 
-To copy a database using the Azure portal preview, open the page for your database and click **Copy** on the toolbar. 
+To copy a database using the Azure Portal, open the page for your database and click **Copy** on the toolbar. 
 
    ![Database copy](./media/sql-database-copy/database-copy.png)
 

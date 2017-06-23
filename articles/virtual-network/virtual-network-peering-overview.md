@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
-wacn.date: ''
+origin.date: 10/17/2016
+ms.date: 03/24/2017
 ms.author: v-dazen
 
 ---
@@ -85,6 +85,6 @@ There is a nominal charge for ingress and egress traffic that utilizes a VNet pe
 ## <a name="next-steps"></a>Next steps
 Learn how to create a VNet peering using:
 
-* [The Azure portal preview](virtual-networks-create-vnetpeering-arm-portal.md)
+* [The Azure portal](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [An Azure Resource Manager template](virtual-networks-create-vnetpeering-arm-template-click.md)

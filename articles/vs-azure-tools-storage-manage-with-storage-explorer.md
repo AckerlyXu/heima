@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+origin.date: 11/18/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 06/16/2017
 ---
 # Getting started with Storage Explorer (Preview)
 ## Overview

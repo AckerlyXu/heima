@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+origin.date: 05/15/2017
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 06/13/2017
 ---
 
 # Remote monitoring preconfigured solution walkthrough

@@ -6,8 +6,8 @@ author: BrucePerlerMS
 ms.author: v-junlch
 manager: mbaldwin
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 06/12/2017
 
 ---
 # Azure Key Vault soft-delete feature overview

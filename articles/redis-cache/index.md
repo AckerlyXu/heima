@@ -10,8 +10,8 @@ ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 06/20/2017
 ms.author: v-dazen
 ---
 #Redis Cache Documentation
@@ -36,7 +36,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
             </div>
         </div>
         </a>
-    </li>
+    </li>   
    <li>
         <a href="/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">
@@ -126,51 +126,5 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
             </div>
         </div>
         </a>
-    </li>
-</ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="https://docs.microsoft.com/cli/azure/redis">Azure CLI 2​.0 (Preview)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
-                        <p><a href="http://redis.io/clients">Redis clients</a></p>
-                        <p><a href="http://redis.io/commands#">Redis commands</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </li>
 </ul>

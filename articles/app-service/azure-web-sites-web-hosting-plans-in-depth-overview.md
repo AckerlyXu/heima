@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
-wacn.date: ''
+origin.date: 12/02/2016
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -107,9 +107,9 @@ control of your apps.
 You can create an empty App Service plan from the App Service plan browse 
 experience or as part of app creation.
 
-In the [Azure portal preview](https://portal.azure.cn), click **New** > 
+In the [Azure portal](https://portal.azure.cn), click **New** > 
 **Web + mobile**, and then select **Web App** or other App Service app kind.
-![Create an app in the Azure portal preview.][createWebApp]
+![Create an app in the Azure portal.][createWebApp]
 
 You can then select or create the App Service plan for the new app.
 
@@ -124,7 +124,7 @@ button.
 
 ## Move an app to a different App Service plan
 You can move an app to a different App Service plan in the 
-[Azure portal preview](https://portal.azure.cn). You can move apps between plans as 
+[Azure portal](https://portal.azure.cn). You can move apps between plans as 
 long as the plans are in the same resource group and geographical region.
 
 To move an app to another plan:
@@ -155,7 +155,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 > [!IMPORTANT]
 > Cloning has some limitations that you can read about at 
-[Azure App Service App cloning using Azure portal preview](../app-service-web/app-service-web-app-cloning-portal.md).
+[Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
 
 ## Scale an App Service plan
 There are three ways to scale a plan:

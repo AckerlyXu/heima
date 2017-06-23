@@ -15,8 +15,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
-wacn.date: ''
+origin.date: 11/08/2016
+ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -353,10 +353,10 @@ The following SAP Notes are related to the topic of SAP on Azure:
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
-You should have a working knowledge about the Azure Architecture and how Azure Virtual Machines are deployed and operated. You can find more information here <https://azure.microsoft.com/documentation/>
+You should have a working knowledge about the Azure Architecture and how Azure Virtual Machines are deployed and operated. You can find more information here <https://docs.azure.cn/>
 
 > [!NOTE]
-> We are **not** discussing Azure Platform as a Service (PaaS) offerings of the Azure Platform. This paper is about running a database management system (DBMS) in Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+> We are **not** discussing Azure Platform as a Service (PaaS) offerings of the Azure Platform. This paper is about running a database management system (DBMS) in Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://www.azure.cn/home/features/sql-database/>
 >
 >
 
@@ -504,7 +504,7 @@ Whereas using the DS or GS-series of Azure VMs it is possible to mount VHDs out 
 
 Based on customer deployments and testing around 30 to 40 VHDs containing database data files and log files can be provisioned on a single Azure Standard Storage Account with acceptable performance. As mentioned earlier, the limitation of an Azure Premium Storage Account is likely to be the data capacity it can hold and not IOPS.
 
-As with SAN devices on-premises, sharing requires some monitoring in order to eventually detect bottlenecks on an Azure Storage Account. The Azure Monitoring Extension for SAP and the Azure Portal Preview are tools that can be used to detect busy Azure Storage Accounts that may be delivering suboptimal IO performance.  If this situation is detected it is recommended to move busy VMs to another Azure Storage Account. Please refer to the [Deployment Guide][deployment-guide] for details on how to activate the SAP host monitoring capabilities.
+As with SAN devices on-premises, sharing requires some monitoring in order to eventually detect bottlenecks on an Azure Storage Account. The Azure Monitoring Extension for SAP and the Azure Portal are tools that can be used to detect busy Azure Storage Accounts that may be delivering suboptimal IO performance.  If this situation is detected it is recommended to move busy VMs to another Azure Storage Account. Please refer to the [Deployment Guide][deployment-guide] for details on how to activate the SAP host monitoring capabilities.
 
 Another article summarizing best practices around Azure Standard Storage and Azure Standard Storage Accounts can be found here <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
@@ -553,7 +553,7 @@ If we want to create highly available configurations of DBMS deployments (indepe
 #### IP Addresses
 It is highly recommended to setup the VMs for HA configurations in a resilient way. Relying on IP addresses to address the HA partner(s) within the HA configuration is not reliable in Azure unless static IP addresses are used. There are two "Shutdown" concepts in Azure:
 
-* Shut down through Azure Portal Preview or Azure PowerShell cmdlet Stop-AzureRmVM: In this case the Virtual Machine gets shutdown and de-allocated. Your Azure account will no longer be charged for this VM so the only charges that will incur are for the storage used. However, if the private IP address of the network interface was not static, the IP address is released and it is not guaranteed that the network interface gets the old IP address assigned again after a restart of the VM. Performing the shut down through the Azure Portal Preview or by calling Stop-AzureRmVM will automatically cause de-allocation. If you do not want to deallocat the machine use Stop-AzureRmVM -StayProvisioned
+* Shut down through Azure Portal or Azure PowerShell cmdlet Stop-AzureRmVM: In this case the Virtual Machine gets shutdown and de-allocated. Your Azure account will no longer be charged for this VM so the only charges that will incur are for the storage used. However, if the private IP address of the network interface was not static, the IP address is released and it is not guaranteed that the network interface gets the old IP address assigned again after a restart of the VM. Performing the shut down through the Azure Portal or by calling Stop-AzureRmVM will automatically cause de-allocation. If you do not want to deallocat the machine use Stop-AzureRmVM -StayProvisioned
 * If you shut down the VM from an OS level, the VM gets shut down and NOT de-allocated. However, in this case, your Azure account will still be charged for the VM, despite the fact that it is shutdown. In such a case, the assignment of the IP address to a stopped VM will remain intact. Shutting down the VM from within will not automatically force de-allocation.
 
 Even for Cross-Premises scenarios, by default a shutdown and de-allocation will mean de-assignment of the IP addresses from the VM, even if on-premises policies in DHCP settings are different.
@@ -576,7 +576,7 @@ For the details regarding deployment of components that deliver host data to SAP
 Starting with Azure, you can easily migrate your existing SQL Server applications built on Windows Server platform to Azure Virtual Machines. SQL Server in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management and maintenance of enterprise breadth applications by easily migrating these applications to Azure. With SQL Server in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
 > [!IMPORTANT]
-> Please note we are not discussing Azure SQL Database which is a Platform as a Service offer of the Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionalities between these two offers are different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+> Please note we are not discussing Azure SQL Database which is a Platform as a Service offer of the Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionalities between these two offers are different and should not be mixed up with each other. See also: <https://www.azure.cn/home/features/sql-database/>
 >
 >
 
@@ -591,7 +591,7 @@ There is some SQL Server in IaaS specific information you should know before con
 * **SQL Feature Support**: Most SQL Server features are supported on Azure Virtual Machines with some exceptions. **SQL Server Failover Clustering using Shared Disks is not supported**.  Distributed technologies like Database Mirroring, AlwaysOn Availability Groups, Replication, Log Shipping and Service Broker are supported within a single Azure Region. SQL Server AlwaysOn also is supported between different Azure Regions as documented here:  <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Review the [Support Statement](https://support.microsoft.com/kb/956893) for more details. An example on how to deploy an AlwaysOn configuration is shown in [this][virtual-machines-workload-template-sql-alwayson] article. Also, check out the Best Practices documented [here][virtual-machines-sql-server-infrastructure-services]
 * **SQL Performance**: We are confident that Azure hosted Virtual Machines will perform very well in comparison to other public cloud virtualization offerings, but individual results may vary. Check out [this][virtual-machines-sql-server-performance-best-practices] article.
 * **Using Images from Azure Marketplace**: The fastest way to deploy a new Azure VM is to use an image from the Azure Marketplace. There are images in the Azure Marketplace which contain SQL Server. The images where SQL Server already is installed can't be immediately used for SAP NetWeaver applications. The reason is the default SQL Server collation is installed within those images and not the collation required by SAP NetWeaver systems. In order to use such images, please check the steps documented in chapter [Using a SQL Server images out of the Azure Marketplace][dbms-guide-5.6].
-* Check out [Pricing Details](https://azure.microsoft.com/pricing/) for more information. The [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) and [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) are also an important resource.
+* Check out [Pricing Details](https://www.azure.cn/pricing/) for more information. The [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) and [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) are also an important resource.
 
 ### SQL Server configuration guidelines for SAP related SQL Server installations in Azure VMs
 #### Recommendations on VM/VHD structure for SAP related SQL Server deployments
@@ -710,7 +710,7 @@ But when using the 'Microsoft SQL Server Backup to Azure Tool' in older releases
 However, keep in mind, the throughput also is dependent on the location of the Azure Storage Account you use for the backup. An idea might be to locate the storage account in a different region than the VMs are running in. E.g. you would run the VM configuration in China-North, but put the Storage Account that you use to back up against in China-North. That certainly will have impact on the backup throughput and is not likely to generate a throughput of 150MB/sec as it seems to be possible in cases where the target storage and the VMs are running in the same regional datacenter.
 
 #### Managing Backup BLOBs
-There is a requirement to manage the backups on your own. Since the expectation is that many blobs will be created by executing frequent transaction log backups, administration of those blobs easily can overburden the Azure Portal Preview. Therefore, it is recommendable to leverage a Azure Storage Explorer. There are several good ones available which can help to manage an Azure storage account
+There is a requirement to manage the backups on your own. Since the expectation is that many blobs will be created by executing frequent transaction log backups, administration of those blobs easily can overburden the Azure Portal. Therefore, it is recommendable to leverage a Azure Storage Explorer. There are several good ones available which can help to manage an Azure storage account
 
 * Microsoft Visual Studio with Azure SDK installed (<https://review.docs.azure.cn/downloads/>)
 * Azure Storage Explorer (<https://review.docs.azure.cn/downloads/>)
@@ -831,8 +831,6 @@ As for installations on-premises, do not download updates for the SAP ASE server
 * [1590719]
 * [1973241]
 
-General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
-
 ### SAP ASE Configuration Guidelines for SAP related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment
 In accordance with the general description, SAP ASE executables should be located or installed into the system drive of the VM's base VHD (drive c:\). Typically, most of the SAP ASE system and tools databases are not really leveraged hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the C:\drive as well.
@@ -906,7 +904,7 @@ Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azur
 
 In this case you need to make sure to:
 
-* Add Inbound rules to the Network Security Group in the Azure Portal Preview for the TCP/IP ports used to communicate with ICM
+* Add Inbound rules to the Network Security Group in the Azure Portal for the TCP/IP ports used to communicate with ICM
 * Add Inbound rules to the Windows Firewall configuration for the TCP/IP ports used to communicate with the ICM
 
 For an automated imported of all corrections available, it is recommended to periodically apply the correction collection SAP Note applicable to your SAP version:
@@ -985,8 +983,6 @@ As for installations on-premises, do not download updates for the SAP ASE server
 * [1590719]
 * [1973241]
 
-General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
-
 ### SAP ASE Configuration Guidelines for SAP related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment
 In accordance with the general description, SAP ASE executables should be located or installed into the root file system of the VM
@@ -1063,7 +1059,7 @@ Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azur
 
 In this case you need to make sure to:
 
-* Add Inbound rules to the Network Security Group in the Azure Portal Preview for the TCP/IP ports used to communicate with ICM
+* Add Inbound rules to the Network Security Group in the Azure Portal for the TCP/IP ports used to communicate with ICM
 * Add Inbound rules to the Windows Firewall configuration for the TCP/IP ports used to communicate with the ICM
 
 For an automated imported of all corrections available, it is recommended to periodically apply the correction collection SAP Note applicable to your SAP version:
@@ -1308,7 +1304,9 @@ Here you have two options:
    2. Configure Azure ExpressRoute, which offers a high-speed and low-latency dedicated network connection between on-premises datacenter and Azure datacenter.
 
 ![Option to install SAP Cache Server on-premises][dbms-guide-figure-900]
-#### <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a> Backup / Restore
+<a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
+
+#### Backup / Restore
 If you configure the SAP Content Server to store files in the SAP MaxDB database, the backup/restore procedure and performance considerations are already described in SAP MaxDB chapter [Backup and Restore][dbms-guide-8.4.2] and chapter [Performance Considerations for Backup and Restore][dbms-guide-8.4.3].
 
 If you configure the SAP Content Server to store files in the file system, one option is to execute manual backup/restore of the whole file structure where the documents are located. Similar to SAP MaxDB backup/restore, it is recommended to have a dedicated disk volume for backup purpose.

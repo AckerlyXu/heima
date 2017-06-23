@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/18/2017
-wacn.date: ''
+origin.date: 04/18/2017
+ms.date: 06/21/2017
 ms.author: v-dazen
 
 ---
@@ -64,7 +64,7 @@ To create a SQL Server 2016 Azure VM with one of these pay-per-usage images, see
 - [SQL Server 2016 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016)
 
 > [!IMPORTANT]
-> When you create a SQL Server virtual machine in the Azure portal preview, the estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone.
+> When you create a SQL Server virtual machine in the Azure portal, the estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone.
 >
 > ![Choose VM size blade](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >
@@ -85,7 +85,7 @@ To use BYOL with a SQL Server VM, you must have a license for SQL Server Standar
 |-----|-----|
 | **Cost savings** | Bringing your own SQL Server license is more cost effective than paying it per usage if a workload will run continuously SQL Server Standard or Enterprise for *more than 10 months*. |
 | **Long-term savings** | On average, it is *30% cheaper per year* to buy or renew a SQL Server license for the first 3 years. Furthermore, after 3 years, you don't need to renew the license anymore, just pay for Software Assurance. At that point, it is *200% cheaper*. |
-| **Free passive secondary replica** | Another benefit of bringing your own license is the [free licensing for one passive secondary replica](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server for high availability purposes. This cuts in half the licensing cost of a highly available SQL Server deployment (e.g. using Always On Availability Groups). The rights to run the passive secondary are provided through the Fail-Over Servers Software Assurance benefit. |
+| **Free passive secondary replica** | Another benefit of bringing your own license is the free licensing for one passive secondary replica per SQL Server for high availability purposes. This cuts in half the licensing cost of a highly available SQL Server deployment (e.g. using Always On Availability Groups). The rights to run the passive secondary are provided through the Fail-Over Servers Software Assurance benefit. |
 
 To create a SQL Server 2016 Azure VM with one of these bring-your-own-license images, see the VMs prefixed with "{BYOL}":
 
@@ -102,8 +102,6 @@ If you are using any workloads that do not run continuously, consider shutting d
 For example, if you are simply trying out SQL Server on an Azure VM, you would not want to incur charges by accidentally leaving it running for weeks. One solution is to use the [automatic shutdown feature](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
 ![SQL VM autoshutdown](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-auto-shutdown.png)
-
-Automatic shutdown is part of a larger set of similar features provided by [Azure DevTest Labs](https://www.azure.cn/home/features/devtest-lab).
 
 For other workflows, consider automatically shutting down and restarting Azure VMs with a scripting solution,such as [Azure Automation](https://www.azure.cn/home/features/automation/).
 

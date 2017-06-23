@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-wacn.date: ''
+origin.date: 12/16/2016
+ms.date: 01/25/2017
 ms.author: v-dazen
 
 ---
@@ -32,7 +32,7 @@ ms.author: v-dazen
 ## Collect audit logs
 To start troubleshooting, collect the audit logs to identify the error associated with the issue.
 
-In the Azure portal preview, click **Browse** > **Virtual machines** > *your Windows virtual machine* > **Settings** > **Audit logs**.
+In the Azure portal, click **Browse** > **Virtual machines** > *your Windows virtual machine* > **Settings** > **Audit logs**.
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 

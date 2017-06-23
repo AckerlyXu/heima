@@ -18,7 +18,7 @@ ms.author: v-johch
 
 ---
 # What is Azure Scheduler?
-Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.  Scheduler does this by using [the Azure portal preview](scheduler-get-started-portal.md), code, [REST API](https://msdn.microsoft.com/library/mt629143.aspx), or Azure PowerShell.
+Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.  Scheduler does this by using [the Azure Portal](scheduler-get-started-portal.md), code, [REST API](https://msdn.microsoft.com/library/mt629143.aspx), or Azure PowerShell.
 
 Scheduler creates, maintains, and invokes scheduled work.  Scheduler does not host any workloads or run any code. It only *invokes* code hosted elsewhere—in Azure, on-premises, or with another provider. It invokes via HTTP, HTTPS, a storage queue, a service bus queue, or a service bus topic.
 
@@ -34,7 +34,7 @@ Scheduler allows you to create, update, delete, view, and manage jobs and [job c
 ## See also
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal preview](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure Portal](scheduler-get-started-portal.md)
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 

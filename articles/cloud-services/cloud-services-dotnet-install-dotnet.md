@@ -12,9 +12,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2016
+origin.date: 02/24/2016
 ms.author: v-yiso
-wacn.date: ''
+ms.date: 04/24/2017
 ---
 
 # Install .NET on a Cloud Service Role 

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/16/2016
-wacn.date: ''
+origin.date: 05/16/2016
+ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -66,10 +66,10 @@ To resize a VM, perform the following steps.
     azure vm start -g myResourceGroup myVM
     ```
 
-    > [!WARNING]
-    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
-    > 
-    > 
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > 
 
 ## Next steps
 For additional scalability, run multiple VM instances and scale out. 

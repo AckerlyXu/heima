@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -45,7 +45,7 @@ Cassandra can be deployed to a single Azure region or to multiple regions based 
 ### Single Region Deployment
 We will start with a single region deployment and harvest the learnings in creating a multi-region model. Azure virtual networking will be used to create isolated subnets so that the network security requirements mentioned above can be met.  The process described in creating the single region deployment uses Ubuntu 14.04 LTS and Cassandra 2.08; however, the process can easily be adopted to the other Linux variants. The following are some of the systemic characteristics of the single region deployment.  
 
-**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains. Azure uses the concept of fault domain to manage unplanned down time (e.g. hardware or software failures) while the concept of upgrade domain (e.g. host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time.
+**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains.  Azure uses the concept of fault domain to manage unplanned down time (e.g. hardware or software failures) while the concept of upgrade domain (e.g. host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time.
 
 ![Single region deployment](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -114,10 +114,10 @@ The following software versions are used during the deployment:
 
 <table>
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
-<tr><td>JRE    </td><td><a href="http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html">JRE 8</a> </td><td>8U5</td></tr>
-<tr><td>JNA    </td><td><a href="https://github.com/twall/jna">JNA</a> </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td><a href="http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz">Apache Cassandra 2.0.8</a></td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu    </td><td><a href="https://www.azure.cn">Azure</a> </td><td>14.04 LTS</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](https://archive.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Ubuntu    </td><td>[Azure](https://www.azure.cn) </td><td>14.04 LTS</td></tr>
 </table>
 
 Since downloading of JRE requires manual acceptance of Oracle license, to simplify the deployment, download all the required software to the desktop for later uploading into the Ubuntu template image we will be creating as a precursor to the cluster deployment.
@@ -463,13 +463,13 @@ Use the following steps to test the cluster:
 
         SELECT * FROM Customers;
 
-    You should see a display like the one below:
+You should see a display like the one below:
 
-    <table>
-    <tr><th> customer_id </th><th> firstname </th><th> lastname </th></tr>
-    <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
-    <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
-    </table>
+<table>
+  <tr><th> customer_id </th><th> firstname </th><th> lastname </th></tr>
+  <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
+  <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
+</table>
 
 Please note that the keyspace created in step 4 uses SimpleStrategy with a  replication_factor of 3. SimpleStrategy is recommended for single data center deployments whereas NetworkTopologyStrategy for multi-data center deployments. A replication_factor of 3 will give tolerance for node failures.
 
@@ -592,12 +592,12 @@ By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region
         INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
         SELECT * FROM Customers;
 
-    You should see a display like the one below:
+You should see a display like the one below:
 
-    | customer_id | firstname | Lastname |
-    | --- | --- | --- |
-    | 1 |John |Doe |
-    | 2 |Jane |Doe |
+| customer_id | firstname | Lastname |
+| --- | --- | --- |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
 ### Step 3: Execute the following in the east region after logging into hk-w1-china-east:
 1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
@@ -609,12 +609,12 @@ By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region
         INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
         SELECT * FROM Customers;
 
-    You should see the same display as seen for the West region:
+You should see the same display as seen for the West region:
 
-    | customer_id | firstname | Lastname |
-    | --- | --- | --- |
-    | 1 |John |Doe |
-    | 2 |Jane |Doe |
+| customer_id | firstname | Lastname |
+| --- | --- | --- |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
 Execute a few more inserts and see that those get replicated to china-north part of the cluster.
 

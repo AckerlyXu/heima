@@ -13,9 +13,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code to a staging environment
@@ -27,7 +28,8 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
-$gitrepo="<Replace with your GitHub repo URL>"
+# Replace the following URL with a public GitHub repo URL
+$gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"
 
@@ -60,7 +62,7 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResou
 -ResourceName $webappname/staging/web -ApiVersion 2015-08-01 -Force
 
 # Swap the verified/warmed up staging slot into production.
-Swap-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
+Switch-​Azure​Rm​Web​App​Slot -Name $webappname -ResourceGroupName myResourceGroup `
 -SourceSlotName staging -DestinationSlotName production
 ```
 
@@ -84,7 +86,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Set-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/set-azurermappserviceplan) | Modifies an App Service plan to change its pricing tier. |
 | [New-AzureRmWebAppSlot](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebappslot) | Creates a deployment slot for a web app. |
 | [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource in a resource group. |
-| [Swap-AzureRmWebAppSlot](https://docs.microsoft.com/powershell/module/azurerm.websites/swap-azurermwebappslot) | Swaps a web app's deployment slot into production. |
+| [Switch-​Azure​Rm​Web​App​Slot](https://docs.microsoft.com/powershell/module/azurerm.websites/switch-azurermwebappslot) | Swaps a web app's deployment slot into production. |
 
 ## Next steps
 

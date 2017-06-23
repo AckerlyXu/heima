@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 05/11/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 ---
 
@@ -71,7 +71,7 @@ Alternatively, you can associate your Network Security Group with a virtual netw
 
 ```azurecli
 azure network vnet subnet set \
---resource-group myResourceGroup \
+    --resource-group myResourceGroup \
     --network-security-group-name myNetworkSecurityGroup \
     --vnet-name myVnet --name mySubnet
 ```

@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+origin.date: 01/10/2017
 ms.date: 01/10/2017
-wacn.date: ''
 ms.author: v-johch
 ---
 
