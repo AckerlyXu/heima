@@ -140,9 +140,6 @@ For detailed information on pricing for Standard Storage, Virtual Machines, and 
 * [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/)
 * [Managed Disks Pricing](https://www.azure.cn/pricing/details/managed-disks/)
 
-## Azure Backup service support 
-
-Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
 
 You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
