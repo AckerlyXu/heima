@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/09/2017
-ms.date: 02/24/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---

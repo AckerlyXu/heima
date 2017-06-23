@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 06/21/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 experimental: true
 experimental_id: d51f3cc6-753b-4e
