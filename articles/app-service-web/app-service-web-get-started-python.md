@@ -18,7 +18,7 @@ ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
-# Create a Python Web App in Azure
+# Create a Python web app in Azure
 
 [Azure Web Apps](/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart walks through how to develop and deploy a Python app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Python code to the web app.
 
@@ -37,7 +37,7 @@ To complete this tutorial:
 
 ## Download the sample
 
-In a terminal window, run the following command to Clone the sample app repository to your local machine.
+In a terminal window, run the following command to clone the sample app repository to your local machine.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -157,7 +157,7 @@ Using a local text editor, open the `main.py` file in the Python app, and make a
 return 'Hello, Azure!'
 ```
 
-Commit your changes in git, and then push the code changes to Azure.
+Commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"

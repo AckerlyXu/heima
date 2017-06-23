@@ -24,7 +24,7 @@ ms.author: v-dazen
 If you have existing Linux VMs in Azure that use unmanaged disks in storage accounts and you want those VMs to be able to take advantage of [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. This process converts both the OS disk and any attached data disks. The conversion process requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. The migration process is not reversible. Be sure to test the migration process by migrating a test virtual machine before performing the migration in production. Before starting,  make sure that you review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
 > [!IMPORTANT] 
-> During the conversion, you deallocate the VM. the VM receives a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, use a reserved IP.
+> During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, use a reserved IP.
 
 ## Prepare availability set for conversion
 
@@ -66,11 +66,11 @@ Since our Availability Set is already converted to managed availability set in a
 $avSet =  Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
 foreach($vmInfo in $avSet.VirtualMachinesReferences)
-	{
+{
    $vm =  Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
    Stop-AzureRmVM -ResourceGroupName $rgName -Name  $vm.Name -Force
    ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-	}
+}
 ```
 
 ## Convert VMs not in an availability set
@@ -103,15 +103,15 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 $vmDisks = Get-AzureRmDisk -ResourceGroupName $resourceGroupName 
 
 # For disks that belong to the VM selected, convert to Premium storage
-foreach ($disk in $vmDisks) 
-    {
-    if($disk.OwnerId -eq $vm.Id)
-        {
-         $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType PremiumLRS
-         Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName `
-         -DiskName $disk.Name
-        }
-    }
+foreach ($disk in $vmDisks)
+{
+	if($disk.OwnerId -eq $vm.Id)
+	{
+		$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType PremiumLRS
+		Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName `
+		-DiskName $disk.Name
+	}
+}
 
 Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
 ```

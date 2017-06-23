@@ -1,7 +1,7 @@
 ---
 title: How to use Azure diagnostics in Virtual Machines  | Azure
 description: Using Azure diagnostics to gather data from Azure Virtual Machines for debugging, measuring performance, monitoring, traffic analysis, and more.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: .net
 author: davidmu1
 manager:

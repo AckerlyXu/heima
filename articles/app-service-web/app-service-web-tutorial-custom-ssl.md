@@ -1,5 +1,5 @@
 ---
-title: Bind an existing custom SSL certificate to Azure Web Apps | Azure 
+title: Bind an existing custom SSL certificate to Azure Web Apps | Azure
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -76,7 +76,7 @@ In the left-hand navigation of your web app page, scroll to the **Settings** sec
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Check to make sure that your web app is not in the **Free** or **Shared** tier. Your web app's current tier is highlighted by a dark blue box. 
+Check to make sure that your web app is not in the **Free** or **Shared** tier. Your web app's current tier is highlighted by a dark blue box.
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
@@ -84,7 +84,7 @@ Custom SSL is not supported in the **Free** or **Shared** tier. If you need to s
 
 ### Scale up your App Service plan
 
-Select one of the **Basic**, **Standard**, or **Premium** tiers. 
+Select one of the **Basic**, **Standard**, or **Premium** tiers.
 
 Click **Select**.
 
@@ -98,7 +98,7 @@ When you see the following notification, the scale operation is complete.
 
 ## Bind your SSL certificate
 
-You are ready to upload your SSL certificate to your web app. 
+You are ready to upload your SSL certificate to your web app.
 
 ### Export certificate to PFX
 
@@ -151,7 +151,7 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 ## Remap A record for IP SSL
 
-If you don't use IP-based SSL in your web app, skip to [Test HTTPS for your custom domain](#test). 
+If you don't use IP-based SSL in your web app, skip to [Test HTTPS for your custom domain](#test).
 
 By default, your web app uses a shared public IP address. When you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your web app.
 
@@ -171,7 +171,7 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 > [!NOTE]
 > If your web app gives you certificate validation errors, you're probably using a self-signed certificate.
 >
-> If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file. 
+> If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file.
 
 <a name="bkmk_enforce"></a>
 
@@ -188,7 +188,7 @@ If you're a .NET developer, you should be relatively familiar with this file. It
 
 Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a chance we generated this file on your behalf in App Service.
 
-Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md). 
+Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
 
 This file should be located in _/home/site/wwwroot_. If not, create a _web.config_ file in this folder with the following XML:
 
@@ -227,7 +227,7 @@ You can automate SSL bindings for your web app with scripts, using the [Azure CL
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-The following command uploads an exported PFX file and gets the thumbprint. 
+The following command uploads an exported PFX file and gets the thumbprint.
 
 ```bash
 thumbprint=$(az appservice web config ssl upload \

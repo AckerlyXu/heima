@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 > * Map a wildcard domain (for example, `*.contoso.com`) by using a CNAME record
 > * Automate domain mapping with scripts
 
-You can use either a **CNAME record** or an **A record** to map a custom DNS name to App Service.
+You can use either a **CNAME record** or an **A record** to map a custom DNS name to App Service. 
 
 > [!NOTE]
 > We recommend that you use a CNAME for all custom DNS names except a root domain (for example, `contoso.com`). 
@@ -94,7 +94,7 @@ In the tutorial example, you add a CNAME record for the `www` subdomain (for exa
 
 ### Access DNS records with domain provider
 
-sign in to the website of your domain provider.
+Sign in to the website of your domain provider.
 
 Find the page for managing DNS records. Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for links or areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
 
@@ -173,7 +173,7 @@ In the **Custom domains** page, copy the app's IP address.
 
 ### Access DNS records with domain provider
 
-sign in to the website of your domain provider.
+Sign in to the website of your domain provider.
 
 Find the page for managing DNS records. Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for links or areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
 
@@ -220,7 +220,7 @@ Type the fully qualified domain name that you configured the A record for, such 
 
 Select **Validate**.
 
-the **Add hostname** button is activated. 
+The **Add hostname** button is activated. 
 
 Make sure that **Hostname record type** is set to **A record (example.com)**.
 
@@ -244,7 +244,7 @@ In the tutorial example, you map a [wildcard DNS name](https://en.wikipedia.org/
 
 ### Access DNS records with domain provider
 
-sign in to the website of your domain provider.
+Sign in to the website of your domain provider.
 
 Find the page for managing DNS records. Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for links or areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
 

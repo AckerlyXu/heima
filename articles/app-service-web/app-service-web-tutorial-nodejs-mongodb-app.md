@@ -78,7 +78,7 @@ This sample repository contains a copy of the [MEAN.js repository](https://githu
 
 ### Run the application
 
-Run the following commands to Install the required packages and start the application.
+Run the following commands to install the required packages and start the application.
 
 ```bash
 cd meanjs
@@ -121,8 +121,8 @@ For MongoDB, this tutorial uses [Azure DocumentDb](/documentdb/). DocumentDb sup
 You'll use the Azure CLI 2.0 to create the resources needed to host your app in Azure. Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli-interactive
-az login 
-``` 
+az login
+```   
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -182,7 +182,7 @@ In this step, you connect your MEAN.js sample application to the DocumentDb data
 To connect to the DocumentDb database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
 
 ```azurecli-interactive
-    az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
+az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
 The Azure CLI shows information similar to the following example:
@@ -230,7 +230,7 @@ Run the following command to minify and bundle scripts for the production enviro
 gulp prod
 ```
 
-run the following command to use the connection string you configured in _config/env/production.js_.
+Run the following command to use the connection string you configured in _config/env/production.js_.
 
 ```bash
 NODE_ENV=production node server.js
@@ -268,7 +268,7 @@ Create an App Service plan with the [az appservice plan create](https://docs.mic
 The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
 
 ```azurecli-interactive
-    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
 When the App Service plan is created, the Azure CLI shows information similar to the following example:
@@ -298,7 +298,7 @@ The web app gives you a hosting space to deploy your code and provides a URL for
 In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is used as the part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service. 
 
 ```azurecli-interactive
-    az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
 When the web app has been created, the Azure CLI shows information similar to the following example: 
@@ -367,7 +367,7 @@ Record the user name and password for use in later steps when you deploy the app
 Use the [az webapp deployment source config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) command to configure local Git access to the Azure web app. 
 
 ```azurecli-interactive
-    az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
+az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
 ```
 
 When the deployment user is configured, the Azure CLI shows the deployment URL for your Azure web app in the following format:
@@ -466,11 +466,11 @@ var ArticleSchema = new Schema({
 
 ### Update the articles code
 
-update the rest of your `articles` code to use `comment`.
+Update the rest of your `articles` code to use `comment`.
 
-there are five files you need to modify: the server controller and the four client views. 
+There are five files you need to modify: the server controller and the four client views. 
 
-open _modules/articles/server/controllers/articles.server.controller.js_.
+Open _modules/articles/server/controllers/articles.server.controller.js_.
 
 In the `update` function, add an assignment for `article.comment`. The following code shows the completed `update` function:
 
@@ -486,7 +486,7 @@ exports.update = function (req, res) {
 };
 ```
 
-open _modules/articles/client/views/view-article.client.view.html_.
+Open _modules/articles/client/views/view-article.client.view.html_.
 
 Just above the closing `</section>` tag, add the following line to display `comment` along with the rest of the article data:
 
@@ -494,7 +494,7 @@ Just above the closing `</section>` tag, add the following line to display `comm
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-open _modules/articles/client/views/list-articles.client.view.html_.
+Open _modules/articles/client/views/list-articles.client.view.html_.
 
 Just above the closing `</a>` tag, add the following line to display `comment` along with the rest of the article data:
 
@@ -502,7 +502,7 @@ Just above the closing `</a>` tag, add the following line to display `comment` a
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-open _modules/articles/client/views/admin/list-articles.client.view.html_.
+Open _modules/articles/client/views/admin/list-articles.client.view.html_.
 
 Inside the `<div class="list-group">` element and just above the closing `</a>` tag, add the following line to display `comment` along with the rest of the article data:
 
@@ -510,7 +510,7 @@ Inside the `<div class="list-group">` element and just above the closing `</a>` 
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-open _modules/articles/client/views/admin/form-article.client.view.html_.
+Open _modules/articles/client/views/admin/form-article.client.view.html_.
 
 Find the `<div class="form-group">` element that contains the submit button, which looks like this:
 
@@ -555,7 +555,7 @@ In the terminal, stop Node.js by typing Ctrl+C.
 
 ### Publish changes to Azure
 
-Commit your changes in git, then push the code changes to Azure.
+Commit your changes in Git, then push the code changes to Azure.
 
 ```bash
 git commit -am "added article comment"
@@ -575,7 +575,7 @@ While your Node.js application runs in Azure App Service, you can get the consol
 To start log streaming, use the [az webapp log tail](https://docs.microsoft.com/cli/azure/webapp/log#tail) command.
 
 ```azurecli-interactive
-    az webapp log tail --name <app_name> --resource-group myResourceGroup
+az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
 Once log streaming has started, refresh your Azure web app in the browser to get some web traffic. You now see console logs piped to your terminal.

@@ -35,7 +35,7 @@ To complete this quickstart, install:
 
 [!INCLUDE [azure-eclipse-login-guide](../../includes/azure-eclipse-login-guide.md)]
 
-## Create a Dynamic Web Project in Eclipse
+## Create a dynamic web project in Eclipse
 
 In Eclipse, select **File** > **New** > **Dynamic Web Project**.
 
@@ -59,7 +59,7 @@ In the **New JSP File** dialog box:
 * Name the file **index.jsp**.
 * Select **Finish**.
 
-![New JSP File Dialog Box](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+  ![New JSP File dialog box](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
 In the index.jsp file, replace the `<body></body>` element with the following markup:
 
@@ -75,7 +75,7 @@ Save the changes.
 
 In Project Explorer, right-click the project, and then select **Azure** > **Publish as Azure Web App**.
 
-   ![Publish as Azure Web App Context Menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
+![Publish as Azure Web App context menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
 In the **Azure Sign In** dialog box, keep the **Interactive** option, and then select **Sign in**.
 
@@ -87,7 +87,7 @@ After you have signed in to your Azure account, the **Deploy Web App** dialog bo
 
 Select **Create**.
 
-![Deploy Web App Dialog Box](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
+![Deploy Web App dialog box](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
 ### Create App Service dialog box
 
@@ -106,7 +106,7 @@ In the **Create App Service** dialog box:
   * **Location**: Select **China North** or a location near you.
   * **Pricing tier**: Select the free option. For features, see [App Service pricing](https://www.azure.cn/pricing/details/app-service/).
 
-   ![Create App Service Dialog Box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+   ![Create App Service dialog box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -125,7 +125,7 @@ Select **Create**.
 
 Select the **JDK** tab. Keep the default, and then select **Create**.
 
-![Create App Service Plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 -->
 
 The Azure Toolkit creates the web app and displays a progress dialog box.
@@ -194,7 +194,7 @@ The **Overview** page appears. This page gives you a view of how the app is doin
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)

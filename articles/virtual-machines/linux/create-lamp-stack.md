@@ -58,11 +58,11 @@ sudo apt-get install apache2 mysql-server php5 php5-mysql
 3. Edit the **azuredeploy.parameters.json** file to your preferred inputs.
 4. Deploy the template with [az group deployment create] referencing the downloaded json file:
 
-    ```azurecli
-    az group deployment create -g myResourceGroup \
-        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-        --parameters @filepathToParameters.json
-    ```
+```azurecli
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
+```
 
 The output is similar to the following example:
 

@@ -35,10 +35,6 @@ App Service can backup the following information to an Azure storage account and
 
 The following database solutions are supported with backup feature: 
    - [SQL Database](https://www.azure.cn/home/features/sql-database/)
-   - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/services/mysql)
-   - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/services/postgres)
-   - [ClearDB MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
-   - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 > [!NOTE]
 >  Each backup is a complete offline copy of your app, not an incremental update.
@@ -58,7 +54,7 @@ The following database solutions are supported with backup feature:
 <a name="manualbackup"></a>
 
 ## Create a manual backup
-1. In the [Azure portal](https://portal.azure.cn), navigate to your app's blade, select **Backups**. The **Backups** blade will be displayed.
+1. In the [Azure Portal](https://portal.azure.cn), navigate to your app's blade, select **Backups**. The **Backups** blade will be displayed.
 
     ![Backups page][ChooseBackupsPage]
 

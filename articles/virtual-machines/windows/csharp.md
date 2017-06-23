@@ -111,8 +111,8 @@ Before you start this step, make sure that you have access to an [Active Directo
 Management clients are needed to create and manage resources using the .NET SDK in Azure. To create the management clients, add this code to the Main method in the Program.cs file:
 
 ```
-      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
-        { SubscriptionId = subscriptionId };
+var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
+    { SubscriptionId = subscriptionId };
 var networkManagementClient = new NetworkManagementClient(credential)
     { SubscriptionId = subscriptionId };
 var computeManagementClient = new ComputeManagementClient(credential)
@@ -168,7 +168,7 @@ All resources must be contained in a [Resource group](../../azure-resource-manag
           { 
             Sku = new Microsoft.Azure.Management.Compute.Models.Sku("Aligned"),
             PlatformFaultDomainCount = 3,
-            Location = location
+            Location = location 
           }
       );
     }
@@ -190,7 +190,7 @@ A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overvie
 1. To create the public IP address for the virtual machine, add this method to the Program class:
 
     ```
-    public static async Task<PublicIPAddress> CreatePublicIPAddressAsync(
+    public static async Task<PublicIPAddress> CreatePublicIPAddressAsync( 
       NetworkManagementClient networkManagementClient,
       string groupName,
       string location)
@@ -274,7 +274,7 @@ A virtual machine needs a network interface to communicate on the virtual networ
       NetworkManagementClient networkManagementClient,
       string groupName,
       string location)
-        {
+    {
       var subnet = await networkManagementClient.Subnets.GetAsync(
         groupName,
         "myVNet",

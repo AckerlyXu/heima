@@ -1,6 +1,6 @@
 ---
 title: Log on to a classic Azure VM | Azure
-description: Use the Azure Portal to log on to a Windows virtual machine created with the classic deployment model.
+description: Use the Azure portal to log on to a Windows virtual machine created with the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn

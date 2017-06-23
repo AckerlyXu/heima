@@ -24,7 +24,7 @@ ms.author: v-dazen
 This article shows you how to migrate an active custom domain to [Azure App Service](../app-service/app-service-value-prop-what-is.md) without any downtime.
 
 When you migrate a live site and its domain name to App Service, that domain name is already serving live traffic, and you don't want any downtime in DNS resolution during
-the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification. 
+the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification.
 
 ## Prerequisites
 

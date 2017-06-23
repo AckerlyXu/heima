@@ -21,7 +21,7 @@ ms.author: v-dazen
 ---
 # Create a virtual machine running Windows in the Azure portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](tutorial.md)
+> * [Azure portal](tutorial.md)
 > * [PowerShell: Classic deployment](create-powershell.md)
 >
 >

@@ -1,5 +1,5 @@
 ---
-title: Create a Node.js Web App in Azure | Azure
+title: Create a Node.js web app in Azure | Azure
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
-# Create a Node.js Web App in Azure
+# Create a Node.js web app in Azure
 
 [Azure Web Apps](/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a Node.js app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Node.js code to the web app.
 
@@ -38,7 +38,7 @@ To complete this quickstart:
 
 ## Download the sample
 
-In a terminal window, run the following command to Clone the sample app repository to your local machine.
+In a terminal window, run the following command to clone the sample app repository to your local machine.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -52,7 +52,7 @@ cd nodejs-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `npm start` script to launch the built in Node.js http server.
+Run the application locally by opening a terminal window and using the `npm start` script to launch the built in Node.js HTTP server.
 
 ```bash
 npm start
@@ -140,7 +140,7 @@ Using a text editor, open the `index.js` file in the Node.js app, and make a sma
 response.end("Hello Azure!");
 ```
 
-Commit your changes in git, and then push the code changes to Azure.
+Commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"

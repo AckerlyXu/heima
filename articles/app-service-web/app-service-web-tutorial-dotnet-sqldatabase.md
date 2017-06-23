@@ -216,7 +216,7 @@ public bool Done { get; set; }
 
 ### Run Code First Migrations locally
 
-run a few commands to make updates to your local database. 
+Run a few commands to make updates to your local database. 
 
 From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**.
 
@@ -244,7 +244,7 @@ If the application loads without errors, then Code First Migrations has succeede
 
 ### Use the new property
 
-make some changes in your code to use the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
+Make some changes in your code to use the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
 
 Open _Controllers\TodosController.cs_.
 
@@ -330,7 +330,7 @@ You can stream tracing messages directly from your Azure web app to Visual Studi
 
 Open _Controllers\TodosController.cs_.
 
-each action starts with a `Trace.WriteLine()` method. This code is added to show you how to add trace messages to your Azure web app.
+Each action starts with a `Trace.WriteLine()` method. This code is added to show you how to add trace messages to your Azure web app.
 
 ### Open Server Explorer
 

@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/18/2017
-ms.date: ''
+ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---

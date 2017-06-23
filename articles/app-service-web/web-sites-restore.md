@@ -33,7 +33,7 @@ backups to be performed than **Standard** tier.
 <a name="PreviousBackup"></a>
 
 ## Restore an app from an existing backup
-1. On the **Settings** blade of your app in the Azure portal, click **Backups** to display the **Backups** blade. Then click **Restore**.
+1. On the **Settings** blade of your app in the Azure Portal, click **Backups** to display the **Backups** blade. Then click **Restore**.
 
     ![Choose restore now][ChooseRestoreNow]
 2. In the **Restore** blade, first select the backup source.

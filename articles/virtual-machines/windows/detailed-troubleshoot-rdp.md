@@ -141,10 +141,10 @@ Next, open an Azure PowerShell command prompt and change the current folder to t
 Next, fill in your Azure subscription name, the cloud service name, and your virtual machine name (removing the < and > characters), and then run these commands.
 
 ```powershell
-    $subscr="<Name of your Azure subscription>"
-    $serviceName="<Name of the cloud service that contains the target virtual machine>"
-    $vmName="<Name of the target virtual machine>"
-    .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+$subscr="<Name of your Azure subscription>"
+$serviceName="<Name of the cloud service that contains the target virtual machine>"
+$vmName="<Name of the target virtual machine>"
+.\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
 ```
 
 You can get the correct subscription name from the *SubscriptionName* property of the display of the **Get-AzureSubscription** command. You can get the cloud service name for the virtual machine from the *ServiceName* column in the display of the **Get-AzureVM** command.
@@ -154,15 +154,15 @@ Check if you have the new certificate. Open a Certificates snap-in for the curre
 Next, initiate a remote Azure PowerShell session by using these commands.
 
 ```powershell
-    $uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
-    $creds = Get-Credential
-    Enter-PSSession -ConnectionUri $uri -Credential $creds
+$uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
+$creds = Get-Credential
+Enter-PSSession -ConnectionUri $uri -Credential $creds
 ```
 
 After entering valid administrator credentials, you should see something similar to the following Azure PowerShell prompt:
 
 ```powershell
-    [cloudservice4testing.chinacloudapp.cn]: PS C:\Users\User1\Documents>
+[cloudservice4testing.chinacloudapp.cn]: PS C:\Users\User1\Documents>
 ```
 
 The first part of this prompt is your cloud service name that contains the target VM, which could be different from "cloudservice4testing.chinacloudapp.cn". You can now issue Azure PowerShell commands for this cloud service to investigate the problems mentioned and correct the configuration.
@@ -171,25 +171,25 @@ The first part of this prompt is your cloud service name that contains the targe
 At the remote Azure PowerShell session prompt, run this command.
 
 ```powershell
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 ```
 
 The PortNumber property shows the current port number. If needed, change the Remote Desktop port number back to its default value (3389) by using this command.
 
 ```powershell
-    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
 ```
 
 Verify that the port has been changed to 3389 by using this command.
 
 ```powershell
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 ```
 
 Exit the remote Azure PowerShell session by using this command.
 
 ```powershell
-    Exit-PSSession
+Exit-PSSession
 ```
 
 Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 3398 as its internal port. Restart the Azure VM and try the Remote Desktop connection again.

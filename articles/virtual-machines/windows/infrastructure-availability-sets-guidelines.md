@@ -35,7 +35,7 @@ Tasks:
 
 * Define the number of VMs in each application tier you require.
 * Determine if you need to adjust the number of fault or update domains to be used for your application.
-* Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set. 
+* Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set.
 
 ## Availability sets
 In Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets ensures that at least one VM remains running.

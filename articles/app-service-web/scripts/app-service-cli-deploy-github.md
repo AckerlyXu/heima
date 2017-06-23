@@ -27,7 +27,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## sample script
+## Sample script
 
 ```azurecli-interactive
 #!/bin/bash

@@ -29,12 +29,12 @@ If you want to use a sample script, see [Sample script to upload a VHD to Azure 
 
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 - Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
-- make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+- Make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
+    ```powershell
+    Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+    ```
+    For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 ## Generalize the Windows VM using Sysprep
 
@@ -177,7 +177,7 @@ Create a managed image using your generalized OS VHD. Replace the values with yo
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
     $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-```
+    ```
 
 ## Create a virtual network
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
@@ -280,7 +280,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 ## Create the VM
 
-Create the new Vm using the configuration stored in the **$vm** variable.
+Create the new VM using the configuration stored in the **$vm** variable.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
