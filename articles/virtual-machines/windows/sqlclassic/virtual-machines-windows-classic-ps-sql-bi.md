@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/11/2017
-ms.date: 03/20/2017
+origin.date: 05/30/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -34,11 +34,12 @@ There are two ways to license SQL Server in Azure Virtual Machines:
 ## SQL Server Images Available in Azure Virtual Machine Gallery
 The Azure Virtual Machine gallery includes several images that contain Microsoft SQL Server. The software installed on the virtual machine images varies based on the version of the operating system and the version of SQL Server. The list of images available in the Azure virtual machine gallery changes frequently.
 
-![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)
+<!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
+![SQL image in Azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) The following PowerShell script returns the list of Azure images that contain "SQL-Server" in the ImageName:
 
-    # assumes you have already uploaded a management certificate to your Azure Subscription. View the thumbprint value from the "settings" menu in Azure Classic Management Portal.
+    # assumes you have already uploaded a management certificate to your Azure Subscription. View the thumbprint value from the "Subscriptions" menu in Azure portal.
 
     $subscriptionID = ""    # REQUIRED: Provide your subscription ID.
     $subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -61,7 +62,7 @@ For more information on editions and features supported by SQL Server, see the f
 * [Features Supported by the Editions of SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### BI Features Installed on the SQL Server Virtual Machine Gallery Images
-The following table summarizes the Business Intelligence features installed on the common Azure Virtual Machine gallery images for SQL Server"
+The following table summarizes the Business Intelligence features installed on the common Azure Virtual Machine gallery images for SQL Server:
 
 * SQL Server 2016 SP1 Enterprise
 * SQL Server 2016 SP1 Standard
@@ -151,18 +152,21 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 
       For more information, see [What is a cloud service?](/cloud-services/cloud-services-choose-me).
 
-**Start Reporting Services Configuration Manager.**
+**Start Reporting Services Configuration Manager**
 
-1. In **Windows Server 2012/2016**:
-2. From the **Start** screen, type **Reporting Services** to see a list of Apps.
-3. Right-click **Reporting Services Configuration Manager** and click **Run as Administrator**.
-4. In **Windows Server 2008 R2**:
-5. Click **Start**, and then click **ALL Programs**.
-6. Click **Microsoft SQL Server 2016**.
-7. Click **Configuration Tools**.
-8. Right-click **Reporting Services Configuration Manager** and click **Run as Administrator**.
+In **Windows Server 2012/2016**:
 
-Or
+1. From the **Start** screen, type **Reporting Services** to see a list of Apps.
+2. Right-click **Reporting Services Configuration Manager** and click **Run as Administrator**.
+
+In **Windows Server 2008 R2**:
+
+1. Click **Start**, and then click **ALL Programs**.
+2. Click **Microsoft SQL Server 2016**.
+3. Click **Configuration Tools**.
+4. Right-click **Reporting Services Configuration Manager** and click **Run as Administrator**.
+
+Or:
 
 1. Click **Start**.
 2. In the **Search programs and Files** dialog type **reporting services**. If the VM is running Windows Server 2012, type **reporting services** on the Windows Server 2012 Start screen.

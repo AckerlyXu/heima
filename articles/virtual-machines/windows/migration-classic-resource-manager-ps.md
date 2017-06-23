@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 05/15/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -302,7 +302,14 @@ Before you migrate the storage account, please perform preceding prerequisite ch
     Remove-AzureVMImage -ImageName 'yourImageName'
     ```
 
-Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
+Validate each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
+
+```powershell
+    $storageAccountName = "myStorageAccount"
+    Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
+```
+
+Next step is to Prepare the storage account for migration
 
 ```powershell
     $storageAccountName = "myStorageAccount"
