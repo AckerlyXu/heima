@@ -23,8 +23,6 @@ ms.author: v-junlch
 
 [DocumentDB](./documentdb-resources.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. DocumentDB provides [turn-key global distribution](documentdb-distribute-data-globally.md), elastic scaling of throughput and storage worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](documentdb-consistency-levels.md), and guaranteed high availability, all backed by industry-leading SLAs. DocumentDB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
 
-![Azure DocumentDB API](./media/documentdb-introduction/documentdb-documentdb.png) 
-
 With the DocumentDB API, DocumentDB provides rich and familiar [SQL query capabilities](documentdb-sql-query.md) with consistent low latencies over schema-less JSON data. In this article, we provide an overview of the DocumentDB's DocumentDB API, and how you can use it to store massive volumes of JSON data, query them within order of milliseconds latency, and evolve the schema easily. 
 
 ## How can I learn about the DocumentDB API?

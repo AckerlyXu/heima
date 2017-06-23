@@ -23,8 +23,6 @@ ms.author: v-junlch
 
 [DocumentDB](./documentdb-resources.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. DocumentDB provides [turn-key global distribution](../documentdb/documentdb-distribute-data-globally.md), [elastic scaling of throughput and storage](../documentdb/documentdb-partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](../documentdb/documentdb-consistency-levels.md), and guaranteed high availability, all backed by industry-leading SLAs. DocumentDB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
 
-![Azure API for MongoDB](./media/documentdb-protocol-mongodb/documentdb-mongodb.png) 
-
 DocumentDB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with DocumentDB and use DocumentDB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to DocumenetDB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with DocumentDB's global distribution and comprehensive industry leading SLAs, while continuing to use familiar skills and tools for MongoDB.
 
 

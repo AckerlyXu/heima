@@ -32,7 +32,7 @@ This article will help you find troubleshooting information about common issues 
 
 ### Registration of the connecter failed due to blocked port(s)
 
-Ensure that the server on which the connector has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication.md#prerequisites).
+Ensure that the server on which the connector has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication.md).
 
 ### Registration of the connector failed due to token or account authorization errors
 
@@ -58,7 +58,7 @@ You need to have at least one active connector to enable Pass-through Authentica
 
 ### The enabling of the feature failed due to blocked port(s)
 
-Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication.md#prerequisites).
+Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication.md).
 
 ### The enabling of the feature failed due to token or account authorization errors
 
