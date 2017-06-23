@@ -4,7 +4,7 @@ description: 'Get started with Stream Analytics Management .NET SDK. Learn how t
 keywords: .net SDK, analytics API
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

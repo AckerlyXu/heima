@@ -3,7 +3,7 @@ title: Best practices for creating Resource Manager templates  | Azure
 description: Guidelines for simplifying your Azure Resource Manager templates.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

@@ -3,7 +3,7 @@ title: Receive events from Azure Event Hubs using .NET Standard | Azure
 description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

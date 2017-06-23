@@ -4,7 +4,7 @@ description: Learn how a set of Azure services can interoperate for enabling rea
 keywords: real-time processing, event processing, reference architecture
 services: stream-analytics,event-hubs,storage,sql-database
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

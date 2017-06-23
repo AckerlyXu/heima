@@ -3,7 +3,7 @@ title: Best practices for enterprises moving to Azure | Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 services: azure-resource-manager
 documentationcenter: na
-author: rdendtler
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

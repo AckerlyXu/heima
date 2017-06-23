@@ -3,7 +3,7 @@ title: Secure a database in SQL Data Warehouse | Azure
 description: Tips for securing a database in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationCenter: NA
-author: ronortloff
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

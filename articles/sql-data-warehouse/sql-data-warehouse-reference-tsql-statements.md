@@ -3,7 +3,7 @@ title: SQL Data Warehouse Transact-SQL reference | Azure
 description: Links to reference content for the Transact-SQL topics used by SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

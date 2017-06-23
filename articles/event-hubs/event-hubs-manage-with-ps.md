@@ -3,7 +3,7 @@ title: Use PowerShell to manage Azure Event Hubs resources | Azure
 description: Use PowerShell module to create and manage Event Hubs
 services: event-hubs
 documentationcenter: .NET
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

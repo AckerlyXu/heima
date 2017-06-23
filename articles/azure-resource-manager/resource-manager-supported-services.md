@@ -3,7 +3,7 @@ title: Azure resource providers and resource types | Azure
 description: Describes the resource providers that support Resource Manager, their schemas and available API versions, and the regions that can host the resources.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

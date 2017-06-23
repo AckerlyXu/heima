@@ -4,7 +4,7 @@ description: IoT sensor tags and data streams with stream analytics and real-tim
 keywords: iot solution, get started with iot
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

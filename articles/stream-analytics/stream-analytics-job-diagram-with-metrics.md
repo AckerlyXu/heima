@@ -4,7 +4,7 @@ description: Troubleshoot your Stream Analytics job by using the job diagram and
 keywords: 
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

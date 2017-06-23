@@ -3,7 +3,7 @@ title: Azure Event Hubs features overview | Azure
 description: Overview and details about Azure Event Hubs features
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

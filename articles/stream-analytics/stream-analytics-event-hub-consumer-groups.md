@@ -4,7 +4,7 @@ description: Query best practices for considering Event Hubs consumer groups in 
 keywords: event hub limit, consumer group
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

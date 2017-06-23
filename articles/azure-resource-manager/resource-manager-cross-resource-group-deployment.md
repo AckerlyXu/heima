@@ -3,7 +3,7 @@ title: Deploy Azure resources to multiple resource groups | Azure
 description: Shows how to target more than one Azure resource group during deployment.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: ''
 

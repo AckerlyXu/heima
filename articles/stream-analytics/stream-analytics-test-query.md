@@ -4,7 +4,7 @@ description: How to test your queries in Stream Analytics jobs.
 keywords: test query, troubleshoot query
 documentation center: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

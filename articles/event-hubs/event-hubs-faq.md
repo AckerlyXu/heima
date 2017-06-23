@@ -3,7 +3,7 @@ title: Azure Event Hubs FAQ | Azure
 description: Azure Event Hubs frequently asked questions (FAQ)
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

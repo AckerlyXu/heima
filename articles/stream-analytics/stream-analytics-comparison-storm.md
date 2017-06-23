@@ -4,7 +4,7 @@ description: Get guidance choosing a cloud analytics platform by using an Apache
 keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

@@ -3,7 +3,7 @@ title: Create first Azure Resource Manager template | Azure
 description: A step-by-step guide to creating your first Azure Resource Manager template. It shows you how to use the template reference for a storage account to create the template.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

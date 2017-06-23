@@ -4,7 +4,7 @@ description: Learn how to visualize a Stream Analytics job pipeline for self-ser
 keywords: ''
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

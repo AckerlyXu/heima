@@ -3,7 +3,7 @@ title: Create an Internal load balancer - Azure CLI classic | Azure
 description: Learn how to create an internal load balancer using the Azure CLI in the classic deployment model
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: rockboyfor
 manager: timlt
 editor: ''
 tags: azure-service-management
