@@ -151,9 +151,9 @@ Save the **Destination URI** path to use later if you are going to create a mana
 You can also upload a VHD to your storage account using one of the following:
 
 - [AzCopy](http://aka.ms/downloadazcopy)
--   [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
--   [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
--   [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
+- [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+- [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
 -	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 

@@ -33,6 +33,8 @@ To complete this quickstart, install:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-eclipse-login-guide](../../includes/azure-eclipse-login-guide.md)]
+
 ## Create a Dynamic Web Project in Eclipse
 
 In Eclipse, select **File** > **New** > **Dynamic Web Project**.
@@ -66,8 +68,6 @@ In the index.jsp file, replace the `<body></body>` element with the following ma
 <h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 Save the changes.
 

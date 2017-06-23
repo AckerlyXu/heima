@@ -27,8 +27,6 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: 1 - PHP with MySQL
-    href: app-service-web-tutorial-php-mysql.md 
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate

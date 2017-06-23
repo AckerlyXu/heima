@@ -36,6 +36,8 @@ To complete this tutorial:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
 ## Create an ASP.NET web app
 
 In Visual Studio, create a project by selecting **File > New > Project**. 

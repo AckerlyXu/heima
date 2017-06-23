@@ -21,9 +21,6 @@ ms.author: v-dazen
 
 This document describes version 2.3 of the Linux Diagnostic Extension.
 
-> [!IMPORTANT]
-> This version is deprecated, and it may be unpublished any time after June 30, 2018. It has been replaced by version 3.0. For more information, see the [documentation for version 3.0 of the Linux Diagnostic Extension](../diagnostic-extension.md).
-
 ## Introduction
 
 (**Note**: The Linux Diagnostic Extension is open-sourced on [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) where the most current information on the extension is first published. You might want to check the [GitHub page](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) first.)

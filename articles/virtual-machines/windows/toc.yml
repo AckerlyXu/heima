@@ -153,8 +153,6 @@
     items:
     - name: Find marketplace VM images
       href: cli-ps-findimage.md
-    - name: Azure Hybrid Use Benefit licensing
-      href: hybrid-use-benefit-licensing.md
     - name: Use Windows client images
       href: client-images.md
     - name: Prepare a VHD for upload

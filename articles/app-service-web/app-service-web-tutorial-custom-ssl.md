@@ -272,5 +272,3 @@ In this tutorial, you learned how to:
 > * Bind your custom SSL certificate to App Service
 > * Enforce HTTPS for your app
 > * Automate SSL certificate binding with scripts
-
-Advance to the next tutorial to learn how to use Azure Content Delivery Network.

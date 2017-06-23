@@ -123,7 +123,7 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 | Setting  | Value | For more information |
 | ----------------- | ------------ | ----|
 |**App Service Plan**| myAppServicePlan | [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Location**| China North | [Azure regions](https://azure.microsoft.com/regions/) |
+|**Location**| China North | - |
 |**Size**| Free | [Pricing tiers](https://www.azure.cn/pricing/details/app-service/)|
 
 ### Create a SQL Server instance

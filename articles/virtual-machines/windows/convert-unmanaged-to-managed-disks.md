@@ -76,45 +76,45 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## Convert VMs not in an availability set
 For a VM that is not in an availability set, you just need to deallocate the VM and then convert to managed disk.
 
-    ```powershell
-    $rgName = "myResourceGroup"
-    $vmName = "myVM"
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-    ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-    ```
+```powershell
+$rgName = "myResourceGroup"
+$vmName = "myVM"
+Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+```
 
 ## Convert VMs using Standard managed disks to Premium managed disks
 Once you've converted your VM to managed disks, now you can also switch between the storage types. In the example below, we'll show how to switch from Standard to Premium storage type. In order to use Premium Managed Disks, your VM must use a [VM size](sizes.md) that supports Premium storage. In the example below, we'll also switch to a size supporting Premium storage.
 
-    ```powershell
-    $resourceGroupName = 'YourResourceGroupName'
-    $vmName = 'YourVMName'
-    $size = 'Standard_DS2_v2'
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+```powershell
+$resourceGroupName = 'YourResourceGroupName'
+$vmName = 'YourVMName'
+$size = 'Standard_DS2_v2'
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
 
 # Stop deallocate the VM before changing the size
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
+Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
 
 # Change VM size to a size supporting Premium storage
-    $vm.HardwareProfile.VmSize = $size
-    Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
+$vm.HardwareProfile.VmSize = $size
+Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 
 # Get all disks in the resource group of the VM
-    $vmDisks = Get-AzureRmDisk -ResourceGroupName $resourceGroupName 
+$vmDisks = Get-AzureRmDisk -ResourceGroupName $resourceGroupName 
 
 # For disks that belong to the VM selected, convert to Premium storage
-    foreach ($disk in $vmDisks) 
+foreach ($disk in $vmDisks) 
+    {
+    if($disk.OwnerId -eq $vm.Id)
         {
-        if($disk.OwnerId -eq $vm.Id)
-            {
-             $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType PremiumLRS
-             Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName `
-             -DiskName $disk.Name
-            }
+         $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType PremiumLRS
+         Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName `
+         -DiskName $disk.Name
         }
+    }
 
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
-    ```
+Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
+```
 
 > [!NOTE] 
 > You can also have a mixture of disks that use standard and Premium storage.

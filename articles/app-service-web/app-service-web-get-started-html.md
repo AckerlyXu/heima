@@ -43,8 +43,6 @@ In a terminal window, run the following command to clone the sample app reposito
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## View the HTML
 
 Navigate to the directory that contains the sample HTML. Open the *index.html* file in your browser.

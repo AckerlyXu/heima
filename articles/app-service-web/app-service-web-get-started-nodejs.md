@@ -66,8 +66,6 @@ You see the **Hello World** message from the sample app displayed in the page.
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 [!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 

@@ -42,7 +42,7 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 To complete this tutorial:
 
 * [Create an App Service app](/app-service/), or use an app that you created for another tutorial.
-* Purchase a domain name and make sure you have access to the DNS registry for your domain provider (such as GoDaddy).
+* Purchase a domain name and make sure you have access to the DNS registry for your domain provider.
 
   For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 
