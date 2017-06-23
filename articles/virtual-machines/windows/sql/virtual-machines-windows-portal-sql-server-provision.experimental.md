@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 
 ms.workload: infrastructure-services
 origin.date: 04/03/2017
-ms.date: 06/21/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 experimental: true
 experimental_id: a641df96-f27d-40

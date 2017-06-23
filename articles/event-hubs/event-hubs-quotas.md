@@ -27,5 +27,5 @@ This section lists basic quotas and limits in Azure Event Hubs.
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)
+<!-- Not Available * [Event Hubs Auto-inflate](event-hubs-auto-inflate.md) -->
 * [Event Hubs FAQ](event-hubs-faq.md)

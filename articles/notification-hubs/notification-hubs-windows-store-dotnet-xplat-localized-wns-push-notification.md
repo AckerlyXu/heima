@@ -66,7 +66,7 @@ Then we will ensure that devices register with a template that refers to the cor
 </toast>
 ```
 
-Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages-cross-platform-push-messages-cross-platform-push-messages.md) article. 
+Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages.md) article. 
 
 ##The app user interface
 
