@@ -16,6 +16,7 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code to a staging environment
@@ -27,7 +28,8 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
-$gitrepo="<Replace with your GitHub repo URL>"
+# Replace the following URL with a public GitHub repo URL
+$gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"
 

@@ -117,12 +117,12 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 
     There are a few configurable properties for VNet peering:
 
-    | Option | Description | Default |
-    |:--- |:--- |:--- |
-    | AllowVirtualNetworkAccess |Whether address space of Peer VNet to be included as part of the Virtual_network Tag |Yes |
-    | AllowForwardedTraffic |Whether traffic not originating from a peered VNet is accepted or dropped |No |
-    | AllowGatewayTransit |Allows the peer VNet to use your VNet gateway |No |
-    | UseRemoteGateways |Use your peer's VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit selected. You cannot use this option if you have a gateway configured |No |
+   | Option | Description | Default |
+   |:--- |:--- |:--- |
+   | AllowVirtualNetworkAccess |Whether address space of Peer VNet to be included as part of the Virtual_network Tag |Yes |
+   | AllowForwardedTraffic |Whether traffic not originating from a peered VNet is accepted or dropped |No |
+   | AllowGatewayTransit |Allows the peer VNet to use your VNet gateway |No |
+   | UseRemoteGateways |Use your peer's VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit selected. You cannot use this option if you have a gateway configured |No |
 
     Each link in a VNet peering has the previous set of properties. For example, you can set `AllowVirtualNetworkAccess` to *True* for VNet peering link VNet1 to VNet2 and set it to *False* for the VNet peering link in the other direction.
 

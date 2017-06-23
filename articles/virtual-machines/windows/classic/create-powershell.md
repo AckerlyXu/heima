@@ -156,7 +156,7 @@ Option 1: Create the virtual machine in an existing cloud service.
 
     New-AzureVM -ServiceName "<short name of the cloud service>" -VMs $vm1
 
-The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Classic Management Portal or in the list of Resource Groups in the Azure Portal.
+The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Classic Management Portal or in the list of Resource Groups in the Azure portal.
 
 Option 2: Create the virtual machine in an existing cloud service and virtual network.
 

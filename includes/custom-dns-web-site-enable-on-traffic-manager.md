@@ -25,6 +25,6 @@ If you have not already added your web app as a Traffic Manager endpoint, you mu
 7. Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should
    now see your app running using your custom domain name. 
 
-    Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
+   Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
 
 At this point, you should be able to enter the Traffic Manager domain name name in your browser and see that it successfully takes you to your web app.

@@ -19,7 +19,7 @@ ms.author: v-dazen
 
 ---
 # Redeploy Linux virtual machine to new Azure node
-If you have been facing difficulties troubleshooting SSH or application access to a Linux virtual machine (VM) in Azure, redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure Portal.
+If you have been facing difficulties troubleshooting SSH or application access to a Linux virtual machine (VM) in Azure, redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure portal.
 
 > [!NOTE]
 > After you redeploy a VM, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated. 
@@ -28,7 +28,7 @@ You can redeploy a VM using one of the following options. You only need to choos
 
 - [Azure CLI 2.0](#azure-cli-20)
 - [Azure CLI 1.0](#azure-cli-10)
-- [Azure Portal](#using-azure-portal)
+- [Azure portal](#using-azure-portal)
 
 ## Azure CLI 2.0
 Install the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).

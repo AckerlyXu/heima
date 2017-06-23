@@ -51,7 +51,7 @@ You can find the IP address and **.chinacloudsites.cn** names for your web app b
 
     ![](./media/custom-dns-web-site/virtual-ip-address.png)
 
-    > [!NOTE]
-    > You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/app-service-web/web-sites-scale.md).
-    > 
-    >
+   > [!NOTE]
+   > You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/app-service-web/web-sites-scale.md).
+   > 
+   >

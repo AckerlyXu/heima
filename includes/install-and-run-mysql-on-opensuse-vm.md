@@ -23,10 +23,10 @@
 
         rcmysql stop
 
-    > [!IMPORTANT]
-    > After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
-    > 
-    > 
+   > [!IMPORTANT]
+   > After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
+   > 
+   > 
 5. Type this to run the script MySQL installation script:
 
         mysql_secure_installation

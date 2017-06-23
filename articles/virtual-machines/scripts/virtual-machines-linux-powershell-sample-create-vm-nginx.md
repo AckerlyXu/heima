@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 03/01/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create an NGINX VM with PowerShell

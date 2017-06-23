@@ -1,5 +1,5 @@
 ## Applications
-The following table lists some of the most popular application framework templates. Choose a template to see more information, view the template in GitHub, or deploy directly through the Azure Portal.
+The following table lists some of the most popular application framework templates. Choose a template to see more information, view the template in GitHub, or deploy directly through the Azure portal.
 
 | Application | Learn more | View the template | Deploy it now |
 |:--- |:---:|:---:|:---:|

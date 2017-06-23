@@ -149,9 +149,9 @@ For more information, see [How to: Monitor web endpoint status].
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.cn/
-[Configure a custom domain name in Azure App Service]: ./web-sites-custom-domain-name.md
+[Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
-[Enable HTTPS for an app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
+[Enable HTTPS for an app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [How to: Monitor web endpoint status]: /app-service-web/web-sites-monitor
 [Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

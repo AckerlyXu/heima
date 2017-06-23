@@ -17,12 +17,15 @@ ms.topic: sample
 origin.date: 04/09/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 # Map a custom domain to a web app
 
 This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -39,7 +42,7 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku SHARED
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup \
+az webapp create --name $webappname --resource-group myResourceGroup \
 --plan $webappname
 
 echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
@@ -50,8 +53,8 @@ read -p "Press [Enter] key when ready ..."
 # hostname "www" and point it your web app's default domain name.
 
 # Map your prepared custom domain name to the web app.
-az appservice web config hostname add --webapp $webappname --resource-group myResourceGroup \
---name $fqdn
+az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \
+--hostname $fqdn
 
 echo "You can now browse to http://$fqdn"
 

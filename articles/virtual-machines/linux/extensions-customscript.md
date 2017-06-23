@@ -23,7 +23,7 @@ ms.author: v-dazen
 >[!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
-The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure Portal, or the Azure Virtual Machine REST API.
+The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
 This document details how to use the Custom Script Extension from the Azure CLI, and an Azure Resource Manager template, and also details troubleshooting steps on Linux systems.
 
@@ -39,12 +39,12 @@ Schema:
 * **fileUris**: (optional, string array) the URLs for files to be downloaded.
 * **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
-    ```json
-    {
-      "fileUris": ["<url>"],
-      "commandToExecute": "<command-to-execute>"
-    }
-    ```
+```json
+{
+  "fileUris": ["<url>"],
+  "commandToExecute": "<command-to-execute>"
+}
+```
 
 ### Protected Configuration
 Schema:
@@ -55,13 +55,13 @@ Schema:
 * **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
 * **storageAccountKey**: (optional, string) the access key of storage account.
 
-    ```json
-    {
-      "commandToExecute": "<command-to-execute>",
-      "storageAccountName": "<storage-account-name>",
-      "storageAccountKey": "<storage-account-key>"
-    }
-    ```
+```json
+{
+  "commandToExecute": "<command-to-execute>",
+  "storageAccountName": "<storage-account-name>",
+  "storageAccountKey": "<storage-account-key>"
+}
+```
 
 ## Azure CLI
 When using the Azure CLI to run the Custom Script Extension, create a configuration file or files containing at minimum the file uri, and the script execution command.

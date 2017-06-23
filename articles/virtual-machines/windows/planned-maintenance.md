@@ -3,7 +3,7 @@ title: Planned maintenance for Windows VMs in Azure | Azure
 description: Understand what Azure planned maintenance is and how it affects your Windows virtual machines running in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: 
+author: zivr
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager

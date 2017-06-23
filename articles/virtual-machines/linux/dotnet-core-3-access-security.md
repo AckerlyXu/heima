@@ -67,7 +67,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
 ]
 ```
 
-The public IP Address as seen from the Azure Portal. Notice that the public IP address is associated to a load balancer and not a virtual machine. Network load balancers are detailed in the next document of this series.
+The public IP Address as seen from the Azure portal. Notice that the public IP address is associated to a load balancer and not a virtual machine. Network load balancers are detailed in the next document of this series.
 
 ![Public IP Address](./media/dotnet-core-3-access-security/pubip.png)
 
@@ -126,7 +126,7 @@ Follow this link to see the JSON sample within the Resource Manager template - [
   }
 ```
 
-Here is what the network security group looks like from the Azure Portal. Notice that an NSG can be associate with a subnet and / or network interface. In this case, the NSG is associated to a subnet. In this configuration, the inbound rules apply to all virtual machines connected to the subnet.
+Here is what the network security group looks like from the Azure portal. Notice that an NSG can be associate with a subnet and / or network interface. In this case, the NSG is associated to a subnet. In this configuration, the inbound rules apply to all virtual machines connected to the subnet.
 
 ![Network Security Group](./media/dotnet-core-3-access-security/nsg.png)
 

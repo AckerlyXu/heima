@@ -168,7 +168,7 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
-    - name: Create Azure-endorsed images
+    - name: Create Azure images
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -182,8 +182,17 @@
         href: oracle-create-upload-vhd.md
   - name: Manage VM storage
     items:
+    - name: Azure Managed Disks
+      href: ../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: FAQs
+        href: ../../storage/storage-faq-for-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - name: Copy files to a Linux VM
       href: copy-files-to-linux-vm-using-scp.md
+    - name: Convert a VM to Managed Disks
+      href: convert-unmanaged-to-managed-disks.md
+    - name: Take a snapshot of a Managed Disk
+      href: snapshot-copy-managed-disk.md
     - name: Add a disk
       items:
       - name: Azure CLI
@@ -258,6 +267,8 @@
       href: extensions-features.md
     - name: Custom Script Extension
       href: extensions-customscript.md
+    - name: Linux Diagnostic Extension
+      href: diagnostic-extension.md
   - name: Run applications
     items:
     - name: Cloud Foundry
@@ -294,19 +305,21 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot SSH connections
+    - name: SSH connections
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Troubleshoot access to applications
+    - name: access to applications
       href: troubleshoot-app-connection.md
-    - name: Troubleshoot allocation failures
+    - name: allocation failures
       href: allocation-failure.md
-    - name: Troubleshoot deployment issues
+    - name: deployment issues
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk for troubleshooting
       items:
       - name: Azure CLI
@@ -333,15 +346,7 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+    href: https://www.azure.cn/pricing/details/virtual-machines
   - name: FAQ
     href: faq.md

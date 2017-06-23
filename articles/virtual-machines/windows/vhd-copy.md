@@ -38,12 +38,12 @@ Deallocate the VM, which frees up the VHD to be copied.
 * **Portal**: Click **Virtual machines** > **myVM** > Stop
 * **Powershell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` deallocates the VM named **myVM** in resource group **myResourceGroup**.
 
-The **Status** for the VM in the Azure Portal changes from **Stopped** to **Stopped (deallocated)**.
+The **Status** for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 
 ## Get the storage account URLs
 You need the URLs of the source and destination storage accounts. The URLs look like: `https://<storageaccount>.blob.core.chinacloudapi.cn/<containerName>/`. If you already know the storage account and container name, you can just replace the information between the brackets to create your URL. 
 
-You can use the Azure Portal or Azure Powershell to get the URL:
+You can use the Azure portal or Azure Powershell to get the URL:
 
 * **Portal**: Click **More services** > **Storage accounts** > \<storage account\> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 * **Powershell**: `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` gets the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.

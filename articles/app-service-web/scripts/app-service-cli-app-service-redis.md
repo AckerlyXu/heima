@@ -17,6 +17,7 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Connect a web app to a redis cache
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will learn how to create an Azure redis cache and an Azure web app. Then you will link the redis cache to the web app using app settings.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -43,13 +46,13 @@ az group create --name $resourceGroupName --location $location
 az appservice plan create --name WebAppWithRedisPlan --resource-group $resourceGroupName --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
+az webapp create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
 
 # Create a Redis Cache
 redis=($(az redis create --name $appName --resource-group $resourceGroupName --location $location --sku-capacity 0 --sku-family C --sku-name Basic --query [hostName,sslPort,accessKeys.primaryKey] --output tsv))
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
+az webapp config appsettings set --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

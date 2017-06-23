@@ -70,22 +70,22 @@ You begin with a new Azure trial account. After you set up your account, you sho
     ![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665512.gif)
 3. In the **CREATE A VIRTUAL NETWORK** dialog box, create a new virtual network by stepping through the pages and using the settings in the following table. 
 
-    | Page | Settings |
-    | --- | --- |
-    | Virtual Network Details |**NAME = ContosoNET**<br/>**REGION = China North** |
-    | DNS Servers and VPN Connectivity |None |
-    | Virtual Network Address Spaces |Settings are shown in the following screenshot: ![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png) |
+   | Page | Settings |
+   | --- | --- |
+   | Virtual Network Details |**NAME = ContosoNET**<br/>**REGION = China North** |
+   | DNS Servers and VPN Connectivity |None |
+   | Virtual Network Address Spaces |Settings are shown in the following screenshot: ![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png) |
 4. Create the virtual machine that you will use as the domain controller (DC). Click **New** > **Compute** > **Virtual Machine** > **From Gallery**, as shown in the following screenshot.
 
     ![Create a virtual machine](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784621.png)
 5. In the **CREATE A VIRTUAL MACHINE** dialog box, configure a new virtual machine by stepping through the pages and using the settings in the following table. 
 
-    | Page | Settings |
-    | --- | --- |
-    | Select the virtual machine operating system |Windows Server 2012 R2 Datacenter |
-    | Virtual machine configuration |**VERSION RELEASE DATE** = (latest)<br/>**VIRTUAL MACHINE NAME** = ContosoDC<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (2 cores)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000 |
-    | Virtual machine configuration |**CLOUD SERVICE** = Create a new cloud service<br/>**CLOUD SERVICE DNS NAME** = A unique cloud service name<br/>**DNS NAME** = A unique name (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = (None) |
-    | Virtual machine options |Use defaults |
+   | Page | Settings |
+   | --- | --- |
+   | Select the virtual machine operating system |Windows Server 2012 R2 Datacenter |
+   | Virtual machine configuration |**VERSION RELEASE DATE** = (latest)<br/>**VIRTUAL MACHINE NAME** = ContosoDC<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (2 cores)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000 |
+   | Virtual machine configuration |**CLOUD SERVICE** = Create a new cloud service<br/>**CLOUD SERVICE DNS NAME** = A unique cloud service name<br/>**DNS NAME** = A unique name (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = (None) |
+   | Virtual machine options |Use defaults |
 
 After you configure the new virtual machine, wait for the virtual machine to be provsioned. This process takes some time to finish. If you click the **Virtual Machine** tab in the Azure Classic Management Portal, you can see ContosoDC cycling states from **Starting (Provisioning)** to **Stopped**, **Starting**, **Running (Provisioning)**, and finally **Running**.
 
@@ -105,10 +105,10 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 5. Click **Next** until you get to the **Server Roles** section.
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When prompted, add more features that these roles require.
 
-    > [!NOTE]
-    > You will get a validation warning that there is no static IP address. If you are testing the configuration, click **Continue**. For production scenarios [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
-    > 
-    > 
+   > [!NOTE]
+   > You will get a validation warning that there is no static IP address. If you are testing the configuration, click **Continue**. For production scenarios [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
+   > 
+   > 
 
     ![Add Roles Dialog](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784624.png)
 7. Click **Next** until you reach the **Confirmation** section. Select the **Restart the destination server automatically if required** check box.
@@ -138,14 +138,14 @@ The next steps configure the Active Directory accounts for later use.
 3. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane.
 4. On the right **Tasks** pane, click **New** > **User**. Use the following settings:
 
-    | Setting | Value |
-    | --- | --- |
-    | **First Name** |Install |
-    | **User SamAccountName** |Install |
-    | **Password** |Contoso!000 |
-    | **Confirm password** |Contoso!000 |
-    | **Other password options** |Selected |
-    | **Password never expires** |Checked |
+   | Setting | Value |
+   | --- | --- |
+   | **First Name** |Install |
+   | **User SamAccountName** |Install |
+   | **Password** |Contoso!000 |
+   | **Confirm password** |Contoso!000 |
+   | **Other password options** |Selected |
+   | **Password never expires** |Checked |
 5. Click **OK** to create the **Install** user. This account will be used to configure the failover cluster and the availability group.
 6. Create two additional users, **CORP\SQLSvc1** and **CORP\SQLSvc2**, with the same steps. These accounts will be used for the SQL Server instances. Next, you need to give **CORP\Install** the necessary permissions to configure Windows failover clustering.
 7. In the **Active Directory Administrative Center**, click **corp (local)** in the left pane. In the **Tasks** pane, click **Properties**.
@@ -253,18 +253,18 @@ Use the following steps to complete the tasks that fully configure the cluster.
     ![Create cluster](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784632.png)
 4. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages and using the settings in the following table:
 
-    | Page | Settings |
-    | --- | --- |
-    | Before You Begin |Use defaults |
-    | Select Servers |Type **ContosoSQL1** in **Enter server name** and click **Add** |
-    | Validation Warning |Select **No. I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue creating the cluster**. |
-    | Access Point for Administering the Cluster |Type **Cluster1** in **Cluster Name** |
-    | Confirmation |Use defaults unless you are using Storage Spaces. See the warning following this table. |
+   | Page | Settings |
+   | --- | --- |
+   | Before You Begin |Use defaults |
+   | Select Servers |Type **ContosoSQL1** in **Enter server name** and click **Add** |
+   | Validation Warning |Select **No. I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue creating the cluster**. |
+   | Access Point for Administering the Cluster |Type **Cluster1** in **Cluster Name** |
+   | Confirmation |Use defaults unless you are using Storage Spaces. See the warning following this table. |
 
-    > [!WARNING]
-    > If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must clear the **Add all eligible storage to the cluster** check box on the **Confirmation** page. If you do not clear this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached by using PowerShell.
-    > 
-    > 
+   > [!WARNING]
+   > If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must clear the **Add all eligible storage to the cluster** check box on the **Confirmation** page. If you do not clear this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached by using PowerShell.
+   > 
+   > 
 5. In the left pane, expand **Failover Cluster Manager**, and then click **Cluster1.corp.contoso.com**.
 6. In the center pane, scroll down to the **Cluster Core Resources** section, and expand the **Name: Clutser1** details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as the machine itself, which is a duplicate address.
 7. Right-click the failed **IP Address** resource, and then click **Properties**.
@@ -305,9 +305,9 @@ These actions can be performed in any order. Nevertheless, the following steps w
 6. Right-click the **NT AUTHORITY\System** login, and then click **Properties**.
 7. On the **Securables** page, for the local server, select **Grant** for the following permissions, and then click **OK**.
 
-    * Alter any availability group
-    * Connect SQL
-    * View server state
+   * Alter any availability group
+   * Connect SQL
+   * View server state
 8. Add **CORP\Install** as a **sysadmin** role to the default SQL Server instance. In **Object Explorer**, right-click **Logins**, and then click **New Login**.
 9. Type **CORP\Install** in **Login name**.
 10. On the **Server Roles** page, select **sysadmin**, and then click **OK**. After you create the login, you can see it by expanding **Logins** in **Object Explorer**.

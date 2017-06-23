@@ -29,8 +29,8 @@ You can use the following cmdlets to obtain information about available extensio
   cmdlet.
 * For instances of Virtual Machines, you can use the [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet.
 
-    For example, the following code example shows how to list the
-    information for the **IaaSDiagnostics** extension using PowerShell.
+   For example, the following code example shows how to list the
+  information for the **IaaSDiagnostics** extension using PowerShell.
 
         PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
 

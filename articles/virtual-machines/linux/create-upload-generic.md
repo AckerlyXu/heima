@@ -40,7 +40,7 @@ It is for this reason that we recommend that you start with one of our [Linux on
 
 The rest of this article will focus on general guidance for running your Linux distribution on Azure.
 
-## <a id="linuxinstall" name="general-linux-installation-notes"></a> General Linux Installation Notes
+## General Linux Installation Notes
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet. If you are using VirtualBox this means selecting **Fixed size** as opposed to the default dynamically allocated when creating the disk.
 * Azure only supports generation 1 virtual machines. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * The maximum size allowed for the VHD is 1,023 GB.
@@ -100,7 +100,7 @@ To remedy this you can resize the VM using either the Hyper-V Manager console or
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
-    Or, with qemu version **2.6+** include the `force_size` option:
+   Or, with qemu version **2.6+** include the `force_size` option:
 
         # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
@@ -177,9 +177,9 @@ The [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2
         # export HISTSIZE=0
         # logout
 
-    > [!NOTE]
-    > On Virtualbox you may see the following error after running 'waagent -force -deprovision': `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
-    > 
-    > 
+  > [!NOTE]
+  > On Virtualbox you may see the following error after running 'waagent -force -deprovision': `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
+  > 
+  > 
 
 * You will then need to shut down the virtual machine and upload the VHD to Azure.

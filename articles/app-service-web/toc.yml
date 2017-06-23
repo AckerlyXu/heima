@@ -27,8 +27,6 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: 1 - PHP with MySQL
-    href: app-service-web-tutorial-php-mysql.md 
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
@@ -102,8 +100,8 @@
   - name: Deploy to Azure
     href: web-sites-deploy.md
     items:
-    - name: Deploy via cloud sync
-      href: web-sites-deploy.md
+    - name: Deploy via FTP
+      href: app-service-deploy-ftp.md
     - name: Deploy continuously
       href: app-service-continuous-deployment.md
     - name: Deploy to staging
@@ -120,8 +118,6 @@
       href: app-service-deployment-credentials.md
     - name: Map custom domain
       items:
-      - name: Map 3rd-party domain
-        href: web-sites-custom-domain-name.md
       - name: Map domains with Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Migrate an active domain
@@ -148,10 +144,6 @@
         href: web-sites-authentication-authorization.md
       - name: App with a multi-tenant database
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Assign custom SSL
-      items:
-      - name: Configure 3rd-party SSL cert
-        href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configure TLS mutual authentication
@@ -164,8 +156,6 @@
       href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fapp-service-web%2ftoc.json
     - name: Load-balance with Traffic Manager
       href: web-sites-traffic-manager.md
-    - name: Use Azure CDN for global reach
-      href: cdn-websites-with-cdn.md
     - name: Connect to Redis Cache via Memcache
       href: web-sites-connect-to-redis-using-memcache-protocol.md
     - name: Create a Redis Cache
