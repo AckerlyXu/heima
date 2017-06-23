@@ -1,14 +1,14 @@
 ---
-title: Partitioning and scaling in Azure Cosmos DB | Microsoft Docs
-description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-services: cosmosdb
+title: Partitioning and scaling in DocumentDB | Microsoft Docs
+description: Learn about how partitioning works in DocumentDB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
+services: documentdb
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,21 +19,21 @@ ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
-# Partitioning in Azure Cosmos DB using the DocumentDB API
+# Partitioning in DocumentDB using the DocumentDB API
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. 
+[DocumentDB](./documentdb-resources.md) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. 
 
-This article provides an overview of how to work with partitioning of Cosmos DB containers with the DocumentDB API. See [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
+This article provides an overview of how to work with partitioning of DocumentDB containers with the DocumentDB API. 
 
 To get started with code, download the project from [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
 After reading this article, you will be able to answer the following questions:   
 
-- How does partitioning work in Azure Cosmos DB?
-- How do I configure partitioning in Azure Cosmos DB
+- How does partitioning work in DocumentDB?
+- How do I configure partitioning in DocumentDB
 - What are partition keys, and how do I pick the right partition key for my application?
 
-To get started with code, download the project from [Azure Cosmos DB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
+To get started with code, download the project from [DocumentDB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
 <!-- placeholder until we have a permanent solution-->
 
@@ -73,7 +73,7 @@ In the DocumentDB API, you specify the partition key definition in the form of a
 Let's look at how the choice of partition key impacts the performance of your application.
 
 ## Working with the DocumentDB SDKs
-Azure Cosmos DB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
+DocumentDB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
 
 ### Creating containers
 The following sample shows a .NET snippet to create a container to store device telemetry data of 20,000 request units per second of throughput. The SDK sets the OfferThroughput value (which in turn sets the `x-ms-offer-throughput` request header in the REST API). Here we set the `/deviceId` as the partition key. The choice of partition key is saved along with the rest of the container metadata like name and indexing policy.
@@ -97,10 +97,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-This method makes a REST API call to Cosmos DB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a container as your performance needs evolve. 
+This method makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a container as your performance needs evolve. 
 
 ### Reading and writing items
-Now, let's insert data into Cosmos DB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a container. This is an example leveraging the DocumentDB API:
+Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a container. This is an example leveraging the DocumentDB API:
 
 ```csharp
 public class DeviceReading
@@ -164,7 +164,7 @@ await client.DeleteDocumentAsync(
 ```
 
 ### Querying partitioned containers
-When you query data in partitioned containers, Cosmos DB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
+When you query data in partitioned containers, DocumentDB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
 ```csharp
 // Query using partition key
@@ -183,10 +183,10 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Cosmos DB supports [aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned containers using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
+DocumentDB supports [aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned containers using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
-The Cosmos DB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
+The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
 
 ```csharp
 // Cross-partition Order By Queries
@@ -217,10 +217,10 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 In the next section, we look at how you can move to partitioned containers from single-partition containers.
 
 ## Next steps
-In this article, we provided an overview of how to work with partitioning of Cosmos DB containers with the DocumentDB API. Also see [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
+In this article, we provided an overview of how to work with partitioning of DocumentDB containers with the DocumentDB API. Also see partitioning and horizontal scaling for an overview of concepts and best practices for partitioning with any DocumentDB API. 
 
-- Perform scale and performance testing with Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md) for a sample.
+- Perform scale and performance testing with DocumentDB. See [Performance and Scale Testing with DocumentDB](documentdb-performance-testing.md) for a sample.
 - Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)
-- Learn about [provisioned throughput in Azure Cosmos DB](documentdb-request-units.md)
+- Learn about [provisioned throughput in DocumentDB](documentdb-request-units.md)
 
 

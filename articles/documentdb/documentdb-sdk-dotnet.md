@@ -1,14 +1,14 @@
 ---
 title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
-services: cosmosdb
+services: documentdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -42,7 +42,7 @@ ms.date: 05/31/2017
 
 <tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-dotnet-application.md)</td></tr>
 
 <tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
@@ -203,7 +203,7 @@ ms.date: 05/31/2017
   - DocumentCollection.IndexingPolicy is now mutable
 - Added support for spatial indexing and query
   - New Microsoft.Azure.Documents.Spatial namespace for serializing/deserializing spatial types like Point and Polygon
-  - New SpatialIndex class for indexing GeoJSON data stored in Cosmos DB
+  - New SpatialIndex class for indexing GeoJSON data stored in DocumentDB
 - **[Fixed]** : Incorrect SQL query generated from linq expression [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="1.2.0"/>1.2.0
@@ -231,7 +231,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 <br/>
 
@@ -276,6 +276,6 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) service page. 
+To learn more about DocumentDB, see [DocumentDB](https://www.azure.cn/home/features/documentdb/) service page. 
 
 
