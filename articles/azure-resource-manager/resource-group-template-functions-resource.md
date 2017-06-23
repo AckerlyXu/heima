@@ -166,8 +166,6 @@ The preceding example returns an object in the following format:
   "locations": [
     "China East",
     "China North",
-    "China North",
-    "China North",
     ...
   ],
   "apiVersions": [
