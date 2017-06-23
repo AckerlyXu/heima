@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/02/2017
-ms.date: 05/15/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 ---
 
