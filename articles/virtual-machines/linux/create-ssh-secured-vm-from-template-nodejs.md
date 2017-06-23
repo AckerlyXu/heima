@@ -27,7 +27,7 @@ This article shows you how to quickly deploy a Linux Virtual Machine using the A
 * the [Azure CLI 1.0](../../cli-install-nodejs.md) logged in with `azure login -e AzureChinaCloud`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
-You can also quickly deploy a Linux VM template by using the [Azure Portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+You can also quickly deploy a Linux VM template by using the [Azure portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:

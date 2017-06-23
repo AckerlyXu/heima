@@ -59,9 +59,9 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
 
     Parameters:
 
-    * `--resource-group`: Name of the resource group where the NSG is created. For our scenario, *TestRG*.
-    * `--location`: Azure region where the new NSG is created. For our scenario, *chinanorth*.
-    * `--name`: Name for the new NSG. For our scenario, *NSG-FrontEnd*.
+   * `--resource-group`: Name of the resource group where the NSG is created. For our scenario, *TestRG*.
+   * `--location`: Azure region where the new NSG is created. For our scenario, *chinanorth*.
+   * `--name`: Name for the new NSG. For our scenario, *NSG-FrontEnd*.
 
     The expected output is quite a bit of information including a list of all the default rules. The following example shows the default rules using a JMESPATH query filter with the `table` output format:
 
@@ -73,7 +73,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
     -o table
     ```
 
-    Output:
+   Output:
 
         Access    Desc                                                    DestPortRange    Direction      Priority
 

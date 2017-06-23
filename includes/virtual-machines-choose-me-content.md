@@ -1,4 +1,6 @@
-## <a name="tellmevm"></a> Tell me about virtual machines
+<a name="tellmevm"></a>
+
+## Tell me about virtual machines
 Azure Virtual Machines lets you create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, virtual machine technology can be used in variety of ways. Some examples are:
 
 * **Virtual machines (VMs) for development and test.** Development groups commonly use VMs because they offer a quick, easy way to create a computer with specific configurations required to code and test an application. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then delete them when they're no longer needed.

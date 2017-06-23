@@ -21,7 +21,7 @@ Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK
     ![Create Project][create_project]
 3. From the list of Templates, select either the Linux or Windows Virtual Machine Scale Set Template.
 
-    ![Select Template][select_Template]
+   ![Select Template][select_Template]
 4. Once your project is created you'll see PowerShell deployment scripts, an Azure Resource Manager Template, and a parameter file for the Virtual Machine Scale Set.
 
     ![Solution Explorer][solution_explorer]
@@ -48,7 +48,7 @@ Now you can edit the Template to customize it for your application's needs, such
     ![Edit Parameters][edit_parameters]
 5. Now click **Deploy**. The **Output** window will show the deployment progress. Note that the the action is executing the **Deploy-AzureResourceGroup.ps1** script.
 
-    ![Output Window][output_window]
+   ![Output Window][output_window]
 
 ## Exploring your VM Scale Set
 Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the Azure Portal and Azure Resource Explorer.

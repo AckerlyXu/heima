@@ -50,22 +50,22 @@ You can deploy the environment explained above in Azure using different features
 In this example there is a subscription that contains the following:
 
 * 2 resource groups, not shown in the diagram. 
-    * **ONPREMRG**. Contains all resources necessary to simulate an on-premises network.
-    * **AZURERG**. Contains all resources necessary for the Azure virtual network environment. 
+  * **ONPREMRG**. Contains all resources necessary to simulate an on-premises network.
+  * **AZURERG**. Contains all resources necessary for the Azure virtual network environment. 
 * A VNet named **onpremvnet** used to mimic an on-premises datacenter segmented as listed below.
-    * **onpremsn1**. Subnet containing a virtual machine (VM) running Ubuntu to mimic an on-premises server.
-    * **onpremsn2**. Subnet containing a VM running Ubuntu to mimic an on-premises computer used by an administrator.
+  * **onpremsn1**. Subnet containing a virtual machine (VM) running Ubuntu to mimic an on-premises server.
+  * **onpremsn2**. Subnet containing a VM running Ubuntu to mimic an on-premises computer used by an administrator.
 * There is one firewall virtual appliance named **OPFW** on **onpremvnet** used to maintain a tunnel to **azurevnet**.
 * A VNet named **azurevnet** segmented as listed below.
-    * **azsn1**. External firewall subnet used exclusively for the external firewall. All Internet traffic will come in through this subnet. This subnet only contains a NIC linked to the external firewall.
-    * **azsn2**. Front end subnet hosting a VM running as a web server that will be accessed from the Internet.
-    * **azsn3**. Backend subnet hosting a VM running a backend application server that will be accessed by the front end web server.
-    * **azsn4**. Management subnet used exclusively to provide management access to all firewall virtual appliances. This subnet only contains a NIC for each firewall virtual appliance used in the solution.
-    * **GatewaySubnet**. Azure hybrid connection subnet required for ExpressRoute and VPN Gateway to provide connectivity between Azure VNets and other networks. 
+  * **azsn1**. External firewall subnet used exclusively for the external firewall. All Internet traffic will come in through this subnet. This subnet only contains a NIC linked to the external firewall.
+  * **azsn2**. Front end subnet hosting a VM running as a web server that will be accessed from the Internet.
+  * **azsn3**. Backend subnet hosting a VM running a backend application server that will be accessed by the front end web server.
+  * **azsn4**. Management subnet used exclusively to provide management access to all firewall virtual appliances. This subnet only contains a NIC for each firewall virtual appliance used in the solution.
+  * **GatewaySubnet**. Azure hybrid connection subnet required for ExpressRoute and VPN Gateway to provide connectivity between Azure VNets and other networks. 
 * There are 3 firewall virtual appliances in the **azurevnet** network. 
-    * **AZF1**. External firewall exposed to the public Internet by using a public IP address resource in Azure. You need to ensure you have a template from the Marketplace, or directly from your appliance vendor, that provisions a 3-NIC virtual appliance.
-    * **AZF2**. Internal firewall used to control traffic between **azsn2** and **azsn3**. This is also a 3-NIC virtual appliance.
-    * **AZF3**. Management firewall accessible to administrators from the on-premises datacenter, and connected to a management subnet used to manage all firewall appliances. You can find 2-NIC virtual appliance templates in the Marketplace, or request one directly from your appliance vendor.
+  * **AZF1**. External firewall exposed to the public Internet by using a public IP address resource in Azure. You need to ensure you have a template from the Marketplace, or directly from your appliance vendor, that provisions a 3-NIC virtual appliance.
+  * **AZF2**. Internal firewall used to control traffic between **azsn2** and **azsn3**. This is also a 3-NIC virtual appliance.
+  * **AZF3**. Management firewall accessible to administrators from the on-premises datacenter, and connected to a management subnet used to manage all firewall appliances. You can find 2-NIC virtual appliance templates in the Marketplace, or request one directly from your appliance vendor.
 
 ## User Defined Routing (UDR)
 Each subnet in Azure can be linked to a UDR table used to define how traffic initiated in that subnet is routed. If no UDRs are defined, Azure uses default routes to allow traffic to flow from one subnet to another. To better understand UDRs, visit [What are User Defined Routes and IP Forwarding](virtual-networks-udr-overview.md#ip-forwarding).

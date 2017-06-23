@@ -17,6 +17,7 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Scale a web app worldwide with a high-availability architecture

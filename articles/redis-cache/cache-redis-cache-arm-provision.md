@@ -30,10 +30,11 @@ For the complete template, see [Redis Cache template](https://github.com/Azure/a
 
 > [!NOTE]
 > Resource Manager templates for the new [Premium tier](cache-premium-tier-intro.md) are available. 
+> 
 > * [Create a Premium Redis Cache with clustering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-cluster-diagnostics/)
 > * [Create Premium Redis Cache with data persistence](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-persistence/)
 > * [Create Premium Redis Cache with VNet and optional clustering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-vnet-cluster-diagnostics/)
->
+> 
 > To check for the latest templates, see [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/) and search for `Redis Cache`.
 > 
 > 

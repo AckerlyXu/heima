@@ -17,6 +17,7 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Scale a web app manually
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will learn to create a resource group, app service plan and web app. You will then scale the App Service Plan from a single instance to multiple instances.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -41,7 +44,7 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name AppServiceManualScalePlan --resource-group myResourceGroup --location $location --sku B1
 
 # Add a Web App
-az appservice web create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
+az webapp create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
 
 # Scale Web App to 2 Workers
 az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan --resource-group myResourceGroup

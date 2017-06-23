@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: article
+ms.topic: article 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
@@ -25,7 +25,7 @@ This article shows how to quickly deploy a Linux virtual machine (VM) on Azure b
 > [!NOTE]
 To create a VM using the Azure CLI 2.0, see [Create a VM with the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-You can also quickly deploy a Linux VM by using the [Azure Portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+You can also quickly deploy a Linux VM by using the [Azure portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 The article requires an [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -45,7 +45,7 @@ The following walkthrough has an UbuntuLTS VM being deployed, step by step, with
 
 ## VM quick-create aliases
 
-A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image in PowerShell](cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json), or [upload your own custom image](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).)
+A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image in PowerShell](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json), or [upload your own custom image](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).)
 
 | Alias | Publisher | Offer | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |

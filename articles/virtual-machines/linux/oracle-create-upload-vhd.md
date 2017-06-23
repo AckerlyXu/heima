@@ -73,15 +73,15 @@ You must complete specific configuration steps in the operating system for the v
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in Oracle's Red Hat compatible kernel.
+   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in Oracle's Red Hat compatible kernel.
 
-    In addition to the above, it is recommended to *remove* the following parameters:
+   In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
 
-    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+   Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
 
-    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
+   The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 10. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 11. Install the Azure Linux Agent by running the following command. The latest version is 2.0.15.
 
@@ -149,13 +149,13 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new OEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new OEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
 
-    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+   Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
 
-    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
+   The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 10. Once you are done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg

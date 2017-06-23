@@ -39,10 +39,10 @@ To create a VNet by using PowerShell, follow the steps below.
 
         $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
-    > [!TIP]
-    > You can combine steps 3 and 4 by running **$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location chinaeast**.
-    > 
-    > 
+   > [!TIP]
+   > You can combine steps 3 and 4 by running **$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location chinaeast**.
+   > 
+   > 
 5. Add a subnet to the new VNet variable, as shown below.
 
         Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `

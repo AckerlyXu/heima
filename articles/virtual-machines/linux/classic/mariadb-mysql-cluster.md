@@ -55,9 +55,9 @@ This article describes how to complete the following steps:
 4. Find the name of the CentOS 7 virtual machine image.
 
         azure vm image list | findstr CentOS
-    The output will be something like `f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329`.
+   The output will be something like `f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329`.
 
-    Use that name in the following step.
+   Use that name in the following step.
 5. Create the VM template and replace /path/to/key.pem with the path where you stored the generated .pem SSH key.
 
         azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd" --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329 azureuser
@@ -139,29 +139,29 @@ This article describes how to complete the following steps:
             then editing `/etc/selinux/config` to set `SELINUX=permissive`
 6. Validate MySQL runs.
 
-    a. Start MySQL.
+   a. Start MySQL.
 
            service mysql start
-    b. Secure the MySQL installation, set the root password, remove anonymous users to disable remote root login, and remove the test database.
+   b. Secure the MySQL installation, set the root password, remove anonymous users to disable remote root login, and remove the test database.
 
            mysql_secure_installation
-    c. Create a user on the database for cluster operations, and optionally for your applications.
+   c. Create a user on the database for cluster operations, and optionally for your applications.
 
            mysql -u root -p
            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
            exit
 
-    d. Stop MySQL.
+   d. Stop MySQL.
 
             service mysql stop
 7. Create a configuration placeholder.
 
-    a. Edit the MySQL configuration to create a placeholder for the cluster settings. Do not replace the **`<Variables>`** or uncomment now. That will happen after you create a VM from this template.
+   a. Edit the MySQL configuration to create a placeholder for the cluster settings. Do not replace the **`<Variables>`** or uncomment now. That will happen after you create a VM from this template.
 
             vi /etc/my.cnf.d/server.cnf
-    b. Edit the **[galera]** section and clear it out.
+   b. Edit the **[galera]** section and clear it out.
 
-    c. Edit the **[mariadb]** section.
+   c. Edit the **[mariadb]** section.
 
            wsrep_provider=/usr/lib64/galera/libgalera_smm.so
            binlog_format=ROW
@@ -177,23 +177,23 @@ This article describes how to complete the following steps:
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
 8. Open required ports on the firewall by using FirewallD on CentOS 7.
 
-    * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
-    * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
-    * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
-    * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-    * Reload the firewall: `firewall-cmd --reload`
+   * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+   * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
+   * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
+   * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
+   * Reload the firewall: `firewall-cmd --reload`
 
 9. Optimize the system for performance. For more information, see [performance tuning strategy](optimize-mysql.md).
 
-    a. Edit the MySQL configuration file again.
+   a. Edit the MySQL configuration file again.
 
             vi /etc/my.cnf.d/server.cnf
-    b. Edit the **[mariadb]** section and append the following content:
+   b. Edit the **[mariadb]** section and append the following content:
 
-    > [!NOTE]
-    > We recommend that innodb\_buffer\_pool_size is 70 percent of your VM's memory. In this example, it has been set at 2.45 GB for the medium Azure VM with 3.5 GB of RAM.
-    >
-    >
+   > [!NOTE]
+   > We recommend that innodb\_buffer\_pool_size is 70 percent of your VM's memory. In this example, it has been set at 2.45 GB for the medium Azure VM with 3.5 GB of RAM.
+   >
+   >
 
            innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70 percent of physical memory.
            innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -220,29 +220,32 @@ Create three VMs with the template you created, and then configure and start the
 
 1. Create the first CentOS 7 VM from the mariadb-galera-image image you created, providing the following information:
 
-    - Virtual network name: mariadbvnet
-    - Subnet: mariadb
-    - Machine size: medium
-    - Cloud service name: mariadbha (or whatever name you want to be accessed through mariadbha.chinacloudapp.cn)
-    - Machine name: mariadb1
-    - Username: azureuser
-    - SSH access: enabled
-    - Passing the SSH certificate .pem file and replacing /path/to/key.pem with the path where you stored the generated .pem SSH key.
+ - Virtual network name: mariadbvnet
+ - Subnet: mariadb
+ - Machine size: medium
+ - Cloud service name: mariadbha (or whatever name you want to be accessed through mariadbha.chinacloudapp.cn)
+ - Machine name: mariadb1
+ - Username: azureuser
+ - SSH access: enabled
+ - Passing the SSH certificate .pem file and replacing /path/to/key.pem with the path where you stored the generated .pem SSH key.
 
-    > [!NOTE]
-    > The following commands are split over multiple lines for clarity, but you should enter each as one line.
-    >
-    >
-        azure vm create
-        --virtual-network-name mariadbvnet
-        --subnet-names mariadb
-        --availability-set clusteravset
-        --vm-size Medium
-        --ssh-cert "/path/to/key.pem"
-        --no-ssh-password
-        --ssh 22
-        --vm-name mariadb1
-        mariadbha mariadb-galera-image azureuser
+   > [!NOTE]
+   > The following commands are split over multiple lines for clarity, but you should enter each as one line.
+   >
+   >
+    
+    ```
+    azure vm create
+    --virtual-network-name mariadbvnet
+    --subnet-names mariadb
+    --availability-set clusteravset
+    --vm-size Medium
+    --ssh-cert "/path/to/key.pem"
+    --no-ssh-password
+    --ssh 22
+    --vm-name mariadb1
+    mariadbha mariadb-galera-image azureuser
+    ```
 2. Create two more virtual machines by connecting them to the mariadbha cloud service. Change the VM name and the SSH port to a unique port not conflicting with other VMs in the same cloud service.
 
         azure vm create
@@ -255,7 +258,7 @@ Create three VMs with the template you created, and then configure and start the
         --ssh 23
         --vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-    For MariaDB3:
+  For MariaDB3:
 
         azure vm create
         --virtual-network-name mariadbvnet

@@ -204,7 +204,7 @@ The parameters are self-explanatory. Substitute your particular variables and ru
 > 
 > 
 
-Once you run the command, go to the Azure Portal and you will see your machine begin to provision.
+Once you run the command, go to the Azure portal and you will see your machine begin to provision.
 
 ![][13]
 
@@ -223,16 +223,16 @@ Don't forget we can also connect through an RDP session from the Azure Classic M
 I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
 
 <!--Image references-->
-[2]: ./media/chef-automation/2.png
-[3]: ./media/chef-automation/3.png
-[4]: ./media/chef-automation/4.png
-[5]: ./media/chef-automation/5.png
-[6]: ./media/chef-automation/6.png
-[7]: ./media/chef-automation/7.png
-[8]: ./media/chef-automation/8.png
-[9]: ./media/chef-automation/9.png
-[10]: ./media/chef-automation/10.png
-[11]: ./media/chef-automation/11.png
-[13]: ./media/chef-automation/13.png
+[2]: media/chef-automation/2.png
+[3]: media/chef-automation/3.png
+[4]: media/chef-automation/4.png
+[5]: media/chef-automation/5.png
+[6]: media/chef-automation/6.png
+[7]: media/chef-automation/7.png
+[8]: media/chef-automation/8.png
+[9]: media/chef-automation/9.png
+[10]: media/chef-automation/10.png
+[11]: media/chef-automation/11.png
+[13]: media/chef-automation/13.png
 
 <!--Link references-->

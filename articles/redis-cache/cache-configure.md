@@ -317,7 +317,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
-> Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal or command-line management tools such as Azure CLI or PowerShell.
+> Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure portal or command-line management tools such as Azure CLI or PowerShell.
 > 
 > 
 
@@ -325,7 +325,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 | --- | --- | --- |
 | `databases` |16 |The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where `dbid` is a number between `0` and `databases - 1`. |
 | `maxclients` |Depends on the pricing tier<sup>2</sup> |This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting for how Redis selects what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure Portal. For more information, see [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved). |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting for how Redis selects what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved). |
 | `maxmemory-sample`s |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |
@@ -335,19 +335,19 @@ New Azure Redis Cache instances are configured with the following default Redis 
 <sup>1</sup>The limit for `databases` is different for each Azure Redis Cache pricing tier and can be set at cache creation. If no `databases` setting is specified during cache creation, the default is 16.
 
 * Basic and Standard caches
-    * C0 (250 MB) cache - up to 16 databases
-    * C1 (1 GB) cache - up to 16 databases
-    * C2 (2.5 GB) cache - up to 16 databases
-    * C3 (6 GB) cache - up to 16 databases
-    * C4 (13 GB) cache - up to 32 databases
-    * C5 (26 GB) cache - up to 48 databases
-    * C6 (53 GB) cache - up to 64 databases
+  * C0 (250 MB) cache - up to 16 databases
+  * C1 (1 GB) cache - up to 16 databases
+  * C2 (2.5 GB) cache - up to 16 databases
+  * C3 (6 GB) cache - up to 16 databases
+  * C4 (13 GB) cache - up to 32 databases
+  * C5 (26 GB) cache - up to 48 databases
+  * C6 (53 GB) cache - up to 64 databases
 * Premium caches
-    * P1 (6 GB - 60 GB) - up to 16 databases
-    * P2 (13 GB - 130 GB) - up to 32 databases
-    * P3 (26 GB - 260 GB) - up to 48 databases
-    * P4 (53 GB - 530 GB) - up to 64 databases
-    * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed.
+  * P1 (6 GB - 60 GB) - up to 16 databases
+  * P2 (13 GB - 130 GB) - up to 32 databases
+  * P3 (26 GB - 260 GB) - up to 48 databases
+  * P4 (53 GB - 530 GB) - up to 64 databases
+  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed.
 
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
@@ -360,18 +360,18 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 <sup>2</sup>`maxclients` is different for each Azure Redis Cache pricing tier.
 
 * Basic and Standard caches
-    * C0 (250 MB) cache - up to 256 connections
-    * C1 (1 GB) cache - up to 1,000 connections
-    * C2 (2.5 GB) cache - up to 2,000 connections
-    * C3 (6 GB) cache - up to 5,000 connections
-    * C4 (13 GB) cache - up to 10,000 connections
-    * C5 (26 GB) cache - up to 15,000 connections
-    * C6 (53 GB) cache - up to 20,000 connections
+  * C0 (250 MB) cache - up to 256 connections
+  * C1 (1 GB) cache - up to 1,000 connections
+  * C2 (2.5 GB) cache - up to 2,000 connections
+  * C3 (6 GB) cache - up to 5,000 connections
+  * C4 (13 GB) cache - up to 10,000 connections
+  * C5 (26 GB) cache - up to 15,000 connections
+  * C6 (53 GB) cache - up to 20,000 connections
 * Premium caches
-    * P1 (6 GB - 60 GB) - up to 7,500 connections
-    * P2 (13 GB - 130 GB) - up to 15,000 connections
-    * P3 (26 GB - 260 GB) - up to 30,000 connections
-    * P4 (53 GB - 530 GB) - up to 40,000 connections
+  * P1 (6 GB - 60 GB) - up to 7,500 connections
+  * P2 (13 GB - 130 GB) - up to 15,000 connections
+  * P3 (26 GB - 260 GB) - up to 30,000 connections
+  * P4 (53 GB - 530 GB) - up to 40,000 connections
 
 > [!NOTE]
 > While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.

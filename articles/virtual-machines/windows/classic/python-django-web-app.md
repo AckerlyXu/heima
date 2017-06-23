@@ -52,11 +52,11 @@ A screenshot of the completed application appears next.
 1. Follow the instructions given [here](tutorial.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
 2. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
 
-    * Navigate to your newly created virtual machine in the Azure Classic Management Portal and click the **ENDPOINTS** tab.
-    * Click the **ADD** button at the bottom of the screen.
-      ![add endpoint](./media/python-django-web-app/django-helloworld-addendpoint.png)
-    * Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
-      ![][port80]
+   * Navigate to your newly created virtual machine in the Azure Classic Management Portal and click the **ENDPOINTS** tab.
+   * Click the **ADD** button at the bottom of the screen.
+     ![add endpoint](./media/python-django-web-app/django-helloworld-addendpoint.png)
+   * Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
+     ![][port80]
 3. From the **DASHBOARD** tab, click **CONNECT** to use **Remote Desktop** to remotely log into the newly created Azure virtual machine.  
 
 **Important Note:** All instructions below assume you logged into the virtual machine correctly and are issuing commands there rather than your local machine.
@@ -85,20 +85,20 @@ A screenshot of the completed application appears next.
 ## Creating a new Django application
 1. From *C:\inetpub\wwwroot*, enter the following command to create a new Django project:
 
-    For Python 2.7, use the following command.
+   For Python 2.7, use the following command.
 
         C:\Python27\Scripts\django-admin.exe startproject helloworld
 
-    For Python 3.4, use the following command.
+   For Python 3.4, use the following command.
 
         C:\Python34\Scripts\django-admin.exe startproject helloworld
 
-    ![The result of the New-AzureService command](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
+   ![The result of the New-AzureService command](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
 2. The **django-admin** command generates a basic structure for Django-based websites:
 
-    * **helloworld\manage.py** helps you to start hosting and stop hosting your Django-based website
-    * **helloworld\helloworld\settings.py** contains Django settings for your application.
-    * **helloworld\helloworld\urls.py** contains the mapping code between each url and its view.
+   * **helloworld\manage.py** helps you to start hosting and stop hosting your Django-based website
+   * **helloworld\helloworld\settings.py** contains Django settings for your application.
+   * **helloworld\helloworld\urls.py** contains the mapping code between each url and its view.
 3. Create a new file named **views.py** in the *C:\inetpub\wwwroot\helloworld\helloworld* directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 
         from django.http import HttpResponse

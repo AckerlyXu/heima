@@ -76,7 +76,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 > 
 
 ## Set up your production environment
-> [!NOTE]
+> [!NOTE] 
 > Currently, in Azure China, you cannot enter GitHub Credential in the new portal; hence, only public GitHub repo is going to work for continuous publishing, and you have to configure it through Kudu. 
 
 In a typical DevOps scenario, you have an application that's running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you have a template that you developed, tested, and used to deploy the production environment. You will set it up in this section.

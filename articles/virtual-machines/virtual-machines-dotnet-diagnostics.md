@@ -1,7 +1,7 @@
 ---
 title: How to use Azure diagnostics in Virtual Machines  | Azure
 description: Using Azure diagnostics to gather data from Azure Virtual Machines for debugging, measuring performance, monitoring, traffic analysis, and more.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: .net
 author: davidmu1
 manager:
@@ -118,7 +118,7 @@ This walk through assumes you have an Azure subscription and are using Visual St
 3. Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
 4. Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
-    ```
+```
         <?xml version="1.0" encoding="utf-8"?>
         <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
               <WadCfg>
@@ -139,7 +139,7 @@ This walk through assumes you have an Azure subscription and are using Visual St
                 </DiagnosticMonitorConfiguration>
               </WadCfg>
         </PublicConfig>
-    ```
+```
 
 ### Step 5: Remotely install Diagnostics on your Azure Virtual Machine
 The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension, and Remove-AzureVMDiagnosticsExtension.

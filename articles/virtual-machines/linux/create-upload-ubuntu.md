@@ -100,7 +100,6 @@ This article assumes that you have already installed an Ubuntu Linux operating s
         # sudo reboot
 
     **See also:**
-
     - [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
     - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
