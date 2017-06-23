@@ -65,17 +65,17 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
     Expected output:
 
-    ```json
-    {
-         "publicIp": {
-             "idleTimeoutInMinutes": 4,
-             "ipAddress": "52.176.43.167",
-             "provisioningState": "Succeeded",
-             "publicIPAllocationMethod": "Static",
-             "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
-         }
-     }
-     ```
+   ```json
+   {
+        "publicIp": {
+            "idleTimeoutInMinutes": 4,
+            "ipAddress": "52.176.43.167",
+            "provisioningState": "Succeeded",
+            "publicIPAllocationMethod": "Static",
+            "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
+        }
+    }
+    ```
 
    * `--resource-group`: Name of the resource group in which to create the public IP.
    * `--name`: Name of the public IP.

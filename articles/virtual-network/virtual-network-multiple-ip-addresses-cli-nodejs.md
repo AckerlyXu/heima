@@ -71,38 +71,38 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 
     Replace *mypublicdns* with a name that is unique within the Azure location.
 
-    ```azurecli
-    azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP1 \
-    --domain-name-label mypublicdns --allocation-method Static
+      ```azurecli
+      azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP1 \
+      --domain-name-label mypublicdns --allocation-method Static
 
-    azure network nic create --resource-group $RgName --location $Location --name myNic1 \
-    --private-ip-address 10.0.0.4 --subnet-name mySubnet --subnet-vnet-name myVNet \
-    --subnet-name mySubnet --public-ip-name myPublicIP1
-    ```
+      azure network nic create --resource-group $RgName --location $Location --name myNic1 \
+      --private-ip-address 10.0.0.4 --subnet-name mySubnet --subnet-vnet-name myVNet \
+      --subnet-name mySubnet --public-ip-name myPublicIP1
+      ```
 
-    > [!NOTE]
-    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+      > [!NOTE]
+      > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
     **IPConfig-2**
 
-    Enter the following commands to create a new public IP address resource and a new IP configuration with a static public IP address and a static private IP address:
+     Enter the following commands to create a new public IP address resource and a new IP configuration with a static public IP address and a static private IP address:
 
-    ```azurecli
-    azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP2
-    --domain-name-label mypublicdns2 --allocation-method Static
+      ```azurecli
+      azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP2
+      --domain-name-label mypublicdns2 --allocation-method Static
 
-    azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --name IPConfig-2
-    --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
-    ```
+      azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --name IPConfig-2
+      --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
+      ```
 
     **IPConfig-3**
 
     Enter the following commands to create an IP configuration with a static private IP address and no public IP address:
 
-    ```azurecli
-    azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --private-ip-address 10.0.0.6 \
-    --name IPConfig-3
-    ```
+      ```azurecli
+      azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --private-ip-address 10.0.0.6 \
+      --name IPConfig-3
+      ```
 
     >[!NOTE] 
     >Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs article.
@@ -139,7 +139,6 @@ You can add additional private and public IP addresses to an existing NIC by com
         azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 \
         --private-ip-address 10.0.0.7 --name IPConfig-4
         ```
-
         Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
 
     - **Add a public IP address**
@@ -202,15 +201,14 @@ You can add additional private and public IP addresses to an existing NIC by com
     azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
     ```
 
-    The returned output is similar to the following:
+      The returned output is similar to the following:
+      ```
+      Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
 
-    ```
-    Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
-
-    default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
-    IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
-    IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP3
-    ```
+      default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
+      IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
+      IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP3
+      ```
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

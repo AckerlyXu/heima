@@ -186,7 +186,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+- Add company branding to your Sign In and Access Panel pages
 
 #### Application Proxy
 **Type:** Basic Features
@@ -327,7 +327,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 ## Next steps
 
-- [Add company branding to your sign-in and Access Panel pages](active-directory-add-company-branding.md)
+- Add company branding to your sign-in and Access Panel pages
 
 
 <!--Image references-->

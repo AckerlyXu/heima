@@ -27,8 +27,8 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
         data:
         info:    group create command OK
 
-    * **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-    * **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *chinaeast*.
+   * **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
+   * **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *chinaeast*.
 4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. 
 
         azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l chinaeast
@@ -48,10 +48,10 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
         data:      192.168.0.0/16
         info:    network vnet create command OK
 
-    * **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
-    * **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
-    * **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
-    * **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *chinaeast*.
+   * **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
+   * **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
+   * **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
+   * **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *chinaeast*.
 5. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
 
         azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
@@ -70,9 +70,9 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
         data:
         info:    network vnet subnet create command OK
 
-    * **-e (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-    * **-n (or --name)**. Name of the new subnet. For our scenario, *FrontEnd*.
-    * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.1.0/24*.
+   * **-e (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
+   * **-n (or --name)**. Name of the new subnet. For our scenario, *FrontEnd*.
+   * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.1.0/24*.
 6. Repeat step 5 above to create other subnets, if necessary. For our scenario, run the command below to create the *BackEnd* subnet.
 
         azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24

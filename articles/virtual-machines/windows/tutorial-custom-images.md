@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 05/08/2017
 ms.date: 06/21/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a custom image of an Azure VM using PowerShell

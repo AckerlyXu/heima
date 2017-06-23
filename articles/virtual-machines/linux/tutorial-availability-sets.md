@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2017
-ms.date: 06/21/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-
+ms.custom: mvc
 ---
 
 # How to use availability sets
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
 
 ## Availability set overview
 
@@ -49,11 +49,11 @@ You can create an availability set using [az vm availability-set create](https:/
 
 Create a resource group.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupAvailability --location chinaeast
 ```
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -69,7 +69,7 @@ VMs must be created within the availability set to make sure they are correctly 
 
 When you create a VM using [az vm create](https://docs.microsoft.com/cli/azure/vm#create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set.
 
-```azurecli
+```azurecli-interactive 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
@@ -91,7 +91,7 @@ One thing you may encounter as you add VMs is that a particular VM size is no lo
 
 You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \

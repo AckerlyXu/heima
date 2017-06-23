@@ -311,7 +311,7 @@ In this article, we cover the steps to deploy SAP applications on Windows virtua
 Setting up an Azure virtual machine for SAP software deployment involves multiple steps and resources. Before you start, make sure that you meet the prerequisites for installing SAP software on Windows virtual machines in Azure.
 
 ### Local computer
-To manage Windows or Linux VMs, you can use a PowerShell script and the Azure Portal. For both tools, you need a local computer running Windows 7 or a later version of Windows. If you want to manage only Linux VMs and you want to use a Linux computer for this task, you can use Azure CLI.
+To manage Windows or Linux VMs, you can use a PowerShell script and the Azure portal. For both tools, you need a local computer running Windows 7 or a later version of Windows. If you want to manage only Linux VMs and you want to use a Linux computer for this task, you can use Azure CLI.
 
 ### Internet connection
 To download and run the tools and scripts that are required for SAP software deployment, you must be connected to the Internet. The Azure VM that is running the Azure Enhanced Monitoring Extension for SAP also needs access to the Internet. If the Azure VM is part of an Azure virtual network or on-premises domain, make sure that the relevant proxy settings are set, as described in [Configure the proxy][deployment-guide-configure-proxy].
@@ -374,7 +374,7 @@ These Microsoft articles cover SAP deployments in Azure:
 * [Azure Virtual Machines planning and implementation for SAP on Windows][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Windows (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Windows][dbms-guide]
-* [Azure Portal][azure-portal]
+* [Azure portal][azure-portal]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Deployment scenarios for SAP software on Azure VMs
 You have multiple options for deploying VMs and associated disks in Azure. It's important to understand the differences between deployment options, because you might take different steps to prepare your VMs for deployment based on the deployment type you choose.
@@ -386,10 +386,10 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 ![Flowchart of VM deployment for SAP systems by using a VM image from the Azure Marketplace][deployment-guide-figure-100]
 
-#### Create a virtual machine by using the Azure Portal
-The easiest way to create a new virtual machine with an image from the Azure Marketplace is by using the Azure Portal.
+#### Create a virtual machine by using the Azure portal
+The easiest way to create a new virtual machine with an image from the Azure Marketplace is by using the Azure portal.
 
-1.  Go to <https://portal.azure.cn/#create>.  Or, in the Azure Portal menu, select **+ New**.
+1.  Go to <https://portal.azure.cn/#create>.  Or, in the Azure portal menu, select **+ New**.
 2.  Select **Compute**, and then select the type of operating system you want to deploy. For example, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), or Red Hat Enterprise Linux 7.2 (RHEL 7.2). The default list view does not show all supported operating systems. Select **see all** for a full list. For more information about supported operating systems for SAP software deployment, see SAP Note [1928533].
 3.  On the next page, review terms and conditions.
 4.  In the **Select a deployment model** box, select **Resource Manager**.
@@ -422,7 +422,7 @@ The wizard guides you through setting the required parameters to create the virt
 Your virtual machine is deployed in the resource group you selected.
 
 #### Create a virtual machine by using a template
-You can create a virtual machine by using one of the SAP templates published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github]. You also can manually create a virtual machine by using the [Azure Portal][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], or [Azure CLI][virtual-machines-linux-tutorial].
+You can create a virtual machine by using one of the SAP templates published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github]. You also can manually create a virtual machine by using the [Azure portal][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], or [Azure CLI][virtual-machines-linux-tutorial].
 
 * [**Two-tier configuration (only one virtual machine) template** (sap-2-tier-marketplace-image)][sap-templates-2-tier-marketplace-image]
 
@@ -431,7 +431,7 @@ You can create a virtual machine by using one of the SAP templates published in 
 
   To create a three-tier system by using multiple virtual machines, use this template.
 
-In the Azure Portal, enter the following parameters for the template:
+In the Azure portal, enter the following parameters for the template:
 
 1. **Basics**:
   * **Subscription**: The subscription to use to deploy the template.
@@ -510,7 +510,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 ![Flowchart of VM deployment for SAP systems by using a VM image in private Marketplace][deployment-guide-figure-300]
 
 #### Create the virtual machine
-To create a deployment by using a private OS image from the Azure Portal, use one of the following SAP templates. These templates are published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github]. You also can manually create a virtual machine, by using [PowerShell][virtual-machines-upload-image-windows-resource-manager].
+To create a deployment by using a private OS image from the Azure portal, use one of the following SAP templates. These templates are published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github]. You also can manually create a virtual machine, by using [PowerShell][virtual-machines-upload-image-windows-resource-manager].
 
 * [**Two-tier configuration (only one virtual machine) template** (sap-2-tier-user-image)][sap-templates-2-tier-user-image]
 
@@ -519,7 +519,7 @@ To create a deployment by using a private OS image from the Azure Portal, use on
 
   To create a three-tier system by using multiple virtual machines or your own OS image, use this template.
 
-In the Azure Portal, enter the following parameters for the template:
+In the Azure portal, enter the following parameters for the template:
 
 1. **Basics**:
   * **Subscription**: The subscription to use to deploy the template.
@@ -597,13 +597,13 @@ The following flowchart shows the sequence of steps for moving an on-premises VM
 Assuming that the disk is already uploaded and defined in Azure (see [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]), do the tasks described in the next few sections.
 
 #### Create a virtual machine
-To create a deployment by using a private OS disk through the Azure Portal, use the SAP template published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github]. You also can manually create a virtual machine, by using PowerShell.
+To create a deployment by using a private OS disk through the Azure portal, use the SAP template published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github]. You also can manually create a virtual machine, by using PowerShell.
 
 * [**Two-tier configuration (only one virtual machine) template** (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
 
   To create a two-tier system by using only one virtual machine, use this template.
 
-In the Azure Portal, enter the following parameters for the template:
+In the Azure portal, enter the following parameters for the template:
 
 1. **Basics**:
   * **Subscription**: The subscription to use to deploy the template.
@@ -690,7 +690,9 @@ The result looks like this:
 If the Azure cmdlet version installed on your computer is the current version, the first page of the installation wizard indicates it by adding **(Installed)** to the product title (see the following screenshot). Your PowerShell Azure cmdlets are up-to-date. To close the installation wizard, select **Exit**.
 
 ![Installation page for Azure PowerShell cmdlets indicating that the most recent version of Azure PowerShell cmdlets are installed][deployment-guide-figure-700]
-### <a name="figure-7"></a> <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Deploy Azure CLI
+<a name="figure-7"></a>
+
+### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Deploy Azure CLI
 1.  Go to [Azure Downloads](/downloads/).
 2.  Under **Command-line tools**, under **Azure command-line interface**, select the **Install** link for your operating system.
 3.  In the Microsoft Download Manager dialog box, for the downloaded file (for example, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), select **Run**.
@@ -712,7 +714,9 @@ azure --version
 The result looks like this:
 
 ![Result of Azure CLI version check][deployment-guide-figure-760]
-### <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a> <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Join a VM to an on-premises domain (Windows only)
+<a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
+
+### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Join a VM to an on-premises domain (Windows only)
 If you deploy SAP VMs in a cross-premises scenario, where on-premises Active Directory and DNS are extended in Azure, it is expected that the VMs are joining an on-premises domain. The detailed steps you take to join a VM to an on-premises domain, and the additional software required to be a member of an on-premises domain, varies by customer. Usually, to join a VM to an on-premises domain, you need to install additional software, like antimalware software, and backup or monitoring software.
 
 In this scenario, you also need to make sure that if Internet proxy settings are forced when a VM joins a domain in your environment, the Windows Local System Account (S-1-5-18) in the Guest VM has the same proxy settings. The easiest option is to force the proxy by using a domain Group Policy, which applies to systems in the domain.
@@ -1028,7 +1032,9 @@ The AzureEnhancedMonitoring Windows service does not exist.
 Azperflib.exe output throws an error:
 
 ![Execution of azperflib.exe indicates that the service of the Azure Enhanced Monitoring Extension for SAP is not running][deployment-guide-figure-1400]
-###### <a name="figure-14"></a> Solution
+<a name="figure-14"></a>
+
+###### Solution
 If the service does not exist, the Azure Enhanced Monitoring Extension for SAP has not been installed correctly. Redeploy the extension by using the steps described for your deployment scenario in [Deployment scenarios of VMs for SAP in Azure][deployment-guide-3].
 
 After you deploy the extension, after one hour, check again whether the Azure performance counters are provided in the Azure VM.

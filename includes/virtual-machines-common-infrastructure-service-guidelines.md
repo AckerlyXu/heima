@@ -169,7 +169,7 @@ Decisions:
 
 Task:
 
-* Create the set of storage accounts using your naming convention. You can use the Azure Portal, the Azure Classic Management Portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+* Create the set of storage accounts using your naming convention. You can use the Azure portal, the Azure Classic Management Portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
 
 ## 4. Cloud services
 Cloud services are a fundamental building block in Azure service management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
@@ -257,7 +257,7 @@ Tasks:
 * Define the address space for the virtual network.
 * Define the set of subnets and the address space for each.
 * For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-* Create the virtual network using your naming convention. You can use the Azure Portal or the Azure Classic Management Portal.
+* Create the virtual network using your naming convention. You can use the Azure portal or the Azure Classic Management Portal.
 
 ## 6. Availability sets
 In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
@@ -292,7 +292,7 @@ Decision:
 Tasks:
 
 * Define each virtual machine name using your naming convention.
-* Create your virtual machines with the Azure Portal, the Azure Classic Management Portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+* Create your virtual machines with the Azure portal, the Azure Classic Management Portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
 
 ## Example of an IT workload: The Contoso financial analysis engine
 The Contoso Corporation has developed a next-generation financial analysis engine with leading-edge proprietary algorithms to aid in futures market trading. They want to make this engine available to its customers as a set of servers in Azure, which consist of:
@@ -336,7 +336,7 @@ Contoso determined that they needed two storage accounts:
 ### A virtual network with subnets
 Because the virtual network does not need ongoing connectivity to the Contoso on-premises network, Contoso decided on a cloud-only virtual network.
 
-They created a cloud-only virtual network with the following settings using the Azure Portal:
+They created a cloud-only virtual network with the following settings using the Azure portal:
 
 * Name: AZFAE-USE-VN01
 * Location: China East

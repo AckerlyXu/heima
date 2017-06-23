@@ -128,7 +128,7 @@ scaling out, see [Scale instance count manually or automatically](../monitoring-
 
 ## Receive alerts for your app
 Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)?
-You can set up an alert 
+You can set up an alert
 to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
 
 1. In the portal blade of your app, click **Tools** > **Alerts**.  

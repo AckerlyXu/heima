@@ -1,5 +1,5 @@
 ---
-title: Managing access to apps using Azure AD | Azure
+title: Managing access to apps using Azure AD | Microsoft Docs
 description: Describes how Azure Active Directory enables organizations to specify the apps to which each user has access.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 04/05/2017
+origin.date: 05/16/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
----
 
+---
 # Managing access to apps
 Ongoing access management, usage evaluation, and reporting continue to be a challenge after an app is integrated into your organization's identity system. In many cases, IT Administrators or helpdesk have to take an ongoing active role in managing access to your apps. Sometimes, assignment is performed by a general or divisional IT team. Often, the assignment decision is intended to be delegated to the business decision maker, requiring their approval before IT makes the assignment.  Other organizations invest in integration with an existing automated identity and access management system, like Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC). Both the integration and rule development tend to be specialized and expensive. Monitoring or reporting on either management approach is its own separate, costly, and complex investment.
 
 ## How does Azure Active Directory help?
  Azure AD supports extensive access management for configured applications, enabling organizations to easily achieve the right access policies ranging from automatic, attribute-based assignment (ABAC or RBAC scenarios) through delegation and including administrator management. With Azure AD you can easily achieve complex policies, combining multiple management models for a single application and can even re-use management rules across applications with the same audiences.
 
-- [Adding new or existing applications](./active-directory-sso-integrate-saas-apps.md)
+- [Adding new or existing applications](active-directory-sso-integrate-saas-apps.md)
 
  Azure AD's application assignment focuses following assignment mode:
 
@@ -43,5 +43,4 @@ Azure AD features that enable account sharing include:
 - Application assignment FAQ
 
 ## Where can I learn more?
-
-- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

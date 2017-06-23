@@ -3,8 +3,8 @@ title: Receive events from Azure Event Hubs using Java | Azure
 description: Get started receiving from Event Hubs using Java
 services: event-hubs
 documentationcenter: ''
-author: jtaubensee
-manager: timlt
+author: sethmanheim
+manager: digimobile
 editor: ''
 
 ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
@@ -13,8 +13,8 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2017
-ms.date: 03/24/2017
+origin.date: 05/03/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 ---
 
@@ -40,7 +40,6 @@ EventProcessorHost is a Java class that simplifies receiving events from Event H
 In order to use EventProcessorHost, you must have an [Azure Storage account][Azure Storage account]:
 
 1. Log on to the [Azure Classic Management Portal][Azure Classic Management Portal], and click **NEW** at the bottom of the screen.
-
 2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
@@ -84,7 +83,6 @@ For different types of build environments, you can explicitly obtain the latest 
         }
     }
     ```
-
 2. Use the following code to create a new class called ```EventProcessor```.
 
     ```Java
@@ -204,7 +202,6 @@ For different types of build environments, you can explicitly obtain the latest 
         }
     }
     ```
-
 4. Replace the following fields with the values used when you created the Event Hub and storage account.
 
     ```Java
@@ -223,8 +220,15 @@ For different types of build environments, you can explicitly obtain the latest 
 > 
 > 
 
+## Next steps
+You can learn more about Event Hubs by visiting the following links:
+
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
+
 <!-- Links -->
-[Event Hubs overview]: ./event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [Azure Storage account]: ../storage/storage-create-storage-account.md
 [Azure Classic Management Portal]: http://manage.windowsazure.cn
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -232,13 +236,3 @@ For different types of build environments, you can explicitly obtain the latest 
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
-
-## Next steps
-You can learn more about Event Hubs by visiting the following links:
-
-* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](./event-hubs-create.md)
-* [Event Hubs FAQ](./event-hubs-faq.md)
-
-<!-- Links -->
-[Event Hubs overview]: ./event-hubs-overview.md

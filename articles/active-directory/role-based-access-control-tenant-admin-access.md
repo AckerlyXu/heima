@@ -1,5 +1,5 @@
 ---
-title: Tenant admin elevate access - Azure AD | Azure
+title: Tenant admin elevate access - Azure AD | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/09/2017
-ms.date: 03/07/2017
+origin.date: 05/09/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
----
 
+---
 # Elevate access as a tenant admin with Role-Based Access Control
 
 Role-based Access Control helps tenant administrators get temporary elevations in access so that they can grant higher permissions than normal. A tenant admin can elevate herself to the User Access Administrator role when needed. That role gives the tenant admin permissions to grant herself or others roles at the "/" scope.
 
-This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps (like invoicing and auditing) to access all the subscriptions and provide an accurate view of the state of the organization from a billing or asset management perspective.  
+This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps (like invoicing and auditing) to access all the subscriptions and provide an accurate view of the state of the organization for billing or asset management.  
 
 ## How to use elevateAccess to give tenant access
 
@@ -51,6 +51,7 @@ The basic process works with the following steps:
 3. While a User Access Admin, you can also delete role assignments at "/" scope.
 
 4. Revoke your User Access Admin privileges until they're needed again.
+
 
 ## How to undo the elevateAccess action
 
@@ -100,4 +101,6 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
 ## Next steps
 
-- Learn more about [managing Role-Based Access Control with REST](./role-based-access-control-manage-access-rest.md)
+- Learn more about [managing Role-Based Access Control with REST](role-based-access-control-manage-access-rest.md)
+
+

@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 05/02/2017
 ms.date: 06/21/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # How to load balance Windows virtual machines in Azure to create a highly available application
@@ -239,7 +240,7 @@ for ($i=1; $i -le 3; $i++)
   $nic = Get-AzureRmNetworkInterface `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Name myNic$i
-  $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
+  $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Location ChinaEast `

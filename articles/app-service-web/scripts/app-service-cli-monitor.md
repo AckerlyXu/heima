@@ -17,6 +17,7 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Monitor a web app with web server logs
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will create a resource group, app service plan, web app and configure the web app to enable web server logs. You will then download the log files for review.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -41,16 +44,16 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name AppServiceMonitorPlan --resource-group myResourceGroup --location $location
 
 # Create a Web App and save the URL
-url=$(az appservice web create --name $appName --plan AppServiceMonitorPlan --resource-group myResourceGroup --query defaultHostName | sed -e 's/^"//' -e 's/"$//')
+url=$(az webapp create --name $appName --plan AppServiceMonitorPlan --resource-group myResourceGroup --query defaultHostName | sed -e 's/^"//' -e 's/"$//')
 
 # Enable all logging options for the Web App
-az appservice web log config --name $appName --resource-group myResourceGroup --application-logging true --detailed-error-messages true --failed-request-tracing true --web-server-logging filesystem
+az webapp log config --name $appName --resource-group myResourceGroup --application-logging true --detailed-error-messages true --failed-request-tracing true --web-server-logging filesystem
 
 # Create a Web Server Log
 curl -s -L $url/404
 
 # Download the log files for review
-az appservice web log download --name $appName --resource-group myResourceGroup
+az webapp log download --name $webappname --resource-group myResourceGroup
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

@@ -58,7 +58,7 @@ Follow these steps to generate the SSH authentication key.
 5. Select and copy the public key, and save it in a file named publicKey.pem. Don't click **Save public key**, because the saved public key's file format is different from the public key we want.
 6. Click **Save private key**, and save it in a file named privateKey.ppk.
 
-### Step 2: Create the image in the Azure Portal
+### Step 2: Create the image in the Azure portal
 1. In the [portal](https://portal.azure.cn/), click **New** in the task bar to create an image. Then choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
 ![Screenshot of the portal that shows the New button][3]
 
@@ -83,13 +83,13 @@ TCP port 8080 is the default port number that Tomcat uses to listen. If this por
    ![Screenshot that shows the Endpoints box][6]
 3. Click **Add**.  
 
-    1. For the endpoint, enter a name for the endpoint in **Endpoint**, and then enter 80 in **Public Port**.  
+   1. For the endpoint, enter a name for the endpoint in **Endpoint**, and then enter 80 in **Public Port**.  
 
-        If you set it to 80, you don't need to include the port number in the URL that is used to access Tomcat. For example, http://tomcatdemo.chinacloudapp.cn.    
+      If you set it to 80, you don't need to include the port number in the URL that is used to access Tomcat. For example, http://tomcatdemo.chinacloudapp.cn.    
 
-        If you set it to another value, such as 81, you need to add the port number to the URL to access Tomcat. For example,  http://tomcatdemo.chinacloudapp.cn:81/.
-    2. Enter 8080 in **Private Port**. By default, Tomcat listens on TCP port 8080. If you changed the default listen port of Tomcat, you should update **Private Port** to be the same as the Tomcat listen port.  
-        ![Screenshot of UI that shows Add command, Public Port, and Private Port][7]
+      If you set it to another value, such as 81, you need to add the port number to the URL to access Tomcat. For example,  http://tomcatdemo.chinacloudapp.cn:81/.
+   2. Enter 8080 in **Private Port**. By default, Tomcat listens on TCP port 8080. If you changed the default listen port of Tomcat, you should update **Private Port** to be the same as the Tomcat listen port.  
+      ![Screenshot of UI that shows Add command, Public Port, and Private Port][7]
 4. Click **OK** to add the endpoint to your virtual machine.
 
 ### Step 2: Connect to the image you created
@@ -268,8 +268,8 @@ After connecting, you should see something similar to the following:
 
         -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
-    > [!IMPORTANT]
-    > Make sure the previous lines are positioned above any lines that would globally restrict access, such as the following: -A INPUT -j REJECT --reject-with icmp-host-prohibited
+     > [!IMPORTANT]
+     > Make sure the previous lines are positioned above any lines that would globally restrict access, such as the following: -A INPUT -j REJECT --reject-with icmp-host-prohibited
 
 To reload the iptables, run the following command:
 
@@ -304,21 +304,21 @@ The following command only changes the permission of the folder directory. The f
 
      sudo chown username:group directory
 
-[1]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-01.png
-[2]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-02.png
-[3]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-03.png
-[4]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-04.png
-[5]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-05.png
-[6]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-06.png
-[7]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-07.png
-[8]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-08.png
-[9]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-09.png
-[10]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-10.png
-[11]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-11.png
-[12]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-12.png
-[13]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-13.png
-[14]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-14.png
-[15]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-15.png
-[16]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
-[17]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
-[18]: ./media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
+[1]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-01.png
+[2]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-02.png
+[3]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-03.png
+[4]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-04.png
+[5]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-05.png
+[6]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-06.png
+[7]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-07.png
+[8]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-08.png
+[9]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-09.png
+[10]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-10.png
+[11]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-11.png
+[12]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-12.png
+[13]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-13.png
+[14]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-14.png
+[15]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-15.png
+[16]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
+[17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
+[18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory certificate-based authentication - Get started  | Microsoft Docs
 description: Learn how to configure certificate-based authentication in your environment
 author: MarkusVi
@@ -11,8 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/24/2017
-ms.date: 06/12/2017
+origin.date: 05/17/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
 
 ---
@@ -121,12 +121,13 @@ To retrieve the trusted certificate authorities that are defined in your directo
 
 ### Add
 
-To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0/) cmdlet: 
+To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0/) cmdlet and set the **crlDistributionPoint** attribute to a correct value: 
    
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
     $new_ca.AuthorityType=0 
     $new_ca.TrustedCertificate=$cert 
+    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
 

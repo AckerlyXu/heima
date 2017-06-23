@@ -1,6 +1,6 @@
 ---
 title: Attach an unmanaged data disk to a Windows VM - Azure | Azure
-description: How to attach new or existing unmanaged data disk to a Windows VM in the Azure Portal using the Resource Manager deployment model.
+description: How to attach new or existing unmanaged data disk to a Windows VM in the Azure portal using the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/09/2017
-ms.date: 05/15/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
-# How to attach an unmanaged data disk to a Windows VM in the Azure Portal
+# How to attach an unmanaged data disk to a Windows VM in the Azure portal
 
-This article shows you how to attach both new and existing unmanaged disks to Windows virtual machines through the Azure Portal. You can also [attach a data disk using PowerShell](./attach-disk-ps.md). Before you do this, review these tips:
+This article shows you how to attach both new and existing unmanaged disks to Windows virtual machines through the Azure portal. You can also [attach a data disk using PowerShell](./attach-disk-ps.md). Before you do this, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md).
 * To use Premium storage, you need a DS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -30,7 +30,7 @@ This article shows you how to attach both new and existing unmanaged disks to Wi
 You can also [attach a data disk using Powershell](attach-disk-ps.md).
 
 ## Find the virtual machine
-1. Sign in to the [Azure Portal](https://portal.azure.cn/).
+1. Sign in to the [Azure portal](https://portal.azure.cn/).
 2. In the menu on the left, click **Virtual Machines**.
 3. Select the virtual machine from the list.
 4. In the Virtual machines blade, click **Disks**.
@@ -91,6 +91,8 @@ After deleting data from your disk, you can ensure the TRIM operations flush pro
 ```
 defrag.exe <volume:> -l
 ```
+
+You can also ensure the entire volume is trimmed by formatting the volume.
 
 ## Next steps
 If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

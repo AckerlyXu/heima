@@ -1,4 +1,4 @@
-1. Sign in to the [Azure Portal](https://portal.azure.cn).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 
 2. Starting in the upper left, click **New > Compute > Windows Server 2016 Datacenter**.
 
@@ -16,7 +16,7 @@ The Basics blade requests administrative information for the virtual machine.
 
 2. Enter a **User name** and a strong **Password** that are used to create a local account on the VM. The local account is used to sign in to and manage the VM. In the example, _azureuser_ is the user name.
 
-    The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/windows/faq.md).
+ The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/windows/faq.md).
 
 3. The **Subscription** is optional. One common setting is "Pay-As-You-Go".
 
@@ -34,7 +34,7 @@ The Size blade identifies the configuration details of the VM, and lists various
 
 Choose a VM size, and then click **Select** to continue. In this example, _DS1_\__V2 Standard_ is the VM size.
 
-![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
+  ![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 
 ## 3. Settings blade
 
@@ -48,8 +48,8 @@ When you're done making changes, click **OK**.
 
 The Summary blade lists the settings specified in the previous blades. Click **OK** when you're ready to make the image.
 
-![Summary blade report giving specified settings of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+ ![Summary blade report giving specified settings of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
 After the virtual machine is created, the portal lists the new virtual machine under **All resources**, and displays a tile of the virtual machine on the dashboard. The corresponding cloud service and storage account also are created and listed. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
-![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
+ ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

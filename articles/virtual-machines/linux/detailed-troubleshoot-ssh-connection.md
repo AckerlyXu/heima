@@ -32,7 +32,7 @@ The following steps help you isolate the source of the failure and figure out so
 
 First, check the status of the VM in the portal.
 
-In the [Azure Portal](https://portal.azure.cn):
+In the [Azure portal](https://portal.azure.cn):
 
 1. For VMs created by using the Resource Manager model, select **Virtual machines** > *VM name*.
 
@@ -114,12 +114,14 @@ If you don't have another VM in the same virtual network, you can easily create 
 
 If you can create an SSH connection with a VM in the same virtual network, check the following areas:
 
-* **The endpoint configuration for SSH traffic on the target VM.** The private TCP port of the endpoint should match the TCP port on which the SSH service on the VM is listening. (The default port is 22). For VMs created by using the Resource Manager deployment model, verify the SSH TCP port number in the Azure Portal by selecting **Virtual machines** > *VM name* > **Settings** > **Endpoints**.
+* **The endpoint configuration for SSH traffic on the target VM.** The private TCP port of the endpoint should match the TCP port on which the SSH service on the VM is listening. (The default port is 22). For VMs created by using the Resource Manager deployment model, verify the SSH TCP port number in the Azure portal by selecting **Virtual machines** > *VM name* > **Settings** > **Endpoints**.
 * **The ACL for the SSH traffic endpoint on the target virtual machine.** An ACL enables you to specify allowed or denied incoming traffic from the Internet, based on its source IP address. Misconfigured ACLs can prevent incoming SSH traffic to the endpoint. Check your ACLs to ensure that incoming traffic from the public IP addresses of your proxy or other edge server is allowed. For more information, see [About network access control lists (ACLs)](../../virtual-network/virtual-networks-acl.md).
 
 To eliminate the endpoint as a source of the problem, remove the current endpoint, create another endpoint, and specify the SSH name (TCP port 22 for the public and private port number). For more information, see [Set up endpoints on a virtual machine in Azure](../windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a id="nsg" name="source-4-network-security-groups"></a> Source 4: Network security groups
+<a id="nsg"></a>
+
+## Source 4: Network security groups
 Network security groups enable you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
 For more information, see [About network security groups](../../virtual-network/virtual-networks-nsg.md).
 

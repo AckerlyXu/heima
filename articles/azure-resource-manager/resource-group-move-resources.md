@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/10/2017
-ms.date: 06/05/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 
 ---
@@ -25,16 +25,16 @@ When moving resources, both the source group and the target group are locked dur
 
 You cannot change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
 
-<!-- billing-how-to-switch-azure-offer not exist in Azure.cn-->
+<!-- Not Available [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md) -->
 > [!NOTE]
-> This article describes how to move resources within an existing Azure account offering.<!-- If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md). -->
+> This article describes how to move resources within an existing Azure account offering.
 > 
 > 
 
 ## Checklist before moving resources
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
+1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
     For Azure PowerShell, use:
 
@@ -56,7 +56,7 @@ There are some important steps to perform before moving a resource. By verifying
 
 2. The service must enable the ability to move resources. This topic lists which services enable moving resources and which services do not enable moving resources.
 3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
-   with that resource type. To learn how to check the registration status and register resource providers, see [Resource providers and types](resource-manager-supported-services.md#resource-providers-and-types).
+   with that resource type. To learn how to check the registration status and register resource providers, see [Resource providers and types](resource-manager-supported-services.md).
 
 ## When to call support
 You can move most resources through the self-service operations shown in this topic. Use the self-service operations to:
@@ -99,14 +99,16 @@ For now, the services that enable moving to both a new resource group and subscr
 * Traffic Manager
 * Virtual Machines - Does not support move to a new subscription when its certificates are stored in a Key Vault
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-* Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
+* Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled. In addition,
+a Virtual Network cannot be moved to a different subscription if the Virtual Network contains any subnet with resource navigation links. For example, a Virtual Network subnet has a resource navigation link when a Microsoft.Cache
+redis resource is deployed into this subnet.
 
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
 * Application Gateway
-* Application Insights
+
 * Express Route
 * DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
@@ -155,7 +157,7 @@ You can move an App Service Certificate to a new resource group or subscription 
 3. Upload the certificate to the web app
 
 ## <a name="recovery-services-limitations"></a>Recovery Services limitations
-Move is not enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery. 
+Move is not enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery.
 
 For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You cannot move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
 
@@ -166,13 +168,13 @@ You can move HDInsight clusters to a new subscription or resource group. However
 When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
 
 ## <a name="classic-deployment-limitations"></a>Classic deployment limitations
-The options for moving resources deployed through the classic model differ based on whether you are moving the resources within a subscription or to a new subscription. 
+The options for moving resources deployed through the classic model differ based on whether you are moving the resources within a subscription or to a new subscription.
 
 ### Same subscription
 When moving resources from one resource group to another resource group within the same subscription, the following restrictions apply:
 
 * Virtual networks (classic) cannot be moved.
-* Virtual machines (classic) must be moved with the cloud service. 
+* Virtual machines (classic) must be moved with the cloud service.
 * Cloud service can only be moved when the move includes all its virtual machines.
 * Only one cloud service can be moved at a time.
 * Only one storage account (classic) can be moved at a time.
@@ -350,7 +352,7 @@ You are asked to confirm that you want to move the specified resource.
 To move existing resources to another resource group or subscription, run:
 
 ```HTTP
-POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
 In the request body, you specify the target resource group and the resources to move. For more information about the move REST operation, see [Move resources](https://msdn.microsoft.com/library/azure/mt218710.aspx).
@@ -358,5 +360,5 @@ In the request body, you specify the target resource group and the resources to 
 ## Next steps
 * To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 * To learn about Azure CLI commands for managing your subscription, see [Using the Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md).
-* To learn about portal features for managing your subscription, see [Using the Azure Portal to manage resources](resource-group-portal.md).
+* To learn about portal features for managing your subscription, see [Using the Azure portal to manage resources](resource-group-portal.md).
 * To learn about applying a logical organization to your resources, see [Using tags to organize your resources](resource-group-using-tags.md).

@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with a static public IP address using the Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)

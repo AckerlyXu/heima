@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 03/28/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -162,46 +162,46 @@ Changing the current configuration of an application gateway requires three step
 
 1. Get the XML file by using `Get-AzureApplicationGatewayConfig`. This cmdlet exports the configuration XML to be modified to add a probe setting.
 
-    ```powershell
-    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-    ```
+  ```powershell
+  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+  ```
 
 1. Open the XML file in a text editor. Add a `<probe>` section after `<frontendport>`.
 
-    ```xml
-    <Probes>
-        <Probe>
-            <Name>Probe01</Name>
-            <Protocol>Http</Protocol>
-            <Host>contoso.com</Host>
-            <Path>/path/custompath.htm</Path>
-            <Interval>15</Interval>
-            <Timeout>15</Timeout>
-            <UnhealthyThreshold>5</UnhealthyThreshold>
-        </Probe>
-    </Probes>
-    ```
+  ```xml
+<Probes>
+    <Probe>
+        <Name>Probe01</Name>
+        <Protocol>Http</Protocol>
+        <Host>contoso.com</Host>
+        <Path>/path/custompath.htm</Path>
+        <Interval>15</Interval>
+        <Timeout>15</Timeout>
+        <UnhealthyThreshold>5</UnhealthyThreshold>
+    </Probe>
+</Probes>
+  ```
 
-    In the backendHttpSettings section of the XML, add the probe name as shown in the following example:
+  In the backendHttpSettings section of the XML, add the probe name as shown in the following example:
 
-    ```xml
-        <BackendHttpSettings>
-            <Name>setting1</Name>
-            <Port>80</Port>
-            <Protocol>Http</Protocol>
-            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            <RequestTimeout>120</RequestTimeout>
-            <Probe>Probe01</Probe>
-        </BackendHttpSettings>
-    ```
+  ```xml
+    <BackendHttpSettings>
+        <Name>setting1</Name>
+        <Port>80</Port>
+        <Protocol>Http</Protocol>
+        <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        <RequestTimeout>120</RequestTimeout>
+        <Probe>Probe01</Probe>
+    </BackendHttpSettings>
+  ```
 
-    Save the XML file.
+  Save the XML file.
 
 1. Update the application gateway configuration with the new XML file by using `Set-AzureApplicationGatewayConfig`. This cmdlet updates your application gateway with the new configuration.
 
-    ```powershell
-    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
-    ```
+```powershell
+Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+```
 
 ## Next steps
 

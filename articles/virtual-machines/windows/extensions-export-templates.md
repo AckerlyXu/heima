@@ -43,7 +43,7 @@ The following extensions can be exported with the automation script feature.
 
 To export a Resource Group into a reusable template, complete the following steps:
 
-1. Sign in to the Azure Portal
+1. Sign in to the Azure portal
 2. On the Hub Menu, click Resource Groups
 3. Select the target resource group from the list
 4. In the Resource Group blade, click Automation Script

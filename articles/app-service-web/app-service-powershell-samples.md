@@ -17,7 +17,7 @@ ms.workload: app-service
 origin.date: 03/08/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-
+ms.custom: mvc
 ---
 # Azure PowerShell Samples
 

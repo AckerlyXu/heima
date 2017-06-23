@@ -4,7 +4,7 @@ description: A developer's guide to authentication with the Azure Resource Manag
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/27/2016
-ms.date: 06/05/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 
 ---
@@ -102,6 +102,7 @@ The request fails because the user has not logged in yet, but you can retrieve t
 Your application redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager. The [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) method creates the authorization request.
 
 This topic shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](../active-directory/develop/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](../active-directory/develop/active-directory-developers-guide.md).
+<!-- Not Available (../active-directory/active-directory-authentication-libraries.md) and (../active-directory/active-directory-authentication-libraries.md) -->
 
 ### Auth request (OAuth 2.0)
 Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:

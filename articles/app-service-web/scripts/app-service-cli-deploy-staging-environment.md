@@ -17,6 +17,7 @@ ms.topic: sample
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code to a staging environment
@@ -25,12 +26,15 @@ This sample script creates a web app in App Service with an additional deploymen
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 ```azurecli-interactive
 #!/bin/bash
 
-gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
+# Replace the following URL with a public GitHub repo URL
+gitrepo=https://github.com/Azure-Samples/php-docs-hello-world
 webappname=mywebapp$RANDOM
 
 # Create a resource group.
@@ -40,26 +44,26 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku S1
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup \
+az webapp create --name $webappname --resource-group myResourceGroup \
 --plan $webappname
 
 #Create a deployment slot with the name "staging".
-az appservice web deployment slot create --name $webappname --resource-group myResourceGroup \
+az webapp deployment slot create --name $webappname --resource-group myResourceGroup \
 --slot staging
 
 # Deploy sample code to "staging" slot from GitHub.
-az appservice web source-control config --name $webappname --resource-group myResourceGroup \
+az webapp deployment source config --name $webappname --resource-group myResourceGroup \
 --slot staging --repo-url $gitrepo --branch master --manual-integration
 
 # Browse to the deployed web app on staging. Deployment may be in progress, so rerun this if necessary.
-az appservice web browse --name $webappname --resource-group myResourceGroup --slot staging
+az webapp browse --name $webappname --resource-group myResourceGroup --slot staging
 
 # Swap the verified/warmed up staging slot into production.
-az appservice web deployment slot swap --name $webappname --resource-group myResourceGroup \
+az webapp deployment slot swap --name $webappname --resource-group myResourceGroup \
 --slot staging
 
 # Browse to the production slot. 
-az appservice web browse --name $webappname --resource-group myResourceGroup
+az webapp browse --name $webappname --resource-group myResourceGroup
 
 ```
 

@@ -102,14 +102,12 @@ CentOS - Install Git:
   yum install gcc -y  
   yum install git -y
 ```
-
 Ubuntu - Install Git:
 
 ``` bash
  apt-get -y install build-essential  
  apt-get -y install git
 ```
-
 Make and Install on both:
 
 ``` bash

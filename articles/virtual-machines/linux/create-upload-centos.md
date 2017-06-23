@@ -282,7 +282,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
 
@@ -294,11 +294,11 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 10. If building the image from **VMWare, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
 
-    Edit `/etc/dracut.conf`, add content:
+   Edit `/etc/dracut.conf`, add content:
 
         add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
-    Rebuild the initramfs:
+   Rebuild the initramfs:
 
         # sudo dracut -f -v
 
@@ -309,7 +309,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 12. Do not create swap space on the OS disk.
 
-    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
+   The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

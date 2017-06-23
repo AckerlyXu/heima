@@ -1,14 +1,15 @@
-To create a cache, first sign in to the [Azure Portal](https://portal.azure.cn), and click **New** > **Databases** > **Redis Cache**.
+To create a cache, first sign in to the [Azure portal](https://portal.azure.cn), and click **New** > **Databases** > **Redis Cache**.
 
 > [!NOTE]
 > If you don't have an Azure account, you can [Open an Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
 > 
 > 
 
-![New cache](./media/redis-cache-create/redis-cache-new-cache-menu.png)
+![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> In addition to creating caches in the Azure Portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI.
+> In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI.
+> 
 > * To create a cache using Resource Manager templates, see [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md).
 > * To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
 > * To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
@@ -17,7 +18,7 @@ To create a cache, first sign in to the [Azure Portal](https://portal.azure.cn),
 
 In the **New Redis Cache** blade, specify the desired configuration for the cache.
 
-![Create cache](./media/redis-cache-create/redis-cache-cache-create.png) 
+![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * In **Dns name**, enter a unique cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
 * For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
@@ -31,4 +32,4 @@ In the **New Redis Cache** blade, specify the desired configuration for the cach
 
 Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with [default settings](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-![Cache created](./media/redis-cache-create/redis-cache-cache-created.png)
+![Cache created](media/redis-cache-create/redis-cache-cache-created.png)

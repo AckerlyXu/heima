@@ -59,7 +59,6 @@
 #### Manage domain names
 ##### [Classic portal](./active-directory-add-manage-domain-names.md)
 ### Customize the sign-in page
-#### [Classic portal](./active-directory-add-company-branding.md)
 ### [Administer your directory](./active-directory-administer.md)
 ### [O365 directories](./active-directory-manage-o365-subscription.md)
 ### [Self-service signup](./active-directory-self-service-signup.md)

@@ -17,6 +17,7 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Connect a web app to documentdb
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will learn how to create an Azure documentdb account and an Azure web app. Then you will link the documentdb to the web app using app settings.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -42,14 +45,14 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name WebAppWithCosmosDBPlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithCosmosDBPlan --resource-group myResourceGroup 
+az webapp create --name $appName --plan WebAppWithCosmosDBPlan --resource-group myResourceGroup 
 
 # Create a documentdb
 cosmosdb=$(az cosmosdb create --name $appName --resource-group myResourceGroup --query documentEndpoint --output tsv)
 cosmosCreds=$(az cosmosdb list-keys --name $appName --resource-group myResourceGroup --query primaryMasterKey --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_KEY=$cosmosCreds" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_KEY=$cosmosCreds" --name $appName --resource-group myResourceGroup
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
