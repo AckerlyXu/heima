@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 04/18/2017
-ms.date: 06/30/2017
+ms.date: 07/03/2017
 ms.topic: get-started-article
 ms.author: v-yeche
 ---

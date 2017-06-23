@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 08/22/2016
-ms.date: 06/30/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 ---
 
