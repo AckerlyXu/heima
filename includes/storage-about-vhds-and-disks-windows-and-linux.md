@@ -16,7 +16,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 
 ## Types of disks 
 
-There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier. Notice that, Managed Disk is not supported yet in Azure China.
+There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.  
 
 ### Standard storage 
 
@@ -26,11 +26,19 @@ For more information about using Standard Storage with VM disks, please see [Sta
 
 ### Premium storage 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
 
 ### Unmanaged disks
 
 Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
+
+### Managed disks 
+
+Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. 
+
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../articles/storage/storage-managed-disks-overview.md).
+
+We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
 
 ### Disk comparison
 
@@ -41,6 +49,7 @@ The following table provides a comparison of Premium vs Standard for both unmana
 | Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
 | Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
 | Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Unmanaged Disks: 1 GB – 1 TB |
-| Max Throughput per Disk | 200 MB/s | 60 MB/s |
-| Max IOPS per Disk | 5000 IOPS | 500 IOPS |
+| Disk Size | P4: 32 GB<br>P6: 64 GB<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
+| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
+

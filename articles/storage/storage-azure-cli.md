@@ -1,10 +1,10 @@
 ---
-title: Using the Azure CLI 2.0 with Azure Storage | Azure
+title: Using the Azure CLI 2.0 with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) 2.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI 2.0 is a cross-platform tool written in Python.
 services: storage
 documentationcenter: na
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid:
@@ -13,13 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+origin.date: 06/02/2017
+ms.date: 06/26/2017
 ms.author: v-johch
 
 ---
 # Using the Azure CLI 2.0 with Azure Storage
 
-The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure Portal](https://portal.azure.cn), including rich data access.
+The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.cn), including rich data access.
 
 In this guide, we show you how to use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
 
@@ -96,13 +97,6 @@ To work with the resources in your Azure subscription, you must first log in to 
 * **Log in with user name and password**: `az login -u johndoe@<domain_name>.partner.onmschina.cn -p VerySecret`
   * This doesn't work with Microsoft accounts or accounts that use multi-factor authentication.
 * **Log in with a service principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant <domain_name>.parnter.onmschina.cn`
-
->[!NOTE]
->Before you run `az login`, please open Azure CLI 2.0 configuration file located at C:\\Users\\<\%USERPROFILE\%\>\\.azure\\config, make sure the cloud name is set to AzureChinaCloud.
->```
->[cloud]
->name = AzureChinaCloud
->```
 
 ## Azure CLI 2.0 sample script
 
@@ -243,7 +237,7 @@ You can set one of three levels of read access for a new container by specifying
 * `blob`: Public read access for blobs.
 * `container`: Public read and list access to the entire container.
 
-For more information, see [Manage anonymous read access to containers and blobs](./storage-manage-access-to-resources.md).
+For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
 
 ### Upload a blob to a container
 Azure Blob storage supports block, append, and page blobs. Upload blobs to a container by using the `blob upload` command:
@@ -259,7 +253,8 @@ az storage blob upload \
 
  For more information on the different blob types, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
-### Download blobs from a container
+
+### Download a blob from a container
 This example demonstrates how to download a blob from a container:
 
 ```azurecli
@@ -269,35 +264,47 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
+### List the blobs in a container
+
+List the blobs in a container with the [az storage blob list](https://docs.microsoft.com/cli/azure/storage/blob#list) command.
+
+```azurecli
+az storage blob list \
+    --container-name mycontainer \
+    --output table
+```
+
 ### Copy blobs
 You can copy blobs within or across storage accounts and regions asynchronously.
 
-The following example demonstrates how to copy blobs from one storage account to another. We first create a container in another account, specifying that its blobs are publicly, anonymously accessible. Next, we upload a file to the container, and finally, copy the blob from that container into the **mycontainer** container in the current account.
+The following example demonstrates how to copy blobs from one storage account to another. We first create a container in the source storage account, specifying public read-access for its blobs. Next, we upload a file to the container, and finally, copy the blob from that container into a container in the destination storage account.
 
 ```azurecli
-# Create container in second account
+# Create container in source account
 az storage container create \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --name mycontainer2 \
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --name sourcecontainer \
     --public-access blob
 
-# Upload blob to container in second account
+# Upload blob to container in source account
 az storage blob upload \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --file ~/Images/HelloWorld.png \
-    --container-name mycontainer2 \
-    --name myBlockBlob2
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --container-name sourcecontainer \
+    --file ~/Pictures/sourcefile.png \
+    --name sourcefile.png
 
-# Copy blob from second account to current account
+# Copy blob from source account to destination account (destcontainer must exist)
 az storage blob copy start \
-    --source-uri https://<accountname2>.blob.core.chinacloudapi.cn/mycontainer2/myBlockBlob2 \
-    --destination-blob myBlobBlob \
-    --destination-container mycontainer
+    --account-name destaccountname \
+    --account-key destaccountkey \
+    --destination-blob destfile.png \
+    --destination-container destcontainer \
+    --source-uri https://sourceaccountname.blob.core.chinacloudapi.cn/sourcecontainer/sourcefile.png
 ```
 
-The source blob URL (specified by `--source-uri`) must either be publicly accessible, or include a shared access signature (SAS) token.
+In the above example, the destination container must already exist in the destination storage account for the copy operation to succeed. Additionally, the source blob specified in the `--source-uri` argument must either include a shared access signature (SAS) token, or be publicly accessible, as in this example.
 
 ### Delete a blob
 To delete a blob, use the `blob delete` command:
