@@ -29,7 +29,7 @@ Once the command is issued, the current active instance of the Azure VPN gateway
 
 If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). If the two reboots are requested back to back, there will be a slightly longer period where both VM instances (active and standby) are being rebooted. This will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
 
-After two reboots, if you are still experiencing cross-premises connectivity problems, please open a support request from the Azure Portal.
+After two reboots, if you are still experiencing cross-premises connectivity problems, please open a support request from the Azure portal.
 
 ## Before you begin
 Before you reset your gateway, verify the key items listed below for each IPsec Site-to-Site (S2S) VPN tunnel. Any mismatch in the items will result in the disconnect of S2S VPN tunnels. Verifying and correcting the configurations for your on-premises and Azure VPN gateways saves you from unnecessary reboots and disruptions for the other working connections on the gateways.
@@ -40,13 +40,13 @@ Verify the following items before resetting your gateway:
 * The pre-shared key must be the same on both Azure and on-premises VPN gateways.
 * If you apply specific IPsec/IKE configuration, such as encryption, hashing algorithms, and PFS (Perfect Forward Secrecy), ensure both the Azure and on-premises VPN gateways have the same configurations.
 
-## Reset a VPN Gateway using the Azure Portal
+## Reset a VPN Gateway using the Azure portal
 
-You can reset a Resource Manager VPN gateway using the Azure Portal. If you want to reset a classic gateway, see the [PowerShell](#resetclassic) steps.
+You can reset a Resource Manager VPN gateway using the Azure portal. If you want to reset a classic gateway, see the [PowerShell](#resetclassic) steps.
 
 ### Resource Manager deployment model
 
-1. Open the Azure Portal and navigate to the Resource Manager virtual network gateway that you want to reset.
+1. Open the Azure portal and navigate to the Resource Manager virtual network gateway that you want to reset.
 2. On the blade for the virtual network gateway, click 'Reset'.
 
     ![Reset VPN Gateway blade](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)

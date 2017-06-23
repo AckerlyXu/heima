@@ -17,6 +17,7 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Connect a web app to a storage account
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will learn how to create an Azure storage account and an Azure web app. Then you will link the storage account to the web app using app settings.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -42,7 +45,7 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name WebAppWithStoragePlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithStoragePlan --resource-group myResourceGroup 
+az webapp create --name $appName --plan WebAppWithStoragePlan --resource-group myResourceGroup 
 
 # Create a Storage Account
 az storage account create --name $storageName --resource-group myResourceGroup --location $location --sku Standard_LRS
@@ -51,7 +54,7 @@ az storage account create --name $storageName --resource-group myResourceGroup -
 connstr=$(az storage account show-connection-string --name $storageName --resource-group myResourceGroup --query connectionString --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "STORAGE_CONNSTR=$connstr" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --settings "STORAGE_CONNSTR=$connstr" --name $appName --resource-group myResourceGroup
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

@@ -30,8 +30,8 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 ###Items to note when viewing the tables:
 
 * There has been a terminology change for Azure VPN gateways. There is no functionality change. Only the names are changing.
-    * Static Routing = PolicyBased
-    * Dynamic Routing = RouteBased
+  * Static Routing = PolicyBased
+  * Dynamic Routing = RouteBased
 * Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
 
 > [!NOTE]
@@ -71,7 +71,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 
 (*) ISR 7200 Series routers only support PolicyBased VPNs.
 
-## <a name="additionaldevices" id="devices-not-on-the-compatible-list"></a> Non-validated VPN devices
+## <a name="additionaldevices"></a>Non-validated VPN devices
 If you don't see your device listed in the Validated VPN devices table, your device still may work with a Site-to-Site connection. Contact your device manufacturer for additional support and configuration instructions.
 
 ## <a name="editing"></a>Editing device configuration samples
@@ -186,4 +186,4 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 
 1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
 2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
-3. If you are still experiencing connectivity issues, open a support request from the Azure Portal.
+3. If you are still experiencing connectivity issues, open a support request from the Azure portal.

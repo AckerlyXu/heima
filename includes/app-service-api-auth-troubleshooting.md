@@ -1,14 +1,14 @@
 Most of the time authentication errors result from incorrect or inconsistent configuration settings. Here are some specific suggestions for things to check.
 
 * Make sure that you didn't miss the **Save** button anywhere. This is often easy to do, and the result is that you'll be looking at the correct values on a portal page but they haven't actually been saved in the Azure environment or Azure AD application.
-* For settings configured in the **Application Settings** blade of the Azure Portal, make sure that the correct API app or web app was selected when the settings were entered.  Also make sure that the settings were entered as **App settings** and not **Connection strings**, as the format of the two sections is similar.
+* For settings configured in the **Application Settings** blade of the Azure portal, make sure that the correct API app or web app was selected when the settings were entered.  Also make sure that the settings were entered as **App settings** and not **Connection strings**, as the format of the two sections is similar.
 * For authentication to a JavaScript front end, download the manifest again to verify that `oauth2AllowImplicitFlow` was successfully changed to `true`.
 * Verify that you used HTTPS wherever you configured URLs:
 
-    * In project code
-    * In CORS
-    * In Azure environment App settings for each API app and web app
-    * In Azure AD application settings.
+  * In project code
+  * In CORS
+  * In Azure environment App settings for each API app and web app
+  * In Azure AD application settings.
 
     Note that if you copy an API app's URL from the portal, it often has `http://` and you have to manually change it to `https://`.
 * Make sure that any code changes were successfully deployed. For example, in a multiple-project solution it's possible to change a project's code and accidentally choose one of the others when you intend to deploy the change.

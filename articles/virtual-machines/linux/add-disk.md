@@ -28,11 +28,68 @@ The following example attaches a `50`GB disk to the VM named `myVM` in the resou
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
+To use managed disks:
+
+```azurecli
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
+```
+
 To use unmanaged disks:
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
   --new --size-gb 50
+```
+
+## Attach a managed disk
+
+Using managed disks enables you to focus on your VMs and their disks without worrying about Azure Storage accounts. You can quickly create and attach a managed disk to a VM using the same Azure resource group, or you can create any number of disks and then attach them.
+
+### Attach a new disk to a VM
+
+If you just need a new disk on your VM, you can use the `az vm disk attach` command.
+
+```azurecli
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
+```
+
+### Attach an existing disk 
+
+In many cases you attach disks that have already been created. You first find the disk id and then pass that to the `az vm disk attach` command. The following example uses a disk created with `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+The output looks something like the following (you can use the `-o table` option to any command to format the output in ):
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "chinanorth",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
 ```
 
 ## Attach an unmanaged disk

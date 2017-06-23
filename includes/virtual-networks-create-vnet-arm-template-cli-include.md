@@ -27,8 +27,8 @@ To deploy the ARM template you downloaded by using Azure CLI, follow the steps b
         data:
         info:    group create command OK
 
-    * **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-    * **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *chinaeast*.
+   * **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
+   * **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *chinaeast*.
 4. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
         azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
@@ -58,9 +58,9 @@ To deploy the ARM template you downloaded by using Azure CLI, follow the steps b
         data:    subnet2Name    String  BackEnd
         info:    group deployment create command OK
 
-    * **-g (or --resource-group)**. Name of the resource group the new VNet will be created in.
-    * **-f (or --template-file)**. Path to your ARM template file.
-    * **-e (or --parameters-file)**. Path to your ARM parameters file.
+   * **-g (or --resource-group)**. Name of the resource group the new VNet will be created in.
+   * **-f (or --template-file)**. Path to your ARM template file.
+   * **-e (or --parameters-file)**. Path to your ARM parameters file.
 5. Run the **`azure network vnet show`** command to view the properties of the new vnet, as shown below.
 
         azure network vnet show -g TestRG -n TestVNet

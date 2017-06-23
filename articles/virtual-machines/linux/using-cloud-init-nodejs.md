@@ -47,7 +47,6 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
-
 Create a resource group to launch VMs into.
 
 ```azurecli

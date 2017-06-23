@@ -22,7 +22,7 @@ ms.author: v-dazen
 # Create and deploy a virtual machine scale set
 Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual machine scale sets](virtual-machine-scale-sets-overview.md).
 
-This tutorial shows you how to create a virtual machine scale set **without** using the Azure Portal. For information about how to use the Azure Portal, see [How to create a virtual machine scale set with the Azure Portal](virtual-machine-scale-sets-portal-create.md).
+This tutorial shows you how to create a virtual machine scale set **without** using the Azure portal. For information about how to use the Azure portal, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 >[!NOTE]
 >For more information about Azure Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -168,16 +168,18 @@ You can deploy a virtual machine scale set by using an Azure Resource Manager te
 >[!NOTE]
 >To create your own template, you create a JSON text file. For general information about how to create and customize a template, see [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
-A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information about how to create and use that sample, see [Minimum viable scale set](./virtual-machine-scale-sets-mvss-start.md).
+A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information about how to create and use that sample, see [Minimum viable scale set](.\virtual-machine-scale-sets-mvss-start.md).
 
 ## Create from Visual Studio
 
 With Visual Studio, you can create an Azure resource group project and add a virtual machine scale set template to it. You can choose whether you want to import it from GitHub or the Azure Web Application Gallery. A deployment PowerShell script is also generated for you. For more information, see [How to create a virtual machine scale set with Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
-## Create from the Azure Portal
+## Create from the Azure portal
 
-The Azure Portal provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure Portal](virtual-machine-scale-sets-portal-create.md).
+The Azure portal provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 ## Next steps
+
+Learn more about [data disks](virtual-machine-scale-sets-attached-disks.md).
 
 Learn how to [manage your apps](virtual-machine-scale-sets-deploy-app.md).

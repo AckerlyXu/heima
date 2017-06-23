@@ -14,13 +14,13 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
             + Setting network configuration
             info:    network vnet create command OK
 
-    * **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
-    * **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
-    * **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
-    * **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
-    * **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
-    * **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
-    * **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *China North*.
+   * **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
+   * **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
+   * **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
+   * **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
+   * **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
+   * **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
+   * **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *China North*.
 3. Run the **azure network vnet subnet create** command to create a subnet as shown below. The list shown after the output explains the parameters used.
 
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -37,9 +37,9 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
             data:    Address prefix                  : 192.168.2.0/24
             info:    network vnet subnet create command OK
 
-    * **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-    * **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
-    * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
+   * **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
+   * **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
+   * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
 4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
 
             azure network vnet show

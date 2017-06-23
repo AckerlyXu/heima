@@ -16,6 +16,7 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Assign a custom domain to a web app

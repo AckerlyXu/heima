@@ -11,7 +11,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 > 
 > 
 
-1. Sign in to the [Azure Portal](http://manage.windowsazure.cn).
+1. Sign in to the [Azure portal](http://manage.windowsazure.cn).
 2. On the command bar, click **New**.
 3. Click **Compute**, click **Virtual Machine**, and then click **From Gallery**.
 4. Choose the image you want to use, and then click the arrow to continue.

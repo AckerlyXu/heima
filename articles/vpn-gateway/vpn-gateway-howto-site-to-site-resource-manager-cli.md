@@ -24,10 +24,10 @@ ms.author: v-dazen
 This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:<br>
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic - Azure portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Classic Management Portal](vpn-gateway-site-to-site-create.md)
 > 
 >
@@ -153,7 +153,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
 
 - A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
-- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure Portal, PowerShell, or CLI. To find the public IP address of your virtual network gateway, use the [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) command. For easy reading, the output is formatted to display the list of public IPs in table format.
+- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the public IP address of your virtual network gateway, use the [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) command. For easy reading, the output is formatted to display the list of public IPs in table format.
 
   ```azurecli
   az network public-ip list --resource-group TestRG1 --output table
@@ -187,7 +187,7 @@ This section contains common commands that are helpful when working with site-to
 
 ## Next steps
 
-*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/virtual-machines/).
+*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * For information about forced tunneling, see [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For a list of networking Azure CLI commands, see [Azure CLI](https://docs.microsoft.com/cli/azure/network).

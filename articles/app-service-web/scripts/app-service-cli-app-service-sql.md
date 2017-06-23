@@ -17,6 +17,7 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Connect a web app to a SQL database
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will learn how to create an Azure SQL database and an Azure web app. Then you will link the SQL database to the web app using app settings.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -46,7 +49,7 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name WebAppWithSQLPlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithSQLPlan --resource-group myResourceGroup
+az webapp create --name $appName --plan WebAppWithSQLPlan --resource-group myResourceGroup
 
 # Create a SQL Server
 az sql server create --name $serverName --resource-group myResourceGroup --location $location --admin-user $username --admin-password $sqlServerPassword
@@ -58,7 +61,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 az sql db create --resource-group myResourceGroup --server $serverName --name MySampleDatabase --service-objective S0
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "SQLSRV_CONNSTR=Server=tcp:$serverName.database.chinacloudapi.cn;Database=MySampleDatabase;User ID=$username@$serverName;Password=$sqlServerPassword;Trusted_Connection=False;Encrypt=True;" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --settings "SQLSRV_CONNSTR=Server=tcp:$serverName.database.chinacloudapi.cn;Database=MySampleDatabase;User ID=$username@$serverName;Password=$sqlServerPassword;Trusted_Connection=False;Encrypt=True;" --name $appName --resource-group myResourceGroup
 
 ```
 

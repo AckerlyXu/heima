@@ -90,19 +90,19 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 
 2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
 
-    * "Type" signifies in which direction of traffic flow this rule takes effect. The direction is from the perspective of the subnet or Virtual Machine (depending on where this NSG is bound). Thus if Type is "Inbound" and traffic is entering the subnet, the rule would apply and traffic leaving the subnet would not be affected by this rule.
-    * "Priority" sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
-    * "Action" signifies if traffic affected by this rule is blocked or allowed.
+   * "Type" signifies in which direction of traffic flow this rule takes effect. The direction is from the perspective of the subnet or Virtual Machine (depending on where this NSG is bound). Thus if Type is "Inbound" and traffic is entering the subnet, the rule would apply and traffic leaving the subnet would not be affected by this rule.
+   * "Priority" sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
+   * "Action" signifies if traffic affected by this rule is blocked or allowed.
 
-        ```PowerShell    
-        Get-AzureNetworkSecurityGroup -Name $NSGName | `
-            Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
-            -Type Inbound -Priority 100 -Action Allow `
-            -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
-            -DestinationAddressPrefix $VMIP[4] `
-            -DestinationPortRange '53' `
-            -Protocol *
-        ```
+    ```PowerShell    
+    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+        Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
+        -Type Inbound -Priority 100 -Action Allow `
+        -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
+        -DestinationAddressPrefix $VMIP[4] `
+        -DestinationPortRange '53' `
+        -Protocol *
+    ```
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. This rule uses two special types of address prefixes; "VIRTUAL_NETWORK" and "INTERNET." These tags are an easy way to address a larger category of address prefixes.
 
@@ -169,18 +169,18 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 1. An internet user requests an HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Cloud service passes traffic through open endpoint on port 80 towards IIS01 (the web server)
 3. Frontend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 3 (Internet to IIS01) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 3 (Internet to IIS01) does apply, traffic is allowed, stop rule processing
 4. Traffic hits internal IP address of the web server IIS01 (10.0.1.5)
 5. IIS01 is listening for web traffic, receives this request and starts processing the request
 6. IIS01 asks the SQL Server on AppVM01 for information
 7. Since there are no outbound rules on Frontend subnet, traffic is allowed
 8. The Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 3 (Internet to Firewall) doesn't apply, move to next rule
-    4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 3 (Internet to Firewall) doesn't apply, move to next rule
+   4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
 9. AppVM01 receives the SQL Query and responds
 10. Since there are no outbound rules on the Backend subnet, the response is allowed
 11. Frontend subnet begins inbound rule processing:
@@ -190,10 +190,10 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 13. Since there are no outbound rules on the Frontend subnet the response is allowed, and the internet User receives the web page requested.
 
 #### (*Allowed*) RDP to backend
-1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure Portal or via PowerShell)
+1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure portal or via PowerShell)
 2. Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) does apply, traffic is allowed, stop rule processing
 3. With no outbound rules, default rules apply and return traffic is allowed
 4. RDP session is enabled
 5. AppVM01 prompts for the user name and password
@@ -203,7 +203,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 2. The network configuration for the VNet lists DNS01 (10.0.2.4 on the Backend subnet) as the primary DNS server, IIS01 sends the DNS request to DNS01
 3. No outbound rules on Frontend subnet, traffic is allowed
 4. Backend subnet begins inbound rule processing:
-    * NSG Rule 1 (DNS) does apply, traffic is allowed, stop rule processing
+   * NSG Rule 1 (DNS) does apply, traffic is allowed, stop rule processing
 5. DNS server receives the request
 6. DNS server doesn't have the address cached and asks a root DNS server on the internet
 7. No outbound rules on Backend subnet, traffic is allowed
@@ -219,15 +219,15 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 1. IIS01 asks for a file on AppVM01
 2. No outbound rules on Frontend subnet, traffic is allowed
 3. The Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 3 (Internet to IIS01) doesn't apply, move to next rule
-    4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 3 (Internet to IIS01) doesn't apply, move to next rule
+   4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
 4. AppVM01 receives the request and responds with file (assuming access is authorized)
 5. Since there are no outbound rules on the Backend subnet, the response is allowed
 6. Frontend subnet begins inbound rule processing:
-    1. There is no NSG rule that applies to Inbound traffic from the Backend subnet to the Frontend subnet, so none of the NSG rules apply
-    2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed.
+   1. There is no NSG rule that applies to Inbound traffic from the Backend subnet to the Frontend subnet, so none of the NSG rules apply
+   2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed.
 7. The IIS server receives the file
 
 #### (*Denied*) Web to backend server
@@ -244,9 +244,9 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 1. An internet user requests SQL data from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Since there are no endpoints open for SQL, this traffic would not pass the Cloud Service and wouldn't reach the firewall
 3. If endpoints were open for some reason, the Frontend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 3 (Internet to IIS01) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 3 (Internet to IIS01) does apply, traffic is allowed, stop rule processing
 4. Traffic hits internal IP address of the IIS01 (10.0.1.5)
 5. IIS01 isn't listening on port 1433, so no response to the request
 
@@ -266,9 +266,9 @@ This script will, based on the user-defined variables;
 3. Create a VNet and two subnets as defined in the Network Config file
 4. Build four windows server VMs
 5. Configure NSG including:
-    * Creating an NSG
-    * Populating it with rules
-    * Binding the NSG to the appropriate subnets
+   * Creating an NSG
+   * Populating it with rules
+   * Binding the NSG to the appropriate subnets
 
 This PowerShell script should be run locally on an internet connected PC or server.
 

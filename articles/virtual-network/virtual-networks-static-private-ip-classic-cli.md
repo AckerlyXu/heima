@@ -65,14 +65,14 @@ To create a new VM named *DNS01* in a new cloud service named *TestService* base
         info:    OK
         info:    vm create command OK
 
-    * **-l (or --location)**. Azure region where the VM will be created. For our scenario, *chinaeast*.
-    * **-n (or --vm-name)**. Name of the VM to be created.
-    * **-w (or --virtual-network-name)**. Name of the VNet where the VM will be created. 
-    * **-S (or --static-ip)**. Static private IP address for the VM.
-    * **TestService**. Name of the cloud service where the VM will be created.
-    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image used to create the VM.
-    * **adminuser**. Local administrator for the Windows VM.
-    * **AdminP@ssw0rd**. Local administrator password for the Windows VM.
+   * **-l (or --location)**. Azure region where the VM will be created. For our scenario, *chinaeast*.
+   * **-n (or --vm-name)**. Name of the VM to be created.
+   * **-w (or --virtual-network-name)**. Name of the VNet where the VM will be created. 
+   * **-S (or --static-ip)**. Static private IP address for the VM.
+   * **TestService**. Name of the cloud service where the VM will be created.
+   * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image used to create the VM.
+   * **adminuser**. Local administrator for the Windows VM.
+   * **AdminP@ssw0rd**. Local administrator password for the Windows VM.
 
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the script above, run the following Azure CLI command and observe the value for *Network StaticIP*:

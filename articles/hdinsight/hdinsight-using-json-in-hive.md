@@ -144,18 +144,18 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
 1. Install [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight
 
-    > [!WARNING]
-    > JDK 1.8 doesn't work with this SerDe.
-    > 
-    > 
+   > [!WARNING]
+   > JDK 1.8 doesn't work with this SerDe.
+   > 
+   > 
 
     After the installation is completed, add a new user environment variable:
 
-    1. Open **View advanced system settings** from the Windows screen.
-    2. Click **Environment Variables**.  
-    3. Add a new **JAVA_HOME** environment variable is pointing to **C:\Program Files\Java\jdk1.7.0_55** or wherever your JDK is installed.
+   1. Open **View advanced system settings** from the Windows screen.
+   2. Click **Environment Variables**.  
+   3. Add a new **JAVA_HOME** environment variable is pointing to **C:\Program Files\Java\jdk1.7.0_55** or wherever your JDK is installed.
 
-        ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
+      ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
 2. Install [Maven 3.3.1](https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.3.1/apache-maven-3.3.1-bin.zip)
 
     Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account -Environment variables. The  following screenshot shows you how to do this.
@@ -173,7 +173,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
         add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-    ![Adding JAR to your project][image-hdi-hivejson-addjar]
+   ![Adding JAR to your project][image-hdi-hivejson-addjar]
 
 Now, you are ready to use the SerDe to run queries against the JSON document.
 

@@ -67,7 +67,6 @@ For more information, see:
 
 * [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
 
-
 #### Monitor web endpoint status
 If you are running your web app in the **Standard** pricing tier, Web Apps lets you monitor 2 endpoints from 3 geographic locations.
 

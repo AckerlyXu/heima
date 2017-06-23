@@ -22,7 +22,7 @@ ms.author: v-dazen
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
-To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). You can also [perform these steps using the Azure Portal](nsg-quickstart-portal.md).
+To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). You can also [perform these steps using the Azure portal](nsg-quickstart-portal.md).
 
 Log in to your Azure account:
 

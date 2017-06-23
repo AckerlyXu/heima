@@ -43,7 +43,6 @@ This article describes the available sizes and options for the Azure virtual mac
 Learn more about how [Azure compute units (ACU)](windows/acu.md) can help you compare compute performance across Azure SKUs.
 
 Learn more about the different VM sizes that are available:
-
 - [General purpose](virtual-machines-windows-sizes-general.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)

@@ -60,4 +60,4 @@ A variety of resources are available for you to learn more about Azure Automatio
 * [Azure Automation Cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) provides information for automating administration tasks. It contains cmdlets to manage Automation accounts, assets, runbooks.
 
 ## Can I provide feedback?
-**Please give us feedback!** If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center. If you have feedback or feature requests for Azure Automation, post them on [User Voice](https://www.azure.cn/product-feedback). Thanks!
+**Please give us feedback!** If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center.

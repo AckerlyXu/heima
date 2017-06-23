@@ -94,8 +94,8 @@ In this guide we will assume you have attached three data disks, which we'll ref
     sudo mkfs -t ext4 /dev/data-vg01/data-lv01
     ```
 
-    > [!NOTE]
-    > With SLES11 use `-t ext3` instead of ext4. SLES11 only supports read-only access to ext4 filesystems.
+   > [!NOTE]
+   > With SLES11 use `-t ext3` instead of ext4. SLES11 only supports read-only access to ext4 filesystems.
 
 ## Add the new file system to /etc/fstab
 > [!IMPORTANT]
@@ -121,7 +121,6 @@ In this guide we will assume you have attached three data disks, which we'll ref
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-
     Then, save and close `/etc/fstab`.
 
 4. Test that the `/etc/fstab` entry is correct:

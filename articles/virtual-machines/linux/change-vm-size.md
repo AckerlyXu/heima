@@ -56,8 +56,8 @@ To resize a VM, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/c
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-    > [!WARNING]
-    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
 
 ## Next steps
 For additional scalability, run multiple VM instances and scale out. 

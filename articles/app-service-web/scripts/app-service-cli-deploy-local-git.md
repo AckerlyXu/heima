@@ -17,6 +17,7 @@ ms.topic: sample
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code from a local Git repository
@@ -24,6 +25,8 @@ ms.author: v-dazen
 This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -42,13 +45,13 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
+az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname
 
 # Set the account-level deployment credentials
-az appservice web deployment user set --user-name $username --password $password
+az webapp deployment user set --user-name $username --password $password
 
 # Configure local Git and get deployment URL
-url=$(az appservice web source-control config-local-git --name $webappname \
+url=$(az webapp deployment source config-local-git --name $webappname \
 --resource-group myResourceGroup --query url --output tsv)
 
 # Add the Azure remote to your local Git respository and push your code
@@ -59,7 +62,7 @@ git push azure master
 # When prompted for password, use the value of $password that you specified
 
 # Browse to the deployed web app.
-az appservice web browse --name $webappname --resource-group myResourceGroup
+az webapp browse --name $webappname --resource-group myResourceGroup
 
 ```
 

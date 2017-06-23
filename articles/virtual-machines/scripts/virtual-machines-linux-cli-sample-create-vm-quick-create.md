@@ -17,6 +17,7 @@ ms.workload: infrastructure
 origin.date: 02/27/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a virtual machine
@@ -43,7 +44,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

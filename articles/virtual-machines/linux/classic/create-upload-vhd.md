@@ -29,15 +29,17 @@ This article shows you how to create and upload a virtual hard disk (VHD) so you
 This article assumes that you have the following items:
 
 * **Linux operating system installed in a .vhd file** - You have installed an [Azure-endorsed Linux distribution](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) (or see [information for non-endorsed distributions](../create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
-    * Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) using `qemu-img convert`.
-    * You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+  * Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) using `qemu-img convert`.
+  * You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
 > The newer VHDX format is not supported in Azure. When you create a VM, specify VHD as the format. If needed, you can convert VHDX disks to VHD using [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) or the [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks during the process of uploading to Azure.
 
 * **Azure Command-line Interface** - Install the latest [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to upload the VHD.
 
-## <a id="prepimage"></a> Step 1: Prepare the image to be uploaded
+<a id="prepimage"> </a>
+
+## Step 1: Prepare the image to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure. After you complete the steps in the following guides, come back here once you have a VHD file that is ready to upload to Azure:
 
 * **[CentOS-based Distributions](../create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -55,14 +57,18 @@ Azure supports various Linux distributions (see [Endorsed Distributions](../endo
 
 Also see the **[Linux Installation Notes](../create-upload-generic.md#general-linux-installation-notes)** for more general tips on preparing Linux images for Azure.
 
-## <a id="connect"></a> Step 2: Prepare the connection to Azure
+<a id="connect"> </a>
+
+## Step 2: Prepare the connection to Azure
 Make sure you are using the Azure CLI in the classic deployment model (`azure config mode asm`), then log in to your account:
 
 ```azurecli
 azure login -e AzureChinaCloud
 ```
 
-## <a id="upload"></a> Step 3: Upload the image to Azure
+<a id="upload"> </a>
+
+## Step 3: Upload the image to Azure
 You need a storage account to upload your VHD file to. You can either pick an existing storage account or [create a new one](../../../storage/storage-create-storage-account.md).
 
 Use the Azure CLI to upload the image by using the following command:
