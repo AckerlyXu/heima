@@ -3,8 +3,8 @@ title: Introduction to Azure Storage | Microsoft Docs
 description: An overview of Azure Storage, Microsoft's online data storage in the cloud. Learn how to use the best available cloud storage solution in your applications.
 services: storage
 documentationcenter: ''
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,7 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+origin.date: 02/24/2017
+ms.date: 06/26/2017
 ms.author: v-johch
 
 ---
@@ -28,20 +29,22 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 * How your Azure Storage data is made durable via redundancy and replication
 * Where to go next to build your first Azure Storage application
 
-To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 For details on tools, libraries, and other resources for working with Azure Storage, see [Next Steps](#next-steps) below.
 
 ## What is Azure Storage?
 Cloud computing enables new scenarios for applications requiring scalable, durable, and highly available storage for their data – which is exactly why Microsoft developed Azure Storage. In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines, a further testament to its robustness.
 
-Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
+Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you're storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
 
 Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications as needed - both in terms of the amount of data stored and the number of requests made against it. You pay only for what you use, and only when you use it.
 
 Azure Storage uses an auto-partitioning system that automatically load-balances your data based on traffic. This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them.
 
-Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device. You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.
+Azure Storage is accessible from anywhere in the world, from any type of application, whether it's running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device. You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.
 
 Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, Node.js, Python, Ruby, PHP and C++ and mobile programming languages) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
 
@@ -104,7 +107,7 @@ Azure File storage offers cloud-based SMB file shares, so that you can migrate l
 
 Since a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file system I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
-Like the other Azure storage services, File storage exposes a REST API for accessing data in a share. On-premise applications can call the File storage REST API to access data in a file share. This way, an enterprise can choose to migrate some legacy applications to Azure and continue running others from within their own organization. Note that mounting a file share is only possible for applications running in Azure; an on-premises application may only access the file share via the REST API.
+Like the other Azure storage services, File storage exposes a REST API for accessing data in a share. On-premises applications can call the File storage REST API to access data in a file share. This way, an enterprise can choose to migrate some legacy applications to Azure and continue running others from within their own organization. Note that mounting a file share is only possible for applications running in Azure; an on-premises application may only access the file share via the REST API.
 
 Distributed applications can also use File storage to store and share useful application data and development and testing tools. For example, an application may store configuration files and diagnostic data such as logs, metrics, and crash dumps in a File storage share so that they are available to multiple virtual machines or roles. Developers and administrators can store utilities that they need to build or manage an application in a File storage share that is available to all components, rather than installing them on every virtual machine or role instance.
 
@@ -133,7 +136,16 @@ When you create a storage account, you can select one of the following replicati
 * **Locally redundant storage (LRS).** Locally redundant storage maintains three copies of your data. LRS is replicated three times within a single data center in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single data center.
 
     LRS is offered at a discount. For maximum durability, we recommend that you use geo-redundant storage, described below.
+* **Zone-redundant storage (ZRS).** Zone-redundant storage maintains three copies of your data. ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. ZRS ensures that your data is durable within a single region.
 
+    ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.
+
+  > [!NOTE]
+  > ZRS is currently available only for block blobs, and is only supported for versions 2014-02-14 and later.
+  >
+  > Once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa.
+  >
+  >
 * **Geo-redundant storage (GRS)**. GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, Azure Storage will failover to the secondary region. GRS ensures that your data is durable in two separate regions.
 
 * **Read-access geo-redundant storage (RA-GRS)**. Read-access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable. Read-access geo-redundant storage is the default option for your storage account by default when you create it.
@@ -167,16 +179,16 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Client Library for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [Storage Client Library for Java/Android](https://www.azure.cn/develop/java/)
-* [Storage Client Library for Node.js](http://azure.github.io/azure-storage-node/)
+* [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
 * [Storage Client Library for PHP](https://www.azure.cn/develop/php/)
 * [Storage Client Library for Ruby](https://www.azure.cn/develop/ruby/)
 * [Storage Client Library for Python](https://www.azure.cn/develop/python/)
-* [Storage Cmdlets for PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Storage Cmdlets for PowerShell 1.0](https://docs.microsoft.com/powershell/module/azurerm.storage/#storage)
 
 ### Azure Storage management services
 * [Storage Resource Provider REST API Reference](https://docs.microsoft.com/rest/api/storagerp/)
 * [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.storage)
-* [Storage Resource Provider Cmdlets for PowerShell 1.0](https://docs.microsoft.com/powershell/storage/)
+* [Storage Resource Provider Cmdlets for PowerShell 1.0](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### Azure Storage data movement services
@@ -184,11 +196,11 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### Tools and utilities
-* [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage Client Tools](storage-explorers.md)
 * [Azure SDKs and Tools](https://www.azure.cn/downloads/)
 * [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
 
 ## Next steps
@@ -197,7 +209,10 @@ To learn more about Azure Storage, explore these resources:
 ### Documentation
 - [Azure Storage Documentation](./index.md)
 - [Create a storage account](./storage-create-storage-account.md)
-- [Get started with Azure Storage in five minutes](./storage-getting-started-guide.md)
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### For administrators
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
