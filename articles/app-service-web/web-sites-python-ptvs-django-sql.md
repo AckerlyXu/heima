@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 07/07/2016
-wacn.date: ''
+origin.date: 07/07/2016
+ms.date: 03/17/2017
 ms.author: v-dazen
 
 ---
@@ -73,14 +73,14 @@ For the database, we'll create an Azure SQL database.
 
 You can create a database by following these steps.
 
-1. Log into the [Azure Portal Preview].
+1. Log into the [Azure Portal].
 2. At the bottom of the navigation pane, click **NEW**. , click **Data + Storage** > **SQL Database**.
 3. Configure the new SQL Database by creating a new resource group and select the appropriate location for it.
 4. Once the SQL Database is created, click **Open in Visual Studio** in the database blade.
 5. Click **Configure your firewall**.
 6. In the **Firewall Settings** blade, add a firewall rule with **START IP** and **END IP** set to the public IP address of your development machine. Click **Save**.
 
-    This will allow connections to the database server from your development machine.
+   This will allow connections to the database server from your development machine.
 7. Back in the database blade, click **Properties**, then click **Show database connection strings**.
 8. Use the copy button to put the value of **ADO.NET** on the clipboard.
 
@@ -113,13 +113,13 @@ databases with Django. Then we'll run the web app locally.
 1. In Solution Explorer, under **Python Environments**, right-click on the virtual environment and select **Install Python Package**.
 2. Install the package `pyodbc` using **pip**.
 
-    ![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
+     ![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 3. Install the package `django-pyodbc-azure` using **pip**.
 
-    ![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
+     ![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 4. In **Solution Explorer**, right-click on the project node and select **Python**, and then select **Django Migrate**.  Then select **Django Create Superuser**.
 
-    This will create the tables for the SQL database we created in the previous section. Follow the prompts to create a user, which doesn't have to match the user in the sqlite database created in the first section.
+   This will create the tables for the SQL database we created in the previous section. Follow the prompts to create a user, which doesn't have to match the user in the sqlite database created in the first section.
 5. Run the application with `F5`. Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in the SQL database.
 
 ## Publish the web app to Azure App Service
@@ -132,25 +132,25 @@ The Azure .NET SDK provides an easy way to deploy your web web app to Azure App 
 3. Click on **New** to create a new web app.
 4. Fill in the following fields and click **Create**.
 
-    * **Web App name**
-    * **App Service plan**
-    * **Resource group**
-    * **Region**
-    * Leave **Database server** set to **No database**
+   * **Web App name**
+   * **App Service plan**
+   * **Resource group**
+   * **Region**
+   * Leave **Database server** set to **No database**
 5. Accept all other defaults and click **Publish**.
 6. Your web browser will open automatically to the published web app. You should see the web app working as expected, using the **SQL** database hosted on Azure.
 
-    Congratulations!
+   Congratulations!
 
-    ![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
+     ![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
 ## Next steps
 Follow these links to learn more about Python Tools for Visual Studio, Django and SQL Database.
 
 * [Python Tools for Visual Studio Documentation]
-    * [Web Projects]
-    * [Cloud Service Projects]
-    * [Remote Debugging on Azure]
+  * [Web Projects]
+  * [Cloud Service Projects]
+  * [Remote Debugging on Azure]
 * [Django Documentation]
 * [SQL Database]
 
@@ -162,7 +162,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025

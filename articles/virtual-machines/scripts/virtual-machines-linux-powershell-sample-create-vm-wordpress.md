@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/01/2017
-wacn.date: ''
+origin.date: 03/01/2017
+ms.date: 06/21/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a WordPress VM with PowerShell

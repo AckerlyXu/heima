@@ -1,10 +1,10 @@
 ---
 
-title: Use a Windows troubleshooting VM in the Azure portal preview | Azure
-description: Learn how to troubleshoot Windows virtual machine issues in Azure by connecting the OS disk to a recovery VM using the Azure portal preview
+title: Use a Windows troubleshooting VM in the Azure portal | Azure
+description: Learn how to troubleshoot Windows virtual machine issues in Azure by connecting the OS disk to a recovery VM using the Azure portal
 services: virtual-machines-windows
 documentationCenter: ''
-authors: iainfoulds
+authors: genlin
 manager: timlt
 editor: ''
 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/12/2016
-wacn.date: ''
+origin.date: 05/26/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
 
-# Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal preview
-If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use the Azure portal preview to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+# Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal
+If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
 
 ## Recovery process overview
 The troubleshooting process is as follows:
@@ -117,7 +117,7 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
     ![Set the data disk as offline in Server Manager](./media/troubleshoot-recovery-disks-portal/server-manager-set-disk-offline.png)
 
-3. Now detach the virtual hard disk from the VM. Select your VM in the Azure portal preview and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
+3. Now detach the virtual hard disk from the VM. Select your VM in the Azure portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
 
     ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal/detach-disk.png)
 
@@ -126,11 +126,9 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 ## Create VM from original hard disk
 To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. Do not click the **Deploy to Azure** in the GitHub Repo, because that is for Global Azure. Instead, click the one below:
 
-![Deploy VM from template from Github](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
+[![Deploy VM from template from Github](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F201-vm-specialized-vhd-existing-vnet%2Fazuredeploy.json)
 
-The template is loaded into the Azure portal preview for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
-
-![Deploy VM from template](./media/troubleshoot-recovery-disks-portal/deploy-from-image.png)
+The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Create** after you review the **Legal terms** and click the **Create** button within.
 
 ## Re-enable boot diagnostics
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:

@@ -10,8 +10,8 @@ editor: dend
 
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 05/31/2016
-wacn.date: ''
+origin.date: 05/31/2016
+ms.date: 01/09/2017
 ms.author: v-junlch
 ---
 

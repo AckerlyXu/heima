@@ -9,13 +9,13 @@ editor:
 tags: azure-service-management
 
 ms.assetid: 07bcceae-2521-4fe3-b88f-ed833104ddd2
-ms.service: cache-redis
+ms.service: redis-cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/14/2017
-wacn.date: ''
+origin.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 ---
 

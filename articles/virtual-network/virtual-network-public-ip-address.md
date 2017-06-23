@@ -1,5 +1,5 @@
 ---
-title:  Create, change, or delete Azure public IP addresses | Azure
+title: Create, change, or delete Azure public IP addresses | Azure
 description: Learn how to create, change, or delete public IP addresses.
 services: virtual-network
 documentationcenter: na
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
-wacn.date: ''
+origin.date: 05/05/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
 
-#  Create, change, or delete Public IP addresses
+# Create, change, or delete public IP addresses
 
 Learn about public IP addresses and how to create, change, and delete them. A public IP address is a resource with its own configurable settings. Assigning a public IP address to other Azure resources enables:
 - Inbound Internet connectivity to resources such as Azure Virtual Machines (VM), Azure Virtual Machine Scale Sets, Azure VPN Gateway, and Internet-facing Azure Load Balancers.
@@ -33,7 +33,7 @@ This article explains how to work with public IP addresses deployed through the 
 Complete the following tasks before completing any steps in any section of this article:
 
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for public IP addresses.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
@@ -43,8 +43,8 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 ## <a name="create"></a>Create a public IP address
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *public ip address*. When **Public IP addresses** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address*. When **Public IP addresses** appears in the search results, click it.
 3. Click **+ Add** in the **Public IP address** blade that appears.
 4. Enter or select values for the following settings in the **Create public IP address** blade that appears, then click **Create**:
 
@@ -67,8 +67,8 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 ## <a name="change"></a>Change settings for, or delete a public IP address
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *public ip address*. When **Public IP addresses** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address*. When **Public IP addresses** appears in the search results, click it.
 3. In the **Public IP addresses** blade that appears, click the name of the public IP address you want to change settings for or delete.
 4. In the blade that appears for the public IP address, complete one of the following options depending on whether you want to delete or change the public IP address.
     - **Delete:** To delete the public IP address, click **Delete** in the **Overview** section of the blade. If the address is currently associated to an IP configuration, it cannot be deleted. If the address is currently associated with a configuration, click **Dissociate** to dissociate the address from the IP configuration.

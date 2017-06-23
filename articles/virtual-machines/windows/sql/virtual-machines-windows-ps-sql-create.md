@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/17/2017
-wacn.date: ''
+origin.date: 01/17/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -36,10 +36,10 @@ For this tutorial you'll need:
 
 * An Azure account and subscription before you start. If you don't have one, sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 * [Azure PowerShell)](https://docs.microsoft.com/powershell/azure/overview), minimum version of 1.4.0 or later (this tutorial written using version 1.5.0).
-    * To retrieve your version, type **Get-Module Azure -ListAvailable**.
+  * To retrieve your version, type **Get-Module Azure -ListAvailable**.
 
 ## Configure your subscription
-Open Windows PowerShell and establish access to your Azure account by running the following cmdlet. You will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal preview.
+Open Windows PowerShell and establish access to your Azure account by running the following cmdlet. You will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
     Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 
@@ -231,7 +231,7 @@ Execute the following cmdlet to create your virtual machine.
 
 The virtual machine is created. Notice that a standard storage account is created for boot diagnostics because the specified storage account for the virtual machine's disk is a premium storage account.
 
-You can now view this machine in the Azure Portal Preview to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md).
+You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Example script
 The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount -EnvironmentName AzureChinaCloud** and **Select-AzureRmSubscription** commands.

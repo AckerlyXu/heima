@@ -14,9 +14,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Scale a web app manually

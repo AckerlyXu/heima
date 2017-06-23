@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
-wacn.date: ''
+origin.date: 04/27/2016
+ms.date: 01/05/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with a static public IP address using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Template](virtual-network-deploy-static-pip-arm-template.md)

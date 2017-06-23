@@ -46,7 +46,7 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
 ## Create an Azure web app
 
-1. In the [Azure portal preview](https://portal.azure.cn/), click **New** > **Web + Mobile** > **Web App**.
+1. In the [Azure Portal](https://portal.azure.cn/), click **New** > **Web + Mobile** > **Web App**.
 1. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
 
    We recommend you select the same location where your resource group is located. This assists with processing speed and reduced costs for data transfer.

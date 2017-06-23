@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/14/2017
-wacn.date: ''
+origin.date: 02/14/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -45,8 +45,7 @@ az vm create \
     --image CentOS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --public-ip-address-dns-name mypublicdns \
-    --use-unmanaged-disk
+    --public-ip-address-dns-name mypublicdns
 ```
 
 Log on to the VM using the public DNS address of your VM. You can view the public DNS address with [az vm show](https://docs.microsoft.com/cli/azure/vm#show):

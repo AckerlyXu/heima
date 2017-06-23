@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: ''
+origin.date: 03/07/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -25,7 +25,7 @@ Linux virtual machines (VMs) in Azure are usually managed from the command line 
 This article requires an existing Linux VM in Azure. If you need to create a VM, use one of the following methods:
 
 - The [Azure CLI 2.0](../linux/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-- The [Azure portal preview](../linux/quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure portal](../linux/quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 You also need to be logged in to an [active Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
@@ -141,20 +141,20 @@ sudo passwd ops
 > Specifying a password does not update your sshd configuration to permit password logins if it currently does not. From a security perspective, you may wish to connect to your VM with an SSH tunnel using key-based authentication and then connect to xrdp. If so, skip the following step on creating a network security group rule to allow remote desktop traffic.
 
 ## Create a Network Security Group rule for Remote Desktop traffic
-To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../../virtual-network/virtual-networks-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal preview to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../../virtual-network/virtual-networks-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 The following examples create a network security group rule named `myNetworkSecurityGroupRule` to `allow` traffic on `tcp` port `3389`.
 
 - Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0:
 
-```azurecli
-az network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --source-address-prefix '*' --source-port-range '*' \
-    --destination-address-prefix '*' --destination-port-range 3389 \
-    --access allow
-```
+    ```azurecli
+    az network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --source-address-prefix '*' --source-port-range '*' \
+        --destination-address-prefix '*' --destination-port-range 3389 \
+        --access allow
+    ```
 
 - Or, use the Azure CLI 1.0:
 

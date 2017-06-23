@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
-wacn.date: ''
+origin.date: 03/24/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -264,7 +264,7 @@ You can add private and public IP addresses to a NIC by completing the steps tha
         -AllocationMethod Static
         ```
 
-        To create a new IP configuration with a static private IP address and the associated *myPublicIp3* public IP address resource, enter the following command:
+         To create a new IP configuration with a static private IP address and the associated *myPublicIp3* public IP address resource, enter the following command:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `

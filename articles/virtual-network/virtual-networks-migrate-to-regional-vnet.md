@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
-wacn.date: ''
+origin.date: 03/15/2016
+ms.date: 12/12/2016
 ms.author: v-dazen
 
 ---
@@ -39,10 +39,10 @@ VNets that are currently associated with affinity groups are enabled for migrati
 1. Export the network configuration file. You can use PowerShell or the Classic Management Portal. For instructions using the Classic Management Portal, see [Configure your VNet using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 2. Edit your network configuration file, replacing the old values with the new values. 
 
-    > [!NOTE]
-    > The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in China North, when you migrate, your Location must point to China North. 
-    > 
-    > 
+   > [!NOTE]
+   > The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in China North, when you migrate, your Location must point to China North. 
+   > 
+   > 
 
     Edit the following lines in your network configuration file, replacing the values with your own: 
 

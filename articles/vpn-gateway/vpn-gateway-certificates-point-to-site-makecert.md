@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
-wacn.date: ''
+origin.date: 05/03/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -31,9 +31,9 @@ This article shows you how to create a self-signed root certificate, export the 
 > [!div class="op_single_selector"]
 > * [Create self-signed certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
 > * [Create self-signed certificates - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Configure Point-to-Site - Resource Manager - Azure portal preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Configure Point-to-Site - Resource Manager - Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Configure Point-to-Site - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Configure Point-to-Site - Classic - Azure portal preview](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Configure Point-to-Site - Classic - Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/11/2016
-wacn.date: ''
+origin.date: 02/11/2016
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -102,15 +102,15 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 
 - **Inbound traffic**
 
-    1. **NSG applied to subnet:** If a subnet NSG has a matching rule to deny traffic, the packet is dropped.
+  1. **NSG applied to subnet:** If a subnet NSG has a matching rule to deny traffic, the packet is dropped.
 
-    2. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule that denies traffic, packets are dropped at the VM\NIC, even if a subnet NSG has a matching rule that allows traffic.
+  2. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule that denies traffic, packets are dropped at the VM\NIC, even if a subnet NSG has a matching rule that allows traffic.
 
 - **Outbound traffic**
 
-    1. **NSG applied to NIC** (Resource Manager) or VM (classic): If a VM\NIC NSG has a matching rule that denies traffic, packets are dropped.
+  1. **NSG applied to NIC** (Resource Manager) or VM (classic): If a VM\NIC NSG has a matching rule that denies traffic, packets are dropped.
 
-    2. **NSG applied to subnet:** If a subnet NSG has a matching rule that denies traffic, packets are dropped, even if a VM\NIC NSG has a matching rule that allows traffic.
+  2. **NSG applied to subnet:** If a subnet NSG has a matching rule that denies traffic, packets are dropped, even if a VM\NIC NSG has a matching rule that allows traffic.
 
 > [!NOTE]
 > Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
@@ -121,7 +121,7 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
-| Azure portal preview   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-cli-nodejs.md) |
 | Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |

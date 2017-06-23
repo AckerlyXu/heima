@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/22/2017
 ms.author: v-johch
 
 ---
@@ -72,7 +72,7 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 >
 
 ### Hard disk drives
-Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A Single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
+Only 2.5 inch SSD, 2.5/3.5 inch SATA II/III or SAS internal HDD are supported for use with the Import/Export service. A Single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. To use a disk that connnects the disk array controller, set the disk array controller to pass-through mode.
 
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
 
@@ -225,7 +225,7 @@ Create an import job to copy data to your Azure storage account from hard drives
 The first step when importing data using the Azure Import/Export service is to prepare your drives using the WAImportExport tool. Follow the steps below to prepare your drives.
 
 1. Identify the data to be imported. This could be directories and standalone files on the local server or a network share.  
-2. Determine the number of drives you will need depending on total size of the data. Procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
+2. Determine the number of drives you will need depending on total size of the data. Procure the required number of 2.5 inch SSD or 2.5/3.5 inch SATA II/ III or SAS hard disk drives.
 3. Identify the target storage account, container, virtual directories, and blobs.
 4. Determine the directories and/or standalone files that will be copied to each hard disk drive.
 5. Create the CSV files for dataset and driveset.

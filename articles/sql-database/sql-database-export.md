@@ -1,6 +1,6 @@
 ---
 title: Export an Azure SQL database to a BACPAC file | Azure
-description: Export an Azure SQL database to a BACPAC file  using the Azure portal preview
+description: Export an Azure SQL database to a BACPAC file  using the Azure Portal
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -21,7 +21,7 @@ ms.tgt_pltfrm: NA
 # Export an Azure SQL database to a BACPAC file
 
 This article discusses exporting an Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. This article discusses using the following methods:
-- The [Azure portal preview](https://portal.azure.cn)
+- The [Azure Portal](https://portal.azure.cn)
 - the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility
 - the [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet
 - the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) wizard in [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
@@ -51,9 +51,9 @@ When you need to export a database for archiving or for moving to another platfo
 > BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md) and [SQL Database backups](sql-database-automated-backups.md).  
 > 
 
-## Azure portal preview
+## Azure Portal
 
-To export a database using the Azure portal preview, open the page for your database and click **Export** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
+To export a database using the Azure Portal, open the page for your database and click **Export** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
 
    ![Database export](./media/sql-database-export/database-export.png)
 
@@ -97,7 +97,7 @@ $importStatus
 ### Export SQL database example
 The following example exports an existing Azure SQL database to a BACPAC and then shows how to check the status of the export operation.
 
-To run the example, there are a few variables you need to replace with the specific values for your database and storage account. In the [Azure portal preview](https://portal.azure.cn), browse to your storage account to get the storage account name, blob container name, and key value. You can find the key by clicking **Access keys** on your storage account blade.
+To run the example, there are a few variables you need to replace with the specific values for your database and storage account. In the [Azure Portal](https://portal.azure.cn), browse to your storage account to get the storage account name, blob container name, and key value. You can find the key by clicking **Access keys** on your storage account blade.
 
 Replace the following `VARIABLE-VALUES` with values for your specific Azure resources. The database name is the existing database you want to export.
 

@@ -4,7 +4,7 @@ description: Shows how to target more than one Azure resource group during deplo
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: ''
 
 ms.service: azure-resource-manager
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 06/15/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 
 ---
@@ -86,7 +86,7 @@ If you set `resourceGroup` to the name of a resource group that does not exist, 
 
 ## Deploy the template
 
-To deploy the example template, you can use either Azure PowerShell or Azure CLI. You must use a release of Azure PowerShell or Azure CLI from May 2017 or later. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
+To deploy the example template, you can use the portal, Azure PowerShell, or Azure CLI. For Azure PowerShell or Azure CLI, you must use a release from May 2017 or later. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
 
 For PowerShell:
 
@@ -113,6 +113,42 @@ az group deployment create \
 ```
 
 After deployment completes, you see two resource groups. Each resource group contains a storage account.
+
+## Use resourceGroup() function
+
+For cross resource group deployments, the [resouceGroup() function](resource-group-template-functions-resource.md#resourcegroup) resolves differently based on how you specify the nested template. 
+
+If you embed one template within another template, resouceGroup() in the nested template resolves to the parent resource group. An embedded template uses the following format:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+If you link to a separate template, resouceGroup() in the linked template resolves to the nested resource group. A linked template uses the following format:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
 
 ## Next steps
 

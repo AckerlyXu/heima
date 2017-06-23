@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/20/2017
-wacn.date: ''
+origin.date: 04/20/2017
+ms.date: 06/21/2017
 ms.author: v-yeche
 
 ---
-# Test Azure Stream Analytics queries in the Azure portal preview
+# Test Azure Stream Analytics queries in the Azure Portal
 
-With Azure Stream Analytics, you can test queries in the Azure portal preview without needing to start or stop a job.
+With Azure Stream Analytics, you can test queries in the Azure Portal without needing to start or stop a job.
 
 ## Test the input
 

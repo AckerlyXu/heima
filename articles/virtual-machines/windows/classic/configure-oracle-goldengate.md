@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
-wacn.date: ''
+origin.date: 09/06/2016
+ms.date: 10/25/2016
 ms.author: v-dazen
 
 ---
@@ -40,23 +40,23 @@ In this tutorial, you will:
 
 1. Setup database on Site A and Site B  
 
-    1. Perform initial data load
+   1. Perform initial data load
 2. Prepare Site A and Site B for database replication
 3. Create all necessary objects to support DDL Replication
 4. Configure GoldenGate Manager on Site A and Site B
 5. Create Extract Group and Data Pump processes on Site A and Site B
 
-    1. Create Extract and Data Pump processes on Site A
-    2. Create a GoldenGate checkpoint table on Site B
-    3. Add REPLICAT on Site B
-    4. Create Extract and Data Pump processes on Site B
-    5. Create a GoldenGate checkpoint table on Site A
-    6. Add REPLICAT on Site A
-    7. Add trandata on Site A and Site B
-    8. Start Extract and Data Pump processes on Site A
-    9. Start Extract and Data Pump processes on Site B
-    10. Start REPLICAT process on Site A
-    11. Start REPLICAT process on Site B
+   1. Create Extract and Data Pump processes on Site A
+   2. Create a GoldenGate checkpoint table on Site B
+   3. Add REPLICAT on Site B
+   4. Create Extract and Data Pump processes on Site B
+   5. Create a GoldenGate checkpoint table on Site A
+   6. Add REPLICAT on Site A
+   7. Add trandata on Site A and Site B
+   8. Start Extract and Data Pump processes on Site A
+   9. Start Extract and Data Pump processes on Site B
+   10. Start REPLICAT process on Site A
+   11. Start REPLICAT process on Site B
 6. Verify the bi-directional replication process
 
 > [!IMPORTANT]
@@ -539,7 +539,7 @@ Remote Desktop to Site A. Open up SQL*Plus command window and run:
     SQL> select name from v$database;
 
     NAME
-    ------
+    ———
     TESTGG
 
     SQL> insert into inventory values  (100,'TV',100,sysdate);
@@ -555,13 +555,13 @@ Then, check if that row is replicated on Site B. To do this, remote desktop to S
     SQL> select name from v$database;
 
     NAME
-    ------
+    ———
     TESTGG
 
     SQL> select * from inventory;
 
     PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
-    ------- ------------- -------- ------
+    ———- ——————- ———— ———
     100 TV 100 22-MAR-13
 
 Insert a new record at Site B:
@@ -578,6 +578,6 @@ Remote desktop to Site A and check if the replication has taken place:
     SQL> select * from inventory;
 
     PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
-    ------- ------------- -------- ------
+    ———- ——————- ———— ———
     100 TV 100 22-MAR-13
     101 DVD 10 22-MAR-13

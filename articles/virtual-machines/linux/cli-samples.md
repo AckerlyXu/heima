@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/08/2017
-wacn.date: ''
+origin.date: 03/08/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
 
 ---
@@ -33,3 +33,6 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a VM with WordPress installed](./../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install WordPress. |
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
+|**Troubleshoot virtual machines**||
+| [Troubleshoot a VMs operating system disk](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fcli%2fazure%2ftoc.json) | Mounts the operating system disk from one VM as a data disk on a second VM. |
+| | |

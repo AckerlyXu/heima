@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 05/11/2017
+ms.date: 05/15/2017
 ms.author: v-dazen
 
 ---
@@ -96,8 +96,7 @@ az vm create \
     --size Standard_DS3_v2 \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --nics myNic1 myNic2 \
-    --use-unmanaged-disk
+    --nics myNic1 myNic2
 ```
 
 ## Add a NIC to a VM

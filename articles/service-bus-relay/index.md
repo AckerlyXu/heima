@@ -98,22 +98,3 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
         </a>
     </li>
 </ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>

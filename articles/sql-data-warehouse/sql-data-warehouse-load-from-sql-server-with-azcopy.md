@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 10/31/2016
-wacn.date: ''
+origin.date: 10/31/2016
+ms.date: 12/12/2016
 ms.author: v-yeche
 
 ---

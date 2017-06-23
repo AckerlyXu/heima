@@ -13,9 +13,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+origin.date: 03/23/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/31/2017
 
 ---
 # Securing access to Azure Cosmos DB data

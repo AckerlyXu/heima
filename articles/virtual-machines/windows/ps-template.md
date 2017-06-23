@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: ''
+origin.date: 03/07/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 
 This article shows you how to deploy an Azure Resource Manager template using PowerShell. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-create-first-template.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 It should take about five minutes to do the steps in this article.
 
@@ -49,7 +49,7 @@ All resources must be deployed in a [resource group](../../azure-resource-manage
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
     ```
 
-    You should see something like this example:
+  You should see something like this example:
 
     ```powershell 
     ResourceGroupName : myResourceGroup
@@ -65,7 +65,6 @@ Deploy the template and provide parameter values when prompted. This example dep
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json" 
 ```
-
 You're asked to provide the name of the administrator account on the VM, the password of the account, and the DNS prefix.
 
 You should see something like this example:

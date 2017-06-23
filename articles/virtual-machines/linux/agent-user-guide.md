@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
-wacn.date: ''
+origin.date: 10/17/2016
+ms.date: 11/21/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
@@ -32,34 +32,34 @@ The Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM int
 
 * **Image Provisioning**
 
-    * Creation of a user account
-    * Configuring SSH authentication types
-    * Deployment of SSH public keys and key pairs
-    * Setting the host name
-    * Publishing the host name to the platform DNS
-    * Reporting SSH host key fingerprint to the platform
-    * Resource Disk Management
-    * Formatting and mounting the resource disk
-    * Configuring swap space
+  * Creation of a user account
+  * Configuring SSH authentication types
+  * Deployment of SSH public keys and key pairs
+  * Setting the host name
+  * Publishing the host name to the platform DNS
+  * Reporting SSH host key fingerprint to the platform
+  * Resource Disk Management
+  * Formatting and mounting the resource disk
+  * Configuring swap space
 * **Networking**
 
-    * Manages routes to improve compatibility with platform DHCP servers
-    * Ensures the stability of the network interface name
+  * Manages routes to improve compatibility with platform DHCP servers
+  * Ensures the stability of the network interface name
 * **Kernel**
 
-    * Configures virtual NUMA (disable for kernel <2.6.37)
-    * Consumes Hyper-V entropy for /dev/random
-    * Configures SCSI timeouts for the root device (which could be remote)
+  * Configures virtual NUMA (disable for kernel <2.6.37)
+  * Consumes Hyper-V entropy for /dev/random
+  * Configures SCSI timeouts for the root device (which could be remote)
 * **Diagnostics**
 
-    * Console redirection to the serial port
+  * Console redirection to the serial port
 * **SCVMM Deployments**
 
-    * Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
+  * Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
 * **VM Extension**
 
-    * Inject component authored by Microsoft and Partners into Linux VM (IaaS) to enable software and configuration automation
-    * VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Inject component authored by Microsoft and Partners into Linux VM (IaaS) to enable software and configuration automation
+  * VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## Communication
 The information flow from the platform to the agent occurs via two channels:
@@ -72,7 +72,7 @@ The following systems have been tested and are known to work with the Azure Linu
 
 > [!NOTE]
 > This list may differ from the official list of supported systems on the Azure Platform, as described here:
-> [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> [https://docs.azure.cn/virtual-machines/linux/endorsed-distros](https://docs.azure.cn/virtual-machines/linux/endorsed-distros)
 > 
 > 
 
@@ -114,11 +114,11 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 * help: Lists the supported commands and flags.
 * deprovision: Attempt to clean the system and make it suitable for re-provisioning. This operation deleted the following:
 
-    * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
-    * Nameserver configuration in /etc/resolv.conf
-    * Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
-    * Cached DHCP client leases
-    * Resets host name to localhost.localdomain
+  * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
+  * Nameserver configuration in /etc/resolv.conf
+  * Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
+  * Cached DHCP client leases
+  * Resets host name to localhost.localdomain
 
 > [!WARNING]
 > Deprovisioning does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.
@@ -298,12 +298,12 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
 * **Provisioning.Enabled** defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
 * The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
 
-    * **ResourceDisk.Format**
-    * **ResourceDisk.Filesystem**
-    * **ResourceDisk.MountPoint**
-    * **ResourceDisk.EnableSwap**
-    * **ResourceDisk.SwapSizeMB**
+  * **ResourceDisk.Format**
+  * **ResourceDisk.Filesystem**
+  * **ResourceDisk.MountPoint**
+  * **ResourceDisk.EnableSwap**
+  * **ResourceDisk.SwapSizeMB**
 * Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
 
-    * [Ubuntu Wiki: Configure Swap Partitions](https://wiki.ubuntu.com/AzureSwapPartitions)
-    * [Injecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  * [Ubuntu Wiki: Configure Swap Partitions](https://wiki.ubuntu.com/AzureSwapPartitions)
+  * [Injecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

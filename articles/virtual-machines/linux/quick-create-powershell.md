@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
-wacn.date: ''
+origin.date: 05/02/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with PowerShell
@@ -125,7 +125,7 @@ Use the [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/modul
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/virtual-machines/linux/ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
 
 ```bash 
 ssh <Public IP Address>
@@ -152,7 +152,8 @@ apt-get -y install nginx
 With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the public IP address you documented above to visit the default page. 
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
-## Delete virtual machine
+
+## Clean up resources
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 

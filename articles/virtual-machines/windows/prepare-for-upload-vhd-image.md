@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
-wacn.date: ''
+origin.date: 01/11/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -43,7 +43,6 @@ The following example shows you how to convert from a VHDX to VHD, and from a dy
 ```powershell
 Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
-
 Replace the values for -Path with the path to the virtual hard disk that you want to convert and -DestinationPath with the new path and name for the converted disk.
 
 ### Convert from VMware VMDK disk format
@@ -55,8 +54,8 @@ On the virtual machine you plan to upload to Azure, run all the following comman
 
 1. Remove any static persistent route on the routing table:
 
-    * To view the route table, run `route print` from the command prompt window.
-    * Check the **Persistence Routes** sections. If there is a persistent route, use route delete to remove it.
+   * To view the route table, run `route print` from the command prompt window.
+   * Check the **Persistence Routes** sections. If there is a persistent route, use route delete to remove it.
 2. Remove the WinHTTP proxy:
 
     ```CMD
@@ -75,7 +74,6 @@ On the virtual machine you plan to upload to Azure, run all the following comman
     ```CMD
     REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
     ```
-
     ```CMD
     sc config w32time start= auto
     ```
@@ -140,11 +138,9 @@ sc config RemoteRegistry start= auto
     ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
     ```
-
     ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
     ```
-
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
     ```
@@ -152,12 +148,10 @@ sc config RemoteRegistry start= auto
 
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
-    ```
-
+   ```
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
-    ```
-
+   ```
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
     ```
@@ -170,85 +164,84 @@ sc config RemoteRegistry start= auto
 ## Configure Windows Firewall rules
 1. Run the following command in PowerShell to allow WinRM through the three firewall profiles (Domain, Private, and Public) and enable PowerShell Remote service:
 
-    ```powershell
-    Enable-PSRemoting -force
-    ```
+   ```powershell
+   Enable-PSRemoting -force
+   ```
 2. Run the following commands in the command prompt window to make sure that the following guest operating system firewall rules are in place:
 
-    * Inbound
+   * Inbound
 
-        ```CMD
-        netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+   ```CMD
+   netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
-        ```
+   netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+   ```
 
-    * Inbound and outbound
+   * Inbound and outbound
 
-        ```CMD
-        netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+   ```CMD
+   netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
 
-        netsh advfirewall firewall set rule group="Core Networking" new enable=yes
-        ```
+   netsh advfirewall firewall set rule group="Core Networking" new enable=yes
+   ```
 
-    * Outbound
+   * Outbound
 
-        ```CMD
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+   ```CMD
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
-        ```
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
+   ```
 
 ## Verify VM is healthy, secure, and accessible with RDP 
 1. In the command prompt window, run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see the blog post [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)
 2. Set the Boot Configuration Data (BCD) settings:
 
-    ```CMD
-    bcdedit /set {bootmgr} integrityservices enable
+   ```CMD
+   bcdedit /set {bootmgr} integrityservices enable
 
-    bcdedit /set {default} device partition=C:
+   bcdedit /set {default} device partition=C:
 
-    bcdedit /set {default} integrityservices enable
+   bcdedit /set {default} integrityservices enable
 
-    bcdedit /set {default} recoveryenabled Off
+   bcdedit /set {default} recoveryenabled Off
 
-    bcdedit /set {default} osdevice partition=C:
+   bcdedit /set {default} osdevice partition=C:
 
-    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
-    ```
-
+   bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+   ```
 3. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
 4. To make sure the disk is healthy and consistent, run the `CHKDSK /f` command in the command prompt window. Type "Y" to schedule the check and restart the VM.
 5. Uninstall any other third-party software and driver related to physical components or any other virtualization technology.

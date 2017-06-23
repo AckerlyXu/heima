@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
+origin.date: 10/03/2016
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 01/19/2017
 ---
 
-#Azure Notification Hubs - Diagnosis guidelines
+# Azure Notification Hubs - Diagnosis guidelines
 
-##Overview
+## Overview
 
 One of the most common questions we hear from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this. In this article we will go through the various reasons why notifications may get dropped or do not end up on the devices. We will also look through ways in which you can analyze and figure out the root cause. 
 
@@ -30,7 +30,7 @@ In a typical send notification flow, the message is sent from the **application 
 
 Failure to deliver notifications may happen during the initial test/staging phase which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue. In the section, below we will look at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much. 
 
-##Azure Notifications Hub mis-configuration 
+## Azure Notifications Hub mis-configuration 
 
 Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc) and then registering their application where they get credentials which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
 
@@ -63,29 +63,29 @@ Azure Notification Hubs needs to authenticate itself in the context of the devel
 
     ![][1]
 
-##Application issues
+## Application issues
 
 1) **Tags/ Tag expressions**
 
-If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags which match when you send notification and then verify the notification receipt only from the clients with those registrations. E.g. if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A && Tag B". In the self-diagnose tips section below, there are ways in which you can review your registrations along with the tags they have. 
+    If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags which match when you send notification and then verify the notification receipt only from the clients with those registrations. E.g. if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A && Tag B". In the self-diagnose tips section below, there are ways in which you can review your registrations along with the tags they have. 
 
 2) **Template issues**
 
-If you are using templates then ensure that you are following the guidelines described at [Template guidance]. 
+    If you are using templates then ensure that you are following the guidelines described at [Template guidance]. 
 
 3) **Invalid registrations**
 
-Assuming the Notification Hub was configured correctly and any tags/tag expressions were used correctly resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations. 
+    Assuming the Notification Hub was configured correctly and any tags/tag expressions were used correctly resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations. 
 
-> [!NOTE]
-> Since we do the processing in parallel, we don’t guarantee the order in which the notifications will be delivered. 
+    > [!NOTE]
+    > Since we do the processing in parallel, we don’t guarantee the order in which the notifications will be delivered. 
 
 Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS which uses a TCP stream protocol. Although we are optimized for at-most once delivery, in this case we remove the faulting registration from our database and then retry notification delivery for the rest of the devices in that batch.
 
 You can get error information for the failed delivery attempt against a registration using the Azure Notification Hubs REST APIs: [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/zh-cn/library/azure/mt608135.aspx)
 and [PNS Feedback](https://msdn.microsoft.com/zh-cn/library/azure/mt705560.aspx). See the [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) for example code.
 
-##PNS issues
+## PNS issues
 
 Once the notification message has been received by the respective PNS then it is its responsibility to deliver the notification to the device. Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device. Since the platform notification services are pretty robust, notifications do tend to reach the devices in a few seconds from the PNS. If the PNS however is throttling then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently. 
 
@@ -94,11 +94,11 @@ Source - APNS guidance & [GCM guidance]
 
 With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (e.g. for .NET SDK - `SendNotificationAsync`) which also takes HTTP headers which are passed as is to the respective PNS. 
 
-##Self-diagnose tips
+## Self-diagnose tips
 
 Here we will examine the various avenues to diagnose and root cause any Notification Hub issues:
 
-###Verify credentials
+### Verify credentials
 
 1. **PNS developer portal**
 
@@ -110,7 +110,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
 
     ![][4]
 
-###Verify registrations
+### Verify registrations
 
 1. **Visual Studio**
 
@@ -129,7 +129,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
 
     Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub. It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]
 
-###Verify message notifications
+### Verify message notifications
 
 1. **Azure Classic Management Portal**
 
@@ -149,7 +149,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
     - [VS Server Explorer Blog post - 1]
     - [VS Server Explorer Blog post - 2]
 
-###Debug failed notifications/ Review notification outcome
+### Debug failed notifications/ Review notification outcome
 
 **EnableTestSend property**
 
@@ -200,7 +200,7 @@ This message indicates either invalid credentials are configured in the notifica
 > [!NOTE]
 > Note that the use of this property is heavily throttled and so you must only use this in dev/test environment with limited set of registrations. We only send debug notifications to 10 devices. We also have a limit of processing debug sends to be 10 per minute. 
 
-###Review telemetry 
+### Review telemetry 
 
 1. **Use Azure Classic Management Portal**
 

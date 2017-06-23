@@ -3,8 +3,8 @@ title: Azure Event Hubs API overview | Azure
 description: Overview of available Azure Event Hubs APIs
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
-manager: timlt
+author: sethmanheim
+manager: digimobile
 editor: ''
 
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-wacn.date: ''
+origin.date: 05/03/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 ---
 
@@ -22,7 +22,7 @@ ms.author: v-yeche
 
 ## Runtime APIs
 
-The following is a listing of all currently available Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an Event Hub.
+The following is a listing of all currently available Azure Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an event hub.
 
 See [additional information](#additional-information) for more details on the current status of each runtime library.
 
@@ -37,7 +37,7 @@ See [additional information](#additional-information) for more details on the cu
 ### <a id="additional-information"></a> Additional information
 
 #### .NET
-The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions.](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)
+The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### Node
 
@@ -54,6 +54,6 @@ The following is a listing of all currently available management specific librar
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](./event-hubs-create.md)
-* [Event Hubs FAQ](./event-hubs-faq.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an event hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)

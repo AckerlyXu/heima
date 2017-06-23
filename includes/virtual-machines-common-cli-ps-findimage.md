@@ -1,4 +1,4 @@
-## <a name="azure-cli"></a> Azure CLI 2.0
+## Azure CLI 2.0
 
 Once you have [installed the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a cached list of popular VM images. For example, the following example of the command `az vm image list -o table` displays:
 

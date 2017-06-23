@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
-wacn.date: ''
+origin.date: 02/28/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -28,8 +28,8 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that allo
 * An Azure subscription
 * C# or Python. C# example code is provided as a Visual Studio solution.
 
-    * Visual Studio must be version 2013, 2015, or 2017
-    * Python must be version 2.7 or higher
+  * Visual Studio must be version 2013, 2015, or 2017
+  * Python must be version 2.7 or higher
 
 * A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
@@ -38,9 +38,9 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that allo
 
 * The example files from [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). This repository contains the following items:
 
-    * A Visual Studio project that can create a storage container, stored policy, and SAS for use with HDInsight
-    * A Python script that can create a storage container, stored policy, and SAS for use with HDInsight
-    * A PowerShell script that can create a HDInsight cluster and configure it to use the SAS.
+  * A Visual Studio project that can create a storage container, stored policy, and SAS for use with HDInsight
+  * A Python script that can create a storage container, stored policy, and SAS for use with HDInsight
+  * A PowerShell script that can create a HDInsight cluster and configure it to use the SAS.
 
 ## Shared Access Signatures
 There are two forms of Shared Access Signatures:
@@ -72,10 +72,10 @@ Currently you must create a stored policy programmatically. You can find both th
 2. In Solution Explorer, right-click on the **SASToken** project and select **Properties**.
 3. Select **Settings** and add values for the following entries:
 
-    * StorageConnectionString: The connection string for the storage account that you want to create a stored policy and SAS for. The format should be `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` where `myaccount` is the name of your storage account and `mykey` is the key for the storage account.
-    * ContainerName: The container in the storage account that you want to restrict access to.
-    * SASPolicyName: The name to use for the stored policy to create.
-    * FileToUpload: The path to a file that is uploaded to the container.
+   * StorageConnectionString: The connection string for the storage account that you want to create a stored policy and SAS for. The format should be `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` where `myaccount` is the name of your storage account and `mykey` is the key for the storage account.
+   * ContainerName: The container in the storage account that you want to restrict access to.
+   * SASPolicyName: The name to use for the stored policy to create.
+   * FileToUpload: The path to a file that is uploaded to the container.
 4. Run the project. A console window appears, and information similar to the following text is displayed once the SAS has been generated:
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -85,11 +85,11 @@ Currently you must create a stored policy programmatically. You can find both th
 ### Create a stored policy and SAS using Python
 1. Open the SASToken.py file and change the following values:
 
-    * policy\_name: The name to use for the stored policy to create.
-    * storage\_account\_name: The name of your storage account.
-    * storage\_account\_key: The key for the storage account.
-    * storage\_container\_name: The container in the storage account that you want to restrict access to.
-    * example\_file\_path: The path to a file that is uploaded to the container
+   * policy\_name: The name to use for the stored policy to create.
+   * storage\_account\_name: The name of your storage account.
+   * storage\_account\_key: The key for the storage account.
+   * storage\_container\_name: The container in the storage account that you want to restrict access to.
+   * example\_file\_path: The path to a file that is uploaded to the container
 2. Run the script. It displays the SAS token similar to the following text when the script completes:
 
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -147,15 +147,15 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely log in to the cluster.
 
-    > [!IMPORTANT]
-    > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
-    >
-    > * Must be at least 10 characters in length
-    > * Must contain at least one digit
-    > * Must contain at least one non-alphanumeric character
-    > * Must contain at least one upper or lower case letter
-    >
-    >
+   > [!IMPORTANT]
+   > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
+   >
+   > * Must be at least 10 characters in length
+   > * Must contain at least one digit
+   > * Must contain at least one non-alphanumeric character
+   > * Must contain at least one upper or lower case letter
+   >
+   >
 
 It takes a while for this script to complete, usually around 15 minutes. When the script completes without any errors, the cluster has been created.
 
@@ -168,18 +168,18 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
 3. Select the **Advanced** tab, and then scroll until you find the **Custom core-site** section.
 4. Expand the **Custom core-site** section, then scroll to the end and select the **Add property...** link. Use the following values for the **Key** and **Value** fields:
 
-    * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn
-    * **Value**: The SAS returned by the C# or Python application you ran previously
+   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn
+   * **Value**: The SAS returned by the C# or Python application you ran previously
 
-    Replace **CONTAINERNAME** with the container name you used with the C# or SAS application. Replace **STORAGEACCOUNTNAME** with the storage account name you used.
+     Replace **CONTAINERNAME** with the container name you used with the C# or SAS application. Replace **STORAGEACCOUNTNAME** with the storage account name you used.
 5. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
 
     Click **OK** when the changes have been completed.
 
-    > [!IMPORTANT]
-    > You must restart several services before the change takes effect.
-    >
-    >
+   > [!IMPORTANT]
+   > You must restart several services before the change takes effect.
+   >
+   >
 6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All** from the **Service Actions** drop down list on the right. When prompted, select **Turn on maintenance mode** and then select __Conform Restart All".
 
     Repeat this process for MapReduce2 and YARN.

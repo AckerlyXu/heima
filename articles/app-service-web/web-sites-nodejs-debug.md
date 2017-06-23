@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
+origin.date: 04/25/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 
 ---
@@ -24,7 +24,9 @@ Azure provides built-in diagnostics to assist with debugging Node.js application
 
 Diagnostics for Node.js applications hosted on Azure is provided by [IISNode]. While this article discusses the most common settings for gathering diagnostics information, it does not provide a complete reference for working with IISNode. For more information on working with IISNode, see the [IISNode Readme] on GitHub.
 
-## <a id="enablelogging"></a> Enable logging
+<a id="enablelogging"></a>
+
+## Enable logging
 By default, an App Service web app only captures diagnostic information about deployments, such as when you deploy a web app using Git. This information is useful if you are having problems during deployment, such as a failure when installing a module referenced in **package.json**, or if you are using a custom deployment script.
 
 To enable the logging of stdout and stderr streams, you must create an **IISNode.yml** file at the root of your Node.js application and add the following:
@@ -51,7 +53,7 @@ If the **IISNode.yml** file did not already exist within your application, you m
 > 
 > 
 
-To restart the web app, select the web app in the [Azure Portal Preview](https://portal.azure.cn), and then click **RESTART** button:
+To restart the web app, select the web app in the [Azure Portal](https://portal.azure.cn), and then click **RESTART** button:
 
 ![restart button][restart-button]
 
@@ -64,7 +66,9 @@ If the Azure Command-Line Tools are installed in your development environment, y
 > 
 > 
 
-## <a id="viewlogs"></a> Accessing logs
+<a id="viewlogs"></a>
+
+## Accessing logs
 Diagnostic logs can be accessed in three ways; Using the File Transfer Protocol (FTP), downloading a Zip archive, or as a live updated stream of the log (also known as a tail). Downloading the Zip archive of the log files or viewing the live stream require the Azure Command-Line Tools. These can be installed by using the following command:
 
     npm install azure-cli -g
@@ -72,7 +76,7 @@ Diagnostic logs can be accessed in three ways; Using the File Transfer Protocol 
 Once installed, the tools can be accessed using the 'azure' command. The command-line tools must first be configured to use your Azure subscription. For information on how to accomplish this task, see the **How to download and import publish settings** section of the [How to Use The Azure Command-Line Tools](../xplat-cli-connect.md) article.
 
 ### FTP
-To access the diagnostic information through FTP, visit the [Azure Portal Preview](https://portal.azure.cn), select your web app, and then select the **DASHBOARD**. In the **quick links** section, the **FTP DIAGNOSTIC LOGS** and **FTPS DIAGNOSTIC LOGS** links provide access to the logs using the FTP protocol.
+To access the diagnostic information through FTP, visit the [Azure Portal](https://portal.azure.cn), select your web app, and then select the **DASHBOARD**. In the **quick links** section, the **FTP DIAGNOSTIC LOGS** and **FTPS DIAGNOSTIC LOGS** links provide access to the logs using the FTP protocol.
 
 > [!NOTE]
 > If you have not previously configured user name and password for FTP or deployment, you can do so from the **Quickstart** management page by selecting **Set up deployment credentials**.
@@ -94,8 +98,8 @@ This will download a **diagnostics.zip** in the current directory. This archive 
 * deployments - A log of information about deployments of your application
 * LogFiles
 
-    * [Deployment method](web-sites-deploy.md) - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
-    * nodejs - Stdout and stderr information captured from all instances of your application (when loggingEnabled is true.)
+  * [Deployment method](web-sites-deploy.md) - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
+  * nodejs - Stdout and stderr information captured from all instances of your application (when loggingEnabled is true.)
 
 ### Live stream (tail)
 To view a live stream of diagnostic log information, use the following command from the Azure Command-Line Tools:
@@ -104,7 +108,9 @@ To view a live stream of diagnostic log information, use the following command f
 
 This will return a stream of log events that are updated as they occur on the server. This stream will return deployment information as well as stdout and stderr information (when loggingEnabled is true.)
 
-## <a id="nextsteps"></a> Next Steps
+<a id="nextsteps"></a>
+
+## Next Steps
 In this article you learned how to enable and access diagnostics information for Azure. While this information is useful in understanding problems that occur with your application, it may point to a problem with a module you are using or that the version of Node.js used by App Service Web Apps is different than the one used in your deployment environment.
 
 For information in working with modules on Azure, see [Using Node.js Modules with Azure Applications](../nodejs-use-node-modules-azure-apps.md).

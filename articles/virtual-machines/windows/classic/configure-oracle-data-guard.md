@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
-wacn.date: ''
+origin.date: 09/06/2016
+ms.date: 10/24/2016
 ms.author: v-dazen
 
 ---
@@ -40,20 +40,20 @@ Implement the physical standby database environment
 1. Create a primary database
 2. Prepare the primary database for standby database creation
 
-    1. Enable forced logging
-    2. Create a password file
-    3. Configure a standby redo log
-    4. Enable Archiving
-    5. Set primary database initialization parameters
+   1. Enable forced logging
+   2. Create a password file
+   3. Configure a standby redo log
+   4. Enable Archiving
+   5. Set primary database initialization parameters
 
 Create a physical standby database
 
 1. Prepare an initialization parameter file for standby database
 2. Configure the listener and tnsnames to support the database on primary and standby machines
 
-    1. Configure listener.ora on both servers to hold entries for both databases
-    2. To hold entries for both primary and standby databases, configure tnsnames.ora on the primary and standby Virtual Machines. 
-    3. Start the listener and check tnsping on both Virtual Machines to both services.
+   1. Configure listener.ora on both servers to hold entries for both databases
+   2. To hold entries for both primary and standby databases, configure tnsnames.ora on the primary and standby Virtual Machines. 
+   3. Start the listener and check tnsping on both Virtual Machines to both services.
 3. Start up the standby instance in nomount state
 4. Use RMAN to clone the database and to create a standby database
 5. Start the physical standby database in managed recovery mode
@@ -307,9 +307,9 @@ Next, follow these steps:
 1. Prepare an initialization parameter file for standby database
 2. Configure the listener and tnsnames to support the database on primary and standby machines
 
-    1. Configure listener.ora on both servers to hold entries for both databases
-    2. Configure tnsnames.ora on the primary and standby Virtual Machines to hold entries for both primary and standby databases
-    3. Start the listener and check tnsping on both Virtual Machines to both services.
+   1. Configure listener.ora on both servers to hold entries for both databases
+   2. Configure tnsnames.ora on the primary and standby Virtual Machines to hold entries for both primary and standby databases
+   3. Start the listener and check tnsping on both Virtual Machines to both services.
 3. Start up the standby instance in nomount state
 4. Use RMAN to clone the database and to create a standby database
 5. Start the physical standby database in managed recovery mode

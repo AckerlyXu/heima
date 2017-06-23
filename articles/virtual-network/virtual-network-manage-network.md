@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
@@ -34,7 +34,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you're new to VNets, we recommend completing the exercise in the [Create your first Azure Virtual Network](virtual-network-get-started-vnet-subnet.md) before reading this article. The exercise helps familiarize you with VNets.
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for VNets.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+- Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If you use Azure PowerShell commands to complete tasks in this article, first you must [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If you use Azure Command-line interface (CLI) commands to complete tasks in this article, first you must [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
@@ -43,7 +43,7 @@ Complete the following tasks before completing steps in any section of this arti
 ## <a name="create-vnet"></a>Create a virtual network
 
 1. Log in to the [portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the Azure portal preview, click **+ New**. In the **New** blade that appears, click **Networking**. In the **Networking** blade that appears, click **Virtual network.**
+2. In the Azure portal, click **+ New**. In the **New** blade that appears, click **Networking**. In the **Networking** blade that appears, click **Virtual network.**
 3. In the **Virtual network** blade that appears, leave *Resource Manager* selected in the **Select a deployment model** box, and click **Create**.
 4. In the **Create virtual network** blade that appears, enter, or select values for the following settings, then click **Create**:
     - **Name**: The name must be unique with the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group) you select to create the VNet in. The name cannot be changed after the VNet is created. You may create multiple VNets over time. Read the [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) article for naming suggestions to make it easier to manage multiple VNets.
@@ -89,11 +89,11 @@ Complete the following tasks before completing steps in any section of this arti
 
         ![Network interface overview](./media/virtual-network-manage-network/vnet-overview.png)
 
-      You can move a VNet to a different subscription or resource group from this blade. To learn how to move a VNet, read the [Move resources to a different resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=%2fvirtual-network%2ftoc.json) article. The article lists prerequisites, and how to move resources using the Azure portal preview, PowerShell, and the Azure CLI. All resources connected to the VNet must also move with the VNet. 
+      You can move a VNet to a different subscription or resource group from this blade. To learn how to move a VNet, read the [Move resources to a different resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=%2fvirtual-network%2ftoc.json) article. The article lists prerequisites, and how to move resources using the Azure portal, PowerShell, and the Azure CLI. All resources connected to the VNet must also move with the VNet. 
     - **Address space:** The address spaces assigned to the VNet are listed. To learn how to add and remove address spaces, complete the steps in the [Add-remove address spaces](#address-spaces) section of this article.
     - **Connected devices:** Any resources connected to the VNet are displayed. In the example shown in the previous picture, three network interfaces and one load balancer are connected to the VNet. Any new resources you create and connect to the VNet are listed. If you delete a resource connected to the VNet, it's no longer displayed in the list.
     - **Subnets:** A list of subnets that exist within the VNet. To learn how to add and remove subnets, read the [Add subnet](virtual-network-manage-subnet.md#create-subnet) and [Delete subnet](virtual-network-manage-subnet.md#delete-subnet) sections of the [Add, change, or delete subnets](virtual-network-manage-subnet.md) article.
-    - **DNS servers:** You can specify whether the Azure internal DNS server or custom DNS server provides name resolution for devices connected to the VNet. When creating a VNet using the Azure portal preview, Azure's DNS servers are used for name resolution within a VNet, by default. To modify the DNS servers, complete the steps in the [Add-change-remove DNS servers](#dns-servers) section of this article. 
+    - **DNS servers:** You can specify whether the Azure internal DNS server or custom DNS server provides name resolution for devices connected to the VNet. When creating a VNet using the Azure portal, Azure's DNS servers are used for name resolution within a VNet, by default. To modify the DNS servers, complete the steps in the [Add-change-remove DNS servers](#dns-servers) section of this article. 
     - **Peerings:** If there are existing peerings in the subscription, they're listed here. You can view settings for existing peerings, or create, change, or delete peerings. To learn more about peerings, read the [Peering overview](virtual-network-peering-overview.md) article.
     - **Properties:** Displays settings about the VNet, including the VNet's resource ID and the subscription it exists in.
     - **Diagram:** The diagram provides a visual representation of all devices connected to the VNet with some key information about the devices. You can click any of the devices to manage it directly through this view.
@@ -116,7 +116,7 @@ You can add address spaces to and remove address spaces from a VNet. The address
 	- 168.63.129.16/32 (Internal DNS)
 
 1. Log in to the [portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appears, click the virtual network you want to add or remove an address space to or from.
 4. In the blade that appears for the VNet you selected, click **Address space** in the **SETTINGS** section.
 5. Complete one of the following options in the blade that appears with address spaces:
@@ -136,7 +136,7 @@ You can add address spaces to and remove address spaces from a VNet. The address
 All VMs connected to the VNet register with the DNS servers specified for the VNet and use the DNS server for name resolution. Each network interface (NIC) in a VM can have its own DNS server settings. If a NIC has its own DNS server settings, they override the DNS server settings for the VNet. To learn more about NIC DNS settings, read the [Network interface tasks and settings](virtual-network-network-interface.md#dns) article. To learn more about name resolution for VMs and Cloud Services role instances, read the [Name resolution for VMs and role instances](virtual-networks-name-resolution-for-vms-and-role-instances.md) article.
 
 1. Log in to the [portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *virtual networks*. When **Virtual networks** appears in the search results, click it. 
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it. 
 3. In the **Virtual networks** blade that appears, click the virtual network you want to change DNS settings for.
 4. In the blade that appears for the VNet you selected, click **DNS servers** in the **SETTINGS** section.
 5. Select one of the following options in the blade that appears with DNS servers:
@@ -161,7 +161,7 @@ All VMs connected to the VNet register with the DNS servers specified for the VN
 You can only delete a VNet if there are no resources connected to it. If there are resources connected to any subnet within the VNet, you must first delete the resources connected to all subnets within the VNet. The instructions for how to delete a resource vary depending upon the resource. To learn how to delete resources connected to subnets, read the documentation for each resource type you want to delete. To delete a VNet, complete the following steps:
 
 1. Log in to the [portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *virtual networks*. When **virtual networks** appears in the search results, click it.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appeared, click the VNet you want to delete.
 4. Confirm there are no devices connected to the VNet by clicking **Connected devices** in the **SETTINGS** section of the blade that appeared for the VNet you selected. If there are connected devices, you must first delete them before you can delete the VNet.  If there are no connected devices, click **Overview** in the blade.
 5. Click the **Delete** icon at the top of the blade. 

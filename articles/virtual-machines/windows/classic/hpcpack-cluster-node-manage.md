@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 12/29/2016
-wacn.date: ''
+origin.date: 12/29/2016
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -36,18 +36,18 @@ and availability of your HPC Pack cluster resources so you can control costs.
     After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. Run each of the scripts as an administrator.
 * **Azure publish settings file or management certificate**: You need to do one of the following on the head node:
 
-    * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
+  * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
 
-        ```PowerShell
-        Get-AzurePublishSettingsFile
+    ```PowerShell
+    Get-AzurePublishSettingsFile
 
-        Import-AzurePublishSettingsFile -PublishSettingsFile <publish settings file>
-        ```
-    * **Configure the Azure management certificate on the head node**. If you have the .cer file, import it in the CurrentUser\My certificate store and then run the following Azure PowerShell cmdlet for your Azure environment (either AzureCloud or AzureChinaCloud):
+    Import-AzurePublishSettingsFile -PublishSettingsFile <publish settings file>
+    ```
+  * **Configure the Azure management certificate on the head node**. If you have the .cer file, import it in the CurrentUser\My certificate store and then run the following Azure PowerShell cmdlet for your Azure environment (either AzureCloud or AzureChinaCloud):
 
-        ```PowerShell
-        Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
-        ```
+    ```PowerShell
+    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
+    ```
 
 ## Add compute node VMs
 Add compute nodes with the **Add-HpcIaaSNode.ps1** script.
@@ -63,9 +63,9 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 * **ServiceName**: Name of the cloud service that new compute node VMs are added to.
 * **ImageName**: Azure VM image name, which can be obtained through the Azure Classic Management Portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
 
-    1. A Windows operating system must be installed.
-    2. HPC Pack must be installed in the compute node role.
-    3. The image must be a private image in the User category, not a public Azure VM image.
+  1. A Windows operating system must be installed.
+  2. HPC Pack must be installed in the compute node role.
+  3. The image must be a private image in the User category, not a public Azure VM image.
 * **Quantity**: Number of compute node VMs to be added.
 * **InstanceSize**: Size of the compute node VMs.
 * **DomainUserName**: Domain user name, which is used to join the new VMs to the domain.

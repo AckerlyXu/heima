@@ -14,8 +14,8 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
-wacn.date: ''
+origin.date: 03/17/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -39,7 +39,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 Use the following steps to create a Storm on HDInsight cluster:
 
-1. From the [Azure portal preview](https://portal.azure.cn), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
+1. From the [Azure portal](https://portal.azure.cn), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
 
     ![Create a HDInsight cluster](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 

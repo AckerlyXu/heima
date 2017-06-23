@@ -1,6 +1,6 @@
 ---
 title: Availability sets for Windows classic VMs | Azure
-description: Configure an availability set for a new or existing Windows virtual machine in the classic deployment model using the Azure portal preview and Azure PowerShell.
+description: Configure an availability set for a new or existing Windows virtual machine in the classic deployment model using the Azure portal and Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-wacn.date: ''
+origin.date: 09/27/2016
+ms.date: 12/26/2016
 ms.author: v-dazen
 
 ---

@@ -14,8 +14,8 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 05/11/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -49,8 +49,7 @@ az vm create \
     --image Debian \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --nics myNic \
-    --use-unmanaged-disk
+    --nics myNic
 ```
 
 ## Detailed walkthrough
@@ -141,7 +140,7 @@ You now have a virtual network and subnet, and a network security group to prote
 
 Create your VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md).
 
-The following example creates a VM using Azure Unmanaged Disks.
+The following example creates a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about managed disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md). If you wish to use unmanaged disks, see the additional note below.
 
 ```azurecli
 az vm create \
@@ -150,7 +149,12 @@ az vm create \
     --image Debian \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --nics myNic \
+    --nics myNic
+```
+
+If you use managed disks, skip this step. If you wish to use unmanaged disks, you need to add the following additional parameters to the proceeding command to create unmanaged disks in the storage account named `mystorageaccount`: 
+
+```azurecli
     --use-unmanaged-disk \
     --storage-account mystorageaccount
 ```

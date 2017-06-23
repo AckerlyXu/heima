@@ -22,7 +22,7 @@ ms.author: v-johch
 SQL Database is a relational database service in the cloud based on the market-leading Microsoft SQL Server engine and capable of handling mission-critical workloads. SQL Database delivers predictable performance at multiple service levels, dynamic scalability with no downtime, built-in business continuity, and data protection — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. Because SQL Database is based on the [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) engine, SQL Database supports existing SQL Server tools, libraries, and APIs. As a result, it is easy for you to develop new solutions, to move your existing SQL Server solutions, and to extend your existing SQL Server solutions to the Microsoft cloud without having to learn new skills.
 
 This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
- - [Create a SQL database in the Azure portal preview](sql-database-get-started-portal.md)  
+ - [Create a SQL database in the Azure Portal](sql-database-get-started-portal.md)  
  - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
  - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
 

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
-wacn.date: ''
+origin.date: 08/26/2016
+ms.date: 12/20/2016
 ms.author: v-dazen
 
 ---
@@ -24,11 +24,11 @@ This article focuses on how to lock down the login security of your Linux VM.  A
 
 ## Goals
 * Configure SSHD to disallow:
-    * Password logins
-    * Root user login
-    * Challenge-response authentication
+  * Password logins
+  * Root user login
+  * Challenge-response authentication
 * Configure SSHD to allow:
-    * only SSH key logins
+  * only SSH key logins
 * Restart SSHD while still logged in
 * Test the new SSHD configuration
 
@@ -42,8 +42,8 @@ For this article it is very important to keep one login to your Linux VM open fo
 ## Prerequisites
 * [Create SSH keys on Linux and Mac for Linux VMs in Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * Azure account
-    * [trial signup](https://www.azure.cn/pricing/1rmb-trial/)
-    * [Azure portal preview](http://portal.azure.cn)
+  * [trial signup](https://www.azure.cn/pricing/1rmb-trial/)
+  * [Azure portal](http://portal.azure.cn)
 * Linux VM running on azure
 * SSH public & private key pair in `~/.ssh/`
 * SSH public key in `~/.ssh/authorized_keys` on the Linux VM

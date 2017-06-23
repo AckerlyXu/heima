@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
-wacn.date: ''
+origin.date: 04/03/2017
+ms.date: 05/22/2017
 ms.author: v-dazen
 
 ---
 # Create an application gateway using Path-based routing
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-url-route-portal.md)
+> * [Azure portal](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
 URL Path-based routing enables you to associate routes based on the URL path of an Http request. It checks if there is a route to a back-end pool configured for the URL presented in the Application Gateway and sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.

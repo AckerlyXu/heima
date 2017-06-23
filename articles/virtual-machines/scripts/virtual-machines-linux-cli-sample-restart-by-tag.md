@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/01/2017
-wacn.date: ''
+origin.date: 03/01/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Restart VMs
@@ -108,7 +109,7 @@ az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Mic
 
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 

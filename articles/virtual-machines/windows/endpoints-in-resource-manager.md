@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
-wacn.date: ''
+origin.date: 05/11/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -24,7 +24,7 @@ ms.author: v-dazen
 ## Next steps
 You can read more detailed information on the technologies discussed here, along with quickstart guides for using Network Security Groups, in the following articles:
 
-* [Quick-start - Create a Network Security Group and ACL rules using the Azure portal preview](nsg-quickstart-portal.md)  
+* [Quick-start - Create a Network Security Group and ACL rules using the Azure portal](nsg-quickstart-portal.md)  
 * [Quick-start - Create a Network Security Group and ACL rules using the Azure PowerShell](nsg-quickstart-powershell.md)  
 * [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)  
 * [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)  

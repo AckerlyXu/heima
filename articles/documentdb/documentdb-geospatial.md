@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/08/2017
+origin.date: 05/08/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: ''
+ms.date: 05/31/2017
 
 ---
 # Working with geospatial and GeoJSON location data in Azure Cosmos DB

@@ -13,9 +13,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code from GitHub
@@ -27,7 +28,8 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 ## Sample script
 
 ```powershell
-$gitrepo="<Replace with your GitHub repo URL>"
+# Replace the following URL with a public GitHub repo URL
+$gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"
 
@@ -35,12 +37,10 @@ $location="China North"
 New-AzureRmResourceGroup -Name $webappname -Location $location
 
 # Create an App Service plan in Free tier.
-New-AzureRmAppServicePlan -Name $webappname -Location $location `
--ResourceGroupName $webappname -Tier Free
+New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
 # Create a web app.
-New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
--ResourceGroupName $webappname
+New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $webappname
 
 # Configure GitHub deployment from your GitHub repo and deploy once.
 $PropertiesObject = @{
@@ -48,9 +48,7 @@ $PropertiesObject = @{
     branch = "master";
     isManualIntegration = "true";
 }
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $webappname `
--ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web `
--ApiVersion 2015-08-01 -Force
+Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $webappname -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web -ApiVersion 2015-08-01 -Force
 
 ```
 

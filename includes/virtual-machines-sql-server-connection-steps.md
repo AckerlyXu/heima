@@ -84,12 +84,12 @@ To connect to the Database Engine from another computer, you must create at leas
     ![Login Properties](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 8. If this is the first login you are creating, you may want to designate this login as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**.
 
-    > [!NOTE]
-    > Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
-    > 
-    > 
+   > [!NOTE]
+   > Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
+   > 
+   > 
 
-    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
+   ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 9. Click OK.
 
 For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/31/2017
-wacn.date: ''
+origin.date: 01/31/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -35,7 +35,7 @@ To use the automated storage configuration settings, your virtual machine requir
 ## New VMs
 The following sections describe how to configure storage for new SQL Server virtual machines.
 
-### Azure Portal Preview
+### Azure Portal
 When provisioning an Azure VM using a SQL Server gallery image, you can choose to automatically configure the storage for your new VM. You specify the storage size, performance limits, and workload type. The following screenshot shows the Storage configuration blade used during SQL VM provisioning.
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
@@ -48,7 +48,7 @@ Based on your choices, Azure performs the following storage configuration tasks 
 * Associates the storage pool with a new drive on the virtual machine.
 * Optimizes this new drive based on your specified workload type (Data warehousing, Transactional processing, or General).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure Portal Preview, see [the provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
+For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure Portal, see [the provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Resource Manage templates
 If you use the following Resource Manager templates, two premium data disks are attached by default, with no storage pool configuration. However, you can customize these templates to change the number of premium data disks that are attached to the virtual machine.
@@ -58,7 +58,7 @@ If you use the following Resource Manager templates, two premium data disks are 
 * [Create VM with AKV Integration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
 ## Existing VMs
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal preview. Select your VM, go to the Settings area, and then select SQL Server Configuration. The SQL Server Configuration blade shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Select your VM, go to the Settings area, and then select SQL Server Configuration. The SQL Server Configuration blade shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
 
 * SQL data
 * SQL log
@@ -98,7 +98,7 @@ The other option for expanding storage is to extend the existing drive. This opt
 ![Extend a drive for a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## Storage configuration
-This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure Portal Preview.
+This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure Portal.
 
 * If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
 * If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.

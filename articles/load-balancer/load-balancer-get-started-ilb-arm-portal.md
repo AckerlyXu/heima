@@ -1,6 +1,6 @@
 ---
-title: Create an Internal load balancer - Azure portal preview | Azure
-description: Learn how to create an Internal load balancer in Resource Manager using the Azure portal preview
+title: Create an Internal load balancer - Azure Portal | Azure
+description: Learn how to create an Internal load balancer in Resource Manager using the Azure Portal
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 03/03/2017
 ms.author: v-yeche
 ---
 
-# Create an Internal load balancer in the Azure portal preview
+# Create an Internal load balancer in the Azure Portal
 > [!div class="op_single_selector"]
->- [Azure Portal Preview](./load-balancer-get-started-ilb-arm-portal.md)
+>- [Azure Portal](./load-balancer-get-started-ilb-arm-portal.md)
 >- [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
 >- [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
 >- [Template](./load-balancer-get-started-ilb-arm-template.md)
@@ -33,11 +33,11 @@ ms.author: v-yeche
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## Get started creating an Internal load balancer using Azure portal preview
+## Get started creating an Internal load balancer using Azure Portal
 
-Use the following steps to create an internal load balancer from the Azure Portal Preview.
+Use the following steps to create an internal load balancer from the Azure Portal.
 
-1. Open a browser, navigate to the [Azure portal preview](http://portal.azure.cn), and sign in with your Azure account.
+1. Open a browser, navigate to the [Azure Portal](http://portal.azure.cn), and sign in with your Azure account.
 2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
 3. In the **Create load balancer** blade, enter a **Name** for your load balancer.
 4. Under **Scheme**, click **Internal**.
@@ -62,14 +62,14 @@ You need to configure first a back-end address pool and a probe before configuri
 
 ### Step 1: Configure a back-end pool
 
-1. In the Azure portal preview, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+1. In the Azure Portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Backend pools**.
 3. In the **Backend address pools** blade, click **Add**.
 4. In the **Add backend pool** blade, enter a **Name** for the backend pool, and then click **OK**.
 
 ### Step 2: Configure a probe
 
-1. In the Azure portal preview, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+1. In the Azure Portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Probes**.
 3. In the **Probes**  blade, click **Add**.
 4. In the **Add probe** blade, enter a **Name** for the probe.
@@ -82,7 +82,7 @@ You need to configure first a back-end address pool and a probe before configuri
 
 ### Step 3: Configure load balancing rules
 
-1. In the Azure portal preview, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+1. In the Azure Portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Load balancing rules**.
 3. In the **Load balancing rules** blade, click **Add**.
 4. In the **Add load balancing rule** blade, enter a **Name** for the rule.

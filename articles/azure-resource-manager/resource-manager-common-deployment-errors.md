@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
-wacn.date: ''
+origin.date: 03/15/2017
+ms.date: 06/05/2017
 ms.author: v-yeche
 
 ---
@@ -583,7 +583,7 @@ You can discover valuable information about how your deployment is processed by 
             }
         }
     }
-        ```
+    ```
 
 ### Create a troubleshooting template
 In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, create a template that returns the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.

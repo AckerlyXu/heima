@@ -10,8 +10,8 @@ ms.service: stream-analytics
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
+origin.date: 01/23/2017
 ms.date: 01/23/2017
-wacn.date: ''
 ms.author: v-yeche
 ---
 
@@ -76,47 +76,4 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
     </li>
     <!-- Not Available /Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends-->
     <!-- Not Available /Stream-Analytics/stream-analytics-machine-learning-integration-tutorial-->
-</ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/streamanalytics">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
 </ul>

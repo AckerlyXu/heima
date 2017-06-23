@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ---
@@ -36,15 +36,15 @@ Learn how to install Zeppelin notebooks on Apache Spark clusters and how to use 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Install Zeppelin on a Spark cluster
-You can install Zeppelin on a Spark cluster using script action. Script action uses custom scripts to install components on the cluster that are not available by default. You can use the custom script to install Zeppelin from the Azure Portal Preview, by using HDInsight .NET SDK, or by using Azure PowerShell. You can use the script to install Zeppelin either as part of cluster creation, or after the cluster is up and running. Links in the sections below provide the instructions on how to do so.
+You can install Zeppelin on a Spark cluster using script action. Script action uses custom scripts to install components on the cluster that are not available by default. You can use the custom script to install Zeppelin from the Azure Portal, by using HDInsight .NET SDK, or by using Azure PowerShell. You can use the script to install Zeppelin either as part of cluster creation, or after the cluster is up and running. Links in the sections below provide the instructions on how to do so.
 
-### Using the Azure Portal Preview
-For instructions on how to use the Azure Portal Preview to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). You must make a couple of changes to the instructions in that article.
+### Using the Azure Portal
+For instructions on how to use the Azure Portal to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). You must make a couple of changes to the instructions in that article.
 
 * You must use the script to install Zeppelin. The custom script to install Zeppelin on a Spark cluster on HDInsight is available from the following links:
 
-    * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
-    * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+  * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+  * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 * You must run the script action only on the headnode.
 * The script does not need any parameters.
 
@@ -53,8 +53,8 @@ For instructions on how to use HDInsight .NET SDK to run script action to instal
 
 * You must use the script to install Zeppelin. The custom script to install Zeppelin on a Spark cluster on HDInsight is available from the following links:
 
-    * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
-    * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+  * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+  * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 * The script does not need any parameters.
 * Set the cluster type you are creating to Spark.
 
@@ -182,9 +182,9 @@ Once you have successfully installed Zeppelin using script action, you can use t
 
     Update the following properties.
 
-    * Set **default.password** to the password you specified for the admin user while creating the HDInsight Spark cluster.
-    * Set **default.url** to `jdbc:hive2://<spark_cluster_name>.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Replace **\<spark_cluster_name>** with the name of your Spark cluster.
-    * Set **default.user** to the name of the admin user you specified while creating the cluster. For example, *admin*.
+   * Set **default.password** to the password you specified for the admin user while creating the HDInsight Spark cluster.
+   * Set **default.url** to `jdbc:hive2://<spark_cluster_name>.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Replace **\<spark_cluster_name>** with the name of your Spark cluster.
+   * Set **default.user** to the name of the admin user you specified while creating the cluster. For example, *admin*.
 3. Click **Save** and when prompted to restart the hive interpreter, click **OK**.
 4. Create a new notebook and run the following statement to list all the hive tables on the cluster.
 

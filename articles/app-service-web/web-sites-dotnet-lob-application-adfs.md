@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 08/31/2016
-wacn.date: ''
+origin.date: 08/31/2016
+ms.date: 03/17/2017
 ms.author: v-dazen
 
 ---
@@ -34,14 +34,18 @@ App Service but your organization requires directory data to be stored on-site.
 > 
 > 
 
-## <a name="bkmk_build"></a> What you will build
+<a name="bkmk_build"></a>
+
+## What you will build
 You will build a basic ASP.NET application in Azure App Service Web Apps with the following features:
 
 * Authenticates users against AD FS
 * Uses `[Authorize]` to authorize users for different actions
 * Static configuration for both debugging in Visual Studio and publishing to App Service Web Apps (configure once, debug and publish anytime)  
 
-## <a name="bkmk_need"></a> What you need
+<a name="bkmk_need"></a>
+
+## What you need
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 You need the following to complete this tutorial:
@@ -52,23 +56,27 @@ You need the following to complete this tutorial:
 * Visual Studio 2013 Update 4 or later
 * [Azure SDK 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or later
 
-## <a name="bkmk_sample"></a> Use sample application for line-of-business template
+<a name="bkmk_sample"></a>
+
+## Use sample application for line-of-business template
 The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), is created by the Azure Active Directory team. Since AD FS supports WS-Federation, you can use it as a template to create line-of-business applications with ease. It has the following features:
 
 * Uses [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) to authenticate with an on-premises AD FS deployment
 * Sign-in and sign-out functionality
 * Uses [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (instead of Windows Identity Foundation), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF
 
-## <a name="bkmk_setup"></a> Set up the sample application
+<a name="bkmk_setup"></a>
+
+## Set up the sample application
 1. Clone or download the sample solution at [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) to your local directory.
 
-    > [!NOTE]
-    > The instructions at [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) show you how to set up the application with Azure Active Directory. But in this tutorial, you set it up with AD FS, so follow the steps here instead.
-    > 
-    > 
+   > [!NOTE]
+   > The instructions at [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) show you how to set up the application with Azure Active Directory. But in this tutorial, you set it up with AD FS, so follow the steps here instead.
+   > 
+   > 
 2. Open the solution, and then open Controllers\AccountController.cs in the **Solution Explorer**.
 
-    You will see that the code simply issues an authentication challenge to authenticate the user using WS-Federation. All authentication is configured in App_Start\Startup.Auth.cs.
+   You will see that the code simply issues an authentication challenge to authenticate the user using WS-Federation. All authentication is configured in App_Start\Startup.Auth.cs.
 3. Open App_Start\Startup.Auth.cs. In the `ConfigureAuth` method, note the line:
 
         app.UseWsFederationAuthentication(
@@ -78,44 +86,46 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
                 MetadataAddress = metadata                                      
             });
 
-    In the OWIN world, this snippet is really the bare minimum you need to configure WS-Federation authentication. It is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
+   In the OWIN world, this snippet is really the bare minimum you need to configure WS-Federation authentication. It is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
 
-    * RP identifier: `https://contoso.com/MyLOBApp`
-    * Metadata address: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+   * RP identifier: `https://contoso.com/MyLOBApp`
+   * Metadata address: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 4. In App_Start\Startup.Auth.cs, change the following static string definitions:  
 
-    <pre class="prettyprint">
-    private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+   <pre class="prettyprint">
+   private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+   <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+   <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+   <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+   <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-    </pre>
+   <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+   </pre>
 5. Now, make the corresponding changes in Web.config. Open the Web.config and modify the following app settings:  
 
-    <pre class="prettyprint">
-    &lt;appSettings&gt;
-    &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
-    &lt;add key="webpages:Enabled" value="false" /&gt;
-    &lt;add key="ClientValidationEnabled" value="true" /&gt;
-    &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
-    <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.partner.onmschina.cn/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-    <mark><del>&lt;add key="ida:AADInstance" value="https://login.chinacloudapi.cn" /&gt;</del></mark>
-    <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.partner.onmschina.cn]" /&gt;</del></mark>
-    <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
-    <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
+   <pre class="prettyprint">
+   &lt;appSettings&gt;
+   &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
+   &lt;add key="webpages:Enabled" value="false" /&gt;
+   &lt;add key="ClientValidationEnabled" value="true" /&gt;
+   &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
+   <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.partner.onmschina.cn/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:AADInstance" value="https://login.chinacloudapi.cn" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.partner.onmschina.cn]" /&gt;</del></mark>
+   <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
+   <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
 
-    &lt;/appSettings&gt;
-    </pre>
+   &lt;/appSettings&gt;
+   </pre>
 
-    Fill in the key values based on your respective environment.
+   Fill in the key values based on your respective environment.
 6. Build the application to make sure there are no errors.
 
 That's it. Now the sample application is ready to work with AD FS. You still need to configure an RP trust with this application in AD FS later.
 
-## <a name="bkmk_deploy"></a> Deploy the sample application to Azure App Service Web Apps
+<a name="bkmk_deploy"></a>
+
+## Deploy the sample application to Azure App Service Web Apps
 Here, you publish the application to a web app in App Service Web Apps while preserving the debug environment. Note that you're going to publish the application before it has an RP trust with AD FS, so authentication still doesn't work yet. However, if you do it now you can have the web app URL that you can use to configure the RP trust later.
 
 1. Right-click your project and select **Publish**.
@@ -133,17 +143,19 @@ Here, you publish the application to a web app in App Service Web Apps while pre
     ![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 8. In Visual Studio, open **Web.Release.config** in your project. Insert the following XML into the `<configuration>` tag, and replace the key value with your publish web app's URL.  
 
-    <pre class="prettyprint">
-    &lt;appSettings&gt;
-    &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.chinacloudsites.cn/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
-    &lt;/appSettings&gt;</pre>
+   <pre class="prettyprint">
+   &lt;appSettings&gt;
+   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.chinacloudsites.cn/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;/appSettings&gt;</pre>
 
 When you're done, you have two RP identifiers configured in your project, one for your debug environment in Visual Studio, and one for the published web app in Azure. You will set up an RP trust for each of the two environments in AD FS. 
 During debugging, the app settings in Web.config are used to make your **Debug** configuration work with AD FS. When it's published (by default, the **Release** configuration is published), a transformed Web.config is uploaded that incorporates the app setting changes in Web.Release.config.
 
 If you want to attach the published web app in Azure to the debugger (i.e. you must upload debug symbols of your code in the published web app), you can create a clone of the Debug configuration for Azure debugging, but with its own custom Web.config transform (e.g. Web.AzureDebug.config) that uses the app settings from Web.Release.config. This allows you to maintain a static configuration across the different environments.
 
-## <a name="bkmk_rptrusts"></a> Configure relying party trusts in AD FS Management
+<a name="bkmk_rptrusts"></a>
+
+## Configure relying party trusts in AD FS Management
 Now you need to configure an RP trust in AD FS Management before you can use your sample application and actually authenticate with AD FS. You will need to set up two separate RP trusts, one for your debug environment and one for your published web app.
 
 > [!NOTE]
@@ -154,35 +166,35 @@ Now you need to configure an RP trust in AD FS Management before you can use you
 1. On your AD FS server, log in with credentials that have management rights to AD FS.
 2. Open AD FS Management. Right-click **AD FS\Trusted Relationships\Relying Party Trusts** and select **Add Relying Party Trust**.
 
-    ![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
+   ![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 3. In the **Select Data Source** page, select **Enter data about the relying party manually**. 
 
-    ![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
+   ![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
 4. In the **Specify Display Name** page, type a display name for the application and click **Next**.
 5. In the **Choose Protocol** page, click **Next**.
 6. In the **Configure Certificate** page, click **Next**.
 
-    > [!NOTE]
-    > Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see [Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
-    > 
-    > 
+   > [!NOTE]
+   > Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see [Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
+   > 
+   > 
 7. Before you move onto the next step, you need one piece of information from your Visual Studio project. In the project properties, note the **SSL URL** of the application. 
 
-    ![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
+   ![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
 8. Back in AD FS Management, in the **Configure URL** page of the **Add Relying Party Trust Wizard**, select **Enable support for the WS-Federation Passive protocol** and type in the SSL URL of your Visual Studio project that you noted in the previous step. Then, click **Next**.
 
-    ![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
+   ![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
-    > [!NOTE]
-    > URL specifies where to send the client after authentication succeeds. For the debug environment, it should be <code>https://localhost:&lt;port&gt;/</code>. For the published web app, it should be the web app URL.
-    > 
-    > 
+   > [!NOTE]
+   > URL specifies where to send the client after authentication succeeds. For the debug environment, it should be <code>https://localhost:&lt;port&gt;/</code>. For the published web app, it should be the web app URL.
+   > 
+   > 
 9. In the **Configure Identifiers** page, verify that your project SSL URL is already listed and click **Next**. Click **Next** all the way to the end of the wizard with default selections.
 
-    > [!NOTE]
-    > In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of <code>WsFederationAuthenticationOptions.Wtrealm</code> during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.
-    > 
-    > 
+   > [!NOTE]
+   > In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of <code>WsFederationAuthenticationOptions.Wtrealm</code> during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.
+   > 
+   > 
 10. You have now finished configuring the RP application for your project in AD FS. Next, you configure this application to send the claims needed by your application. The **Edit Claim Rules** dialog is opened by default for you at the end of the wizard so you can start immediately. Let's configure at least the following claims (with schemas in parentheses):
 
     * Name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - used by ASP.NET to hydrate `User.Identity.Name`.
@@ -237,7 +249,9 @@ Now you need to configure an RP trust in AD FS Management before you can use you
     > 
     > 
 
-## <a name="bkmk_test"></a> Test federated authentication for your application
+<a name="bkmk_test"></a>
+
+## Test federated authentication for your application
 You are ready to test your application's authentication logic against AD FS. In my AD FS lab environment, I have a test user that belongs to a test group in Active Directory (AD).
 
 ![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
@@ -262,7 +276,9 @@ If the name claim is missing, you would have seen **Hello, !**. If you look at V
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png) 
 
-## <a name="bkmk_authorize"></a> Authorize users for specific controllers or actions
+<a name="bkmk_authorize"></a>
+
+## Authorize users for specific controllers or actions
 Since you have included group memberships as role claims in your RP trust configuration, you can now use them directly in the `[Authorize(Roles="...")]` decoration for controllers and actions. In a line-of-business application with the Create-Read-Update-Delete (CRUD) pattern, you can authorize specific roles to access each action. For now, you will just try out this feature on the existing Home controller.
 
 1. Open Controllers\HomeController.cs.
@@ -334,13 +350,16 @@ Since you have included group memberships as role claims in your RP trust config
     ![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
 7. Publish the application to Azure App Service Web Apps again, and test the behavior of the live application.
 
-## <a name="bkmk_data"></a> Connect to on-premises data
+<a name="bkmk_data"></a>
+
+## Connect to on-premises data
 A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your web app in Azure must access on-premise databases, since you are not allowed to use [SQL Database](https://www.azure.cn/home/features/sql-database/) as the data tier for your web apps.
 
 Azure App Service Web Apps supports accessing on-premise databases with only one approache in Azure China: [Virtual Networks](app-service-vnet-integration-powershell.md).
 
-## <a name="bkmk_resources"></a> Further resources
-* [Protect the Application with SSL and the Authorize Attribute](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+<a name="bkmk_resources"></a>
+
+## Further resources
 * [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md)
 * [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md)
 * [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

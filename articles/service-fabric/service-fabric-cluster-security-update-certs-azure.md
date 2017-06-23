@@ -29,7 +29,7 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 
 ## Add a secondary cluster certificate using the portal
 
-Secondary cluster certificate cannot be added through the Azure portal preview. You have to use Azure powershell for that. The process is outlined later in this document.
+Secondary cluster certificate cannot be added through the Azure Portal. You have to use Azure powershell for that. The process is outlined later in this document.
 
 ## Swap the cluster certificates using the portal
 

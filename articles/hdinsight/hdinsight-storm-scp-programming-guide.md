@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
-wacn.date: ''
+origin.date: 05/16/2016
+ms.date: 12/26/2016
 ms.author: v-dazen
 
 ---
@@ -472,11 +472,11 @@ Here **examples\\HybridTopology\\java\\target\\** is the folder containing the J
 ### Serialization and Deserialization between Java and C\#
 Our SCP component includes Java side and C\# side. In order to interact with native Java Spouts/Bolts, Serialization/Deserialization must be carried out between Java side and C\# side, as illustrated in the following graph.
 
-![diagram of java component sending to SCP component sending to Java component](./media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+![diagram of java component sending to SCP component sending to Java component](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
 1. **Serialization in Java side and Deserialization in C\# side**
 
-    First we provide default implementation for serialization in Java side and deserialization in C\# side. The serialization method in Java side can be specified in SPEC file:
+   First we provide default implementation for serialization in Java side and deserialization in C\# side. The serialization method in Java side can be specified in SPEC file:
 
         (scp-bolt
             {
@@ -486,25 +486,25 @@ Our SCP component includes Java side and C\# side. In order to interact with nat
                 "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
             })
 
-    The deserialization method in C\# side should be specified in C\# user code:
+   The deserialization method in C\# side should be specified in C\# user code:
 
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
         inputSchema.Add("default", new List<Type>() { typeof(Person) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
         this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
 
-    This default implementation should handle most cases if the data type is not too complex. For certain cases, either because the user data type is too complex, or because the performance of our default implementation does not meet the user's requirement, user can plug-in their own implementation.
+   This default implementation should handle most cases if the data type is not too complex. For certain cases, either because the user data type is too complex, or because the performance of our default implementation does not meet the user's requirement, user can plug-in their own implementation.
 
-    The serialize interface in java side is defined as:
+   The serialize interface in java side is defined as:
 
         public interface ICustomizedInteropJavaSerializer {
             public void prepare(String[] args);
             public List<ByteBuffer> serialize(List<Object> objectList);
         }
 
-    The deserialize interface in C\# side is defined as:
+   The deserialize interface in C\# side is defined as:
 
-    public interface ICustomizedInteropCSharpDeserializer
+   public interface ICustomizedInteropCSharpDeserializer
 
         public interface ICustomizedInteropCSharpDeserializer
         {
@@ -512,11 +512,11 @@ Our SCP component includes Java side and C\# side. In order to interact with nat
         }
 2. **Serialization in C\# side and Deserialization in Java side side**
 
-    The serialization method in C\# side should be specified in C\# user code:
+   The serialization method in C\# side should be specified in C\# user code:
 
         this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
 
-    The Deserialization method in Java side should be specified in SPEC file:
+   The Deserialization method in Java side should be specified in SPEC file:
 
         (scp-spout
 
@@ -527,16 +527,16 @@ Our SCP component includes Java side and C\# side. In order to interact with nat
             "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
           })
 
-    Here "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" is the name of Deserializer, and "microsoft.scp.example.HybridTopology.Person" is the target class the data is deserialized to.
+   Here "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" is the name of Deserializer, and "microsoft.scp.example.HybridTopology.Person" is the target class the data is deserialized to.
 
-    User can also plug-in their own implementation of C\# serializer and Java Deserializer. This is the interface for C\# serializer:
+   User can also plug-in their own implementation of C\# serializer and Java Deserializer. This is the interface for C\# serializer:
 
         public interface ICustomizedInteropCSharpSerializer
         {
             List<byte[]> Serialize(List<object> dataList);
         }
 
-    This is the interface for Java Deserializer:
+   This is the interface for Java Deserializer:
 
         public interface ICustomizedInteropJavaDeserializer {
             public void prepare(String[] targetClassNames);

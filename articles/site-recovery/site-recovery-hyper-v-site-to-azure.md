@@ -17,16 +17,16 @@ ms.date: 04/05/2017
 ms.author: v-johch
 ---
 
-# Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal preview
+# Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](site-recovery-hyper-v-site-to-azure.md)
+> * [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
 > * [Azure classic](site-recovery-hyper-v-site-to-azure-classic.md)
 > * [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 >
 >
 
-This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal preview. In this deployment Hyper-V VMs aren't managed by System Center Virtual Machine Manager (VMM).
+This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using [Azure Site Recovery](site-recovery-overview.md) in the Azure Portal. In this deployment Hyper-V VMs aren't managed by System Center Virtual Machine Manager (VMM).
 
 After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -96,7 +96,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 
 
 ## Create a Recovery Services vault
-1. Sign in to the [Azure portal preview](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **New** > **Monitoring + Management** > **Backup and Site Recovery (OMS)**.  
 
     ![New vault](./media/site-recovery-hyper-v-site-to-azure/new-vault.png)
@@ -315,7 +315,7 @@ To test the deployment you can run a test failover for a single virtual machine 
 2. To fail over a recovery plan, in **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
 3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
 4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Jobs** > **Site Recovery jobs**.
-5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal preview > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure Portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 6. If you prepared for connections after failover, you should be able to connect to the Azure VM.
 7. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
 

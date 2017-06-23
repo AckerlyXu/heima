@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/28/2016
-wacn.date: ''
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
 
 ---
@@ -52,7 +52,7 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 
 You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-1. In the Azure portal preview, navigate to each VM hosting a replica and view the details.
+1. In the Azure portal, navigate to each VM hosting a replica and view the details.
 2. Click the **Endpoints** tab for each of the VMs.
 3. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is "MyEndpoint" and the port is "1433".
 4. On your local client, download and install [the latest PowerShell module](/downloads/).
@@ -92,7 +92,7 @@ Create the availability group listener in two steps. First, create the client ac
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### Configure the cluster resources in PowerShell
-1. For external load balancing, you must obtain the public virtual IP address of the cloud service that contains your replicas. Log into the Azure Classic Management Portal. Navigate to the cloud service that contains your availability group VM. Open the **Dashboard** view.
+1. For external load balancing, you must obtain the public virtual IP address of the cloud service that contains your replicas. Log into the Azure portal. Navigate to the cloud service that contains your availability group VM. Open the **Dashboard** view.
 2. Note the address shown under **Public Virtual IP (VIP) Address**. If your solution spans VNets, repeat this step for each cloud service that contains a VM that hosts a replica.
 3. On one of the VMs, copy the PowerShell script below into a text editor and set the variables to the values you noted earlier.
 

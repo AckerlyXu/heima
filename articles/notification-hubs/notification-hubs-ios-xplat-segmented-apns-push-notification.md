@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 06/29/2016
-wacn.date: ''
+origin.date: 06/29/2016
+ms.date: 01/19/2017
 ms.author: v-junlch
 ---
 
@@ -18,17 +18,17 @@ ms.author: v-junlch
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-##Overview
+## Overview
 
 This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an iOS app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc.
 
 Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Routing and Tag Expressions](./notification-hubs-tags-segment-push-message.md).
 
-##Prerequisites
+## Prerequisites
 
 This topic builds on the app you created in [Get started with Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs][get-started].
 
-##Add category selection to the app
+## Add category selection to the app
 
 The first step is to add the UI elements to your existing storyboard that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
 
@@ -225,13 +225,13 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 The app can now store a set of categories in the device local storage used to register with the notification hub whenever the app starts.  The user can change the selection of categories at runtime and click the **subscribe** method to update the registration for the device. Next, you will update the app to send the breaking news notifications directly in the app itself.
 
-##(optional) Sending tagged notifications
+## (optional) Sending tagged notifications
 
 If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure Classic Portal] using the debug tab for your notification hub. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-##(optional) Send notifications from the device
+## (optional) Send notifications from the device
 
 Normally notifications would be sent by a backend service but, you can send breaking news notifications directly from the app. To do this we will update the `SendNotificationRESTAPI` method that we defined in the [Get started with Notification Hubs][get-started] tutorial.
 
@@ -317,7 +317,7 @@ Normally notifications would be sent by a backend service but, you can send brea
 
 3. Rebuild your project and make sure you have no build errors.
 
-##Run the app and generate notifications
+## Run the app and generate notifications
 
 1. Press the Run button to build the project and start the app. Select some breaking news options to subscribe to and then press the **Subscribe** button. You should see a dialog indicating the notifications have been subscribed to.
 

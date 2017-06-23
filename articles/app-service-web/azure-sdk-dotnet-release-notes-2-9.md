@@ -12,8 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 02/24/2017
-wacn.date: ''
+origin.date: 02/24/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -21,7 +21,7 @@ ms.author: v-dazen
 
 This topic includes release notes for versions 2.9 and 2.9.6 of Azure SDK for .NET.
 
-##Azure SDK for .NET 2.9.6 release summary
+## Azure SDK for .NET 2.9.6 release summary
 
 Release date: 11/16/2016
 
@@ -39,7 +39,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
 
 ### Windows Server 2016 virtual machines
 
-- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](/cloud-services/cloud-services-guestos-update-matrix).
+- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](/cloud-services/cloud-services-guestos-update-matrix/).
 
 #### Known issues
 

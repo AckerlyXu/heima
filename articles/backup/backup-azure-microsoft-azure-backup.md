@@ -12,8 +12,8 @@ keywords: azure backup server; backup vault
 
 ms.service: backup
 ms.topic: article
-ms.date: 07/20/2016
-wacn.date: ''
+origin.date: 07/20/2016
+ms.date: 03/31/2017
 ms.author: v-junlch
 ---
 

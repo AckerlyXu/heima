@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -36,10 +36,10 @@ You must have the following:
 
     ![Launch YARN UI](./media/hdinsight-apache-spark-job-debugging/launch-yarn-ui.png)
 
-    > [!TIP]
-    > Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active resource manager, and then click **ResourceManager UI**.    
-    > 
-    > 
+   > [!TIP]
+   > Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active resource manager, and then click **ResourceManager UI**.    
+   > 
+   > 
 2. Because you started the Spark job using Jupyter notebooks, the application has the name **remotesparkmagics** (this is the name for all applications that are started from the notebooks). Click the application ID against the application name to get more information about the job. This launches the application view.
 
     ![Find Spark application ID](./media/hdinsight-apache-spark-job-debugging/find-application-id.png)
@@ -76,18 +76,18 @@ In the Spark UI, you can drill down into the Spark jobs that are spawned by the 
 
     This displays the Spark events in the form of a timeline. The timeline view is available at three levels, across jobs, within a job, and within a stage. The image above captures the timeline view for a given stage.
 
-    > [!TIP]
-    > If you select the **Enable zooming** check box, you can scroll left and right across the timeline view.
-    > 
-    > 
+   > [!TIP]
+   > If you select the **Enable zooming** check box, you can scroll left and right across the timeline view.
+   > 
+   > 
 6. Other tabs in the Spark UI provide useful information about the Spark instance as well.
 
-    * Storage tab - If your application creates an RDDs, you can find information about those in the Storage tab.
-    * Environment tab - This tab provides a lot of useful information about your Spark instance such as the 
-        * Scala version
-        * Event log directory associated with the cluster
-        * Number of executor cores for the application
-        * Etc.
+   * Storage tab - If your application creates an RDDs, you can find information about those in the Storage tab.
+   * Environment tab - This tab provides a lot of useful information about your Spark instance such as the 
+     * Scala version
+     * Event log directory associated with the cluster
+     * Number of executor cores for the application
+     * Etc.
 
 ## Find information about completed jobs using the Spark History Server
 Once a job is completed, the information about the job is persisted in the Spark History Server.
@@ -96,10 +96,10 @@ Once a job is completed, the information about the job is persisted in the Spark
 
     ![Launch Spark History Server](./media/hdinsight-apache-spark-job-debugging/launch-spark-history-server.png)
 
-    > [!TIP]
-    > Alternatively, you can also launch the Spark History Server UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **Spark**, click **Quick Links**, and then click **Spark History Server UI**.
-    > 
-    > 
+   > [!TIP]
+   > Alternatively, you can also launch the Spark History Server UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **Spark**, click **Quick Links**, and then click **Spark History Server UI**.
+   > 
+   > 
 2. You will see all the completed applications listed. Click an application ID to drill down into an application for more info.
 
     ![Launch Spark History Server](./media/hdinsight-apache-spark-job-debugging/view-completed-applications.png)

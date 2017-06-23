@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
+origin.date: 05/10/2017
+ms.date: 03/31/2017
 ms.author: v-dazen
 
 ---
@@ -36,7 +36,7 @@ In this article, you learn how to use these kernels and the benefits of using th
 
 ## Create a Jupyter notebook
 
-1. From the [Azure portal preview](https://portal.azure.cn/), open your cluster.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
+1. From the [Azure portal](https://portal.azure.cn/), open your cluster.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
 
 2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** blade.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
 
@@ -44,12 +44,12 @@ In this article, you learn how to use these kernels and the benefits of using th
 
 3. Click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    > [!NOTE]
-    > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    >
-    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
-    > 
-    > 
+   > [!NOTE]
+   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+   >
+   > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
+   > 
+   > 
 
 3. Click **New**, and then click either **Pyspark**, **PySpark3**, or **Spark** to create a notebook. Use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
 
@@ -63,8 +63,8 @@ Here are a few benefits of using the new kernels.
 
 - **Preset contexts**. With  **PySpark**, **PySpark3**, or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications. These are available by default. These contexts are:
 
-    * **sc** - for Spark context
-    * **sqlContext** - for Hive context
+   * **sc** - for Spark context
+   * **sqlContext** - for Hive context
 
     So, you don't have to run statements like the following to set the contexts:
 
@@ -79,21 +79,21 @@ Here are a few benefits of using the new kernels.
 
     The following table lists the different magics available through the kernels.
 
-    | Magic | Example | Description |
-    | --- | --- | --- |
-    | help |`%%help` |Generates a table of all the available magics with example and description |
-    | info |`%%info` |Outputs session information for the current Livy endpoint |
-    | configure |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created, which ensures that the session is dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
-    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
-    | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
-    | logs |`%%logs` |Outputs the logs for the current Livy session. |
-    | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
-    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
+   | Magic | Example | Description |
+   | --- | --- | --- |
+   | help |`%%help` |Generates a table of all the available magics with example and description |
+   | info |`%%info` |Outputs session information for the current Livy endpoint |
+   | configure |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created, which ensures that the session is dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
+   | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
+   | logs |`%%logs` |Outputs the logs for the current Livy session. |
+   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
+   | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
 
-    > [!NOTE]
-    > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
-    >
-    >
+   > [!NOTE]
+   > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
+   >
+   >
 2. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
 ## Parameters supported with the %%sql magic

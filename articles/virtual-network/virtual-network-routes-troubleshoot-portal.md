@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot routes - Portal | Azure
-description: Learn how to troubleshoot routes in the Azure Resource Manager deployment model using the Azure Portal Preview.
+description: Learn how to troubleshoot routes in the Azure Resource Manager deployment model using the Azure Portal.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
-wacn.date: ''
+origin.date: 09/23/2016
+ms.date: 11/14/2016
 ms.author: v-dazen
 
 ---
-# Troubleshoot routes using the Azure Portal Preview
+# Troubleshoot routes using the Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal Preview](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 >
 >
@@ -52,7 +52,7 @@ While the example uses only system routes, the same steps can be used to determi
 ### View effective routes for a virtual machine
 To see the aggregate routes that are applied to a VM, complete the following steps:
 
-1. Login to the Azure portal preview at https://portal.azure.cn.
+1. Login to the Azure portal at https://portal.azure.cn.
 2. Click **More services**, then click **Virtual machines** in the list that appears.
 3. Select a VM to troubleshoot from the list that appears and a VM blade with options appears.
 4. Click **Diagnose & solve problems** and then select a common problem. For this example, **I can't connect to my Windows VM** is selected.
@@ -69,17 +69,17 @@ To see the aggregate routes that are applied to a VM, complete the following ste
 
     If your VM has only one NIC, it is selected by default. If you have more than one NIC, select the NIC for which you want to view the effective routes.
 
-    > [!NOTE]
-    > If the VM associated with the NIC is not in a running state, effective routes will not be shown. Only the first 200 effective routes are shown in the portal. For the full list, click **Download**. You can further filter on the results from the downloaded .csv file.
-    >
-    >
+   > [!NOTE]
+   > If the VM associated with the NIC is not in a running state, effective routes will not be shown. Only the first 200 effective routes are shown in the portal. For the full list, click **Download**. You can further filter on the results from the downloaded .csv file.
+   >
+   >
 
     Notice the following in the output:
 
-    * **Source**: Indicates the type of route. System routes are shown as *Default*, UDRs are shown as *User* and gateway routes (static or BGP) are shown as *VPNGateway*.
-    * **State**: Indicates state of the effective route. Possible values are *Active* or *Invalid*.
-    * **AddressPrefixes**: Specifies the address prefix of the effective route in CIDR notation.
-    * **nextHopType**: Indicates the next hop for the given route. Possible values are *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering*, or *Null*. A value of *Null* for **nextHopType** in a UDR may indicate an invalid route. For example, if **nextHopType** is *VirtualAppliance* and the network virtual appliance VM is not in a provisioned/running state. If **nextHopType** is *VPNGateway* and there is no gateway provisioned/running in the given VNet, the route may become invalid.
+   * **Source**: Indicates the type of route. System routes are shown as *Default*, UDRs are shown as *User* and gateway routes (static or BGP) are shown as *VPNGateway*.
+   * **State**: Indicates state of the effective route. Possible values are *Active* or *Invalid*.
+   * **AddressPrefixes**: Specifies the address prefix of the effective route in CIDR notation.
+   * **nextHopType**: Indicates the next hop for the given route. Possible values are *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering*, or *Null*. A value of *Null* for **nextHopType** in a UDR may indicate an invalid route. For example, if **nextHopType** is *VirtualAppliance* and the network virtual appliance VM is not in a provisioned/running state. If **nextHopType** is *VPNGateway* and there is no gateway provisioned/running in the given VNet, the route may become invalid.
 7. There is no route listed to the *ChinaNorth-VNET3* VNet (Prefix 10.10.0.0/16) from the *ChinaNorth-VNet1* (Prefix 10.9.0.0/16) in the picture in the previous step. In the following picture, the peering link is in the *Disconnected* state:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
@@ -94,7 +94,7 @@ For more troubleshooting scenarios for forced-tunneling and route evaluation, re
 ### View effective routes for a network interface
 If network traffic flow is impacted for a particular network interface (NIC), you can view a full list of effective routes on a NIC directly. To see the aggregate routes that are applied to a NIC, complete the following steps:
 
-1. Login to the Azure portal preview at https://portal.azure.cn.
+1. Login to the Azure portal at https://portal.azure.cn.
 2. Click **More services**, then click **Network interfaces**
 3. Search the list for the name of a NIC, or select it from the list that appears. In this example, **VM1-NIC1** is selected.
 4. Select **Effective routes** in the **Network interface** blade, as shown in the following picture:
@@ -114,7 +114,7 @@ For this example, a UDR (*UDRoute*) is specified in a route table (*UDRouteTable
 
 To see the aggregate routes for a route table, complete the following steps:
 
-1. Login to the Azure portal preview at https://portal.azure.cn.
+1. Login to the Azure portal at https://portal.azure.cn.
 2. Click **More services**, then click **Route tables**
 3. Search the list for the route table you want to see aggregate routes for and select it. In this example, **UDRouteTable** is selected. A blade for the selected route table appears, as shown in the following picture:
 
@@ -125,26 +125,26 @@ To see the aggregate routes for a route table, complete the following steps:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image10.png)
 
-    > [!NOTE]
-    > If the NIC is not associated with a running VM, no effective routes are shown.
-    >
-    >
+   > [!NOTE]
+   > If the NIC is not associated with a running VM, no effective routes are shown.
+   >
+   >
 
 ## Considerations
 A few things to keep in mind when reviewing the list of routes returned:
 
 * Routing is based on Longest Prefix Match (LPM) among UDRs, BGP and system routes. If there is more than one route with the same LPM match, then a route is selected based on its origin in the following order:
 
-    * User-defined route
-    * BGP route
-    * System (Default) route
+  * User-defined route
+  * BGP route
+  * System (Default) route
 
     With effective routes, you can only see effective routes that are LPM match based on all the availble routes. By showing how the routes are actually evaluated for a given NIC, this makes it a lot easier to troubleshoot specific routes that may be impacting connectivity to/from your VM.
 * If you have UDRs and are sending traffic to a network virtual appliance (NVA), with *VirtualAppliance* as **nextHopType**, ensure that IP forwarding is enabled on the NVA receiving the traffic or packets are dropped.
 * If Forced tunneling is enabled, all outbound Internet traffic will be routed to on-premises. RDP/SSH from Internet to your VM may not work with this setting, depending on how the on-premises handles this traffic.
   Forced-tunneling can be enabled:
-    * If using site-to-site VPN, by setting a user-defined route (UDR) with nextHopType as VPN Gateway
-    * If a default route is advertised over BGP
+  * If using site-to-site VPN, by setting a user-defined route (UDR) with nextHopType as VPN Gateway
+  * If a default route is advertised over BGP
 * For VNet peering traffic to work correctly, a system route with **nextHopType** *VNetPeering* must exist for the peered VNet's prefix range. If such a route doesn't exist and the VNet peering link looks OK:
-    * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
-    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-portal.md) article.
+  * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
+  * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-portal.md) article.

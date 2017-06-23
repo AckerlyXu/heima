@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-wacn.date: ''
+origin.date: 05/02/2017
+ms.date: 06/21/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create and Manage Windows VMs with the Azure PowerShell module

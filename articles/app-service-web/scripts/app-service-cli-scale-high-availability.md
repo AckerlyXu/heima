@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Scale a web app worldwide with a high-availability architecture
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides global availability of your web app based on the lowest network latency.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -48,8 +51,8 @@ az appservice plan create --name $app1Name-Plan --resource-group myResourceGroup
 az appservice plan create --name $app2Name-Plan --resource-group myResourceGroup --location $location2 --sku S1
 
 # Add a Web App to each App Service Plan
-site1=$(az appservice web create --name $app1Name --plan $app1Name-Plan --resource-group myResourceGroup --query id --output tsv)
-site2=$(az appservice web create --name $app2Name --plan $app2Name-Plan --resource-group myResourceGroup --query id --output tsv)
+site1=$(az webapp create --name $app1Name --plan $app1Name-Plan --resource-group myResourceGroup --query id --output tsv)
+site2=$(az webapp create --name $app2Name --plan $app2Name-Plan --resource-group myResourceGroup --query id --output tsv)
 
 # Assign each Web App as an Endpoint for high-availabilty
 az network traffic-manager endpoint create -n $app1Name-$location1 --profile-name $trafficManagerDnsName-tmp -g myResourceGroup --type azureEndpoints --target-resource-id $site1
@@ -66,7 +69,7 @@ This script uses the following commands to create a resource group, web app, tra
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | Creates an Azure web app within the App Service plan. |
 | [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) | Creates an Azure Traffic Manager profile. |
 | [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) | Adds a endpoint to an Azure Traffic Manager Profile. |
 

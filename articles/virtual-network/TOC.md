@@ -79,7 +79,7 @@
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Create a VM with multiple IP addresses
-##### [Azure portal preview](virtual-network-multiple-ip-addresses-portal.md)
+##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)

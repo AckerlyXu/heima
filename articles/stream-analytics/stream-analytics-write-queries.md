@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
+origin.date: 03/28/2017
+ms.date: 05/15/2017
 ms.author: v-yeche
 
 ---
@@ -41,7 +41,7 @@ Writing queries for stream processing logic in Azure Stream Analytics is impleme
 You can test that your query behaves as expected by running it in the browser over one or more local JSON files containing test data. This will not start the job or have any billing implications.
 
 > [!NOTE]
-> Currently in-browser query testing is not supported in the Azure Portal Preview.  
+> Currently in-browser query testing is not supported in the Azure Portal.  
 > 
 > 
 

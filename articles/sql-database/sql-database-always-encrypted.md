@@ -44,13 +44,13 @@ For this tutorial, you'll need:
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## Create a blank SQL database
-1. Sign in to the [Azure portal preview](https://portal.azure.cn/).
+1. Sign in to the [Azure Portal](https://portal.azure.cn/).
 2. Click **New** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal preview, see [Your first Azure SQL database](sql-database-get-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure Portal, see [Your first Azure SQL database](sql-database-get-started.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
-You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal preview.
+You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure Portal.
 
 1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.

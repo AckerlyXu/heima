@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
-wacn.date: ''
+origin.date: 12/15/2015
+ms.date: 02/20/2017
 ms.author: v-dazen
 
 ---
@@ -328,17 +328,17 @@ For more detailed [optimization configuration parameters](http://dev.mysql.com/d
 | Disk |10 GB/disk |
 | OS |Ubuntu 14.04.1 LTS |
 
-[1]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-01.png
-[2]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-02.png
-[3]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-03.png
-[4]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-04.png
-[5]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-05.png
-[6]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-06.png
-[7]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-07.png
-[8]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-08.png
-[9]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-09.png
-[10]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-10.png
-[11]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-11.png
-[12]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
-[13]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
-[14]: ./media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
+[1]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-01.png
+[2]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-02.png
+[3]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-03.png
+[4]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-04.png
+[5]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-05.png
+[6]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-06.png
+[7]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-07.png
+[8]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-08.png
+[9]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-09.png
+[10]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-10.png
+[11]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-11.png
+[12]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
+[13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
+[14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png

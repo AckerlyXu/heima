@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
-wacn.date: ''
+origin.date: 04/12/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -96,7 +96,7 @@ $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix
 New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-### <a name="crossprembgp"></a> Step 2 - Create the VPN Gateway for TestVNet1 with BGP parameters
+### Step 2 - Create the VPN Gateway for TestVNet1 with BGP parameters
 #### 1. Create the IP and subnet configurations
 Request a public IP address to be allocated to the gateway you will create for your VNet. You'll also define the subnet and IP configurations required.
 

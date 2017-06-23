@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2016
-wacn.date: ''
+origin.date: 09/14/2016
+ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
@@ -50,7 +50,7 @@ To achieve a proper DevOps culture, all infrastructure must be code.  When all t
 * [Azure Templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hats RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by RedHat do not have cloud-init installed.  To use cloud-init on a RedHat family OS, you must create a custom image with cloud-init installed.
+Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hats RHEL, CentOS, and Fedora support cloud-init.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -76,7 +76,7 @@ To begin using Azure you need an Azure account, the Azure CLI installed, and a p
 The first step in using the Azure Cloud is to sign up for an Azure account.  Go to the [Azure Account Signup](https://www.azure.cn/pricing/1rmb-trial/) page to get started.
 
 ### Install the CLI
-With your new Azure account, you can get started immediately using the Azure portal preview, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install)on your Mac or Linux workstation.
+With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install)on your Mac or Linux workstation.
 
 ### Create an SSH key pair
 Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to enable password-less logins and better security.
@@ -100,13 +100,13 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Storage
 * [Introduction to Azure Storage](../../storage/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [How to attach a data disk to a Linux VM in the Azure portal preview](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Networking
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Fully Qualified Domain Name in the Azure portal preview](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Next steps
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!

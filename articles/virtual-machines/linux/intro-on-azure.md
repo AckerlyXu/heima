@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
-wacn.date: ''
+origin.date: 02/02/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -70,7 +70,7 @@ Azure provides the ability to capture the state of an existing virtual machine i
 2. Shut down/power off the virtual machine.
 3. Click *Capture* in the Azure Classic Management Portal or use the Powershell or CLI tools to capture the virtual machine as an image.
 
-    * See: [How to Capture a Linux Virtual Machine to Use as a Template](classic/capture-image.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+   * See: [How to Capture a Linux Virtual Machine to Use as a Template](classic/capture-image.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## Attaching Disks
 Each virtual machine has a temporary, local *resource disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and **temporary** storage of data. It is also used to store the page or swap files for the operating system.

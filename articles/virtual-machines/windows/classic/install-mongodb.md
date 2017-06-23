@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: ''
+origin.date: 03/07/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-dazen
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. To install and configure MongoDB using the Resource Manager deployment model, see [this article](../../virtual-machines-windows-install-mongodb.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database. This article guides you through creating a Windows Server virtual machine (VM) using the [Azure portal preview][AzurePortal]. You then create and attach a data disk to the VM before installing and configuring MongoDB. If you have an existing VM in Azure that you would like to use, you can jump straight to [installing and configuring MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
+[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database. This article guides you through creating a Windows Server virtual machine (VM) using the [Azure portal][AzurePortal]. You then create and attach a data disk to the VM before installing and configuring MongoDB. If you have an existing VM in Azure that you would like to use, you can jump straight to [installing and configuring MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 
 ## Create a virtual machine running Windows Server
 Follow these instructions to create a virtual machine.
@@ -51,6 +51,3 @@ In this tutorial, you learned how to create a virtual machine running Windows Se
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzurePortal]: https://portal.azure.cn/
-
-<!-- Classic Management Portal. Removed 03/07/2017 -->
-<!-- [AzurePortal]: http://manage.windowsazure.cn  -->

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/21/2017
-wacn.date: ''
+origin.date: 02/21/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
 
 ---
@@ -29,12 +29,12 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 1. Save and edit the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your preference on your local machine.
 2. Run the following two commands to create a resource group and then deploy your template:
 
-    ```azurecli
-    az group create -l chinanorth -n myResourceGroup
-    az group deployment create -g myResourceGroup \
-        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-        --parameters @filepathToParameters.json
-    ```
+```azurecli
+az group create -l chinanorth -n myResourceGroup
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
+```
 
 ### Deploy LAMP on existing VM
 The following commands updates packages, then installs Apache, MySQL, and PHP:
@@ -58,11 +58,11 @@ sudo apt-get install apache2 mysql-server php5 php5-mysql
 3. Edit the **azuredeploy.parameters.json** file to your preferred inputs.
 4. Deploy the template with [az group deployment create] referencing the downloaded json file:
 
-    ```azurecli
-    az group deployment create -g myResourceGroup \
-        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-        --parameters @filepathToParameters.json
-    ```
+```azurecli
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
+```
 
 The output is similar to the following example:
 

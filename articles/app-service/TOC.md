@@ -109,7 +109,7 @@
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fapp-service%2ftoc.json)
 
 # Resources
-## [Azure portal preview](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fapp-service%2ftoc.json)
+## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fapp-service%2ftoc.json)
 ## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fapp-service%2ftoc.json)
 ## [Best practices](../app-service-web/app-service-best-practices.md?toc=%2fapp-service%2ftoc.json)
 ## [WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fapp-service%2ftoc.json)

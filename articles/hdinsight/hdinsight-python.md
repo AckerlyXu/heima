@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/27/2017
-wacn.date: ''
+origin.date: 02/27/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -30,8 +30,8 @@ Hive and Pig are great for working with data in HDInsight, but sometimes you nee
 
 * An HDInsight cluster
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * A text editor
 
@@ -163,11 +163,11 @@ Remember that we previously defined the **LINE** input as a chararray because th
 
 1. The **@outputSchema** statement defines the format of the data that is returned to Pig. In this case, it's a **data bag**, which is a Pig data type. The bag contains the following fields, all of which are chararray (strings):
 
-    * date - the date the log entry was created
-    * time - the time the log entry was created
-    * classname - the class name the entry was created for
-    * level - the log level
-    * detail - verbose details for the log entry
+   * date - the date the log entry was created
+   * time - the time the log entry was created
+   * classname - the class name the entry was created for
+   * level - the log level
+   * detail - verbose details for the log entry
 
 2. Next, the **def create_structure(input)** defines the function that Pig passes line items to.
 
@@ -207,14 +207,14 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 1. Use the `hive` command to start the hive shell. You should see a `hive>` prompt once the shell has loaded.
 2. Enter the following at the `hive>` prompt.
 
-    ```hive
-    add file wasbs:///streaming.py;
-    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-        USING 'python streaming.py' AS
-        (clientid string, phoneLabel string, phoneHash string)
-    FROM hivesampletable
-    ORDER BY clientid LIMIT 50;
-    ```
+   ```hive
+   add file wasbs:///streaming.py;
+   SELECT TRANSFORM (clientid, devicemake, devicemodel)
+       USING 'python streaming.py' AS
+       (clientid string, phoneLabel string, phoneHash string)
+   FROM hivesampletable
+   ORDER BY clientid LIMIT 50;
+   ```
 3. After entering the last line, the job should start. Once the job completes, it returns output similar to the following example:
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -229,13 +229,13 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 2. Enter the following statements at the `grunt>` prompt:
 
-    ```pig
-    Register wasbs:///pig_python.py using jython as myfuncs;
-    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-    LOG = FILTER LOGS by LINE is not null;
-    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-    DUMP DETAILS;
-    ```
+   ```pig
+   Register wasbs:///pig_python.py using jython as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
 
 3. After entering the following line, the job should start. Once the job completes, it returns output similar to the following.
 
@@ -257,13 +257,13 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 6. Use the `pig` command to start the shell again. Once you are at the `grunt>` prompt, use the following to run the Python script using the C Python interpreter.
 
-    ```pig
-    Register 'pig_python.py' using streaming_python as myfuncs;
-    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-    LOG = FILTER LOGS by LINE is not null;
-    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-    DUMP DETAILS;
-    ```
+   ```pig
+   Register 'pig_python.py' using streaming_python as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
 
     Once this job completes, you should see the same output as when you previously ran the script using Jython.
 
@@ -275,7 +275,7 @@ Azure PowerShell, see [How to install and configure Azure PowerShell](https://do
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.
 2. Use  the following PowerShell script to upload the **streaming.py** and **pig\_python.py** files to the server. Substitute the name of your Azure HDInsight cluster, and the path to the **streaming.py** and **pig\_python.py** files on the first three lines of the script.
 
-    ```powershell
+   ```powershell
     # Login to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
@@ -313,12 +313,12 @@ Azure PowerShell, see [How to install and configure Azure PowerShell](https://do
         -Blob "pig_python.py" `
         -Container $container `
         -Context $context
-    ```
+   ```
 
     This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
-    > [!NOTE]
-    > Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
+   > [!NOTE]
+   > Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
 
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 

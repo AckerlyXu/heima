@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
-wacn.date: ''
+origin.date: 02/02/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -140,10 +140,10 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
     ```
 
-    > [!NOTE]
-    > A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
-    > 
-    > 
+   > [!NOTE]
+   > A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
+   > 
+   > 
 
 ## Add the new file system to /etc/fstab
 > [!IMPORTANT]

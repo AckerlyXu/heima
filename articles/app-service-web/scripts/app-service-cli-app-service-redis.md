@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 04/24/2017
 ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Connect a web app to a redis cache
@@ -24,6 +25,8 @@ ms.author: v-dazen
 In this scenario you will learn how to create an Azure redis cache and an Azure web app. Then you will link the redis cache to the web app using app settings.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -43,13 +46,13 @@ az group create --name $resourceGroupName --location $location
 az appservice plan create --name WebAppWithRedisPlan --resource-group $resourceGroupName --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
+az webapp create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
 
 # Create a Redis Cache
 redis=($(az redis create --name $appName --resource-group $resourceGroupName --location $location --sku-capacity 0 --sku-family C --sku-name Basic --query [hostName,sslPort,accessKeys.primaryKey] --output tsv))
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
+az webapp config appsettings set --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -62,10 +65,10 @@ This script uses the following commands to create a resource group, web app, red
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | Creates an Azure web app within the App Service plan. |
 | [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | Create new Redis Cache instance. This is where the data will be stored. |
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) | Lists the access keys for the redis cache instance. |
-| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
+| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
 
 ## Next steps
 

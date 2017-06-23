@@ -4,8 +4,8 @@ description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
-manager: timlt
+author: sethmanheim
+manager: digimobile
 
 ms.assetid: ''
 ms.service: event-hubs
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/10/2017
-wacn.date: ''
+origin.date: 04/10/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 ---
 
@@ -43,41 +43,40 @@ These tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `C
 The pattern to manipulate any Event Hubs resource follows a common protocol:
 
 1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
+    ```csharp
+    var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
-        ```csharp
-        var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
-
-        var result = await context.AcquireTokenAsync(
-            "https://management.core.chinacloudapi.cn/",
-            new ClientCredential(clientId, clientSecret)
-        );
-        ```
+    var result = await context.AcquireTokenAsync(
+        "https://management.core.chinacloudapi.cn/",
+        new ClientCredential(clientId, clientSecret)
+    );
+    ```
 
 2. Create the `EventHubManagementClient` object.
 
-        ```csharp
-        var creds = new TokenCredentials(token);
-        var ehClient = new EventHubManagementClient(creds)
-        {
-            SubscriptionId = SettingsCache["SubscriptionId"]
-        };
-        ```
+    ```csharp
+    var creds = new TokenCredentials(token);
+    var ehClient = new EventHubManagementClient(creds)
+    {
+        SubscriptionId = SettingsCache["SubscriptionId"]
+    };
+    ```
 
 3. Set the CreateOrUpdate parameters to your specified values.
 
-        ```csharp
-        var ehParams = new EventHubCreateOrUpdateParameters()
-        {
-            Location = SettingsCache["DataCenterLocation"]
-        };
-        ```
+    ```csharp
+    var ehParams = new EventHubCreateOrUpdateParameters()
+    {
+        Location = SettingsCache["DataCenterLocation"]
+    };
+    ```
 
 4. Execute the call.
 
-        ```csharp
-        await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
-        ```
+    ```csharp
+    await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
+    ```
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.EventHub Reference](http://docs.microsoft.com/zh-cn/dotnet/api/Microsoft.Azure.Management.EventHub)
+* [Microsoft.Azure.Management.EventHub Reference](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.EventHub)

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/22/2017
-wacn.date: ''
+origin.date: 03/22/2017
+ms.date: 05/15/2017
 ms.author: v-dazen
 
 ---
@@ -23,6 +23,8 @@ ms.author: v-dazen
 This article walks you through how to move a Linux VM between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you created a VM in a personal subscription and now want to move it to your company's subscription.
 
 > [!IMPORTANT]
+>You cannot move Managed Disks at this time. 
+>
 >New resource IDs are created as part of the move. Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs. 
 > 
 > 

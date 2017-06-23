@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -103,11 +103,11 @@ We are limited to using pre-shared keys (PSK) for authentication.
 #### Resource Manager deployment model
 
 * PowerShell: use "AddressPrefix" to specify traffic for the local network gateway.
-* Azure portal preview: navigate to the Local network gateway > Configuration > Address space.
+* Azure portal: navigate to the Local network gateway > Configuration > Address space.
 
 #### Classic deployment model
 
-* Azure portal preview: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
+* Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
 * Classic Management Portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Forced Tunneling?

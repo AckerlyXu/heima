@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+origin.date: 03/09/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/22/2017
 ---
 
 # Using Storage Explorer (Preview) with Azure File storage

@@ -71,14 +71,14 @@ Before detaching the disk from the Linux guest, you should make sure that all pa
 5. Remove entries in the **/etc/fstab** file associated with either the device paths or UUIDs for all partitions for the disk to be detached.  Entries for this example might be:
 
     ```sh  
-    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
-    ```
+   UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+   ```
 
     or
 
-    ```sh   
-    /dev/sdc1   /datadrive   ext4   defaults   1   2
-    ```
+   ```sh   
+   /dev/sdc1   /datadrive   ext4   defaults   1   2
+   ```
 
 ## Detach the disk
 After you find the LUN number of the disk and removed the operating system references, you're ready to detach it:

@@ -1,5 +1,5 @@
 ---
-title: Role-Based Access Control with REST - Azure AD | Azure
+title: Role-Based Access Control with REST - Azure AD | Microsoft Docs
 description: Managing role-based access control with the REST API
 services: active-directory
 documentationcenter: na
@@ -13,30 +13,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-wacn.date: ''
+origin.date: 05/16/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
----
 
+---
 # Manage Role-Based Access Control with the REST API
 > [!div class="op_single_selector"]
->- [PowerShell](./role-based-access-control-manage-access-powershell.md)
->- [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
->- [REST API](./role-based-access-control-manage-access-rest.md)
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
 
-Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Manager API helps you manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API helps you manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 ## List all role assignments
 Lists all the role assignments at the specified scope and subscopes.
 
-To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](./role-based-access-control-configure.md).
+To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **GET** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -53,7 +51,6 @@ Within the URI, make the following substitutions to customize your request:
    - List role assignments for a specific user, including ones inherited from groups | `assignedTo('{objectId of user}')`
 
 ### Response
-
 Status code: 200
 
 ```
@@ -76,19 +73,18 @@ Status code: 200
   ],
   "nextLink": null
 }
+
 ```
 
 ## Get information about a role assignment
 Gets information about a single role assignment specified by the role assignment identifier.
 
-To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](./role-based-access-control-configure.md).
+To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **GET** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -98,11 +94,9 @@ Within the URI, make the following substitutions to customize your request:
    - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-assignment-id}* with the GUID identifier of the role assignment.
-
 3. Replace *{api-version}* with 2015-07-01.
 
 ### Response
-
 Status code: 200
 
 ```
@@ -120,19 +114,18 @@ Status code: 200
   "type": "Microsoft.Authorization/roleAssignments",
   "name": "196965ae-6088-4121-a92a-f1e33fdcc73e"
 }
+
 ```
 
 ## Create a Role Assignment
 Create a role assignment at the specified scope for the specified principal granting the specified role.
 
-To create a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](./role-based-access-control-configure.md).
+To create a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **PUT** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -153,6 +146,7 @@ For the request body, provide the values in the following format:
     "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b"
   }
 }
+
 ```
 
 | Element Name | Required | Type | Description |
@@ -164,33 +158,32 @@ For the request body, provide the values in the following format:
 Status code: 201
 
 ```
-    {
-      "properties": {
-        "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-        "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
-        "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
-        "createdOn": "2015-12-16T00:27:19.6447515Z",
-        "updatedOn": "2015-12-16T00:27:19.6447515Z",
-        "createdBy": null,
-        "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/2e9e86c8-0e91-4958-b21f-20f51f27bab2",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "name": "2e9e86c8-0e91-4958-b21f-20f51f27bab2"
-    }
+{
+  "properties": {
+    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
+    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
+    "createdOn": "2015-12-16T00:27:19.6447515Z",
+    "updatedOn": "2015-12-16T00:27:19.6447515Z",
+    "createdBy": null,
+    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
+  },
+  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/2e9e86c8-0e91-4958-b21f-20f51f27bab2",
+  "type": "Microsoft.Authorization/roleAssignments",
+  "name": "2e9e86c8-0e91-4958-b21f-20f51f27bab2"
+}
+
 ```
 
 ## Delete a Role Assignment
 Delete a role assignment at the specified scope.
 
-To delete a role assignment, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](./role-based-access-control-configure.md).
+To delete a role assignment, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **DELETE** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -206,33 +199,32 @@ Within the URI, make the following substitutions to customize your request:
 Status code: 200
 
 ```
-    {
-      "properties": {
-        "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
-        "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
-        "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
-        "createdOn": "2015-12-17T23:21:40.8921564Z",
-        "updatedOn": "2015-12-17T23:21:40.8921564Z",
-        "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-        "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/5eec22ee-ea5c-431e-8f41-82c560706fd2",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "name": "5eec22ee-ea5c-431e-8f41-82c560706fd2"
-    }
+{
+  "properties": {
+    "roleDefinitionId": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+    "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b",
+    "scope": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND",
+    "createdOn": "2015-12-17T23:21:40.8921564Z",
+    "updatedOn": "2015-12-17T23:21:40.8921564Z",
+    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
+    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
+  },
+  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network/providers/Microsoft.Network/virtualNetworks/EASTUS-VNET-01/subnets/Devices-Engineering-ProjectRND/providers/Microsoft.Authorization/roleAssignments/5eec22ee-ea5c-431e-8f41-82c560706fd2",
+  "type": "Microsoft.Authorization/roleAssignments",
+  "name": "5eec22ee-ea5c-431e-8f41-82c560706fd2"
+}
+
 ```
 
 ## List all Roles
 Lists all the roles that are available for assignment at the specified scope.
 
-To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation at the scope. All the built-in roles are granted access to this operation. 
+To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **GET** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -248,7 +240,6 @@ Within the URI, make the following substitutions to customize your request:
    - Search for a role using exact display name: `roleName%20eq%20'{role-display-name}'`. Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### Response
-
 Status code: 200
 
 ```
@@ -305,19 +296,18 @@ Status code: 200
   ],
   "nextLink": null
 }
+
 ```
 
 ## Get information about a Role
-Gets information about a single role specified by the role definition identifier. To get information about a single role using its display name, see [List all roles](./role-based-access-control-manage-access-rest.md#list-all-roles).
+Gets information about a single role specified by the role definition identifier. To get information about a single role using its display name, see [List all roles](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-To get information about a role, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation. All the built-in roles are granted access to this operation.
+To get information about a role, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **GET** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -386,19 +376,18 @@ Status code: 200
   ],
   "nextLink": null
 }
+
 ```
 
 ## Create a Custom Role
 Create a custom role.
 
-To create a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation.
+To create a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **PUT** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -413,33 +402,34 @@ Within the URI, make the following substitutions to customize your request:
 For the request body, provide the values in the following format:
 
 ```
-    {
-      "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-      "properties": {
-        "roleName": "Virtual Machine Operator",
-        "description": "Lets you monitor virtual machines and restart them.",
-        "type": "CustomRole",
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/*/read",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/*/read",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/*/read",
-              "Microsoft.Support/*",
-              "Microsoft.Compute/virtualMachines/start/action",
-              "Microsoft.Compute/virtualMachines/restart/action"
-            ],
-            "notActions": []
-          }
+{
+  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
+  "properties": {
+    "roleName": "Virtual Machine Operator",
+    "description": "Lets you monitor virtual machines and restart them.",
+    "type": "CustomRole",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Network/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/*/read",
+          "Microsoft.Support/*",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action"
         ],
-        "assignableScopes": [
-          "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-        ]
+        "notActions": []
       }
-    }
+    ],
+    "assignableScopes": [
+      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+    ]
+  }
+}
+
 ```
 
 | Element Name | Required | Type | Description |
@@ -456,52 +446,51 @@ For the request body, provide the values in the following format:
 Status code: 201
 
 ```
-    {
-      "properties": {
-        "roleName": "Virtual Machine Operator",
-        "type": "CustomRole",
-        "description": "Lets you monitor virtual machines and restart them.",
-        "assignableScopes": [
-          "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+{
+  "properties": {
+    "roleName": "Virtual Machine Operator",
+    "type": "CustomRole",
+    "description": "Lets you monitor virtual machines and restart them.",
+    "assignableScopes": [
+      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Network/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/*/read",
+          "Microsoft.Support/*",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action"
         ],
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/*/read",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/*/read",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/*/read",
-              "Microsoft.Support/*",
-              "Microsoft.Compute/virtualMachines/start/action",
-              "Microsoft.Compute/virtualMachines/restart/action"
-            ],
-            "notActions": []
-          }
-        ],
-        "createdOn": "2015-12-18T00:10:51.4662695Z",
-        "updatedOn": "2015-12-18T00:10:51.4662695Z",
-        "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-        "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-      "type": "Microsoft.Authorization/roleDefinitions",
-      "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
-    }
+        "notActions": []
+      }
+    ],
+    "createdOn": "2015-12-18T00:10:51.4662695Z",
+    "updatedOn": "2015-12-18T00:10:51.4662695Z",
+    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
+    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
+  },
+  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
+  "type": "Microsoft.Authorization/roleDefinitions",
+  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
+}
+
 ```
 
 ## Update a Custom Role
 Modify a custom role.
 
-To modify a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation.
+To modify a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **PUT** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -516,33 +505,34 @@ Within the URI, make the following substitutions to customize your request:
 For the request body, provide the values in the following format:
 
 ```
-    {
-      "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-      "properties": {
-        "roleName": "Virtual Machine Operator",
-        "description": "Lets you monitor virtual machines and restart them.",
-        "type": "CustomRole",
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/*/read",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/*/read",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/*/read",
-              "Microsoft.Support/*",
-              "Microsoft.Compute/virtualMachines/start/action",
-              "Microsoft.Compute/virtualMachines/restart/action"
-            ],
-            "notActions": []
-          }
+{
+  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
+  "properties": {
+    "roleName": "Virtual Machine Operator",
+    "description": "Lets you monitor virtual machines and restart them.",
+    "type": "CustomRole",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Network/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/*/read",
+          "Microsoft.Support/*",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action"
         ],
-        "assignableScopes": [
-          "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
-        ]
+        "notActions": []
       }
-    }
+    ],
+    "assignableScopes": [
+      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+    ]
+  }
+}
+
 ```
 
 | Element Name | Required | Type | Description |
@@ -559,53 +549,51 @@ For the request body, provide the values in the following format:
 Status code: 201
 
 ```
-    {
-      "properties": {
-        "roleName": "Virtual Machine Operator",
-        "type": "CustomRole",
-        "description": "Lets you monitor virtual machines and restart them.",
-        "assignableScopes": [
-          "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+{
+  "properties": {
+    "roleName": "Virtual Machine Operator",
+    "type": "CustomRole",
+    "description": "Lets you monitor virtual machines and restart them.",
+    "assignableScopes": [
+      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Network/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/*/read",
+          "Microsoft.Support/*",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action"
         ],
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/*/read",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/*/read",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/*/read",
-              "Microsoft.Support/*",
-              "Microsoft.Compute/virtualMachines/start/action",
-              "Microsoft.Compute/virtualMachines/restart/action"
-            ],
-            "notActions": []
-          }
-        ],
-        "createdOn": "2015-12-18T00:10:51.4662695Z",
-        "updatedOn": "2015-12-18T00:10:51.4662695Z",
-        "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-        "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
-      "type": "Microsoft.Authorization/roleDefinitions",
-      "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
-    }
+        "notActions": []
+      }
+    ],
+    "createdOn": "2015-12-18T00:10:51.4662695Z",
+    "updatedOn": "2015-12-18T00:10:51.4662695Z",
+    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
+    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
+  },
+  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7",
+  "type": "Microsoft.Authorization/roleDefinitions",
+  "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
+}
+
 ```
 
 ## Delete a Custom Role
-
 Delete a custom role.
 
-To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation.
+To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 Use the **DELETE** method with the following URI:
 
-```
-https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
-```
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -621,41 +609,43 @@ Within the URI, make the following substitutions to customize your request:
 Status code: 200
 
 ```
-    {
-      "properties": {
-        "roleName": "Virtual Machine Operator",
-        "type": "CustomRole",
-        "description": "Lets you monitor virtual machines and restart them.",
-        "assignableScopes": [
-          "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+{
+  "properties": {
+    "roleName": "Virtual Machine Operator",
+    "type": "CustomRole",
+    "description": "Lets you monitor virtual machines and restart them.",
+    "assignableScopes": [
+      "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Network/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/*/read",
+          "Microsoft.Support/*",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action"
         ],
-        "permissions": [
-          {
-            "actions": [
-              "Microsoft.Authorization/*/read",
-              "Microsoft.Compute/*/read",
-              "Microsoft.Insights/alertRules/*",
-              "Microsoft.Network/*/read",
-              "Microsoft.Resources/subscriptions/resourceGroups/read",
-              "Microsoft.Storage/*/read",
-              "Microsoft.Support/*",
-              "Microsoft.Compute/virtualMachines/start/action",
-              "Microsoft.Compute/virtualMachines/restart/action"
-            ],
-            "notActions": []
-          }
-        ],
-        "createdOn": "2015-12-16T00:07:02.9236555Z",
-        "updatedOn": "2015-12-16T00:07:02.9236555Z",
-        "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-        "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
-      },
-      "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/0bd62a70-e1b8-4e0b-a7c2-75cab365c95b",
-      "type": "Microsoft.Authorization/roleDefinitions",
-      "name": "0bd62a70-e1b8-4e0b-a7c2-75cab365c95b"
-    }
+        "notActions": []
+      }
+    ],
+    "createdOn": "2015-12-16T00:07:02.9236555Z",
+    "updatedOn": "2015-12-16T00:07:02.9236555Z",
+    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
+    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
+  },
+  "id": "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/providers/Microsoft.Authorization/roleDefinitions/0bd62a70-e1b8-4e0b-a7c2-75cab365c95b",
+  "type": "Microsoft.Authorization/roleDefinitions",
+  "name": "0bd62a70-e1b8-4e0b-a7c2-75cab365c95b"
+}
+
 ```
 
 ## Next steps
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+

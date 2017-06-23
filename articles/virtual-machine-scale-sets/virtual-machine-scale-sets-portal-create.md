@@ -1,6 +1,6 @@
 ---
-title: Create a Virtual Machine Scale Set using the Azure portal preview | Azure
-description: Deploy scale sets using Azure portal preview.
+title: Create a Virtual Machine Scale Set using the Azure portal | Azure
+description: Deploy scale sets using Azure portal.
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-wacn.date: ''
+origin.date: 05/01/2017
+ms.date: 04/17/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
-# How to create a Virtual Machine Scale Set with the Azure portal preview
-This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal preview. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
+# How to create a Virtual Machine Scale Set with the Azure portal
+This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 
 ## Choose the VM image from the marketplace
 From the portal, you can easily deploy a scale set with CentOS, CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server, or Windows Server images.
 
-First, navigate to the [Azure portal preview](https://portal.azure.cn) in a web browser. Click `New`, search for `scale set`, and then select the `Virtual machine scale set` entry:
+First, navigate to the [Azure portal](https://portal.azure.cn) in a web browser. Click `New`, search for `scale set`, and then select the `Virtual machine scale set` entry:
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
@@ -39,9 +39,11 @@ Now you can use the default settings and quickly create the scale set.
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
+* Choose whether you would like to limit the scale set to a single placement group or whether it should span multiple placement groups. Allowing the scale set to span placement groups allows for scale sets over 100 VMs in capacity (up to 1,000) with certain limitations. For more information, see [this documentation](./virtual-machine-scale-sets-placement-groups.md).
 * Enter your desired resource group name and location, and then click `OK`.
 * On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all Azure.
 * Choose your desired operating system disk image, instance count, and machine size.
+* Choose your desired disk type: managed or unmanaged. For more information, see [this documentation](./virtual-machine-scale-sets-managed-disks.md). If you chose to have the scale set span multiple placement groups, this option will not be available because managed disk is required for scale sets to span placement groups.
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 

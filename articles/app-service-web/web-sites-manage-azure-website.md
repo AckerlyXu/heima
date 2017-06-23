@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
-wacn.date: ''
+origin.date: 08/24/2016
+ms.date: 12/05/2016
 ms.author: v-dazen
 
 ---
@@ -23,7 +23,7 @@ This topic contains links to resources for managing a web app in [Azure App Serv
 
 Over the lifetime of a web app, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.
 
-Many web app management tasks can be performed in the Azure Portal Preview.
+Many web app management tasks can be performed in the Azure Portal.
 
 ## Before you deploy your web app to production
 ### Choose a tier
@@ -33,7 +33,7 @@ Azure App Service is offered in five tiers: Free, Shared, Basic, Standard, and P
 * You can always [switch tiers](web-sites-scale.md) after you create your web app.
 
 ### Configuration
-Use the [Azure Portal Preview](https://portal.azure.cn/) to set various configuration options. For details, see [Configure web apps in Azure App Service](web-sites-configure.md). Here is a quick checklist:
+Use the [Azure Portal](https://portal.azure.cn/) to set various configuration options. For details, see [Configure web apps in Azure App Service](web-sites-configure.md). Here is a quick checklist:
 
 * Select **runtime versions** for .NET, PHP, Java, or Python, if needed.
 * Enable **WebSockets** if your web app uses the WebSocket protocol. (This includes apps that use [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](web-sites-nodejs-chat-app-socketio.md).)
@@ -42,8 +42,8 @@ Use the [Azure Portal Preview](https://portal.azure.cn/) to set various configur
 
 In addition to these basic configuration settings, you may want to configure the following:
 
-* **Secure Socket Layer (SSL)** encryption. To use SSL with a custom domain name, you must get an SSL certificate and configure your web app to use it. See [Enable HTTPS for a web app in Azure App Service](web-sites-configure-ssl-certificate.md).
-* **Custom domain name.** Your web app automatically has a subdomain under chinacloudsites.cn. You can associate a custom domain name, such as contoso.com. See [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md).
+* **Secure Socket Layer (SSL)** encryption. To use SSL with a custom domain name, you must get an SSL certificate and configure your web app to use it. See [Enable HTTPS for a web app in Azure App Service](app-service-web-tutorial-custom-ssl.md).
+* **Custom domain name.** Your web app automatically has a subdomain under chinacloudsites.cn. You can associate a custom domain name, such as contoso.com. See [Configure a custom domain name in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Language-specific configuration:
 
@@ -54,7 +54,7 @@ Language-specific configuration:
 While your web app is running, you want to make sure it is available, and that it scales to meet user traffic. You may also need to troubleshoot errors.
 
 ### Monitoring
-* Through the Azure Portal Preview, you can [add performance metrics](web-sites-monitor.md) such as CPU usage and number of client requests.
+* Through the Azure Portal, you can [add performance metrics](web-sites-monitor.md) such as CPU usage and number of client requests.
 * [Scale your web app](web-sites-scale.md) in response to traffic. Depending on your tier, you can scale the number of VMs and/or the size of the VM instances. In the Standard and Premium tiers, you can also set up autoscaling, so your web app scales automatically, either on a fixed schedule, or in response to load.  
 
 ### Backups

@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2016
-wacn.date: ''
+origin.date: 02/14/2016
+ms.date: 05/31/2017
 ms.author: v-junlch
 ---
 # Power BI tutorial for Azure Cosmos DB: Visualize data using the Power BI connector

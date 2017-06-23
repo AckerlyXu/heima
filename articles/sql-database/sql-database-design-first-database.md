@@ -35,9 +35,9 @@ Azure SQL Database is a relational database-as-a service using the Microsoft SQL
 
 To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
-## Log in to the Azure portal preview
+## Log in to the Azure Portal
 
-Log in to the [Azure portal preview](https://portal.azure.cn/).
+Log in to the [Azure Portal](https://portal.azure.cn/).
 
 ## Create a blank SQL database in Azure
 
@@ -45,7 +45,7 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a blank SQL database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal preview.
+1. Click the **New** button found on the upper left-hand corner of the Azure Portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page. 
 
@@ -99,11 +99,11 @@ You can now connect to the database and its server using SQL Server Management S
 
 ## Get connection information
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal preview. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
+Get the fully qualified server name for your Azure SQL Database server in the Azure Portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn/).
+1. Log in to the [Azure Portal](https://portal.azure.cn/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal preview page for your database, locate and then copy the **Server name**.
+3. In the **Essentials** pane in the Azure Portal page for your database, locate and then copy the **Server name**.
 
     ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 

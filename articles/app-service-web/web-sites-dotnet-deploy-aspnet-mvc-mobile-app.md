@@ -13,13 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2016
-wacn.date: ''
+origin.date: 01/12/2016
+ms.date: 03/17/2017
 ms.author: v-dazen
 
 ---
 # Deploy an ASP.NET MVC 5 mobile web app in Azure App Service
-
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
 web app that is mobile-friendly and deploy it to Azure App Service. For this tutorial, you need 
 [Visual Studio Express 2013 for Web][Visual Studio Express 2013]
@@ -85,13 +84,13 @@ this topic:
 5. In Visual Studio, open the *C#\Mvc5Mobile.sln* file.
 6. In Solution Explorer, right-click the project and click **Publish**.
 
-    ![][DeployClickPublish]
+   ![][DeployClickPublish]
 7. In Publish Web, click **Azure App Service**.
 
-    ![][DeployClickWebSites]
+   ![][DeployClickWebSites]
 8. If you haven't already logged into Azure, click **Add an account**.
 
-    ![][DeploySignIn]
+   ![][DeploySignIn]
 9. Follow the prompts to log into your Azure account.
 10. The App Service dialog should now show you as signed in. Click **New**.
 

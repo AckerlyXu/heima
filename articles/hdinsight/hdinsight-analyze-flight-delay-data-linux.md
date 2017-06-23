@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -41,11 +41,11 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
 
 2. On the page, select the following values:
 
-    | Name | Value |
-    | --- | --- |
-    | Filter Year |2013 |
-    | Filter Period |January |
-    | Fields |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Clear all other fields |
+   | Name | Value |
+   | --- | --- |
+   | Filter Year |2013 |
+   | Filter Period |January |
+   | Fields |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Clear all other fields |
 
 3. Click **Download**.
 
@@ -59,8 +59,8 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
 
     Replace **FILENAME** with the name of the zip file. Replace **USERNAME** with the SSH login for the HDInsight cluster. Replace CLUSTERNAME with the name of the HDInsight cluster.
 
-    > [!NOTE]
-    > If you use a password to authenticate your SSH login, you are prompted for the password. If you used a public key, you may need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`.
+   > [!NOTE]
+   > If you use a password to authenticate your SSH login, you are prompted for the password. If you used a public key, you may need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`.
 
 2. Once the upload has completed, connect to the cluster using SSH:
 
@@ -163,8 +163,8 @@ Use the following steps to import data from the CSV file into a Hive table named
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
     ```
 
-    > [!NOTE]
-    > In this example, `localhost` is used since you are connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
+   > [!NOTE]
+   > In this example, `localhost` is used since you are connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
 
 4. Once the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
@@ -190,7 +190,7 @@ Use the following steps to import data from the CSV file into a Hive table named
 
 ## Create a SQL Database
 
-If you already have a SQL Database, you must get the server name. You can find the server name in the [Azure portal preview](https://portal.azure.cn) by selecting **SQL Databases**, and then filtering on the name of the database you wish to use. The server name is listed in the **SERVER** column.
+If you already have a SQL Database, you must get the server name. You can find the server name in the [Azure portal](https://portal.azure.cn) by selecting **SQL Databases**, and then filtering on the name of the database you wish to use. The server name is listed in the **SERVER** column.
 
 If you do not already have a SQL Database, use the information in [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md) to create one. Save the server name used for the database.
 
@@ -234,9 +234,9 @@ If you do not already have a SQL Database, use the information in [SQL Database 
     GO
     ```
 
-    When the `GO` statement is entered, the previous statements are evaluated. This  query creates a table named **delays**, with a clustered index.
+    When the `GO` statement is entered, the previous statements are evaluated. This query creates a table named **delays**, with a clustered index.
 
-    Use the following  query to verify that the table has been created:
+    Use the following query to verify that the table has been created:
 
     ```
     SELECT * FROM information_schema.tables

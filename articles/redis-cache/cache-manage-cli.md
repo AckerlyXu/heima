@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -194,7 +194,9 @@ For more information about this command, run the `azure rediscache show -h` comm
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="scale"></a> Change settings of an existing Redis Cache
+<a name="scale"></a>
+
+## Change settings of an existing Redis Cache
 To change settings of an existing Redis Cache, use the following command:
 
     azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]

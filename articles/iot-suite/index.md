@@ -10,8 +10,8 @@ ms.service: iot-suite
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
+origin.date: 01/23/2017
+ms.date: 06/20/2017
 ms.author: v-yiso
 ---
 
@@ -57,27 +57,6 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </a>
     </li>
  
-</ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Resources</h3>
-                        <p><a href="/iot-suite/iot-security-architecture">Security architecture</a></p>
-                        <p><a href="/iot-suite/iot-security-best-practices">Security best practices</a></p>
-                        <p><a href="/iot-suite/iot-suite-security-deployment">Secure your IoT deployment</a></p>
-                        <p><a href="/iot-suite/securing-iot-ground-up">Security from the ground up</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
 </ul>
 
 ---

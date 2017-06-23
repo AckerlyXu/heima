@@ -400,9 +400,9 @@ WAImportExport Tool reads and writes files batch by batch, one batch contains ma
 
 ### WAImportExport output
 
-#### There are two journal files, which one should I upload to Azure portal preview?
+#### There are two journal files, which one should I upload to Azure Portal?
 
-**.xml** - For each hard drive that you prepare with the WAImportExport tool, the tool will create a single journal file with name `<DriveID>.xml` where DriveID is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job in the Azure portal preview. This journal file can also be used to resume drive preparation if the tool is interrupted.
+**.xml** - For each hard drive that you prepare with the WAImportExport tool, the tool will create a single journal file with name `<DriveID>.xml` where DriveID is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job in the Azure Portal. This journal file can also be used to resume drive preparation if the tool is interrupted.
 
 **.jrn** - The journal file with suffix `.jrn` contains the status for all copy sessions for a hard drives. It also contains the information needed to create the import job. You must always specify a journal file when running the WAImportExport tool, as well as a copy session ID.
 

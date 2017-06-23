@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-wacn.date: ''
+origin.date: 12/14/2016
+ms.date: 01/25/2017
 ms.author: v-dazen
 
 ---
@@ -65,7 +65,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 * Automation updates the Gallery once an hour, so you won't see your contributions immediately.
 
 ## Requesting a runbook or module
-You can send requests to [User Voice](https://www.azure.cn/product-feedback). If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation%2Cazureautomation).
+If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation%2Cazureautomation).
 
 ## Next Steps
 * To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)

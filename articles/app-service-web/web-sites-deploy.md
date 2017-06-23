@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-wacn.date: ''
+origin.date: 01/05/2017
+ms.date: 03/17/2017
 ms.author: v-dazen
 
 ---
@@ -30,8 +30,8 @@ following processes:
 * [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): Use your favorite FTP or FTPS enabled tool to move your files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
 * [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment): Kudu is the [deployment engine](https://github.com/projectkudu/kudu/wiki) in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) for continuous deployment and other automation tasks. The Kudu deployment engine supports 2 different types of deployment sources:   
 
-    * Repository-based continuous deployment with auto-sync from GitHub 
-    * Repository-based deployment with manual sync from local Git  
+  * Repository-based continuous deployment with auto-sync from GitHub 
+  * Repository-based deployment with manual sync from local Git  
 * [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): Deploy code to App Service directly from your favorite Microsoft tools such as Visual Studio using the same tooling that automates deployment to IIS servers. This tool supports diff-only deployment, database creation, transforms of connection strings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. Similar to FTP, no additional services are provided by App Service.
 
 Popular web development tools support one or more of these deployment processes. While the tool you choose determines the deployment processes you can leverage, the actual DevOps functionality at your disposal depends on the combination of the deployment process and the specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation from Kudu, you do get package restore and MSBuild automation in Visual Studio. 
@@ -58,7 +58,7 @@ The cons of copying files manually are:
 * Potential long deployment times because many FTP tools don't provide diff-only copying and simply copy all the files.  
 
 ### <a name="howtoftp"></a>How to upload files with FTP
-The [Azure Portal Preview](https://portal.azure.cn) gives you all the information you need to connect to your app's directories using FTP or FTPS.
+The [Azure Portal](https://portal.azure.cn) gives you all the information you need to connect to your app's directories using FTP or FTPS.
 
 * [Deploy your app to Azure App Service using FTP](app-service-deploy-ftp.md)
 
@@ -81,7 +81,7 @@ In the Kudu, you can configure continuous deployment from GitHub.
 
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md). 
 
-To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal Preview (such as [GitLab](https://gitlab.com/)), see
+To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal (such as [GitLab](https://gitlab.com/)), see
 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="localgitdeployment"></a>Deploy from local Git
@@ -99,7 +99,7 @@ Con of deploying from local Git is:
 * No turn-key solutions for continuous deployment. 
 
 ### <a name="vsts"></a>How to deploy from local Git
-In the [Azure Portal Preview](https://portal.azure.cn), you can configure local Git deployment.
+In the [Azure Portal](https://portal.azure.cn), you can configure local Git deployment.
 
 * [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md). 
 * [Publishing to Web Apps from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
@@ -130,9 +130,10 @@ Additional pros of deploying using Visual Studio with Azure SDK are:
 ### <a name="vs"></a>How to deploy from Visual Studio directly
 * [Get started with Azure and ASP.NET](app-service-web-get-started-dotnet.md). How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.
 * [How to Deploy Azure WebJobs using Visual Studio](websites-dotnet-deploy-webjobs.md). How to configure Console Application projects so that they deploy as WebJobs.  
-* [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to Web Apps](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.
 * [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing.
 * [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to the Git repository. Starting in Visual Studio 2013, Git support is built-in and doesn't require installation of a plug-in.
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="automate"></a>Automate deployment by using command-line tools
 If you prefer the command-line terminal as the development environment of choice, you can script deployment tasks for your App Service app using command-line tools. 

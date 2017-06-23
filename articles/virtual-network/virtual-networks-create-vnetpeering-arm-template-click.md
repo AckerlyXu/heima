@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
-wacn.date: ''
+origin.date: 09/14/2016
+ms.date: 03/24/2017
 ms.author: v-dazen
 
 ---
@@ -30,10 +30,10 @@ To create a VNet peering by using Resource Manager templates, complete the follo
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-    > [!NOTE]
-    > The PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
-    > 
-    > 
+   > [!NOTE]
+   > The PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+   > 
+   > 
 2. The text below shows the definition of a VNet peering link for VNet1 to VNet2, based on the scenario above. Copy the content below and save it to a file named VNetPeeringVNet1.json.
 
     ```json
@@ -92,15 +92,14 @@ To create a VNet peering by using Resource Manager templates, complete the follo
         ]
         }
     ```
-
     As seen in the template above, there are a few configurable properties for VNet peering:
 
-    | Option | Description | Default |
-    |:--- |:--- |:--- |
-    | AllowVirtualNetworkAccess |Whether or not the address space of a peer VNet is included as part of the virtual_network tag. |Yes |
-    | AllowForwardedTraffic |Whether traffic not originating from a peered VNet is accepted or dropped. |No |
-    | AllowGatewayTransit |Allows the peer VNet to use your VNet gateway. |No |
-    | UseRemoteGateways |Use your peer's VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit selected. You cannot use this option if you have a gateway configured. |No |
+   | Option | Description | Default |
+   |:--- |:--- |:--- |
+   | AllowVirtualNetworkAccess |Whether or not the address space of a peer VNet is included as part of the virtual_network tag. |Yes |
+   | AllowForwardedTraffic |Whether traffic not originating from a peered VNet is accepted or dropped. |No |
+   | AllowGatewayTransit |Allows the peer VNet to use your VNet gateway. |No |
+   | UseRemoteGateways |Use your peer's VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit selected. You cannot use this option if you have a gateway configured. |No |
 
     Each link in VNet peering has the set of properties above. For example, you can set AllowVirtualNetworkAccess to True for VNet peering link VNet1 to VNet2 and set it to False for the VNet peering link in the other direction.
 4. To deploy the template file, you can run the `New-AzureRmResourceGroupDeployment` to create or update the deployment. For more information about using Resource Manager templates, please refer to this [article](../azure-resource-manager/resource-group-template-deploy.md).
@@ -109,10 +108,10 @@ To create a VNet peering by using Resource Manager templates, complete the follo
     New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
     ```
 
-    > [!NOTE]
-    > Replace the resource group name and template file, as appropriate.
-    > 
-    > 
+   > [!NOTE]
+   > Replace the resource group name and template file, as appropriate.
+   > 
+   > 
 
     The following is an example based on the previous scenario:
 

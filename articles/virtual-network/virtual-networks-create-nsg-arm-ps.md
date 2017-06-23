@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2016
-wacn.date: ''
+origin.date: 02/23/2016
+ms.date: 01/13/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -132,10 +132,10 @@ To create an NSG named *NSG-FrontEnd* based on the scenario, complete the follow
                                             "ProvisioningState": "Succeeded"
                                           }
 
-    > [!WARNING]
-    > The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.
-    > 
-    > 
+   > [!WARNING]
+   > The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.
+   > 
+   > 
 7. Save the new VNet settings to Azure.
 
     ```powershell

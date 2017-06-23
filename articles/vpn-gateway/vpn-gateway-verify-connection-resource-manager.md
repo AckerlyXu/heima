@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
-wacn.date: ''
+origin.date: 04/24/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 
 ---
@@ -23,9 +23,9 @@ ms.author: v-dazen
 
 This article shows you how to verify your VPN gateway connection for both the Resource Manager and classic deployment models.
 
-## Verify using the Azure portal preview
+## Verify using the Azure portal
 
-[!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
+[!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
 ## Verify using PowerShell
 
@@ -34,19 +34,19 @@ To verify by using PowerShell, install the latest version of the Azure Resource 
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  ```
 2. Check the subscriptions for the account.
 
-    ```powershell
-    Get-AzureRmSubscription
-    ``` 
+  ```powershell
+  Get-AzureRmSubscription
+  ``` 
 3. Specify the subscription that you want to use.
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 ### Verify your connection
 
@@ -81,8 +81,8 @@ To verify by using the Azure CLI, install the latest version of the CLI commands
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-## Verify using the Azure portal preview (classic)
-[!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
+## Verify using the Azure portal (classic)
+[!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## Verify using PowerShell (classic)
 To verify by using PowerShell, install the latest versions of the Azure PowerShell cmdlets. Be sure to download and install both the Resource Manager and Service Management (SM) versions. For information on installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
@@ -90,24 +90,24 @@ To verify by using PowerShell, install the latest versions of the Azure PowerShe
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  ```
 2. Check the subscriptions for the account.
 
-    ```powershell
-    Get-AzureRmSubscription 
-    ```
+  ```powershell
+  Get-AzureRmSubscription 
+  ```
 3. Specify the subscription that you want to use.
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Log in to use the Service Management cmdlets for the classic deployment model.
 
-    ```powershell
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+  ```powershell
+  Add-AzureAccount -Environment AzureChinaCloud
+  ```
 
 ### Verify your connection
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2017
-wacn.date: ''
+origin.date: 02/18/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 
 ---
@@ -67,9 +67,9 @@ To create the route table and route needed for the front end subnet based on the
 
     Parameters:
 
-    * **-g (or --resource-group)**. Name of the resource group where the UDR will be created. For our scenario, *TestRG*.
-    * **-l (or --location)**. Azure region where the new UDR will be created. For our scenario, *chinanorth*.
-    * **-n (or --name)**. Name for the new UDR. For our scenario, *UDR-FrontEnd*.
+   * **-g (or --resource-group)**. Name of the resource group where the UDR will be created. For our scenario, *TestRG*.
+   * **-l (or --location)**. Azure region where the new UDR will be created. For our scenario, *chinanorth*.
+   * **-n (or --name)**. Name for the new UDR. For our scenario, *UDR-FrontEnd*.
 2. Run the following command to create a route in the route table to send all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4):
 
     ```azurecli
@@ -93,10 +93,10 @@ To create the route table and route needed for the front end subnet based on the
 
     Parameters:
 
-    * **-r (or --route-table-name)**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.
-    * **-a (or --address-prefix)**. Address prefix for the subnet where packets are destined to. For our scenario, *192.168.2.0/24*.
-    * **-y (or --next-hop-type)**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
-    * **-p (or --next-hop-ip-address**). IP address for next hop. For our scenario, *192.168.0.4*.
+   * **-r (or --route-table-name)**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.
+   * **-a (or --address-prefix)**. Address prefix for the subnet where packets are destined to. For our scenario, *192.168.2.0/24*.
+   * **-y (or --next-hop-type)**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
+   * **-p (or --next-hop-ip-address**). IP address for next hop. For our scenario, *192.168.0.4*.
 3. Run the following command to associate the route table created above with the **FrontEnd** subnet:
 
     ```azurecli
@@ -129,7 +129,7 @@ To create the route table and route needed for the front end subnet based on the
 
     Parameters:
 
-    * **-e (or --vnet-name)**. Name of the VNet where the subnet is located. For our scenario, *TestVNet*.
+   * **-e (or --vnet-name)**. Name of the VNet where the subnet is located. For our scenario, *TestVNet*.
 
 ## Create the UDR for the back-end subnet
 To create the route table and route needed for the back-end subnet based on the scenario above, complete the following steps:
@@ -224,4 +224,4 @@ To enable IP forwarding in the NIC used by **FW1**, complete the following steps
 
     Parameters:
 
-    * **-f (or --enable-ip-forwarding)**. *true* or *false*.
+   * **-f (or --enable-ip-forwarding)**. *true* or *false*.

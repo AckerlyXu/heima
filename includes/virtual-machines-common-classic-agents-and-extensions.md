@@ -12,7 +12,7 @@ The Azure Virtual Machines Agent (VM Agent) is a secured, light-weight process t
 
 Two Azure VM Agents exist, one for Windows VMs and one for Linux VMs.
 
-If you want a virtual machine instance to use one or more VM extensions, the instance must have an installed VM Agent. A virtual machine image created by using the Azure portal preview and an image from the **Marketplace** automatically installs a VM Agent in the creation process. If a virtual machine instance lacks a VM Agent, you can install the VM Agent after the virtual machine instance is created. Or, you can install the agent in a custom VM image that you then upload.
+If you want a virtual machine instance to use one or more VM extensions, the instance must have an installed VM Agent. A virtual machine image created by using the Azure portal and an image from the **Marketplace** automatically installs a VM Agent in the creation process. If a virtual machine instance lacks a VM Agent, you can install the VM Agent after the virtual machine instance is created. Or, you can install the agent in a custom VM image that you then upload.
 
 > [!IMPORTANT]
 > These VM Agents are very light-weight, services that enable secured administration of virtual machine instances. There might be cases in which you do not want the VM Agent. If so, be sure to create VMs that do not have the VM Agent installed using the Azure CLI or PowerShell. Although the VM Agent can be removed physically, the behavior of VM Extensions on the instance is undefined. As a result, removing an installed VM Agent is not supported.
@@ -20,7 +20,7 @@ If you want a virtual machine instance to use one or more VM extensions, the ins
 
 The VM Agent is enabled in the following situations:
 
-* When you create an instance of a VM by using the Azure portal preview and selecting an image from the **Marketplace**,
+* When you create an instance of a VM by using the Azure portal and selecting an image from the **Marketplace**,
 * When you create an instance of a VM by using the [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) or the [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet. You can create a VM without a VM Agent by adding the **-DisableGuestAgent** parameter to the [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet,
 
 * When you manually download and install the VM Agent on an existing VM instance, and set the **ProvisionGuestAgent** value to **true**. You can use this technique for Windows and Linux agents, by using a PowerShell command or a REST call. (If you do not set the **ProvisionGuestAgent** value after manually installing the VM Agent, the addition of the VM Agent is not detected properly.) The following code example shows how to do this using PowerShell where the `$svc` and `$name` arguments have already been determined:

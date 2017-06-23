@@ -15,8 +15,8 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
-wacn.date: ''
+origin.date: 02/13/2017
+ms.date: 03/24/2017
 ms.author: v-dazen
 
 ---
@@ -34,8 +34,8 @@ To complete the steps in this article, you will need the following:
 
 * A Hadoop on HDInsight cluster. Either Linux-based or Windows-based clusters will work.
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
@@ -84,7 +84,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * For **Windows-based HDInsight**, use the following steps to download the jar files.
 
-        1. From the Azure portal preview, select your HDInsight cluster, and then select the **Remote Desktop** icon.
+        1. From the Azure portal, select your HDInsight cluster, and then select the **Remote Desktop** icon.
 
             ![Remote Desktop icon](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
@@ -120,9 +120,9 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
     * **Extra Class Path**: Use the Add button to add the jar files downloaded earlier
     * **Class Name**: org.apache.hive.jdbc.HiveDriver
 
-    ![add driver dialog](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
+   ![add driver dialog](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
 
-    Click **OK** to save these settings.
+   Click **OK** to save these settings.
 
 5. On the left of the SQuirreL SQL window, select **Aliases**. Then click the **+** icon to create a new connection alias.
 

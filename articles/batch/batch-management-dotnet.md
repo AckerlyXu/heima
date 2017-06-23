@@ -35,7 +35,7 @@ You can lower maintenance overhead in your Azure Batch applications by using the
 - **Combine features of other Azure services** for a full-featured management experience--by using Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
 
 > [!NOTE]
-> While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. For more information, see [Create an Azure Batch account using the Azure portal Preview](./batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](./batch-quota-limit.md).
+> While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. For more information, see [Create an Azure Batch account using the Azure Portal](./batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](./batch-quota-limit.md).
 > 
 > 
 
@@ -139,7 +139,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal Preview][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](./batch-quota-limit.md) for instructions on increasing your Batch account quotas.
+> While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure Portal][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](./batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 > 
 > 
 
@@ -167,7 +167,7 @@ To see Batch Management .NET in action, check out the [AccountManagment][acct_mg
    - Delete newly created account.
 7. Delete the resource group.
 
-Before deleting the newly created Batch account and resource group, you can view them in the [Azure portal Preview][azure_portal]:
+Before deleting the newly created Batch account and resource group, you can view them in the [Azure Portal][azure_portal]:
 
 [aad_about]:../active-directory/active-directory-whatis.md
 [aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md

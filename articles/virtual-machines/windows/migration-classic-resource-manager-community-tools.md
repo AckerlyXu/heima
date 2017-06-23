@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
-wacn.date: ''
+origin.date: 03/30/2017
+ms.date: 05/15/2017
 ms.author: v-dazen
 
 ---
@@ -24,11 +24,12 @@ This article catalogs the tools that have been provided by the community to assi
 
 > [!NOTE]
 > These tools are not officially supported by Azure.cn Support. Therefore they are open sourced on GitHub and we're happy to accept PRs for fixes or additional scenarios. To report an issue, use the GitHub issues feature.
-> <br/> 
+> 
 > Migrating with these tools will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, visit 
-> * [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](migration-classic-resource-manager-overview.md)
-> * [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
-> * [Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell](migration-classic-resource-manager-ps.md)
+> 
+>   * [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](migration-classic-resource-manager-overview.md)
+>   * [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
+>   * [Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell](migration-classic-resource-manager-ps.md)
 > 
 > 
 

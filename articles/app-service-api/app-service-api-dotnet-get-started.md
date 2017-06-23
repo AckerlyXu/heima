@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/20/2016
-wacn.date: ''
+origin.date: 09/20/2016
+ms.date: 02/21/2017
 ms.author: v-dazen
 
 ---
@@ -59,7 +59,7 @@ The next tutorial in the series deploys the SPA front end to the cloud.
 * Azure account - You can [Open an Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
 * Visual Studio 2015 with the [Azure SDK for .NET](/downloads/) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
 
-    * In Visual Studio, click Help -> About Microsoft Visual Studio and ensure that you have "Azure App Service Tools v2.9.1" or higher installed.
+  * In Visual Studio, click Help -> About Microsoft Visual Studio and ensure that you have "Azure App Service Tools v2.9.1" or higher installed.
 
     ![Azure App Tools vesion](./media/app-service-api-dotnet-get-started/apiversion.png)
 
@@ -74,8 +74,8 @@ The next tutorial in the series deploys the SPA front end to the cloud.
     You can click the **Download ZIP** button or clone the repository on your local machine.
 2. Open the ToDoList solution in Visual Studio 2015 or 2013.
 
-    1. You will need to trust each solution.
-        ![Security Warning](./media/app-service-api-dotnet-get-started/securitywarning.png)
+   1. You will need to trust each solution.
+         ![Security Warning](./media/app-service-api-dotnet-get-started/securitywarning.png)
 3. Build the solution (CTRL + SHIFT + B)  to restore the NuGet packages.
 
     If you want to see the application in operation before you deploy it, you can run it locally. Make sure that ToDoListDataAPI is your startup project and run the solution. You should expect to see a HTTP 403 error in your browser.
@@ -204,7 +204,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
     ![Click Publish in Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu.png)
 2. In the **Profile** step of the **Publish Web** wizard, click **Azure App Service**.
 
-    ![Click Azure App Service in Publish Web](./media/app-service-api-dotnet-get-started/selectappservice.png)
+   ![Click Azure App Service in Publish Web](./media/app-service-api-dotnet-get-started/selectappservice.png)
 3. Sign in to your Azure account if you have not already done so, or refresh your credentials if they're expired.
 4. In the App Service dialog box, choose the Azure **Subscription** you want to use, and then click **New**.
 
@@ -279,13 +279,13 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 16. Add "swagger" to the URL in the browser's address bar, and then press Enter. (The URL is `http://{apiappname}.chinacloudsites.cn/swagger`.)
 
     The browser displays the same Swagger UI that you saw earlier, but now it's running in the cloud. Try out the Get method, and you see that you're back to the default 2 to-do items. The changes you made earlier were saved in memory in the local machine.
-17. Open the [Azure portal preview](https://portal.azure.cn/).
+17. Open the [Azure portal](https://portal.azure.cn/).
 
-    The Azure portal preview is a web interface for managing Azure resources such as API apps.
+    The Azure portal is a web interface for managing Azure resources such as API apps.
 18. Click **More Services > App Services**.
 
     ![Browse App Services](./media/app-service-api-dotnet-get-started/browseas.png)
-19. In the **App Services** blade, find and click your new API app. (In the Azure portal preview, windows that open to the right are called *blades*.)
+19. In the **App Services** blade, find and click your new API app. (In the Azure portal, windows that open to the right are called *blades*.)
 
     ![App Services blade](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
@@ -324,10 +324,10 @@ The ToDoListAPI project already has the generated client code, but in the follow
 
     ![API Definition URL](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
-    > [!TIP]
-    > An alternative way to get metadata for code generation is to enter the URL directly instead of going through the browse dialog. Or if you want to generate client code before deploying to Azure, you could run the Web API project locally, go to the URL that provides the Swagger JSON file, save the file, and use the **Select an existing Swagger metadata file** option.
-    > 
-    > 
+   > [!TIP]
+   > An alternative way to get metadata for code generation is to enter the URL directly instead of going through the browse dialog. Or if you want to generate client code before deploying to Azure, you could run the Web API project locally, go to the URL that provides the Swagger JSON file, save the file, and use the **Select an existing Swagger metadata file** option.
+   > 
+   > 
 5. In the **Add REST API Client** dialog box, click **OK**.
 
     Visual Studio creates a folder named after the API app and generates client classes.
@@ -387,19 +387,19 @@ Earlier you [created the data tier API app and deployed code to it](#createapiap
     Visual Studio creates the API app, creates a publish profile for it, and displays the **Connection** step of the **Publish Web** wizard.
 9. In the **Connection** step of the **Publish Web** wizard, click **Publish**.
 
-    Visual Studio deploys the ToDoListAPI project to the new API app and opens a browser to the URL of the API app. The "successfully created" page appears.
+   Visual Studio deploys the ToDoListAPI project to the new API app and opens a browser to the URL of the API app. The "successfully created" page appears.
 
 ## Configure the middle tier to call the data tier
 If you called the middle tier API app now, it would try to call the data tier using the localhost URL that is still in the Web.config file. In this section you enter the data tier API app URL into an environment setting in the middle tier API app. When the code in the middle tier API app retrieves the data tier URL setting, the environment setting will override what's in the Web.config file.
 
-1. Go to the [Azure portal preview](https://portal.azure.cn/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
+1. Go to the [Azure portal](https://portal.azure.cn/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
 2. In the API App's **Settings** blade, click **Application settings**.
 3. In the API App's **Application Settings** blade, scroll down to the **App settings** section and add the following key and value. The value will be the URL of the first API App you published in this tutorial.
 
-    | **Key** | toDoListDataAPIURL |
-    | --- | --- |
-    | **Value** |https://{your data tier API app name}.chinacloudsites.cn |
-    | **Example** |https://todolistdataapi.chinacloudsites.cn |
+   | **Key** | toDoListDataAPIURL |
+   | --- | --- |
+   | **Value** |https://{your data tier API app name}.chinacloudsites.cn |
+   | **Example** |https://todolistdataapi.chinacloudsites.cn |
 4. Click **Save**.
 
     ![Click Save for App Settings](./media/app-service-api-dotnet-get-started/asinportal.png)

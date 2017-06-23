@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2016
-wacn.date: ''
+origin.date: 01/13/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 
 ---
@@ -92,7 +92,7 @@ This feature is currently in preview, we are working to add new capabilities ove
 
 ### References
 * [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
-* [Web App Cloning using Azure Portal Preview](app-service-web-app-cloning-portal.md)
+* [Web App Cloning using Azure Portal](app-service-web-app-cloning-portal.md)
 * [Back up a web app in Azure App Service](web-sites-backup.md)
 * [Azure Resource Manager support for Azure Traffic Manager Preview](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)

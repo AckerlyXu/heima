@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
+origin.date: 03/20/2017
+ms.date: 05/15/2017
 ms.author: v-dazen
 
 ---
@@ -27,7 +27,7 @@ ms.author: v-dazen
 
 ## Working with images
 
-You can use the Azure PowerShell module and the Azure portal preview to manage the images available to your Azure subscription. The Azure PowerShell module provides more command options, so you can pinpoint exactly what you want to see or do. The Azure portal preview provides a GUI for many of the everyday administrative tasks.
+You can use the Azure PowerShell module and the Azure portal to manage the images available to your Azure subscription. The Azure PowerShell module provides more command options, so you can pinpoint exactly what you want to see or do. The Azure portal provides a GUI for many of the everyday administrative tasks.
 
 Here are some examples that use the Azure PowerShell module.
 
@@ -38,10 +38,10 @@ Here are some examples that use the Azure PowerShell module.
 * **Save a generalized image**: `Save-AzureVMImage -ServiceName "myServiceName" -Name "MyVMtoCapture" -OSState "Generalized" -ImageName "MyVmImage" -ImageLabel "This is my generalized image"`
 * **Save a specialized image**: `Save-AzureVMImage -ServiceName "mySvc2" -Name "MyVMToCapture2" -ImageName "myFirstVMImageSP" -OSState "Specialized" -Verbose`
 
-    > [!TIP]
-    > The OSState parameter is required to create a VM image, which includes the operating system disk and attached data disks. If you don't use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
+  > [!TIP]
+  > The OSState parameter is required to create a VM image, which includes the operating system disk and attached data disks. If you don't use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
 
 * **Delete an image**: `Remove-AzureVMImage -ImageName "MyOldVmImage"`
 
 ## Next Steps
-You can also [create a Windows machine using the Azure portal preview](tutorial.md).
+You can also [create a Windows machine using the Azure portal](tutorial.md).

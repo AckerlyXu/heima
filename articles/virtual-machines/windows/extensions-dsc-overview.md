@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 01/09/2017
-wacn.date: ''
+origin.date: 01/09/2017
+ms.date: 02/24/2017
 ms.author: v-dazen
 
 ---
@@ -25,11 +25,11 @@ ms.author: v-dazen
 
 The Azure VM Agent and associated Extensions are part of the Azure Infrastructure Services. VM Extensions are software components that extend the VM functionality and simplify various VM management operations. For example, the VMAccess extension can be used to reset an administrator's password, or the Custom Script extension can be used to execute a script on the VM.
 
-This article introduces the PowerShell Desired State Configuration (DSC) Extension for Azure VMs as part of the Azure PowerShell SDK. You can use new cmdlets to upload and apply a PowerShell DSC configuration on an Azure VM enabled with the PowerShell DSC extension. The PowerShell DSC extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This functionality is also available through the Azure portal preview.
+This article introduces the PowerShell Desired State Configuration (DSC) Extension for Azure VMs as part of the Azure PowerShell SDK. You can use new cmdlets to upload and apply a PowerShell DSC configuration on an Azure VM enabled with the PowerShell DSC extension. The PowerShell DSC extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This functionality is also available through the Azure portal.
 
 ## Prerequisites
 **Local machine**
-To interact with the Azure VM extension, you need to use either the Azure portal preview or the Azure PowerShell SDK. 
+To interact with the Azure VM extension, you need to use either the Azure portal or the Azure PowerShell SDK. 
 
 **Guest Agent**
 The Azure VM that is configured by the DSC configuration needs to be an OS that supports either Windows Management Framework (WMF) 4.0 or 5.0. The full list of supported OS versions can be found at the [DSC Extension Version History](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
@@ -44,7 +44,7 @@ Node - A target for a DSC configuration. In this document, "node" always refers 
 Configuration Data - A .psd1 file containing environmental data for a configuration
 
 ## Architectural overview
-The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension expects a .zip file containing at least a configuration document, and a set of parameters provided either through the Azure PowerShell SDK or through the Azure portal preview.
+The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension expects a .zip file containing at least a configuration document, and a set of parameters provided either through the Azure PowerShell SDK or through the Azure portal.
 
 When the extension is called for the first time, it runs an installation process. This process installs a version of the Windows Management Framework (WMF) using the following logic:
 
@@ -79,7 +79,7 @@ The .zip file created by this cmdlet has the .ps1 configuration script at the ro
 * StorageEndpointSuffix is called ArchiveStorageEndpointSuffix in Azure Resource Manager
 * The AutoUpdate switch has been added to Azure Resource Manager to enable automatic updating of the extension handler to the latest version as and when it is available. Note this parameter has the potential to cause reboots on the VM when a new version of the WMF is released. 
 
-## Azure portal preview functionality
+## Azure portal functionality
 Browse to a VM. Under Settings -> General click "Extensions." A new pane is created. Click "Add" and select PowerShell DSC.
 
 The portal needs input.

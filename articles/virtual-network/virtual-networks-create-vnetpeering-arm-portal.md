@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network peering - Portal | Azure
-description: Learn how to create a virtual network peering using the Azure portal preview.
+description: Learn how to create a virtual network peering using the Azure portal.
 services: virtual-network
 documentationcenter: ''
 author: NarayanAnnamalai
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
-wacn.date: ''
+origin.date: 09/14/2016
+ms.date: 03/31/2017
 ms.author: v-dazen
 
 ---
-# Create a virtual network peering using the Azure portal preview
+# Create a virtual network peering using the Azure portal
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-basic-include](../../includes/virtual-networks-create-vnetpeering-scenario-basic-include.md)]
 
-To create a VNet peering based on the scenario by using the Azure portal preview, complete the following steps:
+To create a VNet peering based on the scenario by using the Azure portal, complete the following steps:
 
 1. From a browser, navigate to http://portal.azure.cn and, if necessary, sign in with your Azure account.
-2. To establish a VNet peering, you need to create two links, one for each direction, between two VNets. You can create VNet peering link for VNet1 to VNet2 first. In the Azure portal preview, click **Browse** > **choose Virtual networks**
+2. To establish a VNet peering, you need to create two links, one for each direction, between two VNets. You can create VNet peering link for VNet1 to VNet2 first. In the Azure portal, click **Browse** > **choose Virtual networks**
 
-    ![Create VNet peering in Azure portal preview](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
+    ![Create VNet peering in Azure portal](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 3. In the **Virtual networks** blade, choose *VNET1*, click **Peerings**, then click **Add**, as shown in the following picture:
 
     ![Choose peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure02.png)
@@ -82,7 +82,7 @@ Each link in a VNet peering has the previous set of properties. From the portal,
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
-5. Login to the Azure portal preview as UserB, who is the privileged user for SubscriptionB. Follow the previous steps to add UserA to the Network Contributor role, as shown in the following picture:
+5. Login to the Azure portal as UserB, who is the privileged user for SubscriptionB. Follow the previous steps to add UserA to the Network Contributor role, as shown in the following picture:
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 

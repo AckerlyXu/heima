@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
-wacn.date: ''
+origin.date: 02/09/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 
 ---
@@ -111,8 +111,8 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
     ![Create file system](./media/attach-disk/mkfsext4.png)
 
-    > [!NOTE]
-    > SuSE Linux Enterprise 11 systems only support read-only access for ext4 file systems. For these systems, it is recommended to format the new file system as ext3 rather than ext4.
+   > [!NOTE]
+   > SuSE Linux Enterprise 11 systems only support read-only access for ext4 file systems. For these systems, it is recommended to format the new file system as ext3 rather than ext4.
 
 9. Make a directory to mount the new file system, as follows:
 

@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/04/2017
-wacn.date: ''
+origin.date: 05/04/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
@@ -157,31 +157,31 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 2. Use the **Actions** menu to select the action that you wish to perform:
 
-    * **Start all components** - Start all components on the host.
+   * **Start all components** - Start all components on the host.
 
-    * **Stop all components** - Stop all components on the host.
+   * **Stop all components** - Stop all components on the host.
 
-    * **Restart all components** - Stop and start all components on the host.
+   * **Restart all components** - Stop and start all components on the host.
 
-    * **Turn on maintenance mode** - Suppresses alerts for the host. This mode should be enabled if you are performing actions that generate alerts. For example, stopping and starting a service.
+   * **Turn on maintenance mode** - Suppresses alerts for the host. This mode should be enabled if you are performing actions that generate alerts. For example, stopping and starting a service.
 
-    * **Turn off maintenance mode** - Returns the host to normal alerting.
+   * **Turn off maintenance mode** - Returns the host to normal alerting.
 
-    * **Stop** - Stops DataNode or NodeManagers on the host.
+   * **Stop** - Stops DataNode or NodeManagers on the host.
 
-    * **Start** - Starts DataNode or NodeManagers on the host.
+   * **Start** - Starts DataNode or NodeManagers on the host.
 
-    * **Restart** - Stops and starts DataNode or NodeManagers on the host.
+   * **Restart** - Stops and starts DataNode or NodeManagers on the host.
 
-    * **Decommission** - Removes a host from the cluster.
+   * **Decommission** - Removes a host from the cluster.
 
-        > [!NOTE]
-        > Do not use this action on HDInsight clusters.
+     > [!NOTE]
+     > Do not use this action on HDInsight clusters.
 
-    * **Recommission** - Adds a previously decommissioned host to the cluster.
+   * **Recommission** - Adds a previously decommissioned host to the cluster.
 
-        > [!NOTE]
-        > Do not use this action on HDInsight clusters.
+     > [!NOTE]
+     > Do not use this action on HDInsight clusters.
 
 ### <a id="service"></a>Services
 
@@ -200,13 +200,13 @@ While the **Actions** button can restart all services, often you want to start, 
 
     ![service action](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-    > [!NOTE]
-    > Restarting some services while the cluster is running may generate alerts. To avoid alerts, you can use the **Service Actions** button to enable **Maintenance mode** for the service before performing the restart.
+   > [!NOTE]
+   > Restarting some services while the cluster is running may generate alerts. To avoid alerts, you can use the **Service Actions** button to enable **Maintenance mode** for the service before performing the restart.
 
 3. Once an action has been selected, the **# op** entry at the top of the page increments to show that a background operation is occurring. If configured to display, the list of background operations is displayed.
 
-    > [!NOTE]
-    > If you enabled **Maintenance mode** for the service, remember to disable it by using the **Service Actions** button once the operation has finished.
+   > [!NOTE]
+   > If you enabled **Maintenance mode** for the service, remember to disable it by using the **Service Actions** button once the operation has finished.
 
 To configure a service, use the following steps:
 

@@ -14,9 +14,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
+origin.date: 05/10/2017
 ms.author: v-junlch
-wacn.date: ''
+ms.date: 05/31/2017
 ---
 # Use the Azure Cosmos DB Emulator for local development and testing
 

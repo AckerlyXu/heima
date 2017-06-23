@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-wacn.date: ''
+origin.date: 03/28/2017
+ms.date: ''
 ms.author: v-dazen
 
 ---
@@ -29,7 +29,7 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall (preview), cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
@@ -87,7 +87,13 @@ No, but you can deploy other application gateways in the subnet
 
 **Q. Are Network Security Groups supported on the Application Gateway subnet?**
 
-Network Security Groups are supported on the Application Gateway subnet, but exceptions must be put in for ports 65503-65534 for backend health to work correctly. Outbound internet connectivity should not be blocked.
+Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
+
+* Exceptions must be put in for ports 65503-65534 for backend health to work correctly.
+
+* Outbound internet connectivity should not be blocked.
+
+* Traffic from the AzureLoadBalancer tag must be allowed.
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 

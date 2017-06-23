@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
-wacn.date: ''
+origin.date: 11/11/2016
+ms.date: 01/09/2017
 ms.author: v-dazen
 
 ---
@@ -153,16 +153,16 @@ In Windows PowerShell, you can retrieve output and messages from a runbook using
 
 The following example starts a sample runbook and then waits for it to complete. Once completed, its output stream is collected from the job.
 
-    $job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
+    $job = Start-AzureAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" 
 
     $doLoop = $true
     While ($doLoop) {
-    $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+    $job = Get-AzureAutomationJob -AutomationAccountName "MyAutomationAccount" -Id $job.Id
        $status = $job.Status
        $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
     }
 
-    Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+    Get-AzureAutomationJobOutput -AutomationAccountName "MyAutomationAccount" -Id $job.Id -Stream Output
 
 ## Next steps
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
