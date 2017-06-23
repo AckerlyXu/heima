@@ -3,7 +3,7 @@ title: Simulate a device with Azure IoT Edge (Linux) | Azure
 description: How to use Azure IoT Edge on Linux to create a simulated device that sends telemetry through an IoT Edge gateway to an IoT hub.
 services: iot-hub
 documentationcenter: ''
-author: chipalost
+author: Derek1101
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/09/2017
-ms.author: andbuc
+ms.author: v-yiso
 ms.date: 07/03/2017
 ---
 

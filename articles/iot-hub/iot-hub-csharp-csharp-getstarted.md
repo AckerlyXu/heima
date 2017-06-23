@@ -3,7 +3,7 @@ title: Get started with Azure IoT Hub (.NET) | Azure
 description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for .NET. You create a simulated device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
 services: iot-hub
 documentationcenter: .net
-author: dominicbetts
+author: Derek1101
 manager: timlt
 editor: ''
 
