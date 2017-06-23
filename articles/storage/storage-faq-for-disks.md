@@ -13,7 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2017
+origin.date: 06/15/2017
+ms.date: 06/26/2017
 ms.author: v-johch
 
 ---
@@ -21,7 +22,7 @@ ms.author: v-johch
 
 In this article, we'll visit some of the frequently asked questions about Managed Disks and Premium Storage.
 
-## Managed Disks
+##<a name="managed-disks-and-port-8443"></a> Managed Disks
 
 **What is Azure Managed Disks?**
 
@@ -88,7 +89,6 @@ The supported fault domain count is 2 or 3 for Availability Sets using Managed D
 You set up a private storage account for VM diagnostics. In the future, we plan to switch diagnostics to Managed Disks as well.
 
 **What kind of RBAC support do we have for Managed Disks?**
-
 Managed Disks supports three key default roles:
 
 1.  Owner: Can manage everything, including access.
@@ -123,47 +123,53 @@ No. This feature is not supported currently.
 **Can I change the computer name property when using a specialized (not sysprepped or generalized) OS disk to provision a VM**
 No. You cannot update computer name property. New VM will inherit it from the parent VM which was used to create the OS disk. 
 
-## Managed Disks and port 8443
 
-**Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
+**Where can I find sample Azure resource manager templates to create VMs with Managed Disks**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
 
-The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/windows/agent-user-guide.md).
+## Managed Disks and Storage service encryption (SSE)
 
-**What happens if a VM is deployed with extensions and the port is not unblocked?**
+**Is SSE enabled by default when I create a Managed Disk?**
 
-The deployment will result in an error. 
+Yes
 
-**What happens if a VM is deployed with no extensions and the port is not unblocked?**
+**Who manages the encryption keys?**
 
-There will be no impact on the deployment. 
+Keys are managed by Azure.
 
-**What happens if an extension is installed on a VM which is already provisioned and running and the VM does not have port 8443 unblocked?**
+**Can I disable SSE for my Managed Disks?**
 
-The extension won't be successfully deployed. The status of the extension will be unknown. 
+No
 
-**What happens if an ARM template is used to provision multiple VMs with port 8443 blocked -- one VM with extensions and a second VM dependent on the first VM?**
+**Is SSE available in only specific regions?**
 
-The first VM will show as a failed deployment because the extensions were not successfully deployed. The second VM will not be deployed. 
+No. It is available in all the regions where Managed Disks are available. 
 
-**Will this requirement of the port being unblocked apply to all VM extensions?**
+**How can I find if my Managed Disk is encrypted?**
+
+You can find created time of Managed Disks from Azure portal, CLI and PowerShell.  
+
+**How can I encrypt my existing disks?**
+
+New data written to existing Managed Disks will be automatically encrypted. We are also planning to encrypt existing data as well and the encryption will happen asynchronously in the background. If you must encrypt existing data now, then a workaround is to create copy of your disks. New Disks will be encrypted.
+
+[Copy Managed Disks using CLI](https://docs.azure.cn/zh-cn/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+[Copy Managed Disks using PowerShell](https://docs.azure.cn/zh-cn/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+**Are managed snapshots and images encrypted?**
 
 Yes.
 
-**Do both inbound and outbound connections on port 8443 have to be unblocked?**
+**Can I convert VMs with unmanaged disks that are located on storage accounts that are or have previously been encrypted to managed disks?**
 
-No. Only outbound connections on port 8443 have to be unblocked. 
+No. This feature is not supported yet. 
 
-**Is having outbound connections on port 8443 being unblocked required for the entire lifetime of the VM?**
+**Will an exported VHD from a Managed Disk or a snapshot also be encrypted?**
 
-Yes.
+No. But if you export a VHD to an encrypted storage account from an encrypted Managed Disk or snapshot then it will be encrypted. 
 
-**Does having this port unblocked affect the performance of the VM?**
-
-No.
-
-**Is there an estimated date for this issue to be fixed so I no longer have to unblock port 8443?**
-
-Yes, by the end of May 2017.
 
 ## Premium Disks – both managed and unmanaged
 
@@ -194,6 +200,41 @@ The local SSD is temporary storage that is included with a managed disks VM. The
 **Is there any repercurssions on using TRIM on Premium Disks?**
 
 There is no downside of using TRIM on Azure Disks on either Premium or Standard Disks.
+
+## New Disk Sizes - both managed and unmanaged
+
+**What is the largest disk size supported for OS and Data Disks?**
+
+The partition type Azure supports for OS Disks is MBR(Master Boot Record). The MBR format supports up to 2TB disk size. So the largest OS Disks Azure support is 2TB. For Data Disks, Azure supports up to 4TB. 
+
+**What is the largest page blob size supported?**
+
+The largest page blob size Azure supports is 8TB (8191GB). We don't support attaching any page blobs larger than 4TB (4095GB) to a VM as Data or OS disks.
+
+**Do I need to use a new version of Azure tools to create, attach, resize and upload disks larger than 1TB?**
+
+You do not need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1TB. If you would like to directly upload your VHD file from on-premises to Azure as a page blob/unManaged Disks. You would need to pick up the latest toolsets listed below.
+
+|Azure Tools      | Supported Versions                                |
+|-----------------|---------------------------------------------------|
+|Azure Powershell | Version number v4.1.0 – June 2017 Release or above|
+|Azure CLI v1     | Version number 0.10.13 – May 2017 Release or above|
+|AzCopy	          | Version number v6.1.0 – June 2017 Release or above|
+
+The support for Azure CLI v2 and Storage Explorer is coming soon. 
+
+**Are P4 and P6 disk sizes supported for unmanaged Disks or Page Blob?**
+
+No, P4(32GB) and P6(64GB) disk sizes are only supported for Managed Disks. The support for unmanged Disks and Page Blob is coming soon.
+
+**How is my existing Premium Managed disks with size less than 64 GB that is created before small disk is enabled (Around June 15th) billed?**
+
+Existing small Premium disks with size less than 64 GB will continue be billed as per P10 pricing tier. 
+
+**How can I switch the disk tier of small Premium Disks with size less than 64 GB from P10 to P4 or P6?**
+
+You can take a snapshot of your small disks and then create a disk which will automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
+
 
 ## What if my question isn't answered here?
 
