@@ -1,10 +1,10 @@
 ---
-title: Create Azure Event Hubs namespace and enable Archive using a template | Azure
-description: Create an Event Hubs namespace with Event Hub and enable Archive using Azure Resource Manager template
+title: Create an Azure Event Hubs namespace and enable Archive using a template | Azure
+description: Create an Azure Event Hubs namespace with one event hub and enable Archive using Azure Resource Manager template
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
-manager: timlt
+manager: digimobile
 editor: ''
 
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
@@ -14,17 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 03/07/2017
-ms.date: 04/17/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 ---
 
-# Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template
-This article shows how to use an Azure Resource Manager template that creates a namespace of type Event Hubs, with one Event Hub, and also enables the Archive feature on the Event Hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+# Create an Event Hubs namespace with an event hub and enable Archive using an Azure Resource Manager template
+This article shows how to use an Azure Resource Manager template that creates a namespace of type Event Hubs, with one event hub instance, and also enables the Archive feature on the event hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
 <!-- Not Available for [Azure Resources Naming Conventions][Azure Resources Naming Conventions] -->
-
 For the complete template, see the [Event Hub and enable Archive template][Event Hub and enable Archive template] on GitHub.
 
 > [!NOTE]
@@ -33,9 +32,9 @@ For the complete template, see the [Event Hub and enable Archive template][Event
 > 
 
 ## What will you deploy?
-With this template, you deploy an Event Hubs namespace with an Event Hub, and also enable Event Hubs Archive.
+With this template, you deploy an Event Hubs namespace with an event hub, and also enable Event Hubs Archive.
 
-[Event Hubs](./event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive enables you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choice within a specified time or size interval of your choosing.
+[Event Hubs](event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive enables you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choice within a specified time or size interval of your choosing.
 
 To run the deployment automatically, click the following button:
 
@@ -62,20 +61,20 @@ The name of the Event Hubs namespace to create.
 
 ### eventHubName
 
-The name of the Event Hub created in the Event Hubs namespace.
+The name of the event hub created in the Event Hubs namespace.
 
 ```json
 "eventHubName":{  
     "type":"string",
     "metadata":{  
-        "description":"Name of the Event Hub"
+        "description":"Name of the event hub"
     }
 }
 ```
 
 ### messageRetentionInDays
 
-The number of days to retain the messages in the Event Hub. 
+The number of days to retain the messages in the event hub. 
 
 ```json
 "messageRetentionInDays":{
@@ -84,14 +83,14 @@ The number of days to retain the messages in the Event Hub.
     "minValue":"1",
     "maxValue":"7",
     "metadata":{
-       "description":"How long to retain the data in Event Hub"
+       "description":"How long to retain the data in event hub"
      }
  }
 ```
 
 ### partitionCount
 
-The number of partitions to create in the Event Hub.
+The number of partitions to create in the event hub.
 
 ```json
 "partitionCount":{
@@ -106,7 +105,7 @@ The number of partitions to create in the Event Hub.
 ```
 
 ### archiveEnabled
-Enable Archive on the Event Hub.
+Enable Archive on the event hub.
 
 ```json
 "archiveEnabled":{
@@ -116,7 +115,7 @@ Enable Archive on the Event Hub.
     "false",
     "true"],
     "metadata":{
-        "description":"Enable or disable the Archive for your Event Hub"
+        "description":"Enable or disable the Archive for your event hub"
     }
  }
 ```
@@ -153,7 +152,7 @@ The time interval in which Event Hubs Archive starts archiving the data in Azure
 ```
 
 ### archiveSize
-The size interval at which Archive starts archiving the data in Azure blob storage.
+The size interval at which Archive starts archiving the data in Azure Blob storage.
 
 ```json
 "archiveSize":{
@@ -206,7 +205,7 @@ The API version of the template.
 ```
 
 ## Resources to deploy
-Creates a namespace of type **EventHubs**, with one Event Hub, and also enables Archive.
+Creates a namespace of type **EventHubs**, with one event hub, and also enables Archive.
 
 ```json
 "resources":[  
@@ -274,14 +273,14 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](./event-hubs-create.md)
-* [Event Hubs FAQ](./event-hubs-faq.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an event hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://github.com/Azure/azure-quickstart-templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
 <!-- Not Available [Azure Resources Naming Conventions]: ../guidance-naming-conventions.md-->
-[Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
+[Event hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive

@@ -3,7 +3,7 @@ title: Azure Event Hubs Documentation - Tutorials, API Reference | Azure
 description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
 services: event-hubs
 author: carolz
-manager: carolz
+manager: digimobile
 layout: LandingPage
 ms.assetid:	
 ms.service: event-hubs
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 01/23/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
 ---
 
@@ -38,6 +38,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
         </div>
         </a>
     </li>
+    <!-- Notice: We remove the Video list in the html content-->
     <li>
         <a href="/event-hubs/event-hubs-programming-guide">
         <div class="cardSize">
@@ -75,3 +76,4 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
         </a>
     </li>
 </ul>
+<!-- We remove the Launage reference block together-->

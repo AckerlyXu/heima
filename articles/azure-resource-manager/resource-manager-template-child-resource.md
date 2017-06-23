@@ -4,18 +4,19 @@ description: Shows how to set the resource type and name for child resource in a
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
+manager: digimobile
 editor: tysonn
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: azure-resource-manager
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/02/2017
-ms.date: 03/31/2017
+origin.date: 06/01/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
+
 ---
 
 # Set name and type for child resource in Resource Manager template
@@ -26,6 +27,17 @@ The format of the child resource type is: `{resource-provider-namespace}/{parent
 The format of the child resource name is: `{parent-resource-name}/{child-resource-name}`
 
 However, you specify the type and name in a template differently based on whether it is nested within the parent resource, or on its own at the top level. This topic shows how to handle both approaches.
+
+When constructing a fully qualified reference to a resource, the order to combine segments from the type and name  is not simply a concatenation of the two.  Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+For example:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` is correct
+`Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is not correct
 
 ## Nested child resource
 The easiest way to define a child resource is to nest it within the parent resource. The following example shows a SQL database nested within in a SQL Server.
@@ -72,5 +84,5 @@ You can define the child resource at the top level. You might use this approach 
 The database is a child resource to the server even though they are defined on the same level in the template.
 
 ## Next steps
-* For recommendations about how to create templates, see [Best practices for creating Azure Resource Manager templates](./resource-manager-template-best-practices.md).
-* For an example of creating multiple child resources, see [Deploy multiple instances of resources in Azure Resource Manager templates](./resource-group-create-multiple.md).
+* For recommendations about how to create templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
+* For an example of creating multiple child resources, see [Deploy multiple instances of resources in Azure Resource Manager templates](resource-group-create-multiple.md).
