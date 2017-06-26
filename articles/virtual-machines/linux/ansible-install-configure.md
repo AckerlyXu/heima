@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/25/2017
-ms.date: ''
+ms.date: 07/10/2017
 ms.author: v-dazen
 ---
 

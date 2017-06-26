@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
 origin.date: 05/18/2017
-ms.date: 07/03/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 03/01/2017
-ms.date: 07/03/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---

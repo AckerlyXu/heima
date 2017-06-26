@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/13/2017
-ms.date: ''
+ms.date: 07/10/2017
 ms.author: v-dazen
 ---
 

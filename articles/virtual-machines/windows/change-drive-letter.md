@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 07/03/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -27,7 +27,7 @@ If you resize or **Stop (Deallocate)** a virtual machine, this may trigger place
 For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## Attach the data disk
-First, you'll need to attach the data disk to the virtual machine. To do this using the portal, see [How to attach a managed data disk in the Azure portal](attach-managed-disk-portal.md).
+First, you'll need to attach the data disk to the virtual machine. To do this using the portal, see [How to attach a data disk in the Azure portal](attach-disk-portal.md).
 
 ## Temporarily move pagefile.sys to C drive
 1. Connect to the virtual machine. 

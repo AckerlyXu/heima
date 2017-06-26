@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: ''
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -177,8 +177,6 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 For additional information about creating Azure Web Apps, see the [Web Apps Overview].
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 

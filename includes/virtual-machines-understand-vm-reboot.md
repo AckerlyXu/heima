@@ -10,9 +10,6 @@ For more information about availability set, see the following articles:
 - [Manage the availability of VMs](../articles/virtual-machines/windows/manage-availability.md)
 - [Configure availability of VMs](../articles/virtual-machines/windows/classic/configure-availability.md)
 
-## Resource Health Information 
-Azure Resource Health is a service that exposes the health of individual Azure resources and provides actionable guidance for troubleshooting problems. In a cloud environment where it isn't possible to directly access servers or infrastructure elements, the goal for Resource Health is to reduce the time that customers spend on troubleshooting. Particularly, the time that spent determining if the root of the problem lies in the application or is caused by an event inside the Azure platform. For more information,  see [Understand and use Resource Health](../articles/resource-health/resource-health-overview.md)
-
 ## Actions and events that can cause the VM to reboot
 
 ### Planned maintenance
@@ -44,11 +41,6 @@ If a reboot is performed from the Azure portal, Azure PowerShell, Command-Line i
 If the action is performed from the VM's operation system, the event can be found in system logs.
 
 Other scenario that usually causes the VM to reboot include multiple configuration change actions. Typically, the user sees a warning message indicating that executing a particular action will result in a reboot of the VM. Examples include any VM resize operations, changing the password of the administrative account and setting a static IP address.
-
-### Azure Security center and Windows Updates
-Azure Security Center monitors daily Windows and Linux VMs for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates for Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates. Application of these system updates is controlled through the Security Center in Azure portal. After applying some updates, VM reboots may be required. For more information, see [Apply system updates in Azure Security Center](../articles/security-center/security-center-apply-system-updates.md).
-
-Like on-premises servers, Azure does not push Windows Updates to Windows Azure VMs since these machines are intended to be managed by the user.  Customers are, however encouraged to leave the automatic Windows Update setting enabled. Automatic installation of Windows Updates can also cause reboots to occur after updates are applied. For more information, see [Windows Update FAQ](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### Other situations affecting the availability of your VM
 There are other cases in which Azure might actively suspend the use of a VM. Users receive email notifications before this action is taken, so they have a chance to resolve the underlying issues. Examples include security violations, and expired payment method having expired.
