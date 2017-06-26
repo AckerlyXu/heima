@@ -5,7 +5,7 @@ keywords: test query, troubleshoot query
 documentation center: ''
 services: stream-analytics
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 
@@ -15,27 +15,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 06/21/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---
-# Test Azure Stream Analytics queries in the Azure Portal
+# Test Azure Stream Analytics queries in the Azure portal
 
-With Azure Stream Analytics, you can test queries in the Azure Portal without needing to start or stop a job.
+With Azure Stream Analytics, you can test queries in the Azure portal without needing to start or stop a job.
 
 ## Test the input
 
 1. To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**.
 
-    ![stream analytics query editor test query](./media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+    ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
 2. After the upload is complete, click **Test** to test this query against the sample data you have provided.
 
-    ![stream analytics query editor test sample data](./media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
+    ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-The output of your query is displayed in the browser, with a link to the download results should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
+The output of your query is displayed in the browser, with Download results link should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
 
-![Stream Analytics query editor sample output](./media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
 With multiple outputs used in a query, you can see the results for both outputs separately and easily toggle between them.
 

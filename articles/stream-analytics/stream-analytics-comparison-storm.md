@@ -5,7 +5,7 @@ keywords: analytics platform, analytics platforms, cloud analytics platform, sto
 services: stream-analytics
 documentationcenter: ''
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/24/2017
-ms.date: 03/10/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---

@@ -5,7 +5,7 @@ keywords: ''
 documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9

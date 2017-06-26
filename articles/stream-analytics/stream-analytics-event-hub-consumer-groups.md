@@ -5,7 +5,7 @@ keywords: event hub limit, consumer group
 services: stream-analytics
 documentationcenter: ''
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 06/21/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---

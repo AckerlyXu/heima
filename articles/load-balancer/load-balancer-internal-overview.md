@@ -4,7 +4,7 @@ description: Overview for internal load balancer and its features.How a load bal
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85

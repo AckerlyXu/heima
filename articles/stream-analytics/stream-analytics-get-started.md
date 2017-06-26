@@ -5,7 +5,7 @@ keywords: anomaly detection, fraud detection, real time anomaly detection
 services: stream-analytics
 documentationcenter: ''
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: d1ed7bd8-9296-4ff8-ade3-d2765541d377
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ A telecommunications company has a large volume of data for incoming calls. The 
 * Pare this data down to a manageable amount and obtain insights about customer usage over time and geographical regions.
 * Detect SIM fraud (multiple calls coming from the same identity around the same time but in geographically different locations) in real-time so that they can easily respond by notifying customers or shutting down service.
 
-In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or sensor data being generated - and customers want to aggregate them or alert over anomalies in real-time.
+In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or sensor data being generated – and customers want to aggregate them or alert over anomalies in real-time.
 
 ## Prerequisites
 * Download [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center 
@@ -61,14 +61,16 @@ We have provided a client application that will generate sample incoming call me
 
     **Note**: The connection string copied from the Azure portal places the name of the connection at the end. Be sure to remove the ";EntityPath=<value>" from the add key= field.
 3. Start the application. The usage is as follows:
-
+    
     ```
     telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
     ```
 
 The following example will generate 1000 events with a 20 percent probability of fraud over the course of 2 hours.
 
+    ```
     telcodatagen.exe 1000 .2 2
+    ```
 
 You will see records being sent to your Event Hub. Some key fields that we will be using in this real-time fraud detection application are defined here:
 
@@ -173,7 +175,7 @@ To compare the amount that incoming calls per region we'll leverage a [TumblingW
     GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
     ```
 
-    This query uses the **Timestamp By** keyword to specify a timestamp field in the payload to be used in the temporal computation. If this field wasn't specified, the windowing operation would be performed using the time each event arrived at Event Hub. See ["Arrival Time Vs Application Time" in the Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx).
+    This query uses the **Timestamp By** keyword to specify a timestamp field in the payload to be used in the temporal computation. If this field wasn't specified, the windowing operation would be performed using the time each event arrived at Event Hub. See ["Arrival Time Vs Application Time" in the Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
     Note that you can access a timestamp for the end of each window by using the **System.Timestamp** property.
 2. Click **Rerun** under the query editor to see the results of the query.
