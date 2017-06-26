@@ -4,7 +4,7 @@ description: Use the Azure Command-Line Interface (CLI) to manage Azure resource
 editor: ''
 manager: digimobile
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 services: azure-resource-manager
 
 ms.assetid: bb0af466-4f65-4559-ac3a-43985fa096ff

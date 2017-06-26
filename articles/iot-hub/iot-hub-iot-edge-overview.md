@@ -3,7 +3,7 @@ title: Overview of Azure IoT Edge | Azure
 description: Describes the key architectural concepts in Azure IoT Edge such as gateways, modules, and brokers.
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
+author: Derek1101
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.date: 07/03/2017
 ---
 # Azure IoT Edge architectural concepts

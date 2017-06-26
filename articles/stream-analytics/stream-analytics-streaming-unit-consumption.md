@@ -4,7 +4,7 @@ description: Query best practices for scaling and performance in Azure Stream An
 keywords: streaming unit, query performance
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

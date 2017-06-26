@@ -4,7 +4,7 @@ description: Describes how to view Azure Resource Manager deployment operations 
 services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

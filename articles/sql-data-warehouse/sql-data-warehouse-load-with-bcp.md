@@ -3,7 +3,7 @@ title: Use bcp to load data into SQL Data Warehouse | Azure
 description: Learn what bcp is and how to use it for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: rockboyfor
 manager: barbkess
 editor: ''
 

@@ -4,7 +4,7 @@ description: Getting-started tutorial for the Stream Analytics IoT solution of a
 keywords: iot solution, window functions
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

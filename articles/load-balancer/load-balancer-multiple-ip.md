@@ -3,7 +3,7 @@ title: Load balancing on multiple IP configurations in Azure| Azure
 description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: rockboyfor
 manager: timlt
 editor: na
 

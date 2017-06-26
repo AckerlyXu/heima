@@ -3,7 +3,7 @@ title: Use Azure Portal to manage Azure resources | Azure
 description: Use Azure Portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

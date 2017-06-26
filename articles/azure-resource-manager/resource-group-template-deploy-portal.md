@@ -3,7 +3,7 @@ title: Use Azure Portal to deploy Azure resources | Azure
 description: Use Azure portal and Azure Resource Manage to deploy your resources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

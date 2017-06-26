@@ -4,7 +4,7 @@ description: Getting-started tutorial for the Azure Stream Analytics Tools for V
 keywords: visual studio
 documentationcenter: ''
 services: stream-analytics
-author: 
+author: rockboyfor
 manager: 
 editor: 
 

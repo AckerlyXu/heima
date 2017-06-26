@@ -3,7 +3,7 @@ title: Azure Event Hubs API overview | Azure
 description: Overview of available Azure Event Hubs APIs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

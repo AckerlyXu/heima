@@ -3,7 +3,7 @@ title: Use a physical device with Azure IoT Edge | Azure
 description: How to use a Texas Instruments SensorTag device to send data to an IoT hub through a IoT Edge gateway running on a Raspberry Pi 3 device. The gateway is built using Azure IoT Edge.
 services: iot-hub
 documentationcenter: ''
-author: chipalost
+author: Derek1101
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/12/2017
-ms.author: andbuc
+ms.author: v-yiso
 ms.date: 07/03/2017
 
 ---

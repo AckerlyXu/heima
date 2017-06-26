@@ -3,7 +3,7 @@ title: Multiple VIPs for Azure Load Balancer | Azure
 description: Overview of Multiple VIPs on Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: chkuhtz
+author: rockboyfor
 manager: narayan
 editor: ''
 

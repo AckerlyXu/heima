@@ -3,7 +3,7 @@ title: Get started with Azure IoT Edge (Windows) | Azure
 description: How to build an Azure IoT Edge gateway on a Windows machine and learn about key concepts in Azure IoT Edge such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
-author: chipalost
+author: Derek1101
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/07/2017
-ms.author: andbuc
+ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 07/03/2017
 

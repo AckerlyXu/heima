@@ -3,7 +3,7 @@ title: Export Azure Resource Manager template | Azure
 description: Use Azure Resource Manage to export a template from an existing resource group.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

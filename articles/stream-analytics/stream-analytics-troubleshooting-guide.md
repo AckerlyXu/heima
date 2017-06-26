@@ -4,7 +4,7 @@ description: How to troubleshoot your Stream Analytics job
 keywords: troubleshoot guide
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

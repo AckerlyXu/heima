@@ -4,7 +4,7 @@ description: Common Azure Stream Analytics Query Patterns
 keywords: query examples
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 

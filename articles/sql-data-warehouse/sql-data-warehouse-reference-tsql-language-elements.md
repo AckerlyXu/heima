@@ -3,7 +3,7 @@ title: SQL Data Warehouse Transact-SQL language elements | Azure
 description: List of links to reference content for the Transact-SQL language elements used for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

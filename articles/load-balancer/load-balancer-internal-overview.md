@@ -3,7 +3,7 @@ title: Internal load balancer Overview | Azure
 description: Overview for internal load balancer and its features.How a load balancer works for Azure and possible scenarios to configure internal endpoints
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

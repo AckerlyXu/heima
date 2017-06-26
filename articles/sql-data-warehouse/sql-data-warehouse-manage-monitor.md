@@ -3,7 +3,7 @@ title: Monitor your workload using DMVs | Azure
 description: Learn how to monitor your workload using DMVs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

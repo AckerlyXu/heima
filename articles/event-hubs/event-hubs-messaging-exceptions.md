@@ -3,7 +3,7 @@ title: Azure Event Hubs messaging exceptions | Azure
 description: List of Azure Event Hubs messaging exceptions and suggested actions.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

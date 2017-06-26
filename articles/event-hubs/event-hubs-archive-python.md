@@ -3,7 +3,7 @@ title: Azure Event Hubs Archive walkthrough | Azure
 description: Sample that uses the Azure Python SDK to demonstrate using the Event Hubs Archive feature.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: rockboyfor
 manager: digimobile
 editor: ''
 
