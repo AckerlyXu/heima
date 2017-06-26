@@ -126,22 +126,22 @@ You have set up the production app.  Now, let's imagine that you receive feedbac
         </script>
 6. Send custom events to Application Insights for mouse clicks by adding the following code to the bottom of body:
 
-        <script>
-            $(document.body).find("*").click(function(event) {
+       <script>
+           $(document.body).find("*").click(function(event) {
 
-                appInsights.trackEvent(event.target.tagName + ": " + event.target.className);
-            });
-        </script>
+               appInsights.trackEvent(event.target.tagName + ": " + event.target.className);
+           });
+       </script>
 
    This JavaScript snippet sends a custom event to Application Insights every time a user clicks anywhere in the web app.
 7. In Git Shell, commit and push your changes to your fork in GitHub. Then, wait for clients to refresh browser.
 
-        git add -A :/
-        git commit -m "add AI configuration for client app"
-        git push origin master
+       git add -A :/
+       git commit -m "add AI configuration for client app"
+       git push origin master
 8. Swap the deployed app changes to production:
 
-        .\swap -Name ToDoApp<your_suffix>
+       .\swap -Name ToDoApp<your_suffix>
 9. Browse to the Application Insights resource that you configured. Click Custom events.
 
    ![](./media/app-service-web-test-in-production-controlled-test-flight/01-custom-events.png)
@@ -170,12 +170,12 @@ This is a tangent since the scenario demonstrated in this tutorial only deals wi
 1. Right-click **MultiChannelToDo** > **Add Application Insights Telemetry** > **Configure Settings** > Change resource group to ToDoApp*&lt;your_suffix>* > **Add Application Insights to Project**.
 2. In Git Shell, commit and push your changes to your fork in GitHub. Then, wait for clients to refresh browser.
 
-        git add -A :/
-        git commit -m "add AI configuration for server app"
-        git push origin master
+       git add -A :/
+       git commit -m "add AI configuration for server app"
+       git push origin master
 3. Swap the deployed app changes to production:
 
-        .\swap -Name ToDoApp<your_suffix>
+       .\swap -Name ToDoApp<your_suffix>
 
 That's it!
 

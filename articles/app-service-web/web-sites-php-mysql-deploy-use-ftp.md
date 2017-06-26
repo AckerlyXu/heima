@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/01/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -42,8 +42,11 @@ Follow these steps to create a web app and a MySQL database:
     ![Create New Azure Web Site][new-website]
 3. In the search type **Web app** and click on **Web app**.
 4. Click **Create**. Enter a unique app service name, a valid name for the resource group and a new service plan.
-6. Login to the [Azure Classic Management Portal](https://manage.windowsazure.cn), create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
-1. In [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
+5. Create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
+6. When the web app has been created, you will see the new app service blade.
+7. Click on **Settings** > **Deployment credentials**. 
+
+    ![Set deployment credentials][set-deployment-credentials]
 8. To enable FTP publishing, you must provide a user name and password. Save the credentials and make a note of the user name and password you create.
 
     ![Create publishing credentials][portal-ftp-username-password]

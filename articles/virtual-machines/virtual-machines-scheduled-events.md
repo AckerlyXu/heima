@@ -366,5 +366,6 @@ if __name__ == '__main__':
 
 ## Next Steps 
 
+- Read more about the APIs available in the [instance metadata service](virtual-machines-instancemetadataservice-overview.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](windows/planned-maintenance.md).
 - Learn about [planned maintenance for Linux virtual machines in Azure](linux/planned-maintenance.md).

@@ -93,11 +93,11 @@ A screenshot of the completed application appears next.
 
    For Python 2.7, use the following command.
 
-        C:\Python27\Scripts\django-admin.exe startproject helloworld
+       C:\Python27\Scripts\django-admin.exe startproject helloworld
 
    For Python 3.4, use the following command.
 
-        C:\Python34\Scripts\django-admin.exe startproject helloworld
+       C:\Python34\Scripts\django-admin.exe startproject helloworld
 
    ![The result of the New-AzureService command](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
 2. The **django-admin** command generates a basic structure for Django-based websites:
@@ -107,16 +107,16 @@ A screenshot of the completed application appears next.
    * **helloworld\helloworld\urls.py** contains the mapping code between each url and its view.
 3. Create a new file named **views.py** in the *C:\inetpub\wwwroot\helloworld\helloworld* directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 
-        from django.http import HttpResponse
-        def home(request):
-            html = "<html><body>Hello World!</body></html>"
-            return HttpResponse(html)
+       from django.http import HttpResponse
+       def home(request):
+           html = "<html><body>Hello World!</body></html>"
+           return HttpResponse(html)
 4. Replace the contents of the urls.py file with the following.
 
-        from django.conf.urls import patterns, url
-        urlpatterns = patterns('',
-            url(r'^$', 'helloworld.views.home', name='home'),
-        )
+       from django.conf.urls import patterns, url
+       urlpatterns = patterns('',
+           url(r'^$', 'helloworld.views.home', name='home'),
+       )
 
 ## Configuring IIS
 1. Unlock the handlers section in the global applicationhost.config.  This will enable the use of the python handler in your web.config.

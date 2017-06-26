@@ -30,7 +30,7 @@ This script creates a secure Azure Key Vault, encryption keys, Azure Active Dire
 ## Sample script
 
 ```powershell
-# Edit these global variables with you unique Key Vault name, resource group name and location
+﻿# Edit these global variables with you unique Key Vault name, resource group name and location
 $keyVaultName = "myKeyVault"
 $rgName = "myResourceGroup"
 $location = "China East"
