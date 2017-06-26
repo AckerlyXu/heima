@@ -109,8 +109,10 @@ Git is a distributed version control system that you can use to deploy your Azur
     ![Azure Local Git Respository](./media/web-sites-create-web-app-using-vscode/15-azure-localrepository.png)
 8. If you have not previously set up deployment credentials for publishing a web app or other App Service app, set them up now:
 
-    Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
-9. Back to [Azure Portal](https://portal.azure.cn), click **Settings > Properties**. The URL of the remote Git repository that you'll deploy to is shown under **GIT URL**.
+   * Click **Settings** > **Deployment credentials**. The **Set deployment credentials** blade will be displayed.
+   * Create a user name and password.  You'll need this password later when setting up Git.
+   * Click **Save**.
+9. In your web app's blade, click **Settings > Properties**. The URL of the remote Git repository that you'll deploy to is shown under **GIT URL**.
 10. Copy the **GIT URL** value for later use in the tutorial.
 
     ![Azure Git URL](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
