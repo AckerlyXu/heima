@@ -5,7 +5,7 @@ keywords: how to write queries, query data, write a query, writing queries
 documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 0e9cdadd-0ee0-4bee-b65b-4a06fb863c95
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---
