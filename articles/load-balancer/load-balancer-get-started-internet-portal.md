@@ -4,7 +4,7 @@ description: Learn how to create an Internet-facing load balancer in Resource Ma
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: narayan
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
