@@ -1,10 +1,10 @@
 ---
-title: Resolving T-SQL differences-migration-Azure SQL Database | Microsoft Docs
+title: Resolving T-SQL differences-migration-Azure SQL Database | Azure
 description: Transact-SQL statements that are less than fully supported in Azure SQL Database
 services: sql-database
 documentationcenter: ''
-author: BYHAM
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/17/2017
+origin.date: 03/17/2017
+ms.date: '07/03/2017'
 ms.author: v-johch
 
 ---
@@ -36,7 +37,7 @@ The core DDL (data definition language) statements are available, but some DDL s
 
 - CREATE and ALTER DATABASE statements have over three dozen options. The statements include file placement, FILESTREAM, and service broker options that only apply to SQL Server. This may not matter if you create databases before you migrate, but if you are migrating T-SQL code that creates databases you should compare [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) with the SQL Server syntax at [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) to make sure all the options you use are supported. CREATE DATABASE for Azure SQL Database also has service objective and elastic scale options that apply only to SQL Database.
 - The CREATE and ALTER TABLE statements have FileTable options that cannot be used on SQL Database because FILESTREAM is not supported.
-- CREATE and ALTER login statements are supported but SQL Database does not offer all the options. To make your database more portable, SQL Database encourages using contained database users instead of logins whenever possible. For more information, see [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) and [Controlling and granting database access](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- CREATE and ALTER login statements are supported but SQL Database does not offer all the options. To make your database more portable, SQL Database encourages using contained database users instead of logins whenever possible. For more information, see [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) and [Controlling and granting database access](../sql-database/sql-database-manage-logins.md).
 
 ## Transact-SQL syntax not supported in SQL Database   
 In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database feature comparison](sql-database-features.md), the following statements and groups of statements, are not supported. As such, if your database to be migrated is using any of the following features, re-engineer your T-SQL to eliminate these T-SQL features and statements.
