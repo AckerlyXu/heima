@@ -112,8 +112,6 @@
       href: app-service-deploy-complex-application-predictably.md
     - name: Agile deployment
       href: app-service-agile-software-development.md
-    - name: Beta testing
-      href: app-service-web-test-in-production-controlled-test-flight.md
     - name: Set deployment credentials
       href: app-service-deployment-credentials.md
     - name: Map custom domain
