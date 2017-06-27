@@ -65,10 +65,10 @@ Follow these steps to create a web app and a MySQL database:
 To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
 
 1. In Azure Classic Management Portal, click **MYSQL DATABASE ON AZURE**, and open your MYSQL database server. In **Dashboard** page, under **quick glance**, you can get your host and port.
-2. In **Account** page, you can get all account name, and reset password.
+2. In **Account** page, you can get all User Id, and reset password.
 3. in **Database** page, you can get all Database under this MYSQL Database Server.
 
-    The Data source would be `tcp:<your MYSQL server name>.database.chinacloudapi.cn,<port>`
+    The Data source would be `<your MYSQL server name>.database.chinacloudapi.cn`
 
 ## Build and test your app locally
 Now that you have created a web app, you can develop your application locally, then deploy it after testing.

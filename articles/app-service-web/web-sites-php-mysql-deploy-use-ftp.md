@@ -192,29 +192,11 @@ You can now browse to [http://localhost/registration/index.php][localhost-index]
 ## Get MySQL and FTP connection information
 To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
 
-1. From the app service web app blade click on the resource group link:
+1. In Azure Classic Management Portal, click **MYSQL DATABASE ON AZURE**, and open your MYSQL database server. In **Dashboard** page, under **quick glance**, you can get your host and port.
+2. In **Account** page, you can get all User Id, and reset password.
+3. in **Database** page, you can get all Database under this MYSQL Database Server.
 
-    ![Select Resource Group][select-resourcegroup]
-2. From your resource group, click the database:
-
-    ![Select database][select-database]
-3. From the database summary, select **Settings** > **Properties**.
-
-    ![Select properties][select-properties]
-4. Make note of the values for `Database`, `Host`, `User Id`, and `Password`.
-
-    ![Note properties][note-properties]
-5. From your web app, click the **Download publish profile** link at the bottom right corner of the page:
-
-    ![Download publish profile][download-publish-profile]
-6. Open the `.publishsettings` file in an XML editor. 
-7. Find the `<publishProfile >` element with `publishMethod="FTP"` that looks similar to this:
-
-        <publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].chinacloudsites.cn/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].chinacloudsites.cn" 
-            ...
-        </publishProfile>
-
-Make note of the `publishUrl`, `userName`, and `userPWD` attributes.
+    The Data source would be `<your MYSQL server name>.database.chinacloudapi.cn`
 
 ## Publish your app
 After you have tested your app locally, you can publish it to your web app using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
