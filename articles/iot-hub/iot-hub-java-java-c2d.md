@@ -195,5 +195,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.cn
-[Azure IoT Suite]: ../iot-suite/
+[Azure IoT Suite]: /iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

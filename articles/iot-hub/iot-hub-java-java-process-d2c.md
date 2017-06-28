@@ -197,23 +197,22 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 <!-- Links -->
 
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: ../data-factory/
-[HDInsight (Hadoop)]: ../hdinsight/
+[HDInsight (Hadoop)]: /hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
 [IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
-[Azure Storage]: ../storage/
-[Azure Service Bus]: ../service-bus/
+[Azure Storage]: /storage/
+[Azure Service Bus]: /service-bus/
 
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [Get started with IoT Hub]: ./iot-hub-java-java-getstarted.md
 [Azure IoT Developer Center]: https://www.azure.cn/develop/iot
-[lnk-service-fabric]: ../service-fabric/
-[lnk-stream-analytics]: ../stream-analytics/
-[lnk-event-hubs]: ../event-hubs/
+[lnk-service-fabric]: /service-fabric/
+[lnk-stream-analytics]: /stream-analytics/
+[lnk-event-hubs]: /event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh675232.aspx
 
 <!-- Links -->
