@@ -4,8 +4,8 @@ description: Compare SQL Database service tiers.
 keywords: database options,database performance
 services: sql-database
 documentationcenter: ''
-author: janeng
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/14/2017
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 
 ---
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**, **Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features and business continuity features as the Premium tier albeit at a reduced SLA.
+[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**, **Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features, and business continuity features as the Premium tier albeit at a reduced SLA.
 
 > [!IMPORTANT]
 > Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
@@ -49,7 +50,7 @@ First decide if you want to run a single database with a defined amount of dedic
 | Maximum database size in an elastic pool | 2 GB | 250 GB | 500 GB | 500 GB |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
 | Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
-| Maximum DTUs per database in an elastic pool | 5 | 100 | 4000 | 1000 |
+| Maximum DTUs per database in an elastic pool | 5 | 3000 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
@@ -79,7 +80,7 @@ The duration of the entire scale-up process depends on both the size and service
 
 * To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
 * When upgrading a database with [Geo-Replication](sql-database-geo-replication-portal.md) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
-* When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the active secondary databases.
+* When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the active secondary databases(general guidance).
 * The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
 * The new properties for the database are not applied until the changes are complete.
 
