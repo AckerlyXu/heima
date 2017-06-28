@@ -11,10 +11,10 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+origin.date: 04/22/2017
 ms.author: v-yiso
 ms.custom: na
-
+ms.date: 07/10/2017
 ---
 # Connect your simulated device to your IoT hub using Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -35,6 +35,9 @@ To complete this tutorial, you need the following:
 * If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
 * [Node.js 4.0 or later][lnk-node-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. This is needed to install the [IoT Hub Explorer tool][lnk-iot-hub-explorer].
 * An active Azure account. If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.
+> [!NOTE]
+> The *pip* packages for `azure-iothub-service-client` and `azure-iothub-device-client` are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python][lnk-python-devbox] post.
+> 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -149,7 +152,7 @@ This section lists the steps to create a Python console app, that simulates a de
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
     from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError, DeviceMethodReturnValue
     ```
-4. Add the following code and replace the placeholder for `[IoTHub Device Connection String]` with the connection string for your device. The device connection string is usually in the format of `HostName=<hostName>;DeviceId=<deviceId>;SharedAccessKey=<primaryKey>`. Use the **deviceId** and **primaryKey** of the device you created in the previous section to replace the `<deviceId>` and `<primaryKey>` respectively. Replace `<hostName>` with your IoT hub's host name, usually as `<IoT hub name>.azure-devices.cn`.
+4. Add the following code and replace the placeholder for `[IoTHub Device Connection String]` with the connection string for your device. The device connection string is usually in the format of `HostName=<hostName>;DeviceId=<deviceId>;SharedAccessKey=<primaryKey>`. Use the **deviceId** and **primaryKey** of the device you created in the previous section to replace the `<deviceId>` and `<primaryKey>` respectively. Replace `<hostName>` with your IoT hub's host name, usually as `<IoT hub name>.azure-devices.net`.
 
     ```python
     # String containing Hostname, Device Id & Device Key in the format
@@ -281,9 +284,10 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with Azure IoT Edge][lnk-gateway-SDK]
+* [Getting started with Azure IoT Edge][lnk-iot-edge]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-python-getstarted/createdevice.png
@@ -306,6 +310,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-python-devbox]: https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md
 
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
 
@@ -313,5 +318,5 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://www.azure.cn/develop/iot/

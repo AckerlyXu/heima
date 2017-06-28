@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+origin.date: 03/24/2017
 ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 
 # IoT Hub operations monitoring
@@ -280,8 +281,8 @@ class Program
 ## Next steps
 To further explore the capabilities of IoT Hub, see:
 
-- [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with Azure IoT Edge][lnk-gateway]
+* [IoT Hub developer guide][lnk-devguide]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: ./media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -295,6 +296,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-dr]: ./iot-hub-ha-dr.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

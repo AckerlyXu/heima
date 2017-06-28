@@ -13,9 +13,9 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 03/20/2017
 ms.author: v-yiso
-
+ms.date: 07/10/2017
 ---
 # Azure IoT device SDK for C
 
@@ -561,17 +561,17 @@ Each of these three functions aligns with the three initialization functions des
 
 ## Next Steps
 
-This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](./iot-hub-device-sdk-c-iothubclient.md).
+This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what's included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](./iot-hub-device-sdk-c-iothubclient.md).
 
 To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: ./iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: ./iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

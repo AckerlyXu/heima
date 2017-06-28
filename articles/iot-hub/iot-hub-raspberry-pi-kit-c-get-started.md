@@ -14,10 +14,10 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+origin.date: 6/15/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-
+ms.date: 07/10/2017
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (C)
@@ -25,6 +25,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](./iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
+Don't have a kit yet? Try [Raspberry Pi online simulator](./iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://www.azure.cn/develop/iot/iot-starter-kits).
 
 ## What you do
 
@@ -93,7 +94,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
    ![The Raspbian Preferences menu](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-1. On the **Interfaces** tab, set **SPI** and **SSH** to **Enable**, and then click **OK**.
+1. On the **Interfaces** tab, set **SPI** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
 
    ![Enable SPI and SSH on Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
@@ -105,6 +106,7 @@ To enable SSH and SPI, you can find more reference documents on [raspberrypi.org
 Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, skip this section.
 
 ![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+The BME280 sensor can collect temperature and humidity data. And the LED will blink if there is a communication between device and the cloud. 
 
 For sensor pins, use the following wiring:
 
@@ -125,8 +127,9 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 ![Connected Pi and BME280](./media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
-## Lesson 3: Send device-to-cloud messages
-![Lesson 3 end-to-end diagram](./media/iot-hub-raspberry-pi-lessons/e2e-lesson3.png)
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network.
+
+![Connected to wired network](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
 
 ## Run a sample application on Pi
@@ -158,8 +161,8 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 1. Open the config file by running the following commands:
 
    ```bash
-   cd iot-hub-c-raspberry-pi-clientapp
-   nano config.json
+   cd iot-hub-c-raspberry-pi-client-app
+   nano config.h
    ```
 
    ![Config file](./media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
