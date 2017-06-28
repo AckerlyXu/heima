@@ -3,8 +3,8 @@ title: Secure your Azure SQL database | Azure
 description: Learn about techniques and features to secure your Azure SQL database.
 services: sql-database
 documentationcenter: ''
-author: DRediske
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/07/2017
+origin.date: 05/07/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 
 ---
@@ -34,7 +35,6 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database threat detection
 
 To complete this tutorial, make sure you have installed Excel, and the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
-
 
 ## Set up firewall rules for your database
 
@@ -88,7 +88,6 @@ You can obtain correctly configured connection strings for your SQL Database for
 
     ![ADO.NET connection string](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
-
 ## User management
 
 Before creating any users, you must first choose from one of two authentication types supported by Azure SQL Database: 
@@ -121,7 +120,6 @@ Follow these steps to create a user using SQL Authentication:
     ```
 
 It is best practice to create these non-administrator accounts at the database level to connect to your database unless you need to execute administrator tasks like creating new users. Please review the [Azure Active Directory tutorial](./sql-database-aad-authentication-configure.md) on how to authenticate using Azure Active Directory.
-
 
 ## Protect your data with encryption
 
@@ -161,10 +159,9 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
     ![Navigation pane](./media/sql-database-security-tutorial/auditing-get-started-storage-details.png)
 
-6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
+6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#a-idsubheading-7aautomation-powershell--rest-api) section for more details.
 
 7. Click **Save**.
-
 
 ## Enable SQL Database threat detection
 
@@ -212,7 +209,6 @@ For example, Threat Detection detects certain anomalous database activities indi
     ![Excel parameters](./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png)
 
 11. The results appear in the **SQL Audit Logs** sheet which enables you to run deeper analysis of the anomalous activities that were detected, and mitigate the impact of the security event in your application.
-
 
 ## Next steps
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
