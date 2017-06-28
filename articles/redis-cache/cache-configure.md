@@ -286,7 +286,7 @@ Click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md
 
 ![Redis Cache Diagnostics](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
-Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) for your cache, and **Alert rules** to [set up alert rules](cache-how-to-monitor.md#operations-and-alerts).
+Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#view-cache-metrics) for your cache, and **Alert rules** to [set up alert rules](cache-how-to-monitor.md#operations-and-alerts).
 
 For more information on Azure Redis Cache diagnostics, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
 

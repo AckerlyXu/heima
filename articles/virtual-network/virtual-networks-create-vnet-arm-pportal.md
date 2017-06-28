@@ -82,7 +82,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group MyResourceGroup
     ```
 4. Create a script file and save it. At the Cloud Shell command prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor, with an empty myscript.sh file. Place your cursor inside the editor window, right-click, and then click **Paste**.  
-5. To save the file as myscript.sh, press Ctrl+X, type **Y**, and then press the Enter key. Cloud Shell storage does not persist saved files across sessions. If you want to persist the script across Cloud Shell sessions, set up [persistent storage](../cloud-shell/persisting-shell-storage.md?toc=%2fvirtual-network%2ftoc.json) for Cloud Shell and save the file to persistent storage.
+5. To save the file as myscript.sh, press Ctrl+X, type **Y**, and then press the Enter key. Cloud Shell storage does not persist saved files across sessions.
 6. At the Cloud Shell command prompt, to mark the file as executable, run the `chmod +x myscript.sh` command.
 7. To execute the script, enter `./myscript.sh`.
 8. When the script is finished running, to review the subnets for the virtual network, copy the following command, and then paste it in the Bash Cloud Shell pane:
