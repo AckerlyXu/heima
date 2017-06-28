@@ -1,5 +1,5 @@
 ---
-title: Use Apache Phoenix and SQuirreL with Azure HDInsight (HBase) | Azure
+title: Use Apache Phoenix & SQuirreL with HBase - Azure HDInsight | Azure
 description: Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/06/2017
-ms.date: 05/08/2017
+origin.date: 05/26/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -28,21 +28,21 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 >
 
 ## Use SQLLine
-[SQLLine](http://sqlline.sourceforge.net/) is a command line utility to execute SQL.
+[SQLLine](http://sqlline.sourceforge.net/) is a command-line utility to execute SQL.
 
 ### Prerequisites
 Before you can use SQLLine, you must have the following:
 
-* **A HBase cluster in HDInsight**. For information on provision HBase cluster, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
-* **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Portal][hdinsight-manage-portal].
+* **An HBase cluster in HDInsight**. For information on provision HBase cluster, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
+* **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal].
 
-When you connect to an HBase cluster, you will need to connect to one of the Zookeepers. Each HDInsight cluster has 3 Zookeepers.
+When you connect to an HBase cluster, you need to connect to one of the Zookeepers. Each HDInsight cluster has three Zookeepers.
 
 **To find out the Zookeeper host name**
 
-1. Open Ambari by browse to **https://\<ClusterName\>.azurehdinsight.cn**.
+1. Open Ambari by browsing to **https://<ClusterName>.azurehdinsight.cn**.
 2. Enter the HTTP (cluster) username and password to login.
-3. Click **ZooKeeper** from the left menu. You shall see 3 **ZooKeeper Server** listed.
+3. Click **ZooKeeper** from the left menu. You see three **ZooKeeper Server** listed.
 4. Click one of the **ZooKeeper Server** listed. On the Summary pane, find the **Hostname**. It is similar to *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.chinacloudapp.cn*.
 
 **To use SQLLine**
@@ -68,7 +68,7 @@ When you connect to an HBase cluster, you will need to connect to one of the Zoo
 For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 ## Next steps
-In this article, you have learned how to use Apache Phoenix in HDInsight.  To learn more, see
+In this article, you have learned how to use Apache Phoenix in HDInsight.  To learn more, see:
 
 * [HDInsight HBase overview][hdinsight-hbase-overview]:
   HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.

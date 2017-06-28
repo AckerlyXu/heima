@@ -1,6 +1,6 @@
 ---
-title: Manage Hadoop clusters using Azure CLI | Azure
-description: How to use the Azure CLI to manage Hadoop clusters in HDIsight
+title: Manage Hadoop clusters using Azure CLI - Azure HDInsight| Azure
+description: Learn how to use the Azure Command-line Interface to manage Hadoop clusters in Azure HDInsight. The Azure CLI works on Windows, Mac, and Linux.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -10,13 +10,13 @@ documentationcenter: ''
 
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 04/27/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -49,8 +49,8 @@ To get help, use the **-h** switch.  For example:
 
     azure hdinsight cluster create -h
 
-## Create clusters
-See [Create Linux-based clusters in HDInsight using the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+## Create clusters with the CLI
+See [Create clusters in HDInsight using the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## List and show cluster details
 Use the following commands to list and show cluster details:
@@ -58,7 +58,7 @@ Use the following commands to list and show cluster details:
     azure hdinsight cluster list
     azure hdinsight cluster show <Cluster Name>
 
-![HDI.CLIListCluster][image-cli-clusterlisting]
+![Command-line view of cluster list][image-cli-clusterlisting]
 
 ## Delete clusters
 Use the following command to delete a cluster:
@@ -103,4 +103,4 @@ In this article, you have learned how to perform different HDInsight cluster adm
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "List and show clusters"

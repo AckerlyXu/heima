@@ -21,14 +21,14 @@ ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
-# Use Apache Sqoop to import and export data between Hadoop in HDInsight and SQL Database
+# Use Apache Sqoop to import and export data between Hadoop on HDInsight and SQL Database
 
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
 Learn how to use Apache Sqoop to import and export between a Hadoop cluster in Azure HDInsight and Azure SQL Database or Microsoft SQL Server database. The steps in this document use the `sqoop` command directly from the headnode of the Hadoop cluster. You use SSH to connect to the head node and run the commands in this document.
 
 > [!IMPORTANT]
-> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Install FreeTDS
 
@@ -158,8 +158,8 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 
     When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
 
-    > [!NOTE]
-    > When using a **point-to-site** virtual network, SQL Server must be running the VPN client configuration application. The VPN client is available from the **Dashboard** of your Azure virtual network configuration.
+  > [!NOTE]
+  > When using a **point-to-site** virtual network, SQL Server must be running the VPN client configuration application. The VPN client is available from the **Dashboard** of your Azure virtual network configuration.
 
     For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) document.
 

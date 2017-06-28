@@ -118,14 +118,14 @@ azure network nic ip-config create \
 
 # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
 # to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
-# article: https://docs.azure.cn/virtual-network/virtual-network-deploy-multinic-arm-cli/.
+# article: https://docs.azure.cn/virtual-network/virtual-network-deploy-multinic-arm-cli.
 
 # Create a VM and attach the NIC.
 
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes/ rticle. The script fails if the VM size
+# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes rticle. The script fails if the VM size
 # is not supported in the location you select. Run the `azure vm sizes --location estchinaeast` command to get a full list
 # of VMs in US West Central, for example.
 

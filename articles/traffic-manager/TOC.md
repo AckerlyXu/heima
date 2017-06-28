@@ -1,6 +1,7 @@
 # Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
+### [Country/Region hierarchy used by Traffic Manager](traffic-manager-geographic-regions.md)
 ## [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
@@ -11,6 +12,7 @@
 
 # How To
 
+## [Configure geographic routing method](traffic-manager-configure-geographic-routing-method.md)
 ## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
 ## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
 ## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)

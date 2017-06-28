@@ -1,5 +1,5 @@
 ---
-title: Extend HDInsight with Virtual Network | Azure
+title: Extend HDInsight with Virtual Network - Azure | Azure
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/20/2017
-ms.date: 05/08/2017
+origin.date: 05/22/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -115,6 +115,9 @@ The HDInsight service is a managed service, and requires access to Azure managem
 
 > [!IMPORTANT]
 > HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, __only use inbound rules__.
+
+> [!NOTE]
+> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This is the address of Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 ### Working with HDInsight in secured virtual networks
 

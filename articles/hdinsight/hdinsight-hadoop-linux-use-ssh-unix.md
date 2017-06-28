@@ -30,7 +30,6 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 
 | Address | Port | Connects to... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.cn` | 22 | Edge node (R Server on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.cn` | 22 | Edge node (any other cluster type, if an edge node exists) |
 | `<clustername>-ssh.azurehdinsight.cn` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.cn` | 23 | Secondary headnode |

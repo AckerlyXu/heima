@@ -84,10 +84,10 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
    * To upload a file:
 
-            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+           azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
    * To download a file:
 
-            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+           azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
 > If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:

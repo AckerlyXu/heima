@@ -1,6 +1,6 @@
 ---
-title: Monitor and manage Azure HDInsight using Ambari REST API | Azure
-description: Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
+title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight | Azure
+description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/23/2017
-ms.date: 03/31/2017
+origin.date: 05/16/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -24,7 +24,9 @@ ms.author: v-dazen
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters that use the Linux operating system, and is used to monitor the cluster and make configuration changes. In this document, you learn the basics of working with the Ambari REST API.
+Learn how to use the Ambari REST API to manage and monitor Hadoop clusters in Azure HDInsight.
+
+Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters that use the Linux operating system, and is used to monitor the cluster and make configuration changes.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

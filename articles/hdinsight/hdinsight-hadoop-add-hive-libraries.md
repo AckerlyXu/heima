@@ -1,5 +1,5 @@
 ---
-title: Add Hive libraries during HDInsight cluster creation | Azure
+title: Add Hive libraries during HDInsight cluster creation - Azure | Azure
 description: Learn how to add Hive libraries (jar files,) to an HDInsight cluster during cluster creation.
 services: hdinsight
 documentationcenter: ''
@@ -46,7 +46,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 **Requirements**
 

@@ -1182,7 +1182,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Provision cloud Hadoop, Spark, R Server, Hbase, and Storm clusters</p>
+                                                    <p>Provision cloud Hadoop, Spark, Hbase, and Storm clusters</p>
                                                 </div>
                                             </div>
                                         </div>
