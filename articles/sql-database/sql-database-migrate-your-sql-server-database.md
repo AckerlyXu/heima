@@ -3,8 +3,8 @@ title: Migrate SQL Server DB to Azure SQL Database | Azure
 description: Learn to migrate your SQL Server database to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: janeng
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/07/2017
+origin.date: 05/07/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 
 ---
@@ -98,7 +99,7 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
 
 Once the execution is complete the generated BCPAC file is stored in the directory where the sqlpackage executable is located. In this example C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin. 
 
-## Step 3: Log in to the Azure Portal
+## Log in to the Azure Portal
 
 Log in to the [Azure Portal](https://portal.azure.cn/). Logging on from the computer from which you are running the SQLPackage command-line utility eases the creation of the firewall rule in step 5.
 
@@ -228,5 +229,3 @@ Advance to the next tutorial to learn how to secure your database.
 
 > [!div class="nextstepaction"]
 > [Secure your Azure SQL Database](sql-database-security-tutorial.md).
-
-
