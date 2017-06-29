@@ -52,7 +52,7 @@ The **Usage** section in the **Overview** blade has **Redis Server Load**, **Mem
 The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
 
 ## View metrics with Azure monitor
-To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
+To view Redis metrics and create custom charts using Azure Monitor, click **Redis metrics** from the **Settings**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
 
 ![Redis metrics](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
@@ -63,7 +63,7 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../monitorin
 
 To configure a storage account for your cache metrics:
 
-1. Click **Diagnostics** from the **Resource menu** in the **Redis Cache** blade.
+1. Click **Diagnostics** from the **Settings** in the **Redis Cache** blade.
 2. Click **On**.
 3. Check **Archive to a storage account**.
 4. Select the storage account in which to store the cache metrics.
@@ -113,7 +113,7 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 * Call a webhook
 * Invoke an Azure Logic App
 
-To configure Alert rules for your cache, click **Alert rules** from the **Resource menu**.
+To configure Alert rules for your cache, click **Alert rules** from the **Settings**.
 
 ![Monitoring](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
@@ -127,6 +127,6 @@ Activity logs provide insight into the operations that were performed on your Az
 >
 >
 
-To view activity logs for your cache, click **Activity logs** from the **Resource menu**.
+To view activity logs for your cache, click **Activity logs** from the **Settings**.
 
 For more information about Activity logs, see [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).

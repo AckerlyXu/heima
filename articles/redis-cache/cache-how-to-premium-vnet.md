@@ -58,7 +58,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 > 
 > 
 
-After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Resource menu**.
+After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Settings**.
 
 ![Virtual network][redis-cache-vnet-info]
 

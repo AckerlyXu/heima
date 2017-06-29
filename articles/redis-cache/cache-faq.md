@@ -388,11 +388,10 @@ For more information about the different connections limits for each tier, see [
 ### How do I monitor the health and performance of my cache?
 Azure Redis Cache instances can be monitored in the [Azure portal](https://portal.azure.cn). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](cache-how-to-monitor.md).
 
-The Redis Cache **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
+The Redis Cache **Settings** also contains several tools for monitoring and troubleshooting your caches.
 
 * **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
 * **Resource health** watches your resource and tells you if it's running as expected.
-* **New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
 

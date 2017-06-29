@@ -79,7 +79,9 @@ To complete the steps in this article, you will need the following:
 
     This command should return a job ID that can be used to check the status of the job.
 
-        {"id":"job_1415651640909_0026"}
+    ```
+    {"id":"job_1415651640909_0026"}
+    ```
 
 1. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 
