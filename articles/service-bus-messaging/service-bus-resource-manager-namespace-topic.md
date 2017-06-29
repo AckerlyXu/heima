@@ -13,17 +13,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/18/2017
+origin.date: 04/18/2017
 ms.author: v-yiso
-
+ms.date: 07/17/2017
 ---
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
 This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
-For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
+For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
-For the complete template, see the [Service Bus namespace with topic and subscription][] template.
+For the complete template, see the [Service Bus namespace with topic and subscription][Service Bus namespace with topic and subscription] template.
 
 >[!NOTE]
 > The following Azure Resource Manager templates are available for download and deployment.
