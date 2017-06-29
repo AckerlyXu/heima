@@ -3,7 +3,7 @@ title: Programming guide for Azure Event Hubs | Azure
 description: Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

@@ -3,7 +3,7 @@ title: PolyBase in SQL Data Warehouse Tutorial | Azure
 description: Learn what PolyBase is and how to use it for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

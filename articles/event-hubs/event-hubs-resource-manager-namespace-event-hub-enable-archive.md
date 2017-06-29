@@ -3,7 +3,7 @@ title: Create an Azure Event Hubs namespace and enable Archive using a template 
 description: Create an Azure Event Hubs namespace with one event hub and enable Archive using Azure Resource Manager template
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
+author: rockboyfor
 manager: digimobile
 editor: ''
 

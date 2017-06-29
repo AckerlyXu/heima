@@ -132,7 +132,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div>
                                                     <h4>App Models</h4>
                                                     <ul class="noBullet">
-                                                        <li><a class="barLink" href="/app-service-web/">Web Apps</a></li>
+                                                        <li><a class="barLink" href="/app-service-web/">Web Apps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

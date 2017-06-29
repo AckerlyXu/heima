@@ -3,7 +3,7 @@ title: Define child resource in Azure template | Azure
 description: Shows how to set the resource type and name for child resource in an Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

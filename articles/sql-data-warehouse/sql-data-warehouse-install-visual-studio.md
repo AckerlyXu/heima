@@ -3,7 +3,7 @@ title: Install Visual Studio and SSDT for SQL Data Warehouse | Azure
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

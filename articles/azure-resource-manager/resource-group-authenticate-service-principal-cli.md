@@ -3,7 +3,7 @@ title: Create identity for Azure app with Azure CLI | Azure
 description: Describes how to use Azure CLI to create an Azure Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

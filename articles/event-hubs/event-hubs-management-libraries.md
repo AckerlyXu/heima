@@ -4,7 +4,7 @@ description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 
 ms.assetid: ''

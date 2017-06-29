@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+origin.date: 09/19/2016
 ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 
 # Scale your IoT hub solution
@@ -39,10 +40,9 @@ Device-to-cloud messages follow these sustained throughput guidelines.
 | S3 | Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) | Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
 ## Identity registry operation throughput
+IoT Hub identity registry operations are not supposed to be run-time operations, as they are mostly related to device provisioning.
 
-IoT Hub identity registry operations are not supposed to be runtime operations, as they are mostly related to device provisioning.
-
-For specific burst performance numbers, see [IoT Hub quotas and throttles][].
+For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
 
 ## Sharding
 While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case, it is recommended that you partition your devices into multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
@@ -50,11 +50,11 @@ While a single IoT hub can scale to millions of devices, sometimes your solution
 ## Next steps
 To further explore the capabilities of IoT Hub, see:
 
-- [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with Azure IoT Edge][lnk-gateway]
+* [IoT Hub developer guide][lnk-devguide]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 [lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: ./iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

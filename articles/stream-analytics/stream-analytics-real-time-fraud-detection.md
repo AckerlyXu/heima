@@ -4,8 +4,8 @@ description: Learn how to create a real-time fraud detection solution with Strea
 keywords: anomaly detection, fraud detection, real time anomaly detection
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---

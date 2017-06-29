@@ -4,7 +4,7 @@ description: Describes how to resolve common errors when you deploy resources to
 services: azure-resource-manager
 documentationcenter: ''
 tags: top-support-issue
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 keywords: deployment error, azure deployment, deploy to azure

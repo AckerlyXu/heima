@@ -3,7 +3,7 @@ title: Key Vault secret with Resource Manager template | Azure
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 services: azure-resource-manager,key-vault
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

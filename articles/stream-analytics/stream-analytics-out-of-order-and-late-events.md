@@ -4,8 +4,8 @@ description: Learn about how Stream Analytics works with out-of-order or late ev
 keywords: out of order, late, events
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 06/21/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---
@@ -35,7 +35,7 @@ Stream Analytics tolerates these types of scenarios. Stream Analytics has handli
     * **Adjusted**: Adjusted to appear to have arrived at the latest acceptable time.
     * **Dropped**: Discarded.
 
-![Stream Analytics event handling](./media/stream-analytics-event-handling/stream-analytics-event-handling.png)
+![Stream Analytics event handling](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
 ## Reduce the number of out-of-order events
 
@@ -51,7 +51,7 @@ Sometimes, it's important for you to use the sender's timestamp. In that case, a
 
 On the configuration tab, you see the following defaults:
 
-![Stream Analytics out-of-order handling](./media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
+![Stream Analytics out-of-order handling](media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
 
 If you use 0 seconds as the out-of-order tolerance window, you are asserting that all events are in order all the time. Given the three sources of misordered events, it's unlikely that this is true. 
 

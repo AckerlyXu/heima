@@ -3,7 +3,7 @@ title: Use Redgate to load data to your Azure data warehouse | Azure
 description: Learn how to use Redgate's Data Platform Studio for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

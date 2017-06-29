@@ -3,7 +3,7 @@ title: Tag Azure resources in template | Azure
 description: Shows how to apply tags to resources in an Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

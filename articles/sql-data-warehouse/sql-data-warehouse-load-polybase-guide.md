@@ -3,7 +3,7 @@ title: Guide for using PolyBase in SQL Data Warehouse | Azure
 description: Guidelines and recommendations for using PolyBase in SQL Data Warehouse scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: rockboyfor
 manager: barbkess
 editor: ''
 

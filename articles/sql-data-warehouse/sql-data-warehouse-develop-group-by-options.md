@@ -3,7 +3,7 @@ title: Group by options in SQL Data Warehouse | Azure
 description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: jhubbard
 editor: ''
 

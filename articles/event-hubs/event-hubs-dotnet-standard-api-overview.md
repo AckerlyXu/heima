@@ -3,7 +3,7 @@ title: Overview of the Azure Event Hubs .NET Standard APIs | Azure
 description: .NET Standard API overview
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

@@ -3,7 +3,7 @@ title: Move Azure resources to new subscription or resource group | Azure
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

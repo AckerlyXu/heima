@@ -3,7 +3,7 @@ title: Create a SQL Data Warehouse with TSQL | Azure
 description: Learn how to create an Azure SQL Data Warehouse with TSQL
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 tags: azure-sql-data-warehouse

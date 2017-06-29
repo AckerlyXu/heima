@@ -3,7 +3,7 @@ title: Create a SQL Data Warehouse in the Azure portal | Azure
 description: Learn how to create an Azure SQL Data Warehouse in the Azure portal
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 tags: azure-sql-data-warehouse

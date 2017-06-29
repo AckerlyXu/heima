@@ -3,7 +3,7 @@ title: Load from Azure blob to Azure data warehouse | Azure
 description: Learn how to use PolyBase to load data from Azure blob storage into SQL Data Warehouse. Load a few tables from public data into the Contoso Retail Data Warehouse schema.
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: rockboyfor
 manager: barbkess
 editor: ''
 

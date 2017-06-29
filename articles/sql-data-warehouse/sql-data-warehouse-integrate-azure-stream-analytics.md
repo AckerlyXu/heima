@@ -3,7 +3,7 @@ title: Use Azure Stream Analytics with SQL Data Warehouse | Azure
 description: Tips for using Azure Stream Analytics with Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: rockboyfor
 manager: barbkess
 editor: ''
 

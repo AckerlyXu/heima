@@ -3,7 +3,7 @@ title: Data types for tables in SQL Data Warehouse | Azure
 description: Getting started with data types for Azure SQL Data Warehouse tables.
 services: sql-data-warehouse
 documentationCenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: barbkess
 editor: ''
 
