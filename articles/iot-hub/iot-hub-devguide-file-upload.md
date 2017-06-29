@@ -13,9 +13,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/04/2017
+origin.date: 05/04/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 
 # File uploads with IoT Hub
@@ -44,7 +45,7 @@ To use the file upload functionality, you must first link an Azure Storage accou
 ## Initialize a file upload
 IoT Hub has an endpoint specifically for devices to request a SAS URI for storage to upload a file. The device initiates the file upload process by sending a POST to the IoT hub at `{iot hub}.azure-devices.cn/devices/{deviceId}/files` with the following JSON body:
 
-```
+```json
 {
     "blobName": "{name of the file for which a SAS URI will be generated}"
 }
@@ -52,7 +53,7 @@ IoT Hub has an endpoint specifically for devices to request a SAS URI for storag
 
 IoT Hub returns the following data, which the device uses to upload the file:
 
-```
+```json
 {
     "correlationId": "somecorrelationid",
     "hostname": "contoso.azure-devices.cn",
@@ -73,7 +74,7 @@ IoT Hub has two REST endpoints to support file upload, one to get the SAS URI fo
 ## Notify IoT Hub of a completed file upload
 The device is responsible for uploading the file to storage using the Azure Storage SDKs. Once the upload is completed, the device sends a POST to the IoT hub at `{iot hub}.azure-devices.cn/devices/{deviceId}/files/notifications` with the following JSON body:
 
-```
+```json
 {
     "correlationId": "{correlation ID received from the initial request}",
     "isSuccess": bool,
@@ -103,7 +104,7 @@ As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notific
 
 **Example**. This example shows the body of a file upload notification message.
 
-```
+```json
 {
     "deviceId":"mydevice",
     "blobUri":"https://{storage account}.blob.core.chinacloudapi.cn/{container name}/mydevice/myfile.jpg",
@@ -130,7 +131,7 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
-* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
@@ -146,7 +147,7 @@ If you would like to try out some of the concepts described in this article, you
 
 - [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/zh-cn/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-endpoints]: ./iot-hub-devguide-endpoints.md
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
@@ -158,7 +159,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-initialize]: ./iot-hub-devguide-file-upload.md#initialize-a-file-upload
 [lnk-notify]: ./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
 [lnk-service-notification]: ./iot-hub-devguide-file-upload.md#file-upload-notifications
-[lnk-lifecycle]: ./iot-hub-devguide-messaging.md#message-lifecycle
+[lnk-lifecycle]: ./iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle
 [lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
 
 [lnk-devguide-identities]: ./iot-hub-devguide-identity-registry.md

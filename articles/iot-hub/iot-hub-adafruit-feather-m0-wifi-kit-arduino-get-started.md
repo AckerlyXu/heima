@@ -14,8 +14,9 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+origin.date: 6/17/2017
 ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 
 # Connect Adafruit Feather M0 WiFi to Azure IoT Hub in the cloud
@@ -150,7 +151,7 @@ Install the package for Feather M0 WiFi in the Arduino IDE:
 
    ![Open the sample application in Arduino IDE](./media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
-1. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later 
+1. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later. Then install `Adafruit SAMD` package to add the board file definitions.
 
    Boards Manager indicates that `Arduino SAMD Boards` with a version of `1.6.2` or later is installed.
 

@@ -4,7 +4,7 @@ description: Learn how to create an internal load balancer by using the Azure CL
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 tags: azure-resource-manager
 
 ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489

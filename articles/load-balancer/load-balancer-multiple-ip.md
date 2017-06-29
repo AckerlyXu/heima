@@ -4,7 +4,7 @@ description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: na
 
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
