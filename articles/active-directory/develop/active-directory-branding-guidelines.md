@@ -3,8 +3,8 @@ title: Branding Guidelines for Applications | Microsoft Docs
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
@@ -14,8 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 02/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # Branding Guidelines for Applications
@@ -84,6 +85,6 @@ You can also use a dark color scheme for the buttons.
 **DON’T** expose end-users to the Azure or Active Directory brands. It’s ok however to use these terms with developers, IT pros and admins.
 
 ## Navigation Do’s and Don’ts
-**DO** provide a way for users to sign out and switch to another user account. While most people have a single personal account from Microsoft/Facebook/Google/Twitter, people are often associated with more than one organization. Support for multiple signed-in users is coming soon.
+**DO** provide a way for users to sign out and switch to another user account. Support for multiple signed-in users is coming soon.
 
 
