@@ -1,35 +1,38 @@
 ---
-title: Replicate Hyper-V VMs to a secondary site with Azure Site Recovery | Microsoft Docs
+title: Replicate Hyper-V VMs to a secondary site with Azure Site Recovery | Azure
 description: Describes how to replicate Hyper-V VMs in VMM clouds to a secondary VMM site using the Azure portal.
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
-manager: jwhit
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: b33a1922-aed6-4916-9209-0e257620fded
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
-ms.author: v-johch
+origin.date: 06/14/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site using the Azure portal
->[!div class="op_single_selector"]
->- [Azure portal](./site-recovery-vmm-to-vmm.md)
->- [Classic portal](./site-recovery-vmm-to-vmm-classic.md)
->- [PowerShell - Resource Manager](./site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+> [!div class="op_single_selector"]
+> * [Azure portal](site-recovery-vmm-to-vmm.md)
+> * [Classic Management Portal](site-recovery-vmm-to-vmm-classic.md)
+> * [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+>
+>
 
-This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](./site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](./site-recovery-components.md#hyper-v-to-a-secondary-site).
+This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](site-recovery-components.md#hyper-v-to-a-secondary-site).
 
 ##<a name="prerequisites"></a> Prerequisites
 
 **Prerequisite** | **Details**
 --- | ---
-**Azure** | You need an [Azure](http://azure.cn/) account. You can start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing.
+**Azure** | You need an [Azure](http://www.azure.cn/) account. You can start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing.
 **On-premises VMM** | We recommend you have two VMM servers, one in the primary site, and one in the secondary.<br/><br/> You can replicate between clouds on a single VMM server.<br/><br/> VMM servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> VMM servers need internet access.
 **VMM clouds** | Each VMM server must have at one or more clouds, and all clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more VMM host groups.<br/><br/> If you only have one VMM server, it needs at least two clouds, to act as primary and secondary.
 **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, install [update 2961977](https://support.microsoft.com/zh-cn/kb/2961977)<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012, cluster broker isn't created automatically if you have a static IP address-based cluster. Configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Hyper-V servers need internet access.
@@ -185,17 +188,17 @@ Here's what happens when network mapping begins:
 * Any existing replica virtual machines that correspond to the source VM network will be connected to the target VM network.
 * New virtual machines that are connected to the source VM network will be connected to the target mapped network after replication.
 * If you modify an existing mapping with a new network, replica virtual machines will be connected using the new settings.
-* If the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
+* If the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there's no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
 ### Configure storage mapping.
 
-[Storage mapping](#prepare-for-storage-mapping) isn't supported in the new Azure portal. However, it can be enabled using Powershell. [Learn more](./site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-7-configure-storage-mapping).
+[Storage mapping](#prepare-for-storage-mapping) isn't supported in the new Azure portal. However, it can be enabled using Powershell. [Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-7-configure-storage-mapping).
 
 ## Step 5: Capacity planning
 
 Now that you have your basic infrastructure set up, think about capacity planning, and figure out whether you need additional resources.
 
-- Download and run the [Azure Site Recovery Capacity planner](./site-recovery-capacity-planner.md), to gather information about your replication environment, including VMs, disks per VM, and storage per disk.
+- Download and run the [Azure Site Recovery Capacity planner](site-recovery-capacity-planner.md), to gather information about your replication environment, including VMs, disks per VM, and storage per disk.
 - After you've collected real-time replication information, you can modify the NetQos policy to control replication bandwidth for VMs. Read more about [Throttling Hyper-V Replica Traffic](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/), on Thomas Maurer's blog. Get more information about the [New-NetQosPolicy cmdlet](https://technet.microsoft.com/zh-cn/library/hh967468.aspx.).
 
 ##<a name="prepare-for-initial-offline-replication"></a> Enable replication
@@ -227,7 +230,7 @@ If you have existing virtual machines in VMM that are replicating with Hyper-V R
 
 ## Test your deployment
 
-To test your deployment, you can run a [test failover](./site-recovery-test-failover-vmm-to-vmm.md) for a single virtual machine, or [create a recovery plan](./site-recovery-create-recovery-plans.md) that contains one or more virtual machines.
+To test your deployment, you can run a [test failover](site-recovery-test-failover-vmm-to-vmm.md) for a single virtual machine, or [create a recovery plan](site-recovery-create-recovery-plans.md) that contains one or more virtual machines.
 
 ## Prepare for offline initial replication
 
@@ -256,56 +259,56 @@ Note that:
 - Network mapping can be configured between VM networks on two VMM servers, or on a single VMM server if two sites are managed by the same server.
 - When mapping is configured correctly and replication is enabled, a VM at the primary location will be connected to a network, and its replica at the target location will be connected to its mapped network.
 - If networks have been set up correctly in VMM, when you select a target VM network during network mapping, the VMM source clouds that use the source VM network will be displayed, along with the available target VM networks on the target clouds that are used for protection.
-- If the target network has multiple subnets and one of those subnets has the same name as the subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
+- If the target network has multiple subnets and one of those subnets has the same name as the subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there's no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
-Here’s an example to illustrate this mechanism. Let’s take an organization with two locations in Shanghai and Beijing.
+Here's an example to illustrate this mechanism. Let's take an organization with two locations in Beijing and Shanghai.
 
 | **Location** | **VMM server** | **VM networks** | **Mapped to** |
 | --- | --- | --- | --- |
-| Shanghai |VMM-Shanghai |VMNetwork1-Shanghai |Mapped to VMNetwork1-Beijing |
-| VMNetwork2-Shanghai |Not mapped | | |
 | Beijing |VMM-Beijing |VMNetwork1-Beijing |Mapped to VMNetwork1-Shanghai |
 | VMNetwork2-Beijing |Not mapped | | |
+| Shanghai |VMM-Shanghai |VMNetwork1-Shanghai |Mapped to VMNetwork1-Beijing |
+| VMNetwork2-Shanghai |Not mapped | | |
 
 With this example:
 
-* When a replica virtual machine is created for any virtual machine that is connected to VMNetwork1-Shanghai, it will be connected to VMNetwork1-Beijing.
-* When a replica virtual machine is created for VMNetwork2-Shanghai or VMNetwork2-Beijing, it will not be connected to any network.
+* When a replica virtual machine is created for any virtual machine that is connected to VMNetwork1-Beijing, it will be connected to VMNetwork1-Shanghai.
+* When a replica virtual machine is created for VMNetwork2-Beijing or VMNetwork2-Shanghai, it will not be connected to any network.
 
 Here's how VMM clouds are set up in our example organization, and the logical networks associated with the clouds.
 
 ### Cloud protection settings
-| **Protected cloud** | **Protecting cloud** | **Logical network (Shanghai)** |
+| **Protected cloud** | **Protecting cloud** | **Logical network (Beijing)** |
 | --- | --- | --- |
 | GoldCloud1 |GoldCloud2 | |
 | SilverCloud1 |SilverCloud2 | |
-| GoldCloud2 |<p>NA</p><p></p> |<p>LogicalNetwork1-Shanghai</p><p>LogicalNetwork1-Beijing</p> |
-| SilverCloud2 |<p>NA</p><p></p> |<p>LogicalNetwork1-Shanghai</p><p>LogicalNetwork1-Beijing</p> |
+| GoldCloud2 |<p>NA</p><p></p> |<p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p> |
+| SilverCloud2 |<p>NA</p><p></p> |<p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p> |
 
 ### Logical and VM network settings
 | **Location** | **Logical network** | **Associated VM network** |
 | --- | --- | --- |
-| Shanghai |LogicalNetwork1-Shanghai |VMNetwork1-Shanghai |
 | Beijing |LogicalNetwork1-Beijing |VMNetwork1-Beijing |
-| LogicalNetwork2Beijing |VMNetwork2-Beijing | |
+| Shanghai |LogicalNetwork1-Shanghai |VMNetwork1-Shanghai |
+| LogicalNetwork2Shanghai |VMNetwork2-Shanghai | |
 
 ### Target networks
 Based on these settings, when you select the target VM network, the following table shows the choices that will be available.
 
 | **Select** | **Protected cloud** | **Protecting cloud** | **Target network available** |
 | --- | --- | --- | --- |
-| VMNetwork1-Beijing |SilverCloud1 |SilverCloud2 |Available |
+| VMNetwork1-Shanghai |SilverCloud1 |SilverCloud2 |Available |
 | GoldCloud1 |GoldCloud2 |Available | |
-| VMNetwork2-Beijing |SilverCloud1 |SilverCloud2 |Not available |
+| VMNetwork2-Shanghai |SilverCloud1 |SilverCloud2 |Not available |
 | GoldCloud1 |GoldCloud2 |Available | |
 
 ### Failback
-To see what happens in the case of failback (reverse replication), let’s assume that VMNetwork1-Shanghai is mapped to VMNetwork1-Beijing, with the following settings.
+To see what happens in the case of failback (reverse replication), let's assume that VMNetwork1-Beijing is mapped to VMNetwork1-Shanghai, with the following settings.
 
 | **Virtual machine** | **Connected to VM network** |
 | --- | --- |
 | VM1 |VMNetwork1-Network |
-| VM2 (replica of VM1) |VMNetwork1-Beijing |
+| VM2 (replica of VM1) |VMNetwork1-Shanghai |
 
 With these settings, let's review what happens in a couple of possible scenarios.
 
@@ -313,12 +316,12 @@ With these settings, let's review what happens in a couple of possible scenarios
 | --- | --- |
 | No change in the network properties of VM-2 after failover. |VM-1 remains connected to the source network. |
 | Network properties of VM-2 are changed after failover and is disconnected. |VM-1 is disconnected. |
-| Network properties of VM-2 are changed after failover and is connected to VMNetwork2-Beijing. |If VMNetwork2-Beijing isn’t mapped, VM-1 will be disconnected. |
-| Network mapping of VMNetwork1-Beijing is changed. |VM-1 will be connected to the network now mapped to VMNetwork1-Beijing. |
+| Network properties of VM-2 are changed after failover and is connected to VMNetwork2-Shanghai. |If VMNetwork2-Shanghai isn't mapped, VM-1 will be disconnected. |
+| Network mapping of VMNetwork1-Shanghai is changed. |VM-1 will be connected to the network now mapped to VMNetwork1-Shanghai. |
 
 ## Prepare for single server deployment
 
-If you only have a single VMM server, you can replicate VMs in Hyper-V hosts in the VMM cloud to [Azure](./site-recovery-vmm-to-azure.md) or to a secondary VMM cloud. We recommend the first option because replicating between clouds isn't seamless. If you do want to replicate between clouds, you can replicate with a single standalone VMM server, or with a single VMM server deployed in a stretched Windows cluster
+If you only have a single VMM server, you can replicate VMs in Hyper-V hosts in the VMM cloud to [Azure](site-recovery-vmm-to-azure.md) or to a secondary VMM cloud. We recommend the first option because replicating between clouds isn't seamless. If you do want to replicate between clouds, you can replicate with a single standalone VMM server, or with a single VMM server deployed in a stretched Windows cluster
 
 ### Standalone VMM server
 
@@ -355,22 +358,22 @@ You set up storage mapping by mapping storage classifications on a source and ta
 
   * **Identify target storage for replica virtual machines**—A source VM hard disk will replicate to the storage that you specified (SMB share or cluster shared volumes (CSVs)) in the target location.
   * **Replica virtual machine placement**—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped storage classification.
-  * **No storage mapping**—If you don’t configure storage mapping, virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.
+  * **No storage mapping**—If you don't configure storage mapping, virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.
 
 Note that:
 - You can set up mapping between two VMM clouds on a single server.
 - Storage classifications must be available to the host groups located in source and target clouds.
-- Classifications don’t need to have the same type of storage. For example, you can map a source classification that contains SMB shares to a target classification that contains CSVs.
+- Classifications don't need to have the same type of storage. For example, you can map a source classification that contains SMB shares to a target classification that contains CSVs.
 
 ### Example
-If classifications are configured correctly in VMM when you select the source and target VMM server during storage mapping, the source and target classifications will be displayed. Here’s an example of storage files shares and classifications for an organization with two locations in Shanghai and Beijing.
+If classifications are configured correctly in VMM when you select the source and target VMM server during storage mapping, the source and target classifications will be displayed. Here's an example of storage files shares and classifications for an organization with two locations in Beijing and Shanghai.
 
 | **Location** | **VMM server** | **File share (source)** | **Classification (source)** | **Mapped to** | **File share (target)** |
 | --- | --- | --- | --- | --- | --- |
-| Shanghai |VMM_Source |SourceShare1 |GOLD |GOLD_TARGET |TargetShare1 |
+| Beijing |VMM_Source |SourceShare1 |GOLD |GOLD_TARGET |TargetShare1 |
 | SourceShare2 |SILVER |SILVER_TARGET |TargetShare2 | | |
 | SourceShare3 |BRONZE |BRONZE_TARGET |TargetShare3 | | |
-| Beijing |VMM_Target | |GOLD_TARGET |Not mapped | |
+| Shanghai |VMM_Target | |GOLD_TARGET |Not mapped | |
 |  |SILVER_TARGET |Not mapped | | | |
 |  |BRONZE_TARGET |Not mapped | | | |
 
@@ -386,9 +389,9 @@ The following table show how storage classification and cluster shared volumes a
 
 | **Location** | **Classification** | **Associated storage** |
 | --- | --- | --- |
-| Shanghai |GOLD |<p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> |
+| Beijing |GOLD |<p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> |
 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p> | |
-| Beijing |GOLD_TARGET |<p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p> |
+| Shanghai |GOLD_TARGET |<p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p> |
 | SILVER_TARGET |<p>C:\ClusterStorage\TargetVolume2</p><p>\\FileServer\TargetShare2</p> | |
 
 This table summarizes the behavior when you enable protection for virtual machines (VM1 - VM5) in this example environment.
@@ -416,4 +419,4 @@ This table summarizes how data is stored in this scenario:
 
 ## Next steps
 
-After you've tested the deployment, learn more about other types of [failover](./site-recovery-failover.md)
+After you've tested the deployment, learn more about other types of [failover](site-recovery-failover.md)
