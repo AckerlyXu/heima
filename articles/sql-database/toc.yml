@@ -251,8 +251,6 @@
     items:
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
-    - name: Sync data
-      href: sql-database-get-started-sql-data-sync.md
   - name: Connect applications
     items:
     - name: C and C ++
