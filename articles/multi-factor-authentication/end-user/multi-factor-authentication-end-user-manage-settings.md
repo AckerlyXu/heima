@@ -55,9 +55,9 @@ If you want to change your phone number, you can take the following steps.
 
 1. login [Azure classical portal](https://manage.windowsazure.cn/)
 
-2. Get into “Multi-factor authentication” configuration page from Active Directory.
+2. Get into â€œMulti-factor authenticationâ€ configuration page from Active Directory.
 
-3. Click “Manage user settings”. There will be a popup page.
+3. Click â€œManage user settingsâ€. There will be a popup page.
 
 	![5](./media/multi-factor-authentication-end-user-manage/5.png)  
 
