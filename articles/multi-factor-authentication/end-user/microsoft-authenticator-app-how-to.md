@@ -3,9 +3,9 @@ title: Microsoft Authenticator app for mobile phones | Microsoft Docs
 description: Learn how to upgrade to the latest version of Azure Authenticator.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
-editor: curtland
+author: alexchen2016
+manager: digimobile
+editor: librown
 
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2017
+origin.date: 05/15/2017
+ms.date: 06/27/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
-ms.custom: H1Hack27Feb2017, end-user
 
+ms.custom: H1Hack27Feb2017, end-user
 ---
 # Get started with the Microsoft Authenticator app
 The Microsoft Authenticator app provides an additional level of security in your work or school account (for example, bsimon@contoso.com) or your Microsoft account (for example, bsimon@outlook.com).
@@ -35,7 +35,7 @@ The Microsoft Authenticator app doesn't work by itself. You need to configure yo
 
 For a work or school account, you don't usually get to choose this for yourself. Instead, a security administrator will opt-in on your behalf and then send you a notification that you need to register verification methods for your account. If this scenario applies to you, learn more in [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md).
 
-For a personal account, you need to set up two-step verification for yourself. If you have a Microsoft account, those steps are available in [About two-step verification](https://support.microsoft.com/zh-cn/help/12408/microsoft-account-about-two-step-verification). 
+For a personal account, you need to set up two-step verification for yourself. If you have a Microsoft account, those steps are available in [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). 
 
 You can also use the Microsoft Authenticator with non-Microsoft accounts. They may call the feature something other than two-step verification, but you should be able to find it under security or sign-in settings. 
 

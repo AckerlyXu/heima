@@ -14,9 +14,9 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+origin.date: 03/29/2017
 ms.author: v-yiso
-
+ms.date: 07/10/2017
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Azure Web Apps
 
@@ -26,7 +26,7 @@ ms.author: v-yiso
 
 ## What you learn
 
-In this lesson, you learn how to visualize real-time sensor data that your Azure IoT hub receives by running a web application that is hosted on an Azure web app. If you want to try visualize the data in your IoT hub with Power BI, please see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](./iot-hub-live-data-visualization-in-power-bi.md).
+In this lesson, you learn how to visualize real-time sensor data that your Azure IoT hub receives by running a web application that is hosted on an Azure web app. If you want to try visualize the data in your IoT hub with Power BI, please see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## What you do
 
@@ -68,6 +68,10 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
    ![Add settings to Azure web app with key value pairs](./media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 
+1. In **Application settings**, toggle the Web sockets option under General settings. Save all your changes before you move to next step.
+
+   ![Toggle Web sockets option](./media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
+
 ## Upload a web application to be hosted by the web app
 
 We made available a web application on GitHub which displays real-time sensor data from your IoT hub. All you need to do is to configure the web app to work with a Git repository, download the web application from GitHub and upload it to Azure for the web app to host.
@@ -90,6 +94,7 @@ We made available a web application on GitHub which displays real-time sensor da
 
    ```bash
    git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
+   cd web-apps-node-iot-hub-data-visualization
    git remote add webapp <Git clone URL>
    git push webapp master:master
    ```
@@ -108,7 +113,7 @@ You should see the real-time temperature and humidity data from your IoT hub.
 ![Azure web app page showing real-time temperature and humidity](./media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 ## Next steps
-You’ve successfully used an Azure web app to visualize real-time sensor data from your Azure IoT hub.
+You've successfully used an Azure web app to visualize real-time sensor data from your Azure IoT hub.
 
 There is an alternate way to visualize data from Azure IoT Hub. See [Use Power BI to visualize real-time sensor data from Azure IoT Hub](./iot-hub-live-data-visualization-in-power-bi.md).
 

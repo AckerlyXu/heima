@@ -12,8 +12,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+origin.date: 05/04/2017
 ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 
 # Create an IoT hub using the New-AzureRmIotHub cmdlet
@@ -119,7 +120,7 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with IoT Edge][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
@@ -130,4 +131,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

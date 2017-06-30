@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+origin.date: 04/06/2017
 ms.author: v-yiso
-
+ms.date: 07/10/2017
 ---
 # Manage your IoT Hub device identities in bulk
 
@@ -403,10 +403,10 @@ In this article, you learned how to perform bulk operations against the identity
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 
 [lnk-metrics]: ./iot-hub-metrics.md
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

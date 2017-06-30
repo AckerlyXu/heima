@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+origin.date: 05/04/2017
 ms.author: v-yiso
-
+ms.date: 07/10/2017
 ---
 # Create an IoT hub using Azure Resource Manager template (PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -35,6 +35,8 @@ To complete this tutorial, you need the following:
 
 > [!TIP]
 > The article [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] provides more information about how to use PowerShell scripts and Azure Resource Manager templates to create Azure resources. 
+> 
+> 
 
 ## Connect to your Azure subscription
 
@@ -127,7 +129,7 @@ Use a JSON template to create an IoT hub in your resource group. You can also us
 2. Save the Azure Resource Manager template file on your local machine. This example assumes you save it in a folder called **c:\templates**.
 3. Run the following command to deploy your new IoT hub, passing the name of your IoT hub as a parameter. In this example, the name of the IoT hub is **abcmyiothub** (note that this name must be globally unique so it should include your name or initials):
    
-    ```
+    ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 4. The output displays the keys for the IoT hub you created.
@@ -141,7 +143,8 @@ Use a JSON template to create an IoT hub in your resource group. You can also us
 ## Next steps
 Now you have deployed an IoT hub using an Azure Resource Manager template with PowerShell, you may want to explore further:
 
-- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
+* Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
+* Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following articles:
 
@@ -150,16 +153,17 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
 
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
