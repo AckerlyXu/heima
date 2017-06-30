@@ -69,7 +69,7 @@ You have two options for viewing process-level information for your web app:
     1. Open the **Process Explorer** for the web app.
     2. To see the details, select the **w3wp.exe** process.
 *   In the Kudu console:
-    1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.chinacloudsites.cn).
+    1. Sign in to your Kudu website: https://*yourwebsitename*.scm.chinacloudsites.cn.
     2. Select the **Process Explorer** menu.
     3. For the **w3wp.exe** process, select **Properties**.
 

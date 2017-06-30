@@ -30,7 +30,7 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #Provide the subscription Id of the subscription where you want to create Managed Disks
 subscriptionId=dd80b94e-0463-4a65-8d04-c94f403879dc
 
@@ -73,7 +73,7 @@ az vm create --name $virtualMachineName --resource-group $resourceGroupName --at
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup
 ```
 

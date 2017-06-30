@@ -50,7 +50,7 @@ Note: DS-series VMs have access to Premium Storage - our SSD backed high-perform
 * [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/storage-premium-storage.md)
 
 ## Automation
-To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
+To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

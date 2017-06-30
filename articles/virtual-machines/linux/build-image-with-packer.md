@@ -79,6 +79,7 @@ Create a file named *ubuntu.json* and paste the following content. Enter your ow
 | *tenant_id*      | Third line of output from `az ad sp` create command - *tenant* |
 | *subscription_id* | Output from `az account show` command |
 | *storage_account* | Name you specified in `az storage account create` |
+| *cloud_environment_name* | It's `AzureChinaCloud` |
 
 ```json
 {
@@ -106,6 +107,7 @@ Create a file named *ubuntu.json* and paste the following content. Enter your ow
         "task": "Image deployment"
     },
 
+    "cloud_environment_name": "AzureChinaCloud",
     "location": "China East",
     "vm_size": "Standard_DS2_v2"
   }],
@@ -247,6 +249,6 @@ Now you can open a web browser and enter `http://publicIpAddress` in the address
 ![NGINX default site](./media/build-image-with-packer/nginx.png) 
 
 ## Next steps
-In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Ansible, Chef, or Puppet.
+In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Chef or Puppet.
 
 For additional example Packer templates for other Linux distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
