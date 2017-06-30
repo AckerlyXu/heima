@@ -233,19 +233,16 @@ Create three VMs with the template you created, and then configure and start the
    > The following commands are split over multiple lines for clarity, but you should enter each as one line.
    >
    >
-    
-    ```
-    azure vm create
-    --virtual-network-name mariadbvnet
-    --subnet-names mariadb
-    --availability-set clusteravset
-    --vm-size Medium
-    --ssh-cert "/path/to/key.pem"
-    --no-ssh-password
-    --ssh 22
-    --vm-name mariadb1
-    mariadbha mariadb-galera-image azureuser
-    ```
+        azure vm create
+        --virtual-network-name mariadbvnet
+        --subnet-names mariadb
+        --availability-set clusteravset
+        --vm-size Medium
+        --ssh-cert "/path/to/key.pem"
+        --no-ssh-password
+        --ssh 22
+        --vm-name mariadb1
+        mariadbha mariadb-galera-image azureuser
 2. Create two more virtual machines by connecting them to the mariadbha cloud service. Change the VM name and the SSH port to a unique port not conflicting with other VMs in the same cloud service.
 
         azure vm create

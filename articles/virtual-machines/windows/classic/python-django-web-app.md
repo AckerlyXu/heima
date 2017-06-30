@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: python
 ms.topic: article
-origin.date: 08/04/2015
-ms.date: 03/28/2017
+origin.date: 05/31/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -52,12 +52,18 @@ A screenshot of the completed application appears next.
 1. Follow the instructions given [here](tutorial.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
 2. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
 
-   * Navigate to your newly created virtual machine in the Azure Classic Management Portal and click the **ENDPOINTS** tab.
-   * Click the **ADD** button at the bottom of the screen.
-     ![add endpoint](./media/python-django-web-app/django-helloworld-addendpoint.png)
-   * Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
-     ![][port80]
-3. From the **DASHBOARD** tab, click **CONNECT** to use **Remote Desktop** to remotely log into the newly created Azure virtual machine.  
+   * In the Azure portal, go to the dashboard and select your newly created virtual machine.
+   * Click **Endpoints** and then click **Add** at the top of the pane.
+
+     ![add endpoint](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
+
+   * For **Name**, enter `HTTP`. Set the public and private TCP ports to 80.
+
+     ![set port 80](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
+
+   * When you're done, click **OK** at the bottom of the pane.
+
+3. In the dashboard, select your VM and click **Connect** at the top of the pane to use Remote Desktop to remotely log into the newly created Azure virtual machine.  
 
 **Important Note:** All instructions below assume you logged into the virtual machine correctly and are issuing commands there rather than your local machine.
 
@@ -87,11 +93,11 @@ A screenshot of the completed application appears next.
 
    For Python 2.7, use the following command.
 
-        C:\Python27\Scripts\django-admin.exe startproject helloworld
+       C:\Python27\Scripts\django-admin.exe startproject helloworld
 
    For Python 3.4, use the following command.
 
-        C:\Python34\Scripts\django-admin.exe startproject helloworld
+       C:\Python34\Scripts\django-admin.exe startproject helloworld
 
    ![The result of the New-AzureService command](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
 2. The **django-admin** command generates a basic structure for Django-based websites:
@@ -101,16 +107,16 @@ A screenshot of the completed application appears next.
    * **helloworld\helloworld\urls.py** contains the mapping code between each url and its view.
 3. Create a new file named **views.py** in the *C:\inetpub\wwwroot\helloworld\helloworld* directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 
-        from django.http import HttpResponse
-        def home(request):
-            html = "<html><body>Hello World!</body></html>"
-            return HttpResponse(html)
+       from django.http import HttpResponse
+       def home(request):
+           html = "<html><body>Hello World!</body></html>"
+           return HttpResponse(html)
 4. Replace the contents of the urls.py file with the following.
 
-        from django.conf.urls import patterns, url
-        urlpatterns = patterns('',
-            url(r'^$', 'helloworld.views.home', name='home'),
-        )
+       from django.conf.urls import patterns, url
+       urlpatterns = patterns('',
+           url(r'^$', 'helloworld.views.home', name='home'),
+       )
 
 ## Configuring IIS
 1. Unlock the handlers section in the global applicationhost.config.  This will enable the use of the python handler in your web.config.

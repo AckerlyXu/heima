@@ -30,7 +30,7 @@ A telecommunications company has a large volume of data for incoming calls. The 
 * Pare this data down to a manageable amount and obtain insights about customer usage over time and geographical regions.
 * Detect SIM fraud (multiple calls coming from the same identity around the same time but in geographically different locations) in real-time so that they can easily respond by notifying customers or shutting down service.
 
-In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or sensor data being generated – and customers want to aggregate them or alert over anomalies in real-time.
+In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or sensor data being generated â€“ and customers want to aggregate them or alert over anomalies in real-time.
 
 ## Prerequisites
 * Download [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center 

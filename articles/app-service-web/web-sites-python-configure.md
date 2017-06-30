@@ -25,7 +25,7 @@ This tutorial describes options for authoring and configuring a basic Web Server
 It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.
 
 ## Bottle, Django or Flask?
- If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
+If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
 
 * [Creating web apps with Bottle](web-sites-python-create-deploy-bottle-app.md)
 * [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)

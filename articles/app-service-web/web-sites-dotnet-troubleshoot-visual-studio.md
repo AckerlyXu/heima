@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 02/21/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -530,7 +530,9 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
     This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
 3. In Visual Studio, in the **Configuration** tab of the **Azure Web App** window, click **Open in Management Portal**.
-4. Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
+4. In the [Azure Portal](https://portal.azure.cn) **Settings** blade for your web app, click **Deployment credentials**, and then enter a new user name and password.
+
+    ![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
     **When you log in, you have to use the full user name with the web app name prefixed to it. For example, if you enter "myid" as a user name and the site is "myexample", you log in as "myexample\myid".
 5. In a new browser window, go to the URL that is shown under **FTP hostname** or **FTPS hostname** in the **Web App** blade for your web app.

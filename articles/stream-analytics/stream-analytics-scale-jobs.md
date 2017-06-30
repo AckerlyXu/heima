@@ -53,6 +53,7 @@ The embarrassingly parallel job is the most scalable scenario we have in Azure S
 Here are some example scenarios that are embarrassingly parallel.
 
 ### Simple query
+
 Input - Event Hubs with 8 partitions
 Output - Event Hub with 8 partitions
 
@@ -65,6 +66,7 @@ Output - Event Hub with 8 partitions
 This query is a simple filter and as such, we do not need to worry about partitioning the input we send to Event Hubs. You will notice that the query has **Partition By** of **PartitionId**, so we fulfill requirement #2 from above. For the output, we need to configure the Event Hubs output in the job to have the **PartitionKey** field set to **PartitionId**. One last check, input partitions == output partitions. This topology is embarrassingly parallel.
 
 ### Query with grouping key
+
 Input - Event Hubs with 8 partitions
 Output - Blob
 
@@ -77,6 +79,7 @@ Output - Blob
 This query has a grouping key and as such, the same key needs to be processed by the same query instance. This means we need to send our events to Events Hubs in a partitioned manner. Which key do we care about? **PartitionId** is a job logic concept, the real key we care about is **TollBoothId**. This means we should set the **PartitionKey** of the event data we send to Event Hubs to be the **TollBoothId** of the event. The query has **Partition By** of **PartitionId**, so we are good there. For the output, since it is Blob, we do not need to worry about configuring **PartitionKey**. For requirement #4, again, this is Blob, so we don't need to worry about it. This topology is embarrassingly parallel.
 
 ### Multi Step Query with Grouping Key
+
 Input - Event Hub with 8 partitions
 Output - Event Hub with 8 partitions
 
@@ -96,20 +99,25 @@ This query has a grouping key and as such, the same key needs to be processed by
 
 ## Example scenarios that are NOT embarrassingly parallel
 ### Mismatched Partition Count
+
 Input - Event Hubs with 8 partitions
 Output - Event Hub with 32 partitions
 
 It doesn't matter what the query is in this case because the input partition count != output partition count.
 
 ### Not using Event Hubs or Blobs as output
+
 Input - Event Hubs with 8 partitions
 Output - PowerBI
+
 
 PowerBI output doesn't currently support partitioning.
 
 ### Multi Step Query with different Partition By values
+
 Input - Event Hub with 8 partitions
 Output - Event Hub with 8 partitions
+
 
 **Query:**
 
