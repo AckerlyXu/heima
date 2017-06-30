@@ -4,7 +4,7 @@ Create an App Service plan with the [az appservice plan create](https://docs.mic
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
-```azurecli-interactive
+```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
