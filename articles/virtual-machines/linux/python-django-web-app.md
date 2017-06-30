@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: python
 ms.topic: article
-origin.date: 11/17/2015
-ms.date: 03/28/2017
+origin.date: 05/31/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -54,23 +54,23 @@ A screenshot of the completed application is below:
 The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't have Apache or django installed.  Follow these steps to connect to your VM and install Apache and django.
 
 1. Launch a new **Terminal** window.
-2. Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure Classic Management Portal.
+2. Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure  portal.
 
-        $ ssh yourusername@yourVmUrl
+       $ ssh yourusername@yourVmUrl
 3. Enter the following commands to install django:
 
-        $ sudo apt-get install python-setuptools python-pip
-        $ sudo pip install django
+       $ sudo apt-get install python-setuptools python-pip
+       $ sudo pip install django
 4. Enter the following command to install Apache with mod-wsgi:
 
-        $ sudo apt-get install apache2 libapache2-mod-wsgi
+       $ sudo apt-get install apache2 libapache2-mod-wsgi
 
 ## Creating a new Django application
 1. Open the **Terminal** window you used in the previous section to ssh into your VM.
 2. Enter the following commands to create a new Django project:
 
-        $ cd /var/www
-        $ sudo django-admin.py startproject helloworld
+       $ cd /var/www
+       $ sudo django-admin.py startproject helloworld
 
    The **django-admin.py** script generates a basic structure for Django-based websites:
 
@@ -79,31 +79,31 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
    * **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
 3. Create a new file named **views.py** in the **/var/www/helloworld/helloworld** directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 
-        from django.http import HttpResponse
-        def home(request):
-            html = "<html><body>Hello World!</body></html>"
-            return HttpResponse(html)
+       from django.http import HttpResponse
+       def home(request):
+           html = "<html><body>Hello World!</body></html>"
+           return HttpResponse(html)
 4. Now replace the contents of the **urls.py** file with the following:
 
-        from django.conf.urls import patterns, url
-        urlpatterns = patterns('',
-            url(r'^$', 'helloworld.views.home', name='home'),
-        )
+       from django.conf.urls import patterns, url
+       urlpatterns = patterns('',
+           url(r'^$', 'helloworld.views.home', name='home'),
+       )
 
 ## Setting up Apache
 1. Create an Apache virtual host configuration file **/etc/apache2/sites-available/helloworld.conf**. Set the contents to the following, and replace *yourVmName* with the actual name of the machine you are using (for example *pyubuntu*).
 
-        <VirtualHost *:80>
-        ServerName yourVmName
-        </VirtualHost>
-        WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
-        WSGIPythonPath /var/www/helloworld
+       <VirtualHost *:80>
+       ServerName yourVmName
+       </VirtualHost>
+       WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
+       WSGIPythonPath /var/www/helloworld
 2. Enable the site with the following command:
 
-        $ sudo a2ensite helloworld
+       $ sudo a2ensite helloworld
 3. Restart Apache with the following command:
 
-        $ sudo service apache2 reload
+       $ sudo service apache2 reload
 4. Finally, load the web page in your browser:
 
    ![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)

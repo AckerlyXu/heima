@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/10/2016
-ms.date: 07/03/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
 # Azure Metadata Service - Scheduled Events (Preview)
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/).
+> Previews are made available to you on the condition that you agree to the terms of use.
 >
 
 Scheduled Events is one of the subservices under the Azure Metadata Service. It is responsible for surfacing information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS. Scheduled Events gives your Virtual Machine time to perform preventive tasks to minimize the effect of an event. 
@@ -43,7 +43,7 @@ Azure Metadata Service surfaces Scheduled Events in the following use cases:
 
 ## Scheduled Events - The Basics  
 
-Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a Non-routable IP so that it is not exposed outside the VM.
+Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a non-routable IP so that it is not exposed outside the VM.
 
 ### Scope
 Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
@@ -76,7 +76,7 @@ In both cases, the user-initiated operation will take longer to complete since s
 You can query for Scheduled Events simply by making the following call:
 
 ```
-	curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 ```
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
@@ -92,16 +92,16 @@ In the case where there are scheduled events, the response contains an array of 
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
             "NotBefore": {timeInUTC},              
-         }
-     ]
-	}
+        }
+    ]
+}
 ```
 
 ### Event Properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for few seconds. The CPU will be suspended, but There is no impact on memory, open files, or network connections. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
+| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for few seconds. The CPU will be suspended, but there is no impact on memory, open files, or network connections. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
 | ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](windows/manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
@@ -166,7 +166,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 ######### Sample Scheduled Events Interaction #########
 
-# Set up the scheduled events uri for a VNET-enabled VM
+# Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
 $scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
@@ -183,98 +183,97 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-	ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
+        ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
-
 
 ### C\# Sample 
 
 The following sample is of a simple client that communicates with the metadata service.
 
 ```csharp
-   public class ScheduledEventsClient
-    {
-        private readonly string scheduledEventsEndpoint;
-        private readonly string defaultIpAddress = "169.254.169.254"; 
+public class ScheduledEventsClient
+{
+    private readonly string scheduledEventsEndpoint;
+    private readonly string defaultIpAddress = "169.254.169.254"; 
 
     // Set up the scheduled events URI for a VNET-enabled VM
-        public ScheduledEventsClient()
-        {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
-        }
+    public ScheduledEventsClient()
+    {
+        scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
+    }
 
     // Get events
     public string GetScheduledEvents()
+    {
+        Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
+        using (var webClient = new WebClient())
         {
-            Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
-            using (var webClient = new WebClient())
-            {
-                webClient.Headers.Add("Metadata", "true");
-                return webClient.DownloadString(cloudControlUri);
-            }   
-        }
+            webClient.Headers.Add("Metadata", "true");
+            return webClient.DownloadString(cloudControlUri);
+        }   
+    }
 
     // Approve events
     public void ApproveScheduledEvents(string jsonPost)
+    {
+        using (var webClient = new WebClient())
         {
-            using (var webClient = new WebClient())
-            {
-                webClient.Headers.Add("Content-Type", "application/json");
-                webClient.UploadString(scheduledEventsEndpoint, jsonPost);
-            }
+            webClient.Headers.Add("Content-Type", "application/json");
+            webClient.UploadString(scheduledEventsEndpoint, jsonPost);
         }
     }
+}
 ```
 
 Scheduled Events can be represented using the following data structures:
 
 ```csharp
-    public class ScheduledEventsDocument
-    {
-        public string DocumentIncarnation;
-        public List<CloudControlEvent> Events { get; set; }
-    }
+public class ScheduledEventsDocument
+{
+    public string DocumentIncarnation;
+    public List<CloudControlEvent> Events { get; set; }
+}
 
-    public class CloudControlEvent
-    {
-        public string EventId { get; set; }
-        public string EventStatus { get; set; }
-        public string EventType { get; set; }
-        public string ResourceType { get; set; }
-        public List<string> Resources { get; set; }
-        public DateTime? NotBefore { get; set; }
-    }
+public class CloudControlEvent
+{
+    public string EventId { get; set; }
+    public string EventStatus { get; set; }
+    public string EventType { get; set; }
+    public string ResourceType { get; set; }
+    public List<string> Resources { get; set; }
+    public DateTime? NotBefore { get; set; }
+}
 
-    public class ScheduledEventsApproval
-    {
-        public string DocumentIncarnation;
-        public List<StartRequest> StartRequests = new List<StartRequest>();
-    }
+public class ScheduledEventsApproval
+{
+    public string DocumentIncarnation;
+    public List<StartRequest> StartRequests = new List<StartRequest>();
+}
 
-    public class StartRequest
-    {
-        [JsonProperty("EventId")]
-        private string eventId;
+public class StartRequest
+{
+    [JsonProperty("EventId")]
+    private string eventId;
 
-        public StartRequest(string eventId)
-        {
-            this.eventId = eventId;
-        }
+    public StartRequest(string eventId)
+    {
+        this.eventId = eventId;
     }
+}
 ```
 
 The following sample queries the metadata service for scheduled events and approves each outstanding event.
 
 ```csharp
 public class Program
-    {
+{
     static ScheduledEventsClient client;
 
     static void Main(string[] args)
     {
-            client = new ScheduledEventsClient();
+        client = new ScheduledEventsClient();
 
         while (true)
         {
@@ -289,9 +288,9 @@ public class Program
 
             // Approve events
             ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
-	    {
-	    	DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
-	    };
+            {
+	            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+            };
 
             foreach (CloudControlEvent event in scheduledEventsDocument.Events)
             {
@@ -367,5 +366,6 @@ if __name__ == '__main__':
 
 ## Next Steps 
 
+- Read more about the APIs available in the [instance metadata service](virtual-machines-instancemetadataservice-overview.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](windows/planned-maintenance.md).
 - Learn about [planned maintenance for Linux virtual machines in Azure](linux/planned-maintenance.md).

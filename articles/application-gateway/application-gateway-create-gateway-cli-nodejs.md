@@ -69,7 +69,7 @@ Open the **Azure Command Prompt**, and log in.
 azure login -e AzureChinaCloud
 ```
 
-Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
+Once you type the preceding example, a code is provided. Navigate to https://aka.ms/deviceloginchina in a browser to continue the login process.
 
 ![cmd showing device login][1]
 

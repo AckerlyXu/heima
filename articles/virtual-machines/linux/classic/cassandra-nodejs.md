@@ -418,11 +418,10 @@ Log into the VM and perform the following:
 
 * Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the data center and rack properties:
 
-        dc =CHINAEAST, rack =rack1
-
+       dc =CHINAEAST, rack =rack1
 * Edit cassandra.yaml to configure seed nodes as below:
 
-        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
+       Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **Step 4: Start the VMs and test the cluster**
 
