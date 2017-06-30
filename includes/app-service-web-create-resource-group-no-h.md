@@ -4,7 +4,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 
 The following example creates a resource group named *myResourceGroup* in the *chinanorth* location.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
 

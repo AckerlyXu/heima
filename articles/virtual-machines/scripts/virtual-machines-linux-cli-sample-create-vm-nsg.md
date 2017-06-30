@@ -30,7 +30,7 @@ This script creates two virtual machines and secures incoming traffic to both. O
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group.
@@ -78,7 +78,7 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNetwork
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup
 ```
 

@@ -72,13 +72,13 @@ exit
 
 To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](https://docs.microsoft.com/cli//azure/vm#deallocate). 
 
-```azurecli-interactive 
+```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 Finally, set the state of the VM as generalized with [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
 
-```azurecli-interactive 
+```azurecli 
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
@@ -86,7 +86,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 Now you can create an image of the VM by using [az image create](https://docs.microsoft.com/cli//azure/image#create). The following example creates an image named *myImage* from a VM named *myVM*.
 
-```azurecli-interactive 
+```azurecli 
 az image create \
     --resource-group myResourceGroup \
     --name myImage \
@@ -97,7 +97,7 @@ az image create \
 
 Now that you have an image, you can create one or more new VMs from the image using [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
-```azurecli-interactive 
+```azurecli 
 az vm create \
     --resource-group myResourceGroup \
     --name myVMfromImage \
@@ -112,14 +112,14 @@ Here are some examples of common image management tasks and how to complete them
 
 List all images by name in a table format.
 
-```azurecli-interactive 
+```azurecli 
 az image list \
   --resource-group myResourceGroup
 ```
 
 Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
 
-```azurecli-interactive 
+```azurecli 
 az image delete \
     --name myOldImage \
 	--resource-group myResourceGroup

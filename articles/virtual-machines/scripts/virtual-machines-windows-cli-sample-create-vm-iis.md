@@ -29,7 +29,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016, and us
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Update for your admin password
@@ -63,7 +63,7 @@ az vm extension set \
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup --yes
 ```
 

@@ -40,13 +40,13 @@ and add it to the project you previously created.
 1. Rename the **index.js** file to **app.js**. This allows Azure to detect that this is a Node.js application.
 2. Open the **app.js** file in a text editor. Change the line containing `var io = require('../..')(server);` as shown below:
 
-        var express = require('express');
-        var app = express();
-        var server = require('http').createServer(app);
-        // var io = require('../..')(server);
-        // New:
-        var io = require('socket.io')(server);
-        var port = process.env.PORT || 3000;
+       var express = require('express');
+       var app = express();
+       var server = require('http').createServer(app);
+       // var io = require('../..')(server);
+       // New:
+       var io = require('socket.io')(server);
+       var port = process.env.PORT || 3000;
 3. Open the **package.json** file and add a reference to socket.io under `dependencies`, as shown below:
 
         "dependencies": {

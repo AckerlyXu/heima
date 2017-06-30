@@ -2,7 +2,7 @@
 title: Create a copy of an Azure Managed Disk for back up | Azure
 description: Learn how to create a copy of an Azure Managed Disk to use for back up or troubleshooting disk issues.
 documentationcenter: ''
-author: cwatsonMSFT
+author: bbetstcw
 manager: timlt
 editor: ''
 tags: azure-resource-manager
