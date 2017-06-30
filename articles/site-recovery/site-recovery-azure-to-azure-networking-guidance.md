@@ -144,4 +144,4 @@ If you have an ExpressRoute or a VPN connection between on-premises and the sour
  > If the primary region is completely down, then the disconnect operation can fail. That will prevent target VNet from getting the ExpressRoute connectivity.
 
 ## Next steps
-- Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md)
+<!-- Not Available [replicating Azure virtual machines](site-recovery-azure-to-azure.md) -->

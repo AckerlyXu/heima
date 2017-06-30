@@ -40,7 +40,8 @@ Learn about the deployment prerequisites and requirements in the [support matrix
 
 ### Step 1
 
-When you enable Azure VM replication in the Azure portal, the resources shown in the following diagram and table are automatically created in the target region. By default, resources are created based on source region settings. You can customize the target settings as required. [Learn more](site-recovery-replicate-azure-to-azure.md).
+When you enable Azure VM replication in the Azure portal, the resources shown in the following diagram and table are automatically created in the target region. By default, resources are created based on source region settings. You can customize the target settings as required.
+<!-- Not Available site-recovery-replicate-azure-to-azure.md -->
 
 ![Enable replication process, step 1](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -78,4 +79,4 @@ When you initiate a failover, the VMs are created in the target resource group, 
 ## Next steps
 
 - Learn about [networking](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM replication.
-- Follow a walkthrough to [replicate Azure VMs.](site-recovery-azure-to-azure.md)
+<!-- Not Available [replicate Azure VMs.](site-recovery-azure-to-azure.md) -->

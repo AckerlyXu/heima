@@ -46,5 +46,4 @@ Post any comments at the bottom of the article, or ask technical questions on th
 
 ## Next steps
 - Learn more about [networking guidance for replicating Azure virtual machines.](site-recovery-azure-to-azure-networking-guidance.md)
-
-- Start protecting your workloads by [replicating Azure virtual machines.](site-recovery-azure-to-azure.md)
+<!-- Not Available [replicating Azure virtual machines.](site-recovery-azure-to-azure.md) -->

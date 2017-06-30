@@ -75,7 +75,7 @@ Make sure you have these prerequisites in place:
     * One or more Hyper-V host servers or clusters in each host group.
     * One or more virtual machines on the source Hyper-V server.
 * Learn more about setting up VMM clouds:
-    * Learn about [Configuring the VMM cloud fabric](site-recovery-support-matrix-to-azure.md#BKMK_Fabric)
+    * Learn about [Configuring the VMM cloud fabric](site-recovery-support-matrix-to-azure.md)
     * After your cloud fabric elements are in place learn about creating private clouds in [Creating a private cloud in VMM](https://technet.microsoft.com/zh-cn/library/jj860425.aspx) and in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](https://blogs.technet.microsoft.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 ### Hyper-V prerequisites

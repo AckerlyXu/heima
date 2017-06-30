@@ -24,7 +24,7 @@ This article provides information and instructions for doing a test failover or 
 
 You run a test failover to validate your replication strategy or perform a DR drill without any data loss or downtime. A test failover doesn't have any impact on the ongoing replication or on your production environment. You can run it on either a virtual machine or a [recovery plan](site-recovery-create-recovery-plans.md). When you're triggering a test failover, you need to specify the network that the test virtual machines will connect to. You can track the progress of the test failover on the **Jobs** page.  
 
-## Prepare the infrastructure for test failover
+## <a name="preparing-infrastructure-for-test-failover" ></a>Prepare the infrastructure for test failover
 If you want to run a test failover by using an existing network, prepare Active Directory, DHCP, and DNS in that network.
 
 If you want to run a test failover by using the option to create VM networks automatically, add a manual step before Group-1 in the recovery plan that you're going to use for the test failover. Then, add the infrastructure resources to the automatically created network before you run the test failover.

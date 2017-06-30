@@ -36,7 +36,8 @@ Site Recovery contributes to your business continuity and disaster recovery (BCD
 Site Recovery is available in the Azure portal with support for Resource Manager. Site Recovery supports legacy deployments in the Azure Classic Management Portal. You can't create new vaults in the Classic Management Portal, and new features aren't supported.
 
 ### Can I replicate Azure VMs?
-Yes, you can replicate supported Azure VMs between Azure regions. [Learn more](site-recovery-azure-to-azure.md).
+Yes, you can replicate supported Azure VMs between Azure regions.
+<!-- Not Available [Learn more](site-recovery-azure-to-azure.md) -->
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:

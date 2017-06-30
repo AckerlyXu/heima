@@ -143,4 +143,4 @@ VNET to VNET connection	| Supported | Refer to [networking guidance document.](s
 
 ## Next steps
 - Learn more about [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md)
-- Start protecting your workloads by [replicating Azure VMs](site-recovery-azure-to-azure.md)
+<!-- Not Available [replicating Azure VMs](site-recovery-azure-to-azure.md) -->
