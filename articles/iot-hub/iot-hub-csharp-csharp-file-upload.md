@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/08/2017
-ms.date: 06/05/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
 ---
 
@@ -164,7 +164,7 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with IoT Edge][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -195,4 +195,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-windows-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-windows-iot-edge-simulated-device.md
+
+

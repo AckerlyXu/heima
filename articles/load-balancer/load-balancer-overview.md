@@ -4,7 +4,7 @@ description: Overview of Azure Load Balancer features, architecture, and impleme
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: ''
 
 ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3

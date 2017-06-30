@@ -3,19 +3,20 @@ title: Multi-Factor authentication - Azure SQL | Azure
 description: Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse.
 services: sql-database
 documentationcenter: ''
-author: BYHAM
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
 ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/07/2017
+origin.date: 04/07/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 
 ---
@@ -40,11 +41,9 @@ Beginning with [SSMS version 17](https://docs.microsoft.com/sql/ssms/download-sq
 * Neither DacFx nor the Schema Designer support Universal Authentication.
 * There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.
 
-
 ## Next steps
 
 * For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 * Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](sql-database-manage-logins.md)  
 Make sure others can connect through the firewall: [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md)
-
-
+* For Azure AD configuration and management, see [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md).

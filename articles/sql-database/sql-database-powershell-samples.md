@@ -1,10 +1,10 @@
 ---
-title: Azure PowerShell Samples for SQL Database | Microsoft Docs
-description: Azure CLI Samples - Create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
+title: Azure PowerShell Samples for SQL Database | Azure
+description: Azure PowerShell Samples - Scripts to help you create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
 services: sql-database
 documentationcenter: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+origin.date: 05/19/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 ---
 
@@ -31,6 +32,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Configure geo-replication and failover**||
 | [Configure and failover a single database using Active Geo-Replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)| Configures Active Geo-Replication for a single Azure SQL database and fails it over to the secondary replica. |
 | [Configure and failover a pooled database using Active Geo-Replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)| Configures Active Geo-Replication for an Azure SQL database in an elastic pool and fails it over to the secondary replica. |
+| [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md | Configures a failover group for an Azure SQL server instance, adds a database to the failover group, and fails it over to the secondary server |
 |**Scale a single databases and an elastic pool**||
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md) | Monitors the performance metrics of an Azure SQL database, scales it to a higher performance level and creates an alert rule on one of the performance metrics. |
 | [Scale an elastic pool](scripts/sql-database-monitor-and-scale-pool-powershell.md) | Monitors the performance metrics of an elastic pool, scales it to a higher performance level, and creates an alert rule on one of the performance metrics.  |

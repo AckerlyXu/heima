@@ -4,8 +4,8 @@ description: 'What is Azure Multi-factor Authentication, why use MFA, more infor
 keywords: introduction to MFA, mfa overview, what is mfa
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: yossib
 
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
@@ -14,7 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+origin.date: 06/03/2017
+ms.date: 06/27/2017
 ms.author: v-junlch
 
 ---
@@ -47,6 +48,7 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 
 ## Next steps
 
-- Learn about [how Azure Multi-Factor Authentication works](./multi-factor-authentication-how-it-works.md)
+- Learn about [how Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
 
-- Read about the different [versions and consumption methods for Azure Multi-Factor Authentication](./multi-factor-authentication-versions-plans.md)
+- Read about the different [versions and consumption methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
+
