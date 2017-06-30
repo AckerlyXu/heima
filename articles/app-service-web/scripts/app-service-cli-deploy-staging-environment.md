@@ -30,7 +30,7 @@ This sample script creates a web app in App Service with an additional deploymen
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Replace the following URL with a public GitHub repo URL

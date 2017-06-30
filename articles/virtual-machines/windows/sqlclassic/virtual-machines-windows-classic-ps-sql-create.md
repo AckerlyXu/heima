@@ -44,7 +44,7 @@ Your SQL Server Virtual Machine will be hosted in a cloud service that resides a
         (Get-AzureLocation).Name
 2. Once you've identified your preferred location, set a variable named **$dcLocation** to that region.
 
-        $dcLocation = "<region name>"
+       $dcLocation = "<region name>"
 
 ## Set your subscription and storage account
 1. Determine the Azure subscription you will use for the new virtual machine.

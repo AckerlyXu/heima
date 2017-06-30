@@ -56,7 +56,7 @@ The third script restarts all the VMs that were provisioned, and then just the t
 This script creates a resource group and then it creates three VMs to restart.
 Two of them are tagged.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group where we'll create the VMs that we'll start
@@ -73,7 +73,7 @@ az vm create -g myResourceGroup -n myVM3 --image UbuntuLTS --admin-username depl
 This script checks on the provisioning status every 20 seconds until all three VMs are provisioned,
 or one of them fails to provision.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Wait for the VMs to be provisioned
@@ -94,7 +94,7 @@ echo "The VMs are provisioned."
 This script restarts all the VMs in the resource group,
 and then it restarts just the tagged VMs.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Get the IDs of all the VMs in the resource group and restart those
@@ -109,7 +109,7 @@ az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Mic
 
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
