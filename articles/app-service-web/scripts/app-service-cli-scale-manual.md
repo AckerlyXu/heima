@@ -30,7 +30,7 @@ In this scenario you will learn to create a resource group, app service plan and
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #/bin/bash
 
 # Variables

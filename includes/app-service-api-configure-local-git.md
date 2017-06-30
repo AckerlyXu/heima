@@ -4,6 +4,6 @@ App Service supports several ways to deploy content to a web app, such as FTP, l
 
 Use the script below to set the account-level deployment credentials you'll use when pushing the code, making sure to include your own values for the user name and password.   
 
-```azurecli-interactive
+```azurecli
 az webapp deployment user set --user-name <desired user name> --password <desired password>
 ```

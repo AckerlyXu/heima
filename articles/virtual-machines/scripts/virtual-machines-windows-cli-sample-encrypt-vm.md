@@ -29,7 +29,7 @@ This script creates a secure Azure Key Vault, encryption keys, Azure Active Dire
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Provide your own unique Key Vault name

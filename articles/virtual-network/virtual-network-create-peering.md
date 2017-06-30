@@ -80,7 +80,7 @@ The following script:
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. Create a resource group and two virtual networks.
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
 
     # Variables for common values used throughout the script.
@@ -108,7 +108,7 @@ The following script:
     #
     ```
 2. Create a virtual network peering between the two virtual networks.
-    ```azurecli-interactive
+    ```azurecli
     # Get the id for VNet1.
     vnet1Id=$(az network vnet show \
       --resource-group $rgName \
@@ -141,7 +141,7 @@ The following script:
     ```
 3. After the script executes, review the peerings for each virtual network. Copy the following command, and then paste it in your command window:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet peering list \
       --resource-group myResourceGroup \
       --vnet-name myVnet1 \
@@ -344,7 +344,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 From a Linux, macOS, or Windows command shell, enter the command that follows. Alternatively, click the Try It button at the top right of the following code block to launch the Cloud Shell. Then, use the Copy button to copy and paste the sample code into the Cloud Shell.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

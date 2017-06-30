@@ -205,7 +205,7 @@ In this section, you use the Azure CLI 2.0 to create the resources to host the A
 
 1.  Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
@@ -274,7 +274,7 @@ Deploy your code to the API app by pushing commits from your local Git repositor
 
 To clean up the resources created in this quickstart, run the following Azure CLI command:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 

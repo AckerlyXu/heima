@@ -30,7 +30,7 @@ This script creates an Azure Virtual Machine with an Ubuntu operating system and
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group.
@@ -44,7 +44,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup
 ```
 
