@@ -82,7 +82,7 @@ To remove the headers from the HTTP response, update your site's web.config file
 
 Currently, the Web Apps feature of Azure App Service is in compliance with PCI Data Security Standard (DSS) version 3.0 Level 1. PCI DSS version 3.1 is on our roadmap. Planning is already underway for how adoption of the latest standard will proceed.
 
-PCI DSS version 3.1 certification requires disabling Transport Layer Security (TLS) 1.0. Currently, disabling TLS 1.0 is not an option for most App Service plans. However, If you use App Service Environment or are willing to migrate your workload to App Service Environment, you can get greater control of your environment. This involves disabling TLS 1.0 by contacting Azure Support. In the near future, we plan to make these settings accessible to users.
+PCI DSS version 3.1 certification requires disabling Transport Layer Security (TLS) 1.0. Currently, disabling TLS 1.0 is not an option for most App Service plans.
 
 For more information, see [Azure App Service web app compliance with PCI Standard 3.0 and 3.1](https://support.microsoft.com/help/3124528).
 
@@ -106,13 +106,9 @@ At the site level, you have two options for controlling inbound traffic to App S
 * Turn on dynamic IP restrictions. To learn how to turn on dynamic IP restrictions, see [IP and domain restrictions for Azure websites](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
 * Turn on Module Security. To learn how to turn on Module Security, see [ModSecurity web application firewall on Azure websites](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/).
 
-If you use App Service Environment, you can use [Barracuda firewall](https://azure.microsoft.com/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/).
-
 ## How do I block ports in an App Service web app?
 
 In the App Service shared tenant environment, it is not possible to block specific ports because of the nature of the infrastructure. TCP ports 4016, 4018, and 4020 also might be open for Visual Studio remote debugging.
-
-In App Service Environment, you have full control over inbound  and outbound traffic. You can use Network Security Groups to restrict or block specific ports. For more information about App Service Environment, see [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
 ## How do I capture an F12 trace?
 
@@ -156,10 +152,6 @@ You can create a scheduled WebJob by using Cron expressions:
     ```
 
 For more information about scheduled WebJobs, see [Create a scheduled WebJob by using a Cron expression](web-sites-create-web-jobs.md#CreateScheduledCRON).
-
-## How do I perform penetration testing for my App Service app?
-
-To perform penetration testing, [submit a request](https://security-forms.azure.com/penetration-testing/terms).
 
 ## How do I configure a custom domain name for an App Service web app that uses Traffic Manager?
 

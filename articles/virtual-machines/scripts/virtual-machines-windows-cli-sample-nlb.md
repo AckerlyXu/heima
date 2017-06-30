@@ -29,7 +29,7 @@ This script sample creates everything needed to run several Ubuntu virtual machi
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Update for your admin password
@@ -111,7 +111,7 @@ done
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup --yes
 ```
 

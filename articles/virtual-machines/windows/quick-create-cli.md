@@ -44,7 +44,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
-```azurecli-interactive 
+```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
@@ -54,7 +54,7 @@ Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create).
 
 The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. Update these values to something appropriate to your environment. These values are needed when creating a connection with the virtual machine.
 
-```azurecli-interactive 
+```azurecli 
 az vm create `
   --resource-group myResourceGroup `
   --name myVM --image win2016datacenter `
@@ -64,7 +64,7 @@ az vm create `
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAaddress`. This address is used to access the VM.
 
-```azurecli-interactive 
+```azurecli 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -81,7 +81,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 By default only RDP connections are allowed in to Windows virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) command to open the desired port.  
 
- ```azurecli-interactive  
+ ```azurecli  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
@@ -111,7 +111,7 @@ With IIS installed and port 80 now open on your VM from the Internet, you can us
 
 When no longer needed, you can use the [az group delete](https://docs.microsoft.com/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup
 ```
 

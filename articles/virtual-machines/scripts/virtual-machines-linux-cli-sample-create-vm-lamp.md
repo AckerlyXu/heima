@@ -30,7 +30,7 @@ on each virtual machine in the scale set.
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create the resource group if it doesn't exist
@@ -87,7 +87,7 @@ echo "You can now reach the scale set by opening your browser to: 'http://${FQDN
 
 Run the following command to remove the resource group, the scale set and VMs, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete -n myResourceGroup
 ```
 
