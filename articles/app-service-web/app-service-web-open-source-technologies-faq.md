@@ -104,7 +104,7 @@ If you see this error in your debug.log or php_errors.log files, your app is exc
 
 ## How do I debug a Node.js app that's hosted in App Service?
 
-1.  Go to your [Kudu console](https://*yourwebsitename*.scm.chinacloudsites.cn/DebugConsole).
+1.  Go to your Kudu console: https://*yourwebsitename*.scm.chinacloudsites.cn/DebugConsole.
 2.  Go to your application logs folder (D:\home\LogFiles\Application).
 3.  In the logging_errors.txt file, check for content.
 
