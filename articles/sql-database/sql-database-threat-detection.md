@@ -3,8 +3,8 @@ title: Threat Detection - Azure SQL Database | Azure
 description: Threat Detection detects anomalous database activities indicating potential security threats to the database. 
 services: sql-database
 documentationcenter: ''
-author: rmatchoro
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: v-romcal
 
 ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
@@ -14,7 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/01/2017
+origin.date: 06/19/2017
+ms.date: '07/03/2017'
 ms.author: v-johch
 
 ---
@@ -34,7 +35,7 @@ For example, SQL injection is one of the common Web application security issues 
 2. Navigate to the configuration blade of the SQL Database you want to monitor. In the Settings blade, select **Auditing & Threat Detection**. 
     ![Navigation pane][1]
 3. In the **Auditing & Threat Detection** configuration blade turn **ON** Auditing, which will display the threat detection settings.
-  
+
     ![Navigation pane][2]
 4. Turn **ON** Threat detection.
 5. Configure the list of emails that will receive security alerts upon detection of anomalous database activities.
@@ -60,7 +61,7 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 ## Next steps
 
-* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 * For more details on pricing, please see the [SQL Database Pricing page](https://www.azure.cn/pricing/details/sql-database/)  
 * For a PowerShell script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)

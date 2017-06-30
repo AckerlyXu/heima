@@ -4,7 +4,7 @@ description: Learn how to create an internal load balancer using the Azure CLI i
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: ''
 tags: azure-service-management
 

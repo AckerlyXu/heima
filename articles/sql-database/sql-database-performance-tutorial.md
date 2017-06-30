@@ -4,17 +4,18 @@ description:  Apply performance recommendations to your SQL Database as well as 
 metakeywords: azure sql database performance monitoring recommendation
 services: sql-database
 documentationcenter: ''
-manager: jhubbard
-author: jan-eng
+manager: digimobile
+author: Hayley244
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: performance
+ms.custom: mvc,monitor & tune
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+origin.date: 05/07/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 
 ---
@@ -26,7 +27,7 @@ Missing indexes and poorly optimized queries are common reasons for poor databas
 > * Find queries with high resource utilization
 > * Find long running queries
 
-> You need a continuous workload on a database with performance issues – missing an index for example to receive a recommendation.
+> You need a continuous workload on a database with performance issues - missing an index for example to receive a recommendation.
 >
 
 ## Log in to the Azure portal
@@ -103,10 +104,9 @@ Follow these steps to find the query consuming the most resources:
 
 ## Next steps 
 Missing indexes and poorly optimized queries are common reasons for poor database performance. In this tutorial you learned to:
-In this tutorial you learned how to:
 > [!div class="checklist"]
 > * Review, apply and revert performance improvement recommendations
 > * Find queries with high resource utilization
 > * Find long running queries
 
-[SQL Database performance tuning tips](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-performance)
+[SQL Database performance tuning tips](sql-database-troubleshoot-performance.md)

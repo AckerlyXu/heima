@@ -5,7 +5,7 @@ keywords: streaming jobs
 documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 9d46950f-2b69-49ce-a567-df558c5dd820
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---

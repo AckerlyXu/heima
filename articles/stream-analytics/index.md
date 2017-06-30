@@ -3,15 +3,15 @@ title: Azure Stream Analytics Documentation - Tutorials, API Reference | Azure
 description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
 services: stream-analytics
 author: rockboyfor
-manager: carolz
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: stream-analytics
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 01/23/2017
+origin.date: 05/23/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 ---
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/30/2016
-ms.date: 01/13/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
 ---
 
@@ -43,29 +43,27 @@ The following reference topics provide you with more information about using job
 ## Jobs to execute direct methods
 The following is the HTTP 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
 
-```
-```
-PUT /jobs/v2/<jobId>?api-version=2016-11-14
+    ```
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
-Authorization: <config.sharedAccessSignature>
-Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
+    Authorization: <config.sharedAccessSignature>
+    Content-Type: application/json; charset=utf-8
+    Request-Id: <guid>
+    User-Agent: <sdk-name>/<sdk-version>
 
-{
-    jobId: '<jobId>',
-    type: 'scheduleDirectRequest', 
-    cloudToDeviceMethod: {
-        methodName: '<methodName>',
-        payload: <payload>,                 
-        responseTimeoutInSeconds: methodTimeoutInSeconds 
-    },
-    queryCondition: '<queryOrDevices>', // query condition
-    startTime: <jobStartTime>,          // as an ISO-8601 date string
-    maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
-}
-```
-```
+    {
+        jobId: '<jobId>',
+        type: 'scheduleDirectRequest', 
+        cloudToDeviceMethod: {
+            methodName: '<methodName>',
+            payload: <payload>,                 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
+        },
+        queryCondition: '<queryOrDevices>', // query condition
+        startTime: <jobStartTime>,          // as an ISO-8601 date string
+        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
+    }
+    ```
 The query condition can also be on a single device Id or on a list of device Ids as shown below
 
 **Examples**
@@ -79,38 +77,34 @@ queryCondition = "deviceId IN ['MyDevice1']
 ## Jobs to update device twin properties
 The following is the HTTP 1.1 request details for updating device twin properties using a job:
 
-```
-```
-PUT /jobs/v2/<jobId>?api-version=2016-11-14
-Authorization: <config.sharedAccessSignature>
-Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
+    ```
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
+    Authorization: <config.sharedAccessSignature>
+    Content-Type: application/json; charset=utf-8
+    Request-Id: <guid>
+    User-Agent: <sdk-name>/<sdk-version>
 
-{
-    jobId: '<jobId>',
-    type: 'scheduleTwinUpdate', 
-    updateTwin: <patch>                 // Valid JSON object
-    queryCondition: '<queryOrDevices>', // query condition
-    startTime: <jobStartTime>,          // as an ISO-8601 date string
-    maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
-}
-```
-```
+    {
+        jobId: '<jobId>',
+        type: 'scheduleTwinUpdate', 
+        updateTwin: <patch>                 // Valid JSON object
+        queryCondition: '<queryOrDevices>', // query condition
+        startTime: <jobStartTime>,          // as an ISO-8601 date string
+        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
+    }
+    ```
 
 ## Querying for progress on jobs
 The following is the HTTP 1.1 request details for [querying for jobs][lnk-query]:
 
-```
-```
-GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+    ```
+    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
-Authorization: <config.sharedAccessSignature>
-Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
-```
-```
+    Authorization: <config.sharedAccessSignature>
+    Content-Type: application/json; charset=utf-8
+    Request-Id: <guid>
+    User-Agent: <sdk-name>/<sdk-version>
+    ```
 
 The continuationToken is provided from the response.  
 
@@ -150,9 +144,13 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
-* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
+## Next steps
+If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+
+* [Schedule and broadcast jobs][lnk-jobs-tutorial]
 
 <!-- links and images -->
 
@@ -161,6 +159,7 @@ Other reference topics in the IoT Hub developer guide include:
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
+[lnk-jobs-tutorial]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: ./iot-hub-node-node-twin-getstarted.md

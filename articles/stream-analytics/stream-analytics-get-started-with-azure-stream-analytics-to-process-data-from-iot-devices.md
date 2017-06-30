@@ -5,7 +5,7 @@ keywords: iot solution, get started with iot
 services: stream-analytics
 documentationcenter: ''
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
