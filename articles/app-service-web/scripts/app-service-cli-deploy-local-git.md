@@ -30,7 +30,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 gitdirectory=<Replace with path to local Git repo>

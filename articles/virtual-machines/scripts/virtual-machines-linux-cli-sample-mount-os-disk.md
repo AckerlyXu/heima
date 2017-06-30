@@ -30,7 +30,7 @@ This script mounts the operating system disk of a failed or problematic virtual 
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Source virtual machine details.
