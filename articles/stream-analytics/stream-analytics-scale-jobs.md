@@ -53,8 +53,8 @@ The embarrassingly parallel job is the most scalable scenario we have in Azure S
 Here are some example scenarios that are embarrassingly parallel.
 
 ### Simple query
-Input – Event Hubs with 8 partitions
-Output – Event Hub with 8 partitions
+Input - Event Hubs with 8 partitions
+Output - Event Hub with 8 partitions
 
 **Query:**
 
@@ -65,8 +65,8 @@ Output – Event Hub with 8 partitions
 This query is a simple filter and as such, we do not need to worry about partitioning the input we send to Event Hubs. You will notice that the query has **Partition By** of **PartitionId**, so we fulfill requirement #2 from above. For the output, we need to configure the Event Hubs output in the job to have the **PartitionKey** field set to **PartitionId**. One last check, input partitions == output partitions. This topology is embarrassingly parallel.
 
 ### Query with grouping key
-Input – Event Hubs with 8 partitions
-Output – Blob
+Input - Event Hubs with 8 partitions
+Output - Blob
 
 **Query:**
 
@@ -77,8 +77,8 @@ Output – Blob
 This query has a grouping key and as such, the same key needs to be processed by the same query instance. This means we need to send our events to Events Hubs in a partitioned manner. Which key do we care about? **PartitionId** is a job logic concept, the real key we care about is **TollBoothId**. This means we should set the **PartitionKey** of the event data we send to Event Hubs to be the **TollBoothId** of the event. The query has **Partition By** of **PartitionId**, so we are good there. For the output, since it is Blob, we do not need to worry about configuring **PartitionKey**. For requirement #4, again, this is Blob, so we don't need to worry about it. This topology is embarrassingly parallel.
 
 ### Multi Step Query with Grouping Key
-Input – Event Hub with 8 partitions
-Output – Event Hub with 8 partitions
+Input - Event Hub with 8 partitions
+Output - Event Hub with 8 partitions
 
 **Query:**
 
@@ -96,20 +96,20 @@ This query has a grouping key and as such, the same key needs to be processed by
 
 ## Example scenarios that are NOT embarrassingly parallel
 ### Mismatched Partition Count
-Input – Event Hubs with 8 partitions
-Output – Event Hub with 32 partitions
+Input - Event Hubs with 8 partitions
+Output - Event Hub with 32 partitions
 
 It doesn't matter what the query is in this case because the input partition count != output partition count.
 
 ### Not using Event Hubs or Blobs as output
-Input – Event Hubs with 8 partitions
-Output – PowerBI
+Input - Event Hubs with 8 partitions
+Output - PowerBI
 
 PowerBI output doesn't currently support partitioning.
 
 ### Multi Step Query with different Partition By values
-Input – Event Hub with 8 partitions
-Output – Event Hub with 8 partitions
+Input - Event Hub with 8 partitions
+Output - Event Hub with 8 partitions
 
 **Query:**
 
@@ -261,7 +261,7 @@ Calculate the expected throughput of the workload in Events/second. If the throu
 ## Stream Analytics Throughput at scale - Raspberry Pi scenario
 To understand how stream analytics jobs scale in a typical scenario in terms of processing throughput across multiple Streaming Units, here is an experiment that sends sensor data (clients) into Event Hub, processes it and sends alert or statistics as an output to another Event Hub.
 
-The client is sending synthesized sensor data to Event Hubs in JSON format to Stream Analytics and the data output is also in JSON format.  Here is how the sample data would look like–  
+The client is sending synthesized sensor data to Event Hubs in JSON format to Stream Analytics and the data output is also in JSON format.  Here is how the sample data would look like 
 
     {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
 

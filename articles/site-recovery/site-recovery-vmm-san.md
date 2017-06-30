@@ -1,25 +1,26 @@
 ---
-title: Replicate Hyper-V VMs in VMM with SAN by using Azure Site Recovery | Microsoft Docs
+title: Replicate Hyper-V VMs in VMM with SAN by using Azure Site Recovery | Azure
 description: This article describes how to replicate Hyper-V virtual machines between two sites with Azure Site Recovery using SAN replication.
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
-manager: jwhit
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: eb480459-04d0-4c57-96c6-9b0829e96d65
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2017
-ms.author: v-johch
+origin.date: 06/14/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Replicate Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery by using SAN
 
-Use this article if you want to deploy [Azure Site Recovery](./site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site, using Azure Site Recovery in the classic portal. This scenario isn't available in the new Azure portal.
+Use this article if you want to deploy [Azure Site Recovery](site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site, using Azure Site Recovery in the Classic Management Portal. This scenario isn't available in the new Azure portal.
 
 ## Why replicate with SAN and Site Recovery?
 
@@ -30,7 +31,7 @@ Use this article if you want to deploy [Azure Site Recovery](./site-recovery-ove
 * You can manage SAN storage in the VMM fabric and use SMI-S in VMM to discover existing storage.  
 
 Note that:
-- Site-to-site replication with SAN isn't available in the Azure portal. It's only available in the classic portal. New vaults can't be created in the classic portal. Existing vaults can be maintained.
+- Site-to-site replication with SAN isn't available in the Azure portal. It's only available in the Classic Management Portal. New vaults can't be created in the Classic Management Portal. Existing vaults can be maintained.
 - Replication from SAN to Azure isn't supported.
 - You can't replicate shared VHDXs, or logical units (LUNs) that are directly connected to VMs via iSCSI or Fibre Channel. Guest clusters can be replicated.
 
@@ -49,7 +50,7 @@ Note that:
 
 **Prerequisites** | **Details**
 --- | ---
-**Azure**| You need a [Microsoft Azure](https://azure.cn/) account. You can start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing. 
+**Azure**| You need a [Azure](https://www.azure.cn/) account. You can start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing. Create an Azure Site Recovery vault to configure and manage replication and failover.
 **VMM** | You can use a single VMM server and replicate between different clouds, but we recommend one VMM in the primary site and one in the secondary site. A VMM can be deployed as a physical or virtual standalone server, or as a cluster. <br/><br/>The VMM server should be running System Center 2012 R2 or later with the latest cumulative updates.<br/><br/> You need at least one cloud configured on the primary VMM server you want to protect and one cloud configured on the secondary VMM server you want to use for failover.<br/><br/> The source cloud must contain one or more VMM host groups.<br/><br/> All VMM clouds must have the Hyper-V Capacity profile set.<br/><br/> For more about setting up VMM clouds, see [Deploy a private VM cloud](https://technet.microsoft.com/zh-cn/system-center-docs/vmm/scenario/cloud-overview).
 **Hyper-V** | You need one or more Hyper-V clusters in primary and secondary VMM clouds.<br/><br/> The source Hyper-V cluster must contain one or more VMs.<br/><br/> The VMM host groups in the primary and secondary sites must contain at least one of the Hyper-V clusters.<br/><br/>The host and target Hyper-V servers must be running Windows Server 2012 or later with the Hyper-V role and the latest updates installed.<br/><br/> If you're running Hyper-V in a cluster and have a static IP address-based cluster, cluster broker isn't created automatically. You must configure it manually. For more information, see [Preparing host clusters for Hyper-V replica](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
 **SAN storage** | You can replicate guest-clustered virtual machines with iSCSI or channel storage, or by using shared virtual hard disks (vhdx).<br/><br/> You need two SAN arrays: one in the primary site, and one in the secondary site.<br/><br/> A network infrastructure should be set up between the arrays. Peering and replication should be configured. Replication licenses should be set up in accordance with the storage array requirements.<br/><br/>Set up networking between the Hyper-V host servers and the storage array so that hosts can communicate with storage LUNs by using iSCSI or Fibre Channel.<br/><br/> Check [supported storage arrays](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> SMI-S providers from storage array manufacturers should be installed, and the SAN arrays should be managed by the provider. Set up the Provider according to manufacturer instructions.<br/><br/>Make sure that the array's SMI-S provider is on a server that the VMM server can access over the network with an IP address or FQDN.<br/><br/> Each SAN array should have one or more available storage pools.<br/><br/> The primary VMM server should manage the primary array, and the secondary VMM server should manage the secondary array.
@@ -287,10 +288,12 @@ When a storage group is replicating, enable protection for VMs in the VMM consol
 
 ![Enable protection](./media/site-recovery-vmm-san/enable-protect.png)
 
-After VMs are enabled for replication, they appear in the Site Recovery console. You can view VM properties, track status, and track failover replication groups that contain multiple VMs. In SAN replication, all VMs associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated VMs together.
+After VMs are enabled for replication, they appear in the Site Recovery console. You can view VM properties, track status, and track failover replication groups that contain multiple VMs. In SAN replication, all VMs associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It's important to group your replication groups properly and place only associated VMs together.
 
 >[!NOTE]
 > After you've enabled replication for a VM, don't add its VHDs to LUNs unless they are located in a Site Recovery replication group. VHDs will only be detected by Site Recovery if they are located in a Site Recovery replication group.
+>
+>
 
 You can track progress, including the initial replication, on the **Jobs** tab. After the Finalize Protection job runs, the virtual machine is ready for failover.
 
@@ -309,11 +312,11 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
     ![Select virtual machines](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. After the recovery plan is created, it appears in the list on the **Recovery Plans** tab. Select the plan and choose **Test Failover**.
-5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](./site-recovery-failover.md).
+5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md).
 
     ![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
 
-6. The test VM is created on the same host as the host on which the replica VM exists. It isn’t added to the cloud in which the replica VM is located.
+6. The test VM is created on the same host as the host on which the replica VM exists. It isn't added to the cloud in which the replica VM is located.
 2. After replication, the replica VM will have a different IP address than the primary virtual machine. If you're issuing addresses from DHCP, it will be updated automatically. If you're not using DHCP and you want the same addresses, you need to run a couple of scripts.
 3. Run this script to retrieve the IP address:
 
@@ -335,4 +338,4 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
 ## Next steps
 
-After you've run a test failover to check that your environment is working as expected, see [Site Recovery failover](./site-recovery-failover.md) to learn about different types of failovers.
+After you've run a test failover to check that your environment is working as expected, see [Site Recovery failover](site-recovery-failover.md) to learn about different types of failovers.
