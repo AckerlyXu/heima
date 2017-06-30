@@ -36,8 +36,6 @@ This article describes how to replicate Hyper-V virtual machines on Hyper-V host
 
 The article includes prerequisites, shows you how to set up a Site Recovery vault, install the Azure Site Recovery Provider on source and target VMM servers, register the servers in the vault, configure protection settings for VMM clouds, and then enable protection for Hyper-V VMs. Finish up by testing the failover to make sure everything's working as expected.
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/zh-cn/home?forum=hypervrecovmgr).
-
 ## Architecture
 
 The picture below shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication

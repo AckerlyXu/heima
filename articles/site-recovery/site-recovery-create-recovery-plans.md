@@ -22,8 +22,6 @@ ms.author: v-yeche
 
 This article provides information about creating and customizing recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
-
  Create recovery plans to do the following:
 
 * Define groups of machines that fail over together, and then start up together.

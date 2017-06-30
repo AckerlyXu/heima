@@ -25,8 +25,6 @@ This article describes how to migrate AWS Windows instances to Azure virtual mac
 
 Migration is effectively a failover from AWS to Azure. You can't failback machines to AWS, and there's no ongoing replication. This article describes the steps for migration in the Azure portal, and are based on the instructions for [replicating a physical machine to Azure](site-recovery-vmware-to-azure.md).
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr)
-
 ## Supported operating systems
 
 Site Recovery can be used to migrate EC2 instances running any of the following operating systems:
