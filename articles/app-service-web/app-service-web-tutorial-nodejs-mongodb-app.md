@@ -120,7 +120,7 @@ For MongoDB, this tutorial uses [Azure DocumentDb](/documentdb/). DocumentDb sup
 
 You'll use the Azure CLI 2.0 to create the resources needed to host your app in Azure. Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli-interactive
+```azurecli
 az login
 ```   
 
@@ -134,7 +134,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 
 The following example creates a resource group in the China North region.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location "China North"
 ```
 
@@ -146,7 +146,7 @@ Create a DocumentDb account with the [az cosmosdb create](https://docs.microsoft
 
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.cn/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
 
-```azurecli-interactive
+```azurecli
 az cosmosdb create \
     --name <cosmosdb_name> \
     --resource-group myResourceGroup \
@@ -181,7 +181,7 @@ In this step, you connect your MEAN.js sample application to the DocumentDb data
 
 To connect to the DocumentDb database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
 
-```azurecli-interactive
+```azurecli
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
@@ -267,7 +267,7 @@ Create an App Service plan with the [az appservice plan create](https://docs.mic
 
 The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
 
-```azurecli-interactive
+```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
@@ -297,7 +297,7 @@ The web app gives you a hosting space to deploy your code and provides a URL for
 
 In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is used as the part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service. 
 
-```azurecli-interactive
+```azurecli
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
@@ -326,7 +326,7 @@ In App Service, you set environment variables as _app settings_ by using the [az
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
-```azurecli-interactive
+```azurecli
 az webapp config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -358,7 +358,7 @@ You can deploy your application to Azure App Service in various ways including F
 
 In the following command, replace *\<user-name>* and *\<password>* with a new user name and password. The user name must be unique. The password must be at least eight characters long, with two of the following three elements:  letters, numbers, symbols. If you get a ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
 
-```azurecli-interactive
+```azurecli
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
@@ -366,7 +366,7 @@ Record the user name and password for use in later steps when you deploy the app
 
 Use the [az webapp deployment source config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) command to configure local Git access to the Azure web app. 
 
-```azurecli-interactive
+```azurecli
 az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
 ```
 
@@ -574,7 +574,7 @@ While your Node.js application runs in Azure App Service, you can get the consol
 
 To start log streaming, use the [az webapp log tail](https://docs.microsoft.com/cli/azure/webapp/log#tail) command.
 
-```azurecli-interactive
+```azurecli
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 

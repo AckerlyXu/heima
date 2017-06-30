@@ -30,7 +30,7 @@ In this scenario you will learn how to create an Azure SQL database and an Azure
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #/bin/bash
 
 # Variables
