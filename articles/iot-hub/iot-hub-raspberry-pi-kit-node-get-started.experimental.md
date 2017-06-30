@@ -15,8 +15,9 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/14/2017
+origin.date: 5/27/2017
 ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 # Connect Raspberry Pi to Azure IoT Hub (Node.js)
 
@@ -24,6 +25,7 @@ ms.author: v-yiso
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](./iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
 
+Don't have a kit yet? Try the [Raspberry Pi 3 emulator](https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/). Or buy a new kit [here](https://www.azure.cn/develop/iot/iot-starter-kits).
 
 ## What you do
 
@@ -90,7 +92,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
    ![The Raspbian Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**.
+1. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
 
    ![Enable I2C and SSH on Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
@@ -103,6 +105,7 @@ Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as foll
 
 ![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
+The BME280 sensor can collect temperature and humidity data. And the LED will blink if there is a communication between device and the cloud. 
 
 For sensor pins, use the following wiring:
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tools to manage & develop with Azure SQL Database | Microsoft Docs'
+title: 'Tools to manage & develop with Azure SQL Database | Azure'
 description: Introduces the management and development tools and options for Azure SQL Database
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 37767380-975f-4dee-a28d-80bc2036dda3
@@ -14,7 +14,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+origin.date: 03/03/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 
 ---

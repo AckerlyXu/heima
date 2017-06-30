@@ -137,7 +137,7 @@ Here are the expected values:
 
 The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
-```
+```nodejs
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -161,7 +161,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
 
 As a comparison, the equivalent Python code to generate a security token is:
 
-```
+```python
 from base64 import b64encode, b64decode
 from hashlib import sha256
 from time import time
@@ -218,7 +218,7 @@ For example, a token created to access all device functionality should have the 
 
 An example using the preceding Node.js function would be:
 
-```
+```nodejs
 var endpoint ="myhub.azure-devices.cn/devices/device1";
 var deviceKey ="...";
 
@@ -256,7 +256,7 @@ As an example, a token service using the pre-created shared access policy called
 
 An example using the preceding Node.js function would be:
 
-```
+```nodejs
 var endpoint ="myhub.azure-devices.cn/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -291,6 +291,7 @@ As an example, a service generating using the pre-created shared access policy c
 * policy name: `registryRead`,
 * any expiration time.
 
+```nodejs
     var endpoint ="myhub.azure-devices.cn/devices";
     var policyName = 'device';
     var policyKey = '...';
@@ -325,7 +326,7 @@ The **RegistryManager** class provides a programmatic way to register a device. 
 
 Here is a sample C\# code snippet to register a device using an X.509 certificate:
 
-```
+```csharp
 var device = new Device(deviceId)
 {
   Authentication = new AuthenticationMechanism()
@@ -349,7 +350,7 @@ The class **DeviceAuthenticationWithX509Certificate** supports the creation of
 
 Here is a sample code snippet:
 
-```
+```csharp
 var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509Certificate);
 
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
@@ -400,7 +401,7 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
-* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

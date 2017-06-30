@@ -4,7 +4,7 @@ description: Learn how to create an internal load balancer using PowerShell in t
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 tags: azure-service-management
 
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d

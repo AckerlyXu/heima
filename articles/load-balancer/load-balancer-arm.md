@@ -4,7 +4,7 @@ description: Using powershell for Load Balancer with Azure Resource Manager. Usi
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265

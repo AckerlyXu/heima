@@ -4,7 +4,7 @@ description: Overview of multiVIP and how to set multiple VIPs on a cloud servic
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 
 ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer

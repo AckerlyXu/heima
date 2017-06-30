@@ -6,7 +6,7 @@ description: Learn how to assign multiple IP addresses to a virtual machine usin
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
-manager: narayan
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 

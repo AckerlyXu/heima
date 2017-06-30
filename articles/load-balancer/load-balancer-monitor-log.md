@@ -4,7 +4,7 @@ description: Learn how to enable alert events, and probe health status logging f
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 tags: azure-resource-manager
 
 ms.assetid: 56656d74-0241-4096-88c8-aa88515d676d

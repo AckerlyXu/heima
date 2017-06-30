@@ -4,7 +4,7 @@ description: 'How to use the features of the ADAL SDK to enable Single Sign On a
 services: active-directory
 documentationcenter: ''
 author: alexchen2016
-manager: mbaldwin
+manager: digimobile
 editor: ''
 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 02/15/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # How to enable cross-app SSO on iOS using ADAL
@@ -26,6 +27,9 @@ In addition, if you apply an identity platform that other applications may use s
 The Microsoft Identity platform, along with our Microsoft Identity SDKs, does all this hard work for you and gives you the ability to delight your customers with SSO either within your own suite of applications or, as with our broker capability and Authenticator applications, across the entire device.
 
 This walkthrough will tell you how to configure our SDK within your application to provide this benefit to your customers.
+
+This walkthrough applies to:
+
 
 The document preceding assumes you know how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) and integrated your application with the [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 

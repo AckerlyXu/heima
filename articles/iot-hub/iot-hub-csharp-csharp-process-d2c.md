@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/02/2017
-ms.date: 06/05/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
 ---
 
@@ -115,6 +115,9 @@ For more information about how to process messages from Service Bus queues, see 
 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
 
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]
@@ -202,7 +205,8 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [HDInsight (Hadoop)]: /hdinsight/
 [Service Bus Queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
+
 
 [Azure Storage]: /storage/
 [Azure Service Bus]: /service-bus-messaging/
