@@ -21,7 +21,7 @@ ms.author: v-dazen
 
 # Convert an existing Azure virtual machine to a scale set
 
-This tutorial shows you how to use Azure CLI 2.0 to convert a virtual machine to a virtual machine scale set. You also learn how to automate the configuration of the virtual machines in the scale set. For more information on how to install Azure CLI 2.0, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md). For more information about scale sets, see [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+This tutorial shows you how to use Azure CLI 2.0 to convert a virtual machine to a virtual machine scale set. You also learn how to automate the configuration of the virtual machines in the scale set. For more information on how to install Azure CLI 2.0, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). For more information about scale sets, see [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
 ## Step 1 - Deprovision the VM
 
