@@ -196,5 +196,4 @@
 # Resources
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/professional-program/big-data/)
 ## [Get help on the forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)

@@ -33,7 +33,7 @@ This section assumes you already have a file share that you want to connect to. 
 5. Select a file share.
 6. Click **Connect** to open a page that shows the command-line syntax for mounting the file share from Windows or Linux.
 7. Highlight the syntax of the command and paste it into Notepad or someplace else where you can easily access it. 
-8. Edit the syntax to remove the leading **> ** and replace *[drive letter]* with the drive letter (for example, **Y:**) where you would like to mount the file share.
+8. Edit the syntax to remove the leading **>** and replace *[drive letter]* with the drive letter (for example, **Y:**) where you would like to mount the file share.
 8. Connect to your VM and open a command prompt.
 9. Paste in the edited connection syntax and hit **Enter**.
 10. When the connection has been created, you get the message **The command completed successfully.**

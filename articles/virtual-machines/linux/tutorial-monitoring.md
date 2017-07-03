@@ -35,7 +35,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/gropu#create). The following example creates a resource group named *myResourceGroupMonitor* in the *chinaeast* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroupMonitor* in the *chinaeast* location.
 
 ```azurecli 
 az group create --name myResourceGroupMonitor --location chinaeast
@@ -91,7 +91,7 @@ When boot diagnostics are enabled, each time you stop and start the VM, informat
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Now start the VM with the [az vm start]( /cli/azure/vm#stop) command as follows:
+Now start the VM with the [az vm start](https://docs.microsoft.com/cli/azure/vm#stop) command as follows:
 
 ```azurecli 
 az vm start --resource-group myResourceGroupMonitor --name myVM

@@ -136,7 +136,6 @@
 ## [ExpressRoute](/expressroute/)
 
 # Resources
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
+## [Networking blog](https://www.azure.cn/blog/tags/虚拟网络)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://www.azure.cn/pricing/details/networking/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
