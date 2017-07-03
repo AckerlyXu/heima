@@ -29,7 +29,7 @@ To avoid ambiguity, let's distinguish four types of OS update you might want to 
 * Changing the image reference of a scale set that was created using Azure Managed Disks.
 * Patching the OS from within a virtual machine (examples of this include installing a security patch and running Windows Update). This scenario is supported but not covered in this article.
 
-Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](https://www.azure.cn/home/features/service-fabric/) cluster are not covered here. See [Patch Windows OS in your Service Fabric cluster](/service-fabric/service-fabric-patch-orchestration-application) for more information about patching Service Fabric.
+Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](https://www.azure.cn/home/features/service-fabric/) cluster are not covered here.
 
 The basic sequence for changing the OS version/SKU of a platform image or the URI of a custom image looks as follows:
 

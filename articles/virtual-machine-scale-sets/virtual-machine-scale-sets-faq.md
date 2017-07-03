@@ -69,7 +69,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
     This command gives you the input for the Azure Resource Manager template.
 
-    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/service-fabric-cluster-security/).
+    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security/).
 
 2.  Change the Resource Manager template.
 

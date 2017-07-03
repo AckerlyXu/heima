@@ -1,4 +1,4 @@
-Configure local Git deployment to the API app with the [az webapp source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) command.   
+Configure local Git deployment to the API app with the [az webapp source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) command.   
 
 App Service supports several ways to deploy content to a web app, such as FTP, local Git, and GitHub. For this quickstart, you deploy by using local Git. That means you deploy by using a Git command to push from a local repository to a repository in Azure.  
 
