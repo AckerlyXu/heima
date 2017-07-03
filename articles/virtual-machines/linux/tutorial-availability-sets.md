@@ -45,7 +45,7 @@ You should always use Availability Sets when you want to deploy reliable VM base
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](https://docs.microsoft.com/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
+You can create an availability set using [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set#create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 Create a resource group.
 
@@ -89,7 +89,7 @@ One thing you may encounter as you add VMs is that a particular VM size is no lo
 
 ## Check for available VM sizes 
 
-You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
+You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/vm/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
 
 ```azurecli 
 az vm availability-set list-sizes \

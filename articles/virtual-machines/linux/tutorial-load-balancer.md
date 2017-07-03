@@ -55,7 +55,7 @@ az group create --name myResourceGroupLoadBalancer --location chinaeast
 ```
 
 ### Create a public IP address
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](https://docs.microsoft.com/cli/azure/public-ip#create). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
 
 ```azurecli 
 az network public-ip create \
@@ -113,7 +113,7 @@ az network lb rule create \
 Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
 
 ### Create network resources
-Create a virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/vnet#create). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
+Create a virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
 
 ```azurecli 
 az network vnet create \
