@@ -63,5 +63,4 @@
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
+## [Videos](https://www.azure.cn/video-center/)
