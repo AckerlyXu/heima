@@ -76,6 +76,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
 | *subscription_id* | Output from `$sub.SubscriptionId` command |
 | *object_id*       | View service principal object ID with `$sp.Id` |
 | *storage_account* | Name you specified in `$storageAccountName` |
+| *cloud_environment_name* | It's `AzureChinaCloud` |
 
 ```json
 {
@@ -110,6 +111,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
         "task": "Image deployment"
     },
 
+    "cloud_environment_name": "AzureChinaCloud",
     "location": "China East",
     "vm_size": "Standard_DS2_v2"
   }],
