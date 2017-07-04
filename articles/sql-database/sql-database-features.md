@@ -79,7 +79,7 @@ The following tables list the major features of Azure SQL Database and the equiv
 | DML triggers | [Supported](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) | [Supported](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) |
 | DMVs | [All](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Some - see [Individual DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) |
 | Elastic pools | Not supported | [Supported](sql-database-elastic-pool.md) |
-| Elastic jobs | Not supported - see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | [Supported](sql-database-elastic-jobs-getting-started.md) | 
+| Elastic jobs | Not supported - see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Not Supported | 
 | Elastic queries | Not supported - see [Cross-database queries](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/cross-database-queries) | [Supported](sql-database-elastic-query-overview.md) |
 | Event notifications | [Supported](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | [Supported](sql-database-insights-alerts-portal.md) |
 | Expressions | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |
@@ -90,7 +90,7 @@ The following tables list the major features of Azure SQL Database and the equiv
 | Full-text search | [Supported](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | [Third-party word breakers not supported](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |
 | Functions | [Supported](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see [Individual functions](https://docs.microsoft.com/sql/t-sql/functions/functions) |
 | In-memory optimization | [Supported](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | [Premium edition only](sql-database-in-memory.md) |
-| Jobs | See [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | See [Elastic jobs](sql-database-elastic-jobs-getting-started.md) |
+| Jobs | See [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Not Supported |
 | JSON data support | [Supported](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Supported](sql-database-json-features.md) |
 | Language elements | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Most - See [Individual elements](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) |  
 | Linked servers | [Supported](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Not supported - see [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |
@@ -116,7 +116,7 @@ The following tables list the major features of Azure SQL Database and the equiv
 | Server configuration settings | [Supported](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | Not supported - see [Database configuration options](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) |
 | Set statements | [Supported](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Most - See [Individual statements](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) 
 | Spatial | [Supported](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | [Supported](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) |
-| SQL Server Agent | [Supported](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Not supported - See [Elastic jobs](sql-database-elastic-jobs-getting-started.md) |
+| SQL Server Agent | [Supported](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Not supported |
 | SQL Server Analysis Services (SSAS) | [Supported](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Not supported - see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | SQL Server Integration Services (SSIS) | [Supported](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Not supported - see [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supported](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | [Supported](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) |
