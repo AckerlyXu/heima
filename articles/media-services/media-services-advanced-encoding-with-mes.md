@@ -1,10 +1,10 @@
 ---
-title: Perform advanced encoding by customizing MES presets | Microsoft Docs
+title: Perform advanced encoding by customizing MES presets | Azure
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
@@ -13,7 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+origin.date: 06/12/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 
 ---
@@ -23,6 +24,10 @@ ms.author: v-johch
 ## Overview
 
 This topic shows how to customize Media Encoder Standard presets. The [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) topic shows how to use .NET to create an encoding task and a job that executes this task. Once you customize a preset, supply the custom presets to the encoding task. 
+
+>[!NOTE]
+>If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
+>
 
 In this topic, the custom presets that perform the following encoding tasks are demonstrated.
 
@@ -150,7 +155,6 @@ Make sure to review the [Considerations](#considerations) section.
       ]
     }
 
-
 ### <a id="xml"></a>XML preset
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -229,7 +233,7 @@ Make sure to review the [Considerations](#considerations) section.
 The following considerations apply:
 
 * The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
-* Jpg/Png/BmpImage elements have Start, Step, and Range string attributes – these can be interpreted as:
+* Jpg/Png/BmpImage elements have Start, Step, and Range string attributes - these can be interpreted as:
 
   * Frame Number if they are non-negative integers, for example "Start": "120",
   * Relative to source duration if expressed as %-suffixed, for example "Start": "15%", OR
@@ -237,13 +241,13 @@ The following considerations apply:
 
     You can mix and match notations as you please.
 
-    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first “interesting” frame of the content
+    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first "interesting" frame of the content
     NOTE: (Step and Range are ignored when Start is set to {Best})
   * Defaults: Start:{Best}
 * Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES matches JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
 
 ## <a id="trim_video"></a>Trim a video (clipping)
-This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset, which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset, which is captured or archived from a live stream - the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 To trim your videos, you can take any of the MES presets documented [this](media-services-mes-presets-overview.md) section and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. **Sources** should be placed at the beginning of the preset.
 
@@ -492,11 +496,10 @@ In addition to defining a preset file, you also have to let Media Services know 
 
 If you are using .NET, add the following two functions to the .NET example defined in [this](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) topic. The **UploadMediaFilesFromFolder** function uploads files from a folder (for example, BigBuckBunny.mp4 and Image001.png) and sets the mp4 file to be the primary file in the asset. The **EncodeWithOverlay** function uses the custom preset file that was passed to it (for example, the preset that follows) to create the encoding task.
 
-
 	static public IAsset UploadMediaFilesFromFolder(string folderPath)
 	{
 	    IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-	
+
 	    foreach (var af in asset.AssetFiles)
 	    {
 	        // The following code assumes 
@@ -505,10 +508,10 @@ If you are using .NET, add the following two functions to the .NET example defin
 	            af.IsPrimary = true;
 	        else
 	            af.IsPrimary = false;
-	
+
 	        af.Update();
 	    }
-	
+
 	    return asset;
 	}
 
@@ -543,7 +546,6 @@ If you are using .NET, add the following two functions to the .NET example defin
 
         return job.OutputMediaAssets[0];
     }
-
 
 > [!NOTE]
 > Current limitations:
@@ -630,7 +632,6 @@ If you are using .NET, add the following two functions to the .NET example defin
       ]
     }
 
-
 ### XML preset
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -693,7 +694,6 @@ If you are using .NET, add the following two functions to the .NET example defin
       </Outputs>
     </Preset>
 
-
 ## <a id="silent_audio"></a>Insert a silent audio track when input has no audio
 By default, if you send an input to the encoder that contains only video, and no audio, then the output asset contains files that contain only video data. Some players may not be able to handle such output streams. You can use this setting to force the encoder to add a silent audio track to the output in that scenario.
 
@@ -718,7 +718,7 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
     </AACAudio>
 
 ## <a id="deinterlacing"></a>Disable auto de-interlacing
-Customers don’t need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
+Customers don't need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
 
 You can turn the auto de-interlacing off. This option is not recommended.
 
@@ -743,7 +743,6 @@ You can turn the auto de-interlacing off. This option is not recommended.
       </Filters>
     </Source>
     </Sources>
-
 
 ## <a id="audio_only"></a>Audio-only presets
 This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Quality Audio.
@@ -906,15 +905,15 @@ Update your custom preset with ids of the assets that you want to concatenate, a
 See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) topic.
 
 ## <a id="no_video"></a>Insert a video track when input has no video
+
 By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario.
 
 > [!NOTE]
 > Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.
 >
->
 
 ### Inserting video at only the lowest bitrate
-Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the "InsertBlackIfNoVideoBottomLayerOnly" flag.
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the **InsertBlackIfNoVideoBottomLayerOnly** flag.
 
 You can take any of the MES presets documented in [this](media-services-mes-presets-overview.md) section, and make the following modification:
 
@@ -929,9 +928,30 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
     }
 
 #### XML preset
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+When using XML, use Condition="InsertBlackIfNoVideoBottomLayerOnly" as an attribute to the **H264Video** element and  Condition="InsertSilenceIfNoAudio" as an attribute to **AACAudio**.
+
+	. . .
+	<Encoding>  
+	<H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+	  <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	  <SceneChangeDetection>true</SceneChangeDetection>  
+	  <StretchMode>AutoSize</StretchMode>
+	  <H264Layers>  
+	<H264Layer>  
+	  . . .
+	</H264Layer>  
+	  </H264Layers>  
+	  <Chapters />  
+	</H264Video>  
+	<AACAudio Condition="InsertSilenceIfNoAudio">  
+	  <Profile>AACLC</Profile>  
+	  <Channels>2</Channels>  
+	  <SamplingRate>48000</SamplingRate>  
+	  <Bitrate>128</Bitrate>  
+	</AACAudio>  
+	</Encoding>  
+	. . .
 
 ### Inserting video at all output bitrates
 Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This ensures that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
@@ -949,9 +969,30 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
     }
 
 #### XML preset
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+
+When using XML, use Condition="InsertBlackIfNoVideo" as an attribute to the **H264Video** element and  Condition="InsertSilenceIfNoAudio" as an attribute to **AACAudio**.
+
+	. . .
+	<Encoding>  
+	<H264Video Condition="InsertBlackIfNoVideo">  
+	  <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	  <SceneChangeDetection>true</SceneChangeDetection>  
+	  <StretchMode>AutoSize</StretchMode>
+	  <H264Layers>  
+	<H264Layer>  
+	  . . .
+	</H264Layer>  
+	  </H264Layers>  
+	  <Chapters />  
+	</H264Video>  
+	<AACAudio Condition="InsertSilenceIfNoAudio">  
+	  <Profile>AACLC</Profile>  
+	  <Channels>2</Channels>  
+	  <SamplingRate>48000</SamplingRate>  
+	  <Bitrate>128</Bitrate>  
+	</AACAudio>  
+	</Encoding>  
+	. . .  
 
 ## <a id="rotate_video"></a>Rotate a video
 The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 0/90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming video file and compensate for it. Include the following **Sources** element to one of the presets defined in [this](media-services-mes-presets-overview.md) section:
