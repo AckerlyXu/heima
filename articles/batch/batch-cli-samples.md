@@ -3,8 +3,8 @@ title: Azure Batch CLI Samples | Microsoft Docs
 description: Azure Batch CLI Samples
 services: batch
 documentationcenter: ''
-author: annatisch
-manager: daryls
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 
 ms.assetid:
@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 05/01/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ---
 
@@ -33,3 +34,4 @@ The following table includes links to bash scripts built using the Azure CLI tha
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+
