@@ -4,7 +4,7 @@ description: For a small data size, uses bcp to export data from SQL Server to f
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: f87d8d7c-8276-43c5-90e7-d4ccc0e3a224
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 03/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -190,8 +190,8 @@ See [Table Overview][Table Overview] or [CREATE TABLE syntax][CREATE TABLE synta
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

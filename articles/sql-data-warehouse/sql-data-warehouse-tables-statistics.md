@@ -4,7 +4,7 @@ description: Getting started with statistics on tables in Azure SQL Data Warehou
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+origin.date: 10/31/2016
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -478,18 +479,18 @@ For more details, see [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] on MSDN.  To 
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/zh-cn/library/dn600374.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms188038.aspx
+[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/zh-cn/library/ms174384.aspx
+[Statistics]: https://msdn.microsoft.com/zh-cn/library/ms190397.aspx
+[STATS_DATE]: https://msdn.microsoft.com/zh-cn/library/ms190330.aspx
+[sys.columns]: https://msdn.microsoft.com/zh-cn/library/ms176106.aspx
+[sys.objects]: https://msdn.microsoft.com/zh-cn/library/ms190324.aspx
+[sys.schemas]: https://msdn.microsoft.com/zh-cn/library/ms190324.aspx
+[sys.stats]: https://msdn.microsoft.com/zh-cn/library/ms177623.aspx
+[sys.stats_columns]: https://msdn.microsoft.com/zh-cn/library/ms187340.aspx
+[sys.tables]: https://msdn.microsoft.com/zh-cn/library/ms187406.aspx
+[sys.table_types]: https://msdn.microsoft.com/zh-cn/library/bb510623.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms187348.aspx
 
 <!--Other Web references-->

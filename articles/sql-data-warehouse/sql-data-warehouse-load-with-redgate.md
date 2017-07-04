@@ -4,7 +4,7 @@ description: Learn how to use Redgate's Data Platform Studio for data warehousin
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 03/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -120,7 +120,7 @@ Once the import is complete, DPS displays a summary of the data import and a cha
 To explore your data within SQL Data Warehouse, start by viewing:
 
 * [Query Azure SQL Data Warehouse (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)]
-<!-- * [Visualize data with Power BI][Visualize data with Power BI]-->
+<!-- Not Availabel  [Visualize data with Power BI][Visualize data with Power BI] -->
 
 To learn more about Redgate's Data Platform Studio:
 
@@ -146,7 +146,7 @@ For more development tips, see the [SQL Data Warehouse development overview](sql
 
 <!--Article references-->
 [Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
-<!-- [Visualize data with Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md -->
+<!-- Not Available [Visualize data with Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md -->
 [Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
 [Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md

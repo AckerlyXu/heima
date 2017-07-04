@@ -4,7 +4,7 @@ description: Azure Portal tasks for restoring Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: barbkess
+manager: digimobile
 editor: ''
 
 ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
@@ -15,10 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
 origin.date: 09/21/2016
-ms.date: 02/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
-ss
+
 # Restore Azure SQL Data Warehouse (portal)
 
 > [!div class="op_single_selector"]

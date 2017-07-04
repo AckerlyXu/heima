@@ -4,7 +4,7 @@ description: Migration guidance for bringing your solution to Azure SQL Data War
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 198365eb-7451-4222-b99c-d1d9ef687f1b
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 10/31/2016
-ms.date: 01/03/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 

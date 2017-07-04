@@ -4,7 +4,7 @@ description: Recommendations and best practices you should know as you develop s
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 10/31/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -145,23 +145,23 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[INSERT]: https://msdn.microsoft.com/library/ms174335.aspx
-[OPTION]: https://msdn.microsoft.com/library/ms190322.aspx
-[TRUNCATE TABLE]: https://msdn.microsoft.com/library/ms177570.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-[sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
-[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/zh-cn/library/ms190273.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms188038.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/zh-cn/library/mt204017.aspx
+[INSERT]: https://msdn.microsoft.com/zh-cn/library/ms174335.aspx
+[OPTION]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
+[TRUNCATE TABLE]: https://msdn.microsoft.com/zh-cn/library/ms177570.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms187348.aspx
+[sys.dm_exec_sessions]: https://msdn.microsoft.com/zh-cn/library/ms176013.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/zh-cn/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/zh-cn/library/mt203889.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/zh-cn/library/mt203878.aspx
+[sys.dm_pdw_waits]: https://msdn.microsoft.com/zh-cn/library/mt203893.aspx
+[Columnstore indexes guide]: https://msdn.microsoft.com/zh-cn/library/gg492088.aspx
 
 <!--Other Web references-->
 [Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
