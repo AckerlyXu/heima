@@ -118,12 +118,12 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 * [Customer success stories]
 * [Blogs]
 * [Feature requests]
-* [Videos]
+<!-- Not Available * [Videos] -->
 * [Customer Advisory Team blogs]
 <!-- Not Available * [Create support ticket]-->
 * [MSDN forum]
 * [Stack Overflow forum]
-* [Twitter]
+<!-- Not Available * [Twitter] -->
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png

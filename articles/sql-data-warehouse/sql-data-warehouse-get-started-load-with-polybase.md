@@ -37,10 +37,7 @@ This tutorial shows how to load data into SQL Data Warehouse using AzCopy and Po
 * Create database objects to define the data
 * Run a T-SQL query to load the data
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
-> 
-> 
-
+<!-- Not Available [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player] -->
 ## Prerequisites
 To step through this tutorial, you need
 

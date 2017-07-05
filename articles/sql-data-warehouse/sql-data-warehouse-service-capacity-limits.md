@@ -32,7 +32,7 @@ The following tables contain the maximum values allowed for various components o
 | Database connection |Maximum memory for prepared statements |20 MB |
 | [Workload management][Workload management] |Maximum concurrent queries |32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class or when SQL Data Warehouse is configured with low DWU. Some queries, like DMV queries, are always allowed to run. |
 | [Tempdb][Tempdb] |Max size of Tempdb |399 GB per DW100. Therefore at DWU1000 Tempdb is sized to 3.99 TB |
-<!- Not Available [creating a support ticket][creating a support ticket] -->
+<!-- Not Available [creating a support ticket][creating a support ticket] -->
 
 ## Database objects
 | Category | Description | Maximum |
