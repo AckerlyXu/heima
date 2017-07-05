@@ -1,20 +1,21 @@
 ---
-title: Connect to SQL Database using C and C++ | Microsoft Docs
+title: Connect to SQL Database using C and C++ | Azure
 description: Use the sample code in this quick start to build a modern application with C++ and backed by a powerful relational database in the cloud with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: asthana86
-manager: danmoth
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 03/06/2017
+origin.date: 03/06/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 
 ---
@@ -29,7 +30,7 @@ Make sure you have the following items:
 * [Visual Studio Linux Development](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). If you are developing on Linux, you must also install the Visual Studio Linux extension. 
 
 ## <a id="AzureSQL"></a>Azure SQL Database and SQL Server on virtual machines
-Azure SQL is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using SQL Azure over your proprietary database running on premises. With SQL Azure you don’t have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in. 
+Azure SQL is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using SQL Azure over your proprietary database running on premises. With SQL Azure you don't have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in. 
 
 Azure currently has two options for hosting SQL server workloads: Azure SQL database, database as a service and SQL server on Virtual Machines (VM). We will not get into detail about the differences between these two except that Azure SQL database is your best bet for new cloud-based applications to take advantage of the cost savings and performance optimization that cloud services provide. If you are considering migrating or extending your on-premises applications to the cloud, SQL server on Azure virtual machine might work out better for you. To keep things simple for this article, let's create an Azure SQL database. 
 
@@ -37,7 +38,7 @@ Azure currently has two options for hosting SQL server workloads: Azure SQL data
 Connecting to Azure SQL DB is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API. 
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  
+See the [getting started page](sql-database-get-started-portal.md) to learn how to create a sample database.  
 
 ## <a id="ConnectionString"></a>Step 2:  Get connection string
 After your Azure SQL database has been provisioned, you need to carry out the following steps to determine connection information and add your client IP for firewall access. 
@@ -75,7 +76,7 @@ Alternatively, you could create a DSN file using the wizard that is launched whe
 Congratulations! You have now successfully connected to Azure SQL using C++ and ODBC on Windows. You can continue reading to do the same for Linux platform as well. 
 
 ## <a id="Linux"></a>Step 5: Connecting from a Linux C/C++ application
-In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md). 
+In case you haven't heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don't have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md). 
 
 For this tutorial, let us assume that you have an Ubuntu 16.04 Linux distribution set up. The steps here should also apply to Ubuntu 15.10, Red Hat 6, and Red Hat 7. 
 
@@ -83,8 +84,8 @@ The following steps install the libraries needed for SQL and ODBC for your distr
 
 ```
 sudo su
-sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.cn/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
-sudo apt-key adv --keyserver apt-mo.trafficmanager.cn --recv-keys 417A0893
+sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
+sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
 apt-get update
 apt-get install msodbcsql
 apt-get install unixodbc-dev-utf16 #this step is optional but recommended*

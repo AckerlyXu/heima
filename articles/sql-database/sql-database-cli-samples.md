@@ -1,21 +1,22 @@
 ---
-title: Azure CLI Samples for SQL Database | Microsoft Docs
+title: Azure CLI Samples for SQL Database | Azure
 description: Azure CLI Samples - Create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
 services: sql-database
 documentationcenter: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
-ms.devlang: na
+ms.custom: overview-samples
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+origin.date: 03/07/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 ---
 

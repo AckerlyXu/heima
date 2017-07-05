@@ -3,18 +3,19 @@ title: Connect Azure SQL Database by using Ruby | Azure
 description: Presents a Ruby code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: ajlam
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 05/07/2017
+ms.topic: hero-article
+origin.date: 05/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 
 ---
@@ -23,14 +24,17 @@ ms.author: v-johch
 
 This quick start demonstrates how to use [Ruby](https://Ruby.org) to connect to an Azure SQL database; then use Transact-SQL statements to  query, insert, update, and delete data in the database from Mac OS and Ubuntu Linux platforms.
 
+## Prerequisites
+
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## Install Ruby and database communication libraries
 
-The steps in this section assume that you are familiar with developing using Ruby and are new to working with Azure SQL Database. If you are new to developing with Ruby, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Ruby** and then select your operating system.
+The steps in this section assume that you are familiar with developing using Ruby and are new to working with Azure SQL Database. If you are new to developing with Ruby, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) and select **Ruby** and then select your operating system.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install **brew**, **FreeTDS**, and **TinyTDS**.
@@ -67,7 +71,6 @@ Get the connection information needed to connect to the Azure SQL database. You 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
-    
 
 ## Select data
 Use the following code to query for the top 20 products by category using the [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The TinyTDS::Client function accepts a query and returns a result set. The results set is iterated over by using [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
@@ -96,7 +99,7 @@ end
 Use the following code to insert a new product into the SalesLT.Product table using the [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function with an [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 This example demonstrates how to execute an INSERT statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) value.    
-  
+
 To use TinyTDS with Azure, it is recommended that you execute several `SET` statements to change how the current session handles specific information. Recommended `SET` statements are provided in the code sample. For example, `SET ANSI_NULL_DFLT_ON` will allow new columns created to allow null values even if the nullability status of the column is not explicitly stated.  
   
 To align with the Microsoft SQL Server [datetime](https://docs.microsoft.com/sql/t-sql/data-types/datetime-transact-sql) format, use the [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) function to cast to the corresponding datetime format.
@@ -141,7 +144,7 @@ username = 'your_username'
 password = 'your_password'
 client = TinyTds::Client.new username: username, password: password, 
     host: server, port: 1433, database: database, azure: true
-    
+
 def update(name, listPrice, client)
     tsql = "UPDATE SalesLT.Product SET ListPrice = N'#{listPrice}' WHERE Name =N'#{name}'";
     result = client.execute(tsql)

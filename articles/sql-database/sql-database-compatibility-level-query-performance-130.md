@@ -1,6 +1,6 @@
 ---
-title: Database compatibility level 130 - Azure SQL Database | Microsoft Docs
-description: In this article, we explore the benefits of running your Azure SQL Database at compatibility level 130, and using the benefits of the new query optimizer and query processor features. We also address the possible side effects on the query performance for the existing SQL applications.
+title: Database compatibility level 130 - Azure SQL Database | Azure
+description: In this article, we explore the benefits of running your Azure SQL Database at compatibility level 130, and leveraging the benefits of the new query optimizer and query processor features. We also address the possible side-effects on the query performance for the existing SQL applications.
 services: sql-database
 documentationcenter: ''
 author: alainlissoir
@@ -9,12 +9,13 @@ editor: ''
 
 ms.assetid: 8619f90b-7516-46dc-9885-98429add0053
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.topic: article
-ms.date: 03/03/2017
+origin.date: 08/08/2016
+ms.date: ''
 ms.author: v-johch
 
 ---
@@ -31,9 +32,10 @@ As a reminder of history, the alignment of SQL versions to default compatibility
 * 130: in SQL Server 2016 and Azure SQL Database V12.
 
 > [!IMPORTANT]
-> The default compatibility level is 130 for **newly created** databases.
+> Starting in **mid-June 2016**, in Azure SQL Database, the default compatibility level will be 130 instead of 120 for **newly created** databases.
 > 
-
+> Databases created before mid-June 2016 will *not* be affected, and will maintain their current compatibility level (100, 110, or 120). Databases that migrated from Azure SQL Database version V11 to V12 will have a compatibility level of either 100 or 110. 
+> 
 
 ## About compatibility level 130
 First, if you want to know the current compatibility level of your database, execute the following Transact-SQL statement.
@@ -41,15 +43,14 @@ First, if you want to know the current compatibility level of your database, exe
 ```
 SELECT compatibility_level
     FROM sys.databases
-    WHERE name = '<YOUR DATABASE_NAME>’;
+    WHERE name = '<YOUR DATABASE_NAME>';
 ```
 
+Before this change to level 130 happens for **newly** created databases, let's review what this change is all about through some very basic query examples, and see how anyone can benefit from it.
 
-Before this change to level 130 happens for **newly** created databases, let’s review what this change is all about through some basic query examples, and see how anyone can benefit from it.
+Query processing in relational databases can be very complex and can lead to lots of computer science and mathematics to understand the inherent design choices and behaviors. In this document, the content has been intentionally simplified to ensure that anyone with some minimum technical background can understand the impact of the compatibility level change and determine how it can benefit applications.
 
-Query processing in relational databases can be very complex and require a deep background in computer science and mathematics to understand the inherent design choices and behaviors. In this document, the content has been intentionally simplified to ensure that anyone with some minimum technical background can understand the impact of the compatibility level change and determine how it can benefit applications.
-
-Let’s have a quick look at what the compatibility level 130 brings at the table.  You can find more details at [ALTER DATABASE Compatibility Level (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx), but here is a short summary:
+Let's have a quick look at what the compatibility level 130 brings at the table.  You can find more details at [ALTER DATABASE Compatibility Level (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx), but here is a short summary:
 
 * The Insert operation of an Insert-select statement can be multi-threaded or can have a parallel plan, while before this operation was single-threaded.
 * Memory Optimized table and table variables queries can now have parallel plans, while before this operation was also single-threaded.
@@ -59,16 +60,16 @@ Let’s have a quick look at what the compatibility level 130 brings at the tabl
   * Windowing aggregates now operate in batch mode such as T-SQL LAG/LEAD statements.
   * Queries on Column Store tables with Multiple distinct clauses operate in Batch mode.
   * Queries running under DOP=1 or with a serial plan also execute in Batch Mode.
-* Last, Cardinality Estimation improvements come with compatibility level 120, but for those of you running at a lower Compatibility level (that is 100, or 110), the move to compatibility level 130 also brings these improvements, and these can also benefit the query performance of your applications.
+* Last, Cardinality Estimation improvements are actually coming with compatibility level 120, but for those of you running at a lower Compatibility level (i.e. 100, or 110), the move to compatibility level 130 will also bring these improvements, and these can also benefit the query performance of your applications.
 
 ## Practicing compatibility level 130
-First let’s get some tables, indexes, and random data created to practice some of these new capabilities. The T-SQL script examples can be executed under SQL Server 2016, or under Azure SQL Database. However, when creating an Azure SQL database, make sure you choose at the minimum a P2 database because you need at least a couple of cores to allow multi-threading and therefore benefit from these features.
+First let's get some tables, indexes and random data created to practice some of these new capabilities. The TSQL script examples can be executed under SQL Server 2016, or under Azure SQL Database. However, when creating an Azure SQL database, make sure you choose at the minimum a P2 database because you need at least a couple of cores to allow multi-threading and therefore benefit from these features.
 
 ```
 -- Create a Premium P2 Database in Azure SQL Database
 
 CREATE DATABASE MyTestDB
-    (EDITION=’Premium’, SERVICE_OBJECTIVE=’P2′);
+    (EDITION='Premium', SERVICE_OBJECTIVE='P2');
 GO
 
 -- Create 2 tables with a column store index on
@@ -86,11 +87,11 @@ GO
 -- Insert few rows.
 
 INSERT T_source VALUES
-    (‘Blue’, RAND() * 100000, RAND() * 100000),
-    (‘Yellow’, RAND() * 100000, RAND() * 100000),
-    (‘Red’, RAND() * 100000, RAND() * 100000),
-    (‘Green’, RAND() * 100000, RAND() * 100000),
-    (‘Black’, RAND() * 100000, RAND() * 100000);
+    ('Blue', RAND() * 100000, RAND() * 100000),
+    ('Yellow', RAND() * 100000, RAND() * 100000),
+    ('Red', RAND() * 100000, RAND() * 100000),
+    ('Green', RAND() * 100000, RAND() * 100000),
+    ('Black', RAND() * 100000, RAND() * 100000);
 
 GO 200
 
@@ -99,8 +100,7 @@ INSERT T_source SELECT * FROM T_source;
 GO 10
 ```
 
-
-Now, let’s have a look to some of the Query Processing features coming with compatibility level 130.
+Now, let's have a look to some of the Query Processing features coming with compatibility level 130.
 
 ## Parallel INSERT
 Executing the following T-SQL statements executes the INSERT operation under compatibility level 120 and 130, which respectively executes the INSERT operation in a single threaded model (120), and in a multi-threaded model (130).
@@ -228,8 +228,7 @@ GO
 SET STATISTICS XML OFF;
 ```
 
-
-Visible side by side on figure 3, we can see that the sort operation in row mode represents 81% of the cost, while the batch mode only represents 19% of the cost (respectively 81% and 56% on the sort itself).
+Visible side-by-side on figure 3, we can see that the sort operation in row mode represents 81% of the cost, while the batch mode only represents 19% of the cost (respectively 81% and 56% on the sort itself).
 
 *Figure 3: SORT operation changes from row to batch mode with compatibility level 130.*
 
@@ -293,8 +292,7 @@ GO
 SET STATISTICS XML OFF;
 ```
 
-
-Changing the compatibility level 120 or 130 enables the new Cardinality Estimation functionality. In such a case, the default CardinalityEstimationModelVersion is set to 120 or 130.
+Simply moving to the compatibility level 120 or 130 enables the new Cardinality Estimation functionality. In such a case, the default CardinalityEstimationModelVersion will be set accordingly to 120 or 130 as visible below.
 
 ```
 -- New CE
@@ -318,13 +316,12 @@ GO
 SET STATISTICS XML OFF;
 ```
 
-
 *Figure 5: The CardinalityEstimationModelVersion is set to 130 when using a compatibility level of 130.*
 
 ![Figure 5](./media/sql-database-compatibility-level-query-performance-130/figure-5.jpg)
 
 ## Witnessing the Cardinality Estimation differences
-Now, let’s run a slightly more complex query involving an INNER JOIN with a WHERE clause with some predicates, and let’s look at the row count estimate from the old Cardinality Estimation function first.
+Now, let's run a slightly more complex query involving an INNER JOIN with a WHERE clause with some predicates, and let's look at the row count estimate from the old Cardinality Estimation function first.
 
 ```
 -- Old CE row estimate with INNER JOIN and WHERE clause
@@ -345,7 +342,7 @@ SELECT T.[c2]
                    [dbo].[T_source] S
         INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
     WHERE
-        S.[Color] = ‘Red’  AND
+        S.[Color] = 'Red'  AND
         S.[c2] > 2000  AND
         T.[c2] > 2000
     OPTION (RECOMPILE);
@@ -361,7 +358,7 @@ Executing this query effectively returns 200,704 rows, while the row estimate wi
 
 ![Figure 6](./media/sql-database-compatibility-level-query-performance-130/figure-6.jpg)
 
-In the same way, let’s now execute the same query with the new Cardinality Estimation functionality.
+In the same way, let's now execute the same query with the new Cardinality Estimation functionality.
 
 ```
 -- New CE row estimate with INNER JOIN and WHERE clause
@@ -382,7 +379,7 @@ SELECT T.[c2]
                    [dbo].[T_source] S
         INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
     WHERE
-        S.[Color] = ‘Red’  AND
+        S.[Color] = 'Red'  AND
         S.[c2] > 2000  AND
         T.[c2] > 2000
     OPTION (RECOMPILE);
@@ -398,7 +395,7 @@ We now see that the row estimate is 202,877, or much closer and higher than the 
 
 ![Figure 7](./media/sql-database-compatibility-level-query-performance-130/figure-7.jpg)
 
-In reality, the result set is 200,704 rows (but all of it depends how often you did run the queries of the previous samples, but more importantly, because the T-SQL uses the RAND() statement, the actual values returned can vary from one run to the next). Therefore, in this particular example, the new Cardinality Estimation does a better job at estimating the number of rows because 202,877 is much closer to 200,704, than 194,284! Last, if you change the WHERE clause predicates to equality (rather than “>” for instance), this could make the estimates between the old and new Cardinality function even more different, depending on how many matches you can get.
+In reality, the result set is 200,704 rows (but all of it depends how often you did run the queries of the previous samples, but more importantly, because the T-SQL uses the RAND() statement, the actual values returned can vary from one run to the next). Therefore, in this particular example, the new Cardinality Estimation does a better job at estimating the number of rows because 202,877 is much closer to 200,704, than 194,284! Last, if you change the WHERE clause predicates to equality (rather than ">" for instance), this could make the estimates between the old and new Cardinality function even more different, depending on how many matches you can get.
 
 Obviously, in this case, being ~6000 rows off from actual count does not represent a lot of data in some situations. Now, transpose this to millions of rows across several tables and more complex queries, and at times the estimate can be off by millions of rows, and therefore, the risk of picking-up the wrong execution plan, or requesting insufficient memory grants leading to TempDB spills, and so more I/O, are much higher.
 
@@ -417,13 +414,13 @@ At the high level, if you already have a set of databases running at compatibili
 * Next, test all critical workloads using representative data and queries of a production-like environment, and compare the performance experienced and as reported by Query Store. If you experience some regressions, you can identify the regressed queries with the Query Store and use the plan forcing option from Query Store (aka plan pinning). In such a case, you definitively stay with the compatibility level 130, and use the former query plan as suggested by the Query Store.
 * If you want to use the new features and capabilities of Azure SQL Database (which is running SQL Server 2016), but are sensitive to changes brought by the compatibility level 130, as a last resort, you could consider forcing the compatibility level back to the level that suits your workload by using an ALTER DATABASE statement. But first, be aware that the Query Store plan pinning option is your best option because not using 130 is basically staying at the functionality level of an older SQL Server version.
 * If you have multitenant applications spanning multiple databases, it may be necessary to update the provisioning logic of your databases to ensure a consistent compatibility level across all databases; old and newly provisioned ones. Your application workload performance could be sensitive to the fact that some databases are running at different compatibility levels, and therefore, compatibility level consistency across any database could be required in order to provide the same experience to your customers all across the board. It is not a mandate; it really depends on how your application is affected by the compatibility level.
-* Last, regarding the Cardinality Estimation, it is recommended to test your production workload under the new conditions to determine if your application benefits from the Cardinality Estimation improvements.
+* Last, regarding the Cardinality Estimation, and just like changing the compatibility level, before proceeding in production, it is recommended to test your production workload under the new conditions to determine if your application benefits from the Cardinality Estimation improvements.
 
 ## Conclusion
 Using Azure SQL Database to benefit from all SQL Server 2016 enhancements can clearly improve your query executions. Of course, like any new feature, a proper evaluation must be done to determine the exact conditions under which your database workload operates the best. Experience shows that most workload are expected to at least run transparently under compatibility level 130, while using new query processing functions, and new Cardinality Estimation. That said, realistically, there are always some exceptions and doing proper due diligence is an important assessment to determine how much you can benefit from these enhancements. And again, the Query Store can be of a great help in doing this work!
 
 ## References
-* [What’s New in Database Engine](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
+* [What's New in Database Engine](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
 * [Blog: Query Store: A flight data recorder for your database, by Borko Novakovic, June 8 2016](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
 * [ALTER DATABASE Compatibility Level (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 * [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx)
