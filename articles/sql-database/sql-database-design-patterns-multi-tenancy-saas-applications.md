@@ -117,7 +117,7 @@ Elastic pools in SQL Database combine tenant isolation with resource sharing amo
 | Tenant isolation and resource sharing |[Elastic pools](sql-database-elastic-pool.md): Allocate a pool of SQL Database resources and share the resources across various databases. Also, individual databases can draw as much resources from the pool as needed to accommodate capacity demand spikes due to changes in tenant workloads. The elastic pool itself can be scaled up or down as needed. Elastic pools also provide ease of manageability and monitoring and troubleshooting at the pool level. |
 | Ease of DevOps across databases |[Elastic pools](sql-database-elastic-pool.md): As noted earlier. |
 | | [Elastic query](sql-database-elastic-query-horizontal-partitioning.md): Query across databases for reporting or cross-tenant analysis. |
-| | [Elastic jobs](sql-database-elastic-jobs-overview.md): Package and reliably deploy database maintenance operations or database schema changes to multiple databases. |
+
 | | [Elastic transactions](sql-database-elastic-transactions-overview.md): Process changes to several databases in an atomic and isolated way. Elastic transactions are needed when applications need "all or nothing" guarantees over several database operations. |
 | | [Elastic database client library](sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. |
 
