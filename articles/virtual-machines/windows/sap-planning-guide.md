@@ -586,7 +586,7 @@ Also see the table on top of this article in regards to the different redundancy
 
 More information in regards to Azure Storage can be found here:
 
-* <https://review.docs.azure.cn/storage/>
+* <https://docs.azure.cn/storage/>
 * <https://azure.microsoft.com/services/site-recovery>
 * <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
@@ -645,7 +645,7 @@ Azure will provide a network infrastructure which allows the mapping of all scen
 * Cross-Premises Connectivity between a customer's on-premises network and the Azure network
 * Cross Azure Region or data center connectivity between Azure sites
 
-More information can be found here: <https://review.docs.azure.cn/virtual-network/>
+More information can be found here: <https://docs.azure.cn/virtual-network/>
 
 There are a lot of different possibilities to configure name and IP resolution in Azure. In this document, Cloud-Only scenarios rely on the default of using Azure DNS (in contrast to defining an own DNS service). There is also a new Azure DNS service which can be used instead of setting up your own
 DNS server. More information can be found in [this article][virtual-networks-manage-dns-in-vnet] and on [this page](https://www.azure.cn/home/features/dns/).
@@ -707,27 +707,27 @@ For more documentation please see [this article][vpn-gateway-create-site-to-site
 
 #### VNet to VNet Connection
 Using Multi-Site VPN, you need to configure a separate Azure Virtual Network in each of the regions. However very often you have the requirement that the software components in the different regions should communicate with each other. Ideally this communication should not be routed from one Azure Region to on-premises and from there to the other Azure Region. To shortcut, Azure offers the possibility to configure a connection from one Azure Virtual Network in one region to another Azure Virtual Network hosted in another region. This functionality is called VNet-to-VNet connection. More details on this functionality can be found here:
-<https://review.docs.azure.cn/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps/>.
+<https://docs.azure.cn/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps/>.
 
 #### Private Connection to Azure - ExpressRoute
 Azure ExpressRoute allows the creation of private connections between Azure data centers and either the customer's on-premises infrastructure or in a co-location environment. ExpressRoute is offered by various MPLS (packet switched) VPN providers or other Network Service Providers. ExpressRoute connections do not go over the public Internet. ExpressRoute connections offer higher security, more reliability through multiple parallel circuits, faster speeds and lower latencies than typical connections over the Internet.
 
 Find more details on Azure ExpressRoute and offerings here:
 
-* <https://review.docs.azure.cn/expressroute/>
+* <https://docs.azure.cn/expressroute/>
 * <https://www.azure.cn/pricing/details/expressroute/>
-* <https://review.docs.azure.cn/expressroute/expressroute-faqs/>
+* <https://docs.azure.cn/expressroute/expressroute-faqs/>
 
 Express Route enables multiple Azure subscriptions through one ExpressRoute circuit as documented here
 
-* <https://review.docs.azure.cn/expressroute/expressroute-howto-linkvnet-arm/>
-* <https://review.docs.azure.cn/expressroute/expressroute-howto-circuit-arm/>
+* <https://docs.azure.cn/expressroute/expressroute-howto-linkvnet-arm/>
+* <https://docs.azure.cn/expressroute/expressroute-howto-circuit-arm/>
 
 #### Forced tunneling in case of Cross-Premise
 For VMs joining on-premises domains through site-to-site, point-to-site or ExpressRoute, you need to make sure that the Internet proxy settings are getting deployed for all the users in those VMs as well. By default, software running in those VMs or users using a browser to access the internet would not go through the company proxy, but would connect straight through Azure to the internet. But even the proxy setting is not a 100% solution to direct the traffic through the company proxy since it is responsibility of software and services to check for the proxy. If software running in the VM is not doing that or an administrator manipulates the settings, traffic to the Internet can be detoured again directly through Azure to the Internet.
 
 In order to avoid this, you can configure Forced Tunneling with site-to-site connectivity between on-premises and Azure. The detailed description of the Forced Tunneling feature is published here
-<https://review.docs.azure.cn/vpn-gateway/vpn-gateway-forced-tunneling-rm/>
+<https://docs.azure.cn/vpn-gateway/vpn-gateway-forced-tunneling-rm/>
 
 Forced Tunneling with ExpressRoute is enabled by customers advertising a default route via the ExpressRoute BGP peering sessions.
 
