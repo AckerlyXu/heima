@@ -1,7 +1,7 @@
 1. On the left side of the portal page, click **+** and type 'Virtual Network Gateway' in search. In **Results**, locate and click **Virtual network gateway**.
 2. At the bottom of the 'Virtual network gateway' blade, click **Create**. This opens the **Create virtual network gateway** blade.
 
-  ![Create virtual network gateway blade fields](./media/vpn-gateway-add-gw-s2s-rm-portal-include/vnet_gw.png "New gateway")
+    ![Create virtual network gateway blade fields](./media/vpn-gateway-add-gw-s2s-rm-portal-include/vnet_gw.png "New gateway")
 
 3. On the **Create virtual network gateway** blade, specify the values for your virtual network gateway.
 

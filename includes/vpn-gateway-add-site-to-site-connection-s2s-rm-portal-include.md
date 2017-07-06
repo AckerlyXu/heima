@@ -1,5 +1,5 @@
 1. Navigate to and open the blade for your virtual network gateway. There are multiple ways to navigate. In our example, we navigated to the gateway 'VNet1GW' by going to **TestVNet1 -> Overview -> Connected devices -> VNet1GW**.
-2. On the blade for VNet1GW, Click **Connections**. At the top of the Connections blade, click **+Add** to open the **Add connection** blade.
+2. On the blade for VNet1GW, click **Connections**. At the top of the Connections blade, click **+Add** to open the **Add connection** blade.
 
     ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include/connection1.png)
 
