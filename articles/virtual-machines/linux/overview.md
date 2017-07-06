@@ -14,15 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2016
-ms.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ---
 # Azure and Linux
 Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web&mdash;ideal for hosting your solutions.  Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on-premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
 
 ## Availability
 We announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks. In order for your deployment to qualify for our standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. This will ensure your VMs are distributed across multiple fault domains in our data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
+
+## Managed Disks
+
+Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../../storage/storage-managed-disks-overview.md).
 
 ## Azure Virtual Machines & Instances
 Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You will find distributions such as CentOS, Debian, Ubuntu, CoreOS, FreeBSD, and more in the Azure Marketplace. We actively work with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) list.
@@ -35,7 +41,6 @@ Azure virtual machines allow you to deploy a wide range of computing solutions i
 When you deploy a VM in Azure, you are going to select a VM size within one of our series of sizes that is suitable to your workload. The size also affects the processing power, memory, and storage capacity of the virtual machine. You are billed based on the amount of time the VM is running and consuming its allocated resources. A complete list of [sizes of Virtual Machines](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 Here are some basic guidelines for selecting a VM size from one of our series (A, D, and DS).
-
 * A-series VMs are our value priced entry-level VMs for light workloads and Dev/Test scenarios. They are widely available in all regions and can connect and use all standard resources available to virtual machines.
 * D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk.
 * Dv2-series, is the latest version of our D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haskell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
@@ -45,7 +50,7 @@ Note: DS-series VMs have access to Premium Storage - our SSD backed high-perform
 * [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/storage-premium-storage.md)
 
 ## Automation
-To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
+To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
@@ -69,14 +74,14 @@ Microsoft works closely with our partners to ensure the images available are upd
 * FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103)
 * CoreOS - [Azure Marketplace - CoreOS (Stable)](https://portal.azure.cn/#create/CoreOS.CoreOSStable)
 
-## Getting Setup on Azure
+## Getting started with Linux on Azure
 To begin using Azure you need an Azure account, the Azure CLI installed, and a pair of SSH public and private keys.
 
 ### Sign up for an account
 The first step in using the Azure Cloud is to sign up for an Azure account.  Go to the [Azure Account Signup](https://www.azure.cn/pricing/1rmb-trial/) page to get started.
 
 ### Install the CLI
-With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install)on your Mac or Linux workstation.
+With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)on your Mac or Linux workstation.
 
 ### Create an SSH key pair
 Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to enable password-less logins and better security.

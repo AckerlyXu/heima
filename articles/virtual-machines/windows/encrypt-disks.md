@@ -52,7 +52,7 @@ Supported scenarios and requirements for disk encryption:
 * Enabling encryption on Windows VMs that are configured using Storage Spaces.
 * Disabling encryption on OS and data drives for Windows VMs.
 * All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-* Standard tier VMs, such as A, D, DS, G, and GS series VMs.
+* Standard tier VMs, such as A, D, and DS series VMs.
 
 Disk encryption is not currently supported in the following scenarios:
 

@@ -4,7 +4,7 @@ description: Find the top PowerShell cmdlets for Azure SQL Data Warehouse includ
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 origin.date: 10/31/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -41,12 +41,12 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1."
 
 ```Powershell
-Suspend-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" -ServerName "Server01" -DatabaseName "Database02"
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 A variation, this example pipes the retrieved object to [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  As a result, the database is paused. The final command shows the results.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" -ServerName "Server01" -DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -56,13 +56,13 @@ $resultDatabase
 Resume operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
 ```Powershell
-Resume-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" -ServerName "Server01" -DatabaseName "Database02"
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 A variation, this example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." It pipes the retrieved object to [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" -ServerName "Server01" -DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
@@ -102,19 +102,19 @@ For other tasks which can be automated with PowerShell, see [Azure SQL Database 
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
-[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
-[Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
-[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
-[Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
-[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
+[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/zh-cn/library/mt574084.aspx
+[Operations for Azure SQL Databases]: https://msdn.microsoft.com/zh-cn/library/azure/dn505719.aspx
+[Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt603648.aspx
+[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/zh-cn/library/mt693387.aspx
+[Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/zh-cn/library/mt603642.aspx
+[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619339.aspx
+[Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619368.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt693390.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619347.aspx
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
-[Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
-[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
-[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
+[Select-AzureRmSubscription]: https://msdn.microsoft.com/zh-cn/library/dn722499.aspx
+[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619433.aspx
+[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619337.aspx
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

@@ -83,7 +83,7 @@ You've created an empty new web app in Azure.
 
 Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/webapp/config#update) command to configure the web app to use Python version `3.4`.
 
-```azurecli-interactive
+```azurecli
 az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 

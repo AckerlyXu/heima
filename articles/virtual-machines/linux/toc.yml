@@ -31,7 +31,7 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
-  - name: 10 - Monitor virtual machines
+  - name: 9 - Monitor virtual machines
     href: tutorial-monitoring.md
 - name: Samples
   items:
@@ -337,9 +337,9 @@
   - name: Java
     href: https://docs.microsoft.com/java/api
   - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+    href: /develop/nodejs/#azure-sdk
   - name: Python
-    href: https://azure.microsoft.com/develop/python/
+    href: /develop/python/
   - name: REST
     href: https://docs.microsoft.com/rest/api/compute
 - name: Resources

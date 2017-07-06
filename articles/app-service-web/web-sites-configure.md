@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/01/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -112,9 +112,13 @@ Options for writing diagnostic logs from a web application that supports logging
 
 To view the log files, you must create FTP credentials, as follows:
 
-1. Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
+1. In the blade for your web app, click **Deployment credentials** under **Deployment**.
+3. Enter a user name and password.
+4. Click **Save**.
 
-1. Back to [Azure Portal](https://portal.azure.cn). The full FTP user name is "app\username" where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
+![Set deployment credentials][configure03]
+
+The full FTP user name is "app\username" where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
 
 ![FTP deployment credentials][configure02]
 

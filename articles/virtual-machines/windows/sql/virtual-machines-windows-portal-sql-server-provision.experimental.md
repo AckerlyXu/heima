@@ -158,7 +158,7 @@ If you would prefer to not enable connections to the Database Engine via the int
 * **Private (within Virtual Network)** to allow connections to SQL Server from machines or services in the same virtual network.
 
 > [!NOTE]
-> The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. This is true even for the Public and  Private connectivity options. For Express edition, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
+> The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. This is true even for the Public and  Private connectivity options. For Express edition, you must use SQL Server Configuration Manager to manually enable the TCP/IP protocol after creating the VM.
 > 
 > 
 

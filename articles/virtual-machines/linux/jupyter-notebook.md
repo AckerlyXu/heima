@@ -233,6 +233,6 @@ profiling and parallel computing integration.
 ## Next steps
 For more information, see the [Python Developer Center](/develop/python/).
 
-[portal-vm-linux]: /virtual-machines/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: /virtual-machines/linux/quick-create-portal
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs

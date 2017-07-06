@@ -79,12 +79,12 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
    You will see that the code simply issues an authentication challenge to authenticate the user using WS-Federation. All authentication is configured in App_Start\Startup.Auth.cs.
 3. Open App_Start\Startup.Auth.cs. In the `ConfigureAuth` method, note the line:
 
-        app.UseWsFederationAuthentication(
-            new WsFederationAuthenticationOptions
-            {
-                Wtrealm = realm,
-                MetadataAddress = metadata                                      
-            });
+       app.UseWsFederationAuthentication(
+           new WsFederationAuthenticationOptions
+           {
+               Wtrealm = realm,
+               MetadataAddress = metadata                                      
+           });
 
    In the OWIN world, this snippet is really the bare minimum you need to configure WS-Federation authentication. It is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
 

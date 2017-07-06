@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot application access on a Windows VM in Azure | Azure
-description: If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem.
+title: Troubleshoot Windows VM application access in Azure | Azure
+description: Use these detailed troubleshooting steps to isolate issues in connecting to applications running on Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-origin.date: 12/20/2016
-ms.date: 03/01/2017
+origin.date: 05/18/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
-# Troubleshoot access to an application running on an Azure virtual machine
+# Troubleshoot access to an application running on a Windows virtual machine in Azure
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

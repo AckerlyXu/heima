@@ -3,21 +3,21 @@ title: Deploy the Site Recovery Mobility service with Azure Automation DSC | Azu
 description: Describes how to use Azure Automation DSC to automatically deploy the Azure Site Recovery Mobility service and Azure agent for VMware VM and physical server replication to Azure
 services: site-recovery
 documentationcenter: ''
-author: krnese
-manager: lorenr
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 1f8cd3ac-0522-48eb-a5f0-679ee9192ddb
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/06/2017
-ms.date: 03/10/2017
-ms.author: v-johch
----
+ms.date: 07/10/2017
+ms.author: v-yeche
 
+---
 # Deploy the Mobility service with Azure Automation DSC for replication of VM
 In Operations Management Suite, we provide you with a comprehensive backup and disaster recovery solution that you can use as part of your business continuity plan.
 
@@ -49,23 +49,23 @@ This article provides an example of how you can use Azure Automation Desired Sta
 * A repository to store the required setup
 * A repository to store the required passphrase to register with the management server
 
-  > [!NOTE]
-  >A unique passphrase is generated for each management server. If you are going to deploy multiple management servers, you have to ensure that the correct passphrase is stored in the passphrase.txt file.
-  > 
-  > 
+    > [!NOTE]
+    >A unique passphrase is generated for each management server. If you are going to deploy multiple management servers, you have to ensure that the correct passphrase is stored in the passphrase.txt file.
+    > 
+    > 
 * Windows Management Framework (WMF) 5.0 installed on the machines that you want to enable for protection (a requirement for Automation DSC)
 
-  > [!NOTE]
-  >If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](#Use DSC in disconnected environments).
-  > 
-  > 
+    > [!NOTE]
+    >If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](#Use DSC in disconnected environments).
+    > 
+    > 
 
-The Mobility service can be installed through the command line and accepts several arguments. That’s why you need to have the binaries (after extracting them from your setup) and store them in a place where you can retrieve them by using a DSC configuration.
+The Mobility service can be installed through the command line and accepts several arguments. That's why you need to have the binaries (after extracting them from your setup) and store them in a place where you can retrieve them by using a DSC configuration.
 
 ## Step 1: Extract binaries
 1. To extract the files that you need for this setup, browse to the following directory on your management server:
 
-    **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
+    **\Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
     In this folder, you should see an MSI file named:
 
@@ -106,7 +106,7 @@ configuration ASRMobilityService {
     $Role = 'Agent'
     $Install = 'C:\Program Files (x86)\Microsoft Azure Site Recovery'
     $CSEndpoint = '10.0.0.115'
-    $Arguments = '/Role "{0}" /InstallLocation "{1}" /CSEndpoint "{2}" /PassphraseFilePath "{3}"' -f $Role,$Install,$CSEndpoint,$LocalPassphrase  
+    $Arguments = '/Role "{0}" /InstallLocation "{1}" /CSEndpoint "{2}" /PassphraseFilePath "{3}"' -f $Role,$Install,$CSEndpoint,$LocalPassphrase
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
@@ -126,14 +126,14 @@ configuration ASRMobilityService {
         xRemoteFile Passphrase {
             URI = $RemotePassphrase
             DestinationPath = $LocalPassphrase
-                DependsOn = '[File]Directory'
-            }
+            DependsOn = '[File]Directory'
+        }
 
         xRemoteFile AzureAgent {
             URI = $RemoteAzureAgent
             DestinationPath = $LocalAzureAgent
-                DependsOn = '[File]Directory'
-            }
+            DependsOn = '[File]Directory'
+        }
 
         Archive ASRzip {
             Path = $TempDestination
@@ -204,8 +204,8 @@ Save the configuration as **ASRMobilityService**.
 
 > [!NOTE]
 > Remember to replace the CSIP in your configuration to reflect the actual management server, so that the agent will be connected correctly and will use the correct passphrase.
-> 
-> 
+>
+>
 
 ## Step 3: Upload to Automation DSC
 Because the DSC configuration that you made will import a required DSC resource module (xPSDesiredStateConfiguration), you need to import that module in Automation before you upload the DSC configuration.
@@ -254,8 +254,8 @@ You have now successfully published and uploaded your DSC configuration to Autom
 ## Step 4: Onboard machines to Automation DSC
 > [!NOTE]
 > One of the prerequisites for completing this scenario is that your Windows machines are updated with the latest version of WMF. You can download and install the correct version for your platform from the [Download Center](https://www.microsoft.com/download/details.aspx?id=50395).
-> 
-> 
+>
+>
 
 You will now create a metaconfig for DSC that you will apply to your nodes. To succeed with this, you need to retrieve the endpoint URL and the primary key for your selected Automation account in Azure. You can find these values under **Keys** on the **All settings** blade for the Automation account.
 
@@ -266,7 +266,7 @@ In this example, you have a Windows Server 2012 R2 physical server that you want
 ### Check for any pending file rename operations in the registry
 Before you start to associate the server with the Automation DSC endpoint, we recommend that you check for any pending file rename operations in the registry. They might prohibit the setup from finishing due to a pending reboot.
 
-Run the following cmdlet to verify that there’s no pending reboot on the server:
+Run the following cmdlet to verify that there's no pending reboot on the server:
 
 ```powershell
 Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
@@ -343,14 +343,14 @@ The output shows that the server has successfully pulled its configuration:
 
 In addition, the Mobility service setup has its own log that can be found at *SystemDrive*\ProgramData\ASRSetupLogs.
 
-That’s it. You have now successfully deployed and registered the Mobility service on the machine that you want to protect by using Site Recovery. DSC will make sure that the required services are always running.
+That's it. You have now successfully deployed and registered the Mobility service on the machine that you want to protect by using Site Recovery. DSC will make sure that the required services are always running.
 
 ![Successful deployment](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
 After the management server detects the successful deployment, you can configure protection and enable replication on the machine by using Site Recovery.
 
 ##<a name="Use DSC in disconnected environments"></a> Use DSC in disconnected environments
-If your machines aren’t connected to the Internet, you can still rely on DSC to deploy and configure the Mobility service on the workloads that you want to protect.
+If your machines aren't connected to the Internet, you can still rely on DSC to deploy and configure the Mobility service on the workloads that you want to protect.
 
 You can instantiate your own DSC pull server in your environment to essentially provide the same capabilities that you get from Automation DSC. That is, the clients will pull the configuration (after it's registered) to the DSC endpoint. However, another option is to manually push the DSC configuration to your machines, either locally or remotely.
 
@@ -510,4 +510,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## Next steps
-After you deploy the Mobility service agents, you can [enable replication](./site-recovery-vmware-to-azure.md#step-6-replicate-applications) for the virtual machines.
+After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md#enable-replication) for the virtual machines.

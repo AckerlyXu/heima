@@ -49,7 +49,7 @@ Follow these steps to create a web app and a MySQL database:
 4. Click **Web + Mobile**, then **Web app**. Then, click **Create**.
 5. Enter a valid name for your resource group.
 6. Enter values for your new web app.
-7. Login to the [Azure Classic Management Portal](https://manage.windowsazure.cn), create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
+7. Create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
 8. When the web app has been created, you will see the new web app blade.
 9. In **Settings** click on **Continuous Deployment**, then click on *Configure required settings*.
 
@@ -65,10 +65,10 @@ Follow these steps to create a web app and a MySQL database:
 To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
 
 1. In Azure Classic Management Portal, click **MYSQL DATABASE ON AZURE**, and open your MYSQL database server. In **Dashboard** page, under **quick glance**, you can get your host and port.
-2. In **Account** page, you can get all account name, and reset password.
+2. In **Account** page, you can get all User Id, and reset password.
 3. in **Database** page, you can get all Database under this MYSQL Database Server.
 
-    The Data source would be `tcp:<your MYSQL server name>.database.chinacloudapi.cn,<port>`
+    The Data source would be `<your MYSQL server name>.database.chinacloudapi.cn`
 
 ## Build and test your app locally
 Now that you have created a web app, you can develop your application locally, then deploy it after testing.
@@ -177,7 +177,7 @@ To build and run the application locally, follow the steps below. Note that thes
 
 1. In a terminal go to your application folder and type the following command:
 
-        php -S localhost:8000
+       php -S localhost:8000
 
 You can now browse to **http://localhost:8000/** to test the application.
 

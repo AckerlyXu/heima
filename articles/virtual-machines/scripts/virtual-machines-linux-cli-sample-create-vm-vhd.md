@@ -37,7 +37,7 @@ or use your own VHD. The script looks for `~/sample.vhd`.
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group
@@ -73,7 +73,7 @@ echo "You can now connect using 'ssh deploy@${IP_ADDRESS}'"
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete -n az-cli-vhd
 ```
 

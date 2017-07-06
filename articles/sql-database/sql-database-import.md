@@ -3,16 +3,17 @@ title: Import a BACPAC file to create an Azure SQL database | Azure
 description: Create a newAzure SQL database by importing a BACPAC file.
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
-ms.custom: move data
+ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/07/2017
-ms.author: v-johch
+origin.date: 04/07/2017
+ms.date: 07/03/2017
+ms.author: v-haiqya
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -23,7 +24,7 @@ ms.tgt_pltfrm: NA
 This article discusses importing a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file to a new Azure SQL database. This article discusses using the following methods:
 - The [Azure Portal](https://portal.azure.cn)
 - the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility
-- the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) cmdlet
+- the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet
 
 ## Overview
 
@@ -50,7 +51,7 @@ To monitor the progress of the import operation, open the page for the logical s
 1. Click **SQL servers**.
 2. Click the server you are restoring to.
 3. In the SQL server blade, in the Operations area, click **Import/Export history**:
-   
+
    ![import](./media/sql-database-import/import.png)
    ![import status](./media/sql-database-import/import-status.png)
 
@@ -76,7 +77,7 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.chinaclo
 
 ## PowerShell
 
-Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) cmdlet to submit an import database request to the Azure SQL Database service. Depending on the size of your database, the import operation may take some time to complete.
+Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet to submit an import database request to the Azure SQL Database service. Depending on the size of your database, the import operation may take some time to complete.
 
  ```powershell
  $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName "myResourceGroup" `
@@ -93,7 +94,7 @@ Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/mod
 
  ```
 
-To check the status of the import request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the import is complete.
+To check the status of the import request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the import is complete.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -112,6 +113,3 @@ $importStatus
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
 * For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
-
-
-
