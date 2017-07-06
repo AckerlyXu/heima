@@ -60,4 +60,4 @@ If the load balancer is not configured to balance traffic across multiple virtua
 [Configure each application tier into separate availability sets]: #configure-each-application-tier-into-separate-availability-sets
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Use Managed Disks for VMs in an Availability Set]: #use-managed-disks-for-vms-in-an-availability-set
+[Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set

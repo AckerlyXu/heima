@@ -50,9 +50,6 @@ S2D supports two types of architectures - converged and hyper-converged. The arc
 
 You can create the entire solution in Azure from a template. An example of a template is available in the GitHub [Azure Quickstart Templates](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad). This example is not designed or tested for any specific workload. You can run the template to create a SQL Server FCI with S2D storage connected to your domain. You can evaluate the template, and modify it for your purposes.
 
-> [!NOTE]
-> This template is written for Global Azure. It's using an API version not yet supported in Azure China. If you need to use this template, please use the version with the following SHA: `9cb630b9d314fdf909191bf96fb248355845dd16`.
-
 ## Before you begin
 
 There are a few things you need to know and a couple of things that you need in place before you proceed.

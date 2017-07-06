@@ -226,7 +226,7 @@ for i in `seq 1 3`; do
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
-        --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
