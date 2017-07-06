@@ -3,8 +3,8 @@ title: How to Build Complex Schedules and Advanced Recurrence with Azure Schedul
 description: How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler
 services: scheduler
 documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
@@ -13,7 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/18/2016
+origin.date: 08/18/2016
+ms.date: 07/03/2017
 ms.author: v-johch
 
 ---
@@ -21,14 +22,14 @@ ms.author: v-johch
 ## Overview
 At the heart of an Azure Scheduler job is the *schedule*. The schedule determines when and how the Scheduler executes the job.
 
-Azure Scheduler allows you to specify different one-time and recurring schedules for a job. *One-time* schedules fire once at a specified time – effectively, they are *recurring* schedules that execute only once. Recurring schedules fire on a predetermined frequency.
+Azure Scheduler allows you to specify different one-time and recurring schedules for a job. *One-time* schedules fire once at a specified time - effectively, they are *recurring* schedules that execute only once. Recurring schedules fire on a predetermined frequency.
 
 With this flexibility, Azure Scheduler lets you support a wide variety of business scenarios:
 
-* Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months
-* Archival – e.g., every month, push invoice history to backup service
-* Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA
-* Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
+* Periodic data cleanup -  e.g., every day, delete all tweets older than 3 months
+* Archival - e.g., every month, push invoice history to backup service
+* Requests for external data - e.g., every 15 minutes, pull new ski weather report from NOAA
+* Image processing - e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
 
 In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
 
@@ -40,7 +41,7 @@ The many examples in this topic illustrate the breadth of scenarios that Azure S
 * Run immediately and recur
 * Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
 * Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
-* Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
+* Run and recur at multiple times in a period - e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
 
 ## Dates and DateTimes
 Dates in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include only the date.
@@ -82,7 +83,7 @@ The following table provides a high-level overview of the major elements related
 | ***schedule*** |A job with a specified frequency alters its recurrence based on a recurrence schedule. A *schedule* contains modifications based on minutes, hours, week days, month days, and week number. |
 
 ## Overview: Job Schema Defaults, Limits, and Examples
-After this overview, let’s discuss each of these elements in detail.
+After this overview, let's discuss each of these elements in detail.
 
 | **JSON name** | **Value type** | **Required?** | **Default value** | **Valid values** | **Example** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -107,16 +108,16 @@ Let's see an example of what happens where *startTime* is in the past, with *rec
 
 Under these conditions, the *first execution* will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, *startTime* is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.
 
-Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.
+Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated using the scheduled - so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.
 
-Finally, when a job has a schedule, if hours and/or minutes aren’t set in the schedule, they default to the hours and/or minutes of the first execution, respectively.
+Finally, when a job has a schedule, if hours and/or minutes aren't set in the schedule, they default to the hours and/or minutes of the first execution, respectively.
 
 ## Deep Dive: *schedule*
 On one hand, a *schedule* can *limit* the number of job executions.  For example, if a job with a "month" frequency has a *schedule* that runs on only day 31, the job runs in only those months that have a 31<sup>st</sup> day.
 
 On the other hand, a *schedule* can also *expand* the number of job executions. For example, if a job with a "month" frequency has a *schedule* that runs on month days 1 and 2, the job runs on the 1<sup>st</sup> and 2<sup>nd</sup> days of the month instead of just once a month.
 
-If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, week day, hour, and minute.
+If multiple schedule elements are specified, the order of evaluation is from the largest to smallest - week number, month day, week day, hour, and minute.
 
 The following table describes *schedule* elements in detail.
 
@@ -125,13 +126,13 @@ The following table describes *schedule* elements in detail.
 | **minutes** |Minutes of the hour at which the job will run |<ul><li>Integer, or</li><li>Array of integers</li></ul> |
 | **hours** |Hours of the day at which the job will run |<ul><li>Integer, or</li><li>Array of integers</li></ul> |
 | **weekDays** |Days of the week the job will run. Can only be specified with a weekly frequency. |<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"</li><li>Array of any of the above values (max array size 7)</li></ul>*Not* case-sensitive |
-| **monthlyOccurrences** |Determines which days of the month the job will run. Can only be specified with a monthly frequency. |<ul><li>Array of monthlyOccurence objects:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurence*<br />}</pre><p> *day* is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.</p><p>Occurrence is *occurrence* of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.</p> |
+| **monthlyOccurrences** |Determines which days of the month the job will run. Can only be specified with a monthly frequency. |<ul><li>Array of monthlyOccurrence objects:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.</p><p>Occurrence is *occurrence* of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.</p> |
 | **monthDays** |Day of the month the job will run. Can only be specified with a monthly frequency. |<ul><li>Any value <= -1 and >= -31.</li><li>Any value >= 1 and <= 31.</li><li>An array of above values</li></ul> |
 
 ## Examples: Recurrence Schedules
-The following are various examples of recurrence schedules – focusing on the schedule object and its sub-elements.
+The following are various examples of recurrence schedules - focusing on the schedule object and its sub-elements.
 
-The schedules below all assume that the *interval* is set to 1\. Also, one must assume the right frequency in accordance to what is in the *schedule* – e.g., one can't use frequency "day" and have a "monthDays" modification in the schedule. Such restrictions are described above.
+The schedules below all assume that the *interval* is set to 1\. Also, one must assume the right frequency in accordance to what is in the *schedule* - e.g., one can't use frequency "day" and have a "monthDays" modification in the schedule. Such restrictions are described above.
 
 | **Example** | **Description** |
 |:--- |:--- |

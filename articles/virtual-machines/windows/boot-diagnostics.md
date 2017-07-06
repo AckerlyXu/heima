@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: ''
+ms.date: 07/10/2017
 ms.author: v-dazen
 ---
 # How to use boot diagnostics to troubleshoot Linux virtual machines in Azure

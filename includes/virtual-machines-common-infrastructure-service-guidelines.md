@@ -393,5 +393,3 @@ This configuration incorporates:
 [Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md)
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
-
-[Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)

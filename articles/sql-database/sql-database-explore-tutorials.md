@@ -95,13 +95,6 @@ In the following tutorials, you learn about application and database development
 | [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) | In this tutorial, you work with the Contoso Clinic demo application. |
 |  | |
 
-## Data sync
-In this tutorial, you learn about [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
-
-| Tutorial  | Description  |
-| --- | --- | 
-| [Getting Started with Azure SQL Data Sync (Preview)](./sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
-|  | |
 
 ## Monitor and tune
 In the following tutorials, you learn about monitoring and tuning.

@@ -4,7 +4,7 @@ description: Enterprise-class distributed database capable of processing petabyt
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: bjhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 origin.date: 02/28/2017
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -63,7 +63,6 @@ The MPP approach is aided by several data warehousing specific performance optim
 * A distributed query optimizer and set of complex statistics across all data. Using information on data size and distribution, the service is able to optimize queries by assessing the cost of specific distributed query operations.
 * Advanced algorithms and techniques integrated into the data movement process to efficiently move data among computing resources as necessary to perform the query. These data movement operations are built in, and all optimizations to the Data Movement Service happen automatically.
 * Clustered **columnstore** indexes by default. By using column-based storage, SQL Data Warehouse gets on average 5x compression gains over traditional row-oriented storage, and up to 10x or more query performance gains. Analytics queries that need to scan a large number of rows work better with columnstore indexes.
-
 
 ## Predictable and scalable performance With Data Warehouse Units
 SQL Data Warehouse is built with similar technologies as SQL Database, which means that users can expect consistent and predictable performance for analytical queries. Users should expect to see performance scale linearly as they add or subtract Compute nodes. Allocation of resources to your SQL Data Warehouse is measured in Data Warehouse Units (DWUs). DWUs are a measure of underlying resources like CPU, memory, IOPS, which are allocated to your SQL Data Warehouse. Increasing the number of DWUs increases resources and performance. Specifically, DWUs help ensure that:
@@ -119,22 +118,22 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 * [Customer success stories]
 * [Blogs]
 * [Feature requests]
-* [Videos]
+<!-- Not Available * [Videos] -->
 * [Customer Advisory Team blogs]
-<!-- Not supported in Azure.cn * [Create support ticket]-->
+<!-- Not Available * [Create support ticket]-->
 * [MSDN forum]
 * [Stack Overflow forum]
-* [Twitter]
+<!-- Not Available * [Twitter] -->
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-<!-- Not supported in Azure.cn [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-<!-- Not supported in Azure.cn [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md-->
+<!-- Not Available [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md-->
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
@@ -150,6 +149,6 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/zh-cn/support/legal/sla/sql-data-warehouse/v1_0/
+[SLA for SQL Data Warehouse]: https://www.azure.cn/support/sla/sql-data-warehouse/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://www.azure.cn/support/legal/sla/

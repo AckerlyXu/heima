@@ -23,7 +23,7 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
    * **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
    * **Private Images** lists specialized and generalized virtual machine images that you've created.
 
-     To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](/virtual-machines/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
+     To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](/virtual-machines/windows/classic/capture-image) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
 
      You can click a virtual machine image name to see information about the image on the right side of the page.
 
@@ -52,10 +52,10 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
 
     ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
-    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](/virtual-machines/virtual-machines-set-up-endpoints/) for more information.
+    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](/virtual-machines/windows/classic/setup-endpoints) for more information.
 
    > [!NOTE]
-   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/virtual-machines/virtual-machines-set-up-endpoints/) for more information.
+   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/virtual-machines/windows/classic/setup-endpoints) for more information.
    > 
    > 
 10. After you're done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
@@ -104,7 +104,7 @@ As you configure your virtual machine and install software on it, it's a good id
 4. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
 5. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
 
-    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine's version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](/virtual-machines/virtual-machines-capture-image-windows-server/) for more information. Back up the VM before running Sysprep.
+    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine's version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](/virtual-machines/windows/classic/capture-image) for more information. Back up the VM before running Sysprep.
 6. After you're done configuring the capture settings, choose the **Capture** button to create the checkpoint.
 
     As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.

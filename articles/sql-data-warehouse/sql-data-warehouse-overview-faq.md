@@ -4,7 +4,7 @@ description: This article lists out frequently asked questions about Azure SQL D
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: johnmac
+manager: digimobile
 editor: ''
 
 ms.assetid: 812CA525-3BF3-49DF-8DF3-FB4342464F4F
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 origin.date: 03/01/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---

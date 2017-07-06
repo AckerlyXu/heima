@@ -4,7 +4,7 @@ description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause c
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 10/31/2016
-ms.date: 03/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 

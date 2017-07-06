@@ -6,7 +6,7 @@ First you need to have the latest [Azure PowerShell](http://msdn.microsoft.com/l
 > 
 > 
 
-Run the [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure Portal.
+Run the [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
 
     Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 

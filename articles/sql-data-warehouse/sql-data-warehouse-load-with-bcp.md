@@ -4,7 +4,7 @@ description: Learn what bcp is and how to use it for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: barbkess
+manager: digimobile
 editor: ''
 
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 03/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -44,10 +44,7 @@ This tutorial will show you how to:
 * Import data into a table using the bcp in command
 * Export data from a table uisng the bcp out command
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
-> 
-> 
-
+<!-- Not Available [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player] -->
 ## Prerequisites
 
 To step through this tutorial, you need:
@@ -203,8 +200,8 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

@@ -2,18 +2,19 @@
 documentType: LandingData
 title: Azure SQL Database Documentation
 metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database Documentation - Tutorials, API Reference
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: carolz
-  manager: carolz
+  author: Hayley244
+  manager: digimobile
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 05/03/2017
-  ms.date: 06/20/2017
-  ms.author: carolz
+  ms.date: ''
+  ms.author: v-johch
 abstract:
   description: Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
 
@@ -49,6 +50,7 @@ sections:
     - html: <a href="/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: <a href="/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
     - html: <a href="/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a>
+    - html: <a href="/sql-database/sql-database-implement-geo-distributed-database">Implement a geo-distributed database</a>
 - title: Samples
   items:
   - type: paragraph

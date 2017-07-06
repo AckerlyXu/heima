@@ -4,7 +4,7 @@ description: Learn how data is distributed for Massively Parallel Processing (MP
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: bae494a6-7ac5-4c38-8ca3-ab2696c63a9f
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 10/31/2016
-ms.date: 03/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -37,7 +37,7 @@ The following diagram illustrates how a full (non-distributed table) gets stored
 
 There are performance considerations for the selection of a distribution column, such as distinctness, data skew, and the types of queries run on the system.
 
-![Distributed table](./media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
 
 * Each row belongs to one distribution.  
 * A deterministic hash algorithm assigns each row to one distribution.  
@@ -68,7 +68,7 @@ In addition to using distributed tables, Parallel Data Warehouse offers an optio
 
 The following diagram shows a replicated table that is stored on each Compute node. The replicated table is stored across all disks assigned to the Compute node. This disk strategy is implemented by using SQL Server filegroups.  
 
-![Replicated table](./media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
 ## Next steps
 To use distributed tables effectively, see [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md)

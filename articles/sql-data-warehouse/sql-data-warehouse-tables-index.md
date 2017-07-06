@@ -4,7 +4,7 @@ description: Getting started with table indexing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: barbkess
+manager: digimobile
 editor: ''
 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 07/12/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -325,11 +325,11 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
-[ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
-[clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
+[ALTER INDEX]: https://msdn.microsoft.com/zh-cn/library/ms188388.aspx
+[heap]: https://msdn.microsoft.com/zh-cn/library/hh213609.aspx
+[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/zh-cn/library/ms190457.aspx
+[create table syntax]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/zh-cn/library/dn935013.aspx#Anchor_1
+[clustered columnstore indexes]: https://msdn.microsoft.com/zh-cn/library/gg492088.aspx
 
 <!--Other Web references-->

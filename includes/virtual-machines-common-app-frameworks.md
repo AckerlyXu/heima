@@ -26,7 +26,7 @@ The following table lists some of the most popular application framework templat
 In addition to these templates, you can search through the [gallery templates](https://github.com/Azure/azure-quickstart-templates/).
 
 ## Azure CLI 2.0
-These steps require the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+These steps require the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 First, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). Then create your deployment from a template with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create). Provide the full URI to your template with the `--template-uri` parameter and any required template parameters in `--parameters` as follows:
 
