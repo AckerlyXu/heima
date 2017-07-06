@@ -190,7 +190,7 @@ Use the Azure CLI to create a scale set. The `--custom-data` field accepts the f
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \

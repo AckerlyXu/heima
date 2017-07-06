@@ -270,7 +270,7 @@ In this article, you have learned how to use Apache Phoenix in HDInsight.  To le
 * [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md): Learn how to configure HBase replication across two Azure datacenters.
 
 [azure-portal]: https://manage.windowsazure.cn/
-[vnet-point-to-site-connectivity]: ../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md
+[vnet-point-to-site-connectivity]: /vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md

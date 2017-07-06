@@ -89,7 +89,7 @@ The load balancer lets you connect to the VM instances with SSH (Linux) or RDP (
    ![Output Window][output_window]
 
 ## Exploring your Virtual Machine Scale Set
-Once the deployment completes, you can view the new Virtual Machine Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your Virtual Machine Scale Set in the [Azure Portal](https://portal.azure.cn).
+Once the deployment completes, you can view the new Virtual Machine Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your Virtual Machine Scale Set in the [Azure portal](https://portal.azure.cn).
 
 ![Cloud Explorer][cloud_explorer]
 

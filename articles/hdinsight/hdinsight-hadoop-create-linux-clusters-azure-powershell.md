@@ -141,27 +141,33 @@ You can also create an HDInsight configuration object using `New-AzureRmHDInsigh
 The following script creates a configuration object to add an additional storage account.
 
 ```powershell
-# Create another storage account used as additional storage account
-$additionalStorageAccountName = $token + "store2"
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $additionalStorageAccountName -Location $location -Type Standard_LRS
+$additionalStorageAccountName = Read-Host -Prompt "Enter the name of the additional storage account"
+
+# Create the additional storage account
+New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $additionalStorageAccountName `
+    -Location $location `
+    -Type Standard_LRS
+
+# Get the additional storage account key
 $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 
 $config = New-AzureRmHDInsightClusterConfig
 Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.chinacloudapi.cn" -StorageAccountKey $additionalStorageAccountKey
 
-# Create a new HDInsight cluster
+# Create a new HDInsight cluster using -Config
 New-AzureRmHDInsightCluster `
     -ClusterName $clusterName `
     -ResourceGroupName $resourceGroupName `
-    -HttpCredential $credentials `
+    -HttpCredential $httpCredential `
     -Location $location `
     -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
     -DefaultStorageAccountKey $defaultStorageAccountKey `
     -DefaultStorageContainer $defaultStorageContainerName  `
-    -ClusterSizeInNodes $clusterNodes `
+    -ClusterSizeInNodes $clusterSizeInNodes `
     -ClusterType Hadoop `
-    -OSType Linux `
-    -Version "3.5" `
+    -OSType $clusterOS `
+    -Version $clusterVersion `
     -SshCredential $sshCredentials `
     -Config $config
 ```

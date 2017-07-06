@@ -46,7 +46,7 @@ Power BI allows you to visually display data as reports. This document provides 
 * Visual Studio (one of the following versions)
 
   * Visual Studio 2012 with update 4
-  * Visual Studio 2013 with [update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
+  * Visual Studio 2013 with [update 4](http://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
   * Visual Studio 2017 (any edition)
 

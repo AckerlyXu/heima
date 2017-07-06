@@ -43,4 +43,4 @@ The following limits apply only for networking resources managed through Azure R
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 | Secondary IP configurations per virtual network |1000 |contact support |
 
-Contact support in case you need to increase limits from default.
+[Contact support](https://www.azure.cn/support/contact/) in case you need to increase limits from default.
