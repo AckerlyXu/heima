@@ -27,7 +27,7 @@ Availability sets provide redundancy to your application. We recommend that you 
 > VMs must be created in the same resource group as the availability set.
 > 
 
-If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. Currently, in Azure China, you can only create unmanaged availability set through Azure portal.
+If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. Currently, in Azure China, you can not create managed availability set through Azure portal.
 
 For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 

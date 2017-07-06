@@ -31,7 +31,7 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
-  - name: 10 - Monitor virtual machines
+  - name: 9 - Monitor virtual machines
     href: tutorial-monitoring.md
 - name: Samples
   items:

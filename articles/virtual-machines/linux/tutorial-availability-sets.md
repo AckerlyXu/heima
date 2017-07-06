@@ -76,7 +76,7 @@ for i in `seq 1 2`; do
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \
      --generate-ssh-keys \
      --no-wait

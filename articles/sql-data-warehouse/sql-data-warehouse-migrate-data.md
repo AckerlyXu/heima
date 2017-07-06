@@ -4,7 +4,7 @@ description: Tips for migrating your data to Azure SQL Data Warehouse for develo
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 10/31/2016
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -168,9 +168,9 @@ For more development tips, see [development overview][development overview].
 <!--Azure Data Factory (ADF) Not supported in ACN-->
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-<!-- [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
-<!-- [ADF samples]: ../data-factory/data-factory-samples.md-->
-<!-- [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
+<!-- Not Available [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
+<!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
+<!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
 [development overview]: sql-data-warehouse-overview-develop.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
@@ -181,11 +181,11 @@ For more development tips, see [development overview][development overview].
 
 <!--Other Web references-->
 <!--Azure Data Factory (ADF) Not supported in ACN-->
-<!--[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
+<!-- Not Available [Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [ExpressRoute documentation]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/
-[ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
-[SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
+[ADO.NET destination adapter]: https://msdn.microsoft.com/zh-cn/library/bb934041.aspx
+[SSIS documentation]: https://msdn.microsoft.com/zh-cn/library/ms141026.aspx

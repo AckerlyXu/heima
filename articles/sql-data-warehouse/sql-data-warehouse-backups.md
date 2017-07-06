@@ -4,7 +4,7 @@ description: Learn about SQL Data Warehouse built-in database backups that enabl
 services: sql-data-warehouse
 documentationcenter: ''
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.custom: backup-restore
 origin.date: 10/31/2016
-ms.date: 03/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
+
 ---
 # SQL Data Warehouse backups
 SQL Data Warehouse offers both local and geographical backups as part of its data warehouse backup capabilities. These include Azure Storage Blob snapshots and geo-redundant storage. Use data warehouse backups to restore your data warehouse to a restore point in the primary region, or restore to a different geographical region. This article explains the specifics of backups in SQL Data Warehouse.

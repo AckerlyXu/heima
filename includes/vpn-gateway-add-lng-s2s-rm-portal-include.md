@@ -1,7 +1,7 @@
 1. In the portal, from **All resources**, click **+Add**. 
 2. In the **Everything** blade search box, type **Local network gateway**, then click to search. This will return a list. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
 
-      ![create local network gateway](./media/vpn-gateway-add-lng-s2s-rm-portal-include/createlng.png)
+  ![create local network gateway](./media/vpn-gateway-add-lng-s2s-rm-portal-include/createlng.png)
 
 3. On the **Create local network gateway blade**, specify the values for your local network gateway.
 

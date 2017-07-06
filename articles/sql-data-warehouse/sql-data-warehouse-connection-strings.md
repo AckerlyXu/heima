@@ -4,7 +4,7 @@ description: Connection strings and drivers for SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 origin.date: 10/31/2016
-ms.date: 12/12/2016
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -53,12 +53,12 @@ To start querying your data warehouse with Visual Studio and other applications,
 <!--Image references-->
 
 <!--Azure.com references-->
- [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
+[ADO.NET]: https://msdn.microsoft.com/zh-cn/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/zh-cn/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/zh-cn/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/zh-cn/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->

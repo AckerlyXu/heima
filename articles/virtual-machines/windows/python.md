@@ -35,7 +35,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Visual Studio project
 
-1. If you haven't already, install [Visual Studio](/visualstudio/install/install-visual-studio). Select **Python development** on the Workloads page, and then click **Install**. In the summary, you can see that **Python 3 64-bit (3.6.0)** is automatically selected for you. If you have already installed Visual Studio, you can add the Python workload using the Visual Studio Launcher.
+1. If you haven't already, install [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Select **Python development** on the Workloads page, and then click **Install**. In the summary, you can see that **Python 3 64-bit (3.6.0)** is automatically selected for you. If you have already installed Visual Studio, you can add the Python workload using the Visual Studio Launcher.
 2. After installing and starting Visual Studio, click **File** > **New** > **Project**.
 3. Click **Templates** > **Python** > **Python Application**, enter *myPythonProject* for the name of the project, select the location of the project, and then click **OK**.
 

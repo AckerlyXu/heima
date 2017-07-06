@@ -43,7 +43,7 @@ We are working with our partners to get cloud-init included and working in the i
 
 | Alias | Publisher | Offer | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |latest |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 
 ## Create cloud-init config file
@@ -108,7 +108,7 @@ Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#crea
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVM \
-    --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+    --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
@@ -232,7 +232,7 @@ Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#crea
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \
-    --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+    --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-secured.txt \
