@@ -151,7 +151,7 @@ The following table categorizes sizes into use cases.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [General purpose](sizes-general.md)         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
 | [Compute optimized](sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
 
 ### Find available VM sizes
 
@@ -206,13 +206,13 @@ Before resizing a VM, check if the desired size is available on the current Azur
 ```azurecli 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize]( /cli/azure/vm#resize) command to perform the resize.
+If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize](https://docs.microsoft.com/cli/azure/vm#resize) command to perform the resize.
 
 ```azurecli 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

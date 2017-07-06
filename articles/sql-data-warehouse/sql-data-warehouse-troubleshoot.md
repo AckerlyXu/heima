@@ -4,7 +4,7 @@ description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 03/30/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -53,7 +53,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. |Either reduce the [DWU][DWU] of the database you are trying to create or [request a quota increase][request a quota increase]. |
 | Investigating space utilization |See [Table sizes][Table sizes] to understand the space utilization of your system. |
 | Help with managing tables |See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary]. |
-|Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
+|Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## Polybase
 | Issue | Resolution |
@@ -83,14 +83,14 @@ If you are were unable to find a solution to your issue above, here are some oth
 
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
-[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[SSMS]: https://msdn.microsoft.com/zh-cn/library/mt238290.aspx
 [SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-<!-- Not supported in Azure.cn [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-<!-- Not supported in Azure.cn [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
+<!-- Not Available [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal
@@ -117,8 +117,8 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
-[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sys.database_principals]: https://msdn.microsoft.com/zh-cn/library/ms187328.aspx
+[CREATE FUNCTION]: https://msdn.microsoft.com/zh-cn/library/mt203952.aspx
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->

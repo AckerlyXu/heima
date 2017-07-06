@@ -85,8 +85,6 @@ This scenario will:
 * Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
 * Configure a certificate for SSL offload.
 
-<br/>
-
 1. Log in to the [Azure portal](https://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial)
 1. In the Favorites pane of the portal, click **New**
 1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:

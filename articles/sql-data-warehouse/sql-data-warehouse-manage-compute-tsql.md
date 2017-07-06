@@ -4,7 +4,7 @@ description: Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DW
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: a970d939-2adf-4856-8a78-d4fe8ab2cceb
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 03/30/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -98,7 +98,7 @@ For other management tasks, see [Management overview][Management overview].
 
 <!--MSDN references-->
 
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+[ALTER DATABASE]: https://msdn.microsoft.com/zh-cn/library/mt204042.aspx
 
 <!--Other Web references-->
 

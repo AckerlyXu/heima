@@ -36,7 +36,7 @@ These clustering architectures can be extended to other products like PostgreSQL
 ## Get ready
 You need the following resources and abilities:
 
-  - A Azure account with a valid subscription, able to create at least two VMs (XS was used in this example)
+  - An Azure account with a valid subscription, able to create at least two VMs (XS was used in this example)
   - A network and a subnet
   - An affinity group
   - An availability set

@@ -522,6 +522,6 @@ This procedure creates an App Service web app. You will be billed for the resour
 [What is an Azure AD directory]: http://technet.microsoft.com/library/jj573650.aspx
 [Create and Upload a Management Certificate for Azure]: ../cloud-services/cloud-services-certs-create.md
 [Key and Certificate Management Tool (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure Portal]: https://portal.azure.cn

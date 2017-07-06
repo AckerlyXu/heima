@@ -4,7 +4,7 @@ description: Getting started with temporary tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+origin.date: 10/31/2016
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 

@@ -117,7 +117,7 @@ First, deallocate the VM.
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
-Use the [az network public-ip update](/network/public-ip#update) command to update the allocation method. In this case, the `--allocaion-metod` is being set to *static*.
+Use the [az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip#update) command to update the allocation method. In this case, the `--allocaion-metod` is being set to *static*.
 
 ```azurecli 
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static
