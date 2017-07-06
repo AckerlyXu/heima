@@ -61,10 +61,10 @@ The following PowerShell example specifies the `-GatewaySku` as *Standard*.
 
 If you want to upgrade your gateway SKU to a more powerful SKU, you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
 
-The following PowerShell example shows a gateway SKU being resized to VpnGw2.
+The following PowerShell example shows a gateway SKU being resized to HighPerformance.
 
     $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-    Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+    Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
 ## <a name="connectiontype"></a>Connection types
 In the Resource Manager deployment model, each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
