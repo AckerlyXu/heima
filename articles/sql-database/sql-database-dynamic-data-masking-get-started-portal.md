@@ -3,25 +3,25 @@ title: 'Azure portal: SQL Database dynamic data masking | Azure'
 description: How to get started with SQL Database dynamic data masking in the Azure Portal
 services: sql-database
 documentationcenter: ''
-author: ronitr
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 2
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 11/22/2016
-ms.date: 03/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
----
 
+---
 # Get started with SQL Database dynamic data masking with the Azure Portal
 
-This topic shows you how to implement [dynamic data masking](./sql-database-dynamic-data-masking-get-started.md) with the Azure portal. You can also implement dynamic data masking using [Azure SQL Database cmdlets](https://msdn.microsoft.com/zh-cn/library/azure/mt574084.aspx) or the [REST API](https://msdn.microsoft.com/zh-cn/library/dn505719.aspx).
+This topic shows you how to implement [dynamic data masking](sql-database-dynamic-data-masking-get-started.md) with the Azure portal. You can also implement dynamic data masking using [Azure SQL Database cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) or the [REST API](https://msdn.microsoft.com/library/dn505719.aspx).
 
 ## Set up dynamic data masking for your database using the Azure Portal
 1. Launch the Azure Portal at [https://portal.azure.cn](https://portal.azure.cn).
@@ -54,5 +54,5 @@ This topic shows you how to implement [dynamic data masking](./sql-database-dyna
 
 ## Next steps
 
-* For an overview of dynamic data masking, see [dynamic data masking](./sql-database-dynamic-data-masking-get-started.md).
-* You can also implement dynamic data masking using [Azure SQL Database cmdlets](https://msdn.microsoft.com/zh-cn/library/azure/mt574084.aspx) or the [REST API](https://msdn.microsoft.com/zh-cn/library/dn505719.aspx).
+* For an overview of dynamic data masking, see [dynamic data masking](sql-database-dynamic-data-masking-get-started.md).
+* You can also implement dynamic data masking using [Azure SQL Database cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) or the [REST API](https://msdn.microsoft.com/library/dn505719.aspx).
