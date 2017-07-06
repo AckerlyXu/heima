@@ -96,7 +96,7 @@
     - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Threat detection
-      href: sql-database-threat-detection.md\
+      href: sql-database-threat-detection.md
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Business continuity
@@ -105,8 +105,6 @@
       href: sql-database-business-continuity.md
     - name: Database backups
       href: sql-database-automated-backups.md
-    - name: Backup retention
-      href: sql-database-long-term-retention.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
     - name: Failover groups
@@ -189,8 +187,6 @@
       href: sql-database-elastic-query-vertical-partitioning.md
     - name: Transactions
       href: sql-database-elastic-transactions-overview.md
-    - name: Elastic jobs
-      href: sql-database-elastic-jobs-overview.md
   - name: Develop databases
     items:
     - name: JSON data
@@ -275,8 +271,6 @@
       href: sql-database-xevent-code-event-file.md
     - name: Extended events - ring buffer
       href: sql-database-xevent-code-ring-buffer.md
-    - name: Diagnostic logging
-      href: sql-database-metrics-diag-logging.md
     - name: Troubleshoot connectivity
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation

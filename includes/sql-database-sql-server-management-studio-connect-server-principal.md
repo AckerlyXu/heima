@@ -8,7 +8,7 @@ The following steps show how to connect to an Azure SQL server and database with
 
  - **Server type**: The default is database engine; do not change this value.
  - **Server name**: Enter the fully qualified name of your Azure SQL Database server in the following format: *&lt;servername>*.**database.chinacloudapi.cn**
- - **Authentication type**: This article shows you how to connect using **SQL Server Authentication**. For details on connecting with Azure Active Directory, see [Connect using Active Directory integrated authentication](../articles/sql-database/sql-database-aad-authentication.md#Connecting-using-Azure-AD-identities), [Connect using Active Directory password authentication](../articles/sql-database/sql-database-aad-authentication.md#), and [Connect using Active Directory Universal Authentication](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
+ - **Authentication type**: This article shows you how to connect using **SQL Server Authentication**. For details on connecting with Azure Active Directory, see [Connect using Active Directory integrated authentication](../articles/sql-database/sql-database-aad-authentication.md#connecting-using-azure-ad-identities), [Connect using Active Directory password authentication](../articles/sql-database/sql-database-aad-authentication.md#), and [Connect using Active Directory Universal Authentication](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
  - **User name**: Enter the name of a user with access to a database on the server (for example, the *server admin* you set up when creating the server). 
  - **Password**: Enter the password for the specified user (for example, the *password* you set up when creating the server).
 
