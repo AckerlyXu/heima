@@ -30,8 +30,8 @@ Complete the following tasks before completing steps in any section of this arti
 - If you're new to virtual network peering in Azure, we recommend completing the [Create a virtual network peering](virtual-network-create-peering.md) tutorial before reading this article.
 - Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for peering.
 - Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
-- If using PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+- If using PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -98,7 +98,7 @@ Consider the following constraints before peering virtual networks:
 |Tool|Command|
 |---|---|
 |CLI|[az network vnet peering create](https://docs.microsoft.com/cli/azure/network/vnet/peering#create?toc=%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Add-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Add-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>View or change peering settings
 
@@ -119,8 +119,8 @@ Consider the following constraints before peering virtual networks:
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet peering list](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json#list) to list peerings for a virtual network, [az network vnet peering show](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json#show) to show settings for a specific peering, and [az network vnet peering update](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json#update) to change peering settings.|
-|PowerShell|[Get-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json) to retrieve view peering settings and [Set-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json) to change settings.|
+|CLI|[az network vnet peering list](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#list) to list peerings for a virtual network, [az network vnet peering show](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#show) to show settings for a specific peering, and [az network vnet peering update](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#update) to change peering settings.|
+|PowerShell|[Get-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) to retrieve view peering settings and [Set-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) to change settings.|
 
 ## <a name="delete-subnet"></a>Delete a peering
 When a peering is deleted, traffic from a virtual network no longer flows to the peered virtual network. When virtual networks deployed through Resource Manager are peered, each virtual network has a peering to the other virtual network. Though deleting the peering from one virtual network disables the communication between the virtual networks, it does not delete the peering from the other virtual network. The peering status for the peering that exists in the other virtual network is **Disconnected**. You cannot recreate the peering until you re-create the peering in the first virtual network and the peering status for both virtual networks changes to *Connected*. 
@@ -138,10 +138,10 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet peering delete](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az network vnet peering delete](https://docs.microsoft.com/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|PowerShell|[Remove-​Azure​Rm​Virtual​Network​Peering](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps
 
 - Complete the [virtual network peering tutorial](virtual-network-create-peering.md)
-- Create a hub and spoke network topology|[Multiple](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)|
+- Create a hub and spoke network topology|[Multiple](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)|

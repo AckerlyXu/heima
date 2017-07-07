@@ -148,9 +148,9 @@ These steps assume that you have already created a Virtual Network and subnet th
 
 **Example: Azure Resource Management template**
 
-Using the following Resource Management template from the [Azure QuickStart Templates](https://github.com/azure/azure-quickstart-templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
+Using the following Resource Management template from the [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
 
-[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://github.com/azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
+[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
 
 **Example: Azure PowerShell**
 

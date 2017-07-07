@@ -75,7 +75,7 @@ mobile device data back to HDInsight by using the following path:
     /tutorials/usesqoop/importeddata
 
 ## Create cluster and SQL database
-This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database. The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
 
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
@@ -640,6 +640,6 @@ The PowerShell sample performs the following steps:
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

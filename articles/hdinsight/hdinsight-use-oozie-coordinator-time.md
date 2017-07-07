@@ -754,7 +754,7 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

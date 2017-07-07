@@ -179,7 +179,7 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ### Can I use Azure App Service Web Apps with a VNet?
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following article:
 
-* [Integrate your app with an Azure Virtual Network](../app-service-web/app-service-vnet-integration-powershell.md)
+* [Integrate your app with an Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
@@ -207,7 +207,7 @@ Yes. See the [Azure Network Security Overview](../security/security-network-over
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
-Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) and [classic (Service Management)](https://msdn.microsoft.com/library/azure/ee460799.aspx)) deployment models.
+Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) and [classic (Service Management)](http://go.microsoft.com/fwlink/?LinkId=296833)) deployment models.
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:

@@ -287,7 +287,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Git]: http://www.git-scm.com/
 [Azure Java Developer Center]: /develop/java/
 [Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[Jax-RS]: http://docs.oracle.com/javaee/6/tutorial/doc/giepu.html
+[Jax-RS]: https://docs.oracle.com/javaee/6/tutorial/doc/giepu.html
 [Maven]: https://maven.apache.org/
 [Azure]: https://www.azure.cn/
 [Online Swagger Editor]: http://editor2.swagger.io/

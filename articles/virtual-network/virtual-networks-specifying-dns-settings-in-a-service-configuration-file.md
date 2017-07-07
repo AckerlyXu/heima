@@ -38,6 +38,6 @@ A service configuration file may contain a DnsServers element with a list of IPv
 ## See Also
 [Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/azure/ee758710)
 
-[Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
+[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Configure a Virtual Network Using Network Configuration Files](/virtual-network/virtual-networks-create-vnet-classic-portal)

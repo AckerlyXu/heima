@@ -59,7 +59,7 @@ To make it easier to configure the environments, we have created some [Azure Res
 
 ### Configure one virtual network
 
-Click the following image to create two HBase clusters in the same virtual network. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
+Click the following image to create two HBase clusters in the same virtual network. The template is stored in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-replication-one-vnet/).
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -68,7 +68,7 @@ Click the following image to create two HBase clusters in the same virtual netwo
 
 ### Configure two virtual networks in the same region
 
-Click the following image to create two virtual networks with VNet peering and two HBase clusters in the same region. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
+Click the following image to create two virtual networks with VNet peering and two HBase clusters in the same region. The template is stored in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-replication-two-vnets-same-region/).
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

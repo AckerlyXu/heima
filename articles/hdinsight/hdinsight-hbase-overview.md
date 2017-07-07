@@ -71,7 +71,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
-[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
+[hbase-get-started]: /hdinsight/hdinsight-hbase-get-started/
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

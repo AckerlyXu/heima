@@ -146,7 +146,7 @@ The table below shows each resource type with the possible allocation methods (d
 | Application gateway front end |Yes |Yes |Yes |
 
 ## Limits
-The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://www.azure.cn/support/contact/) to increase the default limits up to the maximum limits based on your business needs.
+The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://www.azure.cn/support/support-azure/) to increase the default limits up to the maximum limits based on your business needs.
 
 |  | Default limit | Maximum limit |
 | --- | --- | --- |

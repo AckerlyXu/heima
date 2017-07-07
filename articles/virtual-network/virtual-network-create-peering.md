@@ -156,7 +156,7 @@ Any Azure resources you create in either virtual network are now able to communi
 
 ## <a name="powershell"></a>Create peering - PowerShell
 
-1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
 3. In the PowerShell window, sign in to Azure by entering the `login-azurermaccount` command. The account you sign in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 4. In your browser, copy the following script, then right-click in your PowerShell window to execute the script that creates a resource group and two virtual networks:
@@ -218,7 +218,7 @@ Any Azure resources you create in either virtual network are now able to communi
 
 ## <a name="template"></a>Create peering - Resource Manager template
 
-1. Reference [Create a virtual network peering](https://azure.microsoft.com/resources/templates/201-vnet-to-vnet-peering) Resource Manager template. Instructions are provided with the template for deploying the template using the Azure portal, PowerShell, or the Azure CLI. Sign in to whichever tool you choose to deploy the template with using an account that has the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
+1. Reference [Create a virtual network peering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering) Resource Manager template. Instructions are provided with the template for deploying the template using the Azure portal, PowerShell, or the Azure CLI. Sign in to whichever tool you choose to deploy the template with using an account that has the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 2. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
 3. **Optional**: To delete the resources that you create in this tutorial, complete the steps in the [Delete resources](#delete) section of this article, using either the Azure portal, PowerShell, or the Azure CLI.
 
@@ -271,7 +271,7 @@ The steps in the previous sections explained how to create a virtual network pee
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-preview.md)]
 
 1. Register for the preview. You cannot peer virtual networks created through different deployment models that exist in different subscriptions until you're registered for the preview. You cannot register for the preview in the portal, or by using the Azure CLI. You can only register for the preview using PowerShell. To register for the preview, complete the following tasks:
-    - Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
+    - Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - To start a PowerShell session from a Windows PC, go to **Start**, enter **powershell**, and then click **PowerShell**.
     - In the PowerShell window, sign in to Azure by entering the `login-azurermaccount` command. The account you sign in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
     - Register the preview capability for both Azure subscriptions and entering the following commands from PowerShell: 
@@ -360,4 +360,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 - Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#about-peering) before creating a virtual network peering for production use.
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-peering).
-- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
+- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.

@@ -159,7 +159,7 @@ If you are using Tez with Hive, see the following documents for debugging inform
 
 For more information on the REST API used in this document, see the [WebHCat reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

@@ -42,7 +42,7 @@ A Resource Manager template makes it easy to create the following for your appli
 
 In the template, you define the resources that are needed for the application. You also specify deployment parameters to input values for different environments. The template consists of JSON and expressions that you use to construct values for your deployment.
 
-You can find HDInsight template samples at [Azure Quickstart Templates](https://github.com/azure/azure-quickstart-templates/). Use cross-platform [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) with the [Resource Manager extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or a text editor to save the template into a file on your workstation. You learn how to call the template by using different methods.
+You can find HDInsight template samples at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/?term=hdinsight). Use cross-platform [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) with the [Resource Manager extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or a text editor to save the template into a file on your workstation. You learn how to call the template by using different methods.
 
 For more information about Resource Manager templates, see the following articles:
 
