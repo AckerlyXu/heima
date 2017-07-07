@@ -104,7 +104,6 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 For more information, see the CEIP section of the [Accept License Terms](https://msdn.microsoft.com/library/ms143343.aspx) topic. 
 
 ## Next steps
-For questions about pricing, see [Pricing](https://www.azure.cn/pricing/details/virtual-machines/). Select your target edition of SQL Server in the **VM type** list. Then view the prices for differently sized virtual machines. 
 
 For questions about pricing, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) and the [Azure pricing page](https://www.azure.cn/pricing/details/virtual-machines/windows/). Select your target edition of SQL Server in the **OS/Software** list. Then view the prices for differently sized virtual machines.
 

@@ -88,6 +88,6 @@ If the Azure VM access extension does not respond and you are unable to reset th
 
 [Azure VM extensions and features](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Connect to an Azure virtual machine with RDP or SSH](/virtual-machines/virtual-machines-linux-azure-overview)
+[Connect to an Azure virtual machine with RDP or SSH](/virtual-machines/linux/overview)
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
