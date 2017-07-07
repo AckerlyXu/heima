@@ -46,7 +46,8 @@ Change feed allows for efficient processing of large datasets with a high volume
 
 ![Azure Cosmos DB based lambda pipeline for ingestion and query](./media/change-feed/lambda.png)
 
-You can use Azure Cosmos DB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+You can use Azure Cosmos DB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+<!-- Not Available [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md) -->
 
 Within web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using  [App Services](https://www.azure.cn/home/features/app-service/). If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 <!-- Not Available [Azure Functions](../azure-functions/functions-bindings-documentdb.md) -->

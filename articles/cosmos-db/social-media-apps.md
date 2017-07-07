@@ -193,16 +193,7 @@ And a Post would look like:
 
 And when an edit arises where one of the attributes of the chunk is affected, it's easy to find the affected documents by using queries that point to the indexed attributes (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id") and then updating the chunks.
 
-## The search box
-Users will generate, luckily, a lot of content. And we should be able to provide the ability to search and find content that might not be directly in their content streams, maybe because we don't follow the creators, or maybe we are just trying to find that old post we did 6 months ago.
-
-Thankfully, and because we are using Azure DocumentDB, we can easily implement a search engine using [Azure Search](https://www.azure.cn/home/features/search/) in a couple of minutes and without typing a single line of code (other than obviously, the search process and UI).
-
-Why is this so easy?
-
-Azure Search implements what they call [Indexers](https://msdn.microsoft.com/zh-cn/library/azure/dn946891.aspx), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-documentdb.md). The transition of information from Cosmos DB to Azure Search is straightforward, as both store information in JSON format, we just need to [create our Index](../search/search-create-index-portal.md) and map which attributes from our Documents we want indexed and that's it, in a matter of minutes (depends on the size of our data), all our content will be available to be searched upon, by the best Search-as-a-Service solution in cloud infrastructure. 
-
-For more information about Azure Search, you can visit the [Hitchhiker's Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+<!-- Not Available ## The search box -->
 
 ## The underlying knowledge
 After storing all this content that grows and grows every day, we might find ourselves thinking: What can I do with all this stream of information from my users?

@@ -402,5 +402,3 @@ To demonstrate how to persist a graph into Azure Cosmos DB, this example uses th
 ## Next steps
 
 In this quick-start article, you've learned how to work with graphs by combining Azure Cosmos DB and Spark.
-
-> [!div class="nextstepaction"]
