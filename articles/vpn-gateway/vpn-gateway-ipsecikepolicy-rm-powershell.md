@@ -87,7 +87,7 @@ This section walks you through the steps of creating a S2S VPN connection with a
 Please see [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md) for more detailed step-by-step instructions for creating a S2S VPN connection.
 
 ### Before you begin
-* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/).
+* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
 * You'll need to install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - Create the virtual network, VPN gateway, and local network gateway
