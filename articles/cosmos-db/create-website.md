@@ -19,7 +19,7 @@ ms.author: v-yeche
 
 ---
 # Deploy Azure Cosmos DB and Azure App Service Web Apps using an Azure Resource Manager Template
-This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/), an [Azure App Service](../app-service-web/app-service-changes-existing-services) web app, and a sample web application.
+This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/), an [Azure App Service](/app-service-web/app-service-changes-existing-services) web app, and a sample web application.
 
 Using Azure Resource Manager templates, you can easily automate the deployment and configuration of your Azure resources.  This tutorial shows how to deploy a web application and automatically configure Azure Cosmos DB account connection information.
 
@@ -135,7 +135,7 @@ Congratulations! You've deployed Azure Cosmos DB, App Service web app and a samp
 * To learn more about Azure Resource Manager templates, click [here](https://msdn.microsoft.com/zh-cn/library/azure/dn790549.aspx).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](../app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure Classic Management Portal](/app-service-web/app-service-web-app-azure-portal)
 
 > [!NOTE]
