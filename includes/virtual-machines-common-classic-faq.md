@@ -9,7 +9,7 @@ Yes. For instructions on how to migrate, see:
 ## What can I run on an Azure VM?
 All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
+• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • For Linux VMs -- [Linux on Azure-Endorsed Distributions](/virtual-machines/linux/endorsed-distros)
 
@@ -26,7 +26,7 @@ Each data disk can be up to 1 TB. The number of data disks you can use depends o
 An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/blob/).
 
 ## Which virtual hard disk types can I use?
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
+Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
 
 * For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 * For Windows instructions, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -71,7 +71,7 @@ The term upgrade generally means moving to a more recent release of your operati
 * For Linux VMs, use the package management tools and procedures appropriate for the distribution.
 * For a Windows virtual machine, you need to migrate the server using something like the Windows Server Migration Tools. Don't attempt to upgrade the guest OS while it resides on Azure. It isn't supported because of the risk of losing access to the virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn't be able to troubleshoot the problems.
 
-For general details about the tools and processes for migrating a Windows Server, see [Migrate Roles and Features to Windows Server](https://technet.microsoft.com/library/jj134039.aspx).
+For general details about the tools and processes for migrating a Windows Server, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## What's the default user name and password on the virtual machine?
 The images provided by Azure don't have a pre-configured user name and password. When you create virtual machine using one of those images, you'll need to provide a user name and password, which you'll use to log on to the virtual machine.

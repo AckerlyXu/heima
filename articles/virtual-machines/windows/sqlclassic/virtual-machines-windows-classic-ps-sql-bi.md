@@ -339,7 +339,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 * [Migrating a Database to SQL Server on an Azure VM](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determine the Server Mode of an Analysis Services Instance](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Multidimensional Modeling (Adventure Works Tutorial)](https://technet.microsoft.com/library/ms170208.aspx)
-* [Azure Documentation Center](/)
+* [Azure Documentation Center](https://www.azure.cn/documentation/)
 * [Using Power BI in a Hybrid Environment](https://msdn.microsoft.com/library/dn798994.aspx)
 
 > [!NOTE]
