@@ -3,8 +3,8 @@ title: Upgrade an Azure Service Fabric cluster | Azure
 description: Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
-ms.author: v-johch
+origin.date: 02/22/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Upgrade an Azure Service Fabric cluster
@@ -75,7 +76,7 @@ Run the following command, and you should get an output similar to this.
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
 
-Example: https://management.chinacloudapi.cn/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
+Example: https://management.chinacloudapi.cn/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/chinaeast/clusterVersions?api-version=2016-09-01
 
 Output:
 {
@@ -113,11 +114,10 @@ Output:
                   ]
                 }
 
-
 ```
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
-We maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
+Azure maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
 
 ### Phase 1: An upgrade is performed by using all cluster health policies
 During this phase, the upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
@@ -170,14 +170,14 @@ You can change application ports by changing the Load Balancer resource properti
 To open a new port on all VMs in a node type, do the following:
 
 1. Add a new probe to the appropriate load balancer.
-   
+
     If you deployed your cluster by using the portal, the load balancers are named "LB-name of the Resource group-NodeTypename", one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
-   
+
     ![Screenshot that shows adding a probe to a load balancer in the portal.][AddingProbes]
 2. Add a new rule to the load balancer.
-   
+
     Add a new rule to the same load balancer by using the probe that you created in the previous step.
-   
+
     ![Adding a new rule to a load balancer in the portal.][AddingLBRules]
 
 ### Placement properties
@@ -203,13 +203,14 @@ You can specify the custom health policies or review the current settings under 
 Refer to [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md) on what and how you can customize them.
 
 ### OS patches on the VMs that make up the cluster
-This capability is planned for the future as an automated feature. But currently, you are responsible to patch your VMs. You must do this one VM at a time, so that you do not take down more than one at a time.
+Refer to [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) which can be deployed on your cluster to install patches from Windows Update in an orchestrated manner, keeping the services availble all the time. 
 
 ### OS upgrades on the VMs that make up the cluster
 If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
 
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->
