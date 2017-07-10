@@ -45,7 +45,7 @@ This tutorial works with the development environment, web project, and Azure web
 
 The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
-The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Visual Studio 2013, the WebJobs features require [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or later.
+The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Visual Studio 2013, the WebJobs features require [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) or later.
 
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
