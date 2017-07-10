@@ -97,7 +97,7 @@ Option 2: Specify a name, size, and availability set name.
     $availset="<set name>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
 
-For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](/cloud-services/cloud-services-sizes-specs).
 
 Optionally, for a standalone Windows computer, specify the local administrator account and password.
 

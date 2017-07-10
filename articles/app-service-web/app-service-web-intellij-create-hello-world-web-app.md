@@ -29,7 +29,7 @@ When you have completed this tutorial, your application will look similar to the
 * A Java Developer Kit (JDK), v 1.8 or later.
 * IntelliJ IDEA Ultimate Edition. This can be downloaded from <https://www.jetbrains.com/idea/download/index.html>.
 * A distribution of a Java-based web server or application server, such as [Apache Tomcat] or [Jetty].
-* An Azure subscription, which can be acquired from <https://www.azure.cn/pricing/1rmb-trial/> or <https://www.azure.cn/pricing/overview/>.
+* An Azure subscription, which can be acquired from <https://www.azure.cn/pricing/1rmb-trial/> or <http://www.azure.cn/pricing/overview/>.
 * The [Azure Toolkit for IntelliJ]. For information about installing the Azure Toolkit, see [Installing the Azure Toolkit for IntelliJ].
 
 [!INCLUDE [azure-intellij-login-guide](../../includes/azure-intellij-login-guide.md)]
