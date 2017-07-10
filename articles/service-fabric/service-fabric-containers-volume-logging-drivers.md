@@ -57,6 +57,6 @@ In the preceding example, the `Source` tag for the `Volume` refers to the source
 
 Refer to the following articles to deploy containers to a Service Fabric cluster:
 
-[Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md)
+<!-- Not Available [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md) -->
 
 [Deploy a Docker container to Service Fabric on Linux](service-fabric-deploy-container-linux.md)

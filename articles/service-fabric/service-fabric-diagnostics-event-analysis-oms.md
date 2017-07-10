@@ -21,7 +21,8 @@ ms.author: v-yeche
 
 # Event analysis and visualization with OMS
 
-Operations Management Suite (OMS) is a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud. To get a more detailed overview of OMS and what it offers, read [What is OMS?](../operations-management-suite/operations-management-suite-overview.md)
+Operations Management Suite (OMS) is a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud.
+<!-- Not Available [What is OMS?](../operations-management-suite/operations-management-suite-overview.md) -->
 
 ## Log Analytics and the OMS workspace
 
@@ -29,7 +30,8 @@ Log Analytics collects data from managed resources, including an Azure storage t
 
 When OMS is configured, you will have access to a specific *OMS workspace*, from where data can be queried or visualized in dashboards.
 
-After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. There are several others as well that are worth exploring, and OMS also allows for the creation of custom solutions, which you can read more about [here](/operations-management-suite/operations-management-suite-solutions). Each solution that you choose to use for a cluster will be configured in the same OMS workspace, alongside Log Analytics. Workspaces allow for custom dashboards and visualization of data, and modifications to the data you want to collect, process, and analyze.
+After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters.
+<!-- Not Available [here](/operations-management-suite/operations-management-suite-solutions). -->
 
 ## Setting up an OMS workspace with the Service Fabric Solution
 
@@ -58,7 +60,8 @@ Clicking **Create** will ask you for an OMS workspace. Click **Select a workspac
 
 ## Using the OMS Agent
 
-It is recommended to use EventFlow and WAD as aggregation solutions because they allow for a more modular approach to diagnostics and monitoring. For example, if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using OMS and are willing to continue using it for event analysis (does not have to be the only platform you use, but rather that it will be at least one of the platforms), we recommend that you explore setting up the [OMS agent](/log-analytics/log-analytics-windows-agents).
+It is recommended to use EventFlow and WAD as aggregation solutions because they allow for a more modular approach to diagnostics and monitoring. For example, if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using OMS and are willing to continue using it for event analysis (does not have to be the only platform you use, but rather that it will be at least one of the platforms)
+<!-- Not Available [OMS agent](/log-analytics/log-analytics-windows-agents) -->
 
 The process for doing this is relatively easy, since you just have to add the agent as a virtual machine scale set extension to your Resource Manager template, ensuring that it gets installed on each of your nodes. A sample Resource Manager template that deploys the OMS workspace with the Service Fabric solution (as above) and adds the agent to your nodes can be found [here](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample).
 
@@ -85,7 +88,8 @@ The agent enables the collection of several container-specific logs that can be 
 * ContainerServiceLog: docker daemon commands that have been run
 * Perf: performance counters including container cpu, memory, network traffic, disk i/o, and custom metrics from the host machines
 
-This article covers the steps required to set up container monitoring for your cluster. To learn more about OMS's Containers solution, check out their [documentation](../log-analytics/log-analytics-containers.md).
+This article covers the steps required to set up container monitoring for your cluster.
+<!-- Not Available [documentation](../log-analytics/log-analytics-containers.md) -->
 
 To set up the Container solution in your workspace, make sure you have the OMS agent deployed on your cluster's nodes by following the steps mentioned above. Once the cluster is ready, deploy a container to it. Bear in mind that the first time a container image is deployed to a cluster, it takes several minutes to download the image depending on its size.
 
@@ -95,10 +99,10 @@ In Azure Marketplace, search for *Containers* and create a Containers resource (
 
 In the creation step, it requests an OMS workspace. Select the one that was created with the deployment above. This step adds a Containers solution within your OMS workspace, and is automatically detected by the OMS agent deployed by the template. The agent will start gathering data on the containers processes in the cluster, and less than 15 minutes or so, you should see the solution light up with data, as in the image of the dashboard above.
 
-## Next steps
+<!-- Not Available ## Next steps -->
 
-Explore the following OMS tools and options to customize a workspace to your needs:
+<!-- Not Available Explore the following OMS tools and options to customize a workspace to your needs: -->
 
-* For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
-* Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
+<!-- Not Available * For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) -->
+<!-- Not Available * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics -->
+<!-- Not Available * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics -->
