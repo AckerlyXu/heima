@@ -4,7 +4,7 @@ description: Understand concurrency and workload management in Azure SQL Data Wa
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 10/31/2016
-ms.date: 01/03/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -421,6 +421,6 @@ For more information about managing database users and security, see [Secure a d
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/zh-cn/library/azure/ee336235.aspx
 
 <!--Other Web references-->

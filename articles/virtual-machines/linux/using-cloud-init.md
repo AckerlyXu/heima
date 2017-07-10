@@ -84,7 +84,7 @@ To inject scripts at any time after boot:
 | CoreOS |CoreOS |CoreOS |Stable |latest |yes |
 | Debian |credativ |Debian |8 |latest |no |
 | openSUSE |SUSE |openSUSE |13.2 |latest |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |latest |yes |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |yes |
 
 We are working with our partners to get cloud-init included and working in the images that they provide to Azure.
 

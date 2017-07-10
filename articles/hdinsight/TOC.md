@@ -188,4 +188,3 @@
 
 # Resources
 ## [Get help on the forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

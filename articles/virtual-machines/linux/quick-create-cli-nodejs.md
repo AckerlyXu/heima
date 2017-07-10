@@ -53,9 +53,9 @@ A quick way to choose a distribution is to use the Azure CLI aliases mapped to t
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 | Debian |credativ |Debian |8 |latest |
 | openSUSE |SUSE |openSUSE |13.2 |latest |
-| UbuntuLTS |Canonical |Ubuntu Server |14.04.3-LTS |latest |
+| UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |latest |
 
-The following sections use the `UbuntuLTS` alias for the **ImageURN** option (`-Q`) to deploy an Ubuntu 14.04.3 LTS Server.
+The following sections use the `UbuntuLTS` alias for the **ImageURN** option (`-Q`) to deploy an Ubuntu 14.04.4 LTS Server.
 
 The previous `quick-create` example only called out the `-M` flag to identify the SSH public key to upload while disabling SSH passwords, so you are prompted for the following arguments:
 
@@ -120,7 +120,7 @@ data:    Storage Profile:
 data:      Image reference:
 data:        Publisher                   :Canonical
 data:        Offer                       :UbuntuServer
-data:        Sku                         :14.04.3-LTS
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
@@ -167,7 +167,7 @@ The login process should look something like the following output block:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-65-generic x86_64)
+Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
 

@@ -4,7 +4,7 @@ description: Learn the common scenarios for data loading into SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -33,14 +33,14 @@ The fastest way to import data into SQL Data Warehouse is to use PolyBase to loa
 ### 1. Use PolyBase and T-SQL
 Summary of loading process:
 
-1. Move your data to Azure blob storage and store it in text files.    <!--Data Lake Store Not supported in ACN-->
+1. Move your data to Azure blob storage and store it in text files.    
+<!--Not Available Data Lake Store in ACN-->
 2. Configure external objects in SQL Data Warehouse to define the location and format of the data
 3. Run a T-SQL command to load the data in parallel into a new database table.
 
-<!-- 5. Schedule and run a loading job. --> 
-
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
-<!-- ADF Not supported in ACN-->
+
+<!-- Not Available ### 2. Use Azure Data Factory -->
 
 ## Load from SQL Server
 To load data from SQL Server to SQL Data Warehouse you can use Integration Services (SSIS), transfer flat files, or ship disks to Microsoft. Read on to see a summary of the different loading processes and links to tutorials.
@@ -103,7 +103,7 @@ Summary of loading process:
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
 
 ## Recommendations
-<!-- Not supported in Azure.cn Many of our partners have loading solutions. To find out more, see a list of our [solution partners][solution partners]. -->
+<!-- Not Available [solution partners][solution partners]. -->
 If your data is coming from a non-relational source and you want to load it into SQL Data Warehouse you will need to transform it into rows and columns before you load it. The transformed data doesn't need to be stored in a database, it can be stored in text files.
 
 Create statistics on newly loaded data. Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important to create statistics on all columns of all tables after the first load or any substantial changes occur in the data.  For details, see [Statistics][Statistics].

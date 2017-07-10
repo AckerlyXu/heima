@@ -4,7 +4,7 @@ description: Azure Active Directory (AAD) and SQL Server authentication to Azure
 services: sql-data-warehouse
 documentationcenter: ''
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.custom: security
 origin.date: 03/21/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -87,11 +87,11 @@ Follow these steps to configure Azure Active Directory authentication.
 5. Create contained database users in your database mapped to Azure AD identities
 6. Connect to your data warehouse by using Azure AD identities
 
-Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/zh-cn/library/ms187328.aspx).
 
 ### Find the details
 * Complete the detailed steps. The detailed steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and Azure SQL Data Warehouse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
-* Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](https://msdn.microsoft.com/library/mt667986.aspx).
+* Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](https://msdn.microsoft.com/zh-cn/library/mt667986.aspx).
 
 ## Next steps
 

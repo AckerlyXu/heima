@@ -248,7 +248,7 @@ ms.custom: H1Hack27Feb2017
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md
 [storage-use-azcopy]:../../storage/storage-use-azcopy.md
-[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
+[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../linux/attach-disk-portal.md
@@ -299,7 +299,7 @@ ms.custom: H1Hack27Feb2017
 [vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:.././azure/xplat-cli-azure-resource-manager
+[xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
 This guide is part of the documentation on implementing and deploying the SAP software on Azure. Before reading this guide, please read the [Planning and Implementation Guide][planning-guide]. This document covers the deployment of various Relational Database Management Systems (RDBMS) and related products in combination with SAP on Azure Virtual Machines (VMs) using the Azure Infrastructure as a Service (IaaS) capabilities.
 
@@ -353,7 +353,7 @@ The following SAP Notes are related to the topic of SAP on Azure:
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
-You should have a working knowledge about the Azure Architecture and how Azure Virtual Machines are deployed and operated. You can find more information here <https://docs.azure.cn/>
+You should have a working knowledge about the Azure Architecture and how Azure Virtual Machines are deployed and operated. You can find more information here <https://www.azure.cn/documentation/>
 
 > [!NOTE]
 > We are **not** discussing Azure Platform as a Service (PaaS) offerings of the Azure Platform. This paper is about running a database management system (DBMS) in Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://www.azure.cn/home/features/sql-database/>
@@ -546,7 +546,7 @@ It needs to be configured by purpose when rolling out VMs as seen here:
 
 If we want to create highly available configurations of DBMS deployments (independent of the individual DBMS HA functionality used), the DBMS VMs would need to:
 
-* Add the VMs to the same Azure Virtual Network (<https://review.docs.azure.cn/virtual-network/>)
+* Add the VMs to the same Azure Virtual Network (<https://docs.azure.cn/virtual-network/>)
 * The VMs of the HA configuration should also be in the same subnet. Name resolution between the different subnets is not possible in Cloud-Only deployments, only IP resolution will work. Using site-to-site or ExpressRoute connectivity for Cross-Premises deployments, a network with at least one subnet will be already established. Name resolution will be done according to the on-premises AD policies and network infrastructure.
 
 
@@ -712,8 +712,8 @@ However, keep in mind, the throughput also is dependent on the location of the A
 #### Managing Backup BLOBs
 There is a requirement to manage the backups on your own. Since the expectation is that many blobs will be created by executing frequent transaction log backups, administration of those blobs easily can overburden the Azure Portal. Therefore, it is recommendable to leverage a Azure Storage Explorer. There are several good ones available which can help to manage an Azure storage account
 
-* Microsoft Visual Studio with Azure SDK installed (<https://review.docs.azure.cn/downloads/>)
-* Azure Storage Explorer (<https://review.docs.azure.cn/downloads/>)
+* Microsoft Visual Studio with Azure SDK installed (<https://docs.azure.cn/downloads/>)
+* Azure Storage Explorer (<https://docs.azure.cn/downloads/>)
 * 3rd party tools
 
 

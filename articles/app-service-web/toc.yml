@@ -213,10 +213,8 @@
   - name: Quota Information
     href: ../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates & Release Notes
-    href: https://azure.microsoft.com/updates/?product=app-service
+    href: https://www.azure.cn/what-is-new/
   - name: Best practices
     href: app-service-best-practices.md
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+    href: https://www.azure.cn/video-center/

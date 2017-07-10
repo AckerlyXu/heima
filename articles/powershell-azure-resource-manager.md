@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/powershell-azure-resource-manager
+redirect_url: /azure-resource-manager/powershell-azure-resource-manager
 ---

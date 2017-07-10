@@ -1,10 +1,10 @@
 ---
-title: Prerequisites for replication to Azure by using Azure Site Recovery | Azure
-description: This article summarizes prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
+title: Prerequisites for replication to Azure using Azure Site Recovery | Azure
+description: This article summarizes prerequisites for replicating VMs and physical machines to Azure using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
-author: rajani-janaki-ram
-manager: jwhit
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: e24eea6c-50a7-4cd5-aab4-2c5c4d72ee2d
@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
-ms.author: v-johch
+origin.date: 03/27/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 ---
 
-#  Prerequisites for replication to Azure by using Azure Site Recovery
+#  Prerequisites for replication from on-premises to Azure using Azure Site Recovery
 
+> [!div class="op_single_selector"]
+> * [Replicate from Azure to Azure](site-recovery-azure-to-azure-prereq.md)
+> * [Replicate from on-premises to Azure](site-recovery-prereq.md)
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of Azure virtiual machine to another Azure region and on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
 
-This article summarizes the prerequisites required to begin Site Recovery replication to Azure.
+This article summarizes the prerequisites required to begin Site Recovery replication from on-premises to Azure.
 
 ##<a name="Azure requirements"></a><a name="azure-requirements"></a> Azure requirements
 
@@ -37,7 +41,7 @@ This article summarizes the prerequisites required to begin Site Recovery replic
 **Network mapping** | If you replicate Hyper-V VMs in Virtual Machine Manager clouds, you need to set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover.
 
 >[!NOTE]
->The following sections describe the prerequisites for various components in the customer environment. For more about support for specific configurations, read the [support matrix](site-recovery-support-matrix.md).
+>The following sections describe the prerequisites for various components in the customer environment. For more details about support for specific configurations, read the [support matrix](site-recovery-support-matrix.md).
 >
 
 ## Disaster recovery of physical Windows or Linux servers to Azure
@@ -79,8 +83,7 @@ Following are the required components for disaster recovery of Hyper-V virtual m
 ### Replicated machine prerequisites
 | **Component** | **Details** |
 | --- | --- |
-| **Protected VMs** | Site Recovery supports all operating systems that are supported by [Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).<br/><br/>VMs should conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) for creating Azure VMs. Machine names should contain between 1 and 63 characters (letters, numbers, and hyphens). The name must start with a letter or number and end with a letter or number. <br/><br/>You can modify the name after you've enabled replication for the VM. <br/><br/> Individual disk capacity on protected machines shouldn’t be more than 1,023 GB. A VM can have up to 16 disks (thus up to 16 TB).<br/><br/>
-
+| **Protected VMs** | Site Recovery supports all operating systems that are supported by [Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).<br/><br/>VMs should conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) for creating Azure VMs. Machine names should contain between 1 and 63 characters (letters, numbers, and hyphens). The name must start with a letter or number and end with a letter or number. <br/><br/>You can modify the name after you've enabled replication for the VM. <br/><br/> Individual disk capacity on protected machines shouldn't be more than 1,023 GB. A VM can have up to 16 disks (thus up to 16 TB).<br/><br/>
 
 ## Disaster recovery of Hyper-V virtual machines in Virtual Machine Manager clouds to a customer-owned site
 
@@ -90,7 +93,7 @@ Following are the required components for disaster recovery of Hyper-V virtual m
 | --- | --- |
 | **Virtual Machine Manager** |  We recommend that you deploy a Virtual Machine Manager server in the primary site and a Virtual Machine Manager server in the secondary site.<br/><br/> You can [replicate between clouds on a single VMM server](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). To do this, you need at least two clouds configured on the Virtual Machine Manager server.<br/><br/> Virtual Machine Manager servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> Each Virtual Machine Manager server must have at least one or more clouds. All clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more Virtual Machine Manager host groups. For more about setting up Virtual Machine Manager clouds, see [Prepare for Azure Site Recovery deployment](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, we recommend installing [update 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 and have a static IP address-based cluster, cluster broker isn't created automatically. You must configure the cluster broker manually. For more about the cluster broker, see [Configure replica broker role cluster to cluster replication](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
-| **Provider** | During Site Recovery deployment, install Azure Site Recovery Provider on Virtual Machine Manager servers. The Provider communicates with Site Recovery over HTTPS 443 to orchestrate replication. Data replication occurs between the primary and secondary Hyper-V servers over the LAN or a VPN connection.<br/><br/> The Provider running on the Virtual Machine Manager server needs access to these URLs:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>The Provider must allow firewall communication from the Virtual Machine Manager servers to the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=42064) and allow the HTTPS (443) protocol. |
+| **Provider** | During Site Recovery deployment, install Azure Site Recovery Provider on Virtual Machine Manager servers. The Provider communicates with Site Recovery over HTTPS 443 to orchestrate replication. Data replication occurs between the primary and secondary Hyper-V servers over the LAN or a VPN connection.<br/><br/> The Provider running on the Virtual Machine Manager server needs access to these URLs:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>The Provider must allow firewall communication from the Virtual Machine Manager servers to the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and allow the HTTPS (443) protocol. |
 
 
 ## URL access

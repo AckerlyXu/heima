@@ -99,7 +99,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myResourceGroupDisk --location chinaeast
 ```
 
-Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
 ```azurecli 
 az vm create \
@@ -198,7 +198,7 @@ Before increasing disk size, the Id or name of the disk is needed. Use the [az d
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-The VM must also be deallocated. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM.
+The VM must also be deallocated. Use the [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) command to stop and deallocate the VM.
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
