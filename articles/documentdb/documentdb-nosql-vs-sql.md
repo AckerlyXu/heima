@@ -18,7 +18,6 @@ ms.topic: article
 origin.date: 03/14/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: https://aka.ms/documentdb
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 # NoSQL vs SQL and DocumentDB

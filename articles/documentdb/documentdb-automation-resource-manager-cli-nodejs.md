@@ -17,7 +17,6 @@ ms.topic: article
 origin.date: 02/27/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: https://aka.ms/acdbclisamples
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---

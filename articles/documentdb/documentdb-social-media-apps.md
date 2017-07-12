@@ -17,7 +17,6 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: /documentdb/documentdb-use-cases
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---

@@ -17,7 +17,6 @@ ms.topic: get-started-article
 origin.date: 02/17/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: https://aka.ms/acdbnetqa
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---
