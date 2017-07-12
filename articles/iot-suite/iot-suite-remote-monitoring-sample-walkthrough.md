@@ -48,8 +48,6 @@ Each simulated device can send the following message types to IoT Hub:
 
 > [!NOTE]
 > The solution stores the list of commands supported by the device in a Cosmos DB database and not in the device twin.
-> 
-> 
 
 ### Properties and device twins
 The simulated devices send the following device properties to the [twin][lnk-device-twins] in the IoT hub as *reported properties*. The device sends reported properties at startup and in response to a **Change Device State** command or method.
@@ -108,8 +106,6 @@ The simulated devices can handle the following commands (cloud-to-device message
 
 > [!NOTE]
 > For a comparison of these commands (cloud-to-device messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
-> 
-> 
 
 ## IoT Hub
 The [IoT hub][lnk-iothub] ingests data sent from the devices into the cloud and makes it available to the Azure Stream Analytics (ASA) jobs. Each stream ASA job uses a separate IoT Hub consumer group to read the stream of messages from your devices.
@@ -238,9 +234,11 @@ The solution uses a Cosmos DB database to store information about the devices co
 The solution portal is a web app deployed as part of the preconfigured solution. The key pages in the solution portal are the dashboard and the device list.
 
 ### Dashboard
+
 This page in the web app uses PowerBI javascript controls (See [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) to visualize the telemetry data from the devices. The solution uses the ASA telemetry job to write the telemetry data to blob storage.
 
 ### Device list
+
 From this page in the solution portal you can:
 
 * Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific Cosmos DB database.
@@ -261,8 +259,8 @@ You can continue getting started with IoT Suite by reading the following article
 - [Permissions on the azureiotsuite.com site][lnk-permissions]
 [lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: ../iot-hub/index.md
-[lnk-asa]: ../stream-analytics/index.md
+[lnk-iothub]: /iot-hub/
+[lnk-asa]: /stream-analytics/
 [lnk-webjobs]: ../app-service-web/websites-webjobs-resources.md
 [lnk-connect-rm]: ./iot-suite-connecting-devices.md
 [lnk-permissions]: ./iot-suite-permissions.md
