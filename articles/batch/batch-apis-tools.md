@@ -29,7 +29,7 @@ You can efficiently process large-scale workloads for your organization, or prov
 > 
 > 
 
-## Azure accounts you'll need
+## Azure accounts you'll need <a name="azure-accounts-for-batch-development"></a>
 When you develop Batch solutions, you'll use the following accounts in Azure.
 
 - **Azure account and subscription** - If you don't already have an Azure subscription, you can sign up for a [Azure account][free_account]. When you create an account, a default subscription is created for you.

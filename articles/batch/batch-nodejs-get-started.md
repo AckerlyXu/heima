@@ -45,13 +45,6 @@ The node.js client deploys a batch job with a preparation task (explained in det
 - [Preparation task shell scripts](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
 - [Python csv to JSON processor](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
-> [!TIP]
-> The Node.js client in the link specified does not contain specific code to be deployed as an Azure function app. You can refer to the following links for instructions to create one.
-> - [Create function app](../azure-functions/functions-create-first-azure-function.md)
-> - [Create timer trigger function](../azure-functions/functions-bindings-timer.md)
->
->
-
 ## Build the application
 
 Now, let us follow the process step by step into building the Node.js client:
