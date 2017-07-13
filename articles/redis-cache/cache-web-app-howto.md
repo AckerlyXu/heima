@@ -710,7 +710,7 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 
 1. In the **Basics** section, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
 2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower-cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
-3. After configuring the desired settings, select **Legal terms**, read the terms and conditions, and click the **Create** button.
+3. After configuring the desired settings, select **Legal terms**, read the terms and conditions, and click the **Purchase** button.
 4. To begin provisioning the resources, click **Create**.
 
 To view the progress of your deployment, click the notification icon and click **Deployment started**.

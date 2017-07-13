@@ -872,8 +872,8 @@ This release contains the following updates.
 <td>Hadoop</td>
 <td>N/A</td>
 </tr>
-<td>Hadoop Connector for Azure DocumentDb</td>
-<td>With Hadoop Connector for Azure DocumentDb, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across Azure DocumentDb collections or across database accounts. For more information and a tutorial, see Run Hadoop jobs using Azure DocumentDb and HDInsight.</td>
+<td>Hadoop Connector for Azure Cosmos DB</td>
+<td>With Hadoop Connector for Azure Cosmos DB, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across Azure Cosmos DB collections or across database accounts. For more information and a tutorial, see Run Hadoop jobs using Azure Cosmos DB and HDInsight.</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>

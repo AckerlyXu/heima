@@ -70,22 +70,6 @@ For more information, see:
 <a name="collect" />
 
 ### 2. Collect data
-#### Use the Azure App Service Support Portal
-Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.chinacloudsites.cn/Support**
-
-The Azure App Service Support portal provides you with three separate tabs to support the three steps of a common troubleshooting scenario:
-
-1. Observe current behavior
-2. Analyze by collecting diagnostics information and running the built-in analyzers
-3. Mitigate
-
-If the issue is happening right now, click **Analyze** > **Diagnostics** > **Diagnose Now** to create a diagnostic session for you, which will collect HTTP logs, event viewer logs, memory dumps, PHP error logs and PHP process report.
-
-Once the data is collected, it will also run an analysis on the data and provide you with an HTML report.
-
-In case you want to download the data, by default, it would be stored in the D:\home\data\DaaS folder.
-
-For more information on the Azure App Service Support portal, see [New Updates to Support Site Extension for Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### Use the Kudu Debug Console
 Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This is called the *Kudu Console* or the *SCM Dashboard* for your web app.

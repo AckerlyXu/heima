@@ -116,7 +116,7 @@ In this section, we look at the steps to **install Airpal on the edgenode** of a
 
 4. Use the template **[here](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values.
 
-5. Review the **Legal Terms**, and clickt the **Create** button for both the Legal terms and template.
+5. Review the **Legal Terms**, and clickt the **Purchase** button for both the Legal terms and template.
 
 6. Once the changes are applied to the cluster configuration, you can access the Airpal web interface by using the following steps.
 

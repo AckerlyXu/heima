@@ -152,7 +152,9 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName `
 # Get the additional storage account key
 $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 
-$config = New-AzureRmHDInsightClusterConfig
+$config = New-AzureRmHDInsightClusterConfig -ClusterType Hadoop
+
+# Add an additional storage account
 Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.chinacloudapi.cn" -StorageAccountKey $additionalStorageAccountKey
 
 # Create a new HDInsight cluster using -Config
@@ -165,7 +167,6 @@ New-AzureRmHDInsightCluster `
     -DefaultStorageAccountKey $defaultStorageAccountKey `
     -DefaultStorageContainer $defaultStorageContainerName  `
     -ClusterSizeInNodes $clusterSizeInNodes `
-    -ClusterType Hadoop `
     -OSType $clusterOS `
     -Version $clusterVersion `
     -SshCredential $sshCredentials `

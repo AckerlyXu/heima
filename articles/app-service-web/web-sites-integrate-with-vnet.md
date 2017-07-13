@@ -21,14 +21,11 @@ ms.author: v-dazen
 # Integrate your app with an Azure Virtual Network
 This document describes the Azure App Service virtual network integration feature and shows how to set it up with apps in [Azure App Service](/app-service-web/app-service-changes-existing-services).  If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet routeable network that you control access to.  These networks can then be connected to your on premise networks using a variety of VPN technologies.  To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview][VNETOverview].  
 
-The Azure App Service has two forms.  
+In Azure China, the Azure App Service has only one form.  
 
-1. The multi-tenant systems that support the full range of pricing plans
-2. The App Service Environment (ASE) premium feature which deploys into your VNET.  
+* The multi-tenant systems that support the full range of pricing plans
 
-This document goes through VNET Integration and not App Service Environment.  If you want to learn more about the ASE feature then start with the information here: [App Service Environment introduction][ASEintro].
-
-VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.  Private site access is only available with an ASE configured with an Internal Load Balancer (ILB).  For details on using an ILB ASE, start with the article here: [Creating and using an ILB ASE][ILBASE]. 
+VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.
 
 A common scenario where you would use VNET Integration is enabling access from your web app to a database or a web services running on a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
 
@@ -69,7 +66,7 @@ You have the option to connect your app to a new or existing virtual network.  I
 > 
 > 
 
-To enable VNET Integration open your app Settings and then select Networking.  The UI that opens up offers three networking choices.  This guide is only going into VNET Integration though Hybrid Connections and App Service Environments are discussed later in this document.  
+To enable VNET Integration open your app Settings and then select Networking.  The UI that opens up offers only one networking choice in Azure China.
 
 If your app is not in the correct pricing plan the UI will helpfully enable you to scale your plan to a higher pricing plan of your choice.
 
@@ -180,7 +177,7 @@ If those certificates or network information is changed then you will need to cl
 One of the benefits of the VNET Integration feature is that if your VNET is connected to your on premise network with a Site to Site VPN then your apps can have access to your on premise resources from your app.  For this to work though you may need to update your on premise VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
 > [!NOTE]
-> While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a Classic or Resource Manager VNET.  If you need to access resources through an ExpressRoute VPN then you can use an ASE which can run in your VNET. 
+> While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a Classic or Resource Manager VNET.
 > 
 > 
 
@@ -248,8 +245,9 @@ Additional debug steps include:
 
 * log onto another VM in your VNET and attempt to reach your resource host:port from there.  There are some TCP ping utilities that you can use for this purpose or can even use telnet if need be.  The purpose here is just to determine if connectivity is there from this other VM. 
 * bring up an application on another VM and test access to that host and port from the console from your app  
-  ####On premise resources####
-  If your cannot reach resources on premise then the first thing you should check is if you can reach a resource in your VNET.  If that is working then the next steps are pretty easy.  From a VM in your VNET you need to try to reach the on premise application.  You can use telnet or a TCP ping utility.  If your VM can't reach your on premise resource then first make sure your Site to Site VPN connection is working.  If it is working then check the same things noted earlier as well as the on premise gateway configuration and status.  
+
+####On premise resources####
+If your cannot reach resources on premise then the first thing you should check is if you can reach a resource in your VNET.  If that is working then the next steps are pretty easy.  From a VM in your VNET you need to try to reach the on premise application.  You can use telnet or a TCP ping utility.  If your VM can't reach your on premise resource then first make sure your Site to Site VPN connection is working.  If it is working then check the same things noted earlier as well as the on premise gateway configuration and status.  
 
 Now if your VNET hosted VM can reach your on premise system but your app can't then the reason is likely one of the following:
 
@@ -257,27 +255,6 @@ Now if your VNET hosted VM can reach your on premise system but your app can't t
 * your network security groups are blocking access for your Point to Site IP range
 * your on premise firewalls are blocking traffic from your Point to Site IP range
 * you have a User Defined Route(UDR) in your VNET that prevents your Point to Site based traffic from reaching your on premise network
-
-## Hybrid Connections and App Service Environments
-There are 3 features that enable access to VNET hosted resources.  They are:
-
-* VNET Integration
-* Hybrid Connections
-* App Service Environments
-
-Hybrid Connections requires you to install a relay agent called the Hybrid Connection Manager(HCM) in your network.  The HCM needs to be able to connect to Azure and also to your application.  This solution is especially great from a remote network such as your on premise network or even another cloud hosted network because it does not require an internet accessible endpoint.  The HCM only runs on Windows and you can have up to 5 instances running to provide high availability.  Hybrid Connections only supports TCP though and each HC endpoint has to match to a specific host:port combination.  
-
-The App Service Environment feature allows you to run an instance of the Azure App Service in your VNET.  This lets your apps access resources in your VNET without any extra steps.  Some of the other benefits of an App Service Environment is that you can use 8 core dedicated workers with 14 GB of RAM.  Another benefit is that you can scale the system to meet your needs.  Unlike the multi-tenant environments where your ASP is limited in size, in an ASE you control how many resources you want to give to the system.  With respect to the network focus of this document though, one of the things you get with an ASE that you don't with VNET Integration is that it can work with an ExpressRoute VPN.  
-
-While there is some use case overlap, none of these feature can replace any of the others.  Knowing what feature to use is tied to your needs and how you will want to use it.  For example:
-
-* If you are a developer and simply want to run a site in Azure and have it access the database on the workstation under your desk then the easiest thing to use is Hybrid Connections.  
-* If you are a large organization that wants to put a large number of web properties in the public cloud and manage them in your own network then you want to go with the App Service Environment.  
-* If you have a number of App Service hosted apps and simply want to access resources in your VNET then VNET Integration is the way to go.  
-
-Beyond the use cases there are some simplicity related aspects.  If your VNET is already connected to your on premise network then using VNET Integration or an App Service Environment is an easy way to consume on premise resources.  On the other hand, if your VNET is not connected to your on premise network then it's a lot more overhead to set up a site to site VPN with your VNET compared with installing the HCM.  
-
-Beyond the functional differences there are also pricing differences.  The App Service Environment feature is a Premium service offering but offers the most network configuration possibilities in addition to other great features.  VNET Integration can be used with Standard or Premium ASPs and is perfect for securely consuming resources in your VNET from the multi-tenant App Service.  Hybrid Connections currently depends on a BizTalk account which has pricing levels that start free and then get progressively more expensive based on the amount you need.  When it comes to working across many networks though, there is no other feature like Hybrid Connections which can enable you to access resources in well over 100 separate networks.    
 
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
@@ -297,6 +274,4 @@ Beyond the functional differences there are also pricing differences.  The App S
 [DataPricing]: https://www.azure.cn/pricing/details/data-transfer/
 [V2VNETP2S]: https:/www.azure.cn/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [IntPowershell]: https:/www.azure.cn/documentation/articles/app-service-vnet-integration-powershell/
-[ASEintro]: https:/www.azure.cn/documentation/articles/app-service-app-service-environment-intro/
-[ILBASE]: https:/www.azure.cn/documentation/articles/app-service-environment-with-internal-load-balancer/
 [V2VNETPortal]: /vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal

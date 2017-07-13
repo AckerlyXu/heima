@@ -115,4 +115,3 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 To learn more, read the articles in the [API Apps Documentation section](/app-service/api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
 
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
-* [CSDN forum](http://azure.csdn.net/)

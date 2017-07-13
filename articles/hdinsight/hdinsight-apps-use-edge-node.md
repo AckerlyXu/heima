@@ -78,7 +78,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
    * **Cluster Name**: Enter the name of an existing HDInsight cluster.
    * **Edge Node Size**: Select one of the VM sizes. The vm size must meet the worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Edge Node Prefix**: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
-4. Click **Legal terms**, and then click **Create**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
+4. Click **Legal terms**, and then click **Purchase**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
 
 ## Add an edge node when creating a cluster
 In this section, you use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in the [Azure QuickStart Templates gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-edge-node/). The Resource Manager template calls a script action script located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It is to demonstrate calling script action from a Resource Manager template.

@@ -115,7 +115,7 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
 
 4.From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group. The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 
-5.Click **Legal terms**, and then click **Create**.
+5.Click **Legal terms**, and then click **Purchase**.
 
 6.Click **Create**. You see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 

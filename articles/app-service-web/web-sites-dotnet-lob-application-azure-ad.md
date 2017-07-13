@@ -54,7 +54,7 @@ You need the following to complete this tutorial:
 * Visual Studio 2013 Update 4 or later
 * [Azure SDK 2.8.1 or later](/downloads/)
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 <a name="bkmk_deploy"></a>
 

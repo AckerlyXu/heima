@@ -24,7 +24,7 @@ ms.author: v-dazen
 
 Power BI allows you to visually display data as reports. This document provides an example of how to use Apache Storm on HDInsight to generate data for Power BI.
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 > [!NOTE]
 > The steps in this document rely on a Windows development environment with Visual Studio. The compiled project can be submitted to a Linux-based HDInsight cluster. Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.

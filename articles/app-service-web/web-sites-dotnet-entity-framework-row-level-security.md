@@ -35,7 +35,7 @@ There is one application change we need to make. Because all application users c
 
 We will add an [interceptor](https://msdn.microsoft.com/data/dn469464.aspx) (in particular, a [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), a new feature in Entity Framework (EF) 6, to automatically set the current UserId in the SESSION_CONTEXT by executing a T-SQL statement whenever EF opens a connection.
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 1. Open the ContactManager project in Visual Studio.
 2. Right-click on the Models folder in the Solution Explorer, and choose Add > Class.

@@ -92,6 +92,18 @@ In Standard and Premium App Service plans, when you deploy your web app to App S
 
 For more information about using deployment slots, see [Set up a staging environment in App Service](web-sites-staged-publishing.md).
 
+## How do I access and review WebJob logs?
+
+To review WebJob logs:
+
+1. Sign in to your Kudu website: https://*yourwebsitename*.scm.chinacloudsites.cn.
+2. Select the WebJob.
+3. Select the **Toggle Output** button.
+4. To download the output file, select the **Download** link.
+5. For individual runs, select **Individual Invoke**.
+6. Select the **Toggle Output** button.
+7. Select the download link.
+
 ## How do I add or edit a URL rewrite rule?
 
 To add or edit a URL rewrite rule:
@@ -135,6 +147,17 @@ You have two options for capturing an F12 trace:
 
 To view an HAR file, you can use the [HAR viewer](http://www.softwareishard.com/har/viewer/).
 
+## Why do I get an error when I try to connect an App Service web app to a virtual network that is connected to ExpressRoute?
+
+If you try to connect an Azure web app to a virtual network that's connected to Azure ExpressRoute, it fails. The following message appears: "Gateway is not a VPN gateway."
+
+Currently, you cannot have point-to-site VPN connections to a virtual network that is connected to ExpressRoute. A point-to-site VPN and ExpressRoute cannot coexist for the same virtual network. For more information, see [ExpressRoute and site-to-site VPN connections limits and limitations](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
+
+## How do I connect an App Service web app to a virtual network that has a static routing (policy-based) gateway?
+
+Currently, connecting an App Service web app to a virtual network that has a static routing (policy-based) gateway is not supported. If your target virtual network already exists, it must have point-to-site VPN enabled, with a dynamic routing gateway, before it can be connected to an app. If your gateway is set to static routing, you cannot enable a point-to-site VPN. 
+
+For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md#getting-started).
 ## Why can't I delete my App Service plan?
 
 You can't delete an App Service plan if any App Service apps are associated with the App Service plan. Before you delete an App Service plan, remove all associated App Service apps from the App Service plan.

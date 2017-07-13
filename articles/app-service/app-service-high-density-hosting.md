@@ -161,3 +161,7 @@ to use to 5 ```"properties": { "numberOfWorkers": "5" }```.
         }]
 }
 ```
+
+## Next Steps
+
+- [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md)

@@ -27,7 +27,7 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
 
 In this tutorial, you learn how to use the Visual Studio templates installed with HDInsight tools for Visual Studio to create two topologies that work with Event Hubs.
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 * **EventHubWriter**: Randomly generates data and writes it to Event Hubs.
 * **EventHubReader**: Reads data from Event Hubs, and logs the data to the Storm logs.
