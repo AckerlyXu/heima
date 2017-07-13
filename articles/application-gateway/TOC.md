@@ -65,5 +65,5 @@
 ## [Pricing](https://www.azure.cn/pricing/details/application-gateway/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
-## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
+## [Service updates](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)

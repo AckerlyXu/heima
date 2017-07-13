@@ -106,7 +106,7 @@ The `azure vm quick-create` and `azure vm create` commands have aliases you can 
 | Debian |credativ |Debian |8 |latest |
 | openSUSE |SUSE |openSUSE |13.2 |latest |
 | SLES |SLES |SLES |12-SP1 |latest |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |latest |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |
 
 ### Use your own image
 If you require specific customizations, you can use an image based on an existing Azure VM by *capturing* that VM. You can also upload an image created on-premises. For more information on supported distros and how to use your own images, see the following articles:

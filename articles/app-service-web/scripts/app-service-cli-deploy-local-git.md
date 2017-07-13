@@ -30,7 +30,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 gitdirectory=<Replace with path to local Git repo>
@@ -78,7 +78,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | Creates an Azure web app. |
 | [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) | Sets the account-level deployment credentials for App Service. |
-| [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) | Creates a source control configuration for a local Git repository. |
+| [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) | Creates a source control configuration for a local Git repository. |
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | Open an Azure web app in a browser. |
 
 ## Next steps

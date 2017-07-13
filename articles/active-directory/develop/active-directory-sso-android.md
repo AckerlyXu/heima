@@ -4,7 +4,7 @@ description: 'How to use the features of the ADAL SDK to enable Single Sign On a
 services: active-directory
 documentationcenter: ''
 author: alexchen2016
-manager: mbaldwin
+manager: digimobile
 editor: ''
 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 02/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # How to enable cross-app SSO on Android using ADAL
@@ -27,12 +28,6 @@ The Microsoft Identity platform, along with our Microsoft Identity SDKs, does al
 
 This walkthrough will tell you how to configure our SDK within your application to provide this benefit to your customers.
 
-This walkthrough applies to:
-
-- Azure Active Directory
-- Azure Active Directory B2C
-- Azure Active Directory B2B
-- Azure Active Directory Conditional Access
 
 The document preceding assumes you know how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) and integrated your application with the [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 

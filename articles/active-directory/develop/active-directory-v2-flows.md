@@ -3,8 +3,8 @@ title: App types for the Azure Active Directory v2.0 endpoint | Microsoft Docs
 description: The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/01/2017
-ms.date: 02/13/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # App types for the Azure Active Directory v2.0 endpoint

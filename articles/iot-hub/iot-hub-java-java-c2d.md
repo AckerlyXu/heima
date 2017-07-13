@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/07/2017
-ms.date: 05/08/2017
+origin.date: 05/25/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
 
 ---
@@ -97,7 +97,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.18</version>
+      <version>1.3.19</version>
     </dependency>
     ```
 
@@ -195,5 +195,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.cn
-[Azure IoT Suite]: ../iot-suite/index.md
+[Azure IoT Suite]: /iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

@@ -1,20 +1,21 @@
 ---
-title: Azure Site Recovery best practices | Microsoft Docs
+title: Azure Site Recovery best practices | Azure
 description: This article describes best practices for Azure Site Recovery deployment
 services: site-recovery
 documentationCenter: ''
-author: rayne-wiselman"
-manager: cfreeman
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
-ms.author: v-johch
+origin.date: 03/14/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-support-matrix-to-azure
 ---
@@ -32,7 +33,7 @@ You have a couple of deployment choices for protecting Hyper-V virtual machines.
 **VMM** | VMM running on System Center 2012 R2 <br/><br/>At least one VMM cloud that contains one or more VMM host groups. | NA | VMM servers in the primary and secondary sites running on at least System Center 2012 SP1 with latest updates. <br/><br/> At least one cloud on each VMM server. Clouds should have the Hyper-V capacity profile set.<br/><br/> The source cloud should have at least one VMM host group. | Optional. You don't need to have System Center VMM deployed in order to replicate Hyper-V virtual machines to Azure but if you do you'll need to make sure the VMM server is set up properly. That includes making sure you're running the right VMM version, and that clouds are set up.
 **Hyper-V** | At least one Hyper-V host server in the on-premises site running Windows Server 2012 R2 or later | At least one Hyper-V server in the source and target sites running at least Windows Server 2012 with the latest updates installed, and connected to the internet.<br/><br/> The Hyper-V servers must be in a host group in a VMM cloud. | At least one Hyper-V server in the source and target sites running at least Windows Server 2012 with the latest updates installed, and connected to the internet.<br/><br/> The Hyper-V servers must be located in a host group in a VMM cloud. |
 **Virtual machines** | At least one VM on the source Hyper-V host server | At least one VM on the Hyper-V host server in the source VMM cloud | At least one VM on the Hyper-V host server in the source VMM cloud. |  VMs replicating to Azure must conform with Azure virtual machine prerequisites
-**Azure account** | You'll need an Azure account and a subscription to the Site Recovery service. | You'll need an Azure account and a subscription to the Site Recovery service. | NA | If you don't have an account, start with a free trial.
+**Azure account** | You'll need an Azure account and a subscription to the Site Recovery service. | You'll need an Azure account and a subscription to the Site Recovery service. | NA | If you don't have an account, start with a trial.
 **Azure storage** | You'll need a subscription for an Azure storage account that has geo-replication enabled. | You'll need a subscription for an Azure storage account that has geo-replication enabled. | NA | The account should be in the same region as the Azure Site Recovery vault and be associated with the same subscription.
 **Networking** | Set up network mapping to ensure that all machines that fail over on the same Azure network can connect to each other, irrespective of which recovery plan they are in. In addition if a network gateway is configure on the target Azure network, virtual machines can connect to other on-premises virtual machines. If you don't set up network mapping only machines that fail over in the same recovery plan can connect. | NA |  <br/><br/>Set up network mapping to ensure that virtual machines are connected to appropriate networks after failover, and that replica virtual machines are optimally placed on Hyper-V host servers. If you don't configure network mapping replicated machines won't be connected to any VM network after failover. |  To set up network mapping with VMM you'll need to make sure that VMM logical and VM networks are configured correctly.
 **Providers and agents** | During deployment you'll install the Azure Site Recovery Provider on VMM servers. On Hyper-V servers in VMM clouds you'll install the Azure Recovery Services agent. | During deployment you'll install both the Azure Site Recovery Provider and the Azure Recovery Services agent on the Hyper-V host server or cluster| During deployment you'll install the Azure Site Recovery Provider on VMM servers. On Hyper-V servers in VMM clouds you'll install the Azure Recovery Services agent. | Providers and agents connect to Site Recovery over the internet using an encrypted HTTPS connection. You don't need to add firewall exceptions or create a specific proxy for the Provider connection.

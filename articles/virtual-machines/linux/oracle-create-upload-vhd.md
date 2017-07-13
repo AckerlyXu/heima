@@ -151,7 +151,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new OEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
-        rhgb quiet crashkernel=auto
+       rhgb quiet crashkernel=auto
 
    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
 

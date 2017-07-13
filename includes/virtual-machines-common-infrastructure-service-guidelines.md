@@ -342,11 +342,11 @@ They created a cloud-only virtual network with the following settings using the 
 * Location: China East
 * Virtual network address space: 10.0.0.0/8
 * First subnet:
-    * Name: FrontEnd
-    * Address space: 10.0.1.0/24
+  * Name: FrontEnd
+  * Address space: 10.0.1.0/24
 * Second subnet:
-    * Name: BackEnd
-    * Address space: 10.0.2.0/24
+  * Name: BackEnd
+  * Address space: 10.0.2.0/24
 
 ### Availability sets
 To maintain high availability of all four tiers of their financial analysis engine, Contoso decided on four availability sets:
@@ -393,5 +393,3 @@ This configuration incorporates:
 [Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md)
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
-
-[Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)

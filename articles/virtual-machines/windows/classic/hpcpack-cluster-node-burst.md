@@ -49,7 +49,7 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 * **Azure subscription** - To add Azure nodes, you can choose the same
   subscription used to deploy the head node VM, or a different
   subscription (or subscriptions).
-* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes.
+* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://www.azure.cn/support/support-ticket-form/?l=zh-cn) at no charge.
 
 ## Step 1: Create a cloud service and a storage account for the Azure nodes
 Use the Azure Classic Management Portal or equivalent tools to configure the following resources that are needed to deploy

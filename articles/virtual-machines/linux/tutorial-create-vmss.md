@@ -90,17 +90,17 @@ runcmd:
 ## Create a scale set
 Before you can create a scale set, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroupScaleSet* in the *chinaeast* location:
 
-```azurecli-interactive 
+```azurecli 
 az group create --name myResourceGroupScaleSet --location chinaeast
 ```
 
 Now create a virtual machine scale set with [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create). The following example creates a scale set named *myScaleSet*, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist:
 
-```azurecli-interactive 
+```azurecli 
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
@@ -114,7 +114,7 @@ A load balancer was created automatically as part of the virtual machine scale s
 
 To allow traffic to reach the web app, create a rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb*:
 
-```azurecli-interactive 
+```azurecli 
 az network lb rule create \
   --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
@@ -129,7 +129,7 @@ az network lb rule create \
 ## Test your app
 To see your Node.js app on the web, obtain the public IP address of your load balancer with [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
-```azurecli-interactive 
+```azurecli 
 az network public-ip show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
@@ -149,7 +149,7 @@ Throughout the lifecycle of the scale set, you may need to run one or more manag
 ### View VMs in a scale set
 To view a list of VMs running in your scale set, use [az vmss list-instances](https://docs.microsoft.com/cli/azure/vmss#list-instances) as follows:
 
-```azurecli-interactive 
+```azurecli 
 az vmss list-instances \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -158,7 +158,7 @@ az vmss list-instances \
 
 The output is similar to the following example:
 
-```azurecli-interactive 
+```azurecli 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
            1  True                  chinaeast      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
@@ -168,7 +168,7 @@ The output is similar to the following example:
 ### Increase or decrease VM instances
 To see the number of instances you currently have in a scale set, use [az vmss show](https://docs.microsoft.com/cli/azure/vmss#show) and query on *sku.capacity*:
 
-```azurecli-interactive 
+```azurecli 
 az vmss show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -178,7 +178,7 @@ az vmss show \
 
 You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale). The following example sets the number of VMs in your scale set to *5*:
 
-```azurecli-interactive 
+```azurecli 
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -190,7 +190,7 @@ Autoscale rules let you define how to scale up or down the number of VMs in your
 ### Get connection info
 To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](https://docs.microsoft.com/cli/azure/vmss#list-instance-connection-info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:
 
-```azurecli-interactive 
+```azurecli 
 az vmss list-instance-connection-info \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet
@@ -202,11 +202,11 @@ You can create and use data disks with scale sets. In a previous tutorial, you l
 ### Create scale set with data disks
 To create a scale set and attach data disks, add the `--data-disk-sizes-gb` parameter to the [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) command. The following example creates a scale set with *50*Gb data disks attached to each instance:
 
-```azurecli-interactive 
+```azurecli 
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSetDisks \
-  --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
@@ -219,7 +219,7 @@ When instances are removed from a scale set, any attached data disks are also re
 ### Add data disks
 To add a data disk to instances in your scale set, use [az vmss disk attach](https://docs.microsoft.com/cli/azure/vmss/disk#attach). The following example adds a *50*Gb disk to each instance:
 
-```azurecli-interactive 
+```azurecli 
 az vmss disk attach `
     --resource-group myResourceGroupScaleSet `
     --name myScaleSet `
@@ -230,7 +230,7 @@ az vmss disk attach `
 ### Detach data disks
 To remove a data disk to instances in your scale set, use [az vmss disk detach](https://docs.microsoft.com/cli/azure/vmss/disk#detach). The following example removes the data disk at LUN *2* from each instance:
 
-```azurecli-interactive 
+```azurecli 
 az vmss disk detach `
     --resource-group myResourceGroupScaleSet `
     --name myScaleSet `

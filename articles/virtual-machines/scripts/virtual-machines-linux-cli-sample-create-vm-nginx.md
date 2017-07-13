@@ -30,7 +30,7 @@ This script creates an Azure Virtual Machine and uses the Azure Virtual Machine 
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group.
@@ -70,7 +70,7 @@ apt-get -y install nginx
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup
 ```
 

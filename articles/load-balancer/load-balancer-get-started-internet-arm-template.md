@@ -4,7 +4,7 @@ description: Learn how to create an Internet facing load balancer in Resource Ma
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 tags: azure-resource-manager
 
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
@@ -14,22 +14,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 ---
 
 # Creating an Internet facing load balancer using a template
+
 > [!div class="op_single_selector"]
->- [Portal](./load-balancer-get-started-internet-portal.md)
->- [PowerShell](./load-balancer-get-started-internet-arm-ps.md)
->- [Azure CLI](./load-balancer-get-started-internet-arm-cli.md)
->- [Template](./load-balancer-get-started-internet-arm-template.md)
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment model](./load-balancer-get-started-internet-classic-portal.md)
+This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment model](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -41,7 +42,7 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```powershell
@@ -61,11 +62,9 @@ To deploy the template by using the Azure CLI, follow the steps below.
     azure config mode arm
     ```
 
-Here is the expected output for the command above:
+    Here is the expected output for the command above:
 
-```
-    info:    New mode is arm
-```
+        info:    New mode is arm
 
 3. From your browser, navigate to [the Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules), copy the contents of the json file and paste into a new file in your computer. For this scenario, you would be copying the values below to a file named **c:\lb\azuredeploy.parameters.json**.
 4. Run the **azure group deployment create** cmdlet to deploy the new load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
@@ -76,8 +75,8 @@ Here is the expected output for the command above:
 
 ## Next steps
 
-[Get started configuring an internal load balancer](./load-balancer-get-started-ilb-arm-ps.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a load balancer distribution mode](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

@@ -33,7 +33,8 @@ In the following tutorials, you create servers, databases, and server-level fire
 | [Use C# to create a SQL database with the SQL Database Library for .NET](./sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 |  | |
 
-## Backups, long-term retention, and database recovery
+<!-----
+## Backups and database recovery
 In the following tutorials, you learn about using [database backups](./sql-database-automated-backups.md), and [database recovery using backups](./sql-database-recovery-using-backups.md).
 
 | Tutorial | Description |
@@ -41,6 +42,7 @@ In the following tutorials, you learn about using [database backups](./sql-datab
 | [Back up and restore using the Azure portal](./sql-database-get-started-backup-recovery-portal.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 | [Back up and restore using PowerShell](./sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 |  | |
+----->
 
 ## Sharded databases
 In the following tutorials, you learn how to [Scale out databases with the shard map manager](./sql-database-elastic-scale-shard-map-management.md).

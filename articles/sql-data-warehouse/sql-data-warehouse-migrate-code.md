@@ -4,7 +4,7 @@ description: Tips for migrating your SQL code to Azure SQL Data Warehouse for de
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 01/30/2017
-ms.date: 03/20/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 

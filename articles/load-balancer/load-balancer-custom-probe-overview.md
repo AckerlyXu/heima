@@ -4,7 +4,7 @@ description: Learn how to use custom probes for Azure Load Balancer to monitor i
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 

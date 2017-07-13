@@ -4,7 +4,7 @@ description: Learn how to create an Internet facing load balancer in classic dep
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 tags: azure-service-management
 
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584

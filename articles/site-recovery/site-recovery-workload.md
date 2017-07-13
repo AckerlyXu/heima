@@ -3,8 +3,8 @@ title: What workloads can you protect with Azure Site Recovery?
 description: Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
-manager: cfreeman
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
-ms.author: v-johch
+origin.date: 05/08/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # What workloads can you protect with Azure Site Recovery?
 This article describes workloads and applications you can replicate with the Azure Site Recovery service.
-
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr).
 
 ## Overview
 Organizations need a business continuity and disaster recovery (BCDR) strategy to keep workloads and data safe and available during planned and unplanned downtime, and recover to regular working conditions as soon as possible.
@@ -53,6 +52,7 @@ Site Recovery can replicate any app running on a supported machine. In addition 
 | Exchange (non-DAG) |Y |Coming soon |Y |Y |
 | Remote Desktop/VDI |Y |Y |Y |N/A |
 | Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
+| Dynamics AX |Y |Y |Y |Y |
 | Dynamics CRM |Y |Coming soon |Y |Coming soon |
 | Oracle |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
 | Windows File Server |Y |Y |Y |Y |
@@ -71,7 +71,7 @@ SQL Server provides a data services foundation for data services for many busine
 * A simple and cost-effective disaster recovery solution for SQL Server. Replicate multiple versions and editions of SQL Server standalone servers and clusters, to Azure or to a secondary site.  
 * Integration with SQL AlwaysOn Availability Groups, to manage failover and failback with Azure Site Recovery recovery plans.
 * End-to-end recovery plans for the all tiers in an application, including the SQL Server databases.
-* Scaling of SQL Server for peak loads with Site Recovery, by “bursting” them into larger IaaS virtual machine sizes in Azure.
+* Scaling of SQL Server for peak loads with Site Recovery, by "bursting" them into larger IaaS virtual machine sizes in Azure.
 * Easy testing of SQL Server disaster recovery. You can run test failovers to analyze data and run compliance checks, without impacting your production environment.
 
 [Learn more](site-recovery-sql.md) about protecting SQL server.
@@ -85,7 +85,12 @@ Azure Site Recovery helps protect SharePoint deployments, as follows:
 * Simplifies transition to the cloud by using Site Recovery to migrate SharePoint deployments to Azure.
 
 
+## Protect Dynamics AX
+Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
 
+* Orchestrating replication of your entire Dynamics AX environment (Web and AOS tiers, database tiers, SharePoint) to Azure, or to a secondary site.
+* Simplifying migration of Dynamics AX deployments to the cloud (Azure).
+* Simplifying Dynamics AX application development and testing by creating a production-like copy on-demand, for testing and debugging.
 
 ## Protect RDS
 Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), session-based desktops, and applications, allowing users to work anywhere. With Azure Site Recovery you can:
@@ -132,6 +137,13 @@ Azure Site Recovery provides disaster recovery by replicating the critical compo
 
 [Learn more](https://aka.ms/asr-iis) about protecting IIS web farm.
 
+## Protect Citrix XenApp and XenDesktop
+Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as follows:
+
+* Enable protection of the Citrix XenApp and XenDesktop deployment, by replicating different deployment layers including (AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server) to Azure.
+* Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
+* Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
+* This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure.
 
 ## Next steps
 [Check prerequisites](site-recovery-prereq.md) 

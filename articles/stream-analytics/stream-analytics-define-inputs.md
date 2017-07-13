@@ -5,7 +5,7 @@ keywords: data stream, data connection, event stream
 services: stream-analytics
 documentationcenter: ''
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---
