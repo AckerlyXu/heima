@@ -216,8 +216,7 @@ You can optionally configure a [redis.conf](http://redis.io/topics/config) file 
 ### How can I run Redis commands?
 You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). You have several options to run Redis commands.
 
-* If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). The Redis console provides a secure way to run Redis commands in the Azure portal.
-* You can also use the Redis command-line tools. To use them, perform the following steps:
+* You can use the Redis command-line tools. To use them, perform the following steps:
 * Download the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/).
 * Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
 * `redis-cli -h <your cache="" name="">
