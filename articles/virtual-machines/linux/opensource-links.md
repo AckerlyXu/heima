@@ -45,6 +45,9 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [MySQL Clusters](classic/mysql-cluster.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Running Cassandra with Linux on Azure and Accessing it from Node.js](classic/cassandra-nodejs.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Create a Multi-Master cluster of MariaDbs](classic/mariadb-mysql-cluster.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### Docker
+* [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](classic/cli-use-docker.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [How to use docker-machine on Azure](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Ubuntu
 * [How to: MySQL Clusters](classic/mysql-cluster.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -119,7 +122,7 @@ The following links are for Microsoft blogs, Technet pages, and external sites r
 
 ### Big Data
 * [Installing Hadoop on Azure Linux VMs](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
-* [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+* [Azure HDInsight](/hdinsight/)
 
 ### Relational database
 * [MySQL High Availability Architecture in Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
