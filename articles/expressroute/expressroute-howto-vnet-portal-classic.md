@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2016
+origin.date: 09/20/2016
 ms.author: v-yiso
+ms.date: ''
 ---
 # Create a Virtual Network for ExpressRoute in the classic portal
 The steps in this article will walk you through configuring a virtual network and a virtual network gateway for use with ExpressRoute using the classic deployment model and the classic portal.

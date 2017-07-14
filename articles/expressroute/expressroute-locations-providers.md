@@ -1,19 +1,21 @@
 ---
 title: 'Locations and connectivity providers: Azure ExpressRoute | Azure'
-description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
+description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by location.
 services: expressroute
 documentationCenter: na
 author: cherylmc
 manager: timlt
 editor: ''
 
+ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+origin.date: 06/13/2017
 ms.author: v-yiso
+ms.date: ''
 ---
 
 # ExpressRoute partners and peering locations

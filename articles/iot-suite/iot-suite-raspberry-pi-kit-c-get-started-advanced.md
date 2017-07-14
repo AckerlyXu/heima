@@ -13,9 +13,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+origin.date: 04/25/2017
 ms.author: v-yiso
-
+ms.date: ''
 ---
 # Connect your Raspberry Pi 3 to the remote monitoring solution and enable remote firmware updates using C
 

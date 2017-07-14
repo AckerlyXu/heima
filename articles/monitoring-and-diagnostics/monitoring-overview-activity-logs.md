@@ -1,12 +1,13 @@
 ---
 title: Overview of the Azure Activity Log | Azure
 description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
-authors: johnkemnetz
+author: johnkemnetz
 manager: rboucher
 editor: ''
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
+ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -28,6 +29,7 @@ Activity Logs provide data about the operations on a resource from the outside. 
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
+
 > [!WARNING]
 > The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type in the Classic portal or otherwise outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log is accessible only in the Classic portal.
 >
@@ -37,7 +39,7 @@ Here are some of the things you can do with the Activity Log:
 
 ![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
-* [Create an email or webhook alert that triggers off an Activity Log event.](./insights-auditlog-to-webhook-email.md)
+* [Create an alert that triggers off an Activity Log event.](./monitoring-activity-log-alerts.md)
 * [Stream it to an **Event Hub**](./monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](./monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
