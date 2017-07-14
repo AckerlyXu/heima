@@ -1,23 +1,23 @@
 ---
-title: "Task complete event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 9dcc468b-e0a7-4b80-bec8-ffd466afdc8a
-caps.latest.revision: 4
-author: "tamram"
-ms.author: v-junlch
-manager: "timlt"
----
-# Task complete event
-Task complete event log body
+title: "Azure Batch task complete event | Microsoft Docs"
+description: Reference for Batch task complete event.
+services: batch
+author: alexchen2016
+manager: digimobile
 
-## Remarks
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 07/03/2017
+ms.author: v-junlch
+---
+
+# Task complete event
+
  This event is emitted once a task is completed, regardless of the exit code. This event can be used to determine the duration of a task, where the task ran, and whether it was retried.
 
 
@@ -88,3 +88,4 @@ Task complete event log body
 |exitCode|Int32|The exit code of the task.|
 |retryCount|Int32|The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.|
 |requeueCount|Int32|The number of times the task has been requeued by the Batch service as the result of a user request.<br /><br /> When the user removes nodes from a pool (by resizing or shrinking the pool) or when the job is being disabled, the user can specify that running tasks on the nodes be requeued for execution. This count tracks how many times the task has been requeued for these reasons.|
+

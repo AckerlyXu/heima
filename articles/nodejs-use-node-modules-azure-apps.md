@@ -3,8 +3,8 @@ title: Working with Node.js Modules
 description: Learn how to work with Node.js modules when using Azure App Service or Cloud Services.
 services: ''
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
@@ -13,23 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/25/2017
+ms.date: 07/13/2017
 ms.author: v-junlch
----
 
+---
 # Using Node.js Modules with Azure applications
 This document provides guidance on using Node.js modules with applications hosted on Azure. It provides guidance on ensuring that your application uses a specific version of module as well as using native modules with Azure.
 
 If you are already familiar with using Node.js modules, **package.json** and **npm-shrinkwrap.json** files, the following is a quick summary of what is discussed in this article:
 
-* Azure App Service understands **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
-* Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package. It is possible to enable support for installing
+- Azure App Service understands **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
+- Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package. It is possible to enable support for installing
   modules using **package.json** or **npm-shrinkwrap.json** files on Cloud Services, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see
   [Azure Startup task to run npm install to avoid deploying node modules](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
 > Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.
+> 
+> 
 
 ## Node.js Modules
 Modules are loadable JavaScript packages that provide specific functionality for your application. A module is usually installed using the **npm** command-line tool, however some (such as the http module) are provided as part of the core Node.js package.
@@ -43,9 +45,9 @@ While most modules are simply plain-text JavaScript files, some modules are plat
 
 Azure App Service does not support all native modules and might fail at compiling those with very specific prerequisites. While some popular modules like MongoDB have optional native dependencies and work just fine without them, two workarounds proved successful with almost all native modules available today:
 
-* Run **npm install** on a Windows machine that has all the native module's prerequisites installed. Then, deploy the created **node\_modules** folder as part of the application to Azure App Service.
+- Run **npm install** on a Windows machine that has all the native module's prerequisites installed. Then, deploy the created **node\_modules** folder as part of the application to Azure App Service.
   - Before compiling, check that your local Node.js installation has matching architecture and the version is as close as possible to the one used in Azure (the current values can be checked on runtime from properties **process.arch** and **process.version**).
-* Azure App Service can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. 
+- Azure App Service can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. 
 
 ### Using a package.json file
 The **package.json** file is a way to specify the top level dependencies your application requires so that the hosting platform can install the dependencies, rather than requiring you to include the **node\_packages** folder as part of the deployment. After the application has been deployed, the **npm install** command is used to parse the **package.json** file and install all the dependencies listed.
@@ -78,11 +80,9 @@ When your application is ready for production, you can lock-down version require
 > 
 
 ## Next Steps
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app](./app-service-web/web-sites-nodejs-develop-deploy-mac.md), and [How to use the Azure Command-Line Interface for Mac and Linux].
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app](app-service-web/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux].
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
-[specify the Node.js version]:./nodejs-specify-node-version-azure-apps.md
-[How to use the Azure Command-Line Interface for Mac and Linux]:./xplat-cli-install.md
-[build and deploy a Node.js web app]:./app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Build and deploy a Node.js application to an Azure Cloud Service]:./cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md

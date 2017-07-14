@@ -1,23 +1,23 @@
 ---
-title: "Pool delete complete event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 580a1278-5740-4143-826c-7d875ef127ff
-caps.latest.revision: 5
-author: "tamram"
-ms.author: v-junlch
-manager: "timlt"
----
-# Pool delete complete event
-Pool delete complete event log body
+title: "Azure Batch pool delete complete event | Microsoft Docs"
+description: Reference for Batch pool delete complete event.
+services: batch
+author: alexchen2016
+manager: digimobile
 
-## Remarks
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 07/03/2017
+ms.author: v-junlch
+---
+
+# Pool delete complete event
+
  This event is emitted when a pool delete operation has completed.
 
  The following example shows the body of a pool delete complete event.
@@ -38,3 +38,4 @@ Pool delete complete event log body
 
 ## Remarks
 For more information about states and error codes for pool resize operation, see [Delete a pool from an account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+
