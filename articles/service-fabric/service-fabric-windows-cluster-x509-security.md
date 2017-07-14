@@ -1,10 +1,10 @@
 ---
-title: Secure an Azure Service Fabric cluster on Windows using certs | Microsoft Docs
+title: Secure an Azure Service Fabric cluster on Windows using certs | Azure
 description: This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
-ms.author: v-johch
+origin.date: 06/16/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Secure a standalone cluster on Windows using X.509 certificates
@@ -45,7 +46,7 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": false
-            }, 
+            },
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": true
@@ -54,17 +55,17 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint]",
                 "IsAdmin": true
             }
-        ]
-        "ReverseProxyCertificate":{
+        ],
+        "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
         }
     }
-}
+},
 ```
 
 This section describes the certificates that you need for securing your standalone Windows cluster. If you are specifying a cluster certificate, set the value of **ClusterCredentialType** to _**X509**_. If you are specifying server certificate for outside connections, set the **ServerCredentialType** to _**X509**_. Although not mandatory, we recommend to have both these certificates for a properly secured cluster. If you set these values to *X509* then you must also specify the corresponding certificates or Service Fabric will throw an exception. In some scenarios, you may only want to specify the _ClientCertificateThumbprints_ or _ReverseProxyCertificate_. In those scenarios, you need not set _ClusterCredentialType_ or _ServerCredentialType_ to _X509_.
@@ -208,46 +209,46 @@ Once you have certificate(s), you can install them on the cluster nodes. Your no
 
 1. Copy the .pfx file(s) to the node.
 2. Open a PowerShell window as an administrator and enter the following commands. Replace the *$pswd* with the password that you used to create this certificate. Replace the *$PfxFilePath* with the full path of the .pfx copied to this node.
-   
+
     ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 3. Now set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script. Provide the thumbprint of the certificate and "NETWORK SERVICE" for the service account. You can check that the ACLs on the certificate are correct by opening the certificate in *Start* > *Manage computer certificates* and looking at *All Tasks* > *Manage Private Keys*.
-   
+
     ```powershell
     param
     (
     [Parameter(Position=1, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]$pfxThumbPrint,
-   
+
     [Parameter(Position=2, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]$serviceAccount
     )
-   
+
     $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
-   
+
     # Specify the user, the permissions and the permission type
     $permission = "$($serviceAccount)","FullControl","Allow"
     $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
-   
+
     # Location of the machine related keys
     $keyPath = Join-Path -Path $env:ProgramData -ChildPath "\Microsoft\Crypto\RSA\MachineKeys"
     $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
     $keyFullPath = Join-Path -Path $keyPath -ChildPath $keyName
-   
+
     # Get the current acl of the private key
     $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
-   
+
     # Add the new ace to the acl of the private key
     $acl.SetAccessRule($accessRule)
-   
+
     # Write back the new acl
     Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
-   
+
     # Observe the access rights currently assigned to this certificate.
     get-acl $keyFullPath| fl
     ```
@@ -267,8 +268,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-You can then run other PowerShell commands to work with this cluster. For example, [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricnode.md) to show a list of nodes on this secure cluster.
-
+You can then run other PowerShell commands to work with this cluster. For example, [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) to show a list of nodes on this secure cluster.
 
 To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line and navigate to the package folder. Now run the following command:
 

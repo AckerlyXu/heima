@@ -3,8 +3,8 @@ title: Architecture of Azure Service Fabric | Azure
 description: Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rishirsinha
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: rishirsinha
 
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2017
-ms.author: v-johch
+origin.date: 04/19/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric architecture
@@ -27,7 +28,7 @@ Service Fabric is built with layered subsystems. These subsystems enable you to 
 
 The following diagram shows the major subsystems of Service Fabric.
 
-![Diagram of Service Fabric architecture](./media/service-fabric-architecture/service-fabric-architecture.png)
+![Diagram of Service Fabric architecture](media/service-fabric-architecture/service-fabric-architecture.png)
 
 In a distributed system, the ability to securely communicate between nodes in a cluster is crucial. At the base of the stack is the transport subsystem, which provides secure communication between nodes. Above the transport subsystem lies the federation subsystem, which clusters the different nodes into a single entity (named clusters) so that Service Fabric can detect failures, perform leader election, and provide consistent routing. The reliability subsystem, layered on top of the federation subsystem, is responsible for the reliability of Service Fabric services through mechanisms such as replication, resource management, and failover. The federation subsystem also underlies the hosting and activation subsystem, which manages the lifecycle of an application on a single node. The management subsystem manages the lifecycle of applications and services. The testability subsystem helps application developers test their services through simulated faults before and after deploying applications and services to production environments. Service Fabric provides the ability to resolve service locations through its communication subsystem. The application programming models exposed to developers are layered on top of these subsystems along with the application model to enable tooling.
 
