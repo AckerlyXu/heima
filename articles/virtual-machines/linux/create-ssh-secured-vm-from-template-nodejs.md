@@ -40,7 +40,7 @@ You can complete the task using one of the following CLI versions:
 azure group create \
     -n myResourceGroup \
     -l chinanorth \
-    --template-file /path/to/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 ## Detailed Walkthrough
@@ -58,7 +58,7 @@ The following code example shows how to call `azure group create` to create a re
 azure group create \
     --name myResourceGroup \
     --location chinanorth \
-    --template-file /path/to/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 The output should look like the following output block:
@@ -82,7 +82,7 @@ data:
 info:    group create command OK
 ```
 
-That example deployed a VM using the `--template-file` parameter with a path to the template file as an argument. You can also use `--template-uri` to deploy directly from the github raw file, if you are sure the template is suitable for Azure China. The Azure CLI prompts you for the parameters required by the template.
+That example deployed a VM using the `--template-uri` parameter. You can always use the `--template-uri` parameter, if you are sure the template is suitable for Azure China.  You can also download or create a template locally and pass the template using the `--template-file` parameter with a path to the template file as an argument. The Azure CLI prompts you for the parameters required by the template.
 
 ## Next steps
 Search the [templates gallery](https://github.com/Azure/azure-quickstart-templates/) to discover what app frameworks to deploy next.
