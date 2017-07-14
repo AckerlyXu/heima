@@ -1,5 +1,5 @@
 ---
-title: Manage Hadoop clusters in HDInsight with .NET SDK | Azure
+title: Manage Hadoop clusters in HDInsight with .NET SDK - Azure | Azure
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using HDInsight .NET SDK.
 services: hdinsight
 editor: cgronlun
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 04/27/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -166,7 +166,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 

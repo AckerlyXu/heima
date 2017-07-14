@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/10/2017
-ms.date: 05/31/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ---
 
@@ -41,7 +41,7 @@ You can create a Traffic Manager profile by using the Azure portal. After creati
 
 ## Disable, enable, or delete a profile
 
-You can disable an existing profile so that Traffic Manager does not refer user requests to the configured endpoints. When you disable a Traffic Manager profile, the profile and the information contained in the profile remain intact and can be edited in the Traffic Manager interface.  Referrals resume when you re-enable the profile. When you create a Traffic Manager profile in the Azure Classic Management Portal, it's automatically enabled. If you decide a profile is no longer necessary, you can delete it.
+You can disable an existing profile so that Traffic Manager does not refer user requests to the configured endpoints. When you disable a Traffic Manager profile, the profile and the information contained in the profile remain intact and can be edited in the Traffic Manager interface.  Referrals resume when you re-enable the profile. When you create a Traffic Manager profile in the Azure portal, it's automatically enabled. If you decide a profile is no longer necessary, you can delete it.
 
 ### To disable a profile
 
@@ -69,5 +69,6 @@ You can disable an existing profile so that Traffic Manager does not refer user 
 
 * [Add an endpoint](traffic-manager-endpoints.md)
 * [Configure Priority routing method](traffic-manager-configure-priority-routing-method.md)
+* [Configure Geographic routing method](traffic-manager-configure-geographic-routing-method.md) 
 * [Configure Weighted routing method](traffic-manager-configure-weighted-routing-method.md)
 * [Configure Performance routing method](traffic-manager-configure-performance-routing-method.md)

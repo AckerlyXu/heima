@@ -3,8 +3,8 @@ title: Set up a Azure Service Fabric cluster | Azure
 description: Quickstart- create a Windows or Linux Service Fabric cluster on Azure.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 
@@ -13,16 +13,16 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
-ms.author: v-johch
+origin.date: 05/05/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 
 # Create your first Service Fabric cluster on Azure
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through the [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) or [Azure portal](http://portal.azure.cn) in just a few minutes.  
 
-If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/1rmb-trial/) before you begin.
-
+If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 
 ## Use the Azure portal
 
@@ -105,14 +105,12 @@ Delete a resource group in the Azure portal:
 3. In the **Resource Group Essentials** page, click **Delete** and follow the instructions on that page to complete the deletion of the resource group.
     ![Delete the resource group][cluster-delete]
 
-
 ## Use Azure Powershell to deploy a secure cluster
-
 
 1) Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
 
 2) Open a Windows PowerShell window, Run the following command. 
-	
+
 ```powershell
 
 Get-Command -Module AzureRM.ServiceFabric 
@@ -155,7 +153,6 @@ The command can take anywhere from 10 minutes to 30 minutes to complete, at the 
 ![ps-out][ps-out]
 
 5) Copy the entire output and save to a text file as we need to refer to it. Make a note of the following information from the output.
- 
 
 - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
 - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
@@ -163,7 +160,7 @@ The command can take anywhere from 10 minutes to 30 minutes to complete, at the 
 - **ClientConnectionEndpointPort** : 19000
 
 ### Install the certificate on your local machine
-  
+
 To connect to the cluster, you need to install the certificate into the Personal (My) store of the current user. 
 
 Run the following PowerShell
@@ -224,7 +221,6 @@ Now that you have set up a development cluster, try the following:
 * [Create a secure cluster in the portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) 
 * [Deploy apps using PowerShell](service-fabric-deploy-remove-applications.md)
-
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png
 [node-type-config]: ./media/service-fabric-get-started-azure-cluster/nodetypeconfig.png

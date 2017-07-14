@@ -20,7 +20,7 @@ ms.author: v-dazen
 
 ---
 # Azure App Service: Scaling App Service Applications
-Applications hosted in Azure App Service can achieve massive scale.
+Applications hosted in Azure App Service can [achieve massive scale](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/).
 However, scaling an application is a complex problem that does not have a "one 
 size fits all" solution. To correctly scale your application there are 3 key
 areas that will contribute to your applications success:

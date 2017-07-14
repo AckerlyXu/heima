@@ -1,5 +1,5 @@
 ---
-title: How to delete an HDInsight cluster | Azure
+title: How to delete an HDInsight cluster - Azure | Azure
 description: Information on the various ways that you can delete an HDInsight cluster.
 services: hdinsight
 documentationcenter: ''

@@ -1,10 +1,10 @@
 ---
-title: Events in actor-based Azure microservices| Microsoft Docs
+title: Events in actor-based Azure microservices| Azure
 description: Introduction to events for Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 06/13/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Actor events
@@ -31,6 +32,13 @@ public interface IGameEvents : IActorEvents
 }
 ```
 
+```Java
+public interface GameEvents implements ActorEvents
+{
+    void gameScoreUpdated(UUID gameId, String currentScore);
+}
+```
+
 Declare the events published by the actor in the actor interface.
 
 ```csharp
@@ -39,6 +47,15 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
     Task UpdateGameStatus(GameStatus status);
 
     Task<string> GetGameScore();
+}
+```
+
+```Java
+public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
+{
+    CompletableFuture<?> updateGameStatus(GameStatus status);
+
+    CompletableFuture<String> getGameScore();
 }
 ```
 
@@ -54,6 +71,15 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
+```Java
+class GameEventsHandler implements GameEvents {
+    public void gameScoreUpdated(UUID gameId, String currentScore)
+    {
+        System.out.println("Updates: Game: "+gameId+" ,Score: "+currentScore);
+    }
+}
+```
+
 On the client, create a proxy to the actor that publishes the event and subscribe to its events.
 
 ```csharp
@@ -61,6 +87,12 @@ var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
 
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
+```
+
+```Java
+GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new ActorId(UUID.fromString(args)));
+
+return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
 In the event of failovers, the actor may fail over to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through the `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. To unsubscribe, use the `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
@@ -72,8 +104,15 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
+```Java
+GameEvents event = getEvent<GameEvents>(GameEvents.class);
+event.gameScoreUpdated(Id.getUUIDId(), score);
+```
+
 ## Next steps
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Sample code](https://github.com/Azure/servicefabric-samples)
+* [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# .NET Core Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)

@@ -29,7 +29,7 @@ The extension and customization is done in such a way that we do not need to for
 ## Processing model
 The data in SCP is modeled as continuous streams of tuples. Typically the tuples flow into some queue first, then picked up, and transformed by business logic hosted inside a Storm topology, finally the output could be piped as tuples to another SCP system, or be committed to stores like distributed file system or databases like SQL Server.
 
-![A diagram of a queue feeding data to processing, which feeds a data store](./media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+![A diagram of a queue feeding data to processing, which feeds a data store](media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
 In Storm, an application topology defines a graph of computation. Each node in a topology contains processing logic, and links between nodes indicate data flow. The nodes to inject input data into the topology are called Spouts, which can be used to sequence the data. The input data could reside in file logs, transactional database, system performance counter etc. The nodes with both input and output data flows are called Bolts, which do the actual data filtering and selections and aggregation.
 
@@ -478,70 +478,70 @@ Our SCP component includes Java side and C\# side. In order to interact with nat
 
    First we provide default implementation for serialization in Java side and deserialization in C\# side. The serialization method in Java side can be specified in SPEC file:
 
-        (scp-bolt
-            {
-                "plugin.name" "HybridTopology.exe"
-                "plugin.args" ["displayer"]
-                "output.schema" {}
-                "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
-            })
+       (scp-bolt
+           {
+               "plugin.name" "HybridTopology.exe"
+               "plugin.args" ["displayer"]
+               "output.schema" {}
+               "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
+           })
 
    The deserialization method in C\# side should be specified in C\# user code:
 
-        Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-        inputSchema.Add("default", new List<Type>() { typeof(Person) });
-        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
-        this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
+       Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
+       inputSchema.Add("default", new List<Type>() { typeof(Person) });
+       this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
+       this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
 
    This default implementation should handle most cases if the data type is not too complex. For certain cases, either because the user data type is too complex, or because the performance of our default implementation does not meet the user's requirement, user can plug-in their own implementation.
 
    The serialize interface in java side is defined as:
 
-        public interface ICustomizedInteropJavaSerializer {
-            public void prepare(String[] args);
-            public List<ByteBuffer> serialize(List<Object> objectList);
-        }
+       public interface ICustomizedInteropJavaSerializer {
+           public void prepare(String[] args);
+           public List<ByteBuffer> serialize(List<Object> objectList);
+       }
 
    The deserialize interface in C\# side is defined as:
 
    public interface ICustomizedInteropCSharpDeserializer
 
-        public interface ICustomizedInteropCSharpDeserializer
-        {
-            List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
-        }
+       public interface ICustomizedInteropCSharpDeserializer
+       {
+           List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
+       }
 2. **Serialization in C\# side and Deserialization in Java side side**
 
    The serialization method in C\# side should be specified in C\# user code:
 
-        this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
+       this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
 
    The Deserialization method in Java side should be specified in SPEC file:
 
-        (scp-spout
+     (scp-spout
 
-          {
-            "plugin.name" "HybridTopology.exe"
-            "plugin.args" ["generator"]
-            "output.schema" {"default" ["person"]}
-            "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
-          })
+       {
+         "plugin.name" "HybridTopology.exe"
+         "plugin.args" ["generator"]
+         "output.schema" {"default" ["person"]}
+         "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
+       })
 
    Here "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" is the name of Deserializer, and "microsoft.scp.example.HybridTopology.Person" is the target class the data is deserialized to.
 
    User can also plug-in their own implementation of C\# serializer and Java Deserializer. This is the interface for C\# serializer:
 
-        public interface ICustomizedInteropCSharpSerializer
-        {
-            List<byte[]> Serialize(List<object> dataList);
-        }
+       public interface ICustomizedInteropCSharpSerializer
+       {
+           List<byte[]> Serialize(List<object> dataList);
+       }
 
    This is the interface for Java Deserializer:
 
-        public interface ICustomizedInteropJavaDeserializer {
-            public void prepare(String[] targetClassNames);
-            public List<Object> Deserialize(List<ByteBuffer> dataList);
-        }
+       public interface ICustomizedInteropJavaDeserializer {
+           public void prepare(String[] targetClassNames);
+           public List<Object> Deserialize(List<ByteBuffer> dataList);
+       }
 
 ## SCP Host Mode
 In this mode, user can compile their codes to DLL, and use SCPHost.exe provided by SCP to submit topology. The spec file looks like this:

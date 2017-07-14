@@ -1,5 +1,5 @@
 ---
-title: Manage Hadoop clusters in HDInsight with PowerShell | Azure
+title: Manage Hadoop clusters in HDInsight with PowerShell - Azure | Azure
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
 editor: cgronlun
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 04/27/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -42,7 +42,7 @@ To check the version of the installed PowerShell:
 
     Get-Module *azure*
 
-To uninstall the older version, run Programs and Features in the control panel. 
+To uninstall the older version, run Programs and Features in the control panel.
 
 ## Create clusters
 See [Create Linux-based clusters in HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -71,8 +71,8 @@ The cluster scaling feature allows you to change the number of worker nodes used
 
 > [!NOTE]
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
-> 
-> 
+>
+>
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -101,7 +101,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
@@ -144,8 +144,8 @@ To grant:
 
 > [!NOTE]
 > By granting/revoking the access, you will reset the cluster user name and password.
-> 
-> 
+>
+>
 
 This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
@@ -162,7 +162,7 @@ The following Powershell script demonstrates how to get the default storage acco
     $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.chinacloudapi.cn", "")
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
 ## Find the resource group
 In the Resource Manager mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:
@@ -177,7 +177,7 @@ In the Resource Manager mode, each HDInsight cluster belongs to an Azure resourc
 
 See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samples.md).
 
-**To submit Hive jobs** 
+**To submit Hive jobs**
 
 See [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md).
 

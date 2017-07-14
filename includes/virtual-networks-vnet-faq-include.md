@@ -173,6 +173,7 @@ You can only use compute services within VNets. Compute services are limited to 
 Yes. You can deploy Web Apps inside a VNet. Adding to that, Web Apps can securely connect and access resources in your Azure VNet if you have point-to-site configured for your VNet. For more information, see the following:
 
 * [Web Apps Virtual Network Integration](/app-service-web/app-service-vnet-integration-powershell/)
+* [Integrate a web app with an Azure Virtual Network](../articles/app-service-web/web-sites-integrate-with-vnet.md)
 
 ### Can I deploy cloud services with web and worker roles (PaaS) in a VNet?
 Yes. You can deploy PaaS services within VNets.
@@ -195,7 +196,7 @@ Yes. You can download it [here](http://go.microsoft.com/fwlink/?LinkId=386611).
 
 ## APIs, Schemas, and Tools
 ### Can I manage VNets from code?
-Yes. You can use REST APIs to manage VNets and cross-premises connectivity. More information can be found [here](https://msdn.microsoft.com/library/azure/ee460799.aspx).
+Yes. You can use REST APIs to manage VNets and cross-premises connectivity. More information can be found [here](http://go.microsoft.com/fwlink/?LinkId=296833).
 
 ### Is there tooling support for VNets?
-Yes. You can use PowerShell and command line tools for a variety of platforms. More information can be found [here](https://msdn.microsoft.com/library/azure/jj152841.aspx).
+Yes. You can use PowerShell and command line tools for a variety of platforms. More information can be found [here](http://go.microsoft.com/fwlink/?LinkId=317721).

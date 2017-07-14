@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/22/2017
-ms.date: 05/08/2017
+origin.date: 06/16/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -26,7 +26,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
 >
 > For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
@@ -42,7 +42,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
   * Visual Studio 2012 with Update 4
 
-  * Visual Studio 2013 with [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (any edition)
@@ -152,7 +152,7 @@ Deactivating a topology pauses it until it is killed or reactivated. Use the fol
 
 Storm topologies, once started, continue running until stopped. To stop a topology, use the following command:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### Rebalance
 

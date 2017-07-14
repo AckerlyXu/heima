@@ -52,13 +52,6 @@ A full discussion of security considerations for web-based applications is beyon
 see the [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page), specifically the [top 10 project.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), 
 which lists the current top 10 critical web application security flaws, as determined by OWASP members.
 
-## Perform penetration testing on your app
-One of the easiest ways to get started with testing for vulnerabilities on your App Service app is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
-to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
-
-If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the Azure penetration testing approval process and 
-obtain prior approval to perform the desired penetration tests.
-
 ## <a name="https"></a> Secure communication with customers
 If you use the **\*.chinacloudsites.cn** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.chinacloudsites.cn** domain names. If your site uses a [custom domain name](app-service-web-tutorial-custom-domain.md), you can upload an SSL certificate to [enable HTTPS](app-service-web-tutorial-custom-ssl.md) for the custom domain.
 
@@ -67,7 +60,8 @@ Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against M
 ## Secure data tier
 App Service highly integrates with SQL Database, such that all the connection strings are encrypted across the board and are only decrypted on the VM that the app runs on *and* only when the app runs. 
 In addition, Azure SQL Database includes many security features to help you secure your application data from cyber threats, including 
-[at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx) and [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
+[at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx),
+[Dynamic Data Masking](../sql-database/sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](../sql-database/sql-database-threat-detection.md). 
 If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security-overview.md) for more information on how to secure 
 your data.
 

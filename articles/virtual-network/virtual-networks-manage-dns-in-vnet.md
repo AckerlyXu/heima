@@ -1,6 +1,6 @@
 ---
-title: Manage DNS servers used by a virtual network (Classic) - Azure portal (Classic) | Azure
-description: Learn how to add and remove DNS servers in a virtual network (Classic) using the Azure portal (Classic).
+title: Manage DNS servers used by a virtual network (Classic) - Azure Classic Management Portal | Azure
+description: Learn how to add and remove DNS servers in a virtual network (Classic) using the Azure Classic Management Portal.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,17 +19,17 @@ ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
-# Manage DNS servers used by a virtual network (Classic) using the Azure portal (Classic)
+# Manage DNS servers used by a virtual network (Classic) using the Azure Classic Management Portal
 
-You can manage the list of DNS servers used in a virtual network (VNet) in the Azure portal (Classic) or in the network configuration file. You can add up to 12 DNS servers for each VNet. When specifying DNS servers, it's important to verify that you list your DNS servers in the correct order for your environment. DNS server lists do not work round-robin. They are used in the order that they are specified. If the first DNS server on the list is able to be reached, the client will use that DNS server regardless of whether the DNS server is functioning properly or not. To change the DNS server order for your virtual network, remove the DNS servers from the list and add them back in the order that you want.
+You can manage the list of DNS servers used in a virtual network (VNet) in the Azure Classic Management Portal or in the network configuration file. You can add up to 12 DNS servers for each VNet. When specifying DNS servers, it's important to verify that you list your DNS servers in the correct order for your environment. DNS server lists do not work round-robin. They are used in the order that they are specified. If the first DNS server on the list is able to be reached, the client will use that DNS server regardless of whether the DNS server is functioning properly or not. To change the DNS server order for your virtual network, remove the DNS servers from the list and add them back in the order that you want.
 
 > [!WARNING]
 > After the DNS list has been updated, you must restart the virtual machines located in your virtual network so that they pick up the new DNS server settings. Virtual machines will continue to use their current configuration until they are restarted.
 > 
 > 
 
-## Edit a DNS server list for a virtual network using the Azure portal (Classic)
-1. Log on to the [Azure portal (Classic)](https://manage.windowsazure.cn).
+## Edit a DNS server list for a virtual network using the Azure Classic Management Portal
+1. Log on to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 2. In the navigation pane, click **Networks**, and then click the name of your virtual network in the **Name** column.
 3. Click **Configure**.
 4. In **DNS Servers**, you can configure the following:

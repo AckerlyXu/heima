@@ -32,9 +32,9 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
 * An Apache Storm on HDInsight cluster version 3.5. For more information, see [Get started with Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
-* An [Azure Event Hub](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+* An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
 * [Oracle Java Developer Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or equivalent, such as [OpenJDK](http://openjdk.java.net/).
 
@@ -241,6 +241,7 @@ These configuration settings prevent errors at runtime.
     <includePluginDependencies>false</includePluginDependencies>
     <classpathScope>compile</classpathScope>
     <mainClass>${storm.topology}</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads>
     </configuration>
 </plugin>
 ```
@@ -408,7 +409,7 @@ For more information on using the Storm UI, see the following topics:
 
 * If you are using a **Linux-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-* If you are using a **Windows-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+* If you are using a **Windows-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ## Next steps
 

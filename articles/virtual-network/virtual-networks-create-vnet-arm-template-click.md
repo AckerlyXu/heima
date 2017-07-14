@@ -220,7 +220,7 @@ You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub 
 
 6. If necessary, change the **Subscription** and **Location** settings for your VNet.
 7. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**.
-8. Click **Legal terms**, read the terms, and click **Buy** to agree. 
+8. Click **Legal terms**, read the terms, and click **Purchase** to agree. 
 9. Click **Create** to create the VNet.
 
     ![Submitting deployment tile in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)

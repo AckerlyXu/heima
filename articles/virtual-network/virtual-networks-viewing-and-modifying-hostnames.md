@@ -60,6 +60,6 @@ You can modify the host name for any virtual machine or role instance by uploadi
 
 [Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
-[Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
+[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
