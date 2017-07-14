@@ -1,10 +1,10 @@
 ---
-title: Digitize text with Azure Media Analytics OCR | Microsoft Docs
+title: Digitize text with Azure Media Analytics OCR | Azure
 description: Azure Media Analytics OCR (optical character recognition) enables you to convert text content in video files into editable, searchable digital text.  This allows you to automate the extraction of meaningful metadata from the video signal of your media.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+origin.date: 03/02/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 
 ---
-
 # Use Azure Media Analytics to convert text content in video files into digital text
 ## Overview
 If you need to extract text content from your video files and generate an editable, searchable digital text, you should use Azure Media Analytics OCR (optical character recognition). This Azure Media Processor detects text content in you video files and generates text files for your use. OCR enables you to automate the extraction of meaningful metadata from the video signal of your media.
@@ -41,10 +41,11 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
 ### Attribute descriptions
 | Attribute name | Description |
 | --- | --- |
+|AdvancedOutput| If you set AdvancedOutput to true, the JSON output will contain positional data for every single word (in addition to phrases and regions). If you do not want to see these details, set the flag to false. The default value is false. For more information, see [this blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Language |(optional) describes the language of text for which to look. One of the following: AutoDetect (default), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German,  Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(optional) describes the orientation of text for which to look.  "Left" means that the top of all letters are pointed towards the left.  Default text (like that which can be found in a book) can be called "Up" oriented.  One of the following: AutoDetect (default), Up, Right, Down, Left. |
-| TimeInterval |(optional) describes the sampling rate.  Default is every 1/2 second.<br/>JSON format – HH:mm:ss.SSS (default 00:00:00.500)<br/>XML format – W3C XSD duration primitive (default PT0.5) |
-| DetectRegions |(optional) An array of DetectRegion objects specifying regions within the video frame in which to detect text.<br/>A DetectRegion object is made of the following four integer values:<br/>Left – pixels from the left-margin<br/>Top – pixels from the top-margin<br/>Width – width of the region in pixels<br/>Height – height of the region in pixels |
+| TimeInterval |(optional) describes the sampling rate.  Default is every 1/2 second.<br/>JSON format - HH:mm:ss.SSS (default 00:00:00.500)<br/>XML format - W3C XSD duration primitive (default PT0.5) |
+| DetectRegions |(optional) An array of DetectRegion objects specifying regions within the video frame in which to detect text.<br/>A DetectRegion object is made of the following four integer values:<br/>Left - pixels from the left-margin<br/>Top - pixels from the top-margin<br/>Width - width of the region in pixels<br/>Height - height of the region in pixels |
 
 #### JSON preset example
 
@@ -52,6 +53,7 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
         "Version":1.0, 
         "Options": 
         {
+            "AdvancedOutput":"true",
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
@@ -66,11 +68,11 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
         }
     }
 
-
 #### XML preset example
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
+         <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>
@@ -112,7 +114,7 @@ The output contains the following attributes:
 | text |the actual text |
 
 ### JSON output example
-The following output example contains the general video information and several video fragments. In every video fragment, it contains every region which is detected by OCR MP with the language and the its text orientation. The region also contains every word line in this region with the line’s text, the line’s position, and every word information (word content, position and confidence) in this line. The following is an example, and I put some comments inline.
+The following output example contains the general video information and several video fragments. In every video fragment, it contains every region which is detected by OCR MP with the language and the its text orientation. The region also contains every word line in this region with the line's text, the line's position, and every word information (word content, position and confidence) in this line. The following is an example, and I put some comments inline.
 
     {
         "version": 1, 

@@ -1,21 +1,22 @@
 ---
-title: Azure CLI Script-Create a SQL database | Microsoft Docs
+title: Azure CLI Script-Create a SQL database | Azure
 description: Azure CLI Script Sample - Create a SQL database using the Azure CLI
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: DBs & servers
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+origin.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 ---
 
