@@ -1,5 +1,5 @@
 ---
-title: Use Script Action to install Solr on Hadoop cluster | Azure
+title: Use Script Action to install Solr on Hadoop cluster - Azure | Azure
 description: Learn how to customize HDInsight cluster with Solr using Script Action.
 services: hdinsight
 documentationcenter: ''
@@ -25,7 +25,7 @@ ROBOTS: NOINDEX
 Learn how to customize Windows-based HDInsight cluster with Solr using Script Action, and how to use Solr to search data.
 
 > [!IMPORTANT]
-> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). For information on using Solr with a Linux-based cluster, see [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
+> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For information on using Solr with a Linux-based cluster, see [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 You can install Solr on any type of cluster (Hadoop, Storm, HBase, Spark) on Azure HDInsight by using *Script Action*. A sample script to install Solr on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
@@ -89,77 +89,77 @@ You must start with indexing Solr with some data files. You can then use Solr to
 
      The output returns the two docs that we used for indexing Solr. The output resembles the following:
 
-            "response": {
-              "numFound": 2,
-              "start": 0,
-              "maxScore": 1,
-              "docs": [
-                {
-                  "id": "SOLR1000",
-                  "name": "Solr, the Enterprise Search Server",
-                  "manu": "Apache Software Foundation",
-                  "cat": [
-                    "software",
-                    "search"
-                  ],
-                  "features": [
-                    "Advanced Full-Text Search Capabilities using Lucene",
-                    "Optimized for High Volume Web Traffic",
-                    "Standards Based Open Interfaces - XML and HTTP",
-                    "Comprehensive HTML Administration Interfaces",
-                    "Scalability - Efficient Replication to other Solr Search Servers",
-                    "Flexible and Adaptable with XML configuration and Schema",
-                    "Good unicode support: héllo (hello with an accent over the e)"
-                  ],
-                  "price": 0,
-                  "price_c": "0,USD",
-                  "popularity": 10,
-                  "inStock": true,
-                  "incubationdate_dt": "2006-01-17T00:00:00Z",
-                  "_version_": 1486960636996878300
-                },
-                {
-                  "id": "3007WFP",
-                  "name": "Dell Widescreen UltraSharp 3007WFP",
-                  "manu": "Dell, Inc.",
-                  "manu_id_s": "dell",
-                  "cat": [
-                    "electronics and computer1"
-                  ],
-                  "features": [
-                    "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-                  ],
-                  "includes": "USB cable",
-                  "weight": 401.6,
-                  "price": 2199,
-                  "price_c": "2199,USD",
-                  "popularity": 6,
-                  "inStock": true,
-                  "store": "43.17614,-90.57341",
-                  "_version_": 1486960637584081000
-                }
-              ]
-            }
+           "response": {
+               "numFound": 2,
+               "start": 0,
+               "maxScore": 1,
+               "docs": [
+                 {
+                   "id": "SOLR1000",
+                   "name": "Solr, the Enterprise Search Server",
+                   "manu": "Apache Software Foundation",
+                   "cat": [
+                     "software",
+                     "search"
+                   ],
+                   "features": [
+                     "Advanced Full-Text Search Capabilities using Lucene",
+                     "Optimized for High Volume Web Traffic",
+                     "Standards Based Open Interfaces - XML and HTTP",
+                     "Comprehensive HTML Administration Interfaces",
+                     "Scalability - Efficient Replication to other Solr Search Servers",
+                     "Flexible and Adaptable with XML configuration and Schema",
+                     "Good unicode support: héllo (hello with an accent over the e)"
+                   ],
+                   "price": 0,
+                   "price_c": "0,USD",
+                   "popularity": 10,
+                   "inStock": true,
+                   "incubationdate_dt": "2006-01-17T00:00:00Z",
+                   "_version_": 1486960636996878300
+                 },
+                 {
+                   "id": "3007WFP",
+                   "name": "Dell Widescreen UltraSharp 3007WFP",
+                   "manu": "Dell, Inc.",
+                   "manu_id_s": "dell",
+                   "cat": [
+                     "electronics and computer1"
+                   ],
+                   "features": [
+                     "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+                   ],
+                   "includes": "USB cable",
+                   "weight": 401.6,
+                   "price": 2199,
+                   "price_c": "2199,USD",
+                   "popularity": 6,
+                   "inStock": true,
+                   "store": "43.17614,-90.57341",
+                   "_version_": 1486960637584081000
+                 }
+               ]
+             }
 4. **Recommended: Back up the indexed data from Solr to Azure Blob storage associated with the HDInsight cluster**. As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:
 
    1. From the RDP session, open Internet Explorer, and point to the following URL:
 
-            http://localhost:8983/solr/replication?command=backup
+           http://localhost:8983/solr/replication?command=backup
 
        You should see a response like this:
 
-            <?xml version="1.0" encoding="UTF-8"?>
-            <response>
-              <lst name="responseHeader">
-                <int name="status">0</int>
-                <int name="QTime">9</int>
-              </lst>
-              <str name="status">OK</str>
-            </response>
+           <?xml version="1.0" encoding="UTF-8"?>
+           <response>
+             <lst name="responseHeader">
+               <int name="status">0</int>
+               <int name="QTime">9</int>
+             </lst>
+             <str name="status">OK</str>
+           </response>
    2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
    3. Zip the snapshot folder and upload it to Azure Blob storage. From the Hadoop command line, navigate to the location of the snapshot folder by using the following command:
 
-            hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
 
        This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
 

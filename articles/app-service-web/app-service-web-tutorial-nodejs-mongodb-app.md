@@ -1,6 +1,6 @@
 ---
 title: Build a Node.js and MongoDB web app in Azure | Azure 
-description: Learn how to get a Node.js app working in Azure, with connection to a DocumentDb database with a MongoDB connection string.
+description: Learn how to get a Node.js app working in Azure, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -114,7 +114,7 @@ To stop Node.js at any time, press Ctrl+C in the terminal.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
-For MongoDB, this tutorial uses [Azure DocumentDb](/documentdb/). DocumentDb supports MongoDB client connections.
+For MongoDB, this tutorial uses [Azure Cosmos DB](/documentdb/). Cosmos DB supports MongoDB client connections.
 
 ### Log in to Azure
 
@@ -140,9 +140,9 @@ az group create --name myResourceGroup --location "China North"
 
 Use the [az appservice list-locations](https://docs.microsoft.com/cli/azure/appservice#list-locations) Azure CLI command to list available locations. 
 
-### Create a DocumentDb account
+### Create a Cosmos DB account
 
-Create a DocumentDb account with the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) command.
+Create a Cosmos DB account with the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) command.
 
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.cn/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
 
@@ -155,7 +155,7 @@ az cosmosdb create \
 
 The *--kind MongoDB* parameter enables MongoDB client connections.
 
-When the DocumentDb account is created, the Azure CLI shows information similar to the following example:
+When the Cosmos DB account is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -175,11 +175,11 @@ When the DocumentDb account is created, the Azure CLI shows information similar 
 
 ## Connect app to production MongoDB
 
-In this step, you connect your MEAN.js sample application to the DocumentDb database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string. 
 
 ### Retrieve the database key
 
-To connect to the DocumentDb database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+To connect to the Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -218,7 +218,7 @@ db: {
 },
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 
@@ -431,7 +431,7 @@ http://<app_name>.chinacloudsites.cn
 
 Click **Sign Up** in the top menu and create a dummy user. 
 
-If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (DocumentDb) database. 
+If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (Cosmos DB) database. 
 
 ![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 

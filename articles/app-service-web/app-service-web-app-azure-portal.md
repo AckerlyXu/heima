@@ -38,8 +38,6 @@ Creating new web apps is still as easy as 1-2-3. The following image shows the C
 
 ![](./media/app-service-web-app-azure-portal/CreateWebApp.png)
 
-In the portal you can choose from the most common types of web apps, including popular gallery applications like WordPress.
-
 When you create a web app, you specify URL, App Service plan, and location in the portal just as you do in the Classic Management Portal. 
 
 ![](./media/app-service-web-app-azure-portal/CreateWebAppSettings.png)

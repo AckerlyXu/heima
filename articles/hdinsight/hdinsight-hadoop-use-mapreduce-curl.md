@@ -1,5 +1,5 @@
 ---
-title: Use MapReduce and Curl with Hadoop in HDInsight | Azure
+title: Use MapReduce and Curl with Hadoop in HDInsight - Azure | Azure
 description: Learn how to remotely run MapReduce jobs with Hadoop on HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
@@ -67,7 +67,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
     The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
-   * **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
+    * **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
     * **user.name**: The user who is running the command
     * **jar**: The location of the jar file that contains class to be ran
     * **class**: The class that contains the MapReduce logic

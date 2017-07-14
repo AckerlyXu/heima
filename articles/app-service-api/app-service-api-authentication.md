@@ -98,7 +98,7 @@ For more information about Azure Active Directory, see the following resources.
 
 * [Azure AD scenarios](/active-directory/develop/active-directory-authentication-scenarios)
 * [Azure AD developers' guide](/active-directory/develop/active-directory-developers-guide)
-* [Azure AD samples](https://github.com/azure-samples?query=active-directory)
+* [Azure AD samples](/active-directory/develop/active-directory-code-samples)
 
 ## Next steps
 This article has explained authentication and authorization features of App Service that you can use for API apps. The next tutorial in the getting started series shows how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).

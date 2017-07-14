@@ -1,5 +1,5 @@
 ---
-title: 'Debug Hadoop in HDInsight: View logs and interpret error messages | Azure'
+title: 'Debug Hadoop in HDInsight: View logs and interpret error messages - Azure | Azure'
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
 services: hdinsight
 tags: azure-portal
@@ -65,7 +65,7 @@ These tables contains the following fields:
 ### Tools for accessing the logs
 There are many tools available for accessing data in these tables:
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 * Visual Studio
 * Azure Storage Explorer

@@ -1,5 +1,5 @@
 ---
-title: Use Script Action to install Solr on Linux-based HDInsight | Azure
+title: Use Script Action to install Solr on Linux-based HDInsight - Azure | Azure
 description: Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
 documentationcenter: ''
@@ -25,7 +25,7 @@ ms.author: v-dazen
 Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 > [!IMPORTANT]
 > The sample script used in this document creates a Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.
@@ -211,7 +211,6 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 
      The output returns the two documents that you added to the index earlier. The output is similar to the following JSON document:
 
-    ```
            "response": {
                "numFound": 2,
                "start": 0,
@@ -263,7 +262,6 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
                  }
                ]
              }
-    ```
 
 ### Starting and stopping Solr
 

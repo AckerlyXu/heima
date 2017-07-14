@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Configure a virtual network (Classic) using a network configuration file
-You can configure a virtual network (Classic) by using the Azure Classic Management portal, or by using a network configuration file. You cannot create or modify a virtual network through the Azure Resource Manager deployment model using a network configuration file. You also cannot use the Azure Portal to create or modify a virtual network (Classic).
+You can configure a virtual network (Classic) by using the Azure Classic Management portal, or by using a network configuration file. You cannot create or modify a virtual network through the Azure Resource Manager deployment model using a network configuration file. You also cannot use the Azure portal to create or modify a virtual network (Classic).
 
 ## Creating and modifying a network configuration file
 The easiest way to author a network configuration file is to export the network settings from an existing virtual network (Classic) configuration, then modify the file to contain the settings that you want to configure for your virtual networks.

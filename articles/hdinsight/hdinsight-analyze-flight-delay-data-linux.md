@@ -1,5 +1,5 @@
 ---
-title: Analyze flight delay data with Hive on Linux-based HDInsight | Azure
+title: Analyze flight delay data with Hive on HDInsight - Azure | Azure
 description: Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using Sqoop.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ### Prerequisites
 

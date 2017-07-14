@@ -73,7 +73,7 @@ As an alternative, you can create your own Virtual Machine running in Azure, the
 
 You can create a database by following these steps.
 
-1. Log in to the [Azure Classic Management Portal].
+1. Log in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 1.  At the bottom of the navigation pane. 
 1.  Click **DATA SERVICE**, then **MYSQL DATABASE ON AZURE**, then **QUICK CREATE**.
 1.  Filled in with name, version, and so on, then click **CREATE**.
@@ -147,7 +147,7 @@ For more information, see the [Python Developer Center](/develop/python/).
 
 <!--External Link references-->
 
-[Azure Classic Management Portal]: https://manage.windowsazure.cn
+[Azure Portal]: https://portal.azure.cn
 [Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025

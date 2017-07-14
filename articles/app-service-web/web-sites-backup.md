@@ -35,6 +35,7 @@ App Service can backup the following information to an Azure storage account and
 
 The following database solutions are supported with backup feature: 
    - [SQL Database](https://www.azure.cn/home/features/sql-database/)
+   - MySQL in-app
 
 > [!NOTE]
 >  Each backup is a complete offline copy of your app, not an incremental update.

@@ -43,6 +43,10 @@ Application Gateway supports HTTP, HTTPS, and WebSocket.
 
 Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
 
+**Q. What regions is the service available in?**
+
+Application Gateway is available in all regions of public Azure.
+
 **Q. Is this a dedicated deployment for my subscription or is it shared across customers?**
 
 Application Gateway is a dedicated deployment in your virtual network.
@@ -273,7 +277,7 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 **Q. Can I set alerts with Application Gateway?**
 
-Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert.
+Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 **Q. Backend health returns unknown status, what could be causing this?**
 

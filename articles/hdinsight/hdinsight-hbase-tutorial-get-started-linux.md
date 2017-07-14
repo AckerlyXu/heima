@@ -1,7 +1,7 @@
 ---
-title: Get started with HBase on Azure HDInsight | Azure
-description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
-keywords: apache hbase,hbase,hbase shell,hbase tutorial,beeline
+title: Get started with an HBase example on HDInsight - Azure | Azure
+description: Follow this Apache HBase example to start using on HDInsight. Create tables from the HBase shell and query them using Hive.
+keywords: hbasecommand,hbase example 
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,24 +10,24 @@ editor: cgronlun
 
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/09/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
-# HBase tutorial: Get started using Apache HBase in HDInsight
+# Get started with an Apache HBase example in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Prerequisites
-Before you begin this HBase tutorial, you must have the following items:
+Before you begin trying this HBase example, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 * [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
@@ -75,7 +75,7 @@ In HBase which is an implementation of BigTable, the same data looks like:
 
 **To use the HBase shell**
 
-1. From SSH, run the following command:
+1. From SSH, run the following HBase command:
 
         hbase shell
 2. Create an HBase with two-column families:
@@ -201,14 +201,14 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 > Thrift is not supported by HBase in HDInsight.
 >
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
->
->```
->curl -u <UserName>:<Password> \
->-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
->```
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
+>   
 > You should receive a response similar to the following response:
->
-> `{"status":"ok","version":"v1"}`
+>   
+>        {"status":"ok","version":"v1"}
 
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.

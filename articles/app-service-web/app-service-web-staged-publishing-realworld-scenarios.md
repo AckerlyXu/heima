@@ -427,7 +427,6 @@ Here are advantages of swapping both the web app and the database:
 
 * You can roll back to the previous version of your web app with another **Swap** if there are any application issues.
 * For an upgrade, you need to deploy files and databases from the staging web app to the production web app and database. Many things can go wrong when you deploy files and databases. By using the **Swap** feature of slots, we can reduce downtime during an upgrade and reduce the risk of failures that can occur when you deploy changes.
-* You can do **A/B testing**.
 
 This example shows you the flexibility of the platform where you can build custom modules similar to Umbraco Courier module to manage deployment across environments.
 

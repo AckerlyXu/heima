@@ -1,5 +1,5 @@
 ---
-title: Enable heap dumps for Hadoop services on HDInsight | Azure
+title: Enable heap dumps for Hadoop services on HDInsight - Azure | Azure
 description: Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
 services: hdinsight
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2017
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -27,7 +27,7 @@ ms.author: v-dazen
 Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are useful for diagnosing problems that occur at run-time.
 
 > [!IMPORTANT]
-> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="whichServices"></a>Services
 
