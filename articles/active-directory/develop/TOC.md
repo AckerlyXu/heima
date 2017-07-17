@@ -34,7 +34,6 @@
 # How to
 ## [Get a tenant](./active-directory-howto-tenant.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## [Sign in any Azure AD user](./active-directory-devhowto-multi-tenant-overview.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
-## [Integrate apps](./active-directory-integrating-applications.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## Enable SSO
 ### [Android](./active-directory-sso-android.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ### [iOS](./active-directory-sso-ios.md?toc=%2factive-directory%2fdevelop%2ftoc.json)

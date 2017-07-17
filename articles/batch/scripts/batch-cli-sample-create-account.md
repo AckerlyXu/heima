@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Create a Batch account | Microsoft Docs
 description: Azure CLI Script Sample - Create a Batch account
 services: batch
 documentationcenter: ''
-author: annatisch
-manager: daryls
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 
 ms.assetid:
@@ -13,7 +13,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 05/02/2017
+ms.date: 07/04/2017
 ms.author: v-junlch
 ---
 
@@ -22,8 +23,9 @@ ms.author: v-junlch
 This script creates an Azure Batch account and shows how various properties of the account 
 can be queried and updated.
 
-If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
-and then run `az login` to log into Azure.
+## Prerequisites
+
+Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
 
 ## Batch account sample script
 
@@ -55,7 +57,7 @@ az storage account create -g myresourcegroup -n mystorageaccount -l westeurope -
 az batch account set -g myresourcegroup -n mybatchaccount --storage-account mystorageaccount
 
 # We can view the access keys to the Batch Account for future client authentication.
-az batch account keys list
+az batch account keys list -g myresourcegroup -n mybatchaccount
 
 # Or we can authenticate against the account directly for further CLI interaction.
 az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
@@ -74,6 +76,9 @@ an account in this mode, one must specify a Key Vault reference when creating th
 # Authenticate CLI session.
 az login
 
+# Allow Azure Batch to access the subscription (one-time operation).
+az role assignment create --assignee MicrosoftAzureBatch --role contributor
+
 # Create a resource group.
 az group create --name myresourcegroup --location westeurope
 
@@ -91,7 +96,7 @@ az keyvault create \
 az keyvault set-policy \
     --resource-group myresourcegroup \
     --name mykevault \
-    --object-id f520d84c-3fd3-4cc8-88d4-2ed25b00d27a \
+    --spn ddbf3205-c6bd-46ae-8127-60eb93363864 \
     --key-permissions all \
     --secret-permissions all
 

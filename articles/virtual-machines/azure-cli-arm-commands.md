@@ -1765,6 +1765,10 @@ Parameter options:
     vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>
     vm extension get [options] <resource-group> <vm-name>
 
+**Commands to manage your Docker Virtual Machine**
+
+    vm docker create [options] <resource-group> <name> <location> <os-type>
+
 **Commands to manage VM images**
 
     vm image list-publishers [options] <location>

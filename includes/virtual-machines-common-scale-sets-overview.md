@@ -29,7 +29,7 @@ It is currently recommended you use the [Azure Resource Explorer](https://resour
     subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
 ## VM scale set scenarios
-This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
+This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric) will use these scenarios.
 
 * **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
 * **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. E.g.
@@ -51,7 +51,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
    A PaaS v1 worker role, while limited in terms of platform/runtime support (Windows platform images only) also includes services such as VIP swap, configurable upgrade settings, runtime/app deployment specific settings which are either not *yet* available in VM scale sets, or will be delivered by other higher level PaaS services like Service Fabric. With this in mind you can look at VM scale sets as an infrastructure which supports PaaS. I.e. PaaS solutions like Service Fabric or cluster managers like Mesos can build on top of VM scale sets as a scalable compute layer.
 
-   Here is an example of a Mesos cluster which deploys a VM Scale Set in the same VNET as a standalone VM. The standalone VM is a Mesos master, and the VM scale set represents a set of slave nodes: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Future versions of the [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
+   Here is an example of a Mesos cluster which deploys a VM Scale Set in the same VNET as a standalone VM. The standalone VM is a Mesos master, and the VM scale set represents a set of slave nodes: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json).
 
 ## VM scale set performance and scale guidance
 * During the public preview, do not create more than 500 VMs in multiple VM Scale Sets at a time.

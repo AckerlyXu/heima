@@ -1,10 +1,12 @@
 ---
-title: Deploy and manage backup for Windows Server/Client using PowerShell | Azure
-description: Learn how to deploy and manage Azure Backup using PowerShell
+
+title: Use PowerShell to manage Windows Server backups in Azure| Microsoft Docs
+description: Deploy and manage Windows Server backups using PowerShell.
+
 services: backup
 documentationcenter: ''
-author: saurabhsensharma
-manager: shivamg
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: e7e269e2-1f11-41a9-957b-a2155de6a1e0
@@ -13,17 +15,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/28/2016
-ms.date: 01/24/2017
+origin.date: 06/14/2017
+ms.date: 06/30/2017
 ms.author: v-junlch
+
 ---
-
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
->[!div class="op_single_selector"]
-[ARM](./backup-client-automation.md)
-[Classic](./backup-client-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [Classic](backup-client-automation-classic.md)
+>
+>
 
-This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
+This article explains how to use PowerShell to back up Windows Server or Windows workstation data to a backup vault. Microsoft recommends using Recovery Services vaults for all new deployments. If you are a new Azure Backup user and have not created a backup vault in your subscription, use the article, [Deploy and manage Data Protection Manager data to Azure using PowerShell](backup-client-automation.md) so you store your data in a Recovery Services vault. 
+
 
 ## Install Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -39,8 +44,8 @@ If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or
 ## Create a backup vault
 > [!WARNING]
 > For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 You can create a new backup vault using the **New-AzureRMBackupVault** cmdlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
@@ -89,7 +94,7 @@ The available options include:
 | /pw |Proxy Password |- |
 
 ## Registering with the Azure Backup service
-Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](./backup-configure-vault.md) are met. You must:
+Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-configure-vault.md) are met. You must:
 
 - Have a valid Azure subscription
 - Have a backup vault
@@ -103,7 +108,7 @@ PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
 
-Registering the machine with the vault is done using the [Start-OBRegistration](https://technet.microsoft.com/zh-cn/library/hh770398%28v=wps.630%29.aspx) cmdlet:
+Registering the machine with the vault is done using the [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet:
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
@@ -119,15 +124,15 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
-> 
-> 
+>
+>
 
 ## Networking settings
 When the connectivity of the Windows machine to the internet is through a proxy server, the proxy settings can also be provided to the agent. In this example, there is no proxy server, so we are explicitly clearing any proxy-related information.
 
 Bandwidth usage can also be controlled with the options of ```work hour bandwidth``` and ```non-work hour bandwidth``` for a given set of days of the week.
 
-Setting the proxy and bandwidth details is done using the [Set-OBMachineSetting](https://technet.microsoft.com/zh-cn/library/hh770409%28v=wps.630%29.aspx) cmdlet:
+Setting the proxy and bandwidth details is done using the [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) cmdlet:
 
 ```
 PS C:\> Set-OBMachineSetting -NoProxy
@@ -147,8 +152,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
-> 
-> 
+>
+>
 
 ## Back up files and folders
 All your backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy comprises three parts:
@@ -157,7 +162,7 @@ All your backups from Windows Servers and clients to Azure Backup are governed b
 2. A **retention schedule** that specifies how long to retain the recovery points in Azure.
 3. A **file inclusion/exclusion specification** that dictates what should be backed up.
 
-In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770416.aspx) cmdlet and using it.
+In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet and using it.
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
@@ -166,7 +171,7 @@ PS C:\> $newpolicy = New-OBPolicy
 At this time the policy is empty and other cmdlets are needed to define what items will be included or excluded, when backups will run, and where the backups will be stored.
 
 ### Configuring the backup schedule
-The first of the 3 parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/zh-cn/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
+The first of the 3 parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
 
 - **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
 - **Times of the day** when the backup should run. You can define up to 3 different times of the day when the backup will be triggered.
@@ -177,20 +182,20 @@ For instance, you could configure a backup policy that runs at 4PM every Saturda
 PS C:\> $sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
 ```
 
-The backup schedule needs to be associated with a policy, and this can be achieved by using the [Set-OBSchedule](https://technet.microsoft.com/zh-cn/library/hh770407) cmdlet.
+The backup schedule needs to be associated with a policy, and this can be achieved by using the [Set-OBSchedule](https://technet.microsoft.com/library/hh770407) cmdlet.
 
 ```
 PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### Configuring a retention policy
-The retention policy defines how long recovery points created from backup jobs are retained. When creating a new retention policy using the [New-OBRetentionPolicy](https://technet.microsoft.com/zh-cn/library/hh770425) cmdlet, you can specify the number of days that the backup recovery points need to be retained with Azure Backup. The example below sets a retention policy of 7 days.
+The retention policy defines how long recovery points created from backup jobs are retained. When creating a new retention policy using the [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet, you can specify the number of days that the backup recovery points need to be retained with Azure Backup. The example below sets a retention policy of 7 days.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-The retention policy must be associated with the main policy using the cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/zh-cn/library/hh770405):
+The retention policy must be associated with the main policy using the cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
 ```
 PS C:\> Set-OBRetentionPolicy -Policy $newpolicy -RetentionPolicy $retentionpolicy
@@ -223,7 +228,7 @@ An ```OBFileSpec``` object defines the files to be included and excluded in a ba
 
 The latter is achieved by using the -NonRecursive flag in the New-OBFileSpec command.
 
-In the example below, we'll back up volume C: and D: and exclude the OS binaries in the Windows folder and any temporary folders. To do so we'll create two file specifications using the [New-OBFileSpec](https://technet.microsoft.com/zh-cn/library/hh770408) cmdlet - one for inclusion and one for exclusion. Once the file specifications have been created, they're associated with the policy using the [Add-OBFileSpec](https://technet.microsoft.com/zh-cn/library/hh770424) cmdlet.
+In the example below, we'll back up volume C: and D: and exclude the OS binaries in the Windows folder and any temporary folders. To do so we'll create two file specifications using the [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet - one for inclusion and one for exclusion. Once the file specifications have been created, they're associated with the policy using the [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet.
 
 ```
 PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -266,6 +271,7 @@ RetentionPolicy : Retention Days : 7
 
 State           : New
 PolicyState     : Valid
+
 
 PS C:\> Add-OBFileSpec -Policy $newpolicy -FileSpec $exclusions
 
@@ -314,14 +320,14 @@ PolicyState     : Valid
 ```
 
 ### Applying the policy
-Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770415) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation use the ```-Confirm:$false``` flag with the cmdlet.
+Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation use the ```-Confirm:$false``` flag with the cmdlet.
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy
 Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-Committing the policy object is done using the [Set-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770421) cmdlet. This will also ask for confirmation. To skip the confirmation use the ```-Confirm:$false``` flag with the cmdlet.
+Committing the policy object is done using the [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet. This will also ask for confirmation. To skip the confirmation use the ```-Confirm:$false``` flag with the cmdlet.
 
 ```
 PS C:> Set-OBPolicy -Policy $newpolicy
@@ -366,7 +372,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-You can view the details of the existing backup policy using the [Get-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770406) cmdlet. You can drill-down further using the [Get-OBSchedule](https://technet.microsoft.com/zh-cn/library/hh770423) cmdlet for the backup schedule and the [Get-OBRetentionPolicy](https://technet.microsoft.com/zh-cn/library/hh770427) cmdlet for the retention policies
+You can view the details of the existing backup policy using the [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. You can drill-down further using the [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet for the backup schedule and the [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet for the retention policies
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -407,7 +413,7 @@ IsRecursive : True
 ```
 
 ### Performing an ad-hoc backup
-Once a backup policy has been set the backups will occur per the schedule. Triggering an ad-hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/zh-cn/library/hh770426) cmdlet:
+Once a backup policy has been set the backups will occur per the schedule. Triggering an ad-hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -430,7 +436,7 @@ This section will guide you through the steps for automating recovery of data fr
 4. Trigger the restore process
 
 ### Picking the source volume
-In order to restore an item from Azure Backup, you first need to identify the source of the item. Since we're executing the commands in the context of a Windows Server or a Windows client, the machine is already identified. The next step in identifying the source is to identify the volume containing it. A list of volumes or sources being backed up from this machine can be retrieved by executing the [Get-OBRecoverableSource](https://technet.microsoft.com/zh-cn/library/hh770410) cmdlet. This command returns an array of all the sources backed up from this server/client.
+In order to restore an item from Azure Backup, you first need to identify the source of the item. Since we're executing the commands in the context of a Windows Server or a Windows client, the machine is already identified. The next step in identifying the source is to identify the volume containing it. A list of volumes or sources being backed up from this machine can be retrieved by executing the [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet. This command returns an array of all the sources backed up from this server/client.
 
 ```
 PS C:> $source = Get-OBRecoverableSource
@@ -445,7 +451,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### Choosing a backup point to restore
-The list of backup points can be retrieved by executing the [Get-OBRecoverableItem](https://technet.microsoft.com/zh-cn/library/hh770399.aspx) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *D:* and use it to recover a specific file.
+The list of backup points can be retrieved by executing the [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *D:* and use it to recover a specific file.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
@@ -474,7 +480,7 @@ ItemLastModifiedTime :
 The object ```$rps``` is an array of backup points. The first element is the latest point and the Nth element is the oldest point. To choose the latest point, we will use ```$rps[0]```.
 
 ### Choosing an item to restore
-To identify the exact file or folder to restore, recursively use the [Get-OBRecoverableItem](https://technet.microsoft.com/zh-cn/library/hh770399.aspx) cmdlet. That way the folder hierarchy can be browsed solely using the ```Get-OBRecoverableItem```.
+To identify the exact file or folder to restore, recursively use the [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet. That way the folder hierarchy can be browsed solely using the ```Get-OBRecoverableItem```.
 
 In this example, if we want to restore the file *finances.xls* we can reference that using the object ```$filesFolders[1]```.
 
@@ -524,13 +530,13 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### Triggering the restore process
-To trigger the restore process, we first need to specify the recovery options. This can be done by using the [New-OBRecoveryOption](https://technet.microsoft.com/zh-cn/library/hh770417.aspx) cmdlet. For this example, let's assume that we want to restore the files to *C:\temp*. Let's also assume that we want to skip files that already exist on the destination folder *C:\temp*. To create such a recovery option, use the following command:
+To trigger the restore process, we first need to specify the recovery options. This can be done by using the [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet. For this example, let's assume that we want to restore the files to *C:\temp*. Let's also assume that we want to skip files that already exist on the destination folder *C:\temp*. To create such a recovery option, use the following command:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Now trigger restore by using the [Start-OBRecovery](https://technet.microsoft.com/zh-cn/library/hh770402.aspx) command on the selected ```$item``` from the output of the ```Get-OBRecoverableItem``` cmdlet:
+Now trigger restore by using the [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) command on the selected ```$item``` from the output of the ```Get-OBRecoverableItem``` cmdlet:
 
 ```
 PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
@@ -541,6 +547,7 @@ Estimating size of backup items...
 Job completed.
 The recovery operation completed successfully.
 ```
+
 
 ## Uninstalling the Azure Backup agent
 Uninstalling the Azure Backup agent can be done by using the following command:
@@ -596,5 +603,6 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Next steps
 For more information about Azure Backup for Windows Server/Client see
 
-- [Introduction to Azure Backup](./backup-introduction-to-azure-backup.md)
-- [Back up Windows Servers](./backup-configure-vault.md)
+- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+- [Back up Windows Servers](backup-configure-vault.md)
+

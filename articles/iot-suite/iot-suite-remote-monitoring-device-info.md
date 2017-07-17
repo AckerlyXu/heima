@@ -3,11 +3,12 @@ title: Device information metadata in the remote monitoring solution | Azure
 description: A description of the Azure IoT preconfigured solution remote monitoring and its architecture.
 services: ''
 suite: iot-suite
-documentationCenter: ''
-authors: dominicbetts
+documentationcenter: ''
+author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -37,8 +38,6 @@ IoT Hub includes a [device identity registry][lnk-identity-registry] to manage a
 
 > [!NOTE]
 > The remote monitoring preconfigured solution keeps the device identity registry in sync with the information in the Cosmos DB database. Both use the same device id to uniquely identify each device connected to your IoT hub.
-> 
-> 
 
 ## Device metadata
 IoT Hub maintains a [device twin][lnk-device-twin] for each simulated and physical device connected to a remote monitoring solution. The solution uses device twins to manage the metadata associated with devices. A device twin is a JSON document maintained by IoT Hub, and the solution uses the IoT Hub API to interact with device twins.
@@ -56,7 +55,7 @@ Example reported properties from the simulated devices include manufacturer, mod
 
 A device information metadata JSON document stored in the device registry Cosmos DB database has the following structure:
 
-```
+```json
 {
   "DeviceProperties": {
     "DeviceID": "deviceid1",
@@ -77,8 +76,6 @@ A device information metadata JSON document stored in the device registry Cosmos
 
 > [!NOTE]
 > Device information can also include metadata to describe the telemetry the device sends to IoT Hub. The remote monitoring solution uses this telemetry metadata to customize how the dashboard displays [dynamic telemetry][lnk-dynamic-telemetry].
-> 
-> 
 
 ## Lifecycle
 
@@ -105,8 +102,6 @@ Device information messages sent by a device are distinct from telemetry message
 
 > [!NOTE]
 > A device information message is a standard device-to-cloud message. The solution distinguishes between device information messages and telemetry messages by using ASA queries.
-> 
-> 
 
 ## Next steps
 Now you've finished learning how you can customize the preconfigured solutions, you can explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
@@ -120,11 +115,11 @@ Now you've finished learning how you can customize the preconfigured solutions, 
 [img-device-edit]: ./media/iot-suite-remote-monitoring-device-info/image2.png
 [img-device-remove]: ./media/iot-suite-remote-monitoring-device-info/image3.png
 
-[lnk-iot-hub]: ../iot-hub/index.md
+[lnk-iot-hub]: /iot-hub/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-docdb]: ../documentdb/index.md
-[lnk-stream-analytics]: ../stream-analytics/index.md
+[lnk-docdb]: /documentdb/
+[lnk-stream-analytics]: /stream-analytics/
 [lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
 [lnk-predictive-overview]: ./iot-suite-predictive-overview.md
 [lnk-faq]: ./iot-suite-faq.md

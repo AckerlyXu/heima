@@ -19,7 +19,6 @@ ms.author: v-dazen
 
 ---
 # Enabling Diagnostics in Azure Virtual Machines
-See [Azure Diagnostics Overview](../azure-diagnostics.md) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Virtual Machine
 This walk through describes how to remotely install Diagnostics to an Azure virtual machine from a development computer. You also learn how to implement an application that runs on that Azure virtual machine and emits telemetry data using the .NET [EventSource Class][EventSource Class]. Azure Diagnostics is used to collect the telemetry and store it in an Azure storage account.
@@ -165,12 +164,6 @@ In the Visual Studio **Server Explorer** navigate to the wadexample storage acco
 
 ## Configuration file schema
 The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](https://msdn.microsoft.com/library/azure/mt634524.aspx) for valid values and examples.
-
-## Troubleshooting
-See [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) for more information.
-
-## Next steps
-[See a list of virtual machine related Azure Diagnostics articles](../azure-diagnostics.md#virtual-machines-using-azure-diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

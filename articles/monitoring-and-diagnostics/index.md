@@ -14,7 +14,7 @@ origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-yiso
 ---
-# Monitoring and Diagnostics Documentation
+# Azure Monitor Documentation
 
 Learn how to use Azure monitoring and diagnostics services to track performance, maintain security, and identify trends. Tutorials, API references, best practices, and other documentation help you understand the uses of monitoring and diagnostics and how to plan and deploy scalable and reliable solutions.
 
@@ -93,11 +93,3 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Monitoring and Diagnostics Documentation
-        </div>
-    </a>
-</div>

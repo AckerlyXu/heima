@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+origin.date: 04/12/2017
 ms.author: v-yiso
+ms.date: ''
 ---
 # Connect a virtual network to an ExpressRoute circuit
 > [!div class="op_single_selector"]

@@ -1,23 +1,23 @@
 ---
-title: "Task start event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 95f7762a-a715-4c83-907b-8aed004e69b1
-caps.latest.revision: 3
-author: "tamram"
-ms.author: v-junlch
-manager: "timlt"
----
-# Task start event
-Task start event log body
+title: "Azure Batch task start event | Microsoft Docs"
+description: Reference for Batch task start event.
+services: batch
+author: alexchen2016
+manager: digimobile
 
-## Remarks
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 07/03/2017
+ms.author: v-junlch
+---
+
+# Task start event
+
  This event is emitted once a task has been scheduled to start on a compute node by the scheduler. Note that if the task is retried or requeued this event will be emitted again for the same task, but the retry count and system task version will be updated accordingly.
 
 
@@ -80,3 +80,4 @@ Task start event log body
 |Element name|Type|Notes|
 |------------------|----------|-----------|
 |retryCount|Int32|The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount|
+
