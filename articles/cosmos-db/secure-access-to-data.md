@@ -42,7 +42,7 @@ Each account consists of two Master keys: a primary key and secondary key. The p
 
 In addition to the two master keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
 
-Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-account.md#keys).
 
 ![Access control (IAM) in the Azure portal - demonstrating NoSQL database security](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -179,5 +179,5 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 ## Next steps
 * To learn more about Cosmos DB database security, see [Cosmos DB: Database security](database-security.md).
-* To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#keys).
 * To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/zh-cn/rest/api/documentdb/access-control-on-documentdb-resources).
