@@ -151,7 +151,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 ## Upload to storage
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 1. In Visual Studio, open **Server Explorer**.
 

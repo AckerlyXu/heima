@@ -163,7 +163,7 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 
 ## Create from a template
 
-You can deploy a virtual machine scale set by using an Azure Resource Manager template. You can create your own template or use one from the [template repository](https://www.github.com/Azure/azure-quickstart-templates/). These templates can be deployed directly to your Azure subscription.
+You can deploy a virtual machine scale set by using an Azure Resource Manager template. You can create your own template or use one from the [template repository](https://github.com/Azure/azure-quickstart-templates/?term=vmss). These templates can be deployed directly to your Azure subscription.
 
 >[!NOTE]
 >To create your own template, you create a JSON text file. For general information about how to create and customize a template, see [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).

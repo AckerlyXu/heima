@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/04/2016
+origin.date: 04/27/2017
 ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 
 # How to use Service Bus topics and subscriptions

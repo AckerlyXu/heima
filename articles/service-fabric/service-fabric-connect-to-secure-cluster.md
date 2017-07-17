@@ -3,8 +3,8 @@ title: Connect securely to an Azure Service Fabric cluster | Azure
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
@@ -13,13 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/03/2017
-ms.date: 03/03/2017
-ms.author: v-johch
+origin.date: 06/01/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+
 ---
 
 # Connect to a secure cluster
-When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](./service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](./service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster.
+When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
 
 <a id="connectsecureclustercli"></a> 
 
@@ -32,7 +33,7 @@ The certificate details must match a certificate on the cluster nodes.
 If your certificate has Certificate Authorities (CAs), you need to add the parameter `--ca-cert-path` as shown in the following example: 
 
 ```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
 
 If you have multiple CAs, use commas as the delimiter. 
@@ -55,7 +56,7 @@ For connecting to a cluster secured with a self-signed certificate, use the foll
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-After you connect, you should be able to [run other CLI commands](./service-fabric-azure-cli.md) to interact with the cluster. 
+After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact with the cluster. 
 
 <a id="connectsecurecluster"></a>
 
@@ -199,7 +200,7 @@ catch (Exception e)
 
 The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
 
-For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/zh-cn/library/microsoft.identitymodel.clients.activedirectory.aspx).
+For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -238,16 +239,17 @@ static string GetAccessToken(
     string clientId,
     string redirectUri)
 {
-    string authorityFormat = @"https://login.partner.microsoftonline.cn/{0}";
+    string authorityFormat = @"https://login.chinacloudapi.cn/{0}";
     string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
         var authContext = new AuthenticationContext(authority);
 
     var authResult = authContext.AcquireToken(
         resource,
         clientId,
-        new UserCredential("TestAdmin@clustenametenant.partner.onmsmicrosoft.cn", "TestPassword"));
-        return authResult.AccessToken;
-    }
+        new UserCredential("TestAdmin@clustenametenant.partner.onmschina.cn", "TestPassword"));
+    return authResult.AccessToken;
+}
+
 ```
 
 ### Connect to a secure cluster without prior metadata knowledge using Azure Active Directory
@@ -287,15 +289,16 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
     var authResult = authContext.AcquireToken(
         aad.ClusterApplication,
         aad.ClientApplication,
-        new UserCredential("TestAdmin@partner.onmsmicrosoft.cn", "TestPassword"));
+        new UserCredential("TestAdmin@clustenametenant.partner.onmschina.cn", "TestPassword"));
     return authResult.AccessToken;
 }
+
 ```
 
 <a id="connectsecureclustersfx"></a>
 
 ## Connect to a secure cluster using Service Fabric Explorer
-To reach [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md) for a given cluster, point your browser to:
+To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) for a given cluster, point your browser to:
 
 `http://<your-cluster-endpoint>:19080/Explorer`
 
@@ -339,7 +342,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 
 ## Next steps
 
-- [Service Fabric Cluster upgrade process and expectations from you](./service-fabric-cluster-upgrade.md)
-- [Managing your Service Fabric applications in Visual Studio](./service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric Health model introduction](./service-fabric-health-introduction.md)
-- [Application Security and RunAs](./service-fabric-application-runas-security.md)
+* [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
+* [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+* [Service Fabric Health model introduction](service-fabric-health-introduction.md)
+* [Application Security and RunAs](service-fabric-application-runas-security.md)

@@ -56,7 +56,7 @@ This allows you to restrict and inspect Internet access from your virtual machin
 ## Before you begin
 Verify that you have the following items before beginning configuration.
 
-* An Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+* An Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
 * A configured virtual network. 
 * The latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 

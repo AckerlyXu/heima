@@ -1,5 +1,5 @@
 ---
-title: What is Apache Storm - Azure HDInsight | Azure
+title: What is Apache Storm? - Azure HDInsight | Azure
 description: 'Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.'
 services: hdinsight
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.date: 06/05/2017
 ms.author: v-dazen
 
 ---
-# What is Apache Storm on Azure HDInsight
+# What is Apache Storm on Azure HDInsight?
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -51,7 +51,7 @@ Storm on HDInsight provides the following key benefits:
 
     * Azure Storage
 
-    * Azure DocumentDb
+    * Azure Cosmos DB
 
 * Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Spark, HBase, or Hadoop clusters.
 
@@ -97,7 +97,7 @@ You can provision a new Storm cluster on HDInsight in minutes. For more informat
 
     * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__, __DocumentDb__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Database__, __Cosmos DB__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ## Reliability
 

@@ -37,7 +37,7 @@ There are several challenges that you face when backing up SQL Server. These cha
 * **Cost**: Pay only for the service that is used. Can be cost-effective as an off-site and backup archive option. See the [Azure pricing calculator](https://www.azure.cn/pricing/calculator/ "Pricing Calculator"), and the [Azure Pricing article](https://www.azure.cn/pricing/overview/ "Pricing article") for more information.
 * **Storage snapshots**: When database files are stored in an Azure blob and you are using SQL Server 2016, you can use [file-snapshot backup](http://msdn.microsoft.com/library/mt169363.aspx) to perform nearly instantaneous backups and incredibly quick restores.
 
-For more details, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
+For more details, see [SQL Server Backup and Restore with Azure Blob Storage Service](http://go.microsoft.com/fwlink/?LinkId=271617).
 
 The following two sections introduce the Azure Blob storage service, including the required SQL Server components. It is important to understand the components and their interaction to successfully use backup and restore from the Azure Blob storage service.
 

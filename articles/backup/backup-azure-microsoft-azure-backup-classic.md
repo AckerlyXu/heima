@@ -3,8 +3,8 @@ title: Use Azure Backup Server to back up workloads to Azure Classic Management 
 description: Make sure your environment is properly prepared to back up workloads using Azure Backup Server
 services: backup
 documentationcenter: ''
-author: pvrk
-manager: shivamg
+author: alexchen2016
+manager: digimobile
 editor: ''
 keywords: azure backup server; backup vault
 
@@ -14,14 +14,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+origin.date: 06/14/2017
+ms.date: 06/29/2017
 ms.author: v-junlch
 
 ---
 # Preparing to back up workloads using Azure Backup Server
 > [!div class="op_single_selector"]
-> * [Azure Backup Server (Classic)](./backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](./backup-azure-dpm-introduction-classic.md)
+> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -53,12 +54,6 @@ If you plan to join Azure Backup Server to a domain, it is recommended that you 
 ![step2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
 Whether you send backup data to Azure or keep it locally, the Azure Backup Server must be registered to a vault.
-
-> [!IMPORTANT]
-> Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults. Existing Backup vaults are still supported, and it is possible to [use Azure PowerShell to create Backup vaults](./backup-client-automation-classic.md#create-a-backup-vault). However, Microsoft recommends you create Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only.
->
->
-
 
 
 ## 3. Software package
@@ -182,14 +177,15 @@ It is possible to take an Azure subscription from an *Expired* or *Deprovisioned
 - An *Expired* subscription only loses functionality for until it has been made *Active* again. Any backups scheduled for the period that the subscription was *Expired* will not run.
 
 ## Troubleshooting
-If Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/zh-cn/kb/3041338)  for more information.
-You can also refer to [Azure Backup related FAQs](./backup-azure-backup-faq.md)
+If Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used.
 
 You can use these articles to gain a deeper understanding of workload protection using Azure Backup server.
 
-- [SQL Server backup](./backup-azure-backup-sql.md)
-- [SharePoint server backup](./backup-azure-backup-sharepoint.md)
-- [Alternate server backup](./backup-azure-alternate-dpm-server.md)
+- [SQL Server backup](backup-azure-backup-sql.md)
+- [SharePoint server backup](backup-azure-backup-sharepoint.md)
+- [Alternate server backup](backup-azure-alternate-dpm-server.md)
+

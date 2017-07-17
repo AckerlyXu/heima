@@ -5,18 +5,19 @@ keywords: database firewall
 services: sql-database
 documentationcenter: ''
 author: BYHAM
-manager: jhubbard
-editor: cgronlun
+manager: Hayley244
+editor: digimobile
 tags: ''
 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/10/2017
+origin.date: 04/10/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 
 ---
@@ -37,7 +38,7 @@ Connection attempts from the Internet and Azure must first pass through the fire
 * **Server-level firewall rules:** These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same logical server. These rules are stored in the **master** database. Server-level firewall rules can be configured by using the portal or by using Transact-SQL statements. To create server-level firewall rules using the Azure Portal or PowerShell, you must be the subscription owner or a subscription contributor. To create a server-level firewall rule using Transact-SQL, you must connect to the SQL Database instance as the server-level principal login or the Azure Active Directory administrator (which means that a server-level firewall rule must first be created by a user with Azure-level permissions).
 * **Database-level firewall rules:** These rules enable clients to access certain (secure) databases within the same logical server. You can create these rules for each database (including the **master** database0) and they are stored in the individual databases. Database-level firewall rules can only be configured by using Transact-SQL statements and only after you have configured the first server-level firewall. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can only be created and managed through Transact-SQL. For more information on configuring database-level firewall rules, see the example later in this article and see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
 
-**Recommendation:** Azure recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements, and you don't want to spend time configuring each database individually.
+**Recommendation:** Azure recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
 
 > [!Note]
 > For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
@@ -62,13 +63,18 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-##<a name="creating-database-level-firewall-rules"></a><a name="creating-and-managing-firewall-rules"></a> Creating and managing firewall rules
+## Creating and managing firewall rules
 The first server-level firewall setting can be created using the [Azure Portal](https://portal.azure.cn/) or programmatically using [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create), or the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
+
 > [!IMPORTANT]
 > Database-level firewall rules can only be created and managed using Transact-SQL. 
 >
 
 To improve performance, server-level firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). 
+
+> [!TIP]
+> You can use [SQL Database Auditing](sql-database-auditing.md) to audit server-level and database-level firewall changes.
+>
 
 ### Azure Portal
 
@@ -112,20 +118,20 @@ The overview page for your server opens, showing you the fully qualified server 
 
 
 The following examples review the existing rules, enable a range of IP addresses on the server Contoso, and deletes a firewall rule:
-   
+
 ```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
 ```
-  
+
 Next, add a firewall rule.
-   
+
 ```sql
 EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
 To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule:
-   
+
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
@@ -137,7 +143,6 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 | [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx) |Server |Creates a new server-level firewall rule |
 | [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |Server |Updates the properties of an existing server-level firewall rule |
 | [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |Server |Removes server-level firewall rules |
-
 
 The following example sets a server-level firewall rule using PowerShell:
 
@@ -182,8 +187,8 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ## Server-level firewall rule versus a database-level firewall rule
 Q. Should users of one database be fully isolated from another database?   
   If yes, grant access using database-level firewall rules. This avoids using server-level firewall rules, which permit access through the firewall to all databases, reducing the depth of your defenses.   
- 
-Q. Do users at the IP address’s need access to all databases?   
+
+Q. Do users at the IP address's need access to all databases?   
   Use server-level firewall rules to reduce the number of times you must configure firewall rules.   
 
 Q. Does the person or team configuring the firewall rules only have access through the Azure Portal, PowerShell, or the REST API?   
@@ -206,7 +211,7 @@ Consider the following points when access to the Azure SQL Database service does
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure SQL Database firewall configuration to take effect.
 * **The login is not authorized or an incorrect password was used:** If a login does not have permissions on the Azure SQL Database server or the password used is incorrect, the connection to the Azure SQL Database server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must provide the necessary security credentials. For more information about preparing logins, see Managing Databases, Logins, and Users in Azure SQL Database.
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you could try one of the following solutions:
-  
+
   * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure SQL Database server, and then add the IP address range as a firewall rule.
   * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 

@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 05/31/2017
+origin.date: 06/07/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -58,7 +58,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 > 
 > 
 
-After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Resource menu**.
+After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Settings**.
 
 ![Virtual network][redis-cache-vnet-info]
 
@@ -81,6 +81,7 @@ To connect to your Azure Redis cache instance when using a VNet, specify the hos
 The following list contains answers to commonly asked questions about the Azure Redis Cache scaling.
 
 * [What are some common misconfiguration issues with Azure Redis Cache and VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* [How can I verify that my cache is working in a VNET?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [Can I use VNets with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [Why does creating a Redis cache fail in some subnets but not others?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
@@ -138,6 +139,25 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 * Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com*, and *crl.microsoft.com*. This connectivity is needed to support SSL functionality.
 * The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
 * Outbound network connectivity to the following Azure Monitoring endpoints, which resolve under the following DNS domains: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
+
+### How can I verify that my cache is working in a VNET?
+
+>[!IMPORTANT]
+>When connecting to an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET, including any test applications or diagnostic pinging tools.
+>
+>
+
+Once the port requirements are configured as described in the previous section, you can verify that your cache is working by performing the following steps.
+
+- [Reboot](cache-administration.md#reboot) all of the cache nodes. If all of the required cache dependencies can't be reached (as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements)), the cache won't be able to restart successfully.
+- Once the cache nodes have restarted (as reported by the cache status in the Azure portal), you can perform the following tests:
+  - ping the cache endpoint (using port 6380) from a machine that is within the same VNET as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
+
+    `tcping.exe contosocache.redis.cache.chinacloudapi.cn 6380`
+
+    If the `tcping` tool reports that the port is open, the cache is available for connection from clients in the VNET.
+
+  - Another way to test is to create a test cache client (which could be a simple console application using StackExchange.Redis) that connects to the cache and adds and retrieves some items from the cache. Install the sample client application onto a VM that is in the same VNET as the cache and run it to verify connectivity to the cache.
 
 ### Can I use VNets with a standard or basic cache?
 VNets can only be used with premium caches.

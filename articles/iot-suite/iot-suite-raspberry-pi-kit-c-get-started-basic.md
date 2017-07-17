@@ -1,6 +1,6 @@
 ---
 title: Connect a Raspberry Pi to Azure IoT Suite using C with real sensors| Azure
-description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and Azure IoT Suite. Use C to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and respond to methods invoked from the solution dashboard.
+description: Use the Azure IoT Starter Kit for the Raspberry Pi 3 and Azure IoT Suite. Use C to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and respond to methods invoked from the solution dashboard.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+origin.date: 04/24/2017
 ms.author: v-yiso
-
+ms.date: ''
 ---
 # Connect your Raspberry Pi 3 to the remote monitoring solution and send telemetry from a real sensor using C
 

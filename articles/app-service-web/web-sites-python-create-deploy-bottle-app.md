@@ -36,7 +36,7 @@ You will create a web app using the Bottle web framework (see alternate versions
 * Git
 * [Python Tools 2.2 for Visual Studio][Python Tools 2.2 for Visual Studio] (PTVS) - Note: this is optional
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
@@ -54,8 +54,8 @@ You should have Python and Git already installed, but make sure you have either 
 The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.cn).  
 
 1. Log into the Azure Portal and click the **NEW** button in the bottom left corner. 
-2. In the search box, type "python".
-3. In the search results, select **Bottle**, then click **Create**.
+2. Click "Web + Mobile".
+3. Click "Web App"
 4. Configure the new Bottle app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
 5. Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 

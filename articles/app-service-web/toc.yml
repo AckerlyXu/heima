@@ -77,6 +77,10 @@
         href: web-sites-nodejs-debug.md
     - name: Java
       items:
+      - name: Java app with Eclipse
+        href: app-service-web-eclipse-create-hello-world-web-app.md
+      - name: Java app with IntelliJ
+        href: app-service-web-intellij-create-hello-world-web-app.md
       - name: Use Azure SDK for Java
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
@@ -126,6 +130,8 @@
       href: app-service-web-get-started-2.md
   - name: Connect to DB/resources
     items:
+    - name: Connect to Azure VNet
+      href: web-sites-integrate-with-vnet.md
     - name: Connect to Azure VNet with PowerShell
       href: app-service-vnet-integration-powershell.md
     - name: Connect to MongoDB on Azure VM
@@ -208,6 +214,16 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: FAQ
+      items:
+      - name: Availability, performance, and application FAQ
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Deployment FAQ
+        href: app-service-web-deployment-faq.md
+      - name: Open source technologies FAQ
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Configuration and management FAQ
+        href: app-service-web-configuration-and-management-faq.md
   - name: Pricing
     href: https://www.azure.cn/pricing/details/app-service/
   - name: Quota Information

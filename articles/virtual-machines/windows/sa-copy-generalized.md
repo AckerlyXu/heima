@@ -200,7 +200,7 @@ The following PowerShell completes the virtual machine configurations and uses u
 
     # Size of the virtual machine. This example creates "Standard_D2_v2" sized VM. 
     # See the VM sizes documentation for more information: 
-    # /virtual-machines-windows-sizes/
+    # https://docs.azure.cn/virtual-machines/windows/sizes/
     $vmSize = "Standard_D2_v2"
 
     # Computer name for the VM. This examples sets the computer name as "myComputer".

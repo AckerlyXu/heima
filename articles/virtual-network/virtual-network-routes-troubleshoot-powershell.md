@@ -58,28 +58,28 @@ To see the aggregate routes that are applied to a network interface, complete th
 1. Start an Azure PowerShell session and login to Azure. If you're not familiar with Azure PowerShell, read the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article.
 2. The following command returns all routes applied to a network interface named *VM1-NIC1* in the resource group *RG1*.
 
-        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
+       Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
 
    > [!TIP]
    > If you don't know the name of a network interface, type the following command to retrieve the names of all network interfaces in a resource group.*
    > 
    > 
 
-        Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
+       Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
 
    The following output looks similar to the output for each route applied to the subnet the NIC is connected to:
 
-        Name :
-        State : Active
-        AddressPrefix : {10.9.0.0/16}
-        NextHopType : VNetLocal
-        NextHopIpAddress : {}
+       Name :
+       State : Active
+       AddressPrefix : {10.9.0.0/16}
+       NextHopType : VNetLocal
+       NextHopIpAddress : {}
 
-        Name :
-        State : Active
-        AddressPrefix : {0.0.0.0/16}
-        NextHopType : Internet
-        NextHopIpAddress : {}
+       Name :
+       State : Active
+       AddressPrefix : {0.0.0.0/16}
+       NextHopType : Internet
+       NextHopIpAddress : {}
 
    Notice the following in the output:
 
@@ -91,14 +91,14 @@ To see the aggregate routes that are applied to a network interface, complete th
 
    The following command returns the routes in an easier to view table:
 
-        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
+       Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
 
    The following output is some of the output received for the scenario described previously:
 
-        Name State AddressPrefix NextHopType NextHopIpAddress
-        ---- ----- ------------- ----------- ----------------
-        Active {10.9.0.0/16} VnetLocal {}
-        Active {0.0.0.0/0} Internet {}
+       Name State AddressPrefix NextHopType NextHopIpAddress
+       ---- ----- ------------- ----------- ----------------
+       Active {10.9.0.0/16} VnetLocal {}
+       Active {0.0.0.0/0} Internet {}
 3. There is no route listed to the *ChinaNorth-VNet3* VNet (Prefix 10.10.0.0/16)** from *ChinaNorth-VNet1* (Prefix 10.9.0.0/16) in the output from the previous step. As shown in the following picture, the VNet peering link with the *ChinaNorth-VNet3* VNet is in the *Disconnected* state.
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image4.png)

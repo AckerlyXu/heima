@@ -48,6 +48,7 @@ A common traffic routing method pattern is to provide a set of identical endpoin
 
 - Learn about [priority traffic routing method](traffic-manager-configure-priority-routing-method.md).
 - Learn about [performance traffic routing method](traffic-manager-configure-performance-routing-method.md).
+- Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
 - Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
 
 <!--Image references-->

@@ -3,25 +3,26 @@ title: Data dependent routing with Azure SQL Database | Azure
 description: How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of sharded databases in  Azure SQL Database
 services: sql-database
 documentationcenter: ''
-manager: jhubbard
-author: torsteng
+manager: digimobile
+author: Hayley244
 editor: ''
 
 ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+origin.date: 03/27/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 
 ---
 # Data dependent routing
 **Data dependent routing** is the ability to use the data in a query to route the request to an appropriate database. This is a fundamental pattern when working with sharded databases. The request context may also be used to route the request, especially if the sharding key is not part of the query. Each specific query or transaction in an application using data dependent routing is restricted to accessing a single database per request. For the Azure SQL Database Elastic tools, this routing is accomplished with the **[ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** in ADO.NET applications.
 
-The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
+The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application's request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
 For more information, see [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx).
 
@@ -47,7 +48,6 @@ The **[ShardMap.OpenConnectionForKey method](https://msdn.microsoft.com/library/
         string connectionString,
         ConnectionOptions options
     )
-
 
 * The **key** parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
 * The **connectionString** is used to pass only the user credentials for the desired connection. No database name or server name are included in this *connectionString* since the method will determine the database and server using the **ShardMap**. 
@@ -113,7 +113,6 @@ int newPersonId = 4321;
 <span style="background-color:  #FFFF00">    }); </span> 
 </code></pre>
 
-
 Packages necessary to implement transient fault handling are downloaded automatically when you build the elastic database sample application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
 
 ## Transactional consistency
@@ -123,4 +122,3 @@ Transactional properties are guaranteed for all operations local to a shard. For
 To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-

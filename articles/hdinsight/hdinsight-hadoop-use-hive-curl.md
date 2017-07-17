@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Hive with Curl in HDInsight | Azure
+title: Use Hadoop Hive with Curl in HDInsight - Azure | Azure
 description: Learn how to remotely submit Pig jobs to HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/14/2017
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -159,7 +159,7 @@ If you are using Tez with Hive, see the following documents for debugging inform
 
 For more information on the REST API used in this document, see the [WebHCat reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

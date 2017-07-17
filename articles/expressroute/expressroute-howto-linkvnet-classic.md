@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+origin.date: 12/13/2016
 ms.author: v-yiso
+ms.date: ''
 ---
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
@@ -81,7 +82,6 @@ The circuit owner authorizes the administrators of other subscriptions to use th
     LinkAuthorizationId : **********************************
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
-```
 
 **Reviewing authorizations**
 

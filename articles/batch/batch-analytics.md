@@ -1,20 +1,21 @@
 ---
-title: "Batch Analytics - Azure | Microsoft Docs"
-ms.custom: ""
-origin.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 2fda4d9c-f782-4088-9320-656b450e3100
-caps.latest.revision: 7
-author: "tamram"
+title: Azure Batch Analytics | Microsoft Docs
+description: Reference for Azure Batch Analytics.
+services: batch
+author: alexchen2016
+manager: digimobile
+
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
-manager: "timlt"
-ms.date: 05/15/2017""
 ---
+
 # Batch Analytics
 The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 
@@ -25,11 +26,12 @@ See [Azure Batch diagnostic logging](batch-diagnostics.md) for more information 
 The Azure Batch service emits the following diagnostic log events during the lifetime of certain Batch resources.
 
 **Service Log events**
-- [Pool create](./batch-pool-create-event.md)
-- [Pool delete start](./batch-pool-delete-start-event.md)
-- [Pool delete complete](./batch-pool-delete-complete-event.md)
-- [Pool resize start](./batch-pool-resize-start-event.md)
-- [Pool resize complete](./batch-pool-resize-complete-event.md)
-- [Task start](./batch-task-start-event.md)
-- [Task complete](./batch-task-complete-event.md)
-- [Task fail](./batch-task-fail-event.md)
+- [Pool create](batch-pool-create-event.md)
+- [Pool delete start](batch-pool-delete-start-event.md)
+- [Pool delete complete](batch-pool-delete-complete-event.md)
+- [Pool resize start](batch-pool-resize-start-event.md)
+- [Pool resize complete](batch-pool-resize-complete-event.md)
+- [Task start](batch-task-start-event.md)
+- [Task complete](batch-task-complete-event.md)
+- [Task fail](batch-task-fail-event.md)
+

@@ -72,7 +72,7 @@ The following systems have been tested and are known to work with the Azure Linu
 
 > [!NOTE]
 > This list may differ from the official list of supported systems on the Azure Platform, as described here:
-> [https://docs.azure.cn/virtual-machines/linux/endorsed-distros](https://docs.azure.cn/virtual-machines/linux/endorsed-distros)
+> [http://docs.azure.cn/virtual-machines/linux/endorsed-distros](/virtual-machines/linux/endorsed-distros)
 > 
 > 
 
@@ -305,5 +305,5 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
   * **ResourceDisk.SwapSizeMB**
 * Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
 
-  * [Ubuntu Wiki: Configure Swap Partitions](https://wiki.ubuntu.com/AzureSwapPartitions)
+  * [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

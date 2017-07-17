@@ -155,7 +155,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Select **linux** in the **Os Type** drop down box.
-   * Select **Legal terms**, review the terms and conditions, then click the **Create** button.
+   * Select **Legal terms**, review the terms and conditions, then click the **Purchase** button.
    * Click on the **Create** button.
 3. Wait for the deployment to complete.
 4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** section. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
@@ -178,7 +178,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md

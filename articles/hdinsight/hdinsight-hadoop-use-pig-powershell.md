@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with PowerShell in HDInsight | Azure
+title: Use Hadoop Pig with PowerShell in HDInsight - Azure | Azure
 description: Learn how to submit Pig jobs to a Hadoop cluster on HDInsight using Azure PowerShell.
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/21/2017
-ms.date: 05/08/2017
+origin.date: 06/16/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -36,7 +36,7 @@ This document provides an example of using Azure PowerShell to submit Pig jobs t
 * **An Azure HDInsight cluster**
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * **A workstation with Azure PowerShell**.
 

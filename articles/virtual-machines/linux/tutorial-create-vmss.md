@@ -100,7 +100,7 @@ Now create a virtual machine scale set with [az vmss create](https://docs.micros
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
@@ -206,7 +206,7 @@ To create a scale set and attach data disks, add the `--data-disk-sizes-gb` para
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSetDisks \
-  --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \

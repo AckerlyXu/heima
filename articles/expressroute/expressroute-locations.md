@@ -2,31 +2,36 @@
 title: ExpressRoute locations | Azure
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
 services: expressroute
-documentationCenter: na
-authors: cherylmc
-manager: carmonm
+documentationcenter: na
+author: cherylmc
+manager: timlt
 editor: ''
-
+ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+origin.date: 06/13/2017
 ms.author: v-yiso
+ms.date: ''
 ---
 
 # ExpressRoute partners and peering locations
 
+> [!div class="op_single_selector"]
+> * [Locations By Provider](./expressroute-locations.md)
+> * [Providers By Location](./expressroute-locations-providers.md)
+
+
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 ## <a name="partners"></a>ExpressRoute connectivity providers
-
 ExpressRoute is supported across all Azure regions and locations. The following map provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
 
 ![Location map][0]
 
-You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
+You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region.
 
 ### Azure regions to ExpressRoute locations within a geopolitical region.
 The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
@@ -54,9 +59,8 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 ## <a name="locations"></a>Connectivity provider locations
 
-> [!div class="op_single_selector"]
-[Locations By Provider](./expressroute-locations.md#connectivity-provider-locations)
-[Providers By Location](./expressroute-locations-providers.md#locations)
+The following table shows locations by service provider. If you want to view available providers by location, see [Service providers by location](./expressroute-locations-providers.md#locations).
+
 
 ### Production Azure
 

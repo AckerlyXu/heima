@@ -1,7 +1,6 @@
 ## WordPress and Azure App Service
 * [What is WordPress?](https://wordpress.org/)
 * [How to setup enterprise-class WordPress web app](../articles/app-service-web/web-sites-php-enterprise-wordpress.md)
-* [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 
 ## Troubleshooting WordPress Application
 * [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)

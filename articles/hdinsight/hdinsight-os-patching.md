@@ -1,5 +1,5 @@
 ---
-title: Configure OS patching schedule for Linux-based HDInsight clusters -Azure | Azure
+title: Configure OS patching schedule for Linux-based HDInsight clusters - Azure | Azure
 description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
 services: hdinsight
 documentationcenter: ''

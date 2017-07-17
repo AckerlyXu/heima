@@ -1,10 +1,10 @@
 ---
-title: 'Azure Portal: SQL Database geo-replication | Microsoft Docs'
-description: Configure geo-replication for Azure SQL Database in the Azure Portal and initiate failover
+title: 'Azure portal: SQL Database geo-replication | Azure'
+description: Configure geo-replication for Azure SQL Database in the Azure portal and initiate failover
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
@@ -14,7 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/062/2016
+origin.date: 03/062/2016
+ms.date: 07/10/2017
 ms.author: v-johch
 
 ---
@@ -22,10 +23,10 @@ ms.author: v-johch
 
 This article shows you how to configure active geo-replication for SQL Database in the [Azure Portal](http://portal.azure.cn) and to initiate failover.
 
-To initiate failover with the Azure Portal, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure Portal](sql-database-geo-replication-failover-portal.md).
+To initiate failover with the Azure Portal, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
 
->[!NOTE]
-> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired, and existing non-readable databases will automatically be upgraded to readable secondaries.
+> [!NOTE]
+> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type was retired, and existing non-readable databases automatically upgraded to readable secondaries.
 > 
 > 
 
@@ -33,7 +34,7 @@ To configure active geo-replication by using the Azure Portal, you need the foll
 
 * An Azure SQL database: The primary database that you want to replicate to a different geographical region.
 
-> [!NOTE]
+> [!Note]
 Active geo-replication must be between databases in the same subscription.
 
 ## Add a secondary database
@@ -80,7 +81,7 @@ The command immediately switches the secondary database into the primary role.
 There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command automatically reconfigures the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances. 
 
 > [!NOTE]
-> If the primary is online and committing transactions when the command is issued some data loss may occur.
+> This command is designed for quick recovery of the database in case of an outage. It triggers failover without data synchronization (forced failover).  If the primary is online and committing transactions when the command is issued some data loss may occur. 
 > 
 > 
 

@@ -1,10 +1,10 @@
 ---
-title: Download the Azure SDK for Java | Azure
+title: Download the Azure SDK for Java | Microsoft Docs
 description: Learn how to download the Azure SDK for Java, with sample code provided for Maven projects.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 4b8f8fe6-1b26-4bb4-9be9-6ae757a59e66
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/25/2017
+ms.date: 07/13/2017
 ms.author: v-junlch
----
 
+---
 # Download the Azure SDK for Java
 This article contains instructions for downloading and installing the Azure Management Libraries for Java.
 
@@ -49,62 +49,62 @@ Once your project has been configured to use Maven for build, you can add the re
 >
 >
 
-```
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-compute</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-network</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-sql</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-storage</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-websites</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-media</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-servicebus</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-serviceruntime</artifactId>
-    <version>n.n.n</version>
-</dependency>
-```
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-compute</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-network</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-sql</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-storage</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-websites</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-media</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-servicebus</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-serviceruntime</artifactId>
+        <version>n.n.n</version>
+    </dependency>
 
 ## See Also
 For more information about the Azure Toolkits for Java IDEs, see the following links:
 
 - [Azure Toolkit for Eclipse]
   - [Installing the Azure Toolkit for Eclipse]
+  - [Create a Hello World Web App for Azure in Eclipse]
   - [What's New in the Azure Toolkit for Eclipse]
 - [Azure Toolkit for IntelliJ]
   - [Installing the Azure Toolkit for IntelliJ]
+  - [Create a Hello World Web App for Azure in IntelliJ]
   - [What's New in the Azure Toolkit for IntelliJ]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].
@@ -115,15 +115,18 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij.md
-[Installing the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-installation.md
-[Installing the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-installation.md
-[What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-whats-new.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]:/develop/java/
 [Azure Libraries Repository on Maven]: http://go.microsoft.com/fwlink/?LinkID=286274
 [Java Build Path]: http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fref-properties-build-path.htm
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
+

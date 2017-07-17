@@ -26,7 +26,7 @@ ms.author: v-dazen
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-Learn how to use Data Lake (HDInsight) Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries.
+Learn how to use Data Lake Tools for Visual Studio to connect to Hadoop clusters in [Azure HDInsight](hdinsight-hadoop-introduction.md) and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight](hdinsight-hadoop-introduction.md) and [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics and HDInsight. However, Data Lake Analytics is not yet available in Azure China.
 

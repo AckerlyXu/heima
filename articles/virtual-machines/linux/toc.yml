@@ -271,8 +271,6 @@
       href: diagnostic-extension.md
   - name: Run applications
     items:
-    - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
     - name: MongoDB
       href: install-mongodb.md
     - name: MySQL

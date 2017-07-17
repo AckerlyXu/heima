@@ -247,7 +247,7 @@ ms.custom: H1Hack27Feb2017
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md
 [storage-use-azcopy]:../../storage/storage-use-azcopy.md
-[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
+[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../linux/attach-disk-portal.md
@@ -301,7 +301,7 @@ ms.custom: H1Hack27Feb2017
 [vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:.././azure/xplat-cli-azure-resource-manager
+[xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
 Azure Virtual Machines is the solution for organizations that need compute and storage resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classical applications, like SAP NetWeaver-based applications, in Azure. Extend an application's reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
 

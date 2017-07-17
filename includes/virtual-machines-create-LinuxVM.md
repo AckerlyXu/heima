@@ -14,11 +14,11 @@
 
     In a Windows command-prompt window, use **find** instead of grep.
 
-4. Use `azure vm create` to create a VM with the Linux image from the previous list. This step creates a cloud service and storage account. You could also connect this VM to an existing cloud service with a `-c` option. Create an SSH endpoint to log in to the Linux virtual machine with the `-e` option. The following example creates a VM named `myVM` using the `Ubuntu-14_04_3-LTS` image in the `China North` location, and adds a user name `ops`:
+4. Use `azure vm create` to create a VM with the Linux image from the previous list. This step creates a cloud service and storage account. You could also connect this VM to an existing cloud service with a `-c` option. Create an SSH endpoint to log in to the Linux virtual machine with the `-e` option. The following example creates a VM named `myVM` using the `Ubuntu-14_04_4-LTS` image in the `China North` location, and adds a user name `ops`:
 
     ```azurecli
     azure vm create myVM \
-        b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_3-LTS-amd64-server-20160516-en-us-30GB \
+        b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB \
         -g ops -p P@ssw0rd! -z "Small" -e -l "China North"
     ```
 
@@ -26,7 +26,7 @@
 
     ```azurecli
     info:    Executing command vm create
-    + Looking up image b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_3-LTS-amd64-server-20160516-en-us-30GB
+    + Looking up image b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB
     + Looking up cloud service
     info:    cloud service myVM not found.
     + Creating cloud service

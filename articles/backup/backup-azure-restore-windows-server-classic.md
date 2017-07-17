@@ -3,8 +3,8 @@ title: Restore data to a Windows Server or Windows Client from Azure using the c
 description: Learn how to restore from a Windows Server or Windows Client.
 services: backup
 documentationcenter: ''
-author: saurabhsensharma
-manager: shivamg
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 85585dfc-c764-4e8c-8f0e-40b969640ac2
@@ -13,14 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+origin.date: 06/14/2017
+ms.date: 06/29/2017
 ms.author: v-junlch
 
 ---
 # Restore files to a Windows server or Windows client machine using the classic deployment model
 > [!div class="op_single_selector"]
-> * [Classic Management Portal](./backup-azure-restore-windows-server-classic.md)
-> * [Azure portal](./backup-azure-restore-windows-server.md)
+> * [Classic Management Portal](backup-azure-restore-windows-server-classic.md)
+> * [Azure portal](backup-azure-restore-windows-server.md)
 >
 >
 
@@ -32,7 +33,7 @@ This article explains how to restore data from a backup vault. To restore data, 
 In January 2017, Microsoft released a Preview update to the MARS agent. Along with bug fixes, this update enables Instant Restore, which allows you to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer thereby selectively restoring files.
 
 > [!NOTE]
-> The [January 2017 Azure Backup update](https://support.microsoft.com/zh-cn/help/3216528?preview) is required if you want to use Instant Restore to restore data. Also the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/zh-cn/help/3216528?preview) for the latest list of locales that support Instant Restore. Instant Restore is **not** currently available in all locales.
+> The [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) is required if you want to use Instant Restore to restore data. Also the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) for the latest list of locales that support Instant Restore. Instant Restore is **not** currently available in all locales.
 >
 
 Instant Restore is available for use in Recovery Services vaults in the Azure portal and Backup vaults in the Classic Management Portal. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
@@ -97,9 +98,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 3. Select the **This server (*yourmachinename*)** option to restore the backed up file on the same machine.
 
     ![Same machine](./media/backup-azure-restore-windows-server-classic/samemachine.png)
-4. Choose to **Browse for files** or **Search for files**.
-
-    Leave the default option if you plan to restore one or more files whose path is known. If you are not sure about the folder structure but would like to search for a file, pick the **Search for files** option. For the purpose of this section, we will proceed with the default option.
+4. Choose "Volume" in "Select Recovery Mode" page. Then click "Next".
 
     ![Browse files](./media/backup-azure-restore-windows-server-classic/browseandsearch.png)
 5. Select the volume from which you wish to restore the file.
@@ -107,17 +106,14 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
     You can restore from any point in time. Dates which appear in **bold** in the calendar control indicate the availability of a restore point. Once a date is selected, based on your backup schedule (and the success of a backup operation), you can select a point in time from the **Time** drop down.
 
     ![Volume and Date](./media/backup-azure-restore-windows-server-classic/volanddate.png)
-6. Select the items to recover. You can multi-select folders/files you wish to restore.
-
-    ![Select files](./media/backup-azure-restore-windows-server-classic/selectfiles.png)
-7. Specify the recovery parameters.
+6. Specify the recovery parameters.
 
     ![Recovery options](./media/backup-azure-restore-windows-server-classic/recoveroptions.png)
 
    - You have an option of restoring to the original location (in which the file/folder would be overwritten) or to another location in the same machine.
    - If the file/folder you wish to restore exists in the target location, you can create copies (two versions of the same file), overwrite the files in the target location, or skip the recovery of the files which exist in the target.
    - It is highly recommended that you leave the default option of restoring the ACLs on the files which are being recovered.
-8. Once these inputs are provided, click **Next**. The recovery workflow, which restores the files to this machine, will begin.
+7. Once these inputs are provided, click **Next**. The recovery workflow, which restores the files to this machine, will begin.
 
 ## Recover to an alternate machine
 If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.  
@@ -223,10 +219,11 @@ The terminology used in these steps includes:
 
 
 ## Next steps
-- [Azure Backup FAQ](./backup-azure-backup-faq.md)
+- [Azure Backup FAQ](backup-azure-backup-faq.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 ## Learn more
 - [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Backup Azure virtual machines](./backup-azure-vms-introduction.md)
+- [Backup Azure virtual machines](backup-azure-vms-introduction.md)
 - [Backup up Microsoft workloads](./backup-azure-dpm-introduction-classic.md)
+

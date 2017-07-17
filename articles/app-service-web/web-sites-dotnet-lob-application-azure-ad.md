@@ -54,7 +54,7 @@ You need the following to complete this tutorial:
 * Visual Studio 2013 Update 4 or later
 * [Azure SDK 2.8.1 or later](/downloads/)
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 <a name="bkmk_deploy"></a>
 
@@ -426,4 +426,4 @@ authorize users with the `[Authorize]` decoration.
 * [Create a line-of-business app in Azure with AD FS authentication](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
-* [Azure Active Directory Supported Token and Claim Types](/active-directory/develop/active-directory-token-and-claims/)
+* [Azure Active Directory Supported Token and Claim Types](/active-directory/develop/active-directory-token-and-claims)

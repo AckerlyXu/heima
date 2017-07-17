@@ -30,7 +30,7 @@ Learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight, a
 ## Prerequisites
 Before you begin this tutorial, you must have:
 
-* **Azure subscription**: To create a one-month trial account, browse to [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/).
+* **Azure subscription**: To create a one-month trial account, browse to [https://www.azure.cn/pricing/1rmb-trial](https://www.azure.cn/pricing/1rmb-trial).
 
 ## Create cluster
 

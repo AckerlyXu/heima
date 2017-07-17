@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+origin.date: 05/15/2017
 ms.author: v-yiso
-
+ms.date: ''
 ---
 
 # Frequently asked questions for IoT Suite

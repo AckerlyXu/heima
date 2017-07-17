@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 04/27/2017
-ms.date: 05/31/2017
+origin.date: 06/12/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -70,8 +70,6 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
 
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [Why are diagnostics enabled for some new caches but not others?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 * [Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -218,8 +216,7 @@ You can optionally configure a [redis.conf](http://redis.io/topics/config) file 
 ### How can I run Redis commands?
 You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). You have several options to run Redis commands.
 
-* If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). The Redis console provides a secure way to run Redis commands in the Azure portal.
-* You can also use the Redis command-line tools. To use them, perform the following steps:
+* You can use the Redis command-line tools. To use them, perform the following steps:
 * Download the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/).
 * Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
 * `redis-cli -h <your cache="" name="">
@@ -390,19 +387,12 @@ For more information about the different connections limits for each tier, see [
 ### How do I monitor the health and performance of my cache?
 Azure Redis Cache instances can be monitored in the [Azure portal](https://portal.azure.cn). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](cache-how-to-monitor.md).
 
-The Redis Cache **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
+The Redis Cache **Settings** also contains several tools for monitoring and troubleshooting your caches.
 
 * **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
 * **Resource health** watches your resource and tells you if it's running as expected.
-* **New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
-
-### My cache diagnostics storage account settings changed, what happened?
-Caches in the same region and subscription share diagnostics storage settings, and if the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region. If the diagnostics settings for your cache have changed, check to see if the diagnostic settings for another cache in the same subscription and region have changed. One way to check is to view the audit logs for your cache for a `Write DiagnosticSettings` event. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
-
-### Why are diagnostics enabled for some new caches but not others?
-Caches in the same region and subscription share the same diagnostics storage settings. If you create a new cache in the same region and subscription as another cache that has diagnostics enabled, diagnostics is enabled on the new cache using the same settings.
 
 <a name="cache-timeouts"></a>
 
@@ -445,7 +435,11 @@ Another key aspect to Redis success is the healthy, vibrant open source ecosyste
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](index.md).
 
 ### Managed Cache service
-[Managed Cache service has been retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+To view archived documentation, see [Archived Managed Cache Service Documentation](https://msdn.microsoft.com/library/azure/dn386094.aspx).
 
 ### In-Role Cache
-[In-Role Cache has been retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+To view archived documentation, see [Archived In-Role Cache Documentation](https://msdn.microsoft.com/library/azure/dn386103.aspx).

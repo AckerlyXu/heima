@@ -346,7 +346,7 @@ For more information about Azure Active Directory, see the following resources.
 
 * [Azure AD developers' guide](/active-directory/develop/active-directory-developers-guide)
 * [Azure AD scenarios](/active-directory/develop/active-directory-authentication-scenarios)
-* [Azure AD samples](https://github.com/azure-samples?query=active-directory)
+* [Azure AD samples](/active-directory/develop/active-directory-code-samples)
 
     The [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) sample is similar to what is shown in this tutorial, but without using App Service authentication.
 

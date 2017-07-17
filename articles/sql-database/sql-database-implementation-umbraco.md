@@ -117,7 +117,7 @@ Since choosing Azure as its cloud partner, Umbraco has been able to provide UaaS
 
 ## More information
 * To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
-* To learn more about Azure Service Bus,see [Azure Service Bus](https://www.azure.cn/home/features/service-bus/).
+* To learn more about Azure Service Bus,see [Azure Service Bus](../service-bus/index.md).
 * To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about virtual networking, see [virtual networking](../virtual-network/index.md).    
 * To learn more about backup and recovery, see [business continuity](sql-database-business-continuity.md).    

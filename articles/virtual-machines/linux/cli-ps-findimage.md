@@ -36,7 +36,7 @@ Offer          Publisher               Sku                 Urn                  
 WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-UbuntuServer   Canonical               14.04.3-LTS         Canonical:UbuntuServer:14.04.3-LTS:latest                       UbuntuLTS            latest
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
 CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
 openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
 SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
@@ -172,8 +172,8 @@ data:    canonical  ubuntuserver  14.04.0-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.1-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.2-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.3-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
+data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  chinanorth
+data:    canonical  ubuntuserver  14.04.4-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  chinanorth
 data:    canonical  ubuntuserver  14.04.5-LTS        chinanorth
 data:    canonical  ubuntuserver  14.10              chinanorth

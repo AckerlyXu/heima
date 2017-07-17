@@ -3,19 +3,20 @@ title: Azure CLI Script-Monitor & scale a single SQL Database | Azure
 description: Azure CLI Script Sample - Monitor and scale a single SQL database using the Azure CLI
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+origin.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 ---
 
@@ -58,7 +59,7 @@ az sql db create \
 	--service-objective S0
 
 # Monitor database size
-az sql db show-usage \
+az sql db list-usages \
 	--name mySampleDatabase \
 	--resource-group myResourceGroup \
 	--name $servername
@@ -70,6 +71,7 @@ az sql db create \
 	--name mySampleDatabase \
 	--service-objective S1
 ```
+
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
