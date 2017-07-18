@@ -316,6 +316,4 @@ In this article, we described how you can use globally distributed multi-region 
 - Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
 - Learn about [automatic and manual failovers in DocumentDB](documentdb-regional-failovers.md)
 - Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
-- Develop with multiple regions using the [DocumentDB - DocumentDB API](./documentdb-portal-global-replication.md)
-
 

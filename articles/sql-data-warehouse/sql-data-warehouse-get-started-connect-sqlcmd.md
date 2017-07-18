@@ -3,8 +3,8 @@ title: Connect to Azure SQL Data Warehouse sqlcmd | Azure
 description: Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 origin.date: 10/31/2016
-ms.date: 01/04/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -23,6 +23,9 @@ ms.author: v-yeche
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
+> 
+> 
 
 Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.  
 
@@ -87,7 +90,7 @@ See [sqlcmd documentation][sqlcmd] for more about details about the options avai
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
+[sqlcmd]: https://msdn.microsoft.com/zh-cn/library/ms162773.aspx
 [Azure portal]: https://portal.azure.cn
 
 <!--Other Web references-->

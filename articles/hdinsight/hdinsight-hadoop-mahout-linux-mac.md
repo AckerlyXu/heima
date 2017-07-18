@@ -1,5 +1,5 @@
 ---
-title: Generate recommendations using Mahout and HDInsight (SSH) | Azure
+title: Generate recommendations using Mahout and HDInsight (SSH) - Azure | Azure
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop).
 services: hdinsight
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/03/2017
-ms.date: 05/08/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -35,7 +35,7 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Mahout versioning
 
@@ -228,7 +228,6 @@ Now that you have learned how to use Mahout, discover other ways of working with
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
-[management]: https://manage.windowsazure.cn/
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

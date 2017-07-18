@@ -9,4 +9,4 @@
 * [Configure TLS mutual authentication to require client certificates to connect to your web app](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)
 * [Configure a client certificate for use from your app to securely connect to external resources](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 * [Remove standard server headers to avoid tools from fingerprinting your app](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
-* [Securely connect your app with resources in a private network using Point-To-Site VPN](../articles/app-service-web/app-service-vnet-integration-powershell.md)
+* [Securely connect your app with resources in a private network using Point-To-Site VPN](../articles/app-service-web/web-sites-integrate-with-vnet.md)

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/09/2017
-ms.date: 03/10/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
 
@@ -27,7 +27,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 >
 
 > [!IMPORTANT]
-> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 ## Use SQLLine
@@ -270,7 +270,7 @@ In this article, you have learned how to use Apache Phoenix in HDInsight.  To le
 * [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md): Learn how to configure HBase replication across two Azure datacenters.
 
 [azure-portal]: https://manage.windowsazure.cn/
-[vnet-point-to-site-connectivity]: ../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md
+[vnet-point-to-site-connectivity]: /vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md

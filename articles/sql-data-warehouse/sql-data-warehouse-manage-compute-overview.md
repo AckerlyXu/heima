@@ -3,7 +3,7 @@ title: Manage compute power in Azure SQL Data Warehouse (Overview) | Azure
 description: Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokib
+author: rockboyfor
 manager: johnmac
 editor: ''
 

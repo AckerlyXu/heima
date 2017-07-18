@@ -17,7 +17,6 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: http://azure.cn/documentation/articles/documentdb-use-cases
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---
@@ -230,7 +229,7 @@ What happens if things keep getting better and users from another region, countr
 
 But wait... you soon realize their experience with your platform is not optimal; they are so far away from your operational region that the latency is terrible, and you obviously don't want them to quit. If only there was an easy way of **extending your global reach**... but there is!
 
-DocumentDB lets you [replicate your data globally](./documentdb-portal-global-replication.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](./documentdb-portal-global-replication.md). This also means that you can have [multiple failover regions](documentdb-regional-failovers.md). 
+DocumentDB lets you replicate your data globally and transparently with a couple of clicks and automatically select among the available regions from your client code. This also means that you can have [multiple failover regions](documentdb-regional-failovers.md). 
 
 When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) and clone your Azure App Service on all the desired regions, using a [Performance configuration](../app-service-web/web-sites-traffic-manager.md) to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local DocumentDB replica.
 

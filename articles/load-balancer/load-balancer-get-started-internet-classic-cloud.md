@@ -3,8 +3,8 @@ title: Create an Internet-facing load balancer for Azure cloud services | Azure
 description: Learn how to create an Internet facing load balancer in classic deployment model for cloud services
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-service-management
 
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756

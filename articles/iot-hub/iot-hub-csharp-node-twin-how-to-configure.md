@@ -13,9 +13,9 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+origin.date: 03/30/2017
 ms.author: v-yiso
-
+ms.date: 07/10/2017
 ---
 # Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -36,7 +36,7 @@ To complete this tutorial you need the following:
 
 + Node.js version 0.10.x or later.
 
-+ An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
++ An active Azure account. If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.
 
 If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have an IoT hub and a device identity called **myDeviceId**. In that case, you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
 
@@ -48,8 +48,8 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
 
-1. Create a new empty folder called **simulatedeviceconfiguration**. In the **simulatedeviceconfiguration** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
-
+1. Create a new empty folder called **simulatedeviceconfiguration**. In the **simulatedeviceconfiguration** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults.
+   
     ```
     npm init
     ```
@@ -204,22 +204,27 @@ In this section, you will create a .NET console app that updates the *desired pr
         await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
         Console.WriteLine("Updated desired configuration");
 
-        while (true)
-        {
-            var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
-            var results = await query.GetNextAsTwinAsync();
-            foreach (var result in results)
+            try
             {
-                Console.WriteLine("Config report for: {0}", result.DeviceId);
-                Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
-                Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
-                Console.WriteLine();
+                while (true)
+                {
+                    var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
+                    var results = await query.GetNextAsTwinAsync();
+                    foreach (var result in results)
+                    {
+                        Console.WriteLine("Config report for: {0}", result.DeviceId);
+                        Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine();
+                    }
+                    Thread.Sleep(10000);
+                }
             }
-            Thread.Sleep(10000);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}");
+            }
         }
-    }
-    ```
-
     The **Registry** object exposes all the methods required to interact with device twins from the service. This code initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and then updates its desired properties with a new telemetry configuration object.
     After that, it queries the device twins stored in the IoT hub every 10 seconds, and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
    
@@ -231,7 +236,7 @@ In this section, you will create a .NET console app that updates the *desired pr
 
     ```
     registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-    SetDesiredConfigurationAndQuery();
+    SetDesiredConfigurationAndQuery().Wait();
     Console.WriteLine("Press any key to quit.");
     Console.ReadLine();
 1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.

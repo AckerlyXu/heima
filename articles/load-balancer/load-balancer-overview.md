@@ -3,8 +3,8 @@ title: Azure Load Balancer overview | Azure
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3

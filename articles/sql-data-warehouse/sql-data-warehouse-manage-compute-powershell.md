@@ -3,8 +3,8 @@ title: Manage compute power in Azure SQL Data Warehouse (PowerShell) | Azure
 description: PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 8354a3c1-4e04-4809-933f-db414a8c74dc
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 10/31/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -74,14 +74,14 @@ To pause a database, use the [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlData
 > 
 
 ```Powershell
-Suspend-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
 ```
 A variation, this next example retrieves the database into the $database object. It then pipes the object to [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]. The results are stored in the object resultDatabase. The final command shows the results.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -93,15 +93,15 @@ $resultDatabase
 To start a database, use the [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] cmdlet. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
 
 ```Powershell
-Resume-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" -DatabaseName "Database02"
 ```
 
 A variation, this next example retrieves the database into the $database object. It then pipes the object to [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] and stores the results in $resultDatabase. The final command shows the results.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -154,9 +154,9 @@ For other management tasks, see [Management overview][Management overview].
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
-[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
-[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
-[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619347.aspx
+[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619337.aspx
+[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619433.aspx
 [Get-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/get-azuresqldatabase
 
 <!--Other Web references-->

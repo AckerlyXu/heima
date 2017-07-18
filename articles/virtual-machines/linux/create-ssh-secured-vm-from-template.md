@@ -25,7 +25,7 @@ This article shows you how to quickly deploy a Linux virtual machine (VM) with A
 1.0](create-ssh-secured-vm-from-template-nodejs.md).
 
 ## Templates overview
-Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](../../azure-resource-manager/resource-manager-create-first-template.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/templates/).
+Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](../../azure-resource-manager/resource-manager-create-first-template.md).
 
 ## Create resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. The following example creates a resource group named *myResourceGroupVM* in the *chinaeast* region:

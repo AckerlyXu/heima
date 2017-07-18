@@ -69,6 +69,7 @@
 #### [Custom domains with Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fapp-service-api%2ftoc.json)
 
 ### [Clone an existing app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fapp-service-api%2ftoc.json)
+### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fapp-service-api%2ftoc.json)
 ### [Advanced configuration](../app-service-web/web-sites-transform-extend.md?toc=%2fapp-service-api%2ftoc.json)
 ### [Resource groups](../app-service-web/app-service-move-resources.md?toc=%2fapp-service-api%2ftoc.json)
 ### [Web Jobs](../app-service/app-service-webjobs-readme.md?toc=%2fapp-service-api%2ftoc.json)

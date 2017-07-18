@@ -1,34 +1,37 @@
 ---
-title: Replicate Hyper-V VMs to Azure in the classic portal with PowerShell | Azure
-description: Automate the replication of Hyper-V virtual machines in VMM clouds using Site Recovery and PowerShell in the classic portal
+title: Replicate Hyper-V VMs to Azure in the Classic Management Portal with PowerShell | Azure
+description: Automate the replication of Hyper-V virtual machines in VMM clouds using Site Recovery and PowerShell in the Classic Management Portal
 services: site-recovery
 documentationcenter: ''
-author: bsiva
-manager: abhiag
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 9011f567-e0b4-4306-951a-b30da19f5db6
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 03/10/2017
-ms.author: v-johch
+origin.date: 05/31/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
+
 ---
 
-# Replicate Hyper-V VMs to Azure with PowerShell in the classic portal
+# Replicate Hyper-V VMs to Azure with PowerShell in the Classic Management Portal
 
 > [!div class="op_single_selector"]
->- [Azure Portal](./site-recovery-vmm-to-azure.md)
->- [PowerShell - Resource Manager](./site-recovery-vmm-to-azure-powershell-resource-manager.md)
->- [Classic Portal](./site-recovery-vmm-to-azure-classic.md)
->- [PowerShell - Classic](./site-recovery-deploy-with-powershell.md)
+> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+> * [Classic Management Portal](site-recovery-vmm-to-azure-classic.md)
+> * [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
+>
+>
 
 ## Overview
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see the [Azure Site Recovery overview](./site-recovery-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see the [Azure Site Recovery overview](site-recovery-overview.md).
 
 This article shows you how to use PowerShell to automate common tasks you need to perform when you set up Azure Site Recovery to replicate Hyper-V virtual machines in System Center VMM clouds to Azure storage.
 
@@ -37,46 +40,48 @@ The article includes prerequisites for the scenario, and shows you how to set up
 If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr).
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model.
+>
+>
 
 ## Before you start
 Make sure you have these prerequisites in place:
 
 ### Azure prerequisites
 
-- You'll need a [Microsoft Azure](https://www.azure.cn) account. You can start with a [trial](/price/1rmb-trial).
-- You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md).
-- You'll need to make sure that virtual machines you want to protect comply with [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* You'll need a [Azure](https://azure.microsoft.com/) account. You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
+* You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md).
+* You'll need to make sure that virtual machines you want to protect comply with [Azure virtual machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### VMM prerequisites
-- You'll need  VMM server running on System Center 2012 R2.
-- You'll need at least one cloud on the VMM server you want to protect. The cloud should contain:
-    - One or more VMM host groups.
-    - One or more Hyper-V host servers or clusters in each host group .
-    - One or more virtual machines on the source Hyper-V server.
+* You'll need  VMM server running on System Center 2012 R2.
+* You'll need at least one cloud on the VMM server you want to protect. The cloud should contain:
+  * One or more VMM host groups.
+  * One or more Hyper-V host servers or clusters in each host group .
+  * One or more virtual machines on the source Hyper-V server.
 
 ### Hyper-V prerequisites
 
-- The host Hyper-V servers must be running at least **Windows Server 2012** with Hyper-V role or **Microsoft Hyper-V Server 2012** and have the latest updates installed.
-- If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. To do this, in Server Manager > Failover Cluster Manager, connect to the cluster, click **Configure Role** and select **Hyper-V Replica Broker** in the **Select Role** screen of the High Availability wizard. 
-- Any Hyper-V host server or cluster for which you want to manage protection must be included in a VMM cloud.
+* The host Hyper-V servers must be running at least **Windows Server 2012** with Hyper-V role or **Microsoft Hyper-V Server 2012** and have the latest updates installed.
+* If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. To do this, in Server Manager > Failover Cluster Manager, connect to the cluster, click **Configure Role** and select **Hyper-V Replica Broker** in the **Select Role** screen of the High Availability wizard.
+* Any Hyper-V host server or cluster for which you want to manage protection must be included in a VMM cloud.
 
 ### Network mapping prerequisites
 When you protect virtual machines in Azure network mapping maps between VM networks on the source VMM server and target Azure networks to enable the following:
 
-- All machines which fail over on the same network can connect to each other, irrespective of which recovery plan they are in.
-- If a network gateway is setup on the target Azure network, virtual machines can connect to other on-premises virtual machines.
-- If you don’t configure network mapping only virtual machines that fail over in the same recovery plan will be able to connect to each other after failover to Azure.
+* All machines which fail over on the same network can connect to each other, irrespective of which recovery plan they are in.
+* If a network gateway is setup on the target Azure network, virtual machines can connect to other on-premises virtual machines.
+* If you don't configure network mapping only virtual machines that fail over in the same recovery plan will be able to connect to each other after failover to Azure.
 
 If you want to deploy network mapping you'll need the following:
 
-- The virtual machines you want to protect on the source VMM server should be connected to a VM network. That network should be linked to a logical network that is associated with the cloud.
-- An Azure network to which replicated virtual machines can connect after failover. You'll select this network at the time of failover. The network should be in the same region as your Azure Site Recovery subscription.
+* The virtual machines you want to protect on the source VMM server should be connected to a VM network. That network should be linked to a logical network that is associated with the cloud.
+* An Azure network to which replicated virtual machines can connect after failover. You'll select this network at the time of failover. The network should be in the same region as your Azure Site Recovery subscription.
 
 ###PowerShell prerequisites
-Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/zh-cn/library/dn850420.aspx). 
+Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://docs.microsoft.com/zh-cn/powershell/azure/overview).
 
-To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see [Get Started with Azure Cmdlets](https://msdn.microsoft.com/zh-cn/library/azure/jj554332.aspx).
+To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see [Get Started with Azure Cmdlets](https://docs.microsoft.com/zh-cn/powershell/azure/get-started-azureps).
 
 ## Step 1: Set the subscription
 In PowerShell, run these cmdlets:
@@ -88,8 +93,9 @@ $AzureSubscriptionName = "prod_sub1"
 
 $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
 $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $securePassword
-Add-AzureAccount -Credential $Cred;
+Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred;
 $AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+
 ```
 
 Replace the elements within the "< >" with your specific information.
@@ -100,15 +106,15 @@ In PowerShell, replace the elements within the "< >" with your specific informat
 
 ```
 
-    $VaultName = "<testvault123>"
-    $VaultGeo  = "<China North>"
-    $OutputPathForSettingsFile = "<c:\>"
+$VaultName = "<testvault123>"
+$VaultGeo  = "<China North>"
+$OutputPathForSettingsFile = "<c:\>"
 
 ```
 
 ```
-    New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
-    $vault = Get-AzureSiteRecoveryVault -Name $VaultName;
+New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
+$vault = Get-AzureSiteRecoveryVault -Name $VaultName;
 
 ```
 
@@ -120,20 +126,22 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
     ```
 
-        $VaultName = "<testvault123>"
-        $VaultGeo  = "<China North>"
-        $OutputPathForSettingsFile = "<c:\>"
+   $VaultName = "<testvault123>"
+   $VaultGeo  = "<China North>"
+   $OutputPathForSettingsFile = "<c:\>"
 
-        $VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
+   $VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 
     ```
 
 2. Set the vault context by running the following commands:
 
-    ```	
-        $VaultSettingFilePath = $vaultSetingsFile.FilePath 
-        $VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
-```
+    ```
+
+    $VaultSettingFilePath = $vaultSetingsFile.FilePath
+    $VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
+
+    ```
 
 ## Step 4: Install the Azure Site Recovery Provider
 
@@ -141,7 +149,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
     ```
 
-        pushd C:\ASR\
+    pushd C:\ASR\
 
     ```
 
@@ -149,7 +157,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
     ```
 
-        AzureSiteRecoveryProvider.exe /x:. /q
+    AzureSiteRecoveryProvider.exe /x:. /q
 
     ```
 
@@ -166,11 +174,11 @@ Generate a registration key in the vault. After you download the Azure Site Reco
     $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
     do
     {
-                    $isNotInstalled = $true;
-                    if(Test-Path $installationRegPath)
-                    {
-                                    $isNotInstalled = $false;
-                    }
+        $isNotInstalled = $true;
+        if(Test-Path $installationRegPath)
+        {
+            $isNotInstalled = $false;
+        }
     }While($isNotInstalled)
 
     ```
@@ -193,10 +201,12 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 If you don't have an Azure storage account, create a geo-replication enabled account by running the following command:
 
 ```
+
 $StorageAccountName = "teststorageacc1"
 $StorageAccountGeo  = "China North"
 
 New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageAccountName -Location $StorageAccountGeo;
+
 ```
 
 Note that the storage account must be in the same region as the Azure Site Recovery service, and be associated with the same subscription.
@@ -207,7 +217,9 @@ From the Azure portal, install the Azure Recovery Services agent on each Hyper-V
 Run the following command on all VMM hosts:
 
 ```
+
 marsagentinstaller.exe /q /nu
+
 ```
 
 ## Step 7: Configure cloud protection settings
@@ -216,21 +228,25 @@ marsagentinstaller.exe /q /nu
 
     ```
     $ReplicationFrequencyInSeconds = "300";
-    $ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider 	HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName `
-    -RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds 	$ReplicationFrequencyInSeconds;
+    $ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName `
+    -RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds;
     ```
 
 2. Get a protection container by running the following commands:
 
     ```
+
     $PrimaryCloud = "testcloud"
     $protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;	
+
     ```
 
 3. Start the association of the protection container with the cloud:
 
     ```
+
     $associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -	ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;		
+
     ```
 
 4. After the job has finished, run the following command:
@@ -269,41 +285,31 @@ Before you begin network mapping verify that virtual machines on the source VMM 
 
 Note that if the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there is not a target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
-The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
+The first command gets servers for the current Azure Site Recovery vault. The command stores the Azure Site Recovery servers in the $Servers array variable.
 
-```
-$Servers = Get-AzureSiteRecoveryServer
-```
+    $Servers = Get-AzureSiteRecoveryServer
 
 The second command gets the site recovery network for the first server in the $Servers array. The command stores the networks in the $Networks variable.
 
-```
-$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
-```
+    $Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
 
-The third command gets your Azure subscriptions by using the Get-AzureSubscription cmdlet, and then stores that value in the $Subscriptions variable. 
+The third command gets your Azure subscriptions by using the Get-AzureSubscription cmdlet, and then stores that value in the $Subscriptions variable.
 
-```
-$Subscriptions = Get-AzureSubscription
-```
+    $Subscriptions = Get-AzureSubscription
 
 The fourth command gets Azure virtual networks by using the Get-AzureVNetSite cmdlet, and then that value in the $AzureVmNetworks variable.
 
-```
-$AzureVmNetworks = Get-AzureVNetSite
-```
+    $AzureVmNetworks = Get-AzureVNetSite
 
-The final cmdlet creates a mapping between the primary network and the Azure virtual machine network. The cmdlet specifies the primary network as the first element of $Networks. The cmdlet specifies a virtual machine network as the first element of $AzureVmNetworks by using its ID. The command includes your Azure subscription ID. 
+The final cmdlet creates a mapping between the primary network and the Azure virtual machine network. The cmdlet specifies the primary network as the first element of $Networks. The cmdlet specifies a virtual machine network as the first element of $AzureVmNetworks by using its ID. The command includes your Azure subscription ID.
 
-```
-New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
-```
+    New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 ## Step 9: Enable protection for virtual machines
 
 After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
 
-Virtual machines must meet [Azure virtual machine prerequisites](site-recovery-best-practices.md#virtual-machines).
+Virtual machines must meet [Azure virtual machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
@@ -322,15 +328,15 @@ To enable protection the operating system and operating system disk properties m
 3. Enable the DR for the VM by running the following command:
 
     ```
-    $jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
+    $jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Protection Enable -Force
     ```
 
 ## Test your deployment
 
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan. Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
 
-- If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.
-- After failover, you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop. If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
+* If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.
+* After failover, you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop. If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
 
 To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
@@ -370,13 +376,13 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
     #>
     ```
 
-4. Fill in the data in the template:
+5. Fill in the data in the template:
 
     ```
     $TemplatePath = "C:\RPTemplatePath.xml";
     ```
 
-5. Create the RecoveryPlan:
+6. Create the RecoveryPlan:
 
     ```
     $RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
@@ -419,4 +425,4 @@ Do
 
 ## Next steps
 
-[Read more](https://msdn.microsoft.com/zh-cn/library/dn850420.aspx) about Azure Site Recovery PowerShell cmdlets. </a>.
+[Read more](https://docs.microsoft.com/zh-cn/powershell/azure/overview) about Azure Site Recovery PowerShell cmdlets. </a>.

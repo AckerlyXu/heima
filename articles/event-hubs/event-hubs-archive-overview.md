@@ -3,7 +3,7 @@ title: Archive telemetry data with Azure Event Hubs Archive overview | Azure
 description: Overview of the Azure Event Hubs Archive feature.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: rockboyfor
 manager: digimobile
 editor: ''
 

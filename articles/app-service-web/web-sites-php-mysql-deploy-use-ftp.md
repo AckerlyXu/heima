@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/01/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -42,8 +42,11 @@ Follow these steps to create a web app and a MySQL database:
     ![Create New Azure Web Site][new-website]
 3. In the search type **Web app** and click on **Web app**.
 4. Click **Create**. Enter a unique app service name, a valid name for the resource group and a new service plan.
-6. Login to the [Azure Classic Management Portal](https://manage.windowsazure.cn), create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
-1. In [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
+5. Create a MYSQL, and in the Dashboard of the MYSQL, get connection string for your web app.
+6. When the web app has been created, you will see the new app service blade.
+7. Click on **Settings** > **Deployment credentials**. 
+
+    ![Set deployment credentials][set-deployment-credentials]
 8. To enable FTP publishing, you must provide a user name and password. Save the credentials and make a note of the user name and password you create.
 
     ![Create publishing credentials][portal-ftp-username-password]
@@ -189,29 +192,11 @@ You can now browse to [http://localhost/registration/index.php][localhost-index]
 ## Get MySQL and FTP connection information
 To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
 
-1. From the app service web app blade click on the resource group link:
+1. In Azure Classic Management Portal, click **MYSQL DATABASE ON AZURE**, and open your MYSQL database server. In **Dashboard** page, under **quick glance**, you can get your host and port.
+2. In **Account** page, you can get all User Id, and reset password.
+3. in **Database** page, you can get all Database under this MYSQL Database Server.
 
-    ![Select Resource Group][select-resourcegroup]
-2. From your resource group, click the database:
-
-    ![Select database][select-database]
-3. From the database summary, select **Settings** > **Properties**.
-
-    ![Select properties][select-properties]
-4. Make note of the values for `Database`, `Host`, `User Id`, and `Password`.
-
-    ![Note properties][note-properties]
-5. From your web app, click the **Download publish profile** link at the bottom right corner of the page:
-
-    ![Download publish profile][download-publish-profile]
-6. Open the `.publishsettings` file in an XML editor. 
-7. Find the `<publishProfile >` element with `publishMethod="FTP"` that looks similar to this:
-
-        <publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].chinacloudsites.cn/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].chinacloudsites.cn" 
-            ...
-        </publishProfile>
-
-Make note of the `publishUrl`, `userName`, and `userPWD` attributes.
+    The Data source would be `<your MYSQL server name>.database.chinacloudapi.cn`
 
 ## Publish your app
 After you have tested your app locally, you can publish it to your web app using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:

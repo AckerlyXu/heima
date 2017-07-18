@@ -3,7 +3,7 @@ title: What is Azure Event Hubs and why use it | Azure
 description: Overview and introduction to Azure Event Hubs - Cloud-scale telemetry ingestion from websites, apps, and devices
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

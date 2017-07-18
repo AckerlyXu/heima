@@ -40,7 +40,6 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Install Azure CLI](../cli-install-nodejs.md)
 
 ## Get started
-[Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Create a Windows virtual machine in the Azure Classic Management Portal](windows/classic/tutorial.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

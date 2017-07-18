@@ -1,6 +1,6 @@
 ---
 title: Build a Node.js and MongoDB web app in Azure | Azure 
-description: Learn how to get a Node.js app working in Azure, with connection to a DocumentDb database with a MongoDB connection string.
+description: Learn how to get a Node.js app working in Azure, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -114,13 +114,13 @@ To stop Node.js at any time, press Ctrl+C in the terminal.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
-For MongoDB, this tutorial uses [Azure DocumentDb](/documentdb/). DocumentDb supports MongoDB client connections.
+For MongoDB, this tutorial uses [Azure Cosmos DB](/documentdb/). Cosmos DB supports MongoDB client connections.
 
 ### Log in to Azure
 
 You'll use the Azure CLI 2.0 to create the resources needed to host your app in Azure. Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli-interactive
+```azurecli
 az login
 ```   
 
@@ -134,19 +134,19 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 
 The following example creates a resource group in the China North region.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location "China North"
 ```
 
 Use the [az appservice list-locations](https://docs.microsoft.com/cli/azure/appservice#list-locations) Azure CLI command to list available locations. 
 
-### Create a DocumentDb account
+### Create a Cosmos DB account
 
-Create a DocumentDb account with the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) command.
+Create a Cosmos DB account with the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) command.
 
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.cn/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
 
-```azurecli-interactive
+```azurecli
 az cosmosdb create \
     --name <cosmosdb_name> \
     --resource-group myResourceGroup \
@@ -155,7 +155,7 @@ az cosmosdb create \
 
 The *--kind MongoDB* parameter enables MongoDB client connections.
 
-When the DocumentDb account is created, the Azure CLI shows information similar to the following example:
+When the Cosmos DB account is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -175,13 +175,13 @@ When the DocumentDb account is created, the Azure CLI shows information similar 
 
 ## Connect app to production MongoDB
 
-In this step, you connect your MEAN.js sample application to the DocumentDb database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string. 
 
 ### Retrieve the database key
 
-To connect to the DocumentDb database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+To connect to the Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
 
-```azurecli-interactive
+```azurecli
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
@@ -218,7 +218,7 @@ db: {
 },
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 
@@ -267,7 +267,7 @@ Create an App Service plan with the [az appservice plan create](https://docs.mic
 
 The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
 
-```azurecli-interactive
+```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
@@ -297,7 +297,7 @@ The web app gives you a hosting space to deploy your code and provides a URL for
 
 In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is used as the part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service. 
 
-```azurecli-interactive
+```azurecli
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
@@ -326,7 +326,7 @@ In App Service, you set environment variables as _app settings_ by using the [az
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
-```azurecli-interactive
+```azurecli
 az webapp config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -358,7 +358,7 @@ You can deploy your application to Azure App Service in various ways including F
 
 In the following command, replace *\<user-name>* and *\<password>* with a new user name and password. The user name must be unique. The password must be at least eight characters long, with two of the following three elements:  letters, numbers, symbols. If you get a ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
 
-```azurecli-interactive
+```azurecli
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
@@ -366,7 +366,7 @@ Record the user name and password for use in later steps when you deploy the app
 
 Use the [az webapp deployment source config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) command to configure local Git access to the Azure web app. 
 
-```azurecli-interactive
+```azurecli
 az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
 ```
 
@@ -431,7 +431,7 @@ http://<app_name>.chinacloudsites.cn
 
 Click **Sign Up** in the top menu and create a dummy user. 
 
-If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (DocumentDb) database. 
+If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (Cosmos DB) database. 
 
 ![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -574,7 +574,7 @@ While your Node.js application runs in Azure App Service, you can get the consol
 
 To start log streaming, use the [az webapp log tail](https://docs.microsoft.com/cli/azure/webapp/log#tail) command.
 
-```azurecli-interactive
+```azurecli
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 

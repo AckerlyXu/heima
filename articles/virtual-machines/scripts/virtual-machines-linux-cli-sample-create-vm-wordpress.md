@@ -30,7 +30,7 @@ This script creates a virtual machine, and then uses the Azure Virtual Machine c
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group.
@@ -56,7 +56,7 @@ az vm extension set \
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup
 ```
 

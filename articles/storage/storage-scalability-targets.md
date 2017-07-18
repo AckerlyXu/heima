@@ -3,8 +3,8 @@ title: Azure Storage Scalability and Performance Targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Storage, including capacity, request rate, and inbound and outbound bandwidth for both standard and premium storage accounts. Understand performance targets for partitions within each of the Azure Storage services.
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 03/07/2017
+origin.date: 06/15/2017
+ms.date: 06/26/2017
 ms.author: v-johch
 
 ---
@@ -40,8 +41,11 @@ If the needs of your application exceed the scalability targets of a single stor
 ## Scalability targets for virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-See [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) for additional details.
+See [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
+## Managed virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
 
 ## Unmanaged virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]

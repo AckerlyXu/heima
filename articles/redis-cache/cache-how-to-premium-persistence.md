@@ -28,7 +28,7 @@ Redis persistence allows you to persist data stored in Redis. You can also take 
 
 Azure Redis Cache offers Redis persistence using the [RDB model](http://redis.io/topics/persistence), where the data is stored in an Azure storage account. When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
 
-Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Resource menu** for existing premium caches.
+Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Settings** for existing premium caches.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -39,7 +39,7 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 The steps in the following section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
 
 ## Configure Redis persistence
-Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
+Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Settings** for your cache.
 
 ![Redis settings][redis-cache-settings]
 

@@ -3,8 +3,8 @@ title: Create an Internet-facing load balancer - Azure PowerShell classic | Azur
 description: Learn how to create an Internet facing load balancer in classic mode using PowerShell
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-service-management
 
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,21 +14,21 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 03/03/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 ---
 
 # Get started creating an Internet facing load balancer (classic) in PowerShell
 > [!div class="op_single_selector"]
->- [Azure Classic Management Portal](./load-balancer-get-started-internet-classic-portal.md)
->- [PowerShell](./load-balancer-get-started-internet-classic-ps.md)
->- [Azure CLI](./load-balancer-get-started-internet-classic-cli.md)
->- [Azure Cloud Services](./load-balancer-get-started-internet-classic-cloud.md)
+> * [Azure Classic Management Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](./load-balancer-get-started-internet-arm-ps.md).
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -36,7 +36,7 @@ ms.author: v-yeche
 
 To set up a load balancer using powershell, follow the steps below:
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. After creating a virtual machine, you can use PowerShell cmdlets to add a load balancer to a virtual machine within the same cloud service.
 
 In the following example you will add a load balancer set called "webfarm" to cloud service "mytestcloud" (or myctestcloud.chinacloudapp.cn) , adding the endpoints for the load balancer to virtual machines named "web1" and "web2". The load balancer receives network traffic on port 80 and load balances between the virtual machines defined by the local endpoint (in this case port 80) using TCP.
@@ -67,6 +67,6 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 
 ## Next steps
 
-You can also [get started creating an internal load balancer](./load-balancer-get-started-ilb-classic-ps.md) and configure what type of [distribution mode](./load-balancer-distribution-mode.md) for a specific load balancer network traffic behavior.
+You can also [get started creating an internal load balancer](load-balancer-get-started-ilb-classic-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for a specific load balancer network traffic behavior.
 
-If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](./load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer.
+If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer.

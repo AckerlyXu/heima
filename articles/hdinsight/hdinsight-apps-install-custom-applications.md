@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/22/2017
-ms.date: 05/08/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -57,7 +57,7 @@ The files needed for deploying this application (Hue):
    * **ClusterName**: Enter the name of the cluster where you want to install the application. This cluster must be an existing cluster.
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, enter **Resource group**.  The resource group is a container that groups the cluster, the dependent storage account and other resources. It is required to use the same resource group as the cluster.
-5. Click **Legal terms**, and then click **Create**.
+5. Click **Legal terms**, and then click **Purchase**.
 6. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. You can see the installation status from the tile pinned to the portal dashboard and the portal notification (click the bell icon on the top of the portal).  It takes about 10 minutes to install the application.
 
 **To install Hue while creating a cluster**

@@ -3,7 +3,7 @@ title: Azure Resource Manager request limits | Azure
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

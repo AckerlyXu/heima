@@ -30,7 +30,7 @@ In this scenario you will create a resource group, two app service plans, two we
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #/bin/bash
 
 # Variables

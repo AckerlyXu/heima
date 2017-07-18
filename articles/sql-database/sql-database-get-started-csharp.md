@@ -1,46 +1,44 @@
 ---
-title: 'Try SQL Database: Use C# to create a SQL database | Azure'
+title: 'C#: Get started with Azure SQL Database | Azure'
 description: Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET.
 keywords: try sql, sql c#
 services: sql-database
-documentationCenter: ''
-authors: stevestein
-manager: jhubbard
+documentationcenter: ''
+author: Hayley244
+manager: digimobile
 editor: cgronlun
 
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: develop apps
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
-ms.date: 10/04/2016
+origin.date: 10/04/2016
+ms.date: 07/03/2017
 ms.author: v-johch
+
 ---
+# Use C# to create a SQL database with the SQL Database Library for .NET
 
-# Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET
+Learn how to use C# to create an Azure SQL database with the [Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-csharp.md).
 
-> [!div class="op_single_selector"]
->- [Azure portal](./sql-database-get-started.md)
->- [C#](./sql-database-get-started-csharp.md)
->- [PowerShell](./sql-database-get-started-powershell.md)
+The Azure SQL Database Management Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-Learn how to use C# to create an Azure SQL database with the [Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](./sql-database-elastic-pool-create-csharp.md).
+> [!NOTE]
+> Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so you should always use the latest **Azure SQL Database Management Library for .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. The older [classic deployment model based libraries](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) are supported for backward compatibility only, so we recommend you use the newer Resource Manager based libraries.
 
-The Azure SQL Database Management Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt163571.aspx).
-
->[!NOTE]
-> Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so you should always use the latest **Azure SQL Database Management Library for .NET ([docs](https://msdn.microsoft.com/zh-cn/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. The older [classic deployment model based libraries](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) are supported for backward compatibility only, so we recommend you use the newer Resource Manager based libraries.
 
 To complete the steps in this article, you need the following:
 
-- An Azure subscription. If you need an Azure subscription simply click **TRIAL** at the top of this page, and then come back to finish this article.
+- An Azure subscription. If you need an Azure subscription simply click [**trial apply**](https://www.azure.cn/pricing/1rmb-trial/) at the top of this page, and then come back to finish this article.
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
->[!NOTE]
-> This article creates a new, blank SQL database. Modify the *CreateOrUpdateDatabase(...)* method in the following sample to copy databases, scale databases, create a database in a pool, etc. For more information, see [DatabaseCreateMode](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) and [DatabaseProperties](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.management.sql.models.databaseproperties.aspx) classes.
+> [!NOTE]
+> This article creates a new, blank SQL database. Modify the *CreateOrUpdateDatabase(...)* method in the following sample to copy databases, scale databases, create a database in a pool, etc. For more information, see [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) and [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx) classes.
 
 ## Create a console app and install the required libraries
-
 1. Start Visual Studio.
 2. Click **File** > **New** > **Project**.
 3. Create a C# **Console Application** and name it: *SqlDbConsoleApp*
@@ -48,15 +46,14 @@ To complete the steps in this article, you need the following:
 To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. Type `Install-Package Microsoft.Azure.Management.Sql –Pre` to install the latest [Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Type `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` to install the [Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Type `Install-Package Microsoft.Azure.Common.Authentication –Pre` to install the [Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Type `Install-Package Microsoft.Azure.Management.Sql -Pre` to install the latest [Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Type `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` to install the [Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Type `Install-Package Microsoft.Azure.Common.Authentication -Pre` to install the [Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service. There are async methods available.
 
 ## Create a SQL Database server, firewall rule, and SQL database - C# example
-
 The following sample creates a resource group, server, firewall rule, and a SQL database. See, [Create a service principal to access resources](#create-a-service-principal-to-access-resources) to get the `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` variables.
 
 Replace the contents of **Program.cs** with the following, and update the `{variables}` with your app values (do not include the `{}`).
@@ -114,7 +111,7 @@ class Program
 
         // Instantiate management clients:
         _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
-        _sqlMgmtClient = new SqlManagementClient(new TokenCloudCredentials(_subscriptionId, _token.AccessToken));
+        _sqlMgmtClient = new SqlManagementClient(new TokenCloudCredentials(_SubscriptionId, _token.AccessToken));
 
         Console.WriteLine("Resource group...");
         ResourceGroup rg = CreateOrUpdateResourceGroup(_resourceMgmtClient, _subscriptionId, _resourceGroupName, _resourceGrouplocation);
@@ -208,7 +205,6 @@ class Program
 ```
 
 ## Create a service principal to access resources
-
 The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 ```
@@ -253,12 +249,11 @@ Write-Output "_applicationSecret:" $secret
 ## Next steps
 Now that you've tried SQL Database and set up a database with C#, you're ready for the following articles:
 
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](./sql-database-connect-query-ssms.md)
+* [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 ## Additional Resources
-
-- [SQL Database](./index.yml)
-- [Database Class](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.management.sql.models.database.aspx)
+* [SQL Database](./index.yml)
+* [Database Class](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-csharp/aad.png

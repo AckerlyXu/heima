@@ -3,7 +3,7 @@ title: Azure Event Hubs quotas and limits | Azure
 description: Limits and quotas for Azure Event Hubs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

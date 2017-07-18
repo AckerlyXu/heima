@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 05/02/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -27,7 +27,7 @@ To complete this tutorial, you need:
 
 * Git. You can download the installation binary [here](http://www.git-scm.com/downloads).  
 * Basic knowledge of Git.
-* A Azure account. If you don't have an account, you can 
+* An Azure account. If you don't have an account, you can 
   [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial).
 
 ## <a name="Step1"></a>Step 1: Create a local repository
@@ -60,7 +60,9 @@ Perform the following steps to enable a Git repository for your App Service app.
 2. In your App Service app's blade, click **Settings > Deployment source**. Click **Choose source**, then click **Local Git Repository**, and then click **OK**.  
 
     ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
-3. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You can log into the [Classic Management Portal](https://manage.windowsazure.cn/), find you app, and in **Dashboard** page, click **Reset your deployment credentials** to setup your git credential.
+3. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your app's blade, click **Deployment > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
+
+    ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
 ## <a name="Step4"></a>Step 4: Deploy your project
 Use the following steps to publish your app to App Service using Local Git.
@@ -82,7 +84,7 @@ Use the following steps to publish your app to App Service using Local Git.
 
         git push azure master
 
-    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Classic Managemnt Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Go back to your app in the Azure Portal. A log entry of your most recent push should be displayed in the **Deployments** blade. 
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -159,7 +161,7 @@ The following are errors or problems commonly encountered when using Git to publ
 [Azure Portal]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure Command-Line Interface]: /xplat-cli-azure-resource-manager/
+[Azure Command-Line Interface]: /azure-resource-manager/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

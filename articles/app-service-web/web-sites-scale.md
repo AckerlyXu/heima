@@ -115,7 +115,7 @@ Depending on the pricing tier, the following developer-oriented features are ava
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/
 [SQLaccountsbilling]:https://www.azure.cn/pricing/details/sql-database/
-[azuresubscriptions]:https://account.windowsazure.cn/subscriptions
+[azuresubscriptions]:http://account.windowsazure.cn/subscriptions
 [portal]: https://portal.azure.cn/
 
 <!-- IMAGES -->

@@ -3,18 +3,19 @@ title: 'PowerShell: Create & manage an Azure SQL elastic pool | Azure'
 description: Learn how to use PowerShell to manage an elastic pool.
 services: sql-database
 documentationcenter: ''
-author: srinia
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: DBs & servers
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-wms.date: 05/14/2017
+worigin.date: 06/06/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 ---
 
@@ -24,14 +25,14 @@ This topic shows you how to create and manage scalable [elastic pools](sql-datab
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## Create an elastic pool
-The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet creates an elastic pool. The values for eDTU per pool, min, and max DTUs are constrained by the service tier value (Basic, Standard, Premium, or Premium RS). See [eDTU and storage limits for elastic pools and pooled databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+The [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlelasticpool) cmdlet creates an elastic pool. The values for eDTU per pool, min, and max DTUs are constrained by the service tier value (Basic, Standard, Premium, or Premium RS). See [eDTU and storage limits for elastic pools and pooled databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ```PowerShell
 New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 ```
 
 ## Create a pooled database in an elastic pool
-Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into an elastic pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
+Use the [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into an elastic pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
 
 ```PowerShell
 New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -48,7 +49,7 @@ $serverName = '<server name>'
 $poolName = '<pool name>'
 $databaseName = '<database name>'
 
-Login-AzureRmAccount
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
@@ -63,7 +64,7 @@ New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $server
 ## Create an elastic pool and add multiple pooled databases
 Creation of many databases in an elastic pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into an elastic pool, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
-##<a name="Move-a-database-into-an-elastic-pool"></a> Move a database into an elastic pool
+## Move a database into an elastic pool
 You can move a database into or out of an elastic pool with the [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool).
 
 ```PowerShell
@@ -74,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1"
 When performance suffers, you can change the settings of the pool to accommodate growth. Use the [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) cmdlet. Set the -Dtu parameter to the eDTUs per pool. See [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for possible values.
 
 ```PowerShell
-Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
+Set-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
 ```
 
 ## Change the storage limit for an elastic pool
@@ -85,18 +86,18 @@ Use the [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module
 > The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher _max data storage size per pool_, the storage limit must be explicitly set. 
 
 ```PowerShell
-Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1” -StorageMB 2097152
+Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName "elasticpool1" -StorageMB 2097152
 ```
 
 ## Get the status of pool operations
-Creating an elastic pool can take time. To track the status of pool operations including creation and updates, use the [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx) cmdlet.
+Creating an elastic pool can take time. To track the status of pool operations including creation and updates, use the [Get-AzureRmSqlElasticPoolActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity) cmdlet.
 
 ```PowerShell
-Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
+Get-AzureRmSqlElasticPoolActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1"
 ```
 
 ## Get the status of moving a database into and out of an elastic pool
-Moving a database can take time. Track a move status using the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687\(v=azure.300\).aspx) cmdlet.
+Moving a database can take time. Track a move status using the [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) cmdlet.
 
 ```PowerShell
 Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -145,11 +146,11 @@ $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resour
 You can add alert rules to an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when the elastic pool hits a utilization threshold that you set up. Use the Add-AzureRmMetricAlertRule cmdlet.
 
 > [!IMPORTANT]
-> Resource utilization monitoring for elastic pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 30 minutes or more.
+> Resource utilization monitoring for elastic pools has a lag of at least 5 minutes. Setting alerts of less than 10 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called "-WindowSize" in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 10 minutes or more.
 >
 >
 
-This example adds an alert for getting notified when an elastic pool’s eDTU consumption goes above certain threshold.
+This example adds an alert for getting notified when an elastic pool's eDTU consumption goes above certain threshold.
 
 ```PowerShell
 # Set up your resource ID configurations
@@ -172,15 +173,16 @@ $alertName = $poolName + "- DTU consumption rule"
 Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 ```
 
+For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
+
 ## Add alerts to all databases in an elastic pool
 You can add alert rules to all database in an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when a resource hits a utilization threshold set up by the alert.
 
 > [!IMPORTANT]
-> Resource utilization monitoring for elastic pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 30 minutes or more.
->
+> Resource utilization monitoring for elastic pools has a lag of at least 5 minutes. Setting alerts of less than 10 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called "-WindowSize" in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 10 minutes or more.
 >
 
-This example adds an alert to each of the databases in an elastic pool for getting notified when that database’s DTU consumption goes above certain threshold.
+This example adds an alert to each of the databases in an elastic pool for getting notified when that database's DTU consumption goes above certain threshold.
 
 ```PowerShell
 # Set up your resource ID configurations
@@ -228,7 +230,7 @@ At a high level, the scripts do the following:
 * Runs a background job for each server. The job runs in a loop at regular intervals and collects telemetry data for all the pools in the server. It then loads the collected data into the specified telemetry database.
 * Enumerates a list of databases in each pool to collect the database resource usage data. It then loads the collected data into the telemetry database.
 
-The collected metrics in the telemetry database can be analyzed to monitor the health of elastic pools and the databases in it. The script also installs a pre-defined Table-Value function (TVF) in the telemetry database to help aggregate the metrics for a specified time window. For example, results of the TVF can be used to show “top N elastic pools with the maximum eDTU utilization in a given time window.” Optionally, use analytic tools like Excel or Power BI to query and analyze the collected data.
+The collected metrics in the telemetry database can be analyzed to monitor the health of elastic pools and the databases in it. The script also installs a pre-defined Table-Value function (TVF) in the telemetry database to help aggregate the metrics for a specified time window. For example, results of the TVF can be used to show "top N elastic pools with the maximum eDTU utilization in a given time window." Optionally, use analytic tools like Excel or Power BI to query and analyze the collected data.
 
 ### Example: retrieve resource consumption metrics for an elastic pool and its databases
 This example retrieves the consumption metrics for a given elastic pool and all its databases. Collected data is formatted and written to a .csv formatted file. The file can be browsed with Excel.
@@ -240,7 +242,7 @@ $serverName = <server name>                              # server name
 $poolName = <elastic pool name>                          # pool name
 
 # Login to Azure account and select the subscription.
-Login-AzureRmAccount -EnvironmentName AzrueChinaCloud
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
 # Get resource usage metrics for an elastic pool for the specified time interval.
@@ -293,8 +295,6 @@ Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.
 ## Latency of elastic pool operations
 * Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
 * Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
-
-
 
 ## Next steps
 * See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic tools to scale out, move data, query, or create transactions.

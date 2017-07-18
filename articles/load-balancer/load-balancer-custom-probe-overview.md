@@ -3,8 +3,8 @@ title: Load Balancer custom probes and monitoring health status | Azure
 description: Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 

@@ -77,6 +77,10 @@
         href: web-sites-nodejs-debug.md
     - name: Java
       items:
+      - name: Java app with Eclipse
+        href: app-service-web-eclipse-create-hello-world-web-app.md
+      - name: Java app with IntelliJ
+        href: app-service-web-intellij-create-hello-world-web-app.md
       - name: Use Azure SDK for Java
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
@@ -112,8 +116,6 @@
       href: app-service-deploy-complex-application-predictably.md
     - name: Agile deployment
       href: app-service-agile-software-development.md
-    - name: Beta testing
-      href: app-service-web-test-in-production-controlled-test-flight.md
     - name: Set deployment credentials
       href: app-service-deployment-credentials.md
     - name: Map custom domain
@@ -128,6 +130,8 @@
       href: app-service-web-get-started-2.md
   - name: Connect to DB/resources
     items:
+    - name: Connect to Azure VNet
+      href: web-sites-integrate-with-vnet.md
     - name: Connect to Azure VNet with PowerShell
       href: app-service-vnet-integration-powershell.md
     - name: Connect to MongoDB on Azure VM
@@ -210,15 +214,23 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: FAQ
+      items:
+      - name: Availability, performance, and application FAQ
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Deployment FAQ
+        href: app-service-web-deployment-faq.md
+      - name: Open source technologies FAQ
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Configuration and management FAQ
+        href: app-service-web-configuration-and-management-faq.md
   - name: Pricing
     href: https://www.azure.cn/pricing/details/app-service/
   - name: Quota Information
     href: ../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates & Release Notes
-    href: https://azure.microsoft.com/updates/?product=app-service
+    href: https://www.azure.cn/what-is-new/
   - name: Best practices
     href: app-service-best-practices.md
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+    href: https://www.azure.cn/video-center/

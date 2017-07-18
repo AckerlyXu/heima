@@ -3,8 +3,8 @@ title: Create SQL Data Warehouse by using PowerShell | Azure
 description: Create SQL Data Warehouse by using PowerShell
 services: sql-data-warehouse
 documentationCenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 origin.date: 10/31/2016
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -94,16 +94,16 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: https://msdn.microsoft.com/powershell/azureps-cmdlets-docs
+[How to install and configure Azure PowerShell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
-[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
-[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+[MSDN]: https://msdn.microsoft.com/zh-cn/library/azure/dn546722.aspx
+[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619339.aspx
+[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/zh-cn/library/mt204021.aspx
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

@@ -91,7 +91,6 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 
 - View existing backups of a database
 - Restore a database to a previous point in time
-- Configure long-term retention of a database backup file in the Azure Recovery Services vault
 - Restore a database from the Azure Recovery Services vault
 
 **Time estimate**: This tutorial takes approximately 30 minutes to complete (assuming you have already met the prerequisites).

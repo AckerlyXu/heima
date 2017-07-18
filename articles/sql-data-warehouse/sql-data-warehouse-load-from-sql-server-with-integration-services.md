@@ -3,8 +3,8 @@ title: Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Azure
 description: Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: douglaslms
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 03/30/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 
@@ -192,12 +192,12 @@ Congratulations! You've successfully used SQL Server Integration Services to loa
 <!-- Article references -->
 
 <!-- MSDN references -->
-[PolyBase Guide]: https://msdn.microsoft.com/library/mt143171.aspx
-[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/library/mt204009.aspx
-[CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
-[Data Flow]: https://msdn.microsoft.com/library/ms140080.aspx
-[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/library/ms137625.aspx
-[Deployment of Projects and Packages]: https://msdn.microsoft.com/library/hh213290.aspx
+[PolyBase Guide]: https://msdn.microsoft.com/zh-cn/library/mt143171.aspx
+[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx
+[CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[Data Flow]: https://msdn.microsoft.com/zh-cn/library/ms140080.aspx
+[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/zh-cn/library/ms137625.aspx
+[Deployment of Projects and Packages]: https://msdn.microsoft.com/zh-cn/library/hh213290.aspx
 
 <!--Other Web references-->
 [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967

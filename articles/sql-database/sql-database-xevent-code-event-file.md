@@ -3,8 +3,8 @@ title: XEvent Event File code for SQL Database | Azure
 description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario.
 services: sql-database
 documentationcenter: ''
-author: MightyPen
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -16,40 +16,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/06/2017
-ms.date: 03/24/2017
+ms.date: 07/03/2017
 ms.author: v-johch
----
 
+---
 # Event File target code for extended events in SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
-In Microsoft SQL Server, the [Event File target](http://msdn.microsoft.com/zh-cn/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
+In Microsoft SQL Server, the [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
 
 This topic presents a two-phase code sample:
 
-- PowerShell, to create an Azure Storage container in the cloud.
+* PowerShell, to create an Azure Storage container in the cloud.
+* Transact-SQL:
 
-- Transact-SQL:
- - To assign the Azure Storage container to an Event File target.
- - To create and start the event session, and so on.
+  * To assign the Azure Storage container to an Event File target.
+  * To create and start the event session, and so on.
 
 ## Prerequisites
 
-- An Azure account and subscription. You can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial).
+* An Azure account and subscription. You can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
+* Any database you can create a table in.
 
-- Any database you can create a table in.
- - Optionally you can [create an **AdventureWorksLT** demonstration database](./sql-database-get-started.md) in minutes.
+  * Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
+* SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
+  You can download the latest ssms.exe from:
 
-- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
-You can download the latest ssms.exe from:
- - Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
- - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+  * [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
+* You must have the [Azure PowerShell modules](http://go.microsoft.com/?linkid=9811175) installed.
 
-- You must have the [Azure PowerShell modules](http://go.microsoft.com/?linkid=9811175) installed.
- - The modules provide commands such as - **New-AzureStorageAccount**.
+  * The modules provide commands such as - **New-AzureStorageAccount**.
 
 ## Phase 1: PowerShell code for Azure Storage container
 
@@ -58,15 +58,12 @@ This PowerShell is phase 1 of the two-phase code sample.
 The script starts with commands to clean up after a possible previous run, and is rerunnable.
 
 1. Paste the PowerShell script into a simple text editor such as Notepad.exe, and save the script as a file with the extension **.ps1**.
-
 2. Start PowerShell ISE as an Administrator.
-
 3. At the prompt, type<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>and then press Enter.
-
 4. In PowerShell ISE, open your **.ps1** file. Run the script.
-
 5. The script first starts a new window in which you log in to Azure.
- - If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount** command.
+
+   * If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount -Environment AzureChinaCloud** command.
 
 ![PowerShell ISE, with Azure module installed, ready to run script.][30_powershell_ise]
 
@@ -120,7 +117,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 #-------------- 4 ------------------------
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 If ($storageAccountName)
@@ -229,23 +226,18 @@ Take note of the few named values that the PowerShell script prints when it ends
 
 ## Phase 2: Transact-SQL code that uses Azure Storage container
 
-- In phase 1 of this code sample, you ran a PowerShell script to create an Azure Storage container.
-- Next in phase 2, the following Transact-SQL script must use the container.
+* In phase 1 of this code sample, you ran a PowerShell script to create an Azure Storage container.
+* Next in phase 2, the following Transact-SQL script must use the container.
 
 The script starts with commands to clean up after a possible previous run, and is rerunnable.
 
 The PowerShell script printed a few named values when it ended. You must edit the Transact-SQL script to use those values. Find **TODO** in the Transact-SQL script to locate the edit points.
 
 1. Open SQL Server Management Studio (ssms.exe).
-
 2. Connect to your Azure SQL Database database.
-
 3. Click to open a new query pane.
-
 4. Paste the following Transact-SQL script into the query pane.
-
 5. Find every **TODO** in the script and make the appropriate edits.
-
 6. Save, and then run the script.
 
 > [!WARNING]
@@ -486,32 +478,31 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 The preceding Transact-SQL script used the following system function to read the event_file:
 
-- [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/zh-cn/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
 
 An explanation of advanced options for the viewing of data from extended events is available at:
 
-- [Advanced Viewing of Target Data from Extended Events](http://msdn.microsoft.com/zh-cn/library/mt752502.aspx)
+* [Advanced Viewing of Target Data from Extended Events](http://msdn.microsoft.com/library/mt752502.aspx)
 
 ## Converting the code sample to run on SQL Server
 
 Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Server.
 
-- For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as **C:\myeventdata.xel**. The file would be written to the local hard drive of the computer that hosts SQL Server.
+* For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as **C:\myeventdata.xel**. The file would be written to the local hard drive of the computer that hosts SQL Server.
+* You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
+* In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like **C:\myfile.xel**.
 
-- You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
-
-- In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like **C:\myfile.xel**.
- - No Azure Storage account need be involved.
+  * No Azure Storage account need be involved.
 
 ## More information
 
 For more info about accounts and containers in the Azure Storage service, see:
 
-- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
-- [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/zh-cn/library/azure/dd135715.aspx)
-- [Working with the Root Container](http://msdn.microsoft.com/zh-cn/library/azure/ee395424.aspx)
-- [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](http://msdn.microsoft.com/zh-cn/library/dn466430.aspx)
-- [Lesson 2: Create a SQL Server credential using a shared access signature](http://msdn.microsoft.com/zh-cn/library/dn466435.aspx)
+* [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Working with the Root Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](http://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lesson 2: Create a SQL Server credential using a shared access signature](http://msdn.microsoft.com/library/dn466435.aspx)
 
 <!--
 Image references.

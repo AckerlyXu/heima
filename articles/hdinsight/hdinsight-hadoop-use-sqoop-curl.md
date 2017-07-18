@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Sqoop with Curl in HDInsight | Azure
+title: Use Hadoop Sqoop with Curl in HDInsight - Azure | Azure
 description: Learn how to remotely submit Sqoop jobs to HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/06/2017
-ms.date: 03/28/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -79,7 +79,9 @@ To complete the steps in this article, you will need the following:
 
     This command should return a job ID that can be used to check the status of the job.
 
-        {"id":"job_1415651640909_0026"}
+    ```
+    {"id":"job_1415651640909_0026"}
+    ```
 
 1. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 

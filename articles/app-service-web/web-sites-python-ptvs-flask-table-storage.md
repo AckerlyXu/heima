@@ -80,9 +80,9 @@ In this section, we'll configure our application to use the storage account we j
      ![Project Debug Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageProjectDebugSettings.png)
 2. Set the values of environment variables required by the application in **Debug Server Command**, **Environment**.
 
-        REPOSITORY_NAME=azuretablestorage
-        STORAGE_NAME=<storage account name>
-        STORAGE_KEY=<primary access key>
+       REPOSITORY_NAME=azuretablestorage
+       STORAGE_NAME=<storage account name>
+       STORAGE_KEY=<primary access key>
 
    This will set the environment variables when you **Start Debugging**. If you want the variables to be set when you **Start Without Debugging**, set the same values under **Run Server Command** as well.
 

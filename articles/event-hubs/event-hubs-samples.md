@@ -3,7 +3,7 @@ title: Azure Event Hubs samples | Azure
 description: Azure Event Hubs samples 
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

@@ -100,7 +100,7 @@ az appservice web deployment user set --user-name <letters-numbers> --password <
 ```
 
 ### Configure Git deployment
-Use [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) to configure local Git deployment.
+Use [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) to configure local Git deployment.
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName --resource-group myResourceGroup
@@ -270,13 +270,13 @@ Now, you replicate your Azure web app to the China East region. To start, use [a
 $redis = (az redis create --name $cacheName-east --resource-group myResourceGroup --location "China East" --sku-capacity 0 --sku-family C --sku-name Basic | ConvertFrom-Json)
 ```
 
-`--name $cacheName-east` gives the cache the name of the China North cache, with the `-east` suffix.
+`--name $cacheName-east` gives the cache the name of the China East cache, with the `-east` suffix.
 
 ### Create an App Service plan in China East
 Use [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) to create a second App Service plan in the China East region, using the same S1 tier as the China North plan.
 
 ```azurecli
-az appservice plan create --name myAppServicePlanEast --resource-group myResourceGroup --location "China North" --sku S1
+az appservice plan create --name myAppServicePlanEast --resource-group myResourceGroup --location "China East" --sku S1
 ```
 
 ### Create a web app in China East
@@ -294,7 +294,7 @@ Use [az appservice web config appsettings update](https://docs.microsoft.com/cli
     az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
 
 ### Configure Git deployment for the China East app.
-Use [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) to configure local Git deployment for the second web app.
+Use [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) to configure local Git deployment for the second web app.
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName-east --resource-group myResourceGroup

@@ -3,8 +3,8 @@ title: Manage databases in Azure SQL Data Warehouse | Azure
 description: Overview of managing SQL Data Warehouse databases. Includes management tools, DWUs and scale-out performance, troubleshooting query performance, establishing good security policies, and restoring a database from data corruption or from a regional outage.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 10/31/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -108,7 +108,7 @@ Using good database design principles will make it easier to manage your databas
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.cn/

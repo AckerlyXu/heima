@@ -15,15 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/20/2017
-ms.date: 05/31/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
 
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection (classic)
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [Classic - PowerShell](vpn-gateway-multi-site.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell (classic)](vpn-gateway-multi-site.md)
 >
 >
 

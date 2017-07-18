@@ -3,7 +3,7 @@ title: Deploy Azure template with SAS token and PowerShell | Azure
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure from a template that is protected with SAS token.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

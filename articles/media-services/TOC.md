@@ -6,7 +6,7 @@
 ## [Set up your dev environment](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Connect programmatically
+## Connect programmatically with ACS keys
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -178,10 +178,10 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
-## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell (Service Management)](https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.media)
+## [PowerShell (Service Management)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](https://docs.microsoft.com/rest/api/media)
+## [REST](https://docs.microsoft.com/rest/api/media/mediaservice)  
 
 # Resources
 ## [Release notes](media-services-release-notes.md)

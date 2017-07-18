@@ -79,12 +79,12 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
    You will see that the code simply issues an authentication challenge to authenticate the user using WS-Federation. All authentication is configured in App_Start\Startup.Auth.cs.
 3. Open App_Start\Startup.Auth.cs. In the `ConfigureAuth` method, note the line:
 
-        app.UseWsFederationAuthentication(
-            new WsFederationAuthenticationOptions
-            {
-                Wtrealm = realm,
-                MetadataAddress = metadata                                      
-            });
+       app.UseWsFederationAuthentication(
+           new WsFederationAuthenticationOptions
+           {
+               Wtrealm = realm,
+               MetadataAddress = metadata                                      
+           });
 
    In the OWIN world, this snippet is really the bare minimum you need to configure WS-Federation authentication. It is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
 
@@ -203,7 +203,7 @@ Now you need to configure an RP trust in AD FS Management before you can use you
     * Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add line-of-business functionality** section of [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
     > [!NOTE]
-    > The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](/active-directory/develop/active-directory-token-and-claims/).
+    > The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](/active-directory/develop/active-directory-token-and-claims).
     > 
     > 
 11. In the Edit Claim Rules dialog, click **Add Rule**.
@@ -355,7 +355,7 @@ Since you have included group memberships as role claims in your RP trust config
 ## Connect to on-premises data
 A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your web app in Azure must access on-premise databases, since you are not allowed to use [SQL Database](https://www.azure.cn/home/features/sql-database/) as the data tier for your web apps.
 
-Azure App Service Web Apps supports accessing on-premise databases with only one approache in Azure China: [Virtual Networks](app-service-vnet-integration-powershell.md).
+Azure App Service Web Apps supports accessing on-premise databases with only one approache in Azure China: [Virtual Networks](web-sites-integrate-with-vnet.md).
 
 <a name="bkmk_resources"></a>
 

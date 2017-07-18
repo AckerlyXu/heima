@@ -3,8 +3,8 @@ title: Overview of tables in SQL Data Warehouse | Azure
 description: Getting started with Azure SQL Data Warehouse Tables.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 10/31/2016
-ms.date: 12/19/2016
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -290,19 +290,19 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 [Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
 <!--MSDN references-->
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[RENAME]: https://msdn.microsoft.com/zh-cn/library/mt631611.aspx
+[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/zh-cn/library/mt204028.aspx
+[Identity Property]: https://msdn.microsoft.com/zh-cn/library/ms186775.aspx
 [Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
-[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
-[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
-[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
-[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
-[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
-[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
-[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
-[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
+[Table Constraints]: https://msdn.microsoft.com/zh-cn/library/ms188066.aspx
+[Computed Columns]: https://msdn.microsoft.com/zh-cn/library/ms186241.aspx
+[Sparse Columns]: https://msdn.microsoft.com/zh-cn/library/cc280604.aspx
+[User-Defined Types]: https://msdn.microsoft.com/zh-cn/library/ms131694.aspx
+[Sequence]: https://msdn.microsoft.com/zh-cn/library/ff878091.aspx
+[Triggers]: https://msdn.microsoft.com/zh-cn/library/ms189799.aspx
+[Indexed Views]: https://msdn.microsoft.com/zh-cn/library/ms191432.aspx
+[Synonyms]: https://msdn.microsoft.com/zh-cn/library/ms177544.aspx
+[Unique Indexes]: https://msdn.microsoft.com/zh-cn/library/ms188783.aspx
 
 <!--Other Web references-->

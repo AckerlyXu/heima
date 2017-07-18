@@ -3,7 +3,7 @@ title: Send events to Azure Event Hubs using Java | Azure
 description: Get started sending to Event Hubs using Java
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

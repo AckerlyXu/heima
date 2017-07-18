@@ -1,21 +1,22 @@
 ---
-title: Azure PowerShell Script-Set up geo-replication-single SQL Database | Microsoft Docs
+title: Azure PowerShell Script-Set up geo-replication-single SQL Database | Azure
 description: Azure PowerShell Script Sample - Set up Active Geo-Replication for a single Azure SQL database using PowerShell
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: business continuity
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+origin.date: 05/23/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 ---
 
@@ -28,48 +29,66 @@ Before running this script, ensure that a connection with Azure has been created
 ## Sample Scripts
 
 ```powershell
-# Set an admin login and password for your database
+﻿# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Set the resource group name and location for your primary server
+$primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
+$primarylocation = "China East"
+# Set the resource group name and location for your secondary server
+$secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"
+$secondarylocation = "China North"
+# Set an admin login and password for your servers
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
-# The logical server names have to be unique in the system
-$primaryservername = "primary-server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
-$sercondaryservername = "secondary-server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
+# Set server names - the logical server names have to be unique in the system
+$primaryservername = "primary-server-$(Get-Random)"
+$secondaryservername = "secondary-server-$(Get-Random)"
+# The sample database name
+$databasename = "mySampleDatabase"
+# The ip address range that you want to allow to access your servers
+$primarystartip = "0.0.0.0"
+$primaryendip = "0.0.0.0"
+$secondarystartip = "0.0.0.0"
+$secondaryendip = "0.0.0.0"
 
 # Create two new resource groups
-New-AzureRmResourceGroup -Name "myPrimaryResourceGroup" -Location "China East"
-New-AzureRmResourceGroup -Name "mySecondaryResourceGroup" -Location "China North"
+$primaryresourcegroup = New-AzureRmResourceGroup -Name $primaryresourcegroupname -Location $primarylocation
+$secondaryresourcegroup = New-AzureRmResourceGroup -Name $secondaryresourcegroupname -Location $secondarylocation
 
 # Create two new logical servers with a system wide unique server name
-New-AzureRmSqlServer -ResourceGroupName "myPrimaryResourceGroup" `
+$primaryserver = New-AzureRmSqlServer -ResourceGroupName $primaryresourcegroupname `
     -ServerName $primaryservername `
-    -Location "China East" `
+    -Location $primarylocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-New-AzureRmSqlServer -ResourceGroupName "mySecondaryResourceGroup" `
-    -ServerName $sercondaryservername `
-    -Location "China North" `
+$secondaryserver = New-AzureRmSqlServer -ResourceGroupName $secondaryresourcegroupname `
+    -ServerName $secondaryservername `
+    -Location $secondarylocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 # Create a blank database with S0 performance level on the primary server
-New-AzureRmSqlDatabase  -ResourceGroupName "myPrimaryResourceGroup" `
+$database = New-AzureRmSqlDatabase  -ResourceGroupName $primaryresourcegroupname `
     -ServerName $primaryservername `
-    -DatabaseName "MySampleDatabase" -RequestedServiceObjectiveName "S0"
+    -DatabaseName $databasename -RequestedServiceObjectiveName "S0"
 
 # Establish Active Geo-Replication
-$myDatabase = Get-AzureRmSqlDatabase -DatabaseName "MySampleDatabase" -ResourceGroupName "myPrimaryResourceGroup" -ServerName $primaryservername
-$myDatabase | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "mySecondaryResourceGroup" -PartnerServerName $sercondaryservername -AllowConnections "All"
+$database = Get-AzureRmSqlDatabase -DatabaseName $databasename -ResourceGroupName $primaryresourcegroupname -ServerName $primaryservername
+$database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName $secondaryresourcegroupname -PartnerServerName $secondaryservername -AllowConnections "All"
 
 # Initiate a planned failover
-$myDatabase = Get-AzureRmSqlDatabase -DatabaseName "MySampleDatabase" -ResourceGroupName "mySecondaryResourceGroup" -ServerName $sercondaryservername
-$myDatabase | Set-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "myPrimaryResourceGroup" -Failover
+$database = Get-AzureRmSqlDatabase -DatabaseName $databasename -ResourceGroupName $secondaryresourcegroupname -ServerName $secondaryservername
+$database | Set-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName $primaryresourcegroupname -Failover
 
 # Monitor Geo-Replication config and health after failover
-$myDatabase = Get-AzureRmSqlDatabase -DatabaseName "MySampleDatabase" -ResourceGroupName "mySecondaryResourceGroup" -ServerName $sercondaryservername
-$myDatabase | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName "myPrimaryResourceGroup" -PartnerServerName $primaryservername
+$database = Get-AzureRmSqlDatabase -DatabaseName $databasename -ResourceGroupName $secondaryresourcegroupname -ServerName $secondaryservername
+$database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName $primaryresourcegroupname -PartnerServerName $primaryservername
 
 # Remove the replication link after the failover
-$myDatabase = Get-AzureRmSqlDatabase -DatabaseName "MySampleDatabase" -ResourceGroupName "mySecondaryResourceGroup" -ServerName $sercondaryservername
-$secondaryLink = $myDatabase | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName "myPrimaryResourceGroup" -PartnerServerName $primaryservername
+$database = Get-AzureRmSqlDatabase -DatabaseName $databasename -ResourceGroupName $secondaryresourcegroupname -ServerName $secondaryservername
+$secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName $primaryresourcegroupname -PartnerServerName $primaryservername
 $secondaryLink | Remove-AzureRmSqlDatabaseSecondary
+
+# Clean up deployment 
+#Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+#Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## Clean up deployment
@@ -77,7 +96,8 @@ $secondaryLink | Remove-AzureRmSqlDatabaseSecondary
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 ```
 
 ## Script explanation
@@ -86,20 +106,20 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | Creates a logical server that hosts a database or elastic pool. |
-| [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlelasticpool) | Creates an elastic pool within a logical server. |
-| [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabasesecondary)| Creates a secondary database for an existing database and starts data replication. |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldatabase)| Gets one or more databases. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabasesecondary)| Switches a secondary database to be primary to initiate failover.|
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldatabasereplicationlink) | Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/remove-azurermsqldatabasesecondary) | Terminates data replication between a SQL Database and the specified secondary database. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a logical server that hosts a database or elastic pool. |
+| [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Creates an elastic pool within a logical server. |
+| [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
+| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Creates a secondary database for an existing database and starts data replication. |
+| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase)| Gets one or more databases. |
+| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Switches a secondary database to be primary to initiate failover.|
+| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Terminates data replication between a SQL Database and the specified secondary database. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).

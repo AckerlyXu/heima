@@ -3,7 +3,7 @@ title: Overview of Azure Event Hubs authentication and security model | Azure
 description: Event Hubs authentication and security model overview.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: rockboyfor
 manager: digimobile
 editor: ''
 

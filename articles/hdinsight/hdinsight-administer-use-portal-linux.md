@@ -106,7 +106,7 @@ If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Properties**: View the cluster properties.
    * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
    * **Cluster AAD Identity**:
-   * **New support request**: Allows you to create a support ticket with Azure.cn support.
+   * **New support request**: Allows you to create a support ticket with Azure support.
 
 6. Click **Properties**:
 

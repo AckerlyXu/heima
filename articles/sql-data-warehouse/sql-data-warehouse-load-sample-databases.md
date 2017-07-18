@@ -3,8 +3,8 @@ title: Load sample data into SQL Data Warehouse | Azure
 description: Load sample data into SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: e338ecf8-cfee-419b-b7b6-98108d381c62
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 12/12/2016
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
 

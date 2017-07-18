@@ -1,6 +1,6 @@
 ---
 title: Data conversion on IoT gateway with Azure IoT Edge | Azure
-description: Use IoT gateway to convert the format of sensor data through a customized module from the Azure IoT Edge.
+description: Use IoT gateway to convert the format of sensor data through a customized module from Azure IoT Edge.
 services: iot-hub
 documentationcenter: ''
 author: shizn
@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+origin.date: 04/07/2017
 ms.author: v-yiso
-
+ms.date: 07/10/2017
 ---
 # Use IoT gateway for sensor data transformation with Azure IoT Edge
 

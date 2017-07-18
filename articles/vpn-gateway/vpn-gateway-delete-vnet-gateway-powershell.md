@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/12/2017

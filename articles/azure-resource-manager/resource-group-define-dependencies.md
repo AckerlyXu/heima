@@ -3,7 +3,7 @@ title: Set deployment order for Azure resources | Azure
 description: Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: ''
 

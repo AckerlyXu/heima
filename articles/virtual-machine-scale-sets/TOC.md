@@ -11,7 +11,7 @@
 
 ## Create a template
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
-### [Add a virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Use an existing virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Use a custom image](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Deploy
@@ -42,4 +42,3 @@
 ## Pricing 
 ### [Linux](https://www.azure.cn/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://www.azure.cn/pricing/details/virtual-machine-scale-sets/windows/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

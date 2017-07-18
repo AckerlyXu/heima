@@ -1,6 +1,6 @@
 ### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
 
-- To add additional address prefixes:
+To add additional address prefixes:
 
   ```powershell
   $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- To remove address prefixes:<br>
+To remove address prefixes:<br>
   Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we update the local network gateway, excluding that prefix.
 
   ```powershell

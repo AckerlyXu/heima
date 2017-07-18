@@ -1,5 +1,5 @@
 ---
-title: Ports used by HDInsight | Azure
+title: Ports used by Hadoop services on HDInsight - Azure | Azure
 description: A list of ports used by Hadoop services running on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/14/2017
-ms.date: 05/08/2017
+origin.date: 06/02/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
-# Ports and URIs used by HDInsight
+# Ports used by Hadoop services on HDInsight
 
 This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
 
@@ -100,9 +100,8 @@ All services publicly exposed on the internet must be authenticated:
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |Head nodes |10001 |Thrift |Service for programmatically connecting to Hive (Thrift/JDBC) |
-| HiveServer |Head nodes |10000 |Thrift |Service for programmatically connecting to Hive (Thrift/JDBC) |
-| Hive Metastore |Head nodes |9083 |Thrift |Service for programmatically connecting to Hive metadata (Thrift/JDBC) |
+| HiveServer2 |Head nodes |10001 |Thrift |Service for connecting to Hive (Thrift/JDBC) |
+| Hive Metastore |Head nodes |9083 |Thrift |Service for connecting to Hive metadata (Thrift/JDBC) |
 
 ### WebHCat ports
 
@@ -140,3 +139,9 @@ All services publicly exposed on the internet must be authenticated:
 | HMaster info Web UI |Head nodes |16010 |HTTP |The port for the HBase Master web UI |
 | Region server |All worker nodes |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |The port that clients use to connect to ZooKeeper |
+
+### Spark ports
+
+| Service | Nodes | Port | Protocol | Description |
+| --- | --- | --- | --- | --- |
+| Spark Thrift servers |Head nodes |10002 |Thrift |Service for  connecting to Spark SQL (Thrift/JDBC) |

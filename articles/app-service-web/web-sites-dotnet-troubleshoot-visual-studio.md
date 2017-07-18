@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 02/21/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 
 ---
@@ -45,7 +45,7 @@ This tutorial works with the development environment, web project, and Azure web
 
 The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
-The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Visual Studio 2013, the WebJobs features require [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) or later.
+The tutorial assumes you're using Visual Studio 2015 or 2013. If you're using Visual Studio 2013, the WebJobs features require [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) or later.
 
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
@@ -530,7 +530,9 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
     This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
 3. In Visual Studio, in the **Configuration** tab of the **Azure Web App** window, click **Open in Management Portal**.
-4. Login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
+4. In the [Azure Portal](https://portal.azure.cn) **Settings** blade for your web app, click **Deployment credentials**, and then enter a new user name and password.
+
+    ![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
     **When you log in, you have to use the full user name with the web app name prefixed to it. For example, if you enter "myid" as a user name and the site is "myexample", you log in as "myexample\myid".
 5. In a new browser window, go to the URL that is shown under **FTP hostname** or **FTPS hostname** in the **Web App** blade for your web app.
@@ -574,7 +576,7 @@ For more information about troubleshooting web apps in Azure App Service, see th
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
 * [The Azure forum on the ASP.NET site](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [The Azure forum on MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurezhchs).
+* [The Azure forum on MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
 * [CSDN](http://azure.csdn.net/).
 
 ### Debugging in Visual Studio

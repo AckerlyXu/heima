@@ -3,8 +3,8 @@ title: Connect to Azure SQL Data Warehouse | Azure
 description: How to find the server name and connection string for your to Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 origin.date: 10/31/2016
-ms.date: 12/12/2016
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -79,17 +79,17 @@ To connect and query with Visual Studio, see [Query with Visual Studio][Query wi
 [Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
-[ANSI_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
-[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
-[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
-[DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
+[ADO.NET]: https://msdn.microsoft.com/zh-cn/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/zh-cn/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/zh-cn/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/zh-cn/library/mt484311(v=sql.110).aspx
+[ANSI_NULLS]: https://msdn.microsoft.com/zh-cn/library/ms188048.aspx
+[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/zh-cn/library/ms174393.aspx
+[DATEFORMAT]: https://msdn.microsoft.com/zh-cn/library/ms189491.aspx
+[DATEFIRST]: https://msdn.microsoft.com/zh-cn/library/ms181598.aspx
 
 <!--Other-->
 [Azure portal]: https://portal.azure.cn
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/get-server-name.png

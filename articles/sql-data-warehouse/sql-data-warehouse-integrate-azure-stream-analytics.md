@@ -3,8 +3,8 @@ title: Use Azure Stream Analytics with SQL Data Warehouse | Azure
 description: Tips for using Azure Stream Analytics with Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
-manager: barbkess
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 8aeb2247-20c5-4a29-b327-30a8ce09dfdc
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 origin.date: 10/31/2016
-ms.date: 01/04/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 
 ---
@@ -52,7 +52,7 @@ Enter the following values on the next page:
   * If your SQL Data Warehouse database is in the same subscription as the Stream Analytics job, select Use SQL Database from Current Subscription.
   * If your database is in a different subscription, select Use SQL Database from Another Subscription.
 * *Database*: Specify the name of a destination database.
-* *Server Name*: Specify the server name for the database you just specified. You can use the Azure Classic Portal to find this.
+* *Server Name*: Specify the server name for the database you just specified. You can use the Azure Classic Management Portal to find this.
 
 ![][server-name]
 
@@ -91,4 +91,4 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: /azure/stream-analytics/
+[Azure Stream Analytics documentation]: https://docs.azure.cn/zh-cn/stream-analytics/

@@ -1,10 +1,10 @@
 ---
-title: Data types for tables in SQL Data Warehouse | Azure
-description: Getting started with data types for Azure SQL Data Warehouse tables.
+title: Data types guidance - Azure SQL Data Warehouse | Azure
+description: Recommendations to define data types that are compatible with SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationCenter: NA
-author: jrowlandjones
-manager: barbkess
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
@@ -14,25 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 10/31/2016
-ms.date: 05/08/2017
+origin.date: 06/02/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
 ---
+# Guidance for defining data types for tables in SQL Data Warehouse
+Use these recommendations to define table data types that are compatible with SQL Data Warehouse. In addition to compatibility, minimizing the size of data types improves query performance.
 
-# Data types for tables in SQL Data Warehouse
-
-> [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
-> 
-> 
-
-SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.  For additional details on data type support, see [create table][create table].
+<!-- Not Available [data types](http://docs.microsoft.com/zh-cn/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) -->
+## Minimize row length
+Minimizing the size of data types shortens the row length, which leads to better query performance. Use the smallest data type that works for your data. 
 
 | **Supported Data Types** |  |  |
 | --- | --- | --- |
@@ -98,37 +89,37 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 <!--MSDN references-->
 
 <!--Other Web references-->
-[create table]: https://msdn.microsoft.com/library/mt203953.aspx
-[bigint]: https://msdn.microsoft.com/library/ms187745.aspx
-[binary]: https://msdn.microsoft.com/library/ms188362.aspx
-[bit]: https://msdn.microsoft.com/library/ms177603.aspx
-[char]: https://msdn.microsoft.com/library/ms176089.aspx
-[date]: https://msdn.microsoft.com/library/bb630352.aspx
-[datetime]: https://msdn.microsoft.com/library/ms187819.aspx
-[datetime2]: https://msdn.microsoft.com/library/bb677335.aspx
-[datetimeoffset]: https://msdn.microsoft.com/library/bb630289.aspx
-[decimal]: https://msdn.microsoft.com/library/ms187746.aspx
-[float]: https://msdn.microsoft.com/library/ms173773.aspx
-[geometry]: https://msdn.microsoft.com/library/cc280487.aspx
-[geography]: https://msdn.microsoft.com/library/cc280766.aspx
-[hierarchyid]: https://msdn.microsoft.com/library/bb677290.aspx
-[int]: https://msdn.microsoft.com/library/ms187745.aspx
-[money]: https://msdn.microsoft.com/library/ms179882.aspx
-[nchar]: https://msdn.microsoft.com/library/ms186939.aspx
-[nvarchar]: https://msdn.microsoft.com/library/ms186939.aspx
-[ntext,text,image]: https://msdn.microsoft.com/library/ms187993.aspx
-[real]: https://msdn.microsoft.com/library/ms173773.aspx
-[smalldatetime]: https://msdn.microsoft.com/library/ms182418.aspx
-[smallint]: https://msdn.microsoft.com/library/ms187745.aspx
-[smallmoney]: https://msdn.microsoft.com/library/ms179882.aspx
-[sql_variant]: https://msdn.microsoft.com/library/ms173829.aspx
-[sysname]: https://msdn.microsoft.com/library/ms186939.aspx
-[table]: https://msdn.microsoft.com/library/ms175010.aspx
-[time]: https://msdn.microsoft.com/library/bb677243.aspx
-[timestamp]: https://msdn.microsoft.com/library/ms182776.aspx
-[tinyint]: https://msdn.microsoft.com/library/ms187745.aspx
-[uniqueidentifier]: https://msdn.microsoft.com/library/ms187942.aspx
-[varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
-[varchar]: https://msdn.microsoft.com/library/ms186939.aspx
-[xml]: https://msdn.microsoft.com/library/ms187339.aspx
-[user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
+[create table]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[bigint]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
+[binary]: https://msdn.microsoft.com/zh-cn/library/ms188362.aspx
+[bit]: https://msdn.microsoft.com/zh-cn/library/ms177603.aspx
+[char]: https://msdn.microsoft.com/zh-cn/library/ms176089.aspx
+[date]: https://msdn.microsoft.com/zh-cn/library/bb630352.aspx
+[datetime]: https://msdn.microsoft.com/zh-cn/library/ms187819.aspx
+[datetime2]: https://msdn.microsoft.com/zh-cn/library/bb677335.aspx
+[datetimeoffset]: https://msdn.microsoft.com/zh-cn/library/bb630289.aspx
+[decimal]: https://msdn.microsoft.com/zh-cn/library/ms187746.aspx
+[float]: https://msdn.microsoft.com/zh-cn/library/ms173773.aspx
+[geometry]: https://msdn.microsoft.com/zh-cn/library/cc280487.aspx
+[geography]: https://msdn.microsoft.com/zh-cn/library/cc280766.aspx
+[hierarchyid]: https://msdn.microsoft.com/zh-cn/library/bb677290.aspx
+[int]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
+[money]: https://msdn.microsoft.com/zh-cn/library/ms179882.aspx
+[nchar]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
+[nvarchar]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
+[ntext,text,image]: https://msdn.microsoft.com/zh-cn/library/ms187993.aspx
+[real]: https://msdn.microsoft.com/zh-cn/library/ms173773.aspx
+[smalldatetime]: https://msdn.microsoft.com/zh-cn/library/ms182418.aspx
+[smallint]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
+[smallmoney]: https://msdn.microsoft.com/zh-cn/library/ms179882.aspx
+[sql_variant]: https://msdn.microsoft.com/zh-cn/library/ms173829.aspx
+[sysname]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
+[table]: https://msdn.microsoft.com/zh-cn/library/ms175010.aspx
+[time]: https://msdn.microsoft.com/zh-cn/library/bb677243.aspx
+[timestamp]: https://msdn.microsoft.com/zh-cn/library/ms182776.aspx
+[tinyint]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
+[uniqueidentifier]: https://msdn.microsoft.com/zh-cn/library/ms187942.aspx
+[varbinary]: https://msdn.microsoft.com/zh-cn/library/ms188362.aspx
+[varchar]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
+[xml]: https://msdn.microsoft.com/zh-cn/library/ms187339.aspx
+[user defined types]: https://msdn.microsoft.com/zh-cn/library/ms131694.aspx

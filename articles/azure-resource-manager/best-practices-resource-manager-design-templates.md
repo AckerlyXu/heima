@@ -3,7 +3,7 @@ title: Design Azure templates for complex solutions | Azure
 description: Shows best practices for designing Azure Resource Manager templates for complex scenarios
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 

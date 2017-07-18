@@ -1,6 +1,6 @@
 ---
 title: What is Azure HDInsight, the Hadoop technology stack, & clusters? | Azure
-description: An introduction to HDInsight and the Hadoop technology stack and components, including Spark, Kafka, Hive, HBase for big data analysis.
+description: An introduction to HDInsight and the Hadoop technology stack and components, including Spark, Hive, HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
 documentationcenter: ''
@@ -34,7 +34,7 @@ HDInsight makes Hadoop technologies easier to use, with:
 *   Component updates and current versions. See [Hadoop components and versions on HDInsight][component-versioning].
 *   Integration with other Azure services, including [Web apps](/app-service-web/) and [SQL Database](/sql-database/)
 
-The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, Kafka, and many others. To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://www.azure.cn/home/features/hdinsight/).
+The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, and many others. To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://www.azure.cn/home/features/hdinsight/).
 
 ## What is a Hadoop cluster, and when do you use it?
 The term *Hadoop* also refers to a type of cluster that has:
@@ -57,7 +57,7 @@ Big data can be historical (meaning stored data) or real time (meaning streamed 
 ## <a name="overview"></a>Cluster types in HDInsight
 HDInsight is a cloud distribution on Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes specific cluster types and cluster customization capabilities, such as adding components, utilities, and languages.
 
-### Spark, Kafka, Interactive Hive, HBase, customized, and other cluster types
+### Spark, Interactive Hive, HBase, customized, and other cluster types
 HDInsight offers the following cluster types:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Uses [HDFS](#hdfs), [YARN](#yarn) resource management, and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
@@ -130,7 +130,7 @@ MapReduce is the legacy software framework for Hadoop for writing applications t
 <a  target="_blank" href="http://pig.apache.org/">Apache Pig</a> is a high-level platform that allows you to perform complex MapReduce transformations on large datasets by using a simple scripting language called Pig Latin. Pig translates the Pig Latin scripts so they'll run within Hadoop. You can create User-Defined Functions (UDFs) to extend Pig Latin. See [Use Pig with Hadoop](hdinsight-use-pig.md).
 
 ### <a name="sqoop"></a>Sqoop
-<a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a> is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. See [Use Sqoop with Hadoop](hdinsight-use-sqoop.md).
+<a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a> is a tool that transfers bulk data between Hadoop and relational databases such as SQL, or other structured data stores, as efficiently as possible. See [Use Sqoop with Hadoop](hdinsight-use-sqoop.md).
 
 ### <a name="tez"></a>Tez
 <a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> is an application framework built on Hadoop YARN that executes complex, acyclic graphs of general data processing. It's a more flexible and powerful successor to the MapReduce framework that allows data-intensive processes, such as Hive, to run more efficiently at scale. See ["Use Apache Tez for improved performance" in Use Hive and HiveQL](hdinsight-use-hive.md#usetez).
@@ -142,7 +142,7 @@ Apache YARN is the next generation of MapReduce (MapReduce 2.0, or MRv2) and sup
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems using a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on. See an example of [ZooKeeper with an HBase cluster and Apache Phoenix](hdinsight-hbase-phoenix-squirrel-linux.md). 
 
 ## Programming languages on HDInsight
-HDInsight clusters - Spark, HBase, Kafka, Hadoop, and other clusters - support many programming languages, but some aren't installed by default. For libraries, modules, or packages not installed by default, [use a script action to install the component](hdinsight-hadoop-script-actions-linux.md). 
+HDInsight clusters - Spark, HBase, Hadoop, and other clusters - support many programming languages, but some aren't installed by default. For libraries, modules, or packages not installed by default, [use a script action to install the component](hdinsight-hadoop-script-actions-linux.md). 
 
 ### Default programming language support
 By default, HDInsight clusters support:

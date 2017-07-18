@@ -4,8 +4,8 @@ description: Understanding Stream Analytics Job Monitoring
 keywords: query monitor
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---

@@ -3,7 +3,7 @@ title: Azure asynchronous operations | Azure
 description: Describes how to track asynchronous operations in Azure.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 

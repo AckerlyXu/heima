@@ -30,7 +30,7 @@ In this scenario you will learn how to create an Azure storage account and an Az
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #/bin/bash
 
 # Variables

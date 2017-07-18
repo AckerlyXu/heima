@@ -775,7 +775,7 @@ For more information on these and other features of the Flux framework, see [Flu
 
 Trident is a high-level abstraction that is provided by Storm. It supports stateful processing. The primary advantage of Trident is that it can guarantee that every message that enters the topology is processed only once. Without using Trident, your topology can only guarantee that messages are processed at least once. There are also other differences, such as built-in components that can be used instead of creating bolts. In fact, bolts are replaced by less-generic components, such as filters, projections, and functions.
 
-Trident applications can be created by using Maven projects. You use the same basic steps as presented earlier in this article--only the code is different. Trident also cannot (currently) be used with the Flux framework.
+Trident applications can be created by using Maven projects. You use the same basic steps as presented earlier in this article—only the code is different. Trident also cannot (currently) be used with the Flux framework.
 
 For more information about Trident, see the [Trident API Overview](http://storm.apache.org/documentation/Trident-API-Overview.html).
 

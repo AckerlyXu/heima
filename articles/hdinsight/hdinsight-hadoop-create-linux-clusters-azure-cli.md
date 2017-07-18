@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight (Hadoop) using the command-line | Azure
+title: Create Hadoop clusters using the command-line - Azure HDInsight | Azure
 description: Learn how to create HDInsight clusters using the cross-platform Azure CLI 1.0.
 services: hdinsight
 documentationcenter: ''
@@ -29,7 +29,7 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Prerequisites
 

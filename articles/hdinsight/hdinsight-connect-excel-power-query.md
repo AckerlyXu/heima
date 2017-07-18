@@ -1,5 +1,5 @@
 ---
-title: Connect Excel to Hadoop with Power Query | Azure
+title: Connect Excel to Hadoop with Power Query - Azure HDInsight | Azure
 description: Learn how to take advantage of business intelligence components and use Power Query for Excel to access data stored in Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 03/28/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -81,4 +81,4 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 [image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
 
-[powerquery-download]: https://www.microsoft.com/download/details.aspx?id=39379
+[powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689

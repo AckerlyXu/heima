@@ -134,7 +134,7 @@ Supported scenarios and requirements for disk encryption:
 
 * The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
 * All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-* Standard A, D, DS, G, and GS series VMs.
+* Standard A, D, and DS series VMs.
 
 Disk encryption is not currently supported in the following scenarios:
 
@@ -273,3 +273,4 @@ az vm encryption enable --resource-group myResourceGroup --name myVM \
 
 ## Next steps
 * For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md).
+* For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).

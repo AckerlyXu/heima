@@ -3,27 +3,29 @@ title: Get the required values for authenticating an application to access SQL D
 description: Create a service principal for accessing SQL Database from code.
 services: sql-database
 documentationCenter: ''
-authors: stevestein
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
+ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+origin.date: 09/30/2016
+ms.date: 07/10/2017
 ms.author: v-johch
+
 ---
-
 # Get the required values for authenticating an application to access SQL Database from code
-
 To create and manage SQL Database from code you must register your app in the Azure Active Directory (AAD) domain  in the subscription where your Azure resources have been created.
 
 ## Create a service principal to access resources from an application
 
-You need to have the latest [Azure PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+You need to have the latest [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
@@ -68,5 +70,5 @@ Write-Output "_applicationSecret:" $secret
 
 ## See also
 
-- [Create a SQL database with C#](./sql-database-get-started-csharp.md)
-- [Connecting to SQL Database By Using Azure Active Directory Authentication](./sql-database-aad-authentication.md)
+- [Create a SQL database with C#](sql-database-get-started-csharp.md)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)

@@ -87,7 +87,7 @@ To inject scripts at any time after boot:
 
 * SSH to run commands directly
 * Inject scripts using the Azure [VMAccess Extension](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json), either imperatively or in an Azure template
-* Configuration management tools like Ansible, Salt, Chef, and Puppet.
+* Configuration management tools like Salt, Chef, and Puppet.
 
 > [!NOTE]
 > VMAccess Extension executes a script as root in the same way using SSH can.  However, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
@@ -101,7 +101,7 @@ To inject scripts at any time after boot:
 | CoreOS |CoreOS |CoreOS |Stable |latest |yes |
 | Debian |credativ |Debian |8 |latest |no |
 | openSUSE |SUSE |openSUSE |13.2 |latest |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |latest |yes |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |yes |
 
 Microsoft is working with our partners to get cloud-init included and working in the images that they provide to Azure.
 

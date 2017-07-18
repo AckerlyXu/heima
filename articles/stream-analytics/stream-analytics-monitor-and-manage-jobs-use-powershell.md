@@ -4,8 +4,8 @@ description: Learn how to use Azure PowerShell and cmdlets to monitor and manage
 keywords: azure powershell, azure powershell cmdlets, powershell command, powershell scripting
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 
 ---
@@ -153,6 +153,7 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name Output
 
+
 This PowerShell command returns information about the output named Output defined in the job StreamingJob.
 
 ### Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
@@ -183,6 +184,7 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name StreamingJob
 
+
 This PowerShell command returns information about the transformation called StreamingJob in the job StreamingJob.
 
 ### New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
@@ -206,6 +208,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -File "C:\Input.json" 
 
+
 This PowerShell command creates a new input from the file Input.json. If an existing input with the name specified in the input definition file is already defined, the cmdlet will ask whether or not to replace it.
 
 **Example 2**
@@ -217,6 +220,7 @@ Azure PowerShell 0.9.8:
 Azure PowerShell 1.0:  
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -File "C:\Input.json" -Name EntryStream
+
 
 This PowerShell command creates a new input in the job called EntryStream. If an existing input with this name is already defined, the cmdlet will ask whether or not to replace it.
 
@@ -253,6 +257,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-East-CN -File "C:\JobDefinition.json" 
 
+
 This PowerShell command creates a new job from the definition in JobDefinition.json. If an existing job with the name specified in the job definition file is already defined, the cmdlet will ask whether or not to replace it.
 
 **Example 2**
@@ -288,6 +293,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -File "C:\Output.json" -JobName StreamingJob -Name output
 
+
 This PowerShell command creates a new output called "output" in the job StreamingJob. If an existing output with this name is already defined, the cmdlet will ask whether or not to replace it.
 
 **Example 2**
@@ -299,6 +305,7 @@ Azure PowerShell 0.9.8:
 Azure PowerShell 1.0:  
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -File "C:\Output.json" -JobName StreamingJob -Name output -Force
+
 
 This PowerShell command replaces the definition for "output" in the job StreamingJob.
 
@@ -355,6 +362,7 @@ This PowerShell command removes the input EventStream in the job StreamingJob.
 
 ### Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 Asynchronously deletes a specific Stream Analytics job in Azure.  
+
 If you specify the -Force parameter, the job will be deleted without confirmation.
 
 **Example 1**
@@ -366,6 +374,7 @@ Azure PowerShell 0.9.8:
 Azure PowerShell 1.0:  
 
     Remove-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-East-CN -Name StreamingJob 
+
 
 This PowerShell command removes the job StreamingJob.  
 
@@ -382,6 +391,7 @@ Azure PowerShell 0.9.8:
 Azure PowerShell 1.0:  
 
     Remove-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name Output
+
 
 This PowerShell command removes the output Output in the job StreamingJob.  
 
