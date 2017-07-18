@@ -3,8 +3,8 @@ title: Back up Windows server or workstation to Azure (classic model) | Microsof
 description: Backup Windows servers or clients to a backup vault in Azure. Go through basics for protecting files and folders to a Backup vault by using the Azure Backup agent.
 services: backup
 documentationcenter: ''
-author: markgalioto
-manager: carmonm
+author: alexchen2016
+manager: digimobile
 editor: ''
 keywords: backup vault; back up a Windows server; backup windows;
 
@@ -14,14 +14,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+origin.date: 06/14/2017
+ms.date: 06/30/2017
 ms.author: v-junlch
 
 ---
 # Back up a Windows server or workstation to Azure using the Classic Management Portal
 > [!div class="op_single_selector"]
-> * [Classic Management Portal](./backup-configure-vault-classic.md)
-> * [Azure portal](./backup-configure-vault.md)
+> * [Classic Management Portal](backup-configure-vault-classic.md)
+> * [Azure portal](backup-configure-vault.md)
 >
 >
 
@@ -34,19 +35,14 @@ This article covers the procedures that you need to follow to prepare your envir
 >
 
 ## Before you start
-To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](http://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
+To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
 
 ## Create a backup vault
 To back up files and folders from a server or client, you need to create a backup vault in the geographic region where you want to store the data.
 
-> [!IMPORTANT]
-> Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults. Existing Backup vaults are still supported, and it is possible to [use Azure PowerShell to create Backup vaults](./backup-client-automation-classic.md#create-a-backup-vault). However, Microsoft recommends you create Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only.
-
 
 ## Download the vault credential file
 The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the Classic Management Portal. The certificate private key does not persist in the portal or the service.
-
-Learn more about [using vault credentials to authenticate with the Backup service](./backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### To download the vault credential file to a local machine
 1. In the left navigation pane, click **Recovery Services**, and then select the backup vault that you created.
@@ -54,9 +50,9 @@ Learn more about [using vault credentials to authenticate with the Backup servic
     ![IR complete](./media/backup-configure-vault-classic/rs-left-nav.png)
 2. On the Quick Start page, click **Download vault credentials**.
 
-	The Classic Management Portal generates a vault credential by using a combination of the vault name and the current date. The vault credentials file is used only during the registration workflow and expires after 48 hours.
+   The Classic Management Portal generates a vault credential by using a combination of the vault name and the current date. The vault credentials file is used only during the registration workflow and expires after 48 hours.
 
-	The vault credential file can be downloaded from the portal.
+   The vault credential file can be downloaded from the portal.
 3. Click **Save** to download the vault credential file to the Downloads folder of the local account. You can also select **Save As** from the **Save** menu to specify a location for the vault credential file.
 
    > [!NOTE]
@@ -119,17 +115,17 @@ After the backup policy completes the initial backup, it creates backup points t
 
     ![Items for Windows Server Backup](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 
-	> [!NOTE]
-	> For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](./backup-azure-backup-cloud-as-tape.md).
-	>
-	>
+   > [!NOTE]
+   > For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
+   >
+   >
 
 8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
 
     The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
 9. On the Choose Initial Backup Type page, choose the initial backup type. Leave the option **Automatically over the network** selected, and then click **Next**.
 
-    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](./backup-azure-backup-import-export.md) for additional information.
+    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md) for additional information.
 10. On the Confirmation page, review the information, and then click **Finish**.
 11. After the wizard finishes creating the backup schedule, click **Close**.
 
@@ -161,9 +157,11 @@ After the initial backup is completed, the **Job completed** status appears in t
 ![IR complete](./media/backup-configure-vault-classic/ircomplete.png)
 
 ## Next steps
-- Sign up for a [Azure account](http://www.azure.cn/pricing/1rmb-trial/).
+- Sign up for a [Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
 For additional information about backing up VMs or other workloads, see:
 
-- [Back up IaaS VMs](./backup-azure-vms-prepare.md)
-- [Back up workloads to Azure with DPM](./backup-azure-dpm-introduction-classic.md)
+- [Back up IaaS VMs](backup-azure-vms-prepare.md)
+- [Back up workloads to Azure with Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md)
+- [Back up workloads to Azure with DPM](backup-azure-dpm-introduction-classic.md)
+

@@ -1,10 +1,10 @@
 ---
-title: Azure Backup - Offline backup or initial seeding using the Azure Import/Export service | Azure
+title: Azure Backup - Offline backup or initial seeding using the Azure Import/Export service | Microsoft Docs
 description: Learn how Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service.
 services: backup
 documentationcenter: ''
-author: saurabhsensharma
-manager: shivamg
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/28/2016
-ms.date: 01/24/2017
+origin.date: 04/20/2017
+ms.date: 06/29/2017
 ms.author: v-junlch
----
 
+---
 # Offline-backup workflow in Azure Backup
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.  
 
@@ -35,8 +35,8 @@ After the upload of the backup data to Azure is finished, Azure Backup copies th
 
 > [!NOTE]
 > To use the Azure Disk Preparation tool, ensure that you have installed the August 2016 update of Azure Backup (or later), and perform all the steps of the workflow with it. If you are using an older version of Azure Backup, you can prepare the SATA drive by using the Azure Import/Export tool as detailed in later sections of this article.
-> 
-> 
+>
+>
 
 ## Prerequisites
 - [Familiarize yourself with the Azure Import/Export workflow](../storage/storage-import-export-service.md).
@@ -46,9 +46,9 @@ After the upload of the backup data to Azure is finished, Azure Backup copies th
   - The Azure Backup agent has been installed on either Windows Server/Windows client or System Center Data Protection Manager server, and the computer is registered with the Azure Backup vault.
 - [Download the Azure Publish file settings](https://manage.windowsazure.cn/publishsettings) on the computer from which you plan to back up your data.
 - Prepare a staging location, which might be a network share or additional drive on the computer. The staging location is transient storage and is used temporarily during this workflow. Ensure that the staging location has enough disk space to hold your initial copy. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
-- Make sure that you’re using a supported drive. Only 3.5-inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 8 TB are not supported. You can attach a SATA II/III disk externally to most computers by using a SATA II/III USB adapter. Check the Azure Import/Export documentation for the latest set of drives that the service supports.
+- Make sure that you’re using a supported drive. Only 2.5 inch SSD, or 2.5 or 3.5-inch SATA II/III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/storage-import-export-service.md#hard-disk-drives) for the latest set of drives that the service supports.
 - Enable BitLocker on the computer to which the SATA drive writer is connected.
-- Download the Azure Import/Export tool to the computer to which the SATA drive writer is connected. This step is not required if you have downloaded and installed the August 2016 update of Azure Backup (or later).
+- [Download the Azure Import/Export tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) to the computer to which the SATA drive writer is connected. This step is not required if you have downloaded and installed the August 2016 update of Azure Backup (or later).
 
 ## Workflow
 The information in this section helps you complete the offline-backup workflow so that your data can be delivered to an Azure datacenter and uploaded to Azure Storage. If you have questions about the Import service or any aspect of the process, see the [Import service overview](../storage/storage-import-export-service.md) documentation referenced earlier.
@@ -72,8 +72,8 @@ The information in this section helps you complete the offline-backup workflow s
 
     > [!NOTE]
     > If you have registered your server to an Azure Recovery Services vault from the [Azure portal](https://portal.azure.cn) for your backups and are not on a Cloud Solution Provider (CSP) subscription, you can still create a classic type storage account from the Azure portal and use it for the offline-backup workflow.
-    > 
-    > 
+    >
+    >
 
      Save all this information because you need to enter it again in following steps. Only the *staging location* is required if you used the Azure Disk Preparation tool to prepare the disks.    
 2. Complete the workflow, and then select **Back Up Now** in the Azure Backup management console to initiate the offline-backup copy. The initial backup is written to the staging area as part of this step.
@@ -111,8 +111,8 @@ The Azure Disk Preparation tool is available in installation directory of the Re
 
     > [!NOTE]
     > The &lt;Path to PublishSettingFile&gt; value is mandatory when the copy computer and source computer are different.
-    > 
-    > 
+    >
+    >
 
     When you run the command, the tool requests the selection of the Azure Import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a screen like the one that follows.
 
@@ -144,11 +144,11 @@ After the import job finishes, initial backup data is available in your storage 
 
 > [!NOTE]
 > The following sections apply to users of earlier versions of Azure Backup who do not have access to the Azure Disk Preparation tool.
-> 
-> 
+>
+>
 
 ### Prepare a SATA drive
-1. Download the Azure Import/Export Tool to the copy computer. Ensure that the staging location is accessible from the computer in which you plan to run the next set of commands. If necessary, the copy computer can be the same as the source computer.
+1. Download the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?linkid=301900&clcid=0x409) to the copy computer. Ensure that the staging location is accessible from the computer in which you plan to run the next set of commands. If necessary, the copy computer can be the same as the source computer.
 
 2. Unzip the WAImportExport.zip file. Run the WAImportExport tool that formats the SATA drive, writes the backup data to the SATA drive, and encrypts it. Before you run the following command, ensure that BitLocker is enabled on the computer. <br/>
 
@@ -156,8 +156,8 @@ After the import job finishes, initial backup data is available in your storage 
 
     > [!NOTE]
     > If you have installed the August 2016 update of Azure Backup (or later), ensure that the staging location that you entered is the same as the one on the **Back Up Now** screen and contains AIB and Base Blob files.
-    > 
-    > 
+    >
+    >
 
 | Parameter | Description |
 | --- | --- |
@@ -173,8 +173,8 @@ After the import job finishes, initial backup data is available in your storage 
 
 > [!NOTE]
 > A journal file is created in the WAImportExport folder that captures the entire information of the workflow. You need this file when you create an import job in the Azure portal.
-> 
-> 
+>
+>
 
   ![PowerShell output](./media/backup-azure-backup-import-export/psoutput.png)
 
@@ -206,4 +206,5 @@ After the initial backup data is available in your storage account, the Azure Re
 
 ## Next steps
 - For any questions on the Azure Import/Export workflow, refer to [Use the Azure Import/Export service to transfer data to Blob storage](../storage/storage-import-export-service.md).
-- Refer to the offline-backup section of the Azure Backup [FAQ](./backup-azure-backup-faq.md) for any questions about the workflow.
+- Refer to the offline-backup section of the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions about the workflow.
+

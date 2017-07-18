@@ -1,7 +1,7 @@
 ---
 title: Call a webhook on Azure Activity Log alerts | Azure
 description: Route Activity log events to other services for custom actions. For example send SMS, log bugs, or notify a team via chat/messaging service.
-authors: kamathashwin
+author: kamathashwin
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -22,6 +22,8 @@ Webhooks allow you to route an Azure alert notification to other systems for pos
 
 >[!NOTE]
 > This feature is currently in preview and will be removed at some point in the future.
+>
+>
 
 You can set up an Activity Log alert using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx). Currently, you cannot set one up using the Azure portal.
 

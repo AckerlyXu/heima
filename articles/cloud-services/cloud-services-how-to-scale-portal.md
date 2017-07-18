@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2017
+origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal
@@ -41,8 +41,6 @@ You should consider the following information before you configure scaling for y
 
 - To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://www.azure.cn/support/legal/sla/).
 
-> [!WARNING]
-> Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
 
 ## Where scale is located
 After you select your cloud service, you should have the cloud service blade visible.

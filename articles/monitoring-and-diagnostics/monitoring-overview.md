@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+origin.date: 05/12/2017
 ms.author: v-yiso
-
+ms.date: ''
 ---
 
 # Overview of Monitoring in Microsoft Azure

@@ -201,3 +201,5 @@ The `azure vm quick-create` command is the way to quickly deploy a VM so you can
 * [Use an Azure Resource Manager template to create a specific deployment](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create your own custom environment for a Linux VM using Azure CLI commands directly](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create an SSH Secured Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+origin.date: 05/02/2017
 ms.author: v-yiso
-
+ms.date: ''
 ---
 # Migrate ExpressRoute associated virtual networks from classic to Resource Manager
 
@@ -61,7 +61,7 @@ Select-AzureSubscription -SubscriptionName <VNET Subscription>
 Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 ```
       
-You must ensure that all references to &lt;ConnectionsToLocalNetwork&gt; are removed from the virtual networks to be migrated. A sample network configuration is shown in the following snippet:
+You must ensure that all references to &lt;ConnectionsToLocalNetwork&gt; are removed from the virtual networks to be migrated. A sample network configuration is shown in the following snippet. Notice that there are no references between the &lt;ConnectionsToLocalNetwork&gt; lines:
 
 ```
 	<VirtualNetworkSite name="MyVNet" Location="East US">

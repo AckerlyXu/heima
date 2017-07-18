@@ -14,7 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+origin.date: 04/12/2017
+ms.date: ''
 ms.author: v-yiso
 ---
 # Create and modify an ExpressRoute circuit using PowerShell

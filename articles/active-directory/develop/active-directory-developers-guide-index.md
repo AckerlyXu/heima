@@ -31,7 +31,6 @@ These articles describe specific concepts and features of Azure Active Directory
 | [Multi-tenant apps](active-directory-devhowto-multi-tenant-overview.md)                                                         | How to sign in any Microsoft work account |
 | [OAuth & OpenID Connect](active-directory-protocols-openid-connect-code.md)                                                     | How to sign-in users and call web APIs using our modern auth protocols |
 | [SAML 2.0](active-directory-saml-protocol-reference.md)                                                                         | How to sign-in users using the SAML authentication protocol |
-| [App Registration](active-directory-integrating-applications.md)                                                                | How to register an app in Azure AD |
 | [Branding Guidelines](active-directory-branding-guidelines.md)                                                                  | The text, styling, and terminology to use when integrating Microsoft sign-in |
 | [Mobile & Desktop SSO](active-directory-sso-android.md)                                                                         | How to get single-sign on working in native applications |
 | [User Provisioning with SCIM 2.0](../active-directory-scim-provisioning.md)                                                     | How to use the SCIM protocol to sync users from Azure AD tenants |
