@@ -12,8 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
+origin.date: 04/25/2017
 ms.author: v-yiso
+ms.date: 07/13/2017
 ---
 # How to use the Azure Mobile Apps SDK for Android
 
@@ -36,9 +37,7 @@ The Azure Mobile Apps SDK for Android supports API levels 19 through 24 (KitKat 
 
 ## Setup and Prerequisites
 
-Complete the [Mobile Apps quickstart](./app-service-mobile-android-get-started.md) tutorial.  This task ensures
-all pre-requisites for developing Azure Mobile Apps have been met.  The Quickstart also helps you configure 
-your account and create your first Mobile App backend.
+Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial.  This task ensures all pre-requisites for developing Azure Mobile Apps have been met.  The Quickstart also helps you configure your account and create your first Mobile App backend.
 
 If you decide not to complete the Quickstart tutorial, complete the following tasks:
 
@@ -70,8 +69,7 @@ Change both **build.gradle** files:
 
 ###<a name="enable-internet"></a>Enable internet permission
 
-To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the 
-following line of code to your **AndroidManifest.xml** file:
+To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -477,17 +475,11 @@ Data binding involves three components:
 - The screen layout
 - The adapter that ties the two together.
 
-In our sample code, we return the data from the Mobile Apps SQL Azure table **ToDoItem** into an array. This
-activity is a common pattern for data applications.  Database queries often return a collection of rows that 
-the client gets in a list or array. In this sample, the array is the data source.
-
-The code specifies a screen layout that defines the view of the data that appears on the device.  The two are 
-bound together with an adapter, which in this code is an extension of the **ArrayAdapter&lt;ToDoItem&gt;** class.
+In our sample code, we return the data from the Mobile Apps SQL Azure table **ToDoItem** into an array. This activity is a common pattern for data applications.  Database queries often return a collection of rows that the client gets in a list or array. In this sample, the array is the data source.  The code specifies a screen layout that defines the view of the data that appears on the device.  The two are bound together with an adapter, which in this code is an extension of the **ArrayAdapter&lt;ToDoItem&gt;** class.
 
 #### <a name="layout"></a>Define the Layout
 
-The layout is defined by several snippets of XML code. Given an existing layout, the following code represents 
-the **ListView** we want to populate with our server data.
+The layout is defined by several snippets of XML code. Given an existing layout, the following code represents the **ListView** we want to populate with our server data.
 
 ```xml
     <ListView
@@ -498,12 +490,9 @@ the **ListView** we want to populate with our server data.
     </ListView>
 ```
 
-In the preceding code, the *listitem* attribute specifies the id of the layout for an individual row in the 
-list. This code specifies a check box and its associated text and gets instantiated once for each item in the 
-list. This layout does not display the **id** field, and a more complex layout would specify additional fields 
-in the display. This code is in the **row_list_to_do.xml** file.
+In the preceding code, the *listitem* attribute specifies the id of the layout for an individual row in the list. This code specifies a check box and its associated text and gets instantiated once for each item in the list. This layout does not display the **id** field, and a more complex layout would specify additional fields in the display. This code is in the **row_list_to_do.xml** file.
 
-```
+```java
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -518,12 +507,7 @@ in the display. This code is in the **row_list_to_do.xml** file.
 ```
 
 #### <a name="adapter"></a>Define the adapter
-
-Since the data source of our view is an array of **ToDoItem**, we subclass our adapter from an 
-**ArrayAdapter&lt;ToDoItem&gt;** class. This subclass produces a View for every **ToDoItem** using the 
-**row_list_to_do** layout.
-
-In our code we define the following class that is an extension of the **ArrayAdapter&lt;E&gt;** class:
+Since the data source of our view is an array of **ToDoItem**, we subclass our adapter from an **ArrayAdapter&lt;ToDoItem&gt;** class. This subclass produces a View for every **ToDoItem** using the **row_list_to_do** layout.  In our code, we define the following class that is an extension of the **ArrayAdapter&lt;E&gt;** class:
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -576,8 +560,7 @@ We create an instance of this class in our Activity as follows:
     mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 ```
 
-The second parameter to the ToDoItemAdapter constructor is a reference to the layout. We can now instantiate
-the **ListView** and assign the adapter to the **ListView**.
+The second parameter to the ToDoItemAdapter constructor is a reference to the layout. We can now instantiate the **ListView** and assign the adapter to the **ListView**.
 
 ```java
     ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
@@ -586,8 +569,7 @@ the **ListView** and assign the adapter to the **ListView**.
 
 #### <a name="use-adapter"></a>Use the Adapter to Bind to the UI
 
-You are now ready to use data binding. The following code shows how to get items in the table and fills the
-local adapter with the returned items.
+You are now ready to use data binding. The following code shows how to get items in the table and fills the local adapter with the returned items.
 
 ```java
     public void showAll(View view) {
@@ -616,10 +598,7 @@ local adapter with the returned items.
     }
 ```
 
-Call the adapter any time you modify the **ToDoItem** table. Since modifications are done on a record by 
-record basis, you handle a single row instead of a collection. When you insert an item, call the 
-**add** method on the adapter; when deleting, call the **remove** method.
-
+Call the adapter any time you modify the **ToDoItem** table. Since modifications are done on a record by record basis, you handle a single row instead of a collection. When you insert an item, call the **add** method on the adapter; when deleting, call the **remove** method.
 
 You can find a complete example in the [Android Quickstart Project][21].
 
@@ -643,10 +622,7 @@ ToDoItem entity = mToDoTable
 
 The returned entity matches the data inserted into the backend table, included the ID and any other values (such as the `createdAt`, `updatedAt`, and `version` fields) set on the backend.
 
-
-Mobile Apps tables require a primary key column named **id**. By default, this column is a string. The default 
-value of the ID column is a GUID.  You can provide other unique values, such as email addresses or usernames. When 
-a string ID value is not provided for an inserted record, the backend generates a new GUID.
+Mobile Apps tables require a primary key column named **id**. This column must be a string. The default value of the ID column is a GUID.  You can provide other unique values, such as email addresses or usernames. When a string ID value is not provided for an inserted record, the backend generates a new GUID.
 
 String ID values provide the following advantages:
 
@@ -666,8 +642,7 @@ mToDoTable
     .get();
 ```
 
-In this example, *item* is a reference to a row in the *ToDoItem* table, which has had some changes made to it.
-The row with the same **id** is updated.
+In this example, *item* is a reference to a row in the *ToDoItem* table, which has had some changes made to it.  The row with the same **id** is updated.
 
 ## <a name="deleting"></a>Delete data in a mobile app
 
@@ -698,14 +673,7 @@ ToDoItem result = mToDoTable
 
 ##<a name="untyped"></a>How to: Work with untyped data
 
-The untyped programming model gives you exact control over JSON serialization.  There are some common
-scenarios where you may wish to use an untyped programming model. For example, if your backend table 
-contains many columns and you only need to reference a subset of the columns.  The typed model requires 
-you to define all the mobile apps table's columns in your data class.  
-
-Most of the API calls for accessing data are similar to the typed programming calls. The main difference 
-is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of 
-the **MobileServiceTable** object.
+The untyped programming model gives you exact control over JSON serialization.  There are some common scenarios where you may wish to use an untyped programming model. For example, if your backend table contains many columns and you only need to reference a subset of the columns.  The typed model requires you to define all the columns defined in the Mobile Apps backend in your data class.  Most of the API calls for accessing data are similar to the typed programming calls. The main difference is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of the **MobileServiceTable** object.
 
 ### <a name="json_instance"></a>Create an instance of an untyped table
 
@@ -917,10 +885,7 @@ public void completeItem(View view) {
 }
 ```
 
-The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result 
-returned by the custom API is displayed in a message dialog, as are any errors. Other versions of **invokeApi** 
-let you optionally send an object in the request body, specify the HTTP method, and send query parameters with 
-the request. Untyped versions of **invokeApi** are provided as well.
+The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors. Other versions of **invokeApi** let you optionally send an object in the request body, specify the HTTP method, and send query parameters with the request. Untyped versions of **invokeApi** are provided as well.
 
 ## <a name="authentication"></a>Add authentication to your app
 
@@ -1271,10 +1236,7 @@ Use the following `ServiceFilter` and attach the filter in the same way as the `
 private class CustomHeaderFilter implements ServiceFilter {
 
     @Override
-    public ListenableFuture<ServiceFilterResponse> handleRequest(
-                ServiceFilterRequest request,
-                NextServiceFilterCallback next) {
-
+    public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback next) {
         runOnUiThread(new Runnable() {
 
             @Override
@@ -1343,3 +1305,6 @@ This code must be executed before creating a mobile client reference using the *
 [22]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
+
+
+<!--Update_Description: update wording -->

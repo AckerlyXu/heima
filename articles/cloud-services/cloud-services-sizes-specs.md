@@ -2,11 +2,12 @@
 title: Virtual Machine Sizes for Azure cloud services
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 services: cloud-services
-documentationCenter: ''
-authors: Thraka
+documentationcenter: ''
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
@@ -14,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 01/12/2017
 ms.author: v-yiso
-ms.date: 03/24/2017
+ms.date: 07/31/2017
 ---
 
 # Sizes for Cloud Services
@@ -23,6 +24,8 @@ This topic describes the available sizes and options for Cloud Service role inst
 
 > [!NOTE]
 >To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+>
+>
 
 ## Sizes for web and worker role instances
 There are multiple standard sizes to choose from on Azure. Considerations for some of these sizes include:
@@ -37,9 +40,8 @@ The size of the virtual machine affects the pricing. The size also affects the p
 
 The following considerations might help you decide on a size:
 
-* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz.
-* Dv2-series, D-series, G-series, are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
-* Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine {machine name}** or **Failed to create virtual machine {machine name}** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.
+* Dv2-series, D-series, are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
+* Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A7. As a result, you may see the error message **Failed to configure virtual machine {machine name}** or **Failed to create virtual machine {machine name}** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.
 * Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
 
 ## Performance considerations
@@ -87,16 +89,6 @@ The following tables show the sizes and the capacities they provide.
 | A6              | 4         | 28           | 1000                 | 2 / high |
 | A7              | 8         | 56           | 2040                 | 4 / high |
 
-## A-series - compute-intensive instances
-
-| Size            | CPU cores | Memory: GiB  | Local HDD: GiB       | Max NICs / Network bandwidth |
-|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| A8*             |8          | 56           | 1817                 | 2 / high |
-| A9*             |16         | 112          | 1817                 | 4 / very high |
-| A10             |8          | 56           | 1817                 | 2 / high |
-| A11             |16         | 112          | 1817                 | 4 / very high |
-
-\*RDMA capable
 
 ## Av2-series
 
@@ -136,30 +128,7 @@ The following tables show the sizes and the capacities they provide.
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremely high |
 | Standard_D15_v2 | 20        | 140          | 1,000                | 8 / extremely high |
 
-## G-series
-| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
-|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_G1     | 2         | 28           | 384                  |1 / high |
-| Standard_G2     | 4         | 56           | 768                  |2 / high |
-| Standard_G3     | 8         | 112          | 1,536                |4 / very high |
-| Standard_G4     | 16        | 224          | 3,072                |8 / extremely high |
-| Standard_G5     | 32        | 448          | 6,144                |8 / extremely high |
 
-## H-series
-Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD-based storage.
-
-In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
-
-| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
-|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_H8     | 8         | 56           | 1000                 | 8 / high |
-| Standard_H16    | 16        | 112          | 2000                 | 8 / very high |
-| Standard_H8m    | 8         | 112          | 1000                 | 8 / high |
-| Standard_H16m   | 16        | 224          | 2000                 | 8 / very high |
-| Standard_H16r*  | 16        | 112          | 2000                 | 8 / very high |
-| Standard_H16mr* | 16        | 224          | 2000                 | 8 / very high |
-
-\*RDMA capable
 
 ## Configure sizes for Cloud Services
 
@@ -191,3 +160,6 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## Next steps
 * Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* Learn more [about high performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.
+
+<!--Update_Description: update wording-->
