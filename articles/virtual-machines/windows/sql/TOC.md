@@ -43,6 +43,6 @@
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)

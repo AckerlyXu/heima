@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 04/28/2017
-ms.date: 07/03/2017
+origin.date: 06/27/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 
 ---
@@ -161,8 +161,6 @@ Some deployments may achieve additional performance benefits using more advanced
 * **SQL Server Data Files in Azure**: This new feature, [SQL Server Data Files in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is available starting with SQL Server 2014. Running SQL Server with data files in Azure demonstrates comparable performance characteristics as using Azure data disks.
 
 ## Next Steps
-
-If you are interested in exploring SQL Server and Premium Storage in more depth, see the article [Use Azure Premium Storage with SQL Server on Virtual Machines](../classic/sql-server-premium-storage.md).
 
 For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 

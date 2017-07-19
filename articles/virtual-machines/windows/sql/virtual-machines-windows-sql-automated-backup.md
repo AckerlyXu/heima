@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 04/24/2017
-ms.date: 03/20/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ---
 
@@ -32,6 +32,7 @@ To use Automated Backup, consider the following prerequisites:
 
 - Windows Server 2012
 - Windows Server 2012 R2
+- Windows Server 2016
 
 **SQL Server version/edition**:
 

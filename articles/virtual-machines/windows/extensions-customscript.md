@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 01/17/2017
-ms.date: 07/03/2017
+origin.date: 07/16/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 
 ---
@@ -33,7 +33,7 @@ The Custom Script Extension for Windows can be run against Windows Server 2008 R
 
 ### Script Location
 
-The script needs to be stored in Azure storage, or any other location accessible through a valid URL.
+The script needs to be stored in Azure Blob storage, or any other location accessible through a valid URL.
 
 ### Internet Connectivity
 

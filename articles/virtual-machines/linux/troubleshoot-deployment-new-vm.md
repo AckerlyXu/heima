@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/09/2016
-ms.date: 02/20/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 
 ---
@@ -24,6 +24,10 @@ ms.author: v-dazen
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
+## Top issues
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+For other VM deployment issues and questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md).
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
